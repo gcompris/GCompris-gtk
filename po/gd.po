@@ -1,34 +1,33 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Translators:
-#  <fios@foramnagaidhlig.net>, 2013.
-# GunChleoc <fios@foramnagaidhlig.net>, 2013.
-# Michael Bauer <fios@akerbeltz.org>, 2013.
+# GunChleoc <fios@foramnagaidhlig.net>, 2013
+# Michael Bauer <fios@akerbeltz.org>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris-Unofficial\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-04-04 21:28+0000\n"
-"PO-Revision-Date: 2013-04-29 12:05-0000\n"
+"POT-Creation-Date: 2013-06-23 20:43+0000\n"
+"PO-Revision-Date: 2013-07-17 09:28-0000\n"
 "Last-Translator: GunChleoc <fiosAIGforamnagaidhligDOTnet>\n"
-"Language-Team: Gaelic, Scottish (http://www.transifex.com/projects/p/"
-"gcompris-unofficial/language/gd/)\n"
+"Language-Team: Fòram na Gàidhlig http://www.foramnagaidhlig.net\n"
+"Language: gd\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: gd\n"
-"Plural-Forms: nplurals=3; plural=n < 2 ? 0 : n == 2 ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
+"(n > 2 && n < 20) ? 2 : 3;\n"
 "X-Generator: Poedit 1.5.5\n"
+"X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
 msgstr "Cleasan ailseabra"
 
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:2
-#: ../boards/money_group.xml.in.h:2
+#: ../boards/money_group.xml.in.h:2 ../src/lang-activity/lang.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
 msgstr "Dèan briogadh clì leis an luchag air cleas gus a thaghadh."
 
@@ -637,7 +636,7 @@ msgstr "Na h-uile cleachdaiche"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:298
 #: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/lang-activity/lang.py:166 ../src/login-activity/login.py:481
+#: ../src/lang-activity/lang.py:154 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:802
 msgid "Default"
 msgstr "Bunaiteach"
@@ -846,8 +845,9 @@ msgid "Learn to recognize unusual colors."
 msgstr "Ionnsaich aithneachadh dhathan neo-àbhaisteach."
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:5
-msgid "Click on the correct colored box."
-msgstr "Briog air a' bhogsa air a bheil an dath ceart."
+#| msgid "Click on the correct colored box."
+msgid "Click on the correct colored butterfly."
+msgstr "Briog air an dealan-dè air a bheil an dath ceart."
 
 #. Translator: Do not translate {text}.
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
@@ -856,7 +856,7 @@ msgstr "Lorg an dealan-dè {text}"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
 msgid "coral"
-msgstr "coireal"
+msgstr "dath a' ghròim"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
 msgid "claret"
@@ -875,6 +875,7 @@ msgid "cobalt"
 msgstr "còbalt"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
+#: ../src/color_mix-activity/color_mix.py:255
 msgid "cyan"
 msgstr "saidhean"
 
@@ -1047,6 +1048,7 @@ msgid "lilac"
 msgstr "bàn-phurpaidh"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
+#: ../src/color_mix-activity/color_mix.py:256
 msgid "magenta"
 msgstr "maidèanta"
 
@@ -1175,7 +1177,7 @@ msgstr "+-×÷"
 #: ../src/findit-activity/findit.py:228
 #: ../src/play_piano-activity/play_piano.py:82
 #: ../src/play_rhythm-activity/play_rhythm.py:87
-#: ../src/readingh-activity/reading.c:630
+#: ../src/readingh-activity/reading.c:643
 msgid "I am Ready"
 msgstr "Tha mi deiseil"
 
@@ -2004,6 +2006,7 @@ msgstr ""
 "eile air an lìonraidh ionadail agad."
 
 #: ../src/chat-activity/chat.py:244
+#: ../src/lang-activity/resources/lang/words.xml.in.h:4
 msgid "color"
 msgstr "dath"
 
@@ -2399,7 +2402,7 @@ msgstr ""
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/click_on_letter-activity/click_on_letter.c:368
-#: ../src/gletters-activity/gletters.c:229 ../src/memory-activity/memory.c:935
+#: ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "aàbcdeèfghiìlmnoòprstuù"
 
@@ -2563,6 +2566,26 @@ msgstr ""
 "Dèan an\n"
 "t-aon dath"
 
+#: ../src/color_mix-activity/color_mix.py:251
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+msgid "red"
+msgstr "dhearg"
+
+#: ../src/color_mix-activity/color_mix.py:252
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+msgid "green"
+msgstr "uaine"
+
+#: ../src/color_mix-activity/color_mix.py:253
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+msgid "blue"
+msgstr "ghorm"
+
+#: ../src/color_mix-activity/color_mix.py:257
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+msgid "yellow"
+msgstr "bhuidhe"
+
 #: ../src/color_mix-activity/color_mix.py:336
 #: ../src/color_mix-activity/color_mix.py:341
 #: ../src/color_mix-activity/color_mix.py:346
@@ -2690,29 +2713,13 @@ msgstr "Èist ris an dath is briog air an tunnag fhreagarrach."
 msgid "Find the {text} duck"
 msgstr "Lorg an tunnag {text}"
 
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-msgid "yellow"
-msgstr "bhuidhe"
-
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
 msgid "black"
 msgstr "dhubh"
 
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-msgid "green"
-msgstr "uaine"
-
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-msgid "red"
-msgstr "dhearg"
-
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
 msgid "white"
 msgstr "gheal"
-
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-msgid "blue"
-msgstr "ghorm"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
 msgid "brown"
@@ -3610,6 +3617,7 @@ msgstr "Briog air an àite a fhreagras ris an teacsa."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
 #: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:4
 msgid "Australia"
 msgstr "Astràilia"
 
@@ -3629,9 +3637,9 @@ msgid "Where is the didgeridoo played?"
 msgstr "Càit an cluich daoine air an didearaidh-dù?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:7
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:6
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:1
 msgid "Africa"
 msgstr "Afraga"
 
@@ -3670,7 +3678,7 @@ msgid "Where is music used to call people to prayer?"
 msgstr "Càit an tèid ceòl a chleachdadh gus na daoine a ghairm dhan ùrnaigh?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:52
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:52
 msgid "Japan"
 msgstr "An t-Seapan"
 
@@ -3710,7 +3718,7 @@ msgid "Bagpipers, who often wear kilts, are from this location."
 msgstr "Seinnidh daoine air a' phìob san àite seo."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:19
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:10
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:6
 msgid "Italy"
 msgstr "An Eadailt"
@@ -3748,7 +3756,9 @@ msgid "Bach, Beethoven, and Mozart composed music in this location."
 msgstr "Sgrìobh Bach, Beethoven is Mozart ceòl san àite seo."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:25
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:12
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:5
 msgid "Mexico"
 msgstr "Meagsago"
@@ -3882,25 +3892,25 @@ msgstr ""
 "'S e pacaid GNU a th' anns a' bhathar-bhog seo is chaidh fhoillseachadh fo "
 "GNU General Public License"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:487
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:488
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
 msgstr "Ceart ma-thà"
 
-#: ../src/gcompris/bar.c:694
+#: ../src/gcompris/bar.c:701
 msgid "GCompris confirmation"
 msgstr "Dearbhadh GCompris"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:702
 msgid "Are you sure you want to quit?"
 msgstr "A bheil thu cinnteach gu bheil thu airson fàgail?"
 
-#: ../src/gcompris/bar.c:696
+#: ../src/gcompris/bar.c:703
 msgid "Yes, I am sure!"
 msgstr "Tha, tha mi cinnteach!"
 
-#: ../src/gcompris/bar.c:697
+#: ../src/gcompris/bar.c:704
 msgid "No, I want to keep going"
 msgstr "Chan eil, tha mi airson cumail orm"
 
@@ -4014,7 +4024,7 @@ msgid "Croatian"
 msgstr "Cròthaisis"
 
 #: ../src/gcompris/config.c:71
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:7
 msgid "Czech Republic"
 msgstr "Poblachd na Seice"
 
@@ -4063,7 +4073,7 @@ msgstr "Gearmailtis"
 msgid "Greek"
 msgstr "Greugais"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:83 ../src/gcompris/config.c:112
 msgid "Scottish Gaelic"
 msgstr "Gàidhlig"
 
@@ -4136,7 +4146,7 @@ msgid "Montenegrin"
 msgstr "Monadh Neagrach"
 
 #: ../src/gcompris/config.c:101
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:37
 msgid "Nepal"
 msgstr "Neapàl"
 
@@ -4180,126 +4190,126 @@ msgstr "Romàinis"
 msgid "Russian"
 msgstr "Ruisis"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Serbian (Latin)"
 msgstr "Sèirbis (Laidinneach)"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Serbian"
 msgstr "Sèirbis"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Slovak"
 msgstr "Slòbhacais"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Slovenian"
 msgstr "Slòbhainis"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Somali"
 msgstr "Somàilis"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Spanish"
 msgstr "Spàinntis"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Swedish"
 msgstr "Suainis"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Tamil"
 msgstr "Taimilis"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Thai"
 msgstr "Cànan nan Tàidh"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Turkish (Azerbaijan)"
 msgstr "Turcais (Asarbaideàn)"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Turkish"
 msgstr "Turcais"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Ukrainian"
 msgstr "Ucràinis"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Urdu"
 msgstr "Ùrdu"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Vietnamese"
 msgstr "Bhiet-Nàmais"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Walloon"
 msgstr "Walloon"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:128
 msgid "Zulu"
 msgstr "Zulu"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Timer: No time limit"
 msgstr "Tìmear: Gun chrìoch ùine"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:134
 msgid "Timer: Slow timer"
 msgstr "Tìmear: Tìmear slaodach"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:135
 msgid "Timer: Normal timer"
 msgstr "Tìmear: Tìmear àbhaisteach"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid "Timer: Fast timer"
 msgstr "Tìmear: Tìmear luath"
 
-#: ../src/gcompris/config.c:139
+#: ../src/gcompris/config.c:140
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Cleachd mòideal rianachd GCompris gus bùird a chriathradh"
 
-#: ../src/gcompris/config.c:193
+#: ../src/gcompris/config.c:194
 msgid "GCompris Configuration"
 msgstr "Rèiteachadh GCompris"
 
-#: ../src/gcompris/config.c:276
+#: ../src/gcompris/config.c:277
 msgid "Fullscreen"
 msgstr "Làn-sgrìn"
 
-#: ../src/gcompris/config.c:301
+#: ../src/gcompris/config.c:302
 msgid "Remember level for default user"
 msgstr "Cuimhnich leibheil a' chleachdaiche bhunaitich"
 
-#: ../src/gcompris/config.c:327
+#: ../src/gcompris/config.c:328
 msgid "Music"
 msgstr "Ceòl"
 
-#: ../src/gcompris/config.c:352
+#: ../src/gcompris/config.c:353
 msgid "Effect"
 msgstr "Èifeachd"
 
-#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:377 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Sùm"
 
-#: ../src/gcompris/config.c:413
+#: ../src/gcompris/config.c:414
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Cha b' urrainn dhuinn pasgan nan craiceann fhosgladh: %s"
 
-#: ../src/gcompris/config.c:444 ../src/gcompris/config.c:912
-#: ../src/gcompris/config.c:926
+#: ../src/gcompris/config.c:445 ../src/gcompris/config.c:925
+#: ../src/gcompris/config.c:939
 #, c-format
 msgid "Skin : %s"
 msgstr "Craiceann : %s"
 
-#: ../src/gcompris/config.c:446
+#: ../src/gcompris/config.c:447
 msgid "SKINS NOT FOUND"
 msgstr "CHA DEACH CRAICEANN A LORG"
 
@@ -4557,6 +4567,8 @@ msgstr[1] ""
 "Cha tòisich GCompris oir tha am faidhle glasaidh nas òige na %d dhiog.\n"
 msgstr[2] ""
 "Cha tòisich GCompris oir tha am faidhle glasaidh nas òige na %d diogan.\n"
+msgstr[3] ""
+"Cha tòisich GCompris oir tha am faidhle glasaidh nas òige na %d diog.\n"
 
 #: ../src/gcompris/gcompris.c:1521
 #, c-format
@@ -4644,7 +4656,7 @@ msgstr "Stiùireadh"
 msgid "Credit"
 msgstr "Cliù"
 
-#: ../src/gcompris/menu.c:629
+#: ../src/gcompris/menu.c:614
 #, c-format
 msgid ""
 "Loading activity from file:\n"
@@ -4653,7 +4665,7 @@ msgstr ""
 "A' luchdadh cleas on fhaidhle:\n"
 "%s"
 
-#: ../src/gcompris/menu.c:689
+#: ../src/gcompris/menu.c:673
 msgid ""
 "All the activities are disabled in this profile. Go in the GCompris "
 "administration module and activate at least one activity."
@@ -4732,7 +4744,8 @@ msgstr "Lorg an sgìre"
 
 #: ../src/geo_country-activity/geo_country.xml.in.h:2
 msgid "Drag and Drop the regions to redraw the whole country"
-msgstr "Slaod na sgìrean is leig às iad gus an dùthaich gu lèir ath-tharraing"
+msgstr ""
+"Slaod na sgìrean is leig às iad gus an dùthaich gu lèir a tharraing as ùr"
 
 #: ../src/geo_country-activity/geo_country.xml.in.h:3
 #: ../src/geography-activity/geography.xml.in.h:3
@@ -4754,7 +4767,7 @@ msgid "Regions of France"
 msgstr "Sgìrean na Frainge"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:40
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
 msgid "India"
 msgstr "Na h-Innseachan"
 
@@ -4763,10 +4776,200 @@ msgstr "Na h-Innseachan"
 msgid "Northern Scotland"
 msgstr "Ceann a Tuath na h-Alba"
 
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:2
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:2
+msgid "Skye"
+msgstr "An t-Eilean Sgitheanach"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:3
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:3
+msgid "Lochaber"
+msgstr "Loch Abar"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:4
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:4
+msgid "Lochalsh, Badenoch, Cromarty and Strathspey"
+msgstr "Loch Aillse, Bàideanach, Cromba is Srath Spè"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:5
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:5
+msgid "Inverness and Nairn"
+msgstr "Inbhir Nis is Inbhir Narann"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:6
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:6
+msgid "Ross"
+msgstr "Siorrachd Rois"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:7
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:7
+msgid "Sutherland"
+msgstr "Dùthaich MhicAoidh, Asainte is Cataibh"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:8
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:8
+msgid "Caithness"
+msgstr "Gallaibh"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:9
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:9
+msgid "Shetland"
+msgstr "Sealtainn"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:10
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:10
+msgid "Orkney"
+msgstr "Arcaibh"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:11
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:11
+msgid "Na h-Eileanan Siar"
+msgstr "Na h-Eileanan Siar no na h-Innse Gall"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:12
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:12
+msgid "Moray"
+msgstr "Moireibh"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:13
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:13
+msgid "Aberdeen"
+msgstr "Obar Dheathain"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:14
+#: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:14
+msgid "Aberdeenshire"
+msgstr "Siorrachd Obar Dheathain"
+
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:1
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:1
 msgid "Southern Scotland"
 msgstr "Ceann a Deas na h-Alba"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:2
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:2
+msgid "Argyll and Bute"
+msgstr "Earra Ghàidheal is Bòd"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:3
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:3
+msgid "Stirling"
+msgstr "Sruighlea"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:4
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:4
+msgid "Perth and Kinross"
+msgstr "Peairt is Ceann Rois"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:5
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:5
+msgid "Angus"
+msgstr "Aonghas"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:6
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:6
+msgid "Dundee"
+msgstr "Dùn Dè"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:7
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:7
+msgid "Fife"
+msgstr "Fìobha"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:8
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:8
+msgid "Clackmannanshire"
+msgstr "Siorrachd Chlach Mhanann"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:9
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:9
+msgid "North Ayrshire"
+msgstr "Siorrachd Àir a Tuath"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:10
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:10
+msgid "Inverclyde"
+msgstr "Inbhir Chluaidh"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:11
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:11
+msgid "Renfrewshire"
+msgstr "Siorrachd Rinn Friù"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:12
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:12
+msgid "East Renfrewshire"
+msgstr "Siorrachd Rinn Friù an Ear"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:13
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:13
+msgid "West Dunbartonshire"
+msgstr "Siorrachd Dhùn Breatann an Iar"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:14
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:14
+msgid "East Dunbartonshire"
+msgstr "Siorrachd Dhùn Breatann an Ear"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:15
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:15
+msgid "Glasgow"
+msgstr "Glaschu"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:16
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:16
+msgid "East Ayrshire"
+msgstr "Siorrachd Àir an Ear"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:17
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:17
+msgid "South Ayrshire"
+msgstr "Siorrachd Àir a Deas"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:18
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:18
+msgid "Dumfries and Galloway"
+msgstr "Dùn Phrìs is Gall-Ghàidhealaibh"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:19
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:19
+msgid "North Lanarkshire"
+msgstr "Siorrachd Lannraig a Tuath"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:20
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:20
+msgid "South Lanarkshire"
+msgstr "Siorrachd Lannraig a Deas"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:21
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:21
+msgid "Falkirk"
+msgstr "An Eaglais Bhreac"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:22
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:22
+msgid "Edinburgh"
+msgstr "Dùn Èideann"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:23
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:23
+msgid "West Lothian"
+msgstr "Lodainn an Iar"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:24
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:24
+msgid "Midlothian"
+msgstr "Meadhan Lodainn"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:25
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:25
+msgid "East Lothian"
+msgstr "Lodainn an Ear"
+
+#: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:26
+#: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:26
+msgid "Scottish Borders"
+msgstr "Crìochan na h-Alba"
 
 #: ../src/geo_country-activity/resources/geo_country/board2_0.xml.in.h:1
 msgid "Deutschland Bundesländer"
@@ -4803,7 +5006,212 @@ msgstr "Lorg na dùthchannan"
 
 #: ../src/geography-activity/geography.xml.in.h:2
 msgid "Drag and Drop the items to redraw the whole map"
-msgstr "Slaod na nithean is leig às iad gus am mapa gu lèir ath-tharraing"
+msgstr "Slaod na nithean is leig às iad gus am mapa gu lèir a tharraing as ùr"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:5
+msgid "Asia"
+msgstr "Àisea"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:2
+msgid "Caspian Sea"
+msgstr "Am Muir Caspach"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:3
+msgid "Black Sea"
+msgstr "Am Muir Dubh"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:4
+msgid "Mediterranean Sea"
+msgstr "Am Muir Meadhanach"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:5
+msgid "Persian Gulf"
+msgstr "An Camas Pearsach"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:7
+msgid "Red Sea"
+msgstr "Am Muir Ruadh"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:8
+msgid "Palestine"
+msgstr "Palastain"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:9
+msgid "Israel"
+msgstr "Iosrael"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:10
+msgid "Brunei"
+msgstr "Brùnaigh"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:11
+msgid "Qatar"
+msgstr "Catar"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:12
+msgid "Bahrain"
+msgstr "Bachrain"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:13
+msgid "Lebanon"
+msgstr "Leabanon"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:24
+msgid "Cyprus"
+msgstr "Cìopras"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:15
+msgid "Kuwait"
+msgstr "Cuibhèit"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:16
+msgid "Armenia"
+msgstr "Airmeinia"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:17
+msgid "Oman"
+msgstr "Omàn"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:18
+msgid "United Arab Emirates"
+msgstr "Na h-Iomaratan Arabach Aonaichte"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:19
+msgid "Yemen"
+msgstr "An Eaman"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:20
+msgid "Saudi Arabia"
+msgstr "Aràibia nan Sabhd"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:21
+msgid "Jordan"
+msgstr "Iòrdan"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:22
+msgid "Iraq"
+msgstr "Ioràc"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:23
+msgid "Syria"
+msgstr "Siridhea"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:21
+msgid "Turkey"
+msgstr "An Tuirc"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:25
+msgid "Georgia"
+msgstr "A' Chairtbheil"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
+msgid "Azerbaijan"
+msgstr "Asarbaideàn"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:27
+msgid "Iran"
+msgstr "Ioràn"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:28
+msgid "Turkmenistan"
+msgstr "Turcmanastàn"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:29
+msgid "Kyrgyzstan"
+msgstr "Cìorgastan"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:30
+msgid "Tajikistan"
+msgstr "Taidigeastàn"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:31
+msgid "Afghanistan"
+msgstr "Afghanastàn"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:32
+msgid "Malaysia"
+msgstr "Malaidhsea"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:19
+msgid "Indonesia"
+msgstr "Na h-Innd-Innse"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:34
+msgid "Philippines"
+msgstr "Na h-Eileanan Filipineach"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:35
+msgid "Myanmar"
+msgstr "Miànmar"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:36
+msgid "Pakistan"
+msgstr "Pagastàn"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
+msgid "Bhutan"
+msgstr "Butàn"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:39
+msgid "Bangladesh"
+msgstr "Bangladais"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:41
+msgid "China"
+msgstr "An t-Sìn"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:42
+msgid "Sri Lanka"
+msgstr "Sri Lanca"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:43
+msgid "Thailand"
+msgstr "Dùthaich nan Tàidh"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:44
+msgid "Laos"
+msgstr "Làthos"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:45
+msgid "Cambodia"
+msgstr "Cambuidea"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:46
+msgid "Vietnam"
+msgstr "Bhiet-Nam"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:47
+msgid "Taiwan"
+msgstr "Taidh-Bhàn"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:48
+msgid "Uzbekistan"
+msgstr "Usbagastàn"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:49
+msgid "Kazakhstan"
+msgstr "Casachstàn"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:50
+msgid "South Korea"
+msgstr "Coirèa a Deas"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:51
+msgid "North Korea"
+msgstr "Coirèa a Tuath"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:53
+msgid "Mongolia"
+msgstr "Dùthaich nam Mongol"
+
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:54
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:16
+msgid "Russia"
+msgstr "An Ruis"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:1
 msgid "Continents"
@@ -4817,741 +5225,672 @@ msgstr "Aimeireaga"
 msgid "Antarctica"
 msgstr "An Antartaig"
 
-#: ../src/geography-activity/resources/geography/board1_0.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:1
-msgid "Asia"
-msgstr "Àisea"
-
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:6
 msgid "Europe"
 msgstr "An Roinn-Eòrpa"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:1
 msgid "Oceania"
 msgstr "Roinn a' Chuain Sèimh"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
+msgid "Hawaii"
+msgstr "Na h-Eileanan Hawai'i"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:3
+msgid "United States Minor Outlying Islands"
+msgstr "Meanbh-Eileanan Iomallach nan Stàitean Aonaichte"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:5
+msgid "American Samoa"
+msgstr "Samotha na h-Aimeireaga"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:6
+msgid "Cook Islands"
+msgstr "Eileanan Cook"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:7
+msgid "New Zealand"
+msgstr "Sealainn Nuadh"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:8
+msgid "Solomon Islands"
+msgstr "Eileanan Sholaimh"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:9
+msgid "Fiji"
+msgstr "Fìdi"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:10
+msgid "Kiribati"
+msgstr "Ciribeas"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:11
+msgid "Marshall Islands"
+msgstr "Eileanan Mharshall"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:12
+msgid "New Caledonia"
+msgstr "Cailleann Nuadh"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:13
+msgid "Tonga"
+msgstr "Tonga"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:14
+msgid "Tuvalu"
+msgstr "Tubhalu"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:15
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:16
+msgid "Micronesia"
+msgstr "Na Meanbh Eileanan"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:17
+msgid "Northern Mariana Islands"
+msgstr "Na h-Eileanan Mairianach a Tuath"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:18
+msgid "Palau"
+msgstr "Palabh"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:20
+msgid "East Timor"
+msgstr "Tìomor an Ear"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:21
+msgid "Papua New Guinea"
+msgstr "Gini Nuadh Phaputhach"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:22
+msgid "French Polynesia"
+msgstr "Poilinèis na Frainge"
+
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:23
+msgid "Pitcairn Islands"
+msgstr "Eileanan Pheit a' Chàirn"
 
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:1
 msgid "North America"
 msgstr "Aimeireaga a Tuath"
 
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:2
-msgid "Bahamas"
-msgstr "Na h-Eileanan Bathama"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:3
 msgid "Canada"
 msgstr "Canada"
 
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:4
-msgid "Cuba"
-msgstr "Cùba"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:5
-msgid "Dominican Republic"
-msgstr "A' Phoblachd Dhoiminiceach"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:3
 msgid "Greenland"
 msgstr "A' Ghraonlann"
 
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
-msgid "Haiti"
-msgstr "Haidhti"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:8
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:8
 msgid "Iceland"
 msgstr "Innis Tìle"
 
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:9
-msgid "Jamaica"
-msgstr "Diameuga"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
 msgid "United States of America"
 msgstr "Stàitean Aonaichte Aimeireaga"
 
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
 msgid "Alaska"
 msgstr "Alasga"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
+msgid "Central America"
+msgstr "Meadhan na h-Aimeireaga"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:2
+msgid "Bahamas"
+msgstr "Na h-Eileanan Bathama"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:3
+msgid "Belize"
+msgstr "A' Bheilìs"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:4
+msgid "Costa Rica"
+msgstr "Costa Rìcea"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:5
+msgid "Cuba"
+msgstr "Cùba"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:6
+msgid "Dominican Republic"
+msgstr "A' Phoblachd Dhoiminiceach"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:7
+msgid "El Salvador"
+msgstr "An Salbhador"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:8
+msgid "Guatemala"
+msgstr "Guatamala"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:9
+msgid "Haiti"
+msgstr "Haidhti"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:10
+msgid "Honduras"
+msgstr "Hondùras"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:11
+msgid "Jamaica"
+msgstr "Diameuga"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:13
+msgid "Nicaragua"
+msgstr "Niocaragua"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:10
+msgid "Panama"
+msgstr "Panama"
+
+#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board3_1.xml.in.h:15
+msgid "Puerto Rico"
+msgstr "Porto Rìceo"
+
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:1
 msgid "South America"
 msgstr "Aimeireaga a Deas"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:2
 msgid "Argentina"
 msgstr "An Argantain"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:3
 msgid "Bolivia"
 msgstr "Boilibhia"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:4
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:13
 msgid "Brazil"
 msgstr "Braisil"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
 msgid "Chile"
 msgstr "An t-Sile"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
 msgid "Colombia"
 msgstr "Coloimbia"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
 msgid "Ecuador"
 msgstr "Eacuador"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:8
 msgid "French Guiana"
 msgstr "Guidheàna na Frainge"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
 msgid "Guyana"
 msgstr "Guidheàna"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:10
-msgid "Panama"
-msgstr "Panama"
-
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
 msgid "Paraguay"
 msgstr "Paraguaidh"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:12
 msgid "Peru"
 msgstr "Pearù"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:13
 msgid "Suriname"
 msgstr "Suranam"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:14
 msgid "Uruguay"
 msgstr "Uruguaidh"
 
-#: ../src/geography-activity/resources/geography/board3_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
 msgid "Venezuela"
 msgstr "A' Bheiniseala"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:1
 msgid "Western Europe"
 msgstr "An Roinn-Eòrpa Siarach"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:2
 msgid "Austria"
 msgstr "An Ostair"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:3
 msgid "Belgium"
 msgstr "A' Bheilg"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:4
 msgid "Denmark"
 msgstr "An Danmhairg"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:5
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:22
 msgid "Finland"
 msgstr "An Fhionnlann"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:6
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:11
 msgid "France"
 msgstr "An Fhraing"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:7
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:12
 msgid "Germany"
 msgstr "A' Ghearmailt"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:9
 msgid "Ireland"
 msgstr "Èirinn"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:11
 msgid "Luxembourg"
 msgstr "Lugsamburg"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:12
 msgid "The Netherlands"
 msgstr "Na Tìrean Ìsle"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:13
 msgid "Norway"
 msgstr "Nirribhidh"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:14
 msgid "Portugal"
 msgstr "A' Phortagail"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:15
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:7
 msgid "Spain"
 msgstr "An Spàinn"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:16
 msgid "Sweden"
 msgstr "An t-Suain"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
 msgid "Switzerland"
 msgstr "An Eilbheis"
 
-#: ../src/geography-activity/resources/geography/board4_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:18
 msgid "United Kingdom"
 msgstr "An Rìoghachd Aonaichte"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:1
 msgid "Eastern Europe"
 msgstr "An Roinn-Eòrpa Earach"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:2
 msgid "Albania"
 msgstr "Albàinia"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:3
 msgid "Belarus"
 msgstr "A' Bhealaruis"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:4
 msgid "Bosnia Herzegovina"
 msgstr "Bosna is Hearsagobhana"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:5
 msgid "Bulgaria"
 msgstr "A' Bhulgair"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:6
 msgid "Croatia"
 msgstr "A' Chròthais"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:8
 msgid "Estonia"
 msgstr "An Eastoin"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:9
 msgid "Hungary"
 msgstr "An Ungair"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:10
 msgid "Latvia"
 msgstr "An Laitbhe"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:11
 msgid "Lithuania"
 msgstr "An Liotuain"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:12
 msgid "Macedonia"
 msgstr "A' Mhasadon"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:13
 msgid "Moldova"
 msgstr "A' Mholdobha"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:14
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:18
 msgid "Poland"
 msgstr "A' Phòlainn"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:15
 msgid "Romania"
 msgstr "Romàinia"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:16
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:54
-msgid "Russia"
-msgstr "An Ruis"
-
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:17
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
 msgid "Serbia"
 msgstr "An t-Sèirb"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:18
 msgid "Montenegro"
 msgstr "Am Monadh Neagrach"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:19
 msgid "Slovak Republic"
 msgstr "Poblachd na Slòbhaice"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:20
 msgid "Slovenia"
 msgstr "An t-Slòbhain"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:24
-msgid "Turkey"
-msgstr "An Tuirc"
-
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:22
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:20
 msgid "Ukraine"
 msgstr "An Ucràin"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:23
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:19
 msgid "Greece"
 msgstr "A' Ghreug"
 
-#: ../src/geography-activity/resources/geography/board5_0.xml.in.h:24
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
-msgid "Cyprus"
-msgstr "Cìopras"
-
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:1
 msgid "Northern Africa"
 msgstr "Ceann a tuath Afraga"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:3
 msgid "Algeria"
 msgstr "Aildiria"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:3
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:5
 msgid "Benin"
 msgstr "Beinin"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:4
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:7
 msgid "Burkina Faso"
 msgstr "Buirciona Faso"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:8
 msgid "Cameroon"
 msgstr "Camarun"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:6
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:30
 msgid "Central African Republic"
 msgstr "Poblachd Meadhan Afraga"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:35
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
 msgid "Chad"
 msgstr "An t-Seàd"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:8
 msgid "Djibouti"
 msgstr "Diobùtaidh"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:9
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:11
 msgid "Egypt"
 msgstr "An Èiphit"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:10
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:6
 msgid "Equatorial Guinea"
 msgstr "Gini Mheadhan-Chriosach"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:11
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
 msgid "Ethiopia"
 msgstr "An Itiop"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:12
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:12
 msgid "Eritrea"
 msgstr "Eartra"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:13
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:7
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:14
 msgid "Gabon"
 msgstr "Gabon"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:14
 msgid "Gambia"
 msgstr "A' Ghaimbia"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:15
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
 msgid "Ghana"
 msgstr "Gàna"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:16
 msgid "Guinea Bissau"
 msgstr "Gini-Bioso"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:17
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:16
 msgid "Guinea"
 msgstr "Gini"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:10
 msgid "Ivory Coast"
 msgstr "An Costa Ìbhri"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:19
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:18
 msgid "Liberia"
 msgstr "Libèir"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:19
 msgid "Libya"
 msgstr "Libia"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:22
 msgid "Mali"
 msgstr "Màili"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:22
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:22
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:24
 msgid "Mauritania"
 msgstr "Moratàinea"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:23
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:23
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:23
 msgid "Morocco"
 msgstr "Moroco"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:24
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:24
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:28
 msgid "Nigeria"
 msgstr "Nigèiria"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:25
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:25
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:27
 msgid "Niger"
 msgstr "Nìgeir"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:26
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:15
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:15
 msgid "Rwanda"
 msgstr "Rubhanda"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:27
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
 msgid "Senegal"
 msgstr "Seanagal"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:28
 msgid "Sierra Leone"
 msgstr "Siarra Leòmhann"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:29
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
 msgid "Somalia"
 msgstr "Somàilia"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:30
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
 msgid "Sudan"
 msgstr "Sudàn"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:31
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:36
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Togo"
 msgstr "Togo"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:32
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:37
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
 msgid "Tunisia"
 msgstr "Tuinisea"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:33
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:19
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:19
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:29
 msgid "Uganda"
 msgstr "Uganda"
 
-#: ../src/geography-activity/resources/geography/board6_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:34
 msgid "Western Sahara"
 msgstr "Sathara an Iar"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:1
 msgid "Southern Africa"
 msgstr "Ceann a deas Afraga"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:2
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:4
 msgid "Angola"
 msgstr "Angòla"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:3
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:6
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:3
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:6
 msgid "Botswana"
 msgstr "Botsuana"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:4
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:4
 msgid "Burundi"
 msgstr "Burundaidh"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:5
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
 msgid "Democratic Republic of Congo"
 msgstr "Poblachd Dheamocratach na Congo"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:8
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:8
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:17
 msgid "Kenya"
 msgstr "Ceinia"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:9
 msgid "Lesotho"
 msgstr "Leasoto"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:10
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:10
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:20
 msgid "Madagascar"
 msgstr "Madagasgar"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:11
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:11
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:21
 msgid "Malawi"
 msgstr "Malabhaidh"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:12
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:25
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:12
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:25
 msgid "Mozambique"
 msgstr "Mòsaimbic"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:13
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:13
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:26
 msgid "Namibia"
 msgstr "An Namaib"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
 msgid "Republic of Congo"
 msgstr "Poblachd na Congo"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:16
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:2
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:16
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:2
 msgid "South Africa"
 msgstr "Afraga a Deas"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:17
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:17
 msgid "Swaziland"
 msgstr "Dùthaich nan Suasaidh"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:18
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
 msgid "Tanzania"
 msgstr "An Tansan"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:38
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:20
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
 msgid "Zambia"
 msgstr "Sàimbia"
 
-#: ../src/geography-activity/resources/geography/board7_0.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:39
+#: ../src/geography-activity/resources/geography/board8_0.xml.in.h:21
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:40
 msgid "Zimbabwe"
 msgstr "An t-Sìombab"
 
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:2
-msgid "Caspian Sea"
-msgstr "Am Muir Caspach"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:3
-msgid "Black Sea"
-msgstr "Am Muir Dubh"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:4
-msgid "Mediterranean Sea"
-msgstr "Am Muir Meadhanach"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:5
-msgid "Persian Gulf"
-msgstr "An Camas Pearsach"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:7
-msgid "Red Sea"
-msgstr "Am Muir Ruadh"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:8
-msgid "Palestine"
-msgstr "Palastain"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
-msgid "Israel"
-msgstr "Iosrael"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:10
-msgid "Brunei"
-msgstr "Brùnaigh"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:11
-msgid "Qatar"
-msgstr "Catar"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:12
-msgid "Bahrain"
-msgstr "Bachrain"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:13
-msgid "Lebanon"
-msgstr "Leabanon"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:15
-msgid "Kuwait"
-msgstr "Cuibhèit"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:16
-msgid "Armenia"
-msgstr "Airmeinia"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:17
-msgid "Oman"
-msgstr "Omàn"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:18
-msgid "United Arab Emirates"
-msgstr "Na h-Iomaratan Arabach Aonaichte"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:19
-msgid "Yemen"
-msgstr "An Eaman"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:20
-msgid "Saudi Arabia"
-msgstr "Aràibia nan Sabhd"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:21
-msgid "Jordan"
-msgstr "Iòrdan"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:22
-msgid "Iraq"
-msgstr "Ioràc"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:23
-msgid "Syria"
-msgstr "Siridhea"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:25
-msgid "Georgia"
-msgstr "A' Chairtbheil"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:26
-msgid "Azerbaijan"
-msgstr "Asarbaideàn"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:27
-msgid "Iran"
-msgstr "Ioràn"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:28
-msgid "Turkmenistan"
-msgstr "Turcmanastàn"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:29
-msgid "Kyrgyzstan"
-msgstr "Cìorgastan"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:30
-msgid "Tajikistan"
-msgstr "Taidigeastàn"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
-msgid "Afghanistan"
-msgstr "Afghanastàn"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
-msgid "Malaysia"
-msgstr "Malaidhsea"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
-msgid "Indonesia"
-msgstr "Na h-Innd-Innse"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
-msgid "Philippines"
-msgstr "Na h-Eileanan Filipineach"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
-msgid "Myanmar"
-msgstr "Miànmar"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
-msgid "Pakistan"
-msgstr "Pagastàn"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
-msgid "Bhutan"
-msgstr "Butàn"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
-msgid "Bangladesh"
-msgstr "Bangladais"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:41
-msgid "China"
-msgstr "An t-Sìn"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:42
-msgid "Sri Lanka"
-msgstr "Sri Lanca"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:43
-msgid "Thailand"
-msgstr "Dùthaich nan Tàidh"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:44
-msgid "Laos"
-msgstr "Làthos"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:45
-msgid "Cambodia"
-msgstr "Cambuidea"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:46
-msgid "Vietnam"
-msgstr "Bhiet-Nam"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:47
-msgid "Taiwan"
-msgstr "Taidh-Bhàn"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:48
-msgid "Uzbekistan"
-msgstr "Usbagastàn"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:49
-msgid "Kazakhstan"
-msgstr "Casachstàn"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:50
-msgid "South Korea"
-msgstr "Coirèa a Deas"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:51
-msgid "North Korea"
-msgstr "Coirèa a Tuath"
-
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:53
-msgid "Mongolia"
-msgstr "Dùthaich nam Mongol"
-
-#: ../src/gletters-activity/gletters.c:132
+#: ../src/gletters-activity/gletters.c:135
 #: ../src/gletters-activity/gletters.xml.in.h:1
 msgid "Simple Letters"
 msgstr "Litrichean simplidh"
 
-#: ../src/gletters-activity/gletters.c:133
+#: ../src/gletters-activity/gletters.c:136
 #: ../src/gletters-activity/gletters.xml.in.h:2
 msgid "Type the falling letters before they reach the ground"
 msgstr "Sgrìobh na litrichean a thuiteas mus ruig iad an làr"
 
-#. TRANSLATORS: Put here the numbers in your language
-#: ../src/gletters-activity/gletters.c:225 ../src/memory-activity/memory.c:931
-msgid "0123456789"
-msgstr "0123456789"
+#: ../src/gletters-activity/gletters.c:215
+#| msgid ""
+#| "Error: We can't find\n"
+#| "a list of words to play this game.\n"
+msgid ""
+"Error: We can't find\n"
+"a list of letters to play this game.\n"
+msgstr ""
+"Mearachd: Cha d' fhuair sinn lorg air\n"
+"liosta nan litrichean gus an geama seo a chluich.\n"
 
-#. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/gletters-activity/gletters.c:235 ../src/memory-activity/memory.c:941
-msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-msgstr "AÀBCDEÈFGHIÌLMNOÒPRSTUÙ"
+#. Should display the dialog box here
+#: ../src/gletters-activity/gletters.c:762
+msgid "ERROR: Unable to get letter from wordlist"
+msgstr "MEARACHD: Cha deach leinn litir o wordlist fhaighinn"
 
 #. Init configuration window:
 #. all the configuration functions will use it
@@ -5559,14 +5898,14 @@ msgstr "AÀBCDEÈFGHIÌLMNOÒPRSTUÙ"
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:850
+#: ../src/gletters-activity/gletters.c:1007
 #: ../src/imageid-activity/imageid.c:716
 #: ../src/pythontest-activity/pythontest.py:448
-#: ../src/readingh-activity/reading.c:905
-#: ../src/scalesboard-activity/scale.c:1211
+#: ../src/readingh-activity/reading.c:918
+#: ../src/scalesboard-activity/scale.c:1258
 #: ../src/smallnumbers-activity/smallnumbers.c:598
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:904
+#: ../src/wordsgame-activity/wordsgame.c:907
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -5575,18 +5914,18 @@ msgstr ""
 "rèiteachadh <b>%s</b>\n"
 " airson na pròifil <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:879
+#: ../src/gletters-activity/gletters.c:1036
 #: ../src/smallnumbers-activity/smallnumbers.c:617
 msgid "Enable sounds"
 msgstr "Cuir fuaimean an comas"
 
-#. toggle box
-#: ../src/gletters-activity/gletters.c:883 ../src/login-activity/login.py:486
-#: ../src/missing_letter-activity/missingletter_config.c:492
-#: ../src/readingh-activity/reading.c:929
-#: ../src/wordsgame-activity/wordsgame.c:927
-msgid "Uppercase only text"
-msgstr "Litrichean mòra a-mhàin"
+#: ../src/gletters-activity/gletters.c:1040
+msgid ""
+"Show letters in UPPERCASE\n"
+"Type in lowercase or UPPERCASE as you wish"
+msgstr ""
+"Seall LITRICHEAN MORA\n"
+"Sgrìobh litrichean beaga no MÒRA mar a thogras tu"
 
 #: ../src/gletters-activity/gletters.xml.in.h:3
 msgid "Letter association between the screen and the keyboard"
@@ -5934,30 +6273,41 @@ msgstr ""
 "nas àirde no nas lugha na an àireamh a tha a dhìth."
 
 #. All the vowel of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:61
+#. Separate with /. You can use digraphs, trigraphs etc.
+#: ../src/hangman-activity/hangman.py:62
+#| msgid "cake/c_ke/a/o/e/i/u/y"
 msgid "a/e/i/o/u/y"
 msgstr "a/à/e/è/i/ì/o/ò/u/ù"
 
 #. All the consonants of your language (keep empty if non applicable)
-#: ../src/hangman-activity/hangman.py:63
+#. Separate with /. You can use digraphs, trigraphs etc. For example, both 's' and 'sch' could be in the list for German
+#: ../src/hangman-activity/hangman.py:67
 msgid "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
-msgstr "b/bh/c/ch/d/dh/f/fh/g/gh/l/m/mh/n/p/ph/r/s/sh/t/th"
+msgstr "b/bh/c/ch/d/dh/f/fh/g/gh/l/m/mh/n/p/ph/r/s/sh/t/th/"
 
-#. Letters equivallence for the hangman activity. It has the
+#. Keys to letters equivalence for the hangman activity. It has the
+#. form of a space separated list like: "é=e/E è=e/E sch=S"
+#. Letters on the left of the = can be multigraphs and represent the letters on the buttons.
+#. Letters on the right are single letters pressed on the keyboard.
+#. If you wish to allow different key presses for the same letter, separate the letters
+#. on the right with /
+#: ../src/hangman-activity/hangman.py:76
+msgid "a=a"
+msgstr "bh=B ch=C dh=D fh=F gh=G mh=M ph=P sh=S th=T"
+
+#. Letters equivalence for the hangman activity. It has the
 #. form of a space separated list like: "e=éè a=àâ"
 #. Keep the word NONE if not available in your language
-#: ../src/hangman-activity/hangman.py:67
+#: ../src/hangman-activity/hangman.py:94
 msgid "NONE"
-msgstr "e=éè"
+msgstr "a=à e=è i=ì o=ò u=ù"
 
-msgid "a=a"
-msgstr "dh=D ch=C"
-
-#: ../src/hangman-activity/hangman.py:109
+#: ../src/hangman-activity/hangman.py:144
+#: ../src/hangman-activity/hangman.py:150
 msgid "English"
 msgstr "Beurla"
 
-#: ../src/hangman-activity/hangman.py:112
+#: ../src/hangman-activity/hangman.py:153
 msgid "Could not find the list of words."
 msgstr "Cha b' urrainn dhuinn liosta nam faclan a lorg."
 
@@ -6236,6 +6586,10 @@ msgstr ""
 #: ../src/imageid-activity/imageid.c:94
 #: ../src/imageid-activity/imageid.xml.in.h:3
 #: ../src/imagename-activity/imagename.xml.in.h:3
+#: ../src/lang-activity/lang-nature.xml.in.h:3
+#: ../src/lang-activity/lang-object.xml.in.h:3
+#: ../src/lang-activity/lang-other.xml.in.h:3
+#: ../src/lang-activity/lang-people.xml.in.h:3
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:3
 #: ../src/missing_letter-activity/missingletter.c:84
 #: ../src/readingh-activity/readingh.xml.in.h:4
@@ -6786,11 +7140,15 @@ msgstr ""
 "air.\n"
 "        "
 
-#: ../src/lang-activity/lang.py:56
-msgid "Missing Image"
-msgstr "Dealbh a dhìth"
+#: ../src/lang-activity/lang.py:99
+msgid "ERROR, we found no words in this language."
+msgstr "MEARACHD, cha do lorg sinn faclan airson a' chànain seo."
 
-#: ../src/lang-activity/lang.py:165
+#: ../src/lang-activity/lang.py:100
+msgid "Please consider contributing a voice set."
+msgstr "Saoil an clàraich thu guthan air ur son?"
+
+#: ../src/lang-activity/lang.py:153
 #, python-format
 msgid ""
 "Configuration\n"
@@ -6799,13 +7157,174 @@ msgstr ""
 "Rèiteachadh\n"
 " airson na pròifil <b>%s</b>"
 
-#: ../src/lang-activity/lang.py:170
+#: ../src/lang-activity/lang.py:158
 msgid "Select locale"
 msgstr "Tagh sgeama ionadail"
 
+#: ../src/lang-activity/langEnterText.py:147
+msgid "Enter the text you hear:"
+msgstr "Cuir a-steach an teacsa a chluinneas tu:"
+
+#: ../src/lang-activity/langLib.py:69
+msgid "Missing translation for '{word}'"
+msgstr "Tha eadar-theangachadh airson \"{word}\" a dhìth"
+
+#: ../src/lang-activity/lang-nature.xml.in.h:1
+#: ../src/lang-activity/lang-object.xml.in.h:1
+#: ../src/lang-activity/lang-other.xml.in.h:1
+#: ../src/lang-activity/lang-people.xml.in.h:1
+msgid "Enrich your vocabulary"
+msgstr "Ionnsaich faclan ùra"
+
+#: ../src/lang-activity/lang-nature.xml.in.h:2
+msgid "List of words in the 'nature' category."
+msgstr "Liosta nam faclan san roinn-seòrsa \"nàdar\"."
+
+#: ../src/lang-activity/lang-nature.xml.in.h:4
+#: ../src/lang-activity/lang-object.xml.in.h:4
+#: ../src/lang-activity/lang-other.xml.in.h:4
+#: ../src/lang-activity/lang-people.xml.in.h:4
+msgid "Enrich your vocabulary in your native language or in a foreign one."
+msgstr "Ionnsaich barrachd fhaclan sa chànan agad fhèin no ann an cànan eile."
+
+#: ../src/lang-activity/lang-nature.xml.in.h:5
+#: ../src/lang-activity/lang-object.xml.in.h:5
+#: ../src/lang-activity/lang-other.xml.in.h:5
+#: ../src/lang-activity/lang-people.xml.in.h:5
+msgid ""
+"Review a set of words. Each word is shown with a voice a text and an image. "
+"When done you are suggested an exercice in which, given the voice, you must "
+"find the right word. In the configuration you can select the language you "
+"want to learn."
+msgstr ""
+"Sgrùd seata dhe dh'abairtean. Thèid gach abairt a shealltainn dhut le guth "
+"ga innse is dealbh. Nuair a bhios tu deiseil, cluinnidh tu an abairt ga "
+"bruidhinn is feumaidh tu an dealbh a bhuineas dhi a lorg. Cleachd na "
+"roghainnean gus an cànan a thaghadh a tha thu airson ionnsachadh."
+
+#: ../src/lang-activity/lang-nature.xml.in.h:6
+#: ../src/lang-activity/lang-object.xml.in.h:6
+#: ../src/lang-activity/lang-other.xml.in.h:6
+#: ../src/lang-activity/lang-people.xml.in.h:6
+msgid ""
+"The images and voices comes from the Art4Apps project: http://www.art4apps."
+"org/. You can also access this activity online on http://laske.fr/"
+"abecedarium/."
+msgstr ""
+"Thàinig na dealbhan is guthan on phròiseact Art4Apps: http://www.art4apps."
+"org/. Gheibh thu inntrigeadh dhan chleas seo air loidhne air http://laske.fr/"
+"abecedarium/."
+
+#: ../src/lang-activity/lang-object.xml.in.h:2
+msgid "List of words in the 'object' category."
+msgstr "Liosta nam faclan san roinn-seòrsa \"rud\"."
+
+#: ../src/lang-activity/lang-other.xml.in.h:2
+msgid "List of words in the 'other' category."
+msgstr "Liosta nam faclan san roinn-seòrsa \"eile\"."
+
+#: ../src/lang-activity/lang-people.xml.in.h:2
+msgid "List of words in the 'people' category."
+msgstr "Liosta nam faclan san roinn-seòrsa \"neach\"."
+
 #: ../src/lang-activity/lang.xml.in.h:1
-msgid "Practice a foreign language"
-msgstr "Cleachd cànan cèin"
+#| msgid "Go to the Reading activities"
+msgid "Go to the language learning activities"
+msgstr "Cleasan ionnsachadh cànain"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:1
+msgid "other"
+msgstr "eile"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:2
+#| msgid "Duration"
+msgid "action"
+msgstr "gnìomh"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:3
+#| msgid "Active"
+msgid "adjective"
+msgstr "buadhair"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:5
+#| msgid "Number"
+msgid "number"
+msgstr "àireamh"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:6
+msgid "bodyparts"
+msgstr "pàirt den bhodhaig"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:7
+msgid "clothes"
+msgstr "aodach"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:8
+#| msgid "Question"
+msgid "emotion"
+msgstr "faireachdainn"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:9
+msgid "job"
+msgstr "dreuchd"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:10
+msgid "people"
+msgstr "neach"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:11
+#| msgid "Reports"
+msgid "sport"
+msgstr "spors"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:12
+msgid "food"
+msgstr "biadh"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:13
+msgid "animal"
+msgstr "beathach"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:14
+msgid "fruit"
+msgstr "meas"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:15
+#| msgid "Picture"
+msgid "nature"
+msgstr "an nàdar"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:16
+#| msgid "plane"
+msgid "plant"
+msgstr "lus"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:17
+msgid "vegetables"
+msgstr "glasraich"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:18
+#| msgid "Learn subtraction"
+msgid "construction"
+msgstr "togail"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:19
+#| msgid "Picture"
+msgid "furniture"
+msgstr "àirneis"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:20
+#| msgid "house"
+msgid "houseware"
+msgstr "acainn taighe"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:21
+msgid "object"
+msgstr "rud"
+
+#: ../src/lang-activity/resources/lang/words.xml.in.h:22
+msgid "tool"
+msgstr "acainn"
 
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
@@ -6915,6 +7434,14 @@ msgid ""
 msgstr ""
 "Rèiteachadh <b>{0}</b>\n"
 " airson na pròifil <b>{1}</b>"
+
+#. toggle box
+#: ../src/login-activity/login.py:486
+#: ../src/missing_letter-activity/missingletter_config.c:492
+#: ../src/readingh-activity/reading.c:942
+#: ../src/wordsgame-activity/wordsgame.c:930
+msgid "Uppercase only text"
+msgstr "Litrichean mòra a-mhàin"
 
 #. toggle box
 #: ../src/login-activity/login.py:496
@@ -7419,6 +7946,16 @@ msgstr "Cuimhne"
 #: ../src/memory-activity/memory.c:302
 msgid "Find the matching pair"
 msgstr "Lorg an seise"
+
+#. TRANSLATORS: Put here the numbers in your language
+#: ../src/memory-activity/memory.c:931
+msgid "0123456789"
+msgstr "0123456789"
+
+#. TRANSLATORS: Put here the alphabet uppercase in your language
+#: ../src/memory-activity/memory.c:941
+msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+msgstr "AÀBCDEÈFGHIÌLMNOÒPRSTUÙ"
 
 #: ../src/memory-activity/memory.xml.in.h:1
 msgid "Memory Game with images"
@@ -8208,24 +8745,19 @@ msgstr "cèic/cèi_/c/g/d/r/s"
 msgid "ball/bal_/l/h/s/z/t"
 msgstr "bàla/bà_a/l/h/s/g/t"
 
-#. Set here the way to display money. Change only the money sign, and it's
-#. place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in
-#. your locale
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
 #: ../src/money-activity/money.c:795
 #, c-format
 msgid "$ %.2f"
 msgstr "£ %.2f"
 
-#. Set here the way to display money. Change only the money sign, and it's
-#. place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in
-#. your locale
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
 #: ../src/money-activity/money.c:809
 #, c-format
 msgid "$ %.0f"
 msgstr "£ %.0f"
 
-#. Set here the way to display money. Change only the money sign, and it's
-#. place, always keep %d
+#. Set here the way to display money. Change only the money sign, and it's place, always keep %d
 #: ../src/money-activity/money.c:940
 #, c-format
 msgid ""
@@ -8304,11 +8836,11 @@ msgstr ""
 
 #: ../src/mosaic-activity/mosaic.py:186
 msgid "Rebuild the same mosaic on the right area"
-msgstr "Ath-thog a' mhòsaig taobh deas"
+msgstr "Ath-thog a' mhosaic taobh deas"
 
 #: ../src/mosaic-activity/mosaic.xml.in.h:1
 msgid "Rebuild the mosaic"
-msgstr "Ath-thog a' mhòsaig"
+msgstr "Ath-thog a' mhosaic"
 
 #: ../src/note_names-activity/note_names.py:119
 msgid ""
@@ -9399,7 +9931,7 @@ msgstr ""
 "tuilleadh, briog air a-rithist. Gus na thog thu a dhearbhadh, briog air an "
 "làmh air a bhonn."
 
-#: ../src/readingh-activity/reading.c:229
+#: ../src/readingh-activity/reading.c:240
 #: ../src/wordsgame-activity/wordsgame.c:222
 msgid ""
 "Error: We can't find\n"
@@ -9408,40 +9940,40 @@ msgstr ""
 "Mearachd: Cha d' fhuair sinn lorg air\n"
 "liosta nam faclan gus an geama seo a chluich.\n"
 
-#: ../src/readingh-activity/reading.c:389
+#: ../src/readingh-activity/reading.c:402
 msgid "Please, check if the word"
 msgstr "An deach am facal"
 
-#: ../src/readingh-activity/reading.c:409
+#: ../src/readingh-activity/reading.c:422
 msgid "is being displayed"
 msgstr "a shealltainn?"
 
-#: ../src/readingh-activity/reading.c:465
+#: ../src/readingh-activity/reading.c:478
 msgid "We skip this level because there are not enough words in the list!"
 msgstr ""
 "Gearraidh sinn leum thar an leibheil seo oir chan eil faclan gu leòr san "
 "liosta!"
 
-#: ../src/readingh-activity/reading.c:668
+#: ../src/readingh-activity/reading.c:681
 msgid "Yes, I saw it"
 msgstr "Chaidh, chunnaic mi e"
 
-#: ../src/readingh-activity/reading.c:695
+#: ../src/readingh-activity/reading.c:708
 msgid "No, it was not there"
 msgstr "Cha deach, cha robh e ann"
 
 #. Report what was wrong in the log
-#: ../src/readingh-activity/reading.c:742
+#: ../src/readingh-activity/reading.c:755
 #, c-format
 msgid "The word to find was '%s'"
 msgstr "Is \"%s\" am facal a bha agad ri lorg"
 
-#: ../src/readingh-activity/reading.c:745
+#: ../src/readingh-activity/reading.c:758
 #, c-format
 msgid "But it was not displayed"
 msgstr "Ach cha deach a shealltainn"
 
-#: ../src/readingh-activity/reading.c:747
+#: ../src/readingh-activity/reading.c:760
 #, c-format
 msgid "And it was displayed"
 msgstr "Is chaidh a shealltainn"
@@ -9490,7 +10022,7 @@ msgstr "Càraid àireimh"
 
 #: ../src/redraw-activity/redraw.xml.in.h:1
 msgid "Redraw the given item"
-msgstr "Ath-tharraing an nì a thug sinn dhut"
+msgstr "Tarraing an nì a thug sinn dhut as ùr"
 
 #: ../src/redraw-activity/redraw.xml.in.h:2
 msgid "Copy a drawing from the box on the right into the box on the left."
@@ -9567,17 +10099,7 @@ msgstr ""
 "bhios tu deiseil, briog air a' phutan \"OK\" no brùth air an iuchair \"Enter"
 "\"."
 
-#: ../src/scalesboard-activity/scale.c:295
-#, c-format
-msgid "Weight in g = %s"
-msgstr "Cuideam (g) = %s"
-
-#: ../src/scalesboard-activity/scale.c:297
-#, c-format
-msgid "Weight = %s"
-msgstr "Cuideam = %s"
-
-#: ../src/scalesboard-activity/scale.c:1039
+#: ../src/scalesboard-activity/scale.c:1086
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr ""
 "Thoir an aire gur urrainn dhut cuideaman a chur air an dà thaobh na meidhe."
@@ -10087,6 +10609,7 @@ msgid_plural "Distance to target = %d meters"
 msgstr[0] "Astar dhan targaid = %d mheatair"
 msgstr[1] "Astar dhan targaid = %d mheatair"
 msgstr[2] "Astar dhan targaid = %d meatairean"
+msgstr[3] "Astar dhan targaid = %d meatair"
 
 #: ../src/target-activity/target.xml.in.h:1
 msgid "Practice addition with a target game"
@@ -10330,155 +10853,3 @@ msgstr "Cleachdadh a' mheur-chlàir"
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr ""
 "Sgrìobh am facal gu lèir fhad 's a tha e a' tuiteam is mus ruig e an làr"
-
-#: geo-activity: south scotland
-msgid "Argyll and Bute"
-msgstr "Earra Ghàidheal is Bòd"
-
-#: geo-activity: south scotland
-msgid "Stirling"
-msgstr "Sruighlea"
-
-#: geo-activity: south scotland
-msgid "Perth and Kinross"
-msgstr "Peairt is Ceann Rois"
-
-#: geo-activity: south scotland
-msgid "Angus"
-msgstr "Aonghas"
-
-#: geo-activity: south scotland
-msgid "Dundee"
-msgstr "Dùn Dè"
-
-#: geo-activity: south scotland
-msgid "Fife"
-msgstr "Fìobha"
-
-#: geo-activity: south scotland
-msgid "Clackmannanshire"
-msgstr "Siorrachd Chlach Mhanann"
-
-#: geo-activity: south scotland
-msgid "North Ayrshire"
-msgstr "Siorrachd Àir a Tuath"
-
-#: geo-activity: south scotland
-msgid "Inverclyde"
-msgstr "Inbhir Chluaidh"
-
-#: geo-activity: south scotland
-msgid "Renfrewshire"
-msgstr "Siorrachd Rinn Friù"
-
-#: geo-activity: south scotland
-msgid "East Renfrewshire"
-msgstr "Siorrachd Rinn Friù an Ear"
-
-#: geo-activity: south scotland
-msgid "West Dunbartonshire"
-msgstr "Siorrachd Dhùn Breatann an Iar"
-
-#: geo-activity: south scotland
-msgid "East Dunbartonshire"
-msgstr "Siorrachd Dhùn Breatann an Ear"
-
-#: geo-activity: south scotland
-msgid "Glasgow"
-msgstr "Glaschu"
-
-#: geo-activity: south scotland
-msgid "East Ayrshire"
-msgstr "Siorrachd Àir an Ear"
-
-#: geo-activity: south scotland
-msgid "South Ayrshire"
-msgstr "Siorrachd Àir a Deas"
-
-#: geo-activity: south scotland
-msgid "Dumfries and Galloway"
-msgstr "Dùn Phrìs is Gall-Ghàidhealaibh"
-
-#: geo-activity: south scotland
-msgid "North Lanarkshire"
-msgstr "Siorrachd Lannraig a Tuath"
-
-#: geo-activity: south scotland
-msgid "South Lanarkshire"
-msgstr "Siorrachd Lannraig a Deas"
-
-#: geo-activity: south scotland
-msgid "Falkirk"
-msgstr "An Eaglais Bhreac"
-
-#: geo-activity: south scotland
-msgid "Edinburgh"
-msgstr "Dùn Èideann"
-
-#: geo-activity: south scotland
-msgid "West Lothian"
-msgstr "Lodainn an Iar"
-
-#: geo-activity: south scotland
-msgid "Midlothian"
-msgstr "Meadhan Lodainn"
-
-#: geo-activity: south scotland
-msgid "East Lothian"
-msgstr "Lodainn an Ear"
-
-#: geo-activity: south scotland
-msgid "Scottish Borders"
-msgstr "Crìochan na h-Alba"
-
-#: geo-activity: north scotland
-msgid "Skye"
-msgstr "An t-Eilean Sgitheanach"
-
-#: geo-activity: north scotland
-msgid "Lochaber"
-msgstr "Loch Abar"
-
-#: geo-activity: north scotland
-msgid "Lochalsh, Badenoch, Cromarty and Strathspey"
-msgstr "Loch Aillse, Bàideanach, Cromba is Srath Spè"
-
-#: geo-activity: north scotland
-msgid "Inverness and Nairn"
-msgstr "Inbhir Nis is Inbhir Narann "
-
-#: geo-activity: north scotland
-msgid "Ross"
-msgstr "Siorrachd Rois"
-
-#: geo-activity: north scotland
-msgid "Sutherland"
-msgstr "Dùthaich Mhic Aoidh, Asainte is Cataibh"
-
-#: geo-activity: north scotland
-msgid "Caithness"
-msgstr "Gallaibh"
-
-#: geo-activity: north scotland
-msgid "Shetland"
-msgstr "Sealtainn"
-
-#: geo-activity: north scotland
-msgid "Orkney"
-msgstr "Arcaibh"
-
-#: geo-activity: north scotland
-msgid "Na h-Eileanan Siar"
-msgstr "Na h-Eileanan Siar no na h-Innse Gall"
-
-#: geo-activity: north scotland
-msgid "Moray"
-msgstr "Moireibh"
-
-#: geo-activity: north scotland
-msgid "Aberdeen"
-msgstr "Obar Dheathain"
-
-#: geo-activity: north scotland
-msgid "Aberdeenshire"
-msgstr "Siorrachd Obar Dheathain"
