@@ -27,6 +27,7 @@ import gtk.gdk
 import random
 import cairo
 import pango
+import gettext
 
 from gcompris import gcompris_gettext as _
 
@@ -445,9 +446,13 @@ class Gcompris_pythontest:
     #we can add what you want in it.
 
     bconf = gcompris.configuration_window ( \
-      _('<b>%s</b> configuration\n for profile <b>%s</b>')
-      % ('Pythontest', (profile.name if profile else "") ),
-      self.ok_callback
+      _( \
+        '<b>{activity}</b> configuration\n for profile <b>{profile}</b>'.format( \
+                        activity=_('Pythontest'),
+                        # This is the name of the Default user profile
+                        profile=profile.name if profile else _("Default")),
+        ),
+        self.ok_callback
       )
 
     # toggle box
@@ -508,7 +513,7 @@ class Gcompris_pythontest:
     locales_purple = gcompris.get_locales_asset_list( "purple.ogg" )
     print locales_purple
 
-    gcompris.combo_locales_asset(bconf, _("Select sound locale"),
+    gcompris.combo_locales_asset(bconf, _("Choose a language"),
                                  self.config_dict['locale_sound'],
                                  "voices/$LOCALE/colors/red.ogg")
 

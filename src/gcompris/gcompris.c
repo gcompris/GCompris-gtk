@@ -1445,7 +1445,7 @@ gc_locale_set(const gchar *locale)
 
   /* This does update gettext translation uppon next gettext call */
   /* Call for localization startup */
-  bindtextdomain (GETTEXT_PACKAGE, properties->package_locale_dir);
+  bindtextdomain (GETTEXT_PACKAGE,properties->package_locale_dir);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
@@ -1616,8 +1616,8 @@ main (int argc, char *argv[])
   signal(SIGINT, gc_terminate);
 
   load_properties();
-
-  bindtextdomain (GETTEXT_PACKAGE, properties->package_locale_dir);
+  
+  bindtextdomain (GETTEXT_PACKAGE,properties->package_locale_dir);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
@@ -1632,6 +1632,7 @@ main (int argc, char *argv[])
 
   /* Argument parsing */
   context = g_option_context_new(" - An educational software for chilren 2 to 10");
+  g_option_context_set_translation_domain(context,GETTEXT_PACKAGE);
   g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
   g_option_context_add_group (context, gtk_get_option_group (TRUE));
   g_option_context_parse (context, &argc, &argv, &error);

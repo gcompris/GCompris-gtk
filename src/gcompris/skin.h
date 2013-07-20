@@ -28,18 +28,26 @@ extern guint32 gc_skin_color_content;
 extern guint32 gc_skin_color_subtitle;
 extern guint32 gc_skin_color_shadow;
 
+extern gchar* gc_skin_font_fontface;
 extern gchar* gc_skin_font_title;
 extern gchar* gc_skin_font_subtitle;
 extern gchar* gc_skin_font_content;
+extern gchar* gc_skin_font_helptext;
 
+extern gchar* gc_skin_font_menu_title;
+extern gchar* gc_skin_font_menu_description;
+
+extern gchar* gc_skin_font_board_minuscule;
 extern gchar* gc_skin_font_board_tiny;
 extern gchar* gc_skin_font_board_small;
 extern gchar* gc_skin_font_board_medium;
+extern gchar* gc_skin_font_board_medium_bold;
 extern gchar* gc_skin_font_board_big;
 extern gchar* gc_skin_font_board_big_bold;
 extern gchar* gc_skin_font_board_fixed;
 extern gchar* gc_skin_font_board_title;
 extern gchar* gc_skin_font_board_title_bold;
+extern gchar* gc_skin_font_board_levelmenu;
 extern gchar* gc_skin_font_board_huge;
 extern gchar* gc_skin_font_board_huge_bold;
 

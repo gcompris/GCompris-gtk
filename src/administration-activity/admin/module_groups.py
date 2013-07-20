@@ -22,6 +22,7 @@ import gcompris.utils
 import gcompris.skin
 import gtk
 import gtk.gdk
+import gettext
 from gcompris import gcompris_gettext as _
 
 # Database

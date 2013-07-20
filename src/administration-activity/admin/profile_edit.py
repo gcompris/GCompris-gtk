@@ -18,8 +18,8 @@
 
 
 import gtk
+import gettext
 from gcompris import gcompris_gettext as _
-
 import profile_widget
 
 

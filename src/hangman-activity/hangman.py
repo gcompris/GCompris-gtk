@@ -26,14 +26,16 @@ import gcompris.bonus
 import gcompris.score
 import goocanvas
 import pango
-
+import gettext
 from gcompris import gcompris_gettext as _
 
 fles = None
 
+def _gui(text):
+    gettext.dgettext(gcompris.GETTEXT_GUI,text)
+
 class Gcompris_hangman:
   """Empty gcompris python class"""
-
 
   def __init__(self, gcomprisBoard):
     # Save the gcomprisBoard, it defines everything we need
@@ -87,7 +89,6 @@ class Gcompris_hangman:
         except:
           print ("ERROR: Bad key equivalence list '%s' for hangman: " %(keyequivs, ))
 
-
     # Letters equivalence for the hangman activity. It has the
     # form of a space separated list like: "e=éè a=àâ"
     # Keep the word NONE if not available in your language
@@ -126,14 +127,14 @@ class Gcompris_hangman:
     # Get the name of the language for the current locale
     self.wordlist = None
     try:
-      self.language = gcompris.gcompris_gettext( gcompris.get_locale_name(gcompris.get_locale()) )
+      self.language = _(gcompris.get_locale_name(gcompris.get_locale()) )
       self.wordlist = gcompris.get_wordlist("hangman/default-$LOCALE.xml")
     except:
       pass
     # Fallback to wordsgame list
     if not self.wordlist:
         try:
-            self.language = gcompris.gcompris_gettext( gcompris.get_locale_name(gcompris.get_locale()) )
+            self.language = _(gcompris.get_locale_name(gcompris.get_locale()) )
             self.wordlist = gcompris.get_wordlist("wordsgame/default-$LOCALE.xml")
         except:
             pass
@@ -331,6 +332,7 @@ class Gcompris_hangman:
       y = gcompris.BOARD_HEIGHT / 2 - 30,
       text = self.language,
       fill_color = "white",
+      font = gcompris.skin.get_font("gcompris/board/medium"),
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER
       )
@@ -451,6 +453,7 @@ class Letter:
         y = y + h/2,
         text = letter,
         fill_color = "black",
+        font = gcompris.skin.get_font("gcompris/board/medium"),
         anchor = gtk.ANCHOR_CENTER,
         alignment = pango.ALIGN_CENTER
         )
@@ -502,6 +505,7 @@ class Key:
         y = y + h/2,
         text = letter,
         fill_color = "black",
+        font = gcompris.skin.get_font("gcompris/board/medium"),
         anchor = gtk.ANCHOR_CENTER,
         alignment = pango.ALIGN_CENTER
         )

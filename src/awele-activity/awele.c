@@ -482,7 +482,7 @@ awele_create_item (GooCanvasItem * parent)
 			     ((i < 6) ? 288 : 4) + OFFSET_Y,
 			     -1,
 			     GTK_ANCHOR_CENTER,
-			     "font", "sans 20",
+			     "font", gc_skin_font_board_big,
 			     "fill-color", "black",
 			     NULL);
     }
@@ -506,7 +506,7 @@ awele_create_item (GooCanvasItem * parent)
 			     156 + OFFSET_Y,
 			     -1,
 			     GTK_ANCHOR_CENTER,
-			     "font", "sans 24",
+			     "font", gc_skin_font_board_big,
 			     "fill-color", "white",
 			     NULL);
     }
@@ -536,7 +536,7 @@ awele_create_item (GooCanvasItem * parent)
 					(double) 410 + OFFSET_Y,
 					-1,
 					GTK_ANCHOR_CENTER,
-					"font", "sans 20",
+					"font", gc_skin_font_board_medium_bold,
 					"fill-color", "red",
 					NULL);
 

@@ -389,7 +389,7 @@ gc_config_start ()
   display_previous_next(x_start, y_start, "timer_previous", "timer_next");
 
   item_timer_text = goo_canvas_text_new (rootitem,
-					 gettext(timername[properties->timer]),
+					 _(timername[properties->timer]),
 					 (gdouble) x_text_start,
 					 (gdouble) y_start,
 					 -1,
@@ -466,7 +466,7 @@ gc_config_start ()
 
   stars_group_x = x_start + 45;
   stars_group_y = y_start - 25;
-  gchar *text = g_strdup_printf("<i>%s</i>", gettext(filtername));
+  gchar *text = g_strdup_printf("<i>%s</i>", _(filtername));
   item_filter_text = goo_canvas_text_new (rootitem,
 					  text,
 					  x_text_start,
@@ -543,7 +543,7 @@ gc_locale_get_name(const gchar *locale_code)
 
       if( !g_ascii_strncasecmp(locale, linguas[i],
 			       (dot_char ? dot_char - locale : strlen(locale)) ) )
-	return(gettext(linguas[i+1]));
+	return(_(linguas[i+1]));
 
       i=i+2;
     }
@@ -555,7 +555,7 @@ gc_locale_get_name(const gchar *locale_code)
 
       if( !g_ascii_strncasecmp(locale, linguas[i],
 			       (dot_char ? dot_char - locale : strlen(locale)) ) )
-	return(gettext(linguas[i+1]));
+	return(_(linguas[i+1]));
 
       i=i+2;
     }
@@ -635,7 +635,7 @@ gc_locale_get_locale(const gchar *name)
 
   while(linguas[i] != NULL)
     {
-      if( !strncmp(name, gettext(linguas[i+1]), strlen(name)) )
+      if( !strncmp(name, _(linguas[i+1]), strlen(name)) )
 	 return( linguas[i] );
 
       i=i+2;
@@ -904,7 +904,7 @@ item_event_ok(GooCanvasItem *item,
 	properties->timer--;
 
       g_object_set (G_OBJECT(item_timer_text),
-		    "text", gettext(timername[properties->timer]),
+		    "text", _(timername[properties->timer]),
 		    NULL);
     }
   else if(!strcmp((char *)data, "timer_next"))
@@ -913,7 +913,7 @@ item_event_ok(GooCanvasItem *item,
 	properties->timer++;
 
       g_object_set (G_OBJECT(item_timer_text),
-		    "text", gettext(timername[properties->timer]),
+		    "text", _(timername[properties->timer]),
 		    NULL);
     }
   else if(!strcmp((char *)data, "skin_previous"))

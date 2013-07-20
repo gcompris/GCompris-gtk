@@ -4,7 +4,8 @@ img_DATA = \
 	carriage.svgz \
 	cloud.svgz \
 	repeat.svg \
-	default-en.desktop
+	default-en.desktop \
+	default-gd.desktop
 
 
 EXTRA_DIST = $(img_DATA)

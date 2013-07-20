@@ -22,6 +22,7 @@
 
 import goocanvas
 import gcompris
+import gettext
 from gcompris import gcompris_gettext as _
 import gcompris.utils
 import gcompris.bonus

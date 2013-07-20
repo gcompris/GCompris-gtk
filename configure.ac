@@ -7,6 +7,8 @@ AM_INIT_AUTOMAKE([tar-ustar no-dist-gzip dist-bzip2 -Wno-portability])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
+AM_GNU_GETTEXT([external]) 
+
 if test -z "$enable_maintainer_mode"; then
   enable_maintainer_mode=yes
 fi

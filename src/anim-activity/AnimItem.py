@@ -1073,7 +1073,7 @@ class AnimItemText(AnimItem):
                 parent = self.rootitem,
                 x = center_x,
                 y = center_y,
-                font = "Sans " + str(self.text_size),
+                font = gcompris.skin.get_font("gcompris/fontface") + " " + str(self.text_size),
                 text=("?"),
                 fill_color_rgba=color_stroke,
                 anchor = gtk.ANCHOR_CENTER,
@@ -1093,7 +1093,7 @@ class AnimItemText(AnimItem):
         self.item = \
             goocanvas.Text(
                 parent = self.rootitem,
-                font = "Sans " + str(self.text_size),
+                font = gcompris.skin.get_font("gcompris/fontface") + " " + str(self.text_size),
                 )
         AnimItem.init_item(self)
         self.last_commit = None
@@ -1192,7 +1192,7 @@ class AnimItemText(AnimItem):
 
 
     def set_size(self, text_size):
-        self.item.set_properties(font = "Sans " + str(text_size))
+        self.item.set_properties(font = gcompris.skin.get_font("gcompris/fontface") + " " + str(text_size))
         self.recenter_to_drawing_area()
 
     def down_size(self, item, target, event, up):

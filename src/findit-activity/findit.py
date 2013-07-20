@@ -25,9 +25,8 @@ import gcompris.bonus
 import gcompris.sound
 import goocanvas
 import pango
-
+import gettext
 from gcompris import gcompris_gettext as _
-
 import ConfigParser
 import random
 
@@ -245,6 +244,9 @@ class Gcompris_findit:
       # The question audio can be formatted with {text} and if so this
       # is replaced by the target text
       audio = audio.format(text = object_.text)
+      # Strings can be disambiguated by prefixing <board_name>| in the desktop.in file
+      # look at the colors activity for an example.
+      audio = audio.replace(self.gcomprisBoard.name+'|','')
     except:
       pass
 
@@ -252,6 +254,9 @@ class Gcompris_findit:
       # The question audio can be formatted with {audio} and if so this
       # is replaced by the target text
       audio = audio.format(audio = object_.audio)
+      # Strings can be disambiguated by prefixing <board_name>| in the desktop.in file
+      # look at the colors activity for an example.
+      audio = audio.replace(self.gcomprisBoard.name+'|','')
     except:
       pass
 
@@ -280,7 +285,12 @@ class Gcompris_findit:
     try:
       # The question can be formatted with {text} and if so this
       # is replaced by the target name
+      # TRANSLATORS: If the string contains a |, only translate the string that follows
+      # For example, colors|blue = bleue
       text = _(text.format(text = _(object_target.text)))
+      # Strings can be disambiguated by prefixing <board_name>| in the desktop.in file
+      # look at the colors activity for an example.
+      text = text.replace(self.gcomprisBoard.name+'|','')
     except:
       pass
 
@@ -288,6 +298,9 @@ class Gcompris_findit:
       # The question can be formatted with {audio} and if so this
       # is replaced by the target name
       text = _(text.format(audio = _(object_target.audio)))
+      # Strings can be disambiguated by prefixing <board_name>| in the desktop.in file
+      # look at the colors activity for an example.
+      text = text.replace(self.gcomprisBoard.name+'|','')
     except:
       pass
 

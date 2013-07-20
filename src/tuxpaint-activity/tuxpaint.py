@@ -25,11 +25,11 @@ import gcompris.admin
 import gtk
 import os
 import gobject
-
 import pango
 import platform
 
-#import gobject
+#gettext support
+import gettext
 from gcompris import gcompris_gettext as _
 
 pid = None
@@ -182,8 +182,15 @@ class Gcompris_tuxpaint:
     #set already configured values
     self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
 
-    bconfig = gcompris.configuration_window(_('<b>%s</b> configuration\n for profile <b>%s</b>') % ('Tuxpaint', profile.name ),
-                                                   self.apply_callback)
+    bconfig = gcompris.configuration_window ( \
+      _( \
+        '<b>{activity}</b> configuration\n for profile <b>{profile}</b>'.format( \
+                        activity=_('Tuxpaint'),
+                        # This is the name of the Default user profile
+                        profile=profile.name if profile else _("Default")),
+        ),
+        self.apply_callback
+      )
 
 
     gcompris.boolean_box(bconfig, _('Inherit fullscreen setting from GCompris'), 'fullscreen', eval(self.config_dict['fullscreen']))
@@ -205,7 +212,7 @@ class Gcompris_tuxpaint:
     stamps = gcompris.boolean_box(bconfig, _('Disable stamps'), 'disable_stamps', eval(self.config_dict['disable_stamps']))
     stamps.connect("toggled", self.stamps_changed)
 
-    self.stamps_control = gcompris.boolean_box(bconfig, 'Disable stamps control', 'disable_stamps_control', eval(self.config_dict['disable_stamps_control']))
+    self.stamps_control = gcompris.boolean_box(bconfig, _('Disable stamps control'), 'disable_stamps_control', eval(self.config_dict['disable_stamps_control']))
     self.stamps_control.set_sensitive(not eval(self.config_dict['disable_stamps']))
 
   def stamps_changed(self, button):

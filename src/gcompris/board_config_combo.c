@@ -179,7 +179,7 @@ gc_board_config_combo_locales(GcomprisBoardConf *config, gchar *init)
 			 GTK_JUSTIFY_RIGHT);
 
   gtk_label_set_markup (GTK_LABEL(label_combo),
-                        _("Select the language\n to use in the board"));
+                        _("Choose a language"));
 
   combobox = GTK_WIDGET(gtk_combo_box_new_text());
 

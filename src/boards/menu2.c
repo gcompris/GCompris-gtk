@@ -716,7 +716,7 @@ create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
 			 y + 20,
 			 -1,
 			 GTK_ANCHOR_CENTER,
-			 "font", gc_skin_font_board_big,
+			 "font", gc_skin_font_menu_title,
 			 "fill-color-rgba", gc_skin_get_color("menu/text"),
 			 "alignment", PANGO_ALIGN_CENTER,
 			 NULL);
@@ -728,7 +728,7 @@ create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
 			 y + 70,
 			 info_w - 10,
 			 GTK_ANCHOR_CENTER,
-			 "font", gc_skin_font_board_medium,
+			 "font", gc_skin_font_menu_description,
 			 "fill-color-rgba", gc_skin_get_color("menu/text"),
 			 "alignment", PANGO_ALIGN_CENTER,
 			 NULL);

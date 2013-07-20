@@ -24,6 +24,7 @@ import gcompris.utils
 import gcompris.skin
 import gtk
 import gtk.gdk
+import gettext
 from gcompris import gcompris_gettext as _
 
 class Module:
@@ -89,7 +90,7 @@ class Module:
         item = goocanvas.Text(
             parent = self.root_select_item,
             text=_(self.module_label),
-            font = "Sans 8",
+            font = gcompris.skin.get_font("gcompris/board/minuscule"),
             x = centered_x,
             y = y1,
             fill_color="black"

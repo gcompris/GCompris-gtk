@@ -20,8 +20,8 @@
 import gtk
 import gobject
 import gcompris
+import gettext
 from gcompris import gcompris_gettext as _
-
 import profile_group_list
 
 import constants

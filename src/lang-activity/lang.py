@@ -24,7 +24,7 @@ import gcompris.skin
 import gcompris.sound
 import goocanvas
 import pango
-
+import gettext
 from gcompris import gcompris_gettext as _
 from langLib import *
 from langFindit import *
@@ -150,12 +150,16 @@ class Gcompris_lang:
     self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
 
     bconf = gcompris.configuration_window ( \
-      _('Configuration\n for profile <b>%s</b>')
-      % ( (profile.name if profile else _("Default") ) ),
-      self.ok_callback
+      _( \
+        '<b>{activity}</b> configuration\n for profile <b>{profile}</b>'.format( \
+                        activity=_('Language learning'),
+                        # This is the name of the Default user profile
+                        profile=profile.name if profile else _("Default")),
+        ),
+        self.ok_callback
       )
 
-    gcompris.combo_locales_asset(bconf, _("Select locale"),
+    gcompris.combo_locales_asset(bconf, _("Choose a language"),
                                  self.config_dict['locale_sound'],
                                  "voices/$LOCALE/words/red.ogg")
 

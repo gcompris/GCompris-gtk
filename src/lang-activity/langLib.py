@@ -17,6 +17,7 @@
 #
 # lang activity.
 
+import gettext
 from gcompris import gcompris_gettext as _
 import gcompris.utils
 import xml.dom.minidom

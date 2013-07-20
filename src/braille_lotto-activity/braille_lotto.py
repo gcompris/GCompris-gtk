@@ -150,7 +150,7 @@ class Gcompris_braille_lotto:
       parent = self.root,
       text= _("Check Number"),
       font = gcompris.skin.get_font("gcompris/board/medium"),
-      x = 100,
+      x = 108,
       y = 384,
       width = 140,
       anchor = gtk.ANCHOR_CENTER,
@@ -167,7 +167,7 @@ class Gcompris_braille_lotto:
                                      svg_id = "#FIG1",
                                      tooltip = _("Click me to get some hint")
                                      )
-    self.hint_left_button.translate(200, 330)
+    self.hint_left_button.translate(200, 315)
     self.hint_left_button.connect("button_press_event", self.clue_left)
     gcompris.utils.item_focus_init(self.hint_left_button, None)
 
@@ -179,7 +179,7 @@ class Gcompris_braille_lotto:
                                      svg_id = "#FIG2",
                                      tooltip = _("Click me to get some hint")
                                      )
-    self.hint_right_button.translate(290, 330)
+    self.hint_right_button.translate(290, 315)
     self.hint_right_button.connect("button_press_event", self.clue_right)
     gcompris.utils.item_focus_init(self.hint_right_button, None)
 
@@ -190,11 +190,11 @@ class Gcompris_braille_lotto:
         #Translators : Do not translate the token {number}
         clue_text = goocanvas.Text(
                     parent = self.root,
-                    text = _("I don't have this number PLAYER {number}").format(number = str(index + 1)),
-                    font = gcompris.skin.get_font("gcompris/board/medium"),
+                    text = _("I don't have this number\n\nPLAYER {number}").format(number = str(index + 1)),
+                    font = gcompris.skin.get_font("gcompris/board/small"),
                     x = 290 if index == 0 else 540,
-                    y = 395,
-                    width = 140,
+                    y = 380,
+                    width = 130,
                     anchor=gtk.ANCHOR_CENTER,
                     )
         self.text_array.append(clue_text)
@@ -286,7 +286,7 @@ class Gcompris_braille_lotto:
                             x=315,
                             y=310,
                             width = 130,
-                            font = "SANS 10 BOLD",
+                            font = gcompris.skin.get_font("gcompris/board/small"),
                             anchor=gtk.ANCHOR_CENTER,
                             )
 
@@ -310,7 +310,7 @@ class Gcompris_braille_lotto:
                             x=510,
                             y=310,
                             width = 130,
-                            font = "SANS 10 BOLD",
+                            font = gcompris.skin.get_font("gcompris/board/small"),
                             anchor=gtk.ANCHOR_CENTER,
                             )
       if (self.check_random[self.counter] in self.ticket_array[6:12]):

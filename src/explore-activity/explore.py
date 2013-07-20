@@ -33,8 +33,8 @@ import pango
 import ConfigParser
 import gcompris.sound
 import gcompris.bonus
+import gettext
 from gcompris import gcompris_gettext as _
-
 from random import randint
 import random
 
@@ -278,7 +278,8 @@ dialogue to\nenable the sound."), None)
               parent=self.location_rootitem,
               x=400,
               y=495,
-              text='<span font_family="century schoolbook L" size="medium" weight="bold">' + txt + '</span>',
+              text = txt,
+              font = gcompris.skin.get_font("gcompris/board/medium bold"),
               anchor=gtk.ANCHOR_CENTER,
               alignment=pango.ALIGN_CENTER,
               use_markup=True
@@ -296,7 +297,8 @@ dialogue to\nenable the sound."), None)
               parent=self.location_rootitem,
               x=410,
               y=50,
-              text='<span font_family="century schoolbook L" size="x-large" weight="bold">' + name + '</span>',
+              text = name,
+              font = gcompris.skin.get_font("gcompris/board/big bold"),
               fill_color="black",
               anchor=gtk.ANCHOR_CENTER,
               alignment=pango.ALIGN_CENTER,
@@ -432,13 +434,13 @@ dialogue to\nenable the sound."), None)
                 try: self.credits = self.data.get('common', 'credits')
                 except: self.credits = ''
                 try: self.background = self.data.get('common', 'background')
-                except: errors.append("Missing 'background' key")
+                except: errors.append(_("Missing 'background' key"))
                 try: self.backSvgId = self.data.get('common', 'backSvgId')
-                except: errors.append("Missing 'background' key")
+                except: errors.append(_("Missing 'background' key"))
                 try: self.author = self.data.get('common', 'author')
                 except: self.author = ''
                 try: self.generalText = _(self.data.get('common', '_GeneralText'))
-                except: errors.append("Missing '_GeneralText' key")
+                except: errors.append(_("Missing '_GeneralText' key"))
                 try: self.SoundMatchingGameText = _(self.data.get('common', '_SoundMatchingGameText'))
                 except:pass
                 try: self.TextMatchingGameText = _(self.data.get('common', '_TextMatchingGameText'))
@@ -507,8 +509,8 @@ class ProgressBar:
           parent = self.rootitem,
           x = self.x,
           y = self.y,
-          text = '<span font_family="URW Gothic L" size="medium" \
-          weight="bold" style="italic">' + txt2 + '</span>',
+          text = txt2,
+          font = gcompris.skin.get_font("gcompris/board/medium"),
           use_markup = True
           )
 

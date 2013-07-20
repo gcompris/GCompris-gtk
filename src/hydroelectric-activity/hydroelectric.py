@@ -1092,7 +1092,7 @@ class Counter:
       parent = rootitem,
       x = x,
       y = y,
-      font = "Sans 8",
+      font = gcompris.skin.get_font("gcompris/board/minuscule"),
       text = "0W",
       tooltip = "\n\n\n" + tooltip
       )

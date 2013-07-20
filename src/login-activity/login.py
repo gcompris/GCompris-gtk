@@ -23,8 +23,8 @@ import gcompris.admin
 import gtk
 import gtk.gdk
 import pango
+import gettext
 from gcompris import gcompris_gettext as _
-
 import math
 
 # Background screens
@@ -410,7 +410,7 @@ class Gcompris_login:
   def entry_text(self):
     self.entry = gtk.Entry()
 
-    self.entry.modify_font(pango.FontDescription("sans bold 36"))
+    self.entry.modify_font(pango.FontDescription(gcompris.skin.get_font("gcompris/board/huge bold")))
     text_color = gtk.gdk.color_parse("black")
     text_color_selected = gtk.gdk.color_parse("black")
     bg_color = gtk.gdk.color_parse("white")
@@ -477,9 +477,13 @@ class Gcompris_login:
     #we can add what you want in it.
 
     bconf = gcompris.configuration_window ( \
-      _('<b>{0}</b> configuration\n for profile <b>{1}</b>')\
-        .format('Login', ( profile.name if profile else _("Default") ) ),
-      self.ok_callback
+      _( \
+        '<b>{activity}</b> configuration\n for profile <b>{profile}</b>'.format( \
+                        activity=_('Login'),
+                        # This is the name of the Default user profile
+                        profile=profile.name if profile else _("Default")),
+        ),
+        self.ok_callback
       )
 
     # toggle box

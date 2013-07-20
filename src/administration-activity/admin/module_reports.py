@@ -23,6 +23,7 @@ import gcompris.skin
 import gtk
 import gtk.gdk
 import gobject
+import gettext
 from gcompris import gcompris_gettext as _
 
 # Database
@@ -73,8 +74,8 @@ class Reports(module.Module):
 
     # Call our parent start
     module.Module.start(self)
-
-    frame = gtk.Frame(_("Users") + " / " + _("Reports") )
+    
+    frame = gtk.Frame(_("Users / Reports") )
     frame.show()
 
     goocanvas.Widget(

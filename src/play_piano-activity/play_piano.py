@@ -25,6 +25,7 @@ import gcompris.skin
 import goocanvas
 import pango
 import time
+import gettext
 from gcompris import gcompris_gettext as _
 from gcomprismusic import *
 from random import randint

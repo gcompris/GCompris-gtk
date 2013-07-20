@@ -24,6 +24,7 @@ import gcompris.bonus
 import gtk
 import gtk.gdk
 import gobject
+import gettext
 from gcompris import gcompris_gettext as _
 
 import constants
@@ -105,6 +106,7 @@ class Log_list:
       for auser in user_list:
 
         if(auser[0] == -1 or not auser[0]):
+          # This is the name of the Default user profile
           self.combo_user.append_text(_("Default"))
           self.user_list.append(-1)
           continue
@@ -295,6 +297,7 @@ class Log_list:
     elif  alog[COLUMN_STATUS] == gcompris.bonus.COMPLETED:
         status = "Compl."
 
+    # This is the name of the Default user profile
     login = _("Default")
     self.cur.execute('SELECT login FROM users WHERE user_id=?', (alog[COLUMN_USER],))
     result = self.cur.fetchall()

@@ -31,7 +31,7 @@
  */
 typedef struct {
   gchar *name;
-  gchar *font;
+  guint fontsize;
   PangoWeight weight;
   GtkJustification justification;
   gint left_margin;
@@ -42,6 +42,8 @@ typedef struct {
 #define NUMBER_OF_STYLE 5 /* h1 h2 h3 link p */
 
 static GtkTextTag *tag_list[NUMBER_OF_STYLE];
+
+static guint fontsize_offset = 12;
 
 
 /*
@@ -56,11 +58,11 @@ doctype_t type_normal =
   {
     .name = N_("Research"),
     .style = {
-      { "h1", "Serif 30", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
-      { "h2", "Serif 26", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
-      { "h3", "Serif 20", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   15,  20, 12 },
-      { "link",  "Serif 16", PANGO_WEIGHT_NORMAL,  GTK_JUSTIFY_LEFT,   30, 3,  3 },
-      { "p",  "Serif 16", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
+      { "h1", 18, PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
+      { "h2", 14, PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
+      { "h3", 8, PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   15,  20, 12 },
+      { "link",  4, PANGO_WEIGHT_NORMAL,  GTK_JUSTIFY_LEFT,   30, 3,  3 },
+      { "p",  4, PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     }
   };
 
@@ -68,11 +70,11 @@ doctype_t type_letter =
   {
     .name = N_("Sentimental"),
     .style = {
-      { "h1", "Serif 26", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
-      { "h2", "Serif 20", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
-      { "h3", "Serif 16", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   10, 20, 12 },
-      { "link",  "Serif 14", PANGO_WEIGHT_NORMAL,  GTK_JUSTIFY_LEFT,   30, 3,  3 },
-      { "p",  "Serif 14", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
+      { "h1", 14, PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
+      { "h2", 8, PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
+      { "h3", 4, PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   10, 20, 12 },
+      { "link",  2, PANGO_WEIGHT_NORMAL,  GTK_JUSTIFY_LEFT,   30, 3,  3 },
+      { "p",  2, PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
 
@@ -80,11 +82,11 @@ doctype_t type_small =
   {
     .name = N_("Official"),
     .style = {
-      { "h1", "Serif 18", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
-      { "h2", "Serif 16", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
-      { "h3", "Serif 14", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   10, 20, 12 },
-      { "link",  "Serif 12", PANGO_WEIGHT_NORMAL,  GTK_JUSTIFY_LEFT,   30, 3,  3 },
-      { "p",  "Serif 12", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
+      { "h1", 6, PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
+      { "h2", 4, PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
+      { "h3", 2, PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   10, 20, 12 },
+      { "link",  0, PANGO_WEIGHT_NORMAL,  GTK_JUSTIFY_LEFT,   30, 3,  3 },
+      { "p",  0, PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
 
@@ -92,11 +94,11 @@ doctype_t type_text =
   {
     .name = N_("Text"),
     .style = {
-      { "h1", "Serif 12", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
-      { "h2", "Serif 12", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
-      { "h3", "Serif 12", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   15, 20, 12 },
-      { "link",  "Serif 12", PANGO_WEIGHT_NORMAL,  GTK_JUSTIFY_LEFT,   30, 3,  3 },
-      { "p",  "Serif 12", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
+      { "h1", 0, PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
+      { "h2", 0, PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
+      { "h3", 0, PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   15, 20, 12 },
+      { "link", 0, PANGO_WEIGHT_NORMAL,  GTK_JUSTIFY_LEFT,   30, 3,  3 },
+      { "p",  0, PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
 
@@ -104,11 +106,11 @@ doctype_t type_big =
   {
     .name = N_("Flyer"),
     .style = {
-      { "h1", "Serif 34", PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
-      { "h2", "Serif 30", PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
-      { "h3", "Serif 26", PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   15, 20, 12 },
-      { "link",  "Serif 18", PANGO_WEIGHT_NORMAL,  GTK_JUSTIFY_LEFT,   30, 3,  3 },
-      { "p",  "Serif 16", PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
+      { "h1", 22, PANGO_WEIGHT_ULTRABOLD,  GTK_JUSTIFY_CENTER, 0,  40, 20 },
+      { "h2", 18, PANGO_WEIGHT_BOLD,       GTK_JUSTIFY_LEFT,   0,  30, 15 },
+      { "h3", 14, PANGO_WEIGHT_SEMIBOLD,   GTK_JUSTIFY_LEFT,   15, 20, 12 },
+      { "link", 6, PANGO_WEIGHT_NORMAL,  GTK_JUSTIFY_LEFT,   30, 3,  3 },
+      { "p", 4, PANGO_WEIGHT_NORMAL,     GTK_JUSTIFY_LEFT,   30, 3,  3 }
     },
   };
 
@@ -274,7 +276,38 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       gc_bar_location(10, -1, 0.6);
 
       gc_set_default_background(goo_canvas_get_root_item(gcomprisBoard->canvas));
-
+      
+      /*
+       * TRANSLATORS: Before translating this string, set your basic font set
+       * and test the wordprocessor with it. If the text in the worprocessor is
+       * too small or too big, you can change it by specifying a positive, whole number here.
+       * If everything's OK, just leave this blank, or set it to 12.
+       */
+      gchar *localefontsize = _("wordprocessor_basefontsize");
+      
+      /* Make sure that localizers have specified a positive int value */
+      gboolean isdigit = FALSE;
+      if(g_utf8_strlen(localefontsize,-1) > 0
+              && g_utf8_validate(localefontsize, -1, NULL))
+      {
+          gunichar testme;
+          isdigit = TRUE;
+          while((testme = g_utf8_get_char(localefontsize)))
+          {
+              if(!g_unichar_isdigit(testme))
+              {
+                  isdigit = FALSE;
+                  break;
+              }
+              localefontsize = g_utf8_find_next_char (localefontsize, NULL);
+          }
+      }
+      
+      if(isdigit)
+      {
+        fontsize_offset = (guint) g_ascii_strtod(_("wordprocessor_basefontsize"),NULL);
+      }
+      
       wordprocessor_create();
 
       if (sugar_detected())
@@ -577,7 +610,7 @@ create_tags (GtkTextBuffer *buffer, doctype_t *doctype)
       tag = gtk_text_buffer_create_tag \
 	(buffer, doctype->style[i].name,
 	 "weight", doctype->style[i].weight,
-	 "font", doctype->style[i].font,
+	 "font", g_strdup_printf("%s %d",gc_skin_font_fontface, doctype->style[i].fontsize  + fontsize_offset),
 	 "justification", doctype->style[i].justification,
 	 "left-margin", doctype->style[i].left_margin,
 	 "pixels-above-lines", doctype->style[i].pixels_above_lines,
@@ -858,7 +891,7 @@ apply_style(int style_index)
     {
       g_object_set(tag_list[j],
 		   "weight", doctype_list[i]->style[j].weight,
-		   "font", doctype_list[i]->style[j].font,
+		   "font", g_strdup_printf("%s %d",gc_skin_font_fontface, doctype_list[i]->style[j].fontsize + fontsize_offset),
 		   "justification", doctype_list[i]->style[j].justification,
 		   "left-margin", doctype_list[i]->style[j].left_margin,
 		   "pixels-above-lines", doctype_list[i]->style[j].pixels_above_lines,
@@ -1083,7 +1116,7 @@ save_buffer(gchar *file, gchar *file_type, void *unused)
 		"}\n",
 		style.name,
 		color_style_list[color_index][i+1],
-		font_size[i],
+		font_size[i] + fontsize_offset,
 		align[i],
 		left_margin[i]);
       }

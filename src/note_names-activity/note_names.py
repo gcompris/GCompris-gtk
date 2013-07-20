@@ -27,8 +27,8 @@ import pango
 from random import randint
 import random
 
+import gettext
 from gcompris import gcompris_gettext as _
-
 from gcomprismusic import *
 
 
@@ -135,6 +135,7 @@ They also form the C Major Scale. Notice that the note positions are different t
               y=65,
               width=350,
               text=staffText,
+              font = gcompris.skin.get_font("gcompris/board/small"),
               fill_color="black",
               anchor=gtk.ANCHOR_CENTER,
               alignment=pango.ALIGN_CENTER
@@ -321,6 +322,7 @@ They also form the C Major Scale. Notice that the note positions are different t
               y=y,
               text=text,
               fill_color='black',
+              font = gcompris.skin.get_font("gcompris/board/small"),
               anchor=gtk.ANCHOR_CENTER,
               alignment=pango.ALIGN_CENTER,
               pointer_events="GOO_CANVAS_EVENTS_NONE"

@@ -1,0 +1,70 @@
+# This file describes how the click_on_letter activity will behave
+
+# Section matches the level, you can put any number of level
+# but they must be in sequence starting at 1
+
+# Question is a list of letters that will be asked to search for
+# Answer is a list of possible answers the children will have to choose from
+# Questions and answers must be separated by single whitespaces
+# WARNING: It is up to you to put at least all the Question letters in the Answer.
+#          You can also add some confusing letters in the Answer section
+# WARNING: Answer must have at max 18 characters
+
+[1]
+Questions=a e i o u
+Answers=a e i o u
+
+[2]
+Questions=à è ì ò ù
+Answers=à è ì ò ù a o
+
+[3]
+Questions=a e i o u à è ì ò ù
+Answers=a e i o u à è ì ò ù
+
+[4]
+Questions=b c d g p t
+Answers=b c d g p t
+
+[5]
+Questions=l m n r s f
+Answers=l m n r s f
+
+[6]
+Questions=a e o à è ò c g d p
+Answers=a e o à è ò c g d p
+
+[7]
+Questions=b c d f g l m n p r s t
+Answers=b c d f g l m n p r s t
+
+[8]
+Questions=bh ch dh fh sh
+Answers=bh ch dh fh sh
+
+[9]
+Questions=bh ch dh fh sh b c d f s
+Answers=bh ch dh fh sh b c d f s
+
+[10]
+Questions=ll nn rr ph th gh mh
+Answers=ll nn rr ph th gh mh
+
+[11]
+Questions=i u ì ù mh dh gh l t f n
+Answers=i u ì ù mh dh gh l t f n
+
+[12]
+Questions=ll nn rr ph th gh mh l n r p t g m
+Answers=ll nn rr ph th gh mh l n r p t g m
+
+[13]
+Questions=b bh c ch l ll n nn r rr
+Answers=b bh c ch l ll n nn r rr
+
+[14]
+Questions=f ph dh gh sh th g d p s t fh m mh
+Answers=f ph dh gh sh th g d p s t fh m mh
+
+[Desktop Entry]
+Name[en_GB]=default-gd

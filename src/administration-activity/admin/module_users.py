@@ -23,6 +23,7 @@ import gcompris.skin
 import gtk
 import gtk.gdk
 import gobject
+import gettext
 from gcompris import gcompris_gettext as _
 
 # Database
@@ -44,7 +45,7 @@ class Users(module.Module):
 
 
   def __init__(self, canvas):
-      module.Module.__init__(self, canvas, "users", _("Classes") + " / " + _("Users") )
+      module.Module.__init__(self, canvas, "users", _("Classes / Users") )
 
   # Return the position it must have in the administration menu
   # The smaller number is the highest.
@@ -66,7 +67,7 @@ class Users(module.Module):
       # Call our parent start
       module.Module.start(self)
 
-      frame = gtk.Frame(_("Classes") + " / " + _("Users") )
+      frame = gtk.Frame(_("Classes / Users") )
       frame.show()
 
       goocanvas.Widget(

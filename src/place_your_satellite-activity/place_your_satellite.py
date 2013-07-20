@@ -121,6 +121,7 @@ class Gcompris_place_your_satellite:
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_LEFT,
       width = 500,
+      font = gcompris.skin.get_font("gcompris/board/small"),
       text = message )
     self.text.connect('button_press_event', self.ready_event)
     bounds = self.text.get_bounds()
@@ -270,7 +271,7 @@ class Satellite:
     else:
       self.game.message.hide()
 
-    self.game.distanceIndicator.show( 'Distance: {:.1f}'.format(self.distance) )
+    self.game.distanceIndicator.show( _("Distance: {:.1f}").format(self.distance) )
 
     if abs(difference) < 0.5:
       value = self.revolve(x_center, y_center, 0)
@@ -340,6 +341,7 @@ class Message:
       x = x,
       y = y,
       fill_color = "white",
+      font = gcompris.skin.get_font("gcompris/board/small"),
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER,
       text = "")
@@ -388,6 +390,7 @@ class Speed:
       parent = rootitem,
       x = (650 + 780)/2,
       y = 470,
+      font = gcompris.skin.get_font("gcompris/board/small"),
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER,
       fill_color = "white",

@@ -885,12 +885,12 @@ GList *gc_menu_load_db(GList *boards_list)
     gcomprisBoard->mandatory_sound_file = g_strdup(result[i++]);
     gcomprisBoard->mandatory_sound_dataset = g_strdup(result[i++]);
     gcomprisBoard->filename = g_strdup(result[i++]);
-    gcomprisBoard->title =  reactivate_newline(gettext(result[i++]));
-    gcomprisBoard->description  = reactivate_newline(gettext(result[i++]));
-    gcomprisBoard->prerequisite = reactivate_newline(gettext(result[i++]));
-    gcomprisBoard->goal = reactivate_newline(gettext(result[i++]));
-    gcomprisBoard->manual = reactivate_newline(gettext(result[i++]));
-    gcomprisBoard->credit = reactivate_newline(gettext(result[i++]));
+    gcomprisBoard->title =  reactivate_newline(_(result[i++]));
+    gcomprisBoard->description  = reactivate_newline(_(result[i++]));
+    gcomprisBoard->prerequisite = reactivate_newline(_(result[i++]));
+    gcomprisBoard->goal = reactivate_newline(_(result[i++]));
+    gcomprisBoard->manual = reactivate_newline(_(result[i++]));
+    gcomprisBoard->credit = reactivate_newline(_(result[i++]));
     gcomprisBoard->demo = atoi(result[i++]);
 
     boards = g_list_append(boards, gcomprisBoard);
@@ -1967,12 +1967,12 @@ GcomprisBoard *gc_db_get_board_from_id(int board_id)
   gcomprisBoard->mandatory_sound_file = g_strdup(result[i++]);
   gcomprisBoard->mandatory_sound_dataset = g_strdup(result[i++]);
   gcomprisBoard->filename = g_strdup(result[i++]);
-  gcomprisBoard->title =  reactivate_newline(gettext(result[i++]));
-  gcomprisBoard->description  = reactivate_newline(gettext(result[i++]));
-  gcomprisBoard->prerequisite = reactivate_newline(gettext(result[i++]));
-  gcomprisBoard->goal = reactivate_newline(gettext(result[i++]));
-  gcomprisBoard->manual = reactivate_newline(gettext(result[i++]));
-  gcomprisBoard->credit = reactivate_newline(gettext(result[i++]));
+  gcomprisBoard->title =  reactivate_newline(_(result[i++]));
+  gcomprisBoard->description  = reactivate_newline(_(result[i++]));
+  gcomprisBoard->prerequisite = reactivate_newline(_(result[i++]));
+  gcomprisBoard->goal = reactivate_newline(_(result[i++]));
+  gcomprisBoard->manual = reactivate_newline(_(result[i++]));
+  gcomprisBoard->credit = reactivate_newline(_(result[i++]));
   gcomprisBoard->demo = atoi(result[i++]);
 
   sqlite3_free_table(result);

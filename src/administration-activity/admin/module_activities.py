@@ -24,6 +24,7 @@ import gcompris.skin
 import gcompris.admin
 import gtk
 import gtk.gdk
+import gettext
 from gcompris import gcompris_gettext as _
 import sys;
 

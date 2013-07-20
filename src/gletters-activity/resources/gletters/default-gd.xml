@@ -1,26 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <GCompris>
 <Wordlist name="default-gd" description="Gàidhlig" locale="gd">
-<level value="1">
+<level value="1" sublevels="5" speed="150" fallspeed="7000">
 a
+e
+i
+o
+u
+</level>
+<level value="2" sublevels="12" speed="100" fallspeed="6800">
 b
 c
 d
-e
 f
 g
-i
 l
 m
 n
-o
 p
 r
 s
 t
-u
 </level>
-<level value="2">
+<level value="3" sublevels="10" speed="90" fallspeed="6000">
+2
+3
+4
+5
+6
+7
+8
+9
+0
+</level>
+<level value="4" speed="60" fallspeed="5000">
 a
 b
 c
@@ -49,26 +62,28 @@ u
 9
 0
 </level>
-<level value="3">
+<level value="5" sublevels="5" speed="60" fallspeed="4800">
 A
+E
+I
+O
+U
+</level>
+<level value="6" sublevels="12" speed="50" fallspeed="4400">
 B
 C
 D
-E
 F
 G
-I
 L
 M
 N
-O
 P
 R
 S
 T
-U
 </level>
-<level value="4">
+<level value="7" speed="50" fallspeed="4000">
 A
 B
 C
@@ -97,7 +112,7 @@ U
 9
 0
 </level>
-<level value="5">
+<level value="8" speed="50" fallspeed="4000">
 a
 b
 c
@@ -133,7 +148,14 @@ S
 T
 U
 </level>
-<level value="6">
+<level value="9" sublevels="5" speed="80" fallspeed="6000">
+à
+è
+ì
+ò
+ù
+</level>
+<level value="10" sublevels="12" speed="70" fallspeed="5800">
 bh
 ch
 dh
@@ -152,7 +174,7 @@ rr
 ò
 ù
 </level>
-<level value="7">
+<level value="11" speed="50" fallspeed="5600">
 BH
 CH
 DH
@@ -171,76 +193,7 @@ RR
 Ò
 Ù
 </level>
-<level value="8">
-bh
-ch
-dh
-fh
-gh
-mh
-ph
-sh
-th
-ll
-nn
-rr
-à
-è
-ì
-ò
-ù
-BH
-CH
-DH
-FH
-GH
-MH
-PH
-SH
-TH
-LL
-NN
-RR
-À
-È
-Ì
-Ò
-Ù
-</level>
-a
-b
-c
-d
-e
-f
-g
-i
-l
-m
-n
-o
-p
-r
-s
-t
-u
-A
-B
-C
-D
-E
-F
-G
-I
-L
-M
-N
-O
-P
-R
-S
-T
-U
+<level value="12" speed="50" fallspeed="4000">
 bh
 ch
 dh
@@ -275,6 +228,76 @@ RR
 Ì
 Ò
 Ù
+</level>
+<level value="13" speed="50" fallspeed="3000">
+a
+b
+c
+d
+e
+f
+g
+i
+l
+m
+n
+o
+p
+r
+s
+t
+u
+A
+B
+C
+D
+E
+F
+G
+I
+L
+M
+N
+O
+P
+R
+S
+T
+U
+bh
+ch
+dh
+fh
+gh
+mh
+ph
+sh
+th
+ll
+nn
+rr
+à
+è
+ì
+ò
+ù
+BH
+CH
+DH
+FH
+GH
+MH
+PH
+SH
+TH
+LL
+NN
+RR
+À
+È
+Ì
+Ò
+Ù
 1
 2
 3
@@ -285,5 +308,6 @@ RR
 8
 9
 0
+</level>
 </Wordlist>
 </GCompris>

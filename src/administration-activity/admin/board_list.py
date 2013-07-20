@@ -24,6 +24,7 @@ import gcompris.admin
 import gtk
 import gtk.gdk
 import gobject
+import gettext
 from gcompris import gcompris_gettext as _
 
 # Board Management
@@ -452,7 +453,7 @@ class Board_list:
     box_bottom.pack_start(button_apply, False, False, 0)
 
     label = gtk.Label()
-    label.set_markup(_("<span size='x-large'> Select the difficulty range \nfor profile <b>%s</b></span>") % self.active_profile.name)
+    label.set_markup("<span size='x-large'>" + _("Select the difficulty range \nfor profile <b>%s</b>") % self.active_profile.name + "</span>")
     label.show()
     label.set_line_wrap(True)
     label.set_justify(gtk.JUSTIFY_CENTER)

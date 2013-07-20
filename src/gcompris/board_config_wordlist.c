@@ -164,7 +164,7 @@ static void _button_clicked(GtkWidget *w, gpointer data)
 	gtk_text_buffer_get_start_iter(buffer, &start_iter);
 	gtk_text_buffer_get_end_iter(buffer, &end_iter);
 	text = gtk_text_buffer_get_slice(buffer, &start_iter, &end_iter, TRUE);
-	gc_wordlist_set_wordlist(u->wordlist, level, text);
+	gc_wordlist_set_wordlist(u->wordlist, level, -1,-1,-1, text);
 	g_free(text);
 	gc_wordlist_save(u->wordlist);
 	_combo_lang_changed(u->combo_lang, u);
@@ -233,7 +233,7 @@ GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *file
 	/* Combo_box lang */
 	combo_lang = _create_lang_combo(files);
 	hbox = gtk_hbox_new(FALSE, 8);
-	label = gtk_label_new(_("Choice of the language"));
+	label = gtk_label_new(_("Choose a language"));
 	gtk_widget_show(label);
 	gtk_widget_show(hbox);
 	gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 8);

@@ -185,7 +185,7 @@ class Gcompris_braille_alphabets:
                                  x = 490,
                                  y = 280,
                                  fill_color = "black",
-                                 font = gcompris.skin.get_font("gcompris/subtitle"),
+                                 font = gcompris.skin.get_font("gcompris/medium"),
                                  width = 395,
                                  anchor = gtk.ANCHOR_CENTER,
                                  text = text)
@@ -206,7 +206,7 @@ class Gcompris_braille_alphabets:
                         x = 445,
                         y = 475,
                         fill_color ="black",
-                        font = "Sans 10",
+                        font = gcompris.skin.get_font("gcompris/board/tiny"),
                         anchor= gtk.ANCHOR_CENTER,
                         width = 355,
                         text = _("When you are ready, click on "
@@ -277,7 +277,7 @@ class Gcompris_braille_alphabets:
                                  x=690,
                                  y=330,
                                  fill_color="black",
-                                 font="Sans 78",
+                                 font=gcompris.skin.get_font("gcompris/board/gigantic"),
                                  anchor=gtk.ANCHOR_CENTER,
                                  text=str(letter))
 
@@ -319,7 +319,7 @@ class Gcompris_braille_alphabets:
                      y = 200,
                      text = message,
                      fill_color = "black",
-                     font = 'SANS 14',
+                     font = gcompris.skin.get_font("gcompris/board/medium"),
                      width = 780,
                      anchor = gtk.ANCHOR_CENTER,
                      alignment = pango.ALIGN_CENTER)
@@ -328,7 +328,7 @@ class Gcompris_braille_alphabets:
                       x=160.0, y=250.0,
                      text=_("Braille Cell"),
                      fill_color="black",
-                     font='Sans BOLD')
+                     font=gcompris.skin.get_font("gcompris/board/medium bold"))
 
       BrailleChar(self.rootitem, 150, 270, 120, '',
                   COLOR_ON ,COLOR_OFF, CIRCLE_FILL, CIRCLE_STROKE,
@@ -339,7 +339,7 @@ class Gcompris_braille_alphabets:
           for j in range(3):
                   goocanvas.Text(parent = self.rootitem,
                                  text = ( str(j + 1 + i * 3) ),
-                                 font = 'Sans 20',
+                                 font = gcompris.skin.get_font("gcompris/board/big"),
                                  fill_color = "black",
                                  x = i * 120 + 140,
                                  y = j * 45 + 290)

@@ -24,6 +24,7 @@ import gcompris.admin
 import gtk
 import gtk.gdk
 import gobject
+import gettext
 from gcompris import gcompris_gettext as _
 
 import glob
@@ -40,11 +41,15 @@ class Words_list:
     self.active_profile = profile
 
     files = glob.glob('wordlist_*.xml')
-
+    
     self.main_vbox = gcompris.configuration_window ( \
-      _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format(config='Wordlist',
-                                                                               profile=self.active_profile.name),
-      self.wordlist_callback
+      _( \
+        '<b>{activity}</b> configuration\n for profile <b>{profile}</b>'.format( \
+                        activity=_('Wordlist'),
+                        # This is the name of the Default user profile
+                        profile=profile.name if profile else _("Default")),
+        ),
+        self.wordlist_callback
       )
 
     self.prop = gcompris.get_properties()

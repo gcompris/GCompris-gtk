@@ -1,0 +1,11 @@
+HOWTO make fontsets.
+
+Add a directory here to define your fontset.
+The name of the fontset you wish to use then needs to be defined
+in the po/mo-file for your languages.
+
+fonts.xml: used to specify the fonts.
+
+If you wish to create a fontset that's distributed with GCompris,
+you have to add a file specifying authorship if applicable and its licence.
+The licence for the font must be compatible with the GPL.

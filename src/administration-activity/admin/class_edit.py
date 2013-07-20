@@ -19,6 +19,7 @@
 
 import gtk
 import gobject
+import gettext
 from gcompris import gcompris_gettext as _
 
 import user_list

@@ -30,7 +30,7 @@ import gobject
 import cairo
 
 import random
-
+import gettext
 from gcompris import gcompris_gettext as _
 
 class Gcompris_drawnumber :
