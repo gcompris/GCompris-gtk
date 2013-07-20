@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <GCompris>
 <Wordlist name="default-gd" description="Gàidhlig" locale="gd">
-<level value="1" sublevels="5">
+<level value="1" sublevels="5" speed="150" fallspeed="7000">
 a
 e
 i
 o
 u
 </level>
-<level value="2" sublevels="12">
+<level value="2" sublevels="12" speed="100" fallspeed="6800">
 b
 c
 d
@@ -22,8 +22,7 @@ r
 s
 t
 </level>
-<level value="3" sublevels="10">
-1
+<level value="3" sublevels="10" speed="90" fallspeed="6000">
 2
 3
 4
@@ -34,86 +33,7 @@ t
 9
 0
 </level>
-<level value="4">
-a
-b
-c
-d
-e
-f
-g
-i
-l
-m
-n
-o
-p
-r
-s
-t
-u
-1
-2
-3
-4
-5
-6
-7
-8
-9
-0
-</level>
-<level value="5" sublevels="5">
-A
-E
-I
-O
-U
-</level>
-<level value="6" sublevels="12">
-B
-C
-D
-F
-G
-L
-M
-N
-P
-R
-S
-T
-</level>
-<level value="7">
-A
-B
-C
-D
-E
-F
-G
-I
-L
-M
-N
-O
-P
-R
-S
-T
-U
-1
-2
-3
-4
-5
-6
-7
-8
-9
-0
-</level>
-<level value="8">
+<level value="4" speed="60" fallspeed="5000">
 a
 b
 c
@@ -131,6 +51,85 @@ r
 s
 t
 u
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+</level>
+<level value="5" sublevels="5" speed="60" fallspeed="4800">
+A
+E
+I
+O
+U
+</level>
+<level value="6" sublevels="12" speed="50" fallspeed="4400">
+B
+C
+D
+F
+G
+L
+M
+N
+P
+R
+S
+T
+</level>
+<level value="7" speed="50" fallspeed="4000">
+A
+B
+C
+D
+E
+F
+G
+I
+L
+M
+N
+O
+P
+R
+S
+T
+U
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+</level>
+<level value="8" speed="50" fallspeed="4000">
+a
+b
+c
+d
+e
+f
+g
+i
+l
+m
+n
+o
+p
+r
+s
+t
+u
 A
 B
 C
@@ -149,14 +148,14 @@ S
 T
 U
 </level>
-<level value="9" sublevels="5">
+<level value="9" sublevels="5" speed="80" fallspeed="6000">
 à
 è
 ì
 ò
 ù
 </level>
-<level value="10" sublevels="12">
+<level value="10" sublevels="12" speed="70" fallspeed="5800">
 bh
 ch
 dh
@@ -175,7 +174,7 @@ rr
 ò
 ù
 </level>
-<level value="11">
+<level value="11" speed="50" fallspeed="5600">
 BH
 CH
 DH
@@ -194,7 +193,7 @@ RR
 Ò
 Ù
 </level>
-<level value="12">
+<level value="12" speed="50" fallspeed="4000">
 bh
 ch
 dh
@@ -230,7 +229,7 @@ RR
 Ò
 Ù
 </level>
-<level value="13">
+<level value="13" speed="50" fallspeed="3000">
 a
 b
 c
