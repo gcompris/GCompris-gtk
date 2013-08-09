@@ -135,6 +135,9 @@ gc_sound_fx_reopen()
 void
 gc_sound_bg_reopen()
 {
+  if (music_paused)
+    return;
+
   if (gc_prop_get()->fx || gc_prop_get()->music) {
     if (sound_closed)
       {
