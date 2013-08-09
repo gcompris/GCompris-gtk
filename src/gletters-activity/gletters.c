@@ -92,7 +92,7 @@ static gint dummy_id = 0;
 static gint drop_items_id = 0;
 static gboolean uppercase_only;
 
-static gboolean with_sound = FALSE;
+static gboolean with_sound = TRUE;
 
 /* Hash table of all displayed letters, so each letter will be chosen at least once
  * before uplicate letters are used. */
@@ -236,10 +236,18 @@ static void start_board (GcomprisBoard *agcomprisBoard)
       
       gchar *control_sound = g_hash_table_lookup( config, "with_sound");
 
-      if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
-        with_sound = TRUE;
-      else
-        with_sound = FALSE;
+      if (control_sound)
+        {
+          if (strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
+            with_sound = TRUE;
+          else
+            with_sound = FALSE;
+        }
+
+      if(with_sound)
+        {
+          gc_sound_bg_pause();
+        }
 
       gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
       if (up_init_str && (strcmp(up_init_str, "True")==0))
@@ -293,6 +301,7 @@ end_board ()
 	gc_wordlist_free(gc_wordlist);
 	gc_wordlist = NULL;
       }
+      gc_sound_bg_resume();
     }
 
   gc_locale_set( NULL );
@@ -740,7 +749,7 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
   guint i;
   if(word)
   {
-	  /* Check if letter has already been used. Cap at 20 tries, because there
+          /* Check if letter has already been used. Cap at 20 tries, because there
        * might not be enough letters for all the sublevels */
       for (i=0;i<20 && word && g_hash_table_lookup(letters_table,word)!=NULL;++i)
       {
@@ -764,6 +773,10 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
       g_free(letter_unichar_name);
       g_free(str2);
     }
+        else
+        {
+                gc_sound_play_ogg ("sounds/drip.wav", NULL);
+        }
   }
   
   else
@@ -870,7 +883,6 @@ static void gletters_add_new_item()
  */
 static gint gletters_drop_items (gpointer data)
 {
-  gc_sound_play_ogg ("sounds/level.wav", NULL);
   gletters_add_new_item();
   g_source_remove(drop_items_id);
   drop_items_id = g_timeout_add (fallSpeed,(GSourceFunc) gletters_drop_items, NULL);
@@ -910,7 +922,6 @@ static void player_win(LettersItem *item)
     
       setSpeed(gcomprisBoard->level);
       gletters_next_level_unlocked();
-      //gc_sound_play_ogg ("sounds/bonus.wav", NULL);
     }
   else
     {
@@ -1041,10 +1052,13 @@ gletters_config_start(GcomprisBoard *agcomprisBoard,
   gc_board_conf_separator(bconf);
 
   gchar *control_sound = g_hash_table_lookup( config, "with_sound");
-  if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
-    with_sound = TRUE;
-  else
-    with_sound = FALSE;
+  if (control_sound)
+    {
+      if (strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
+        with_sound = TRUE;
+      else
+        with_sound = FALSE;
+    }
 
   gc_board_config_boolean_box(bconf, _("Enable sounds"), "with_sound", with_sound);
 
