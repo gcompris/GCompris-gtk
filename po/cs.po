@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-05-19 23:45+0000\n"
-"PO-Revision-Date: 2013-06-09 16:23+0200\n"
+"POT-Creation-Date: 2013-08-10 07:28+0000\n"
+"PO-Revision-Date: 2013-08-10 18:13+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -631,7 +631,7 @@ msgstr "Všichni uživatelé"
 #: ../src/administration-activity/admin/log_list.py:108
 #: ../src/administration-activity/admin/log_list.py:298
 #: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/lang-activity/lang.py:153 ../src/login-activity/login.py:481
+#: ../src/lang-activity/lang.py:154 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:802
 msgid "Default"
 msgstr "Výchozí"
@@ -841,293 +841,285 @@ msgstr "Nauč se rozpoznávat neobvyklé barvy."
 msgid "Click on the correct colored butterfly."
 msgstr "Klikni na správně barveného motýla."
 
-#. Translator: Do not translate {text}.
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:1
+msgid "Find the coral butterfly"
+msgstr "Najdi motýla, který má korálovou barvu"
+
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
-msgid "Find the {text} butterfly"
-msgstr "Najdi motýla, jehož barva je {text}"
+msgid "Find the claret butterfly"
+msgstr "Najdi motýla, který má bordó barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
-msgid "coral"
-msgstr "korálová"
+msgid "Find the navy butterfly"
+msgstr "Najdi motýla, který má barvu námořnické modři"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
-msgid "claret"
-msgstr "vínová"
+msgid "Find the corn butterfly"
+msgstr "Najdi motýla, který má kukuřicovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
-msgid "sienna"
-msgstr "hněď"
+msgid "Find the cobalt butterfly"
+msgstr "Najdi motýla, který má kobaltovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
-msgid "corn"
-msgstr "kukuřicová"
+msgid "Find the cyan butterfly"
+msgstr "Najdi motýla, který má azurovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
-msgid "cobalt"
-msgstr "kobaltová"
+msgid "Find the chestnut butterfly"
+msgstr "Najdi motýla, který má kaštanovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
-#: ../src/color_mix-activity/color_mix.py:255
-msgid "cyan"
-msgstr "modrozelená"
+msgid "Find the almond butterfly"
+msgstr "Najdi motýla, který má mandlovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
-msgid "chestnut"
-msgstr "kaštanová"
+msgid "Find the sapphire butterfly"
+msgstr "Najdi motýla, který má safírovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
-msgid "almond"
-msgstr "mandlová"
+msgid "Find the ruby butterfly"
+msgstr "Najdi motýla, který má rubínovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
-msgid "ruby"
-msgstr "rubínová"
+msgid "Find the sienna butterfly"
+msgstr "Najdi motýla, který má barvu sieny pálené"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
-msgid "sapphire"
-msgstr "safírová"
+msgid "Find the sage butterfly"
+msgstr "Najdi motýla, který má šalvějovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
-msgid "sage"
-msgstr "šedozelená"
+msgid "Find the salmon butterfly"
+msgstr "Najdi motýla, který má lososovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
-msgid "salmon"
-msgstr "lososová"
+msgid "Find the sepia butterfly"
+msgstr "Najdi motýla, který má sépiovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
-msgid "sepia"
-msgstr "sépiová"
+msgid "Find the sulfur butterfly"
+msgstr "Najdi motýla, který má sírovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
-msgid "sulfur"
-msgstr "sírově žlutá"
+msgid "Find the tea butterfly"
+msgstr "Najdi motýla, který má čajovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
-msgid "tea"
-msgstr "čajová"
+msgid "Find the lime butterfly"
+msgstr "Najdi motýla, který má limetkovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
-msgid "lime"
-msgstr "limetková"
+msgid "Find the turquoise butterfly"
+msgstr "Najdi motýla, který má tyrkysovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
-msgid "turquoise"
-msgstr "tyrkysová"
+msgid "Find the absinthe butterfly"
+msgstr "Najdi motýla, který má pelyňkovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
-msgid "absinthe"
-msgstr "pelyňková"
+msgid "Find the mahogany butterfly"
+msgstr "Najdi motýla, který má mahagonovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
-msgid "mahogany"
-msgstr "mahagonová"
+msgid "Find the aquamarine butterfly"
+msgstr "Najdi motýla, který má akvamarínovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
-msgid "aquamarine"
-msgstr "akvamarínová"
+msgid "Find the alabaster butterfly"
+msgstr "Najdi motýla, který má alabastrovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
-msgid "alabaster"
-msgstr "alabastrová"
+msgid "Find the amber butterfly"
+msgstr "Najdi motýla, který má jantarovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
-msgid "amber"
-msgstr "jantarová"
+msgid "Find the amethyst butterfly"
+msgstr "Najdi motýla, který má ametystovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
-msgid "amethyst"
-msgstr "ametystová"
+msgid "Find the anise butterfly"
+msgstr "Najdi motýla, který má anýzovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
-msgid "anise"
-msgstr "anýzová"
+msgid "Find the vermilion butterfly"
+msgstr "Najdi motýla, který má rumělková barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
-msgid "vermilion"
-msgstr "rumělková"
+msgid "Find the ceruse butterfly"
+msgstr "Najdi motýla, který má křídovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
-msgid "ceruse"
-msgstr "běloba"
+msgid "Find the fawn butterfly"
+msgstr "Najdi motýla, který má plavou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
-msgid "fawn"
-msgstr "světle žlutohnědá"
+msgid "Find the chartreuse butterfly"
+msgstr "Najdi motýla, který má chartreuskovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
-msgid "chartreuse"
-msgstr "světle zelená"
+msgid "Find the emerald butterfly"
+msgstr "Najdi motýla, který má smaragdovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
-msgid "emerald"
-msgstr "smaragdová"
+msgid "Find the aubergine butterfly"
+msgstr "Najdi motýla, který má lilkovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
-msgid "aubergine"
-msgstr "lilková"
+msgid "Find the fuchsia butterfly"
+msgstr "Najdi motýla, který má fuchsiovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
-msgid "fuchsia"
-msgstr "fuchsiová"
+msgid "Find the glaucous butterfly"
+msgstr "Najdi motýla, který má ocelově modrou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
-msgid "glaucous"
-msgstr "šedozelená"
+msgid "Find the auburn butterfly"
+msgstr "Najdi motýla, který má ohnivě hnědou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
-msgid "auburn"
-msgstr "kaštanová"
+msgid "Find the azure butterfly"
+msgstr "Najdi motýla, který má modrozelenou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
-msgid "azure"
-msgstr "azurová"
+msgid "Find the grayish brown butterfly"
+msgstr "Najdi motýla, který má šedohnědou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
-msgid "grayish brown"
-msgstr "šedavě hnědá"
+msgid "Find the bistre butterfly"
+msgstr "Najdi motýla, jehož barva je bistr"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
-msgid "bistre"
-msgstr "šedohnědá"
+msgid "Find the crimson butterfly"
+msgstr "Najdi motýla, který má karmínovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
-msgid "crimson"
-msgstr "karmínová"
+msgid "Find the celadon butterfly"
+msgstr "Najdi motýla, který má šedozelenou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
-msgid "celadon"
-msgstr "šedavě zelená"
+msgid "Find the cerulean butterfly"
+msgstr "Najdi motýla, který má blankytnou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
-msgid "cerulean"
-msgstr "blankytná"
+msgid "Find the dove butterfly"
+msgstr "Najdi motýla, který má popelavou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
-msgid "dove"
-msgstr "popelavá"
+msgid "Find the garnet butterfly"
+msgstr "Najdi motýla, který má granátovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
-msgid "garnet"
-msgstr "granátová"
+msgid "Find the indigo butterfly"
+msgstr "Najdi motýla, který má indigovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
-msgid "indigo"
-msgstr "indigová"
+msgid "Find the ivory butterfly"
+msgstr "Najdi motýla, který má barvu slonové kosti"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
-msgid "ivory"
-msgstr "slonovinová"
+msgid "Find the jade butterfly"
+msgstr "Najdi motýla, který má jadeitovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:46
-msgid "jade"
-msgstr "modrozelená"
+msgid "Find the lavender butterfly"
+msgstr "Najdi motýla, který má levandulovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
-msgid "lavender"
-msgstr "levandulová"
+msgid "Find the lichen butterfly"
+msgstr "Najdi motýla, který má lišejníkovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
-msgid "lichen"
-msgstr "lišejníková"
+msgid "Find the wine butterfly"
+msgstr "Najdi motýla, který má vínovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
-msgid "wine"
-msgstr "vínová"
+msgid "Find the lilac butterfly"
+msgstr "Najdi motýla, který má lila barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
-msgid "lilac"
-msgstr "lila"
+msgid "Find the magenta butterfly"
+msgstr "Najdi motýla, který má purpurovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
-#: ../src/color_mix-activity/color_mix.py:256
-msgid "magenta"
-msgstr "purpurová"
+msgid "Find the malachite butterfly"
+msgstr "Najdi motýla, který má malachitovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
-msgid "malachite"
-msgstr "malachitová"
+msgid "Find the larch butterfly"
+msgstr "Najdi motýla, který má modřínovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
-msgid "navy"
-msgstr "námořnická modř"
+msgid "Find the mimosa butterfly"
+msgstr "Najdi motýla, který má mimózovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
-msgid "larch"
-msgstr "modřínová"
+msgid "Find the ochre butterfly"
+msgstr "Najdi motýla, který má okrovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
-msgid "mimosa"
-msgstr "mimózová"
+msgid "Find the olive butterfly"
+msgstr "Najdi motýla, který má olivovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:56
-msgid "ochre"
-msgstr "okrová"
+msgid "Find the opaline butterfly"
+msgstr "Najdi motýla, který má opálovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
-msgid "olive"
-msgstr "olivová"
+msgid "Find the ultramarine butterfly"
+msgstr "Najdi motýla, který má šmolkově modrou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
-msgid "opaline"
-msgstr "opálová"
+msgid "Find the mauve butterfly"
+msgstr "Najdi motýla, který má slézovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:59
-msgid "ultramarine"
-msgstr "šmolkově modrá"
+msgid "Find the grayish blue butterfly"
+msgstr "Najdi motýla, který má šedomodrou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
-msgid "mauve"
-msgstr "světle fialová"
+msgid "Find the pistachio butterfly"
+msgstr "Najdi motýla, který má pistáciovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
-msgid "grayish blue"
-msgstr "šedomodrá"
+msgid "Find the platinum butterfly"
+msgstr "Najdi motýla, který má platinovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
-msgid "pistachio"
-msgstr "pistáciová"
+msgid "Find the purple butterfly"
+msgstr "Najdi motýla, který má nachovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
-msgid "platinum"
-msgstr "platinová"
+msgid "Find the plum butterfly"
+msgstr "Najdi motýla, který má švestkovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
-msgid "purple"
-msgstr "nachová"
+msgid "Find the prussian blue butterfly"
+msgstr "Najdi motýla, který má barvu berlínské modři"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
-msgid "plum"
-msgstr "švestková"
+msgid "Find the rust butterfly"
+msgstr "Najdi motýla, který má rezavou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
-msgid "prussian blue"
-msgstr "berlínská modř"
+msgid "Find the saffron butterfly"
+msgstr "Najdi motýla, který má šafránovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
-msgid "rust"
-msgstr "rezavá"
+msgid "Find the vanilla butterfly"
+msgstr "Najdi motýla, který má vanilkovou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
-msgid "saffron"
-msgstr "šafránová"
+msgid "Find the veronese butterfly"
+msgstr "Najdi motýla, který má veronesovu zelenou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
-msgid "vanilla"
-msgstr "vanilková"
+msgid "Find the verdigris butterfly"
+msgstr "Najdi motýla, který má měděnou barvu"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
-msgid "veronese"
-msgstr "šeděmodrá"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:71
-msgid "verdigris"
-msgstr "měděná"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:72
-msgid "dark purple"
-msgstr "tmavě nachová"
+msgid "Find the dark purple butterfly"
+msgstr "Najdi motýla, který má tmavě nachovou barvu"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid "Practice the multiplication operation"
@@ -2483,22 +2475,26 @@ msgid "Match the color "
 msgstr "Slaďte s barvou"
 
 #: ../src/color_mix-activity/color_mix.py:251
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
 msgid "red"
 msgstr "červená"
 
 #: ../src/color_mix-activity/color_mix.py:252
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
 msgid "green"
 msgstr "zelená"
 
 #: ../src/color_mix-activity/color_mix.py:253
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
 msgid "blue"
 msgstr "modrá"
 
+#: ../src/color_mix-activity/color_mix.py:255
+msgid "cyan"
+msgstr "modrozelená"
+
+#: ../src/color_mix-activity/color_mix.py:256
+msgid "magenta"
+msgstr "purpurová"
+
 #: ../src/color_mix-activity/color_mix.py:257
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
 msgid "yellow"
 msgstr "žlutá"
 
@@ -2621,30 +2617,45 @@ msgstr ""
 msgid "Listen to the color and click on the matching duck."
 msgstr "Poslechni si jméno barvy a klikni na odpovídající kachničku."
 
-#. Translator: Do not translate {text}.
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:1
+msgid "Find the yellow duck"
+msgstr "Najdi žlutou kačenku"
+
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
-msgid "Find the {text} duck"
-msgstr "Najdi kačenku, jejíž barva je {text}"
+msgid "Find the black duck"
+msgstr "Najdi černou kačenku"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+msgid "Find the green duck"
+msgstr "Najdi zelenou kačenku"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-msgid "black"
-msgstr "černá"
+msgid "Find the red duck"
+msgstr "Najdi červenou kačenku"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+msgid "Find the white duck"
+msgstr "Najdi bílou kačenku"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+msgid "Find the blue duck"
+msgstr "Najdi modrou kačenku"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-msgid "white"
-msgstr "bílá"
+msgid "Find the brown duck"
+msgstr "Najdi hnědou kačenku"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+msgid "Find the grey duck"
+msgstr "Najdi šedou kačenku"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
-msgid "brown"
-msgstr "hnědá"
+msgid "Find the orange duck"
+msgstr "Najdi oranžovou kačenku"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-msgid "grey"
-msgstr "šedá"
-
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
-msgid "orange"
-msgstr "oranžová"
+msgid "Find the purple duck"
+msgstr "Najdi fialovou kačenku"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 msgid "Connect 4 (2 Players)"
@@ -2899,7 +2910,7 @@ msgstr ""
 "prostřední tlačítko myši – odstraní objekt."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:410 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:410 ../src/findit-activity/findit.py:342
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:504
 msgid "Cannot find the file '{filename}'"
@@ -3106,7 +3117,7 @@ msgstr "Kliknutím přehraješ zvuk"
 msgid "Back to Homepage"
 msgstr "Zpět na hlavní stránku"
 
-#: ../src/explore-activity/explore.py:415 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:415 ../src/findit-activity/findit.py:347
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:509
 msgid ""
@@ -3776,25 +3787,25 @@ msgstr ""
 "Tento software je balíček GNU a je uvolněn za podmínek GNU General Public "
 "Licence"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:487
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:488
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
 msgstr "Budiž"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:701
 msgid "GCompris confirmation"
 msgstr "Potvrzení GCompris"
 
-#: ../src/gcompris/bar.c:696
+#: ../src/gcompris/bar.c:702
 msgid "Are you sure you want to quit?"
 msgstr "Opravdu chceš skončit?"
 
-#: ../src/gcompris/bar.c:697
+#: ../src/gcompris/bar.c:703
 msgid "Yes, I am sure!"
 msgstr "Ano, chci!"
 
-#: ../src/gcompris/bar.c:698
+#: ../src/gcompris/bar.c:704
 msgid "No, I want to keep going"
 msgstr "Ne, zůstanu"
 
@@ -3956,7 +3967,7 @@ msgstr "Němčina"
 msgid "Greek"
 msgstr "Řečtina"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:83 ../src/gcompris/config.c:112
 msgid "Scottish Gaelic"
 msgstr "Skotská gaelština"
 
@@ -4073,126 +4084,126 @@ msgstr "Rumunština"
 msgid "Russian"
 msgstr "Ruština"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Serbian (Latin)"
 msgstr "Srbština (latinka)"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Serbian"
 msgstr "Srbština"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Slovak"
 msgstr "Slovenština"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Slovenian"
 msgstr "Slovinština"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Somali"
 msgstr "Somálština"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Spanish"
 msgstr "Španělština"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Swedish"
 msgstr "Švédština"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Tamil"
 msgstr "Tamilština"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Thai"
 msgstr "Thajština"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Turkish (Azerbaijan)"
 msgstr "Turečtina (Ázerbájdžán)"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Turkish"
 msgstr "Turečtina"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Ukrainian"
 msgstr "Ukrajinština"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Urdu"
 msgstr "Urdština"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Vietnamese"
 msgstr "Vitnamština"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Walloon"
 msgstr "Valonština"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:128
 msgid "Zulu"
 msgstr "Zulu"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Timer: No time limit"
 msgstr "Stopky: Žádný časový limit"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:134
 msgid "Timer: Slow timer"
 msgstr "Stopky: Pomalé stopky"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:135
 msgid "Timer: Normal timer"
 msgstr "Stopky: Normální stopky"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid "Timer: Fast timer"
 msgstr "Stopky: Rychlé stopky"
 
-#: ../src/gcompris/config.c:139
+#: ../src/gcompris/config.c:140
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Použij modul správy Gcompris pro filtrování hracích desek"
 
-#: ../src/gcompris/config.c:193
+#: ../src/gcompris/config.c:194
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: ../src/gcompris/config.c:276
+#: ../src/gcompris/config.c:277
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: ../src/gcompris/config.c:301
+#: ../src/gcompris/config.c:302
 msgid "Remember level for default user"
 msgstr "Pamatovat si úroveň pro výchozího uživatele"
 
-#: ../src/gcompris/config.c:327
+#: ../src/gcompris/config.c:328
 msgid "Music"
 msgstr "Hudba"
 
-#: ../src/gcompris/config.c:352
+#: ../src/gcompris/config.c:353
 msgid "Effect"
 msgstr "Efekty"
 
-#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:377 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Přiblížení"
 
-#: ../src/gcompris/config.c:413
+#: ../src/gcompris/config.c:414
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nelze otevřít složku s maskami vzhledu: %s"
 
-#: ../src/gcompris/config.c:444 ../src/gcompris/config.c:924
-#: ../src/gcompris/config.c:938
+#: ../src/gcompris/config.c:445 ../src/gcompris/config.c:925
+#: ../src/gcompris/config.c:939
 #, c-format
 msgid "Skin : %s"
 msgstr "Vzhled: %s"
 
-#: ../src/gcompris/config.c:446
+#: ../src/gcompris/config.c:447
 msgid "SKINS NOT FOUND"
 msgstr "MASKY VZHLEDU NENALEZENY"
 
@@ -5520,7 +5531,7 @@ msgid "Central African Republic"
 msgstr "Středoafrická republika"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
 msgid "Chad"
 msgstr "Čad"
 
@@ -5618,7 +5629,7 @@ msgid "Rwanda"
 msgstr "Rwanda"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:27
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
 msgid "Senegal"
 msgstr "Senegal"
 
@@ -5627,22 +5638,22 @@ msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:29
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
 msgid "Somalia"
 msgstr "Somálsko"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:30
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
 msgid "Sudan"
 msgstr "Súdán"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:31
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Togo"
 msgstr "Togo"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:32
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
 msgid "Tunisia"
 msgstr "Tunisko"
 
@@ -5675,7 +5686,7 @@ msgid "Burundi"
 msgstr "Burundi"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
 msgid "Democratic Republic of Congo"
 msgstr "Demokratická republika Kongo"
 
@@ -5709,6 +5720,7 @@ msgid "Namibia"
 msgstr "Namibie"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
 msgid "Republic of Congo"
 msgstr "Republika Kongo"
 
@@ -5722,17 +5734,17 @@ msgid "Swaziland"
 msgstr "Svazijsko"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
 msgid "Tanzania"
 msgstr "Tanzanie"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
 msgid "Zambia"
 msgstr "Zambie"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:40
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
@@ -5755,7 +5767,7 @@ msgstr ""
 "seznam písmen potřebných k této hře.\n"
 
 #. Should display the dialog box here
-#: ../src/gletters-activity/gletters.c:755
+#: ../src/gletters-activity/gletters.c:785
 msgid "ERROR: Unable to get letter from wordlist"
 msgstr "CHYBA: Nelze získat písmeno ze seznamu slov"
 
@@ -5765,14 +5777,14 @@ msgstr "CHYBA: Nelze získat písmeno ze seznamu slov"
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:998
+#: ../src/gletters-activity/gletters.c:1031
 #: ../src/imageid-activity/imageid.c:716
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:918
 #: ../src/scalesboard-activity/scale.c:1258
 #: ../src/smallnumbers-activity/smallnumbers.c:598
 #: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:907
+#: ../src/wordsgame-activity/wordsgame.c:936
 #, c-format, python-format
 msgid ""
 "<b>%s</b> configuration\n"
@@ -5781,12 +5793,12 @@ msgstr ""
 "Nastavení <b>%s</b>\n"
 " pro profil <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:1027
+#: ../src/gletters-activity/gletters.c:1063
 #: ../src/smallnumbers-activity/smallnumbers.c:617
 msgid "Enable sounds"
 msgstr "Povolit zvuky"
 
-#: ../src/gletters-activity/gletters.c:1031
+#: ../src/gletters-activity/gletters.c:1067
 msgid ""
 "Show letters in UPPERCASE\n"
 "Type in lowercase or UPPERCASE as you wish"
@@ -6130,8 +6142,8 @@ msgstr "b/c/d/f/g/h/ch/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
 #. Letters on the left of the = can be multigraphs and represent the letters on the buttons.
 #. Letters on the right are single letters pressed on the keyboard.
 #. If you wish to allow different key presses for the same letter, separate the letters
-#. on the right with /
-#: ../src/hangman-activity/hangman.py:76
+#. on the right with the chararcter '/'. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:77
 msgid "a=a"
 msgstr ""
 "á=a/A Á=a/A č=c/C Č=c/C ď=d/D Ď=d/D é=e/E É=e/E ě=e/E Ě=e/E í=i/I Í=i/I ň=n/"
@@ -6722,118 +6734,113 @@ msgstr "Nauč se rozpoznávat hudební nástroje."
 msgid "Click on the correct instrument."
 msgstr "Klikni na správný nástroj."
 
-#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:1
+msgid "Find the clarinet"
+msgstr "Najdi klarinet"
+
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
-msgid "Find {text}"
-msgstr "Najdi {text}"
+msgid "Find the transverse flute"
+msgstr "Najdi příčnou flétnu"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
-msgid "the clarinet"
-msgstr "klarinet"
+msgid "Find the guitar"
+msgstr "Najdi kytaru"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-msgid "the transverse flute"
-msgstr "příčná flétna"
+msgid "Find the harp"
+msgstr "Najdi harfu"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
-msgid "the guitar"
-msgstr "kytaru"
+msgid "Find the piano"
+msgstr "Najdi klavír"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
-msgid "the harp"
-msgstr "harfu"
+msgid "Find the saxophone"
+msgstr "Najdi saxofon"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
-msgid "the piano"
-msgstr "klavír"
+msgid "Find the trombone"
+msgstr "Najdi pozoun"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
-msgid "the saxophone"
-msgstr "saxofon"
+msgid "Find the trumpet"
+msgstr "Najdi trubku"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
-msgid "the trombone"
-msgstr "pozoun"
+msgid "Find the violin"
+msgstr "Najdi housle"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-msgid "the trumpet"
-msgstr "trubku"
+msgid "Find the flute traversiere"
+msgstr "Najdi příčnou flétnu"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
-msgid "the violin"
-msgstr "housle"
+msgid "Find the drum kit"
+msgstr "Najdi bicí soupravu"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
-msgid "the flute traversiere"
-msgstr "příčná flétna"
+msgid "Find the accordion"
+msgstr "Najdi tahací harmoniku"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
-msgid "the drum kit"
-msgstr "bicí souprava"
+msgid "Find the banjo"
+msgstr "Najdi bendžo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
-msgid "the accordion"
-msgstr "tahací harmoniku"
+msgid "Find the bongo"
+msgstr "Najdi bonga"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
-msgid "the banjo"
-msgstr "bendžo"
+msgid "Find the electric guitar"
+msgstr "Najdi elektrickou kytaru"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
-msgid "the bongo"
-msgstr "bonga"
+msgid "Find the castanets"
+msgstr "Najdi kastaněty"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
-msgid "the electric guitar"
-msgstr "elektrickou kytaru"
+msgid "Find the cymbal"
+msgstr "Najdi činely"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
-msgid "the castanets"
-msgstr "kastaněty"
+msgid "Find the cello"
+msgstr "Najdi violončelo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
-msgid "the cymbal"
-msgstr "činely"
+msgid "Find the harmonica"
+msgstr "Najdi foukací harmoniku"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
-msgid "the cello"
-msgstr "violončelo"
+msgid "Find the horn"
+msgstr "Najdi lesní roh"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
-msgid "the harmonica"
-msgstr "foukací harmoniku"
+msgid "Find the maracas"
+msgstr "Najdi rumba koule"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
-msgid "the horn"
-msgstr "lesní roh"
+msgid "Find the organ"
+msgstr "Najdi varhany"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
-msgid "the maracas"
-msgstr "rumba koule"
+msgid "Find the snare drum"
+msgstr "Najdi vířivý buben"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-msgid "the organ"
-msgstr "varhany"
+msgid "Find the timpani"
+msgstr "Najdi tympány"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
-msgid "the snare drum"
-msgstr "vířivý buben"
+msgid "Find the triangle"
+msgstr "Najdi triangl"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
-msgid "the timpani"
-msgstr "tympány"
+msgid "Find the tambourine"
+msgstr "Najdi tamburinu"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
-msgid "the triangle"
-msgstr "triangl"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
-msgid "the tambourine"
-msgstr "tamburinu"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:29
-msgid "the tuba"
-msgstr "tubu"
+msgid "Find the tuba"
+msgstr "Najdi tubu"
 
 #: ../src/intro_gravity-activity/intro_gravity.py:100
 msgid ""
@@ -6972,15 +6979,15 @@ msgstr ""
 "Pokud je tvá rychlost bezpečná pro přistání, je přistávací plošina zelená.\n"
 "        "
 
-#: ../src/lang-activity/lang.py:98
+#: ../src/lang-activity/lang.py:99
 msgid "ERROR, we found no words in this language."
 msgstr "CHYBA, nebyla nalezena žádná slova v tomto jazyce."
 
-#: ../src/lang-activity/lang.py:99
+#: ../src/lang-activity/lang.py:100
 msgid "Please consider contributing a voice set."
 msgstr "Zvaž prosím, jestli bys nechtěl přispět do sady slov."
 
-#: ../src/lang-activity/lang.py:152
+#: ../src/lang-activity/lang.py:153
 #, python-format
 msgid ""
 "Configuration\n"
@@ -6989,11 +6996,11 @@ msgstr ""
 "Nastavení\n"
 " pro profil <b>%s</b>"
 
-#: ../src/lang-activity/lang.py:157
+#: ../src/lang-activity/lang.py:158
 msgid "Select locale"
 msgstr "Vyber si národní nastavení"
 
-#: ../src/lang-activity/langEnterText.py:136
+#: ../src/lang-activity/langEnterText.py:147
 msgid "Enter the text you hear:"
 msgstr "Napišt text, který slyšíš:"
 
@@ -7259,7 +7266,7 @@ msgstr ""
 #: ../src/login-activity/login.py:486
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:942
-#: ../src/wordsgame-activity/wordsgame.c:930
+#: ../src/wordsgame-activity/wordsgame.c:959
 msgid "Uppercase only text"
 msgstr "Text pouze velkými písmeny"
 
@@ -9656,7 +9663,7 @@ msgstr ""
 "ve spodní části."
 
 #: ../src/readingh-activity/reading.c:240
-#: ../src/wordsgame-activity/wordsgame.c:222
+#: ../src/wordsgame-activity/wordsgame.c:227
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -10503,12 +10510,12 @@ msgstr ""
 "tlačítky s vícenásobnými volbami si vyberete z předdefinovaného dokumentu a "
 "barevného motivu."
 
-#: ../src/wordsgame-activity/wordsgame.c:115
+#: ../src/wordsgame-activity/wordsgame.c:120
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "Padající slova"
 
-#: ../src/wordsgame-activity/wordsgame.c:116
+#: ../src/wordsgame-activity/wordsgame.c:121
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
 msgid "Type the falling words before they reach the ground"
 msgstr "Napiš padající slova, než se spadnou na zem"
