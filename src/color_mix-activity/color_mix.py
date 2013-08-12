@@ -248,13 +248,13 @@ class Colors:
     self.initial_color = initial_color
 
     if initial_color == 0:
-      self.color_1 = _('red')
-      self.color_2 = _('green')
-      self.color_3 = _('blue')
+      self.color_1 = [ _("Not enough red"), _("Too much red")]
+      self.color_2 = [ _("Not enough green"), _("Too much green")]
+      self.color_3 = [ _("Not enough blue"), _("Too much blue")]
     else:
-      self.color_1 = _('cyan')
-      self.color_2 = _('magenta')
-      self.color_3 = _('yellow')
+      self.color_1 = [ _("Not enough cyan"), _("Too much cyan")]
+      self.color_2 = [ _("Not enough magenta"), _("Too much magenta")]
+      self.color_3 = [ _("Not enough yellow"), _("Too much yellow")]
 
     self.color_rgb = [initial_color, initial_color, initial_color]
     self.color1 = self.color2 = self.color3 = self.initial_color
@@ -333,19 +333,19 @@ class Colors:
   def show_message(self, color1_diff, color2_diff, color3_diff):
     text = []
     if color1_diff > 27:
-      text.append( _("Too much {color}").format( color = self.color_1) )
+        text.append( self.color_1[1] )
     elif color1_diff < -27:
-      text.append(_("Not enough {color}").format( color = self.color_1) )
+      text.append( self.color_1[0] )
 
     if color2_diff > 27:
-      text.append(_("Too much {color}").format( color = self.color_2) )
+      text.append( self.color_2[1] )
     elif color2_diff < -27:
-      text.append(_("Not enough {color}").format( color = self.color_2) )
+      text.append( self.color_2[0] )
 
     if color3_diff > 27:
-      text.append(_("Too much {color}").format( color = self.color_3) )
+      text.append( self.color_3[1] )
     elif color3_diff < -27:
-      text.append(_("Not enough {color}").format( color = self.color_3) )
+      text.append( self.color_3[0] )
 
     if text:
       self.message( "\n".join(text), 375)
