@@ -25,6 +25,7 @@
 
 #include "gcompris/gcompris.h"
 #include "gcompris/pixbuf_util.h"
+#include "glib/gi18n.h"
 
 #define SOUNDLISTFILE PACKAGE
 
@@ -1167,7 +1168,7 @@ item_event(GooCanvasItem *item, GooCanvasItem *target,
     case GDK_ENTER_NOTIFY:
       if(shape->tooltip) {
 	g_object_set(tooltip_text_item,
-		     "text", gettext(shape->tooltip),
+		     "text", Q_(shape->tooltip),
 		     NULL);
 	g_object_set (tooltip_root_item, "visibility", GOO_CANVAS_ITEM_VISIBLE, NULL);
 
