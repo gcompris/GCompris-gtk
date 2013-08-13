@@ -257,7 +257,7 @@ class Gcompris_guessnumber:
   def entry_text(self):
     self.entry = gtk.Entry()
 
-    self.entry.modify_font(pango.FontDescription("sans bold 24"))
+    self.entry.modify_font(pango.FontDescription(gcompris.skin.get_font("gcompris/board/big bold")))
     text_color = gtk.gdk.color_parse("blue")
     text_color_selected = gtk.gdk.color_parse("green")
 

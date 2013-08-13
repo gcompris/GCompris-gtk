@@ -356,6 +356,7 @@ class Colors:
       x = 150,
       y = y,
       fill_color = "black",
+      font = gcompris.skin.get_font("gcompris/board/small"),
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER,
       text = msg)

@@ -80,6 +80,7 @@ class Gcompris_land_safe:
       x = 760,
       y = 50,
       fill_color = "white",
+      font = gcompris.skin.get_font("gcompris/board/small"),
       anchor = gtk.ANCHOR_E,
       alignment = pango.ALIGN_CENTER,
       text = _(text))
@@ -177,6 +178,7 @@ class Gcompris_land_safe:
       x = 384,
       y = 203,
       fill_color = "white",
+      font = gcompris.skin.get_font("gcompris/board/small"),
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER,
       text = intro )
@@ -466,6 +468,7 @@ class Display:
       parent = rootitem,
       x = 20,
       y = 20,
+      font = gcompris.skin.get_font("gcompris/board/small"),
       fill_color = "white",
       text = _("Height: "))
 
@@ -474,6 +477,7 @@ class Display:
       parent = rootitem,
       x = 100,
       y = 20,
+      font = gcompris.skin.get_font("gcompris/board/small"),
       fill_color = "white",
       text = '')
 
@@ -482,6 +486,7 @@ class Display:
       parent = rootitem,
       x = 20,
       y = 40,
+      font = gcompris.skin.get_font("gcompris/board/small"),
       fill_color = "white",
       text = _('Fuel'))
 
@@ -515,6 +520,7 @@ class Display:
       parent = rootitem,
       x = 20,
       y = 60,
+      font = gcompris.skin.get_font("gcompris/board/small"),
       fill_color = "white",
       text = _('Velocity: '))
 
@@ -523,6 +529,7 @@ class Display:
       parent = rootitem,
       x = 100,
       y = 60,
+      font = gcompris.skin.get_font("gcompris/board/small"),
       fill_color = 'white',
       text = '')
 
