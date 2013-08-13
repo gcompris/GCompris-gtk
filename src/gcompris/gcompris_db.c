@@ -2223,6 +2223,11 @@ int get_last_played_level(int user_id, int board_id)
 			 &ncolumn,
 			 &zErrMsg
 			 );
+  if( rc!=SQLITE_OK )
+    {
+      g_message("SQL error: %s\n", zErrMsg);
+      return -1;
+    }
 
   if(nrow == 0)
   {
