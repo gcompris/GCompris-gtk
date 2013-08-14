@@ -2,6 +2,7 @@ imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/wordsgame
 img_DATA = \
 	default-ar.xml \
 	default-bg.xml \
+	default-cs.xml \
 	default-da.xml \
 	default-de.xml \
 	default-el.xml \
