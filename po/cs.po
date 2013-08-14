@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-10 07:28+0000\n"
-"PO-Revision-Date: 2013-08-10 18:13+0200\n"
+"POT-Creation-Date: 2013-08-13 20:28+0000\n"
+"PO-Revision-Date: 2013-08-14 16:33+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -436,7 +436,7 @@ msgstr ""
 " pro profil <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:663
-#: ../src/pythontest-activity/pythontest.py:511
+#: ../src/pythontest-activity/pythontest.py:513
 #: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
 msgstr "Vyber si nastavení zvuků"
@@ -547,7 +547,7 @@ msgstr "Skupina"
 
 #: ../src/administration-activity/admin/group_list.py:221
 #: ../src/administration-activity/admin/profile_group_list.py:160
-#: ../src/administration-activity/admin/profile_list.py:194
+#: ../src/administration-activity/admin/profile_list.py:195
 #: ../src/administration-activity/admin/profile_widget.py:200
 msgid "Description"
 msgstr "Popis"
@@ -628,46 +628,50 @@ msgstr "Vyberte uživatele:"
 msgid "All users"
 msgstr "Všichni uživatelé"
 
-#: ../src/administration-activity/admin/log_list.py:108
-#: ../src/administration-activity/admin/log_list.py:298
-#: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/lang-activity/lang.py:154 ../src/login-activity/login.py:481
+#. This is the name of the Default user profile
+#: ../src/administration-activity/admin/log_list.py:109
+#: ../src/administration-activity/admin/log_list.py:300
+#: ../src/administration-activity/admin/profile_list.py:118
+#: ../src/administration-activity/admin/wordlist.py:48
+#: ../src/lang-activity/lang.py:154 ../src/login-activity/login.py:483
 #: ../src/missing_letter-activity/missingletter.c:802
+#: ../src/pythontest-activity/pythontest.py:451
+#: ../src/tuxpaint-activity/tuxpaint.py:189
 msgid "Default"
 msgstr "Výchozí"
 
 #. Reset buttons
-#: ../src/administration-activity/admin/log_list.py:162
+#: ../src/administration-activity/admin/log_list.py:163
 msgid "Reset"
 msgstr "Vynulovat"
 
-#: ../src/administration-activity/admin/log_list.py:219
+#: ../src/administration-activity/admin/log_list.py:220
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/administration-activity/admin/log_list.py:229
+#: ../src/administration-activity/admin/log_list.py:230
 msgid "User"
 msgstr "Uživatel"
 
-#: ../src/administration-activity/admin/log_list.py:239
+#: ../src/administration-activity/admin/log_list.py:240
 msgid "Board"
 msgstr "Hrací deska"
 
-#: ../src/administration-activity/admin/log_list.py:249
+#: ../src/administration-activity/admin/log_list.py:250
 #: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Úroveň"
 
-#: ../src/administration-activity/admin/log_list.py:259
+#: ../src/administration-activity/admin/log_list.py:260
 msgid "Sublevel"
 msgstr "Podřízená úroveň"
 
-#: ../src/administration-activity/admin/log_list.py:269
+#: ../src/administration-activity/admin/log_list.py:270
 msgid "Duration"
 msgstr "Délka trvání"
 
-#: ../src/administration-activity/admin/log_list.py:279
+#: ../src/administration-activity/admin/log_list.py:280
 msgid "Status"
 msgstr "Stav"
 
@@ -737,11 +741,11 @@ msgstr "Přiřaď všechny skupiny příslušející tomuto profilu"
 msgid "You need to provide at least a name for your profile"
 msgstr "Je nutné zadat alespoň jméno vašeho profilu"
 
-#: ../src/administration-activity/admin/profile_list.py:184
+#: ../src/administration-activity/admin/profile_list.py:185
 msgid "Profile"
 msgstr "Profil"
 
-#: ../src/administration-activity/admin/profile_list.py:311
+#: ../src/administration-activity/admin/profile_list.py:312
 msgid "[Default]"
 msgstr "[Výchozí]"
 
@@ -813,7 +817,16 @@ msgstr ""
 "Jedno nebo více přihlašovacích jmen nejsou jedinečné !\n"
 "Je potřeba změnit následující: %s !"
 
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
 #: ../src/administration-activity/admin/wordlist.py:45
+#: ../src/login-activity/login.py:480
+#: ../src/pythontest-activity/pythontest.py:448
+#: ../src/tuxpaint-activity/tuxpaint.py:186
 msgid ""
 "<b>{config}</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -1151,8 +1164,10 @@ msgstr ""
 "Enter. Pokud to bude špatně, prostě to zkus znovu."
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:946
+#: ../src/memory-activity/memory.c:953
 msgid "+-×÷"
 msgstr "+-.:"
 
@@ -1545,7 +1560,7 @@ msgstr ""
 "objektu na hlavní desce. Musíš nalézt logické spojení mezi těmito objekty. "
 "Přetáhni objekty na správná červená místa v hlavní oblasti."
 
-#: ../src/babymatch-activity/shapegame.c:2041
+#: ../src/babymatch-activity/shapegame.c:2042
 #: ../src/click_on_letter-activity/click_on_letter.c:1315
 #: ../src/missing_letter-activity/missingletter.c:800
 #, c-format
@@ -1840,8 +1855,12 @@ msgid "Click me to get some hint"
 msgstr "Když na mě klikneš, poradím ti"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
-msgid "I don't have this number PLAYER {number}"
-msgstr "Já tohle číslo nemám HRÁČ {number}"
+msgid ""
+"I don't have this number\n"
+"PLAYER {number}"
+msgstr ""
+"Já tohle číslo nemám\n"
+"HRÁČ {number}"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:215
 msgid "Lotto Master"
@@ -2320,10 +2339,7 @@ msgstr ""
 "Ryby pocházejí z unixového nástroje xfishtank. Všechny obrázky vytvořil "
 "Guillaume Rousse."
 
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/click_on_letter-activity/click_on_letter.c:368
-#: ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "aábcčdďeéěfghiíjklmnňoópqrřsštťuúůvwxyýzž"
 
@@ -2336,7 +2352,7 @@ msgstr ""
 "byly čteny."
 
 #: ../src/click_on_letter-activity/click_on_letter.c:384
-#: ../src/memory-activity/memory.c:906
+#: ../src/memory-activity/memory.c:922
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2475,40 +2491,52 @@ msgid "Match the color "
 msgstr "Slaďte s barvou"
 
 #: ../src/color_mix-activity/color_mix.py:251
-msgid "red"
-msgstr "červená"
+msgid "Not enough red"
+msgstr "Málo červené"
+
+#: ../src/color_mix-activity/color_mix.py:251
+msgid "Too much red"
+msgstr "Příliš červené"
 
 #: ../src/color_mix-activity/color_mix.py:252
-msgid "green"
-msgstr "zelená"
+msgid "Not enough green"
+msgstr "Málo zelené"
+
+#: ../src/color_mix-activity/color_mix.py:252
+msgid "Too much green"
+msgstr "Příliš zelené"
 
 #: ../src/color_mix-activity/color_mix.py:253
-msgid "blue"
-msgstr "modrá"
+msgid "Not enough blue"
+msgstr "Málo modré"
+
+#: ../src/color_mix-activity/color_mix.py:253
+msgid "Too much blue"
+msgstr "Příliš modré"
 
 #: ../src/color_mix-activity/color_mix.py:255
-msgid "cyan"
-msgstr "modrozelená"
+msgid "Not enough cyan"
+msgstr "Málo azurové"
+
+#: ../src/color_mix-activity/color_mix.py:255
+msgid "Too much cyan"
+msgstr "Příliš azurové"
 
 #: ../src/color_mix-activity/color_mix.py:256
-msgid "magenta"
-msgstr "purpurová"
+msgid "Not enough magenta"
+msgstr "Málo purpurové"
+
+#: ../src/color_mix-activity/color_mix.py:256
+msgid "Too much magenta"
+msgstr "Příliš purpurové"
 
 #: ../src/color_mix-activity/color_mix.py:257
-msgid "yellow"
-msgstr "žlutá"
+msgid "Not enough yellow"
+msgstr "Málo žluté"
 
-#: ../src/color_mix-activity/color_mix.py:336
-#: ../src/color_mix-activity/color_mix.py:341
-#: ../src/color_mix-activity/color_mix.py:346
-msgid "Too much {color}"
-msgstr "Příliš barvy {color}"
-
-#: ../src/color_mix-activity/color_mix.py:338
-#: ../src/color_mix-activity/color_mix.py:343
-#: ../src/color_mix-activity/color_mix.py:348
-msgid "Not enough {color}"
-msgstr "Málo barvy {color}"
+#: ../src/color_mix-activity/color_mix.py:257
+msgid "Too much yellow"
+msgstr "Příliš žluté"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:1
 msgid "Mixing color of paint"
@@ -2910,9 +2938,9 @@ msgstr ""
 "prostřední tlačítko myši – odstraní objekt."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:410 ../src/findit-activity/findit.py:342
+#: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:342
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:504
+#: ../src/piano_composition-activity/piano_composition.py:505
 msgid "Cannot find the file '{filename}'"
 msgstr "Nelze nalézt soubor „{filename}“"
 
@@ -3095,7 +3123,7 @@ msgstr "Klikej myší na obdélníky, dokud všechny bloky nezmizí."
 
 #: ../src/explore-activity/explore.py:85
 #: ../src/note_names-activity/note_names.py:82
-#: ../src/piano_composition-activity/piano_composition.py:371
+#: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
 #: ../src/play_rhythm-activity/play_rhythm.py:83
 msgid ""
@@ -3117,9 +3145,9 @@ msgstr "Kliknutím přehraješ zvuk"
 msgid "Back to Homepage"
 msgstr "Zpět na hlavní stránku"
 
-#: ../src/explore-activity/explore.py:415 ../src/findit-activity/findit.py:347
+#: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:347
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:509
+#: ../src/piano_composition-activity/piano_composition.py:510
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3127,7 +3155,7 @@ msgstr ""
 "Selhalo zpracování dat „{filename}“ s chybou:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:505
+#: ../src/explore-activity/explore.py:507
 msgid "Explore Status:"
 msgstr "Stav objevování:"
 
@@ -4646,6 +4674,217 @@ msgstr ""
 msgid "Regions of France"
 msgstr "Regiony Francie"
 
+# FIMXE: s/state/states/?
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
+msgid "United States of America"
+msgstr "Spojené státy Americké"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:2
+msgid "Connecticut"
+msgstr "Connecticut"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:3
+msgid "Rhode Island"
+msgstr "Rhode Island"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:4
+msgid "Massachusetts"
+msgstr "Massachusetts"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:5
+msgid "Wyoming"
+msgstr "Wyoming"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:6
+msgid "Utah"
+msgstr "Utah"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:7
+msgid "Nevada"
+msgstr "Nevada"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:8
+msgid "California"
+msgstr "Kalifornie"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:9
+msgid "Wahington D.C."
+msgstr "Wahington D.C."
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:10
+msgid "Maine"
+msgstr "Maine"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:11
+msgid "New Hampshire"
+msgstr "New Hampshire"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:12
+msgid "Vermont"
+msgstr "Vermont"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:13
+msgid "New York"
+msgstr "New York"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:14
+msgid "Pennsylvania"
+msgstr "Pensylvánie"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:15
+msgid "Delaware"
+msgstr "Delaware"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:16
+msgid "New Jersey"
+msgstr "New Jersey"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:17
+msgid "Maryland"
+msgstr "Maryland"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:18
+msgid "Alabama"
+msgstr "Alabama"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:19
+msgid "Florida"
+msgstr "Florida"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:20
+msgid "USA|Georgia"
+msgstr "Georgia"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
+msgid "South Carolina"
+msgstr "Jižní Karolína"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
+msgid "North Carolina"
+msgstr "Severní Karolína"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
+msgid "Virginia"
+msgstr "Virginie"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:24
+msgid "West Virginia"
+msgstr "Západní Virginie"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:25
+msgid "Ohio"
+msgstr "Ohio"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:26
+msgid "Michigan"
+msgstr "Michigan"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:27
+msgid "Wisconsin"
+msgstr "Wisconsin"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:28
+msgid "Illinois"
+msgstr "Illinois"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:29
+msgid "Indiana"
+msgstr "Indiana"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:30
+msgid "Kentucky"
+msgstr "Kentucky"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:31
+msgid "Tennessee"
+msgstr "Tennessee"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:32
+msgid "Mississippi"
+msgstr "Mississippi"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:33
+msgid "Louisiana"
+msgstr "Louisiana"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
+msgid "Arkansas"
+msgstr "Arkansas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:35
+msgid "Missouri"
+msgstr "Missouri"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:36
+msgid "Iowa"
+msgstr "Iowa"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:37
+msgid "Minnesota"
+msgstr "Minnesota"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:38
+msgid "Oklahoma"
+msgstr "Oklahoma"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:39
+msgid "Texas"
+msgstr "Texas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:40
+msgid "Hawai"
+msgstr "Havaj"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:41
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
+msgid "Alaska"
+msgstr "Aljaška"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:42
+msgid "Arizona"
+msgstr "Arizona"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:43
+msgid "New Mexico"
+msgstr "Nové Mexiko"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
+msgid "Colorado"
+msgstr "Colorado"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
+msgid "Kansas"
+msgstr "Kansas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:46
+msgid "Nebraska"
+msgstr "Nebraska"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:47
+msgid "South Dakota"
+msgstr "Jižní Dakota"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
+msgid "North Dakota"
+msgstr "Severní Dakota"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
+msgid "Montana"
+msgstr "Montana"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:50
+msgid "Idaho"
+msgstr "Idaho"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:51
+msgid "Oregon"
+msgstr "Oregon"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:52
+msgid "Washington"
+msgstr "Washington"
+
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
 msgid "India"
@@ -4984,7 +5223,7 @@ msgid "Turkey"
 msgstr "Turecko"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:25
-msgid "Georgia"
+msgid "Asia|Georgia"
 msgstr "Gruzie"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
@@ -5211,15 +5450,6 @@ msgstr "Grónsko"
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:8
 msgid "Iceland"
 msgstr "Island"
-
-# FIMXE: s/state/states/?
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
-msgid "United States of America"
-msgstr "Spojené státy Americké"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
-msgid "Alaska"
-msgstr "Aljaška"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
@@ -5771,21 +6001,13 @@ msgstr ""
 msgid "ERROR: Unable to get letter from wordlist"
 msgstr "CHYBA: Nelze získat písmeno ze seznamu slov"
 
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
 #: ../src/gletters-activity/gletters.c:1031
 #: ../src/imageid-activity/imageid.c:716
-#: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:918
-#: ../src/scalesboard-activity/scale.c:1258
+#: ../src/scalesboard-activity/scale.c:1259
 #: ../src/smallnumbers-activity/smallnumbers.c:598
-#: ../src/tuxpaint-activity/tuxpaint.py:185
 #: ../src/wordsgame-activity/wordsgame.c:936
-#, c-format, python-format
+#, c-format
 msgid ""
 "<b>%s</b> configuration\n"
 " for profile <b>%s</b>"
@@ -6908,7 +7130,7 @@ msgstr "Řiď se instrukcemi po spuštění aktivity."
 msgid "Gravity: %s"
 msgstr "Gravitace: %s"
 
-#: ../src/land_safe-activity/land_safe.py:165
+#: ../src/land_safe-activity/land_safe.py:166
 msgid ""
 "Use the up and down keys to control the thrust\n"
 "Use the right and left keys to control direction.\n"
@@ -6920,23 +7142,23 @@ msgstr ""
 "Musíš Tuxovu loď řídit směrem k přistávací plošině.\n"
 "Když máš bezpečnou rychlost pro přistání, plošina se zeleně rozsvítí."
 
-#: ../src/land_safe-activity/land_safe.py:170
+#: ../src/land_safe-activity/land_safe.py:171
 msgid "Click on me or press the Return key when you are ready."
 msgstr "Až budeš připravený, klikni na mě nebo zmáčkni klávesu Enter."
 
-#: ../src/land_safe-activity/land_safe.py:172
+#: ../src/land_safe-activity/land_safe.py:173
 msgid "I am ready!"
 msgstr "Jsem připraven!"
 
-#: ../src/land_safe-activity/land_safe.py:470
+#: ../src/land_safe-activity/land_safe.py:473
 msgid "Height: "
 msgstr "Výška: "
 
-#: ../src/land_safe-activity/land_safe.py:486
+#: ../src/land_safe-activity/land_safe.py:491
 msgid "Fuel"
 msgstr "Palivo: "
 
-#: ../src/land_safe-activity/land_safe.py:519
+#: ../src/land_safe-activity/land_safe.py:525
 msgid "Velocity: "
 msgstr "Rychlost: "
 
@@ -7237,8 +7459,8 @@ msgid ""
 "Lights Off game: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 msgstr ""
 "Postup řešení je popsaný na Wikipedii. Pokud se chcete dozvědět více o hře "
-"„Vypínání světel“, navštivte &lt;http://en.wikipedia.org/wiki/Lights_Out_"
-"(game)&gt;"
+"„Vypínání světel“, navštivte &lt;http://en.wikipedia.org/wiki/"
+"Lights_Out_(game)&gt;"
 
 #: ../src/login-activity/login.py:102
 msgid "Profile: "
@@ -7248,22 +7470,8 @@ msgstr "Profil: "
 msgid "Login: "
 msgstr "Přihlášení: "
 
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/login-activity/login.py:480
-msgid ""
-"<b>{0}</b> configuration\n"
-" for profile <b>{1}</b>"
-msgstr ""
-"Nastavení <b>{0}</b>\n"
-" pro profil <b>{1}</b>"
-
 #. toggle box
-#: ../src/login-activity/login.py:486
+#: ../src/login-activity/login.py:488
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:942
 #: ../src/wordsgame-activity/wordsgame.c:959
@@ -7271,7 +7479,7 @@ msgid "Uppercase only text"
 msgstr "Text pouze velkými písmeny"
 
 #. toggle box
-#: ../src/login-activity/login.py:496
+#: ../src/login-activity/login.py:498
 msgid "Enter login to log in"
 msgstr "Pro přihlášení zadej své přihlašovací jméno"
 
@@ -7707,63 +7915,65 @@ msgstr ""
 "Poslouchej přehrávanou posloupnost zvuků a zopakuj ji klikáním na prvky. "
 "Můžeš si ji znovu poslechnout kliknutím na tlačítko opakování."
 
-#: ../src/memory-activity/memory.c:280
+#: ../src/memory-activity/memory.c:272
 msgid "zero"
 msgstr "nula"
 
-#: ../src/memory-activity/memory.c:281
+#: ../src/memory-activity/memory.c:273
 msgid "one"
 msgstr "jedna"
 
-#: ../src/memory-activity/memory.c:282
+#: ../src/memory-activity/memory.c:274
 msgid "two"
 msgstr "dva"
 
-#: ../src/memory-activity/memory.c:283
+#: ../src/memory-activity/memory.c:275
 msgid "three"
 msgstr "tři"
 
-#: ../src/memory-activity/memory.c:284
+#: ../src/memory-activity/memory.c:276
 msgid "four"
 msgstr "čtyři"
 
-#: ../src/memory-activity/memory.c:285
+#: ../src/memory-activity/memory.c:277
 msgid "five"
 msgstr "pět"
 
-#: ../src/memory-activity/memory.c:286
+#: ../src/memory-activity/memory.c:278
 msgid "six"
 msgstr "šest"
 
-#: ../src/memory-activity/memory.c:287
+#: ../src/memory-activity/memory.c:279
 msgid "seven"
 msgstr "sedm"
 
-#: ../src/memory-activity/memory.c:288
+#: ../src/memory-activity/memory.c:280
 msgid "eight"
 msgstr "osm"
 
-#: ../src/memory-activity/memory.c:289
+#: ../src/memory-activity/memory.c:281
 msgid "nine"
 msgstr "devět"
 
-#: ../src/memory-activity/memory.c:301
+#: ../src/memory-activity/memory.c:293
 msgid "Memory"
 msgstr "Paměť"
 
-#: ../src/memory-activity/memory.c:302
+#: ../src/memory-activity/memory.c:294
 msgid "Find the matching pair"
 msgstr "Najdi odpovídající si pár"
 
+#. TRANSLATORS: Put here the alphabet in your language, letters separated by: /
+#. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
+#. * This is used in reading/click_on_letter and discovery/memory-group
+#: ../src/memory-activity/memory.c:734
+msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
+msgstr "a/b/c/č/d/ď/e/f/g/h/ch/i/j/k/l/m/n/ň/o/p/q/r/ř/s/š/t/ť/u/v/w/x/y/z/ž"
+
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/memory-activity/memory.c:931
+#: ../src/memory-activity/memory.c:949
 msgid "0123456789"
 msgstr "0123456789"
-
-#. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/memory-activity/memory.c:941
-msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-msgstr "AÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYÝZŽ"
 
 #: ../src/memory-activity/memory.xml.in.h:1
 msgid "Memory Game with images"
@@ -8372,7 +8582,7 @@ msgstr ""
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:1
 msgid "plane/_lane/p/g/d"
-msgstr "letadlo/_tadlo/l/j/v"
+msgstr "letadlo/_etadlo/l/j/v"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board1.xml.in.h:2
 msgid "dog/_og/d/p/q"
@@ -8388,7 +8598,7 @@ msgstr "auto/au_o/t/d/k"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:1
 msgid "bag/b_g/a/o/i"
-msgstr "bagr/b_gr/a/o/u"
+msgstr "taška/t_ška/a/o/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:2
 msgid "banana/b_nana/a/o/i"
@@ -8624,41 +8834,41 @@ msgstr ""
 "Jedná se o osm základních not na stupnici s basovým klíčem. Tvoří také "
 "stupnici C dur. Všimni si, že poloha not je jiná než v houslovém klíči."
 
-#: ../src/note_names-activity/note_names.py:143
+#: ../src/note_names-activity/note_names.py:144
 msgid "Play Scale"
 msgstr "Přehrát stupnici"
 
-#: ../src/note_names-activity/note_names.py:150
+#: ../src/note_names-activity/note_names.py:151
 msgid "Play Treble Clef Game"
 msgstr "Hrát hru s houslovým klíčem"
 
-#: ../src/note_names-activity/note_names.py:152
+#: ../src/note_names-activity/note_names.py:153
 msgid "Play Bass Clef Game"
 msgstr "Hrát hru s basovým klíčem"
 
-#: ../src/note_names-activity/note_names.py:183
+#: ../src/note_names-activity/note_names.py:184
 msgid "Click on the note name to match the pitch. Then click OK to check."
 msgstr ""
 "Klikni na název noty odpovídajícího tónu. Kliknutím na Budiž si to pak "
 "zkontroluj."
 
-#: ../src/note_names-activity/note_names.py:185
+#: ../src/note_names-activity/note_names.py:186
 msgid "Now there are sharp notes. These pitches are raised a half step."
 msgstr "Teď jsou tam zvýšené noty. Jejich tóny jsou o půl stupně zvýšené."
 
-#: ../src/note_names-activity/note_names.py:187
+#: ../src/note_names-activity/note_names.py:188
 msgid "Now there are flat notes. These pitches are lowered a half step."
 msgstr "Teď jsou tam snížené noty. Jejich tóny jsou o půl stupně snížené."
 
-#: ../src/note_names-activity/note_names.py:193
+#: ../src/note_names-activity/note_names.py:194
 msgid "Click the note to hear it played"
 msgstr "Klikni na notu, abys ji slyšel přehrát"
 
-#: ../src/note_names-activity/note_names.py:246
+#: ../src/note_names-activity/note_names.py:247
 msgid "Need a hint? Click here for color-coded note names."
 msgstr "Potřebuješ radu? Klikni zde pro barevně rozlišené názvy not."
 
-#: ../src/note_names-activity/note_names.py:249
+#: ../src/note_names-activity/note_names.py:250
 msgid "Ready for a challenge? Color all buttons black!"
 msgstr "Připraven přijmout výzvu? Ať jsou všechny noty černé!"
 
@@ -8987,7 +9197,7 @@ msgstr "Ab"
 msgid "Bb"
 msgstr "Hb"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:290
+#: ../src/piano_composition-activity/gcomprismusic.py:291
 msgid "The staff is full. Please erase some notes"
 msgstr "Notová osnova je plná. Vymaž prosím nějaké noty."
 
@@ -9059,35 +9269,35 @@ msgstr "Přehrát skladbu"
 msgid "Erase and Change Clef"
 msgstr "Vymazat a změnit notový klíč"
 
-#: ../src/piano_composition-activity/piano_composition.py:222
+#: ../src/piano_composition-activity/piano_composition.py:223
 msgid "Change Note Type:"
 msgstr "Změnit typ noty:"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
-#: ../src/piano_composition-activity/piano_composition.py:243
+#: ../src/piano_composition-activity/piano_composition.py:244
 msgid "Eighth Note"
 msgstr "Osminová nota"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
-#: ../src/piano_composition-activity/piano_composition.py:266
+#: ../src/piano_composition-activity/piano_composition.py:267
 msgid "Quarter Note"
 msgstr "Čtvrťová nota"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
-#: ../src/piano_composition-activity/piano_composition.py:279
+#: ../src/piano_composition-activity/piano_composition.py:280
 msgid "Half Note"
 msgstr "Půlová nota"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
-#: ../src/piano_composition-activity/piano_composition.py:292
+#: ../src/piano_composition-activity/piano_composition.py:293
 msgid "Whole Note"
 msgstr "Celá nota"
 
-#: ../src/piano_composition-activity/piano_composition.py:324
+#: ../src/piano_composition-activity/piano_composition.py:325
 msgid "Load Music"
 msgstr "Načíst hudbu"
 
-#: ../src/piano_composition-activity/piano_composition.py:329
+#: ../src/piano_composition-activity/piano_composition.py:330
 msgid "Change Accidental Style:"
 msgstr "Změnit zápis půltónů:"
 
@@ -9095,9 +9305,17 @@ msgstr "Změnit zápis půltónů:"
 msgid "Select A Melody to Load"
 msgstr "Výběr melodie k načtení"
 
+#: ../src/piano_composition-activity/piano_composition.py:405
+msgid "Previous Page"
+msgstr "Předchozí stránka"
+
+#: ../src/piano_composition-activity/piano_composition.py:415
+msgid "Next Page"
+msgstr "Následující stránka"
+
 #. FIXME Should remove the space in the data file instead
-#: ../src/piano_composition-activity/piano_composition.py:449
-#: ../src/piano_composition-activity/piano_composition.py:578
+#: ../src/piano_composition-activity/piano_composition.py:450
+#: ../src/piano_composition-activity/piano_composition.py:580
 msgid " "
 msgstr " "
 
@@ -9262,23 +9480,27 @@ msgid ""
 msgstr ""
 "Pak klikni na družici a táhni po přímce, která nastaví rychlost družice"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:267
+#: ../src/place_your_satellite-activity/place_your_satellite.py:268
 msgid "Satellite goes too fast"
 msgstr "Družice se pohybuje příliš rychle"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:269
+#: ../src/place_your_satellite-activity/place_your_satellite.py:270
 msgid "Satellite goes too slow"
 msgstr "Družice se pohybuje příliš pomalu"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:296
+#: ../src/place_your_satellite-activity/place_your_satellite.py:274
+msgid "Distance: {:.1f}"
+msgstr "Vzdálenost: {:.1f}"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:297
 msgid "Satellite is crashing"
 msgstr "Družice padá"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:330
+#: ../src/place_your_satellite-activity/place_your_satellite.py:331
 msgid "Satellite not in orbit"
 msgstr "Družice není na orbitě"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:394
+#: ../src/place_your_satellite-activity/place_your_satellite.py:397
 msgid "Speed"
 msgstr "Rychlost"
 
@@ -9599,26 +9821,26 @@ msgid "This activity is not playable, just a test"
 msgstr "Tato aktivita se ještě nedá hrát, je to pouze test"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:454
+#: ../src/pythontest-activity/pythontest.py:456
 msgid "Disable line drawing in circle"
 msgstr "Zrušit vykreslení čáry v kruhu"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:463
+#: ../src/pythontest-activity/pythontest.py:465
 msgid "Color of the line"
 msgstr "Barva čáry"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:474
+#: ../src/pythontest-activity/pythontest.py:476
 msgid "Distance between circles"
 msgstr "Vzdálenost mezi kruhy"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:485
+#: ../src/pythontest-activity/pythontest.py:487
 msgid "Use circles"
 msgstr "Použít kruhy"
 
-#: ../src/pythontest-activity/pythontest.py:486
+#: ../src/pythontest-activity/pythontest.py:488
 msgid "Use rectangles"
 msgstr "Použít obdélníky"
 
@@ -9673,11 +9895,11 @@ msgstr ""
 
 #: ../src/readingh-activity/reading.c:402
 msgid "Please, check if the word"
-msgstr "Zkontroluj prosím, jestli je slovo"
+msgstr "Zkontroluj prosím, jestli se slovo"
 
 #: ../src/readingh-activity/reading.c:422
 msgid "is being displayed"
-msgstr "zobrazeno"
+msgstr "zobrazí"
 
 #: ../src/readingh-activity/reading.c:478
 msgid "We skip this level because there are not enough words in the list!"
@@ -9685,7 +9907,7 @@ msgstr "Tato úroveň se přeskočí, protože v seznamu není dostatek slov!"
 
 #: ../src/readingh-activity/reading.c:681
 msgid "Yes, I saw it"
-msgstr "Ano, chci"
+msgstr "Ano, viděl jsem ho"
 
 #: ../src/readingh-activity/reading.c:708
 msgid "No, it was not there"
@@ -9811,7 +10033,7 @@ msgstr ""
 "můžeš počítat pozpátku. Až budeš hotov, klikni na tlačítko Budiž, nebo "
 "stiskni klávesu Enter."
 
-#: ../src/scalesboard-activity/scale.c:1086
+#: ../src/scalesboard-activity/scale.c:1087
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Věnuj pozornost tomu, že závaží můžeš pokládat na obě strany váhy."
 
@@ -10352,23 +10574,23 @@ msgstr ""
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Čekám na ukončení Tuxpaintu"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:189
+#: ../src/tuxpaint-activity/tuxpaint.py:194
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Dědit nastavení na celou obrazovku od GComprisu"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:193
+#: ../src/tuxpaint-activity/tuxpaint.py:198
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Dědit nastavení velikosti z aplikace GCompris (800×600, 640×480)"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:197
+#: ../src/tuxpaint-activity/tuxpaint.py:202
 msgid "Disable shape rotation"
 msgstr "Zrušit otočení útvaru"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:201
+#: ../src/tuxpaint-activity/tuxpaint.py:206
 msgid "Show Uppercase text only"
 msgstr "Zobrazit pouze text s velkými písmeny"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:205
+#: ../src/tuxpaint-activity/tuxpaint.py:210
 msgid "Disable stamps"
 msgstr "Zrušit značky"
 
