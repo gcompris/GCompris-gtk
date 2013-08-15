@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-05-19 23:45+0000\n"
-"PO-Revision-Date: 2013-07-14 22:49+0300\n"
+"POT-Creation-Date: 2013-08-13 20:28+0000\n"
+"PO-Revision-Date: 2013-08-15 21:13+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -436,7 +436,7 @@ msgstr ""
 " profiliui <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:663
-#: ../src/pythontest-activity/pythontest.py:511
+#: ../src/pythontest-activity/pythontest.py:513
 #: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
 msgstr "Pasirinkite kalbą garsams"
@@ -547,7 +547,7 @@ msgstr "Grupė"
 
 #: ../src/administration-activity/admin/group_list.py:221
 #: ../src/administration-activity/admin/profile_group_list.py:160
-#: ../src/administration-activity/admin/profile_list.py:194
+#: ../src/administration-activity/admin/profile_list.py:195
 #: ../src/administration-activity/admin/profile_widget.py:200
 msgid "Description"
 msgstr "Aprašymas"
@@ -626,46 +626,50 @@ msgstr "Pasirinkite naudotoją:"
 msgid "All users"
 msgstr "Visi naudotojai"
 
-#: ../src/administration-activity/admin/log_list.py:108
-#: ../src/administration-activity/admin/log_list.py:298
-#: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/lang-activity/lang.py:153 ../src/login-activity/login.py:481
+#. This is the name of the Default user profile
+#: ../src/administration-activity/admin/log_list.py:109
+#: ../src/administration-activity/admin/log_list.py:300
+#: ../src/administration-activity/admin/profile_list.py:118
+#: ../src/administration-activity/admin/wordlist.py:48
+#: ../src/lang-activity/lang.py:154 ../src/login-activity/login.py:483
 #: ../src/missing_letter-activity/missingletter.c:802
+#: ../src/pythontest-activity/pythontest.py:451
+#: ../src/tuxpaint-activity/tuxpaint.py:189
 msgid "Default"
 msgstr "Numatytoji"
 
 #. Reset buttons
-#: ../src/administration-activity/admin/log_list.py:162
+#: ../src/administration-activity/admin/log_list.py:163
 msgid "Reset"
 msgstr "Išvalyti"
 
-#: ../src/administration-activity/admin/log_list.py:219
+#: ../src/administration-activity/admin/log_list.py:220
 msgid "Date"
 msgstr "Data"
 
-#: ../src/administration-activity/admin/log_list.py:229
+#: ../src/administration-activity/admin/log_list.py:230
 msgid "User"
 msgstr "Naudotojas"
 
-#: ../src/administration-activity/admin/log_list.py:239
+#: ../src/administration-activity/admin/log_list.py:240
 msgid "Board"
 msgstr "Pamokėlė"
 
-#: ../src/administration-activity/admin/log_list.py:249
+#: ../src/administration-activity/admin/log_list.py:250
 #: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Lygis"
 
-#: ../src/administration-activity/admin/log_list.py:259
+#: ../src/administration-activity/admin/log_list.py:260
 msgid "Sublevel"
 msgstr "Dalis"
 
-#: ../src/administration-activity/admin/log_list.py:269
+#: ../src/administration-activity/admin/log_list.py:270
 msgid "Duration"
 msgstr "Trukmė"
 
-#: ../src/administration-activity/admin/log_list.py:279
+#: ../src/administration-activity/admin/log_list.py:280
 msgid "Status"
 msgstr "Rezultatas"
 
@@ -735,11 +739,11 @@ msgstr "Priskirkite grupes, kurios priklauso šiam profiliui"
 msgid "You need to provide at least a name for your profile"
 msgstr "Nurodykite bent profilio pavadinimą"
 
-#: ../src/administration-activity/admin/profile_list.py:184
+#: ../src/administration-activity/admin/profile_list.py:185
 msgid "Profile"
 msgstr "Profilis"
 
-#: ../src/administration-activity/admin/profile_list.py:311
+#: ../src/administration-activity/admin/profile_list.py:312
 msgid "[Default]"
 msgstr "[Numatytasis]"
 
@@ -809,7 +813,16 @@ msgstr ""
 "Vienas ar daugiau prisijungimo vardų neunikalūs !\n"
 "Pakeiskite juos: %s !"
 
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
 #: ../src/administration-activity/admin/wordlist.py:45
+#: ../src/login-activity/login.py:480
+#: ../src/pythontest-activity/pythontest.py:448
+#: ../src/tuxpaint-activity/tuxpaint.py:186
 msgid ""
 "<b>{config}</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -834,7 +847,6 @@ msgid "Learn to recognize unusual colors."
 msgstr "Išmok atpažinti neįprastas spalvas"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:5
-#| msgid "Click on the correct colored box."
 msgid "Click on the correct colored butterfly."
 msgstr "Spragtelėk ant teisingai nuspalvinto drugelio."
 
@@ -1148,8 +1160,10 @@ msgstr ""
 "klavišą atsakymui patikrinti."
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:946
+#: ../src/memory-activity/memory.c:953
 msgid "+-×÷"
 msgstr "+-×÷"
 
@@ -1539,7 +1553,7 @@ msgstr ""
 "vieną daiktą pagrindinėje lentoje. Reikia rasti loginį ryšį tarp tų daiktų. "
 "Tempkite daiktus dešinėje ant raudonų taškų pagrindinėje lentoje."
 
-#: ../src/babymatch-activity/shapegame.c:2041
+#: ../src/babymatch-activity/shapegame.c:2042
 #: ../src/click_on_letter-activity/click_on_letter.c:1315
 #: ../src/missing_letter-activity/missingletter.c:800
 #, c-format
@@ -1832,8 +1846,13 @@ msgid "Click me to get some hint"
 msgstr "Paspausk mane - patarsiu ;)"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
-msgid "I don't have this number PLAYER {number}"
-msgstr "Aš neturiu tokio žaidėjo {number}"
+#| msgid "I don't have this number PLAYER {number}"
+msgid ""
+"I don't have this number\n"
+"PLAYER {number}"
+msgstr ""
+"Aš neturiu žaidėjo\n"
+"tokiu numeriu {number}"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:215
 msgid "Lotto Master"
@@ -2312,10 +2331,7 @@ msgstr ""
 "Žyvis paimta iš Unix įrankio xfishtank. Visos paveikslėlio teisės priklauso "
 "Guillaume Rousse."
 
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/click_on_letter-activity/click_on_letter.c:368
-#: ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "aąbcčdeęėfghiįyjklmnoprsštuųūvzž"
 
@@ -2326,7 +2342,7 @@ msgid ""
 msgstr "Šioje užduotyje tekstas bus tik rodomas (be skaitymo)"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:384
-#: ../src/memory-activity/memory.c:906
+#: ../src/memory-activity/memory.c:922
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2464,36 +2480,63 @@ msgid "Match the color "
 msgstr "Atitikti spalvą"
 
 #: ../src/color_mix-activity/color_mix.py:251
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-msgid "red"
-msgstr "raudona"
+#| msgid "Not enough {color}"
+msgid "Not enough red"
+msgstr "Per mažai raudonos"
+
+#: ../src/color_mix-activity/color_mix.py:251
+#| msgid "Too much {color}"
+msgid "Too much red"
+msgstr "Per daug raudonos"
 
 #: ../src/color_mix-activity/color_mix.py:252
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-msgid "green"
-msgstr "žalia"
+#| msgid "Not enough {color}"
+msgid "Not enough green"
+msgstr "Per mažai žalios"
+
+#: ../src/color_mix-activity/color_mix.py:252
+#| msgid "Too much {color}"
+msgid "Too much green"
+msgstr "Per daug žalios"
 
 #: ../src/color_mix-activity/color_mix.py:253
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-msgid "blue"
-msgstr "mėlyna"
+#| msgid "Not enough {color}"
+msgid "Not enough blue"
+msgstr "Per mažai mėlynos"
+
+#: ../src/color_mix-activity/color_mix.py:253
+#| msgid "Too much {color}"
+msgid "Too much blue"
+msgstr "Per daug mėlynos"
+
+#: ../src/color_mix-activity/color_mix.py:255
+#| msgid "Not enough {color}"
+msgid "Not enough cyan"
+msgstr "Per mažai žydros"
+
+#: ../src/color_mix-activity/color_mix.py:255
+#| msgid "Too much {color}"
+msgid "Too much cyan"
+msgstr "Per daug žydros"
+
+#: ../src/color_mix-activity/color_mix.py:256
+#| msgid "Not enough {color}"
+msgid "Not enough magenta"
+msgstr "Per mažai violetinės"
+
+#: ../src/color_mix-activity/color_mix.py:256
+msgid "Too much magenta"
+msgstr "Per daug violetinės"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-msgid "yellow"
-msgstr "geltona"
+#| msgid "Not enough {color}"
+msgid "Not enough yellow"
+msgstr "Per mažai geltonos"
 
-#: ../src/color_mix-activity/color_mix.py:336
-#: ../src/color_mix-activity/color_mix.py:341
-#: ../src/color_mix-activity/color_mix.py:346
-msgid "Too much {color}"
-msgstr "Per daug {color}"
-
-#: ../src/color_mix-activity/color_mix.py:338
-#: ../src/color_mix-activity/color_mix.py:343
-#: ../src/color_mix-activity/color_mix.py:348
-msgid "Not enough {color}"
-msgstr "Per mažai {color}"
+#: ../src/color_mix-activity/color_mix.py:257
+#| msgid "Too much {color}"
+msgid "Too much yellow"
+msgstr "Per daug geltonos"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:1
 msgid "Mixing color of paint"
@@ -2597,30 +2640,55 @@ msgstr ""
 msgid "Listen to the color and click on the matching duck."
 msgstr "Klausykis ir paspausk atitinkamą antį."
 
-#. Translator: Do not translate {text}.
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:1
+#| msgid "Find the {text} duck"
+msgid "Find the yellow duck"
+msgstr "Atraskite geltoną antį"
+
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
-msgid "Find the {text} duck"
-msgstr "Atraskite {text} antį"
+#| msgid "Find the {text} duck"
+msgid "Find the black duck"
+msgstr "Atraskite juodą antį"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+#| msgid "Find the {text} duck"
+msgid "Find the green duck"
+msgstr "Atraskite žalią antį"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-msgid "black"
-msgstr "juoda"
+#| msgid "Find the {text} duck"
+msgid "Find the red duck"
+msgstr "Atraskite raudoną antį"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+#| msgid "Find the {text} duck"
+msgid "Find the white duck"
+msgstr "Atraskite baltą antį"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+#| msgid "Find the {text} duck"
+msgid "Find the blue duck"
+msgstr "Atraskite mėlyną antį"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-msgid "white"
-msgstr "balta"
+#| msgid "Find the {text} duck"
+msgid "Find the brown duck"
+msgstr "Atraskite rudą antį"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+#| msgid "Find the {text} duck"
+msgid "Find the grey duck"
+msgstr "Atraskite pilką antį"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
-msgid "brown"
-msgstr "ruda"
+#| msgid "Find the {text} duck"
+msgid "Find the orange duck"
+msgstr "Atraskite oranžinę antį"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-msgid "grey"
-msgstr "pilka"
-
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
-msgid "orange"
-msgstr "oranžinė"
+#| msgid "Find the purple butterfly"
+msgid "Find the purple duck"
+msgstr "Suraskite violetinę antį"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 msgid "Connect 4 (2 Players)"
@@ -2870,9 +2938,9 @@ msgstr ""
 "ištrinti galima naudoti vidurinį pelytės mygtuką."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:410 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:342
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:504
+#: ../src/piano_composition-activity/piano_composition.py:505
 msgid "Cannot find the file '{filename}'"
 msgstr "Nerastas failas „{filename}“"
 
@@ -3057,7 +3125,7 @@ msgstr "Spragsėk pele, kol dings visi kvadratėliai."
 
 #: ../src/explore-activity/explore.py:85
 #: ../src/note_names-activity/note_names.py:82
-#: ../src/piano_composition-activity/piano_composition.py:371
+#: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
 #: ../src/play_rhythm-activity/play_rhythm.py:83
 msgid ""
@@ -3080,9 +3148,9 @@ msgstr "Spauskite garsui groti"
 msgid "Back to Homepage"
 msgstr "Atgal į namų puslapį"
 
-#: ../src/explore-activity/explore.py:415 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:347
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:509
+#: ../src/piano_composition-activity/piano_composition.py:510
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3090,7 +3158,7 @@ msgstr ""
 "Nepavyko perskaityti duomenų „{filename}“ su klaida:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:505
+#: ../src/explore-activity/explore.py:507
 msgid "Explore Status:"
 msgstr "Tyrinėkite būseną:"
 
@@ -3747,25 +3815,25 @@ msgstr ""
 "Ši programinė įranga yra GNU paketas ir yra išleista pagal GNU Benrąją Viešą "
 "Licenciją"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:487
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:488
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
 msgstr "Gerai"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:701
 msgid "GCompris confirmation"
 msgstr "GCompris patvirtinimas"
 
-#: ../src/gcompris/bar.c:696
+#: ../src/gcompris/bar.c:702
 msgid "Are you sure you want to quit?"
 msgstr "Ar tikrai norite išeiti?"
 
-#: ../src/gcompris/bar.c:697
+#: ../src/gcompris/bar.c:703
 msgid "Yes, I am sure!"
 msgstr "Taip, noriu!"
 
-#: ../src/gcompris/bar.c:698
+#: ../src/gcompris/bar.c:704
 msgid "No, I want to keep going"
 msgstr "Ne, aš dar pažaisiu"
 
@@ -3923,7 +3991,7 @@ msgstr "Vokiečių"
 msgid "Greek"
 msgstr "Graikų"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:83 ../src/gcompris/config.c:112
 msgid "Scottish Gaelic"
 msgstr "Airių (galų)"
 
@@ -4040,126 +4108,126 @@ msgstr "Rumunų"
 msgid "Russian"
 msgstr "Rusų"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Serbian (Latin)"
 msgstr "Serbų (Lotynų)"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:114
 msgid "Serbian"
 msgstr "Serbų"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Slovak"
 msgstr "Slovakų"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Slovenian"
 msgstr "Slovėnų"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Somali"
 msgstr "Somaliečių"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Spanish"
 msgstr "Ispanų"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Swedish"
 msgstr "Švedų"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Tamil"
 msgstr "Tamilų"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Thai"
 msgstr "Tajų"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Turkish (Azerbaijan)"
 msgstr "Turkų (Azerbaidžano)"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Turkish"
 msgstr "Turkų"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Ukrainian"
 msgstr "Ukrainiečių"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Vietnamese"
 msgstr "Vietnamiečių"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Walloon"
 msgstr "Valonų"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:128
 msgid "Zulu"
 msgstr "Zulu"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:133
 msgid "Timer: No time limit"
 msgstr "Laikmatis: nėra laiko limito"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:134
 msgid "Timer: Slow timer"
 msgstr "Laikmatis: daugiau laiko"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:135
 msgid "Timer: Normal timer"
 msgstr "Laikmatis: normalus tempas"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid "Timer: Fast timer"
 msgstr "Laikmatis: mažiau laiko"
 
-#: ../src/gcompris/config.c:139
+#: ../src/gcompris/config.c:140
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Pamokėles galite paslėpti naudodami Gcompris administravimo programą"
 
-#: ../src/gcompris/config.c:193
+#: ../src/gcompris/config.c:194
 msgid "GCompris Configuration"
 msgstr "GCompris nustatymai"
 
-#: ../src/gcompris/config.c:276
+#: ../src/gcompris/config.c:277
 msgid "Fullscreen"
 msgstr "Visame ekrane"
 
-#: ../src/gcompris/config.c:301
+#: ../src/gcompris/config.c:302
 msgid "Remember level for default user"
 msgstr "Įsiminti numatytojo naudotojo lygį"
 
-#: ../src/gcompris/config.c:327
+#: ../src/gcompris/config.c:328
 msgid "Music"
 msgstr "Muzika"
 
-#: ../src/gcompris/config.c:352
+#: ../src/gcompris/config.c:353
 msgid "Effect"
 msgstr "Efektas"
 
-#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:377 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Vaizdo dydis"
 
-#: ../src/gcompris/config.c:413
+#: ../src/gcompris/config.c:414
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Nepavyko atverti temų katalogo: %s"
 
-#: ../src/gcompris/config.c:444 ../src/gcompris/config.c:924
-#: ../src/gcompris/config.c:938
+#: ../src/gcompris/config.c:445 ../src/gcompris/config.c:925
+#: ../src/gcompris/config.c:939
 #, c-format
 msgid "Skin : %s"
 msgstr "Tema: %s"
 
-#: ../src/gcompris/config.c:446
+#: ../src/gcompris/config.c:447
 msgid "SKINS NOT FOUND"
 msgstr "TEMOS NERASTOS"
 
@@ -4601,6 +4669,231 @@ msgstr ""
 msgid "Regions of France"
 msgstr "Prancūzijos regionai"
 
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
+msgid "United States of America"
+msgstr "jungtinės Amerikos Valstijos"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:2
+#| msgid "Connect 4"
+msgid "Connecticut"
+msgstr "Konektikutas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:3
+#| msgid "Cook Islands"
+msgid "Rhode Island"
+msgstr "Rodo sala"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:4
+msgid "Massachusetts"
+msgstr "Masačiusetsas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:5
+msgid "Wyoming"
+msgstr "Vajomingas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:6
+msgid "Utah"
+msgstr "Juta"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:7
+msgid "Nevada"
+msgstr "Nevada"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:8
+msgid "California"
+msgstr "Kalifornija"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:9
+msgid "Wahington D.C."
+msgstr "Vašingtono valstija"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:10
+#| msgid "Main menu"
+msgid "Maine"
+msgstr "Mainas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:11
+msgid "New Hampshire"
+msgstr "Niu Hempširas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:12
+msgid "Vermont"
+msgstr "Vermontas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:13
+msgid "New York"
+msgstr "Niujorkas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:14
+msgid "Pennsylvania"
+msgstr "Pensilvanija"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:15
+#| msgid "Oware"
+msgid "Delaware"
+msgstr "Delaveras"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:16
+msgid "New Jersey"
+msgstr "Niudžersis"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:17
+#| msgid "Ireland"
+msgid "Maryland"
+msgstr "Merilendas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:18
+msgid "Alabama"
+msgstr "Alabama"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:19
+msgid "Florida"
+msgstr "Florida"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:20
+#| msgid "Georgia"
+msgid "USA|Georgia"
+msgstr "JAV|Džordžija"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
+#| msgid "South Africa"
+msgid "South Carolina"
+msgstr "Pietų Karolina"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
+#| msgid "North America"
+msgid "North Carolina"
+msgstr "Šiaurės Karolina"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
+msgid "Virginia"
+msgstr "Virdžinija"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:24
+msgid "West Virginia"
+msgstr "Vakarų Virdžinija"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:25
+msgid "Ohio"
+msgstr "Ohajas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:26
+msgid "Michigan"
+msgstr "Mičiganas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:27
+msgid "Wisconsin"
+msgstr "Viskonsinas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:28
+msgid "Illinois"
+msgstr "Ilinojus"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:29
+#| msgid "India"
+msgid "Indiana"
+msgstr "Indiana"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:30
+msgid "Kentucky"
+msgstr "Kentukis"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:31
+msgid "Tennessee"
+msgstr "Tenesis"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:32
+msgid "Mississippi"
+msgstr "Misisipė"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:33
+#| msgid "Russian"
+msgid "Louisiana"
+msgstr "Luisiana"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
+msgid "Arkansas"
+msgstr "Arkanzasas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:35
+msgid "Missouri"
+msgstr "Misūris"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:36
+msgid "Iowa"
+msgstr "Aiova"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:37
+msgid "Minnesota"
+msgstr "Minesota"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:38
+msgid "Oklahoma"
+msgstr "Oklahoma"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:39
+msgid "Texas"
+msgstr "Teksasas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:40
+#| msgid "Hawaii"
+msgid "Hawai"
+msgstr "Havajai"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:41
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
+msgid "Alaska"
+msgstr "Aliaska"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:42
+msgid "Arizona"
+msgstr "Arizona"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:43
+#| msgid "Mexico"
+msgid "New Mexico"
+msgstr "Naujoji Meksika"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
+#| msgid "Colors"
+msgid "Colorado"
+msgstr "Koloradas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
+msgid "Kansas"
+msgstr "Kanzasas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:46
+msgid "Nebraska"
+msgstr "Nebraska"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:47
+#| msgid "South Korea"
+msgid "South Dakota"
+msgstr "Pietų Dakota"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
+#| msgid "North Korea"
+msgid "North Dakota"
+msgstr "Šiaurės Dakota"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
+msgid "Montana"
+msgstr "Montana"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:50
+msgid "Idaho"
+msgstr "Idaho"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:51
+msgid "Oregon"
+msgstr "Oregonas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:52
+msgid "Washington"
+msgstr "Wašingtonas"
+
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
 msgid "India"
@@ -4638,7 +4931,6 @@ msgstr "Ross"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:7
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:7
-#| msgid "Switzerland"
 msgid "Sutherland"
 msgstr "Sutherland"
 
@@ -4649,7 +4941,6 @@ msgstr "Caithness"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:9
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:9
-#| msgid "Iceland"
 msgid "Shetland"
 msgstr "Shetland"
 
@@ -4720,7 +5011,6 @@ msgstr "Clackmannanshire"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:9
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:9
-#| msgid "North America"
 msgid "North Ayrshire"
 msgstr "North Ayrshire"
 
@@ -4761,7 +5051,6 @@ msgstr "Rytų Ayrshire"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:17
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:17
-#| msgid "South Africa"
 msgid "South Ayrshire"
 msgstr "Pietų Ayrshire"
 
@@ -4807,7 +5096,6 @@ msgstr "Rytų Lothian"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:26
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:26
-#| msgid "Scottish Gaelic"
 msgid "Scottish Borders"
 msgstr "Škotijos sienos"
 
@@ -4944,8 +5232,9 @@ msgid "Turkey"
 msgstr "Turkija"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:25
-msgid "Georgia"
-msgstr "Gruzija"
+#| msgid "Georgia"
+msgid "Asia|Georgia"
+msgstr "Azija|Gruzija"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
 msgid "Azerbaijan"
@@ -5079,12 +5368,10 @@ msgid "Hawaii"
 msgstr "Havajai"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:3
-#| msgid "United States of America"
 msgid "United States Minor Outlying Islands"
 msgstr "jungtinių Amerikos Valstijų salos"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:5
-#| msgid "America"
 msgid "American Samoa"
 msgstr "Amerikos Samoa"
 
@@ -5093,7 +5380,6 @@ msgid "Cook Islands"
 msgstr "Kuko salos"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:7
-#| msgid "Greenland"
 msgid "New Zealand"
 msgstr "Naujoji Zelandija"
 
@@ -5114,7 +5400,6 @@ msgid "Marshall Islands"
 msgstr "Maršalo salos"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:12
-#| msgid "Macedonia"
 msgid "New Caledonia"
 msgstr "Naujoji Kaledonija"
 
@@ -5127,17 +5412,14 @@ msgid "Tuvalu"
 msgstr "Tuvalu"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:15
-#| msgid "Manual"
 msgid "Vanuatu"
 msgstr "Vanuatu"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:16
-#| msgid "Indonesia"
 msgid "Micronesia"
 msgstr "Mikronezija"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:17
-#| msgid "Northern Scotland"
 msgid "Northern Mariana Islands"
 msgstr "Šiaurės Marijanų salos"
 
@@ -5154,7 +5436,6 @@ msgid "Papua New Guinea"
 msgstr "Papua Naujoji Gvinėja"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:22
-#| msgid "French Guiana"
 msgid "French Polynesia"
 msgstr "Prancūzų Polinezija"
 
@@ -5179,17 +5460,8 @@ msgstr "Grenlandija"
 msgid "Iceland"
 msgstr "Islandija"
 
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
-msgid "United States of America"
-msgstr "jungtinės Amerikos Valstijos"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
-msgid "Alaska"
-msgstr "Aliaska"
-
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
-#| msgid "Central African Republic"
 msgid "Central America"
 msgstr "Centrinė Amerika"
 
@@ -5245,7 +5517,6 @@ msgstr "Jamaika"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:13
-#| msgid "Paraguay"
 msgid "Nicaragua"
 msgstr "Nikaragva"
 
@@ -5499,7 +5770,7 @@ msgid "Central African Republic"
 msgstr "Centrinės Afrikos Respublika"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
 msgid "Chad"
 msgstr "Čadas"
 
@@ -5597,7 +5868,7 @@ msgid "Rwanda"
 msgstr "Ruanda"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:27
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
 msgid "Senegal"
 msgstr "Senegalas"
 
@@ -5606,22 +5877,22 @@ msgid "Sierra Leone"
 msgstr "Siera Leonė"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:29
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
 msgid "Somalia"
 msgstr "Somalis"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:30
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
 msgid "Sudan"
 msgstr "Sudanas"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:31
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Togo"
 msgstr "Togo"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:32
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
 msgid "Tunisia"
 msgstr "Tunisas"
 
@@ -5654,7 +5925,7 @@ msgid "Burundi"
 msgstr "Burundis"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
 msgid "Democratic Republic of Congo"
 msgstr "Demokratinė Kongo respublika"
 
@@ -5688,6 +5959,7 @@ msgid "Namibia"
 msgstr "Namibija"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
 msgid "Republic of Congo"
 msgstr "Kongo demokr. respublika"
 
@@ -5701,17 +5973,17 @@ msgid "Swaziland"
 msgstr "Svazilendas"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
 msgid "Tanzania"
 msgstr "Tanzanija"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
 msgid "Zambia"
 msgstr "Zambija"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:40
 msgid "Zimbabwe"
 msgstr "Zimbabvė"
 
@@ -5726,9 +5998,6 @@ msgid "Type the falling letters before they reach the ground"
 msgstr "Surask klaviatūroje krintančias raides, kol jos nenukrito"
 
 #: ../src/gletters-activity/gletters.c:215
-#| msgid ""
-#| "Error: We can't find\n"
-#| "a list of words to play this game.\n"
 msgid ""
 "Error: We can't find\n"
 "a list of letters to play this game.\n"
@@ -5737,25 +6006,17 @@ msgstr ""
 "radžių sąrašas šiam žaidimui.\n"
 
 #. Should display the dialog box here
-#: ../src/gletters-activity/gletters.c:755
+#: ../src/gletters-activity/gletters.c:785
 msgid "ERROR: Unable to get letter from wordlist"
 msgstr "KLAIDA: Nepavyksta gauti radės iš žodžių sąrašo"
 
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:998
+#: ../src/gletters-activity/gletters.c:1031
 #: ../src/imageid-activity/imageid.c:716
-#: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:918
-#: ../src/scalesboard-activity/scale.c:1258
+#: ../src/scalesboard-activity/scale.c:1259
 #: ../src/smallnumbers-activity/smallnumbers.c:598
-#: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:907
-#, c-format, python-format
+#: ../src/wordsgame-activity/wordsgame.c:936
+#, c-format
 msgid ""
 "<b>%s</b> configuration\n"
 " for profile <b>%s</b>"
@@ -5763,12 +6024,12 @@ msgstr ""
 "<b>%s</b> nustatymai\n"
 "profiliui <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:1027
+#: ../src/gletters-activity/gletters.c:1063
 #: ../src/smallnumbers-activity/smallnumbers.c:617
 msgid "Enable sounds"
 msgstr "Įjungti garsus"
 
-#: ../src/gletters-activity/gletters.c:1031
+#: ../src/gletters-activity/gletters.c:1067
 msgid ""
 "Show letters in UPPERCASE\n"
 "Type in lowercase or UPPERCASE as you wish"
@@ -6102,7 +6363,6 @@ msgstr ""
 #. All the vowel of your language (keep empty if non applicable)
 #. Separate with /. You can use digraphs, trigraphs etc.
 #: ../src/hangman-activity/hangman.py:62
-#| msgid "cake/c_ke/a/o/e/i/u/y"
 msgid "a/e/i/o/u/y"
 msgstr "a/ą/e/ę/ė/i/į/y/o/u/ų/ū"
 
@@ -6117,8 +6377,8 @@ msgstr "b/c/č/d/f/g/h/j/k/l/m/n/p/r/s/š/t/v/z/ž"
 #. Letters on the left of the = can be multigraphs and represent the letters on the buttons.
 #. Letters on the right are single letters pressed on the keyboard.
 #. If you wish to allow different key presses for the same letter, separate the letters
-#. on the right with /
-#: ../src/hangman-activity/hangman.py:76
+#. on the right with the chararcter '/'. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:77
 msgid "a=a"
 msgstr "a=a"
 
@@ -6704,118 +6964,140 @@ msgstr "Išmok atpažinti muzikinius instrumentus"
 msgid "Click on the correct instrument."
 msgstr "Spragtelėk ant teisingo instrumento."
 
-#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:1
+#| msgid "the clarinet"
+msgid "Find the clarinet"
+msgstr "Raskite klarnetą"
+
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
-msgid "Find {text}"
-msgstr "Rasti {text}"
+#| msgid "the transverse flute"
+msgid "Find the transverse flute"
+msgstr "Raskite skersinę fleitą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
-msgid "the clarinet"
-msgstr "klarnetas"
+#| msgid "the guitar"
+msgid "Find the guitar"
+msgstr "Raskite gitarą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-msgid "the transverse flute"
-msgstr "fleita"
+#| msgid "the harp"
+msgid "Find the harp"
+msgstr "Raskite arfą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
-msgid "the guitar"
-msgstr "gitara"
+#| msgid "the piano"
+msgid "Find the piano"
+msgstr "Raskite pianiną"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
-msgid "the harp"
-msgstr "arfa"
+#| msgid "the saxophone"
+msgid "Find the saxophone"
+msgstr "Raskite saksofoną"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
-msgid "the piano"
-msgstr "pianinas"
+#| msgid "the trombone"
+msgid "Find the trombone"
+msgstr "Raskite tromboną"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
-msgid "the saxophone"
-msgstr "saksofonas"
+#| msgid "the trumpet"
+msgid "Find the trumpet"
+msgstr "Raskite trumpetą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
-msgid "the trombone"
-msgstr "trombonas"
+#| msgid "the violin"
+msgid "Find the violin"
+msgstr "Raskite smuiką"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-msgid "the trumpet"
-msgstr "trumpetas"
+#| msgid "the flute traversiere"
+msgid "Find the flute traversiere"
+msgstr "Raskite išilginę fleita"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
-msgid "the violin"
-msgstr "smuikas"
+#| msgid "the drum kit"
+msgid "Find the drum kit"
+msgstr "Raskite būgnų rinkinį"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
-msgid "the flute traversiere"
-msgstr "fleita"
+#| msgid "the accordion"
+msgid "Find the accordion"
+msgstr "Raskite akordeoną"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
-msgid "the drum kit"
-msgstr "būgnų rinkinys"
+#| msgid "the banjo"
+msgid "Find the banjo"
+msgstr "Raskite banžą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
-msgid "the accordion"
-msgstr "akordeonas"
+#| msgid "the bongo"
+msgid "Find the bongo"
+msgstr "Raskite bongą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
-msgid "the banjo"
-msgstr "bandža"
+#| msgid "the electric guitar"
+msgid "Find the electric guitar"
+msgstr "Raskite elektrinę gitarą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
-msgid "the bongo"
-msgstr "bongas"
+#| msgid "the castanets"
+msgid "Find the castanets"
+msgstr "Raskite kastanjetes"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
-msgid "the electric guitar"
-msgstr "elektrinė gitara"
+#| msgid "the cymbal"
+msgid "Find the cymbal"
+msgstr "Raskite cymbalus"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
-msgid "the castanets"
-msgstr "kastanjetės"
+#| msgid "the cello"
+msgid "Find the cello"
+msgstr "Raskite violončelę"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
-msgid "the cymbal"
-msgstr "cymbalai"
+#| msgid "the harmonica"
+msgid "Find the harmonica"
+msgstr "Raskite armonikėlę"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
-msgid "the cello"
-msgstr "violončelė"
+#| msgid "the horn"
+msgid "Find the horn"
+msgstr "Raskite ragą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
-msgid "the harmonica"
-msgstr "armonikėlė"
+#| msgid "the maracas"
+msgid "Find the maracas"
+msgstr "Raskite marakasus"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
-msgid "the horn"
-msgstr "ragas"
+#| msgid "the organ"
+msgid "Find the organ"
+msgstr "Raskite vargonus"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
-msgid "the maracas"
-msgstr "marakasai"
+#| msgid "the snare drum"
+msgid "Find the snare drum"
+msgstr "Raskite bosinį būgną"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-msgid "the organ"
-msgstr "vargonai"
+#| msgid "the timpani"
+msgid "Find the timpani"
+msgstr "Raskite timpanus"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
-msgid "the snare drum"
-msgstr "bosinis būgnas"
+#| msgid "the triangle"
+msgid "Find the triangle"
+msgstr "Raskite trikampį"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
-msgid "the timpani"
-msgstr "timpanai"
+#| msgid "the tambourine"
+msgid "Find the tambourine"
+msgstr "Raskite tamburiną"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
-msgid "the triangle"
-msgstr "trikampis"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
-msgid "the tambourine"
-msgstr "tamburinas"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:29
-msgid "the tuba"
-msgstr "tūba"
+#| msgid "the tuba"
+msgid "Find the tuba"
+msgstr "Raskite tūbą"
 
 #: ../src/intro_gravity-activity/intro_gravity.py:100
 msgid ""
@@ -6883,7 +7165,7 @@ msgstr "Sekite instrukcijas vykdydami veiklą."
 msgid "Gravity: %s"
 msgstr "Gravitacija: %s"
 
-#: ../src/land_safe-activity/land_safe.py:165
+#: ../src/land_safe-activity/land_safe.py:166
 msgid ""
 "Use the up and down keys to control the thrust\n"
 "Use the right and left keys to control direction.\n"
@@ -6895,24 +7177,24 @@ msgstr ""
 "Turite nuvairuoti Tuxo laivą iki nusileidimo platformos.\n"
 "Nusileidimo platforma tampa žalia, kai greitis yra saugus nusileidimui"
 
-#: ../src/land_safe-activity/land_safe.py:170
+#: ../src/land_safe-activity/land_safe.py:171
 msgid "Click on me or press the Return key when you are ready."
 msgstr ""
 "Spauskite ant manęs arba spauskite klavišą Grįžti, kai esate pasiruošęs."
 
-#: ../src/land_safe-activity/land_safe.py:172
+#: ../src/land_safe-activity/land_safe.py:173
 msgid "I am ready!"
 msgstr "Aš pasirengęs!"
 
-#: ../src/land_safe-activity/land_safe.py:470
+#: ../src/land_safe-activity/land_safe.py:473
 msgid "Height: "
 msgstr "Aukštis:"
 
-#: ../src/land_safe-activity/land_safe.py:486
+#: ../src/land_safe-activity/land_safe.py:491
 msgid "Fuel"
 msgstr "Kuras"
 
-#: ../src/land_safe-activity/land_safe.py:519
+#: ../src/land_safe-activity/land_safe.py:525
 msgid "Velocity: "
 msgstr "Greitis:"
 
@@ -6956,15 +7238,15 @@ msgstr ""
 "nusileidimui.\n"
 "        "
 
-#: ../src/lang-activity/lang.py:98
+#: ../src/lang-activity/lang.py:99
 msgid "ERROR, we found no words in this language."
 msgstr "KLAIDA, neradome žodžių šia kalba"
 
-#: ../src/lang-activity/lang.py:99
+#: ../src/lang-activity/lang.py:100
 msgid "Please consider contributing a voice set."
 msgstr "Pateikite balso pavyzdį."
 
-#: ../src/lang-activity/lang.py:152
+#: ../src/lang-activity/lang.py:153
 #, python-format
 msgid ""
 "Configuration\n"
@@ -6973,11 +7255,11 @@ msgstr ""
 "Nustatymai\n"
 " profiliui <b>%s</b>"
 
-#: ../src/lang-activity/lang.py:157
+#: ../src/lang-activity/lang.py:158
 msgid "Select locale"
 msgstr "Pasirinkite lokalę"
 
-#: ../src/lang-activity/langEnterText.py:136
+#: ../src/lang-activity/langEnterText.py:147
 msgid "Enter the text you hear:"
 msgstr "Įveskite girdimą tekstą:"
 
@@ -7044,7 +7326,6 @@ msgid "List of words in the 'people' category."
 msgstr "Žodžių sąrašas „žmonių“ kategorijai."
 
 #: ../src/lang-activity/lang.xml.in.h:1
-#| msgid "Go to the Reading activities"
 msgid "Go to the language learning activities"
 msgstr "Eikite į kalbos mokymosi pamokėles"
 
@@ -7053,17 +7334,14 @@ msgid "other"
 msgstr "kiti"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:2
-#| msgid "Duration"
 msgid "action"
 msgstr "veiksmas"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:3
-#| msgid "Active"
 msgid "adjective"
 msgstr "būdvardis"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:5
-#| msgid "Number"
 msgid "number"
 msgstr "skaičius"
 
@@ -7076,7 +7354,6 @@ msgid "clothes"
 msgstr "drabužiai"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:8
-#| msgid "Question"
 msgid "emotion"
 msgstr "emocija"
 
@@ -7089,7 +7366,6 @@ msgid "people"
 msgstr "žmonės"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:11
-#| msgid "Reports"
 msgid "sport"
 msgstr "sportas"
 
@@ -7106,12 +7382,10 @@ msgid "fruit"
 msgstr "vaisius"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:15
-#| msgid "Picture"
 msgid "nature"
 msgstr "gamta"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:16
-#| msgid "plane"
 msgid "plant"
 msgstr "augalas"
 
@@ -7120,17 +7394,14 @@ msgid "vegetables"
 msgstr "daržovės"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:18
-#| msgid "Learn subtraction"
 msgid "construction"
 msgstr "statyba"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:19
-#| msgid "Picture"
 msgid "furniture"
 msgstr "baldai"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:20
-#| msgid "house"
 msgid "houseware"
 msgstr "namų apyvokos daiktai"
 
@@ -7237,30 +7508,16 @@ msgstr "Profilis: "
 msgid "Login: "
 msgstr "Prisijungimas: "
 
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/login-activity/login.py:480
-msgid ""
-"<b>{0}</b> configuration\n"
-" for profile <b>{1}</b>"
-msgstr ""
-"<b>{0}</b> nustatymai\n"
-"profiliui <b>%s</b>"
-
 #. toggle box
-#: ../src/login-activity/login.py:486
+#: ../src/login-activity/login.py:488
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:942
-#: ../src/wordsgame-activity/wordsgame.c:930
+#: ../src/wordsgame-activity/wordsgame.c:959
 msgid "Uppercase only text"
 msgstr "Tekstas didžiosiomis raidėmis"
 
 #. toggle box
-#: ../src/login-activity/login.py:496
+#: ../src/login-activity/login.py:498
 msgid "Enter login to log in"
 msgstr "Įjungti naudotojų registravimąsi"
 
@@ -7699,63 +7956,66 @@ msgstr ""
 "Klausykite grojamų garsų sekos ir po to ją pakartokite išsirinkdami objektus "
 "ta pačia seka. Melodija galite pakartoti išsirinkę pakartojimo funkciją."
 
-#: ../src/memory-activity/memory.c:280
+#: ../src/memory-activity/memory.c:272
 msgid "zero"
 msgstr "nulis"
 
-#: ../src/memory-activity/memory.c:281
+#: ../src/memory-activity/memory.c:273
 msgid "one"
 msgstr "vienas"
 
-#: ../src/memory-activity/memory.c:282
+#: ../src/memory-activity/memory.c:274
 msgid "two"
 msgstr "du"
 
-#: ../src/memory-activity/memory.c:283
+#: ../src/memory-activity/memory.c:275
 msgid "three"
 msgstr "trys"
 
-#: ../src/memory-activity/memory.c:284
+#: ../src/memory-activity/memory.c:276
 msgid "four"
 msgstr "keturi"
 
-#: ../src/memory-activity/memory.c:285
+#: ../src/memory-activity/memory.c:277
 msgid "five"
 msgstr "penki"
 
-#: ../src/memory-activity/memory.c:286
+#: ../src/memory-activity/memory.c:278
 msgid "six"
 msgstr "šeši"
 
-#: ../src/memory-activity/memory.c:287
+#: ../src/memory-activity/memory.c:279
 msgid "seven"
 msgstr "septyni"
 
-#: ../src/memory-activity/memory.c:288
+#: ../src/memory-activity/memory.c:280
 msgid "eight"
 msgstr "aštuoni"
 
-#: ../src/memory-activity/memory.c:289
+#: ../src/memory-activity/memory.c:281
 msgid "nine"
 msgstr "devyni"
 
-#: ../src/memory-activity/memory.c:301
+#: ../src/memory-activity/memory.c:293
 msgid "Memory"
 msgstr "Atmintis"
 
-#: ../src/memory-activity/memory.c:302
+#: ../src/memory-activity/memory.c:294
 msgid "Find the matching pair"
 msgstr "Surask tinkamą porą"
 
+#. TRANSLATORS: Put here the alphabet in your language, letters separated by: /
+#. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
+#. * This is used in reading/click_on_letter and discovery/memory-group
+#: ../src/memory-activity/memory.c:734
+#| msgid "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
+msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
+msgstr "a/ą/b/c/č/d/e/ę/ė/f/g/h/i/į/y/j/k/l/m/n/o/p/r/s/š/t/u/ų/ū/v/z/ž"
+
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/memory-activity/memory.c:931
+#: ../src/memory-activity/memory.c:949
 msgid "0123456789"
 msgstr "0123456789"
-
-#. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/memory-activity/memory.c:941
-msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-msgstr "AĄCČDEĘĖFGHIĮYJKLMNOPRSŠTUŲŪVZŽ"
 
 #: ../src/memory-activity/memory.xml.in.h:1
 msgid "Memory Game with images"
@@ -8616,43 +8876,43 @@ msgstr ""
 "Šios yra aštuonios pagrindinės natos bosiniame rakte. Jos taip pat sudaro C "
 "mažor skalę. Pastebėtina, kad natų padėtys yra kitokios nei smuiko rakte."
 
-#: ../src/note_names-activity/note_names.py:143
+#: ../src/note_names-activity/note_names.py:144
 msgid "Play Scale"
 msgstr "Grojimo skalė"
 
-#: ../src/note_names-activity/note_names.py:150
+#: ../src/note_names-activity/note_names.py:151
 msgid "Play Treble Clef Game"
 msgstr "Žaisti smuiko rakto žaidimą"
 
-#: ../src/note_names-activity/note_names.py:152
+#: ../src/note_names-activity/note_names.py:153
 msgid "Play Bass Clef Game"
 msgstr "Žaisti bosinio rakto žaidimą"
 
-#: ../src/note_names-activity/note_names.py:183
+#: ../src/note_names-activity/note_names.py:184
 msgid "Click on the note name to match the pitch. Then click OK to check."
 msgstr ""
 "Spauskite ant natos pavadinimo aukštumui atitikti. Tuomet spauskite Gerai "
 "patikrinimui."
 
-#: ../src/note_names-activity/note_names.py:185
+#: ../src/note_names-activity/note_names.py:186
 msgid "Now there are sharp notes. These pitches are raised a half step."
 msgstr "Dabar aštriosios natos. Šie aukštumai yra pakelti pusę žingsnio."
 
-#: ../src/note_names-activity/note_names.py:187
+#: ../src/note_names-activity/note_names.py:188
 msgid "Now there are flat notes. These pitches are lowered a half step."
 msgstr "Dabar plokščiosios natos. Šie aukštumai yra pažeminti pusę žingsnio."
 
-#: ../src/note_names-activity/note_names.py:193
+#: ../src/note_names-activity/note_names.py:194
 msgid "Click the note to hear it played"
 msgstr "Spauskite ant natos jai sugroti"
 
-#: ../src/note_names-activity/note_names.py:246
+#: ../src/note_names-activity/note_names.py:247
 msgid "Need a hint? Click here for color-coded note names."
 msgstr ""
 "Reikia patarimo? Spauskite čia spalvomis užkoduotiems natų pavadinimams "
 "gauti."
 
-#: ../src/note_names-activity/note_names.py:249
+#: ../src/note_names-activity/note_names.py:250
 msgid "Ready for a challenge? Color all buttons black!"
 msgstr "Pasiruoįę iššūkiui? Nuspalvinti visus mygtukus juodai!"
 
@@ -8980,7 +9240,7 @@ msgstr "Ab"
 msgid "Bb"
 msgstr "Bb"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:290
+#: ../src/piano_composition-activity/gcomprismusic.py:291
 msgid "The staff is full. Please erase some notes"
 msgstr "Gaidų linija yra pilna. Ištrinkite dalį natų"
 
@@ -9053,35 +9313,35 @@ msgstr "Groti kompoziciją"
 msgid "Erase and Change Clef"
 msgstr "Išvalyti ir pakeisti raktą"
 
-#: ../src/piano_composition-activity/piano_composition.py:222
+#: ../src/piano_composition-activity/piano_composition.py:223
 msgid "Change Note Type:"
 msgstr "Pakeisti natos tipą:"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
-#: ../src/piano_composition-activity/piano_composition.py:243
+#: ../src/piano_composition-activity/piano_composition.py:244
 msgid "Eighth Note"
 msgstr "Aštuntoji nata"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
-#: ../src/piano_composition-activity/piano_composition.py:266
+#: ../src/piano_composition-activity/piano_composition.py:267
 msgid "Quarter Note"
 msgstr "Ketvirtinė nata"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
-#: ../src/piano_composition-activity/piano_composition.py:279
+#: ../src/piano_composition-activity/piano_composition.py:280
 msgid "Half Note"
 msgstr "Pusinė nata"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
-#: ../src/piano_composition-activity/piano_composition.py:292
+#: ../src/piano_composition-activity/piano_composition.py:293
 msgid "Whole Note"
 msgstr "Pilna nata"
 
-#: ../src/piano_composition-activity/piano_composition.py:324
+#: ../src/piano_composition-activity/piano_composition.py:325
 msgid "Load Music"
 msgstr "Įkelti muziką"
 
-#: ../src/piano_composition-activity/piano_composition.py:329
+#: ../src/piano_composition-activity/piano_composition.py:330
 msgid "Change Accidental Style:"
 msgstr "Keisti atsitiktinumo stilių:"
 
@@ -9089,9 +9349,19 @@ msgstr "Keisti atsitiktinumo stilių:"
 msgid "Select A Melody to Load"
 msgstr "Pasirinkite melodiją įkėlimui"
 
+#: ../src/piano_composition-activity/piano_composition.py:405
+#| msgid "Previous level"
+msgid "Previous Page"
+msgstr "Ankstesnis puslapis"
+
+#: ../src/piano_composition-activity/piano_composition.py:415
+#| msgid "Next level"
+msgid "Next Page"
+msgstr "Kitas puslapis"
+
 #. FIXME Should remove the space in the data file instead
-#: ../src/piano_composition-activity/piano_composition.py:449
-#: ../src/piano_composition-activity/piano_composition.py:578
+#: ../src/piano_composition-activity/piano_composition.py:450
+#: ../src/piano_composition-activity/piano_composition.py:580
 msgid " "
 msgstr " "
 
@@ -9259,23 +9529,28 @@ msgstr ""
 "Tuomet spauskite ant palydovo ir tempkite liniją, kuri nustato palydovo "
 "greitį"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:267
+#: ../src/place_your_satellite-activity/place_your_satellite.py:268
 msgid "Satellite goes too fast"
 msgstr "Palydovas juda per greitai"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:269
+#: ../src/place_your_satellite-activity/place_your_satellite.py:270
 msgid "Satellite goes too slow"
 msgstr "Palydovas juda per lėtai"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:296
+#: ../src/place_your_satellite-activity/place_your_satellite.py:274
+#| msgid "Distance:"
+msgid "Distance: {:.1f}"
+msgstr "Atstumas: {:.1f}"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:297
 msgid "Satellite is crashing"
 msgstr "Palydovas krenta"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:330
+#: ../src/place_your_satellite-activity/place_your_satellite.py:331
 msgid "Satellite not in orbit"
 msgstr "Palydovas ne orbitoje"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:394
+#: ../src/place_your_satellite-activity/place_your_satellite.py:397
 msgid "Speed"
 msgstr "Greitis"
 
@@ -9596,26 +9871,26 @@ msgid "This activity is not playable, just a test"
 msgstr "Tai tik testas"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:454
+#: ../src/pythontest-activity/pythontest.py:456
 msgid "Disable line drawing in circle"
 msgstr "Išjungti linijų piešimą ratu"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:463
+#: ../src/pythontest-activity/pythontest.py:465
 msgid "Color of the line"
 msgstr "Linijos spalva"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:474
+#: ../src/pythontest-activity/pythontest.py:476
 msgid "Distance between circles"
 msgstr "Atstumas tarp apskritimų"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:485
+#: ../src/pythontest-activity/pythontest.py:487
 msgid "Use circles"
 msgstr "Naudoti apskritimus"
 
-#: ../src/pythontest-activity/pythontest.py:486
+#: ../src/pythontest-activity/pythontest.py:488
 msgid "Use rectangles"
 msgstr "Naudoti stačiakampius"
 
@@ -9661,7 +9936,7 @@ msgstr ""
 "spustelėje ant rankos atvaizdo apačioje."
 
 #: ../src/readingh-activity/reading.c:240
-#: ../src/wordsgame-activity/wordsgame.c:222
+#: ../src/wordsgame-activity/wordsgame.c:227
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -9819,7 +10094,7 @@ msgstr ""
 "ant lekštės. Kai baigsite nuspauskite OK mygtuką arba klaviatūros Enter "
 "klavišą."
 
-#: ../src/scalesboard-activity/scale.c:1086
+#: ../src/scalesboard-activity/scale.c:1087
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Atminkite, kad svorius galite dėti į abi svarstyklių lėkštes."
 
@@ -10375,23 +10650,23 @@ msgstr ""
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Palaukite Tuxpaint programos"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:189
+#: ../src/tuxpaint-activity/tuxpaint.py:194
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "GCompris viso ekrano veiksena"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:193
+#: ../src/tuxpaint-activity/tuxpaint.py:198
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Naudoti GCompris raišką (800x600, 640x480)"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:197
+#: ../src/tuxpaint-activity/tuxpaint.py:202
 msgid "Disable shape rotation"
 msgstr "Išjungti formos sukimą"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:201
+#: ../src/tuxpaint-activity/tuxpaint.py:206
 msgid "Show Uppercase text only"
 msgstr "Rodyti tekstą tik didžiosiomis raidėmis"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:205
+#: ../src/tuxpaint-activity/tuxpaint.py:210
 msgid "Disable stamps"
 msgstr "Išjungti antspaudus"
 
@@ -10530,12 +10805,12 @@ msgstr ""
 "pat gali pritaikyti teksto pastraipoms bei visam tekstui įvairius stilius - "
 "tam yra mygtukai kairėje."
 
-#: ../src/wordsgame-activity/wordsgame.c:115
+#: ../src/wordsgame-activity/wordsgame.c:120
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "Krintantys žodžiai"
 
-#: ../src/wordsgame-activity/wordsgame.c:116
+#: ../src/wordsgame-activity/wordsgame.c:121
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
 msgid "Type the falling words before they reach the ground"
 msgstr "Parašyk pilnus krintančius žodžius, kol jie nenukrito. "
