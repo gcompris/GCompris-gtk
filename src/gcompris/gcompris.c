@@ -1067,6 +1067,7 @@ activation_done()
     }
 
   gc_board_play( get_board_to_start());
+  gtk_widget_grab_focus(GTK_WIDGET(canvas));
   goo_canvas_item_remove (activation_item);
 }
 #endif
