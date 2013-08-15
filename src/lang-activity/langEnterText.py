@@ -121,20 +121,6 @@ class EnterText:
                                   y = 60,
                                   )
 
-        self.errorCount = 0
-        if self.mode & EnterText.WITH_TEXT:
-          self.questionItem = goocanvas.Text(
-            parent = self.gameroot,
-            x = gcompris.BOARD_WIDTH / 2,
-            y = 40,
-            fill_color = "black",
-            font = gcompris.skin.get_font("gcompris/subtitle"),
-            anchor = gtk.ANCHOR_CENTER,
-            alignment = pango.ALIGN_CENTER,
-            width = 300
-            )
-          self.setQuestion()
-
         y = 380
         goocanvas.Text(
           parent = self.gameroot,
@@ -167,6 +153,20 @@ class EnterText:
                                    u"",
                                    len( self.tripletToFind.descriptionTranslated) + extraCharAllowed)
 
+        self.errorCount = 0
+        if self.mode & EnterText.WITH_TEXT:
+          self.questionItem = goocanvas.Text(
+            parent = self.gameroot,
+            x = gcompris.BOARD_WIDTH / 2,
+            y = 40,
+            fill_color = "black",
+            font = gcompris.skin.get_font("gcompris/subtitle"),
+            anchor = gtk.ANCHOR_CENTER,
+            alignment = pango.ALIGN_CENTER,
+            width = 300
+            )
+          self.setQuestion()
+
         # The OK Button
         item = goocanvas.Svg(parent = self.gameroot,
                              svg_handle = gcompris.skin.svg_get(),
@@ -189,13 +189,21 @@ class EnterText:
 
       text = self.tripletToFind.descriptionTranslated[0]
 
-      for i in range(1, self.errorCount + 1):
+      lastGoodLetter = 1
+      for lastGoodLetter in range(lastGoodLetter,
+                                  min(len(self.tripletToFind.descriptionTranslated),
+                                      len(self.textEntry.text))):
+          if self.textEntry.text[lastGoodLetter] == self.tripletToFind.descriptionTranslated[lastGoodLetter]:
+              text = text + self.tripletToFind.descriptionTranslated[lastGoodLetter]
+
+      # Add a char to help
+      if self.errorCount:
         try:
-          text = text + self.tripletToFind.descriptionTranslated[i]
+          text = text + self.tripletToFind.descriptionTranslated[lastGoodLetter + 1]
         except:
           return False
 
-      remaining = len(self.tripletToFind.descriptionTranslated) - 2 - self.errorCount
+      remaining = len(self.tripletToFind.descriptionTranslated) - len(text) - 1
       if remaining >= 0:
         text = \
             text + '.' * remaining + \
