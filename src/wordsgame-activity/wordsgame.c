@@ -29,7 +29,7 @@ static GcomprisWordlist *gc_wordlist = NULL;
 #if GLIB_CHECK_VERSION(2, 31, 0)
 static GMutex items_lock; /* No init needed for static GMutexes */
 #else
-GStaticMutex items_lock = G_STATIC_MUTEX_INIT;
+static GStaticMutex items_lock = G_STATIC_MUTEX_INIT;
 #endif
 
 /*
