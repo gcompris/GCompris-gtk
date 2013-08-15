@@ -233,7 +233,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       GHashTable *config = gc_db_get_board_conf();
       gc_locale_set(g_hash_table_lookup( config, "locale"));
-      
+
       gchar *control_sound = g_hash_table_lookup( config, "with_sound");
 
       if (control_sound)
@@ -254,7 +254,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	uppercase_only = TRUE;
       else
 	uppercase_only = FALSE;
- 
+
       load_letters(uppercase_only);
       g_hash_table_destroy(config);
 
@@ -318,7 +318,7 @@ set_level (guint level)
     }
 }
 
-/* 
+/*
  * For uppercase mode, both upper- or lowercase can be typed
  */
 static int is_letter_equal(gchar *letter1, gchar *letter2)
@@ -413,14 +413,14 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
     letter = g_new0(gchar,6);
     g_unichar_to_utf8 (unichar_letter, letter);
-    
+
     if(item_on_focus==NULL)
       {
 	for (i=0;i<items->len;i++)
 	  {
 	    item=g_ptr_array_index(items,i);
 	    g_assert (item!=NULL);
-                
+
             if (is_letter_equal(letter, item->letter))
 	      {
 		item_on_focus=item;
@@ -564,7 +564,7 @@ static void gletters_next_level_unlocked()
 
   items=g_ptr_array_new();
   items2del=g_ptr_array_new();
-  
+
   /* Delete the letters_table */
   if(letters_table) {
     g_hash_table_destroy (letters_table);
@@ -724,7 +724,7 @@ static void gletters_destroy_all_items()
     g_ptr_array_free (items2del, TRUE);
     items2del=NULL;
   }
-  
+
   /* Delete the letters_table */
   if(letters_table) {
     g_hash_table_destroy (letters_table);
@@ -743,9 +743,9 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
   /* Keep track of letters already used */
   if (!letters_table)
   {
-      letters_table = g_hash_table_new(g_str_hash, g_str_equal);
+    letters_table = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
   }
-  
+
   guint i;
   if(word)
   {
@@ -757,10 +757,11 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
       }
 
       /* Add letter to hash table of all falling letters. */
-      g_hash_table_add (letters_table, g_strdup(word));
+      gchar *word2 = g_strdup(word);
+      g_hash_table_replace (letters_table, word2, word2);
       g_debug("Dropping %s\n",word);
-    
-    /* Play sound for the letter */  
+
+    /* Play sound for the letter */
     if (with_sound)
     {
       gchar *str2 = NULL;
@@ -778,17 +779,17 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
                 gc_sound_play_ogg ("sounds/drip.wav", NULL);
         }
   }
-  
+
   else
   {
     /* Should display the dialog box here */
       gc_dialog(_("ERROR: Unable to get letter from wordlist"),gletters_next_level);
       g_error("ERROR: Unable to get letter from wordlist");
     return NULL;
-  } 
+  }
   // create and init item
   item = g_new(LettersItem,1);
-  
+
   /* Now set and display the letter */
   if (uppercase_only)
     {
@@ -906,7 +907,7 @@ static void player_win(LettersItem *item)
 
   g_object_set (item->rootitem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
   g_timeout_add (500,(GSourceFunc) gletters_delete_items, NULL);
-  
+
 
   if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel)
     {
@@ -919,7 +920,7 @@ static void player_win(LettersItem *item)
       gcomprisBoard->sublevel = 1;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel)
 	gcomprisBoard->level = gcomprisBoard->maxlevel;
-    
+
       setSpeed(gcomprisBoard->level);
       gletters_next_level_unlocked();
     }
@@ -1001,7 +1002,7 @@ conf_ok(GHashTable *table)
 	else
 	  uppercase_only = FALSE;
       }
-    
+
     if (profile_conf)
       g_hash_table_destroy(config);
 
