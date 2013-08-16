@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-12 23:10+0000\n"
-"PO-Revision-Date: 2013-08-13 11:14+0200\n"
+"POT-Creation-Date: 2013-08-15 11:33+0000\n"
+"PO-Revision-Date: 2013-08-16 11:15+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -1894,13 +1894,12 @@ msgid "Click me to get some hint"
 msgstr "Pulsa con el botón del ratón sobre mí para obtener alguna pista"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
-#, fuzzy
-#| msgid "I don't have this number PLAYER {number}"
 msgid ""
 "I don't have this number\n"
-"\n"
 "PLAYER {number}"
-msgstr "Yo no tengo este número de JUGADOR {number}"
+msgstr ""
+"Yo no tengo este número\n"
+"JUGADOR {number}"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:215
 msgid "Lotto Master"
@@ -2533,76 +2532,52 @@ msgid "Match the color "
 msgstr "Iguala el color "
 
 #: ../src/color_mix-activity/color_mix.py:251
-#, fuzzy
-#| msgid "Not enough {color}"
 msgid "Not enough red"
-msgstr "Poco {color}"
+msgstr "Poco rojo"
 
 #: ../src/color_mix-activity/color_mix.py:251
-#, fuzzy
-#| msgid "Too much {color}"
 msgid "Too much red"
-msgstr "Demasiado {color}"
+msgstr "Demasiado rojo"
 
 #: ../src/color_mix-activity/color_mix.py:252
-#, fuzzy
-#| msgid "Not enough {color}"
 msgid "Not enough green"
-msgstr "Poco {color}"
+msgstr "Poco verde"
 
 #: ../src/color_mix-activity/color_mix.py:252
-#, fuzzy
-#| msgid "Too much {color}"
 msgid "Too much green"
-msgstr "Demasiado {color}"
+msgstr "Demasiado verde"
 
 #: ../src/color_mix-activity/color_mix.py:253
-#, fuzzy
-#| msgid "Not enough {color}"
 msgid "Not enough blue"
-msgstr "Poco {color}"
+msgstr "Poco azul"
 
 #: ../src/color_mix-activity/color_mix.py:253
-#, fuzzy
-#| msgid "Too much {color}"
 msgid "Too much blue"
-msgstr "Demasiado {color}"
+msgstr "Demasiado azul"
 
 #: ../src/color_mix-activity/color_mix.py:255
-#, fuzzy
-#| msgid "Not enough {color}"
 msgid "Not enough cyan"
-msgstr "Poco {color}"
+msgstr "Poco cián"
 
 #: ../src/color_mix-activity/color_mix.py:255
-#, fuzzy
-#| msgid "Too much {color}"
 msgid "Too much cyan"
-msgstr "Demasiado {color}"
+msgstr "Demasiado cián"
 
 #: ../src/color_mix-activity/color_mix.py:256
-#, fuzzy
-#| msgid "Not enough {color}"
 msgid "Not enough magenta"
-msgstr "Poco {color}"
+msgstr "Poco magenta"
 
 #: ../src/color_mix-activity/color_mix.py:256
-#, fuzzy
-#| msgid "magenta"
 msgid "Too much magenta"
-msgstr "rojo púrpura"
+msgstr "Demasiado magenta"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#, fuzzy
-#| msgid "Not enough {color}"
 msgid "Not enough yellow"
-msgstr "Poco {color}"
+msgstr "Poco amarillo"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#, fuzzy
-#| msgid "Too much {color}"
 msgid "Too much yellow"
-msgstr "Demasiado {color}"
+msgstr "Demasiado amarillo"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:1
 msgid "Mixing color of paint"
@@ -3001,9 +2976,9 @@ msgstr ""
 "borrar un objeto."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:410 ../src/findit-activity/findit.py:342
+#: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:342
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:504
+#: ../src/piano_composition-activity/piano_composition.py:505
 msgid "Cannot find the file '{filename}'"
 msgstr "No se puede encontrar el archivo «{filename}»"
 
@@ -3197,7 +3172,7 @@ msgstr ""
 
 #: ../src/explore-activity/explore.py:85
 #: ../src/note_names-activity/note_names.py:82
-#: ../src/piano_composition-activity/piano_composition.py:371
+#: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
 #: ../src/play_rhythm-activity/play_rhythm.py:83
 msgid ""
@@ -3220,9 +3195,9 @@ msgstr "Pulsa para reproducir el sonido"
 msgid "Back to Homepage"
 msgstr "Volver a la página inicial"
 
-#: ../src/explore-activity/explore.py:415 ../src/findit-activity/findit.py:347
+#: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:347
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:509
+#: ../src/piano_composition-activity/piano_composition.py:510
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3230,7 +3205,7 @@ msgstr ""
 "Falló al analizar el conjunto de datos «{filename}» con el error:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:505
+#: ../src/explore-activity/explore.py:507
 msgid "Explore Status:"
 msgstr "Explorar estado:"
 
@@ -4550,18 +4525,18 @@ msgstr ""
 "considera usar GNU/Linux. Obtén más información acerca de esto en la FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1240
+#: ../src/gcompris/gcompris.c:1241
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Falló al cargar la apariencia «%s» (comprueba que el archivo existe y se "
 "puede leer)"
 
-#: ../src/gcompris/gcompris.c:1256
+#: ../src/gcompris/gcompris.c:1257
 msgid "Retrieving remote data..."
 msgstr "Recuperando datos remotos..."
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1518
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4574,12 +4549,12 @@ msgstr[1] ""
 "No se iniciará GCompris porque el archivo de bloqueo es menos antiguo de %d "
 "segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1521
+#: ../src/gcompris/gcompris.c:1522
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "El archivo de bloqueo es: %s\n"
 
-#: ../src/gcompris/gcompris.c:1642
+#: ../src/gcompris/gcompris.c:1643
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4593,27 +4568,27 @@ msgstr ""
 "Más información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1827
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l actividad para acceder directamente a una actividad.\n"
 
-#: ../src/gcompris/gcompris.c:1828
+#: ../src/gcompris/gcompris.c:1829
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Lista de actividades disponibles es :\n"
 
-#: ../src/gcompris/gcompris.c:1859
+#: ../src/gcompris/gcompris.c:1860
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de actividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1895
+#: ../src/gcompris/gcompris.c:1896
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe pero no se puede leer o escribir"
 
-#: ../src/gcompris/gcompris.c:1990
+#: ../src/gcompris/gcompris.c:1991
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4622,7 +4597,7 @@ msgstr ""
 "ERROR: no se encontró el perfil «%s». Ejecute «gcompris --profile list» para "
 "listar los disponibles\n"
 
-#: ../src/gcompris/gcompris.c:2004
+#: ../src/gcompris/gcompris.c:2005
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La lista de perfiles disponibles es:\n"
@@ -4774,180 +4749,158 @@ msgid "United States of America"
 msgstr "Estados Unidos de América"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:2
-#, fuzzy
-#| msgid "Connect 4"
 msgid "Connecticut"
-msgstr "Conecta 4"
+msgstr "Connecticut"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:3
-#, fuzzy
-#| msgid "Cook Islands"
 msgid "Rhode Island"
-msgstr "Islas Cook"
+msgstr "Rhode Island"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:4
 msgid "Massachusetts"
-msgstr ""
+msgstr "Massachusetts"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:5
 msgid "Wyoming"
-msgstr ""
+msgstr "Wyoming"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:6
 msgid "Utah"
-msgstr ""
+msgstr "Utah"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:7
 msgid "Nevada"
-msgstr ""
+msgstr "Nevada"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:8
 msgid "California"
-msgstr ""
+msgstr "California"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:9
 msgid "Wahington D.C."
-msgstr ""
+msgstr "Wahington D.C."
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:10
-#, fuzzy
-#| msgid "Main menu"
 msgid "Maine"
-msgstr "Menú principal"
+msgstr "Maine"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:11
 msgid "New Hampshire"
-msgstr ""
+msgstr "New Hampshire"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:12
 msgid "Vermont"
-msgstr ""
+msgstr "Vermont"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:13
 msgid "New York"
-msgstr ""
+msgstr "Nueva York"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:14
 msgid "Pennsylvania"
-msgstr ""
+msgstr "Pensilvania"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:15
-#, fuzzy
-#| msgid "Oware"
 msgid "Delaware"
-msgstr "Oware"
+msgstr "Delaware"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:16
 msgid "New Jersey"
-msgstr ""
+msgstr "Nueva Jersey"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:17
-#, fuzzy
-#| msgid "Ireland"
 msgid "Maryland"
-msgstr "Irlanda"
+msgstr "Maryland"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:18
 msgid "Alabama"
-msgstr ""
+msgstr "Alabama"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:19
 msgid "Florida"
-msgstr ""
+msgstr "Florida"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:20
-#, fuzzy
-#| msgid "Georgia"
 msgid "USA|Georgia"
-msgstr "Georgia"
+msgstr "Estados Unidos de América|Georgia"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
-#, fuzzy
-#| msgid "South Africa"
 msgid "South Carolina"
-msgstr "Sudáfrica"
+msgstr "Carolina del Sur"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
-#, fuzzy
-#| msgid "North America"
 msgid "North Carolina"
-msgstr "Norte América"
+msgstr "Carolina del Norte"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
 msgid "Virginia"
-msgstr ""
+msgstr "Virginia"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:24
 msgid "West Virginia"
-msgstr ""
+msgstr "Virginia Occidental"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:25
 msgid "Ohio"
-msgstr ""
+msgstr "Ohio"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:26
 msgid "Michigan"
-msgstr ""
+msgstr "Michigan"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:27
 msgid "Wisconsin"
-msgstr ""
+msgstr "Wisconsin"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:28
 msgid "Illinois"
-msgstr ""
+msgstr "Illinois"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:29
-#, fuzzy
-#| msgid "India"
 msgid "Indiana"
-msgstr "India"
+msgstr "Indiana"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:30
 msgid "Kentucky"
-msgstr ""
+msgstr "Kentucky"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:31
 msgid "Tennessee"
-msgstr ""
+msgstr "Tennessee"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:32
 msgid "Mississippi"
-msgstr ""
+msgstr "Mississippi"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:33
-#, fuzzy
-#| msgid "Russian"
 msgid "Louisiana"
-msgstr "Ruso"
+msgstr "Louisiana"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
 msgid "Arkansas"
-msgstr ""
+msgstr "Arkansas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:35
 msgid "Missouri"
-msgstr ""
+msgstr "Missouri"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:36
 msgid "Iowa"
-msgstr ""
+msgstr "Iowa"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:37
 msgid "Minnesota"
-msgstr ""
+msgstr "Minnesota"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:38
 msgid "Oklahoma"
-msgstr ""
+msgstr "Oklahoma"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:39
 msgid "Texas"
-msgstr ""
+msgstr "Texas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:40
-#, fuzzy
-#| msgid "Hawaii"
 msgid "Hawai"
 msgstr "Hawái"
 
@@ -4958,55 +4911,47 @@ msgstr "Alaska"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:42
 msgid "Arizona"
-msgstr ""
+msgstr "Arizona"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:43
-#, fuzzy
-#| msgid " Mexico"
 msgid "New Mexico"
-msgstr " México"
+msgstr "Nuevo México"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
-#, fuzzy
-#| msgid "Colors"
 msgid "Colorado"
-msgstr "Colores"
+msgstr "Colorado"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
 msgid "Kansas"
-msgstr ""
+msgstr "Kansas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:46
 msgid "Nebraska"
-msgstr ""
+msgstr "Nebraska"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:47
-#, fuzzy
-#| msgid "South Korea"
 msgid "South Dakota"
-msgstr "Corea del Sur"
+msgstr "Dakota del Sur"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
-#, fuzzy
-#| msgid "North Korea"
 msgid "North Dakota"
-msgstr "Corea del Norte"
+msgstr "Dakota del Norte"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
 msgid "Montana"
-msgstr ""
+msgstr "Montana"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:50
 msgid "Idaho"
-msgstr ""
+msgstr "Idaho"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:51
 msgid "Oregon"
-msgstr ""
+msgstr "Oregon"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:52
 msgid "Washington"
-msgstr ""
+msgstr "Washington"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
@@ -5346,10 +5291,8 @@ msgid "Turkey"
 msgstr "Turquía"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:25
-#, fuzzy
-#| msgid "Georgia"
 msgid "Asia|Georgia"
-msgstr "Georgia"
+msgstr "Asia|Georgia"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
 msgid "Azerbaijan"
@@ -6121,11 +6064,11 @@ msgstr ""
 "una lista de palabras para jugar este juego.\n"
 
 #. Should display the dialog box here
-#: ../src/gletters-activity/gletters.c:785
+#: ../src/gletters-activity/gletters.c:786
 msgid "ERROR: Unable to get letter from wordlist"
 msgstr "ERROR: no se puede obtener letras de la lista de palabras"
 
-#: ../src/gletters-activity/gletters.c:1031
+#: ../src/gletters-activity/gletters.c:1032
 #: ../src/imageid-activity/imageid.c:716
 #: ../src/readingh-activity/reading.c:918
 #: ../src/scalesboard-activity/scale.c:1259
@@ -6139,12 +6082,12 @@ msgstr ""
 "<b>%s</b> configuración\n"
 " para el perfil <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:1063
+#: ../src/gletters-activity/gletters.c:1064
 #: ../src/smallnumbers-activity/smallnumbers.c:617
 msgid "Enable sounds"
 msgstr "Activar sonidos"
 
-#: ../src/gletters-activity/gletters.c:1067
+#: ../src/gletters-activity/gletters.c:1068
 msgid ""
 "Show letters in UPPERCASE\n"
 "Type in lowercase or UPPERCASE as you wish"
@@ -7281,7 +7224,7 @@ msgstr "Sigue las instrucciones cuando ejecutas la actividad."
 msgid "Gravity: %s"
 msgstr "Gravedad: %s"
 
-#: ../src/land_safe-activity/land_safe.py:165
+#: ../src/land_safe-activity/land_safe.py:166
 msgid ""
 "Use the up and down keys to control the thrust\n"
 "Use the right and left keys to control direction.\n"
@@ -7294,23 +7237,23 @@ msgstr ""
 "La plataforma de aterrizaje se pondrá verde cuando la velocidad para "
 "aterrizar sea adecuada."
 
-#: ../src/land_safe-activity/land_safe.py:170
+#: ../src/land_safe-activity/land_safe.py:171
 msgid "Click on me or press the Return key when you are ready."
 msgstr "Púlsame o pulsa la tecla «Intro» cuando estés listo"
 
-#: ../src/land_safe-activity/land_safe.py:172
+#: ../src/land_safe-activity/land_safe.py:173
 msgid "I am ready!"
 msgstr "Estoy listo/a"
 
-#: ../src/land_safe-activity/land_safe.py:470
+#: ../src/land_safe-activity/land_safe.py:473
 msgid "Height: "
 msgstr "Altura: "
 
-#: ../src/land_safe-activity/land_safe.py:486
+#: ../src/land_safe-activity/land_safe.py:491
 msgid "Fuel"
 msgstr "Combustible"
 
-#: ../src/land_safe-activity/land_safe.py:519
+#: ../src/land_safe-activity/land_safe.py:525
 msgid "Velocity: "
 msgstr "Velocidad: "
 
@@ -7369,7 +7312,7 @@ msgstr ""
 msgid "Select locale"
 msgstr "Seleccionar idioma"
 
-#: ../src/lang-activity/langEnterText.py:147
+#: ../src/lang-activity/langEnterText.py:133
 msgid "Enter the text you hear:"
 msgstr "Escribe el texto que escuchas:"
 
@@ -8122,10 +8065,8 @@ msgstr "Encuentra el par que corresponde"
 #. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
 #. * This is used in reading/click_on_letter and discovery/memory-group
 #: ../src/memory-activity/memory.c:734
-#, fuzzy
-#| msgid "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
 msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
-msgstr "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
+msgstr "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
 
 #. TRANSLATORS: Put here the numbers in your language
 #: ../src/memory-activity/memory.c:949
@@ -9019,42 +8960,42 @@ msgstr ""
 "Do. Ten en cuenta que las posiciones de las notas son diferentes que las de "
 "la clave de Sol."
 
-#: ../src/note_names-activity/note_names.py:143
+#: ../src/note_names-activity/note_names.py:144
 msgid "Play Scale"
 msgstr "Reproducir escala"
 
-#: ../src/note_names-activity/note_names.py:150
+#: ../src/note_names-activity/note_names.py:151
 msgid "Play Treble Clef Game"
 msgstr "Jugar a la clave de Sol"
 
-#: ../src/note_names-activity/note_names.py:152
+#: ../src/note_names-activity/note_names.py:153
 msgid "Play Bass Clef Game"
 msgstr "Jugar a la clave de Fa"
 
-#: ../src/note_names-activity/note_names.py:183
+#: ../src/note_names-activity/note_names.py:184
 msgid "Click on the note name to match the pitch. Then click OK to check."
 msgstr ""
 "Pulsa sobre el nombre de la nota para que coincida con el tono. Luego pulsa "
 "Aceptar para comprobar."
 
-#: ../src/note_names-activity/note_names.py:185
+#: ../src/note_names-activity/note_names.py:186
 msgid "Now there are sharp notes. These pitches are raised a half step."
 msgstr "Ahora vienen las notas sostenidas. Los tonos se han subido 1/2 tono."
 
-#: ../src/note_names-activity/note_names.py:187
+#: ../src/note_names-activity/note_names.py:188
 msgid "Now there are flat notes. These pitches are lowered a half step."
 msgstr "Ahora vienen las notas sostenidas. Los tonos se han bajado 1/2 tono."
 
-#: ../src/note_names-activity/note_names.py:193
+#: ../src/note_names-activity/note_names.py:194
 msgid "Click the note to hear it played"
 msgstr "Pulsa en una nota para escucharla"
 
-#: ../src/note_names-activity/note_names.py:246
+#: ../src/note_names-activity/note_names.py:247
 msgid "Need a hint? Click here for color-coded note names."
 msgstr ""
 "¿Necesitas una pista? Pulsa aquí para ver los códigos de color de las notas."
 
-#: ../src/note_names-activity/note_names.py:249
+#: ../src/note_names-activity/note_names.py:250
 msgid "Ready for a challenge? Color all buttons black!"
 msgstr "¿Listo para el desafío? ¡Pinta todos los botones de negro!"
 
@@ -9385,7 +9326,7 @@ msgstr "La♭"
 msgid "Bb"
 msgstr "Si♭"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:290
+#: ../src/piano_composition-activity/gcomprismusic.py:291
 msgid "The staff is full. Please erase some notes"
 msgstr "El pentagrama está completo. Borra algunas notas"
 
@@ -9456,39 +9397,39 @@ msgstr "Reproducir composición"
 msgid "Erase and Change Clef"
 msgstr "Borrar y cambiar la clave"
 
-#: ../src/piano_composition-activity/piano_composition.py:222
+#: ../src/piano_composition-activity/piano_composition.py:223
 msgid "Change Note Type:"
 msgstr "Cambiar el tipo de nota:"
 
 # http://es.wikipedia.org/wiki/Corchea
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
-#: ../src/piano_composition-activity/piano_composition.py:243
+#: ../src/piano_composition-activity/piano_composition.py:244
 msgid "Eighth Note"
 msgstr "Octava nota"
 
 # http://es.wikipedia.org/wiki/Negra
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
-#: ../src/piano_composition-activity/piano_composition.py:266
+#: ../src/piano_composition-activity/piano_composition.py:267
 msgid "Quarter Note"
 msgstr "Negra"
 
 # http://es.wikipedia.org/wiki/Blanca_%28m%C3%BAsica%29
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
-#: ../src/piano_composition-activity/piano_composition.py:279
+#: ../src/piano_composition-activity/piano_composition.py:280
 msgid "Half Note"
 msgstr "Blanca"
 
 # http://es.wikipedia.org/wiki/Redonda_%28figura%29
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
-#: ../src/piano_composition-activity/piano_composition.py:292
+#: ../src/piano_composition-activity/piano_composition.py:293
 msgid "Whole Note"
 msgstr "Redonda"
 
-#: ../src/piano_composition-activity/piano_composition.py:324
+#: ../src/piano_composition-activity/piano_composition.py:325
 msgid "Load Music"
 msgstr "Cargar música"
 
-#: ../src/piano_composition-activity/piano_composition.py:329
+#: ../src/piano_composition-activity/piano_composition.py:330
 msgid "Change Accidental Style:"
 msgstr "Cambiar la tonalidad:"
 
@@ -9496,9 +9437,17 @@ msgstr "Cambiar la tonalidad:"
 msgid "Select A Melody to Load"
 msgstr "Seleccionar la melodía que cargar"
 
+#: ../src/piano_composition-activity/piano_composition.py:405
+msgid "Previous Page"
+msgstr "Página anterior"
+
+#: ../src/piano_composition-activity/piano_composition.py:415
+msgid "Next Page"
+msgstr "Siguiente página"
+
 #. FIXME Should remove the space in the data file instead
-#: ../src/piano_composition-activity/piano_composition.py:449
-#: ../src/piano_composition-activity/piano_composition.py:578
+#: ../src/piano_composition-activity/piano_composition.py:450
+#: ../src/piano_composition-activity/piano_composition.py:580
 msgid " "
 msgstr " "
 
@@ -9667,23 +9616,27 @@ msgstr ""
 "Ahora pulsa sobre el satélite y arrastra una línea para establecer la "
 "velocidad del satélite"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:267
+#: ../src/place_your_satellite-activity/place_your_satellite.py:268
 msgid "Satellite goes too fast"
 msgstr "El satélite va muy rápido"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:269
+#: ../src/place_your_satellite-activity/place_your_satellite.py:270
 msgid "Satellite goes too slow"
 msgstr "El satélite va muy despacio"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:296
+#: ../src/place_your_satellite-activity/place_your_satellite.py:274
+msgid "Distance: {:.1f}"
+msgstr "Distancia: {:.1f}"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:297
 msgid "Satellite is crashing"
 msgstr "El satélite se estrella"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:330
+#: ../src/place_your_satellite-activity/place_your_satellite.py:331
 msgid "Satellite not in orbit"
 msgstr "El satélite no está en órbita"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:394
+#: ../src/place_your_satellite-activity/place_your_satellite.py:397
 msgid "Speed"
 msgstr "Velocidad"
 
