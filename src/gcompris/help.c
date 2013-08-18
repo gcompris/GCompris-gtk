@@ -287,7 +287,12 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
 
   // default text to display
 
-  if(prerequisite)
+  if(manual)
+    {
+      text_to_display = manual;
+      select_item(item_manual, item_manual_text);
+    }
+  else if(prerequisite)
     {
       text_to_display = prerequisite;
       select_item(item_prerequisite, item_prerequisite_text);
@@ -296,11 +301,6 @@ void gc_help_start (GcomprisBoard *gcomprisBoard)
     {
       text_to_display = goal;
       select_item(item_goal, item_goal_text);
-    }
-  else if(manual)
-    {
-      text_to_display = manual;
-      select_item(item_manual, item_manual_text);
     }
   else if(credit)
     {
