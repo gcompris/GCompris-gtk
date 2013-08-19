@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-13 20:28+0000\n"
+"POT-Creation-Date: 2013-08-18 15:22+0000\n"
 "PO-Revision-Date: 2013-08-14 16:33+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
@@ -4455,18 +4455,18 @@ msgstr ""
 "na FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1240
+#: ../src/gcompris/gcompris.c:1241
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Nelze načíst vzhled „%s“ (Zkontrolujte, zda soubor existuje a zda jej lze "
 "číst)"
 
-#: ../src/gcompris/gcompris.c:1256
+#: ../src/gcompris/gcompris.c:1257
 msgid "Retrieving remote data..."
 msgstr "Získávají se vzdálená data…"
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1518
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4482,12 +4482,12 @@ msgstr[2] ""
 "GCompris se nemůže spustit, protože soubor zámku je méně než %d sekund "
 "starý.\n"
 
-#: ../src/gcompris/gcompris.c:1521
+#: ../src/gcompris/gcompris.c:1522
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Soubor zámku je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1642
+#: ../src/gcompris/gcompris.c:1643
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4501,27 +4501,27 @@ msgstr ""
 "Více informací na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1827
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Pro přímý přístup k aktivitě použijte -l.\n"
 
-#: ../src/gcompris/gcompris.c:1828
+#: ../src/gcompris/gcompris.c:1829
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostupných aktivit:\n"
 
-#: ../src/gcompris/gcompris.c:1859
+#: ../src/gcompris/gcompris.c:1860
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Počet aktivit: %d\n"
 
-#: ../src/gcompris/gcompris.c:1895
+#: ../src/gcompris/gcompris.c:1896
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existuje, ale nelze jej číst nebo do něj zapisovat"
 
-#: ../src/gcompris/gcompris.c:1990
+#: ../src/gcompris/gcompris.c:1991
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4530,7 +4530,7 @@ msgstr ""
 "CHYBA: Profil „%s“ nebyl nalezen. Dostupné profily si vypíšete spuštěním "
 "„gcompris --profile-list“\n"
 
-#: ../src/gcompris/gcompris.c:2004
+#: ../src/gcompris/gcompris.c:2005
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostupných profilů:\n"
@@ -4670,41 +4670,45 @@ msgstr ""
 "Documentation License. Tuto úroveň vytvořil Olaf Ronneberger a jeho děti "
 "Lina a Julia."
 
-#: ../src/geo_country-activity/resources/geo_country/board1_0.xml.in.h:1
-msgid "Regions of France"
-msgstr "Regiony Francie"
-
 # FIMXE: s/state/states/?
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
 msgid "United States of America"
 msgstr "Spojené státy Americké"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:2
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:2
 msgid "Connecticut"
 msgstr "Connecticut"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:3
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:3
 msgid "Rhode Island"
 msgstr "Rhode Island"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:4
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:4
 msgid "Massachusetts"
 msgstr "Massachusetts"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:5
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:5
 msgid "Wyoming"
 msgstr "Wyoming"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:6
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:6
 msgid "Utah"
 msgstr "Utah"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:7
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:7
 msgid "Nevada"
 msgstr "Nevada"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:8
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:8
 msgid "California"
 msgstr "Kalifornie"
 
@@ -4713,42 +4717,52 @@ msgid "Wahington D.C."
 msgstr "Wahington D.C."
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:10
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
 msgid "Maine"
 msgstr "Maine"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:11
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:11
 msgid "New Hampshire"
 msgstr "New Hampshire"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:12
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:12
 msgid "Vermont"
 msgstr "Vermont"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:13
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:13
 msgid "New York"
 msgstr "New York"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:14
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:14
 msgid "Pennsylvania"
 msgstr "Pensylvánie"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:15
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:15
 msgid "Delaware"
 msgstr "Delaware"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:16
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:16
 msgid "New Jersey"
 msgstr "New Jersey"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:17
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:17
 msgid "Maryland"
 msgstr "Maryland"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:18
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:18
 msgid "Alabama"
 msgstr "Alabama"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:19
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:19
 msgid "Florida"
 msgstr "Florida"
 
@@ -4757,133 +4771,178 @@ msgid "USA|Georgia"
 msgstr "Georgia"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:21
 msgid "South Carolina"
 msgstr "Jižní Karolína"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:22
 msgid "North Carolina"
 msgstr "Severní Karolína"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:23
 msgid "Virginia"
 msgstr "Virginie"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:24
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:24
 msgid "West Virginia"
 msgstr "Západní Virginie"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:25
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:25
 msgid "Ohio"
 msgstr "Ohio"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:26
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:26
 msgid "Michigan"
 msgstr "Michigan"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:27
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:27
 msgid "Wisconsin"
 msgstr "Wisconsin"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:28
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:28
 msgid "Illinois"
 msgstr "Illinois"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:29
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:29
 msgid "Indiana"
 msgstr "Indiana"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:30
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:30
 msgid "Kentucky"
 msgstr "Kentucky"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:31
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:31
 msgid "Tennessee"
 msgstr "Tennessee"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:32
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:32
 msgid "Mississippi"
 msgstr "Mississippi"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:33
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:33
 msgid "Louisiana"
 msgstr "Louisiana"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:34
 msgid "Arkansas"
 msgstr "Arkansas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:35
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:35
 msgid "Missouri"
 msgstr "Missouri"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:36
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:36
 msgid "Iowa"
 msgstr "Iowa"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:37
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:37
 msgid "Minnesota"
 msgstr "Minnesota"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:38
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:38
 msgid "Oklahoma"
 msgstr "Oklahoma"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:39
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:39
 msgid "Texas"
 msgstr "Texas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:40
-msgid "Hawai"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:40
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
+msgid "Hawaii"
 msgstr "Havaj"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:41
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:41
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
 msgid "Alaska"
 msgstr "Aljaška"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:42
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:42
 msgid "Arizona"
 msgstr "Arizona"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:43
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:43
 msgid "New Mexico"
 msgstr "Nové Mexiko"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:44
 msgid "Colorado"
 msgstr "Colorado"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:45
 msgid "Kansas"
 msgstr "Kansas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:46
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:46
 msgid "Nebraska"
 msgstr "Nebraska"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:47
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:47
 msgid "South Dakota"
 msgstr "Jižní Dakota"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:48
 msgid "North Dakota"
 msgstr "Severní Dakota"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:49
 msgid "Montana"
 msgstr "Montana"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:50
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:50
 msgid "Idaho"
 msgstr "Idaho"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:51
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:51
 msgid "Oregon"
 msgstr "Oregon"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:52
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:52
 msgid "Washington"
 msgstr "Washington"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:9
+msgid "Washington D.C."
+msgstr "Washington D.C."
+
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:20
+msgid "Georgia"
+msgstr "Georgia"
+
+#: ../src/geo_country-activity/resources/geo_country/board1_0.xml.in.h:1
+msgid "Regions of France"
+msgstr "Regiony Francie"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
@@ -5352,10 +5411,6 @@ msgstr "Evropa"
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:1
 msgid "Oceania"
 msgstr "Oceánie"
-
-#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
-msgid "Hawaii"
-msgstr "Havaj"
 
 # FIMXE: s/state/states/?
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:3
@@ -5997,11 +6052,11 @@ msgstr ""
 "seznam písmen potřebných k této hře.\n"
 
 #. Should display the dialog box here
-#: ../src/gletters-activity/gletters.c:785
+#: ../src/gletters-activity/gletters.c:786
 msgid "ERROR: Unable to get letter from wordlist"
 msgstr "CHYBA: Nelze získat písmeno ze seznamu slov"
 
-#: ../src/gletters-activity/gletters.c:1031
+#: ../src/gletters-activity/gletters.c:1032
 #: ../src/imageid-activity/imageid.c:716
 #: ../src/readingh-activity/reading.c:918
 #: ../src/scalesboard-activity/scale.c:1259
@@ -6015,12 +6070,12 @@ msgstr ""
 "Nastavení <b>%s</b>\n"
 " pro profil <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:1063
+#: ../src/gletters-activity/gletters.c:1064
 #: ../src/smallnumbers-activity/smallnumbers.c:617
 msgid "Enable sounds"
 msgstr "Povolit zvuky"
 
-#: ../src/gletters-activity/gletters.c:1067
+#: ../src/gletters-activity/gletters.c:1068
 msgid ""
 "Show letters in UPPERCASE\n"
 "Type in lowercase or UPPERCASE as you wish"
@@ -7201,28 +7256,7 @@ msgstr ""
 "Pokud je tvá rychlost bezpečná pro přistání, je přistávací plošina zelená.\n"
 "        "
 
-#: ../src/lang-activity/lang.py:99
-msgid "ERROR, we found no words in this language."
-msgstr "CHYBA, nebyla nalezena žádná slova v tomto jazyce."
-
-#: ../src/lang-activity/lang.py:100
-msgid "Please consider contributing a voice set."
-msgstr "Zvaž prosím, jestli bys nechtěl přispět do sady slov."
-
-#: ../src/lang-activity/lang.py:153
-#, python-format
-msgid ""
-"Configuration\n"
-" for profile <b>%s</b>"
-msgstr ""
-"Nastavení\n"
-" pro profil <b>%s</b>"
-
-#: ../src/lang-activity/lang.py:158
-msgid "Select locale"
-msgstr "Vyber si národní nastavení"
-
-#: ../src/lang-activity/langEnterText.py:147
+#: ../src/lang-activity/langEnterText.py:133
 msgid "Enter the text you hear:"
 msgstr "Napišt text, který slyšíš:"
 
@@ -7268,7 +7302,7 @@ msgstr ""
 #: ../src/lang-activity/lang-other.xml.in.h:6
 #: ../src/lang-activity/lang-people.xml.in.h:6
 msgid ""
-"The images and voices comes from the Art4Apps project: http://www.art4apps."
+"The images and voices come from the Art4Apps project: http://www.art4apps."
 "org/. You can also access this activity online on http://laske.fr/"
 "abecedarium/."
 msgstr ""
@@ -7287,6 +7321,27 @@ msgstr "Seznam slov v kategorii „ostatní“."
 #: ../src/lang-activity/lang-people.xml.in.h:2
 msgid "List of words in the 'people' category."
 msgstr "Seznam slov v kategorii „lidé“."
+
+#: ../src/lang-activity/lang.py:99
+msgid "ERROR, we found no words in this language."
+msgstr "CHYBA, nebyla nalezena žádná slova v tomto jazyce."
+
+#: ../src/lang-activity/lang.py:100
+msgid "Please consider contributing a voice set."
+msgstr "Zvaž prosím, jestli bys nechtěl přispět do sady slov."
+
+#: ../src/lang-activity/lang.py:153
+#, python-format
+msgid ""
+"Configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"Nastavení\n"
+" pro profil <b>%s</b>"
+
+#: ../src/lang-activity/lang.py:158
+msgid "Select locale"
+msgstr "Vyber si národní nastavení"
 
 #: ../src/lang-activity/lang.xml.in.h:1
 msgid "Go to the language learning activities"
@@ -7459,8 +7514,8 @@ msgid ""
 "Lights Off game: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 msgstr ""
 "Postup řešení je popsaný na Wikipedii. Pokud se chcete dozvědět více o hře "
-"„Vypínání světel“, navštivte &lt;http://en.wikipedia.org/wiki/"
-"Lights_Out_(game)&gt;"
+"„Vypínání světel“, navštivte &lt;http://en.wikipedia.org/wiki/Lights_Out_"
+"(game)&gt;"
 
 #: ../src/login-activity/login.py:102
 msgid "Profile: "
