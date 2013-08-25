@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
 "is&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-15 07:24+0000\n"
-"PO-Revision-Date: 2013-08-16 15:29+0300\n"
+"POT-Creation-Date: 2013-08-23 08:54+0000\n"
+"PO-Revision-Date: 2013-08-25 13:15+0300\n"
 "Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
@@ -1197,7 +1197,7 @@ msgstr "+-*/"
 #: ../src/play_rhythm-activity/play_rhythm.py:87
 #: ../src/readingh-activity/reading.c:643
 msgid "I am Ready"
-msgstr "Είμαι Έτοιμος"
+msgstr "Είμαι έτοιμος"
 
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:1
 msgid "Find the series of correct operations that matches the given answer"
@@ -1920,10 +1920,6 @@ msgid "Click me to get some hint"
 msgstr "Κάντε κλικ  για να λάβετε μια συμβουλή"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
-#| msgid ""
-#| "I don't have this number\n"
-#| "\n"
-#| "PLAYER {number}"
 msgid ""
 "I don't have this number\n"
 "PLAYER {number}"
@@ -1943,28 +1939,28 @@ msgstr "Δημιουργία αριθμού"
 #: ../src/braille_lotto-activity/braille_lotto.py:296
 #: ../src/braille_lotto-activity/braille_lotto.py:319
 msgid "Hey, you have it. It is there in your {column} column"
-msgstr "Εεε, το έχεις. Είναι εκεί, στη στήλη {column}."
+msgstr "Εεε, το έχεις! Είναι εκεί, στην {column} στήλη."
 
 #: ../src/braille_lotto-activity/braille_lotto.py:298
 #: ../src/braille_lotto-activity/braille_lotto.py:321
 msgid "Oops, this number is not in your ticket!"
-msgstr "Οοοπς! Αυτό το νούμερο δεν είναι στο εισιτήριό σου."
+msgstr "Ουπς! Αυτό το νούμερο δεν είναι στο εισιτήριό σου."
 
 #: ../src/braille_lotto-activity/braille_lotto.py:335
 msgid "1st"
-msgstr "1ος"
+msgstr "1η"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:338
 msgid "2nd"
-msgstr "2ος"
+msgstr "2η"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:341
 msgid "3rd"
-msgstr "3ος"
+msgstr "3η"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:343
 msgid "4th"
-msgstr "4ος"
+msgstr "4η"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:353
 msgid "Game Over"
@@ -3281,7 +3277,7 @@ msgstr ""
 
 #: ../src/explore-activity/explore.py:507
 msgid "Explore Status:"
-msgstr "Εξερεύνηση κατάστασης:"
+msgstr "Κατάσταση εξερεύνησης:"
 
 #: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:1
 msgid "Explore Farm Animals"
@@ -3388,7 +3384,7 @@ msgid ""
 "The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all day "
 "in the meadow."
 msgstr ""
-"Η αγελάδα μουγκανίζει  \"μουου. μουου.\". Οι αγελάδες είναι φυτοφάγα "
+"Η αγελάδα μουγκανίζει  \"μουου, μουου.\". Οι αγελάδες είναι φυτοφάγα "
 "θηλαστικά. Βόσκουν όλη μέρα στα λειβάδια."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
@@ -3436,7 +3432,7 @@ msgid ""
 msgstr ""
 "Η πάπια παπάζει \"πα, πα\". Οι πάπιες έχουν ειδικά χαρακτηριστικά, όπως "
 "μεμβράνες, ενώ παράγουν ένα είδος λαδιού που κάνει τα πούπουλά τους "
-"\"αδιάβροχα\"."
+"αδιάβροχα."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
 msgid "This animal has webbed feet so it can swim in the water."
@@ -3526,7 +3522,7 @@ msgstr ""
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
 msgid "Explore exotic animals from around the world."
-msgstr "Εξερευνήστε εξωτικά ζώα από ολόκληρο τον κόσμο."
+msgstr "Ζώα από ολόκληρο τον κόσμο."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
 msgid "Click on location where the given animal lives."
@@ -4844,40 +4840,44 @@ msgstr ""
 "παιδιά του Lina και Julia Ronneberger κατασκεύασαν τα τμήματα του γερμανικού "
 "χάρτη."
 
-#: ../src/geo_country-activity/resources/geo_country/board1_0.xml.in.h:1
-msgid "Regions of France"
-msgstr "Περιοχές της Γαλλίας"
-
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
 msgid "United States of America"
 msgstr "Ηνωμένες Πολιτείες της Αμερικής"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:2
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:2
 msgid "Connecticut"
 msgstr "Κονέκτικατ"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:3
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:3
 msgid "Rhode Island"
 msgstr "Νήσοι Ρόουντ"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:4
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:4
 msgid "Massachusetts"
 msgstr "Μασαχουσέτη"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:5
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:5
 msgid "Wyoming"
 msgstr "Γουαϊόμινγκ"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:6
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:6
 msgid "Utah"
 msgstr "Γιούτα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:7
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:7
 msgid "Nevada"
 msgstr "Νεβάδα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:8
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:8
 msgid "California"
 msgstr "Καλιφόρνια"
 
@@ -4886,42 +4886,52 @@ msgid "Wahington D.C."
 msgstr "Ουάσινγκτον D.C."
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:10
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
 msgid "Maine"
 msgstr "Μέιν"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:11
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:11
 msgid "New Hampshire"
 msgstr "Νιου Χαμσάιρ"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:12
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:12
 msgid "Vermont"
 msgstr "Βέρμοντ"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:13
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:13
 msgid "New York"
 msgstr "Νέα Υόρκη"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:14
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:14
 msgid "Pennsylvania"
 msgstr "Πενσυλβάνια"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:15
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:15
 msgid "Delaware"
 msgstr "Ντελάγουεαρ"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:16
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:16
 msgid "New Jersey"
 msgstr "Νιου Τζέρσεϊ"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:17
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:17
 msgid "Maryland"
 msgstr "Μέριλαντ"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:18
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:18
 msgid "Alabama"
 msgstr "Αλαμπάμα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:19
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:19
 msgid "Florida"
 msgstr "Φλόριντα"
 
@@ -4930,133 +4940,178 @@ msgid "USA|Georgia"
 msgstr "USA|Τζιόρτζια"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:21
 msgid "South Carolina"
 msgstr "Νότια Καρολίνα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:22
 msgid "North Carolina"
 msgstr "Βόρεια Καρολίνα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:23
 msgid "Virginia"
 msgstr "Βιρτζίνια"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:24
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:24
 msgid "West Virginia"
 msgstr "Δυτική Βιρτζίνια"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:25
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:25
 msgid "Ohio"
 msgstr "Οχάιο"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:26
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:26
 msgid "Michigan"
 msgstr "Μίτσιγκαν"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:27
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:27
 msgid "Wisconsin"
 msgstr "Ουισκόνσιν"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:28
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:28
 msgid "Illinois"
 msgstr "Ιλινόι"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:29
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:29
 msgid "Indiana"
 msgstr "Ιντιάνα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:30
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:30
 msgid "Kentucky"
 msgstr "Κεντάκι"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:31
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:31
 msgid "Tennessee"
 msgstr "Τενεσί"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:32
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:32
 msgid "Mississippi"
 msgstr "Μισισίπη"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:33
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:33
 msgid "Louisiana"
 msgstr "Λουιζιάνα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:34
 msgid "Arkansas"
 msgstr "Αρκάνσας"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:35
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:35
 msgid "Missouri"
 msgstr "Μιζούρι"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:36
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:36
 msgid "Iowa"
 msgstr "Αϊόβα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:37
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:37
 msgid "Minnesota"
 msgstr "Μινεσότα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:38
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:38
 msgid "Oklahoma"
 msgstr "Οκλαχόμα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:39
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:39
 msgid "Texas"
 msgstr "Τέξας"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:40
-msgid "Hawai"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:40
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
+msgid "Hawaii"
 msgstr "Χαβάι"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:41
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:41
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
 msgid "Alaska"
 msgstr "Αλάσκα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:42
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:42
 msgid "Arizona"
 msgstr "Αριζόνα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:43
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:43
 msgid "New Mexico"
 msgstr "Νιού Μέξικο"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:44
 msgid "Colorado"
 msgstr "Κολοράντο"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:45
 msgid "Kansas"
 msgstr "Κάνσας"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:46
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:46
 msgid "Nebraska"
 msgstr "Νεμπράσκα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:47
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:47
 msgid "South Dakota"
 msgstr "Νότια Ντακότα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:48
 msgid "North Dakota"
 msgstr "Βόρεια Ντακότα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:49
 msgid "Montana"
 msgstr "Μοντάνα"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:50
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:50
 msgid "Idaho"
 msgstr "Αϊντάχο"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:51
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:51
 msgid "Oregon"
 msgstr "Όρεγκον"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:52
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:52
 msgid "Washington"
 msgstr "Ουάσινγκτον"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:9
+msgid "Washington D.C."
+msgstr "Ουάσινγκτον D.C."
+
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:20
+msgid "Georgia"
+msgstr "Τζόρτζια"
+
+#: ../src/geo_country-activity/resources/geo_country/board1_0.xml.in.h:1
+msgid "Regions of France"
+msgstr "Περιοχές της Γαλλίας"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
@@ -5526,10 +5581,6 @@ msgstr "Ευρώπη"
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:1
 msgid "Oceania"
 msgstr "Ωκεανία"
-
-#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
-msgid "Hawaii"
-msgstr "Χαβάι"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:3
 msgid "United States Minor Outlying Islands"
@@ -6447,8 +6498,8 @@ msgstr ""
 "διαιρέτης ενός δεύτερου αριθμού, τότε ο δεύτερος αριθμός είναι πολλαπλάσιο "
 "του πρώτου . Μπορείτε να σκεφτείτε τα πολλαπλάσια ως οικογένειες και τους "
 "διαιρέτες ως μέλη αυτών των οικογενειών. Ο διαιρέτης 5, έχει σαν γονείς το "
-"10, παππούδες και γιαγιάδες το 15, προπαππούδες και προγιαγιάδες το 20, "
-"κ.ο.κ. Ο αριθμός 5 όμως δεν ανήκει στις οικογένειες του 8 ή του 23 για "
+"10, παππούδες και γιαγιάδες το 15, προπαππούδες και προγιαγιάδες το 20, κ.ο."
+"κ. Ο αριθμός 5 όμως δεν ανήκει στις οικογένειες του 8 ή του 23 για "
 "παράδειγμα, γιατί κανένα γινόμενο του 5 δεν δίνει ως αποτέλεσμα το 8 ή το "
 "23. Αντίστροφα, το 8 δεν είναι πολλαπλάσια του 5, ούτε και του 23. Μόνον οι "
 "αριθμοί 5, 10, 15, 20, 25… είναι πολλαπλάσια (ή οικογένειες) του 5. "
@@ -6843,7 +6894,7 @@ msgstr ""
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
 msgid "Learn about an electrical system based on renewable energy"
-msgstr "Συστήματα ηλεκτρικής ενέργειας που βασίζονται σε ανανεώσιμες πηγές"
+msgstr "Ηλεκτρική ενέργεια και ανανεώσιμες πηγές"
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
 msgid ""
@@ -7287,9 +7338,9 @@ msgid ""
 "square of the distance that separates their centers."
 msgstr ""
 "Η βαρύτητα είναι ένα καθολικό φαινόμενο και ο παγκόσμιος βαρυτικός Νόμος του "
-"Νεύτωνα, σύμφωνα με τον οποίο κάθε σώμα στο σύμπαν έλκει κάθε άλλο σώμα με "
-"δύναμη ανάλογη του γινομένου των μαζών τους και αντιστρόφως ανάλογη του "
-"τετραγώνου της απόστασης του κέντρου μάζας τους."
+"Νεύτωνα επεκτείνει το βαρυτικό πεδίο πέρα από τη Γη. Η δύναμη της βαρυτικής "
+"έλξης είναι ανάλογη με το γινόμενο των μαζών των σωμάτων που έλκονται και "
+"αντιστρόφως ανάλογη του τετραγώνου της απόστασης του κέντρου μάζας τους."
 
 #: ../src/intro_gravity-activity/intro_gravity.py:107
 msgid ""
@@ -7358,12 +7409,12 @@ msgid ""
 "The landing platform turns green when the velocity is safe to land"
 msgstr ""
 "Χρησιμοποιήστε το επάνω και το κάτω βελάκι για να ελέγξετε την ώθηση.\n"
-"Χρησιμοποιήστε το αριστερό και το δεξιό βελάκι για να ελέγξετε την οριζόντια "
-"κατεύθυνση.\n"
+"Χρησιμοποιήστε το αριστερό και το δεξιό βελάκι για να ελέγξετε την\n"
+"οριζόντια κατεύθυνση.\n"
 "Οδηγήστε το διαστημόπλοιο του Tux στην πλατφόρμα προσγείωσης.\n"
-"H πλατφόρμα προσγείωσης είναι πράσινη όταν το σκάφος πρόκειται να "
-"προσγειωθεί με ασφάλεια και κόκκινη όταν το σκάφος έχει μεγάλη ταχύτητα και "
-"άρα δεν θα προσγειωθεί με ασφάλεια."
+"H πλατφόρμα προσγείωσης είναι πράσινη όταν το σκάφος πρόκειται να\n"
+"προσγειωθεί με ασφάλεια και κόκκινη όταν το σκάφος έχει μεγάλη\n"
+"ταχύτητα και άρα δεν θα προσγειωθεί με ασφάλεια."
 
 #: ../src/land_safe-activity/land_safe.py:171
 msgid "Click on me or press the Return key when you are ready."
@@ -7427,27 +7478,6 @@ msgstr ""
 "προσγείωση.\n"
 "        "
 
-#: ../src/lang-activity/lang.py:99
-msgid "ERROR, we found no words in this language."
-msgstr "ΣΦΑΛΜΑ, δεν βρήκαμε λέξεις σε αυτή τη γλώσσα."
-
-#: ../src/lang-activity/lang.py:100
-msgid "Please consider contributing a voice set."
-msgstr "Παρακαλώ, σκεφτείτε να συνεισφέρετε μια συλλογή ήχων."
-
-#: ../src/lang-activity/lang.py:153
-#, python-format
-msgid ""
-"Configuration\n"
-" for profile <b>%s</b>"
-msgstr ""
-"Ρυθμίσεις\n"
-" για το προφίλ <b>%s</b>"
-
-#: ../src/lang-activity/lang.py:158
-msgid "Select locale"
-msgstr "Επιλογή γλώσσας"
-
 #: ../src/lang-activity/langEnterText.py:133
 msgid "Enter the text you hear:"
 msgstr "Εισάγετε το κείμενο που ακούτε:"
@@ -7494,11 +7524,11 @@ msgstr ""
 #: ../src/lang-activity/lang-other.xml.in.h:6
 #: ../src/lang-activity/lang-people.xml.in.h:6
 msgid ""
-"The images and voices comes from the Art4Apps project: http://www.art4apps."
+"The images and voices come from the Art4Apps project: http://www.art4apps."
 "org/. You can also access this activity online on http://laske.fr/"
 "abecedarium/."
 msgstr ""
-"Οι εικόνες και οι ήχοι προέρχονται από το Art4Apps έργο: http://www.art4apps."
+"Οι εικόνες και οι ήχοι προέρχονται από το έργο Art4Apps: http://www.art4apps."
 "org/. Μπορείτε επίσης να έχετε online πρόσβαση σε αυτή τη δραστηριότητα από "
 "τη διεύθυνση: http://laske.fr/abecedarium/."
 
@@ -7513,6 +7543,27 @@ msgstr "Λίστα λέξεων στην κατηγορία 'άλλο'."
 #: ../src/lang-activity/lang-people.xml.in.h:2
 msgid "List of words in the 'people' category."
 msgstr "Λίστα λέξεων στην κατηγορία 'άνθρωποι'."
+
+#: ../src/lang-activity/lang.py:99
+msgid "ERROR, we found no words in this language."
+msgstr "ΣΦΑΛΜΑ, δεν βρήκαμε λέξεις σε αυτή τη γλώσσα."
+
+#: ../src/lang-activity/lang.py:100
+msgid "Please consider contributing a voice set."
+msgstr "Παρακαλώ, σκεφτείτε να συνεισφέρετε μια συλλογή ήχων."
+
+#: ../src/lang-activity/lang.py:153
+#, python-format
+msgid ""
+"Configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"Ρυθμίσεις\n"
+" για το προφίλ <b>%s</b>"
+
+#: ../src/lang-activity/lang.py:158
+msgid "Select locale"
+msgstr "Επιλογή γλώσσας"
 
 #: ../src/lang-activity/lang.xml.in.h:1
 msgid "Go to the language learning activities"
@@ -7818,10 +7869,10 @@ msgid ""
 "invention of night writing, a code of 12 raised dots to share information on "
 "battlefields."
 msgstr ""
-"Ο Τσαρλς Μπαρπιέρ, ένας πρώην αξιωματικός του γαλλικού στρατού, επισκέφθηκε "
-"το σχολείο του και παρουσίασε την εφεύρεσή του για το 'Νυχτερινό γράψιμο', "
-"έναν κώδικα που περιέχει 12 ανάγλυφους χαρακτήρες, που επέτρεπε τον "
-"διαμοιρασμό πληροφοριών στα πεδία της μάχης."
+"Ο Τσαρλς Μπαρπιέρ, ένας Γάλλος στρατιωτικός, επισκέφθηκε το σχολείο του και "
+"παρουσίασε την εφεύρεσή του για το 'Νυχτερινό γράψιμο', έναν κώδικα που "
+"περιείχε 12 ανάγλυφους χαρακτήρες και επέτρεπε τον διαμοιρασμό πληροφοριών "
+"στα πεδία της μάχης."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:7
 msgid "Louis trimmed Barbier's 12 dots into 6 and invented the Braille system."
@@ -9801,7 +9852,6 @@ msgid "Satellite goes too slow"
 msgstr "Ο δορυφόρος κινείται πολύ αργά"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:274
-#| msgid "Distance:"
 msgid "Distance: {:.1f}"
 msgstr "Απόσταση: {:.1f}"
 
@@ -11148,6 +11198,9 @@ msgstr "Εξάσκηση στο πληκτρολόγιο"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Πληκτρολόγησε την λέξη πριν αυτή πέσει στο έδαφος"
+
+#~ msgid "Hawai"
+#~ msgstr "Χαβάι"
 
 #~ msgid "red"
 #~ msgstr "κόκκινο"
