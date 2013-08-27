@@ -65,6 +65,7 @@ wordsimg_DATA = \
 	words/ball_soccer.png \
 	words/ballet.png \
 	words/bank.png \
+	words/banker_female.png \
 	words/bark.png \
 	words/barn.png \
 	words/bat.png \
@@ -210,7 +211,7 @@ wordsimg_DATA = \
 	words/chin.png \
 	words/chocolate.png \
 	words/chop.png \
-	words/chore.png \
+	words/chores.png \
 	words/christmas.png \
 	words/cigar.png \
 	words/circus.png \
