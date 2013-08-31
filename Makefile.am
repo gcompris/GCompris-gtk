@@ -1,16 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-if !BUILD_MINGW32
-if TEXINFO
-DOCS_SUBDIR=docs
-else
-DOCS_SUBDIR=
-endif
-else
-DOCS_SUBDIR=
-endif
-
-SUBDIRS = po src boards $(DOCS_SUBDIR) autopackage sugar
+SUBDIRS = po src boards autopackage sugar
 
 # if OS_MACOSX
 # SUBDIRS += macosx
