@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = po src boards autopackage sugar
+SUBDIRS = po src boards sugar
 
 # if OS_MACOSX
 # SUBDIRS += macosx
