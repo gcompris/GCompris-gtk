@@ -165,7 +165,7 @@ class EnterText:
             alignment = pango.ALIGN_CENTER,
             width = 300
             )
-          self.setQuestion()
+          self.setQuestion(self.tripletToFind.descriptionTranslated, self.textEntry.text)
 
         # The OK Button
         item = goocanvas.Svg(parent = self.gameroot,
@@ -185,29 +185,19 @@ class EnterText:
     # Set the question with dots like L...E
     # The number of dots depends on the errorCount
     # Return False if all spots are filled
-    def setQuestion(self):
+    def setQuestion(self, descriptionTranslated, textEntry):
 
-      text = self.tripletToFind.descriptionTranslated[0]
+      text = ''
+      clueGiven = False
 
-      lastGoodLetter = 1
-      for lastGoodLetter in range(lastGoodLetter,
-                                  min(len(self.tripletToFind.descriptionTranslated),
-                                      len(self.textEntry.text))):
-          if self.textEntry.text[lastGoodLetter] == self.tripletToFind.descriptionTranslated[lastGoodLetter]:
-              text = text + self.tripletToFind.descriptionTranslated[lastGoodLetter]
-
-      # Add a char to help
-      if self.errorCount:
-        try:
-          text = text + self.tripletToFind.descriptionTranslated[lastGoodLetter + 1]
-        except:
-          return False
-
-      remaining = len(self.tripletToFind.descriptionTranslated) - len(text) - 1
-      if remaining >= 0:
-        text = \
-            text + '.' * remaining + \
-            self.tripletToFind.descriptionTranslated[-1]
+      for i in range(0, len(descriptionTranslated)):
+        if len(textEntry) > i and textEntry[i] == descriptionTranslated[i]:
+            text = text + descriptionTranslated[i]
+        elif not clueGiven:
+            text = text + descriptionTranslated[i]
+            clueGiven = True
+        else:
+            text = text + '.'
 
       self.questionItem.set_properties(text = text,)
       return True
@@ -221,7 +211,7 @@ class EnterText:
         self.start()
       else:
         self.errorCount += 1
-        if self.setQuestion():
+        if self.setQuestion(self.tripletToFind.descriptionTranslated, self.textEntry.text):
           if self.errorCount == 1:
             self.triplets.append(self.tripletToFind)
           self.repeat()
