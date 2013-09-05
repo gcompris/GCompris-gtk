@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-13 20:28+0000\n"
-"PO-Revision-Date: 2013-08-15 21:13+0300\n"
+"POT-Creation-Date: 2013-08-18 15:22+0000\n"
+"PO-Revision-Date: 2013-09-05 21:05+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -1846,7 +1846,6 @@ msgid "Click me to get some hint"
 msgstr "Paspausk mane - patarsiu ;)"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
-#| msgid "I don't have this number PLAYER {number}"
 msgid ""
 "I don't have this number\n"
 "PLAYER {number}"
@@ -2480,47 +2479,38 @@ msgid "Match the color "
 msgstr "Atitikti spalvą"
 
 #: ../src/color_mix-activity/color_mix.py:251
-#| msgid "Not enough {color}"
 msgid "Not enough red"
 msgstr "Per mažai raudonos"
 
 #: ../src/color_mix-activity/color_mix.py:251
-#| msgid "Too much {color}"
 msgid "Too much red"
 msgstr "Per daug raudonos"
 
 #: ../src/color_mix-activity/color_mix.py:252
-#| msgid "Not enough {color}"
 msgid "Not enough green"
 msgstr "Per mažai žalios"
 
 #: ../src/color_mix-activity/color_mix.py:252
-#| msgid "Too much {color}"
 msgid "Too much green"
 msgstr "Per daug žalios"
 
 #: ../src/color_mix-activity/color_mix.py:253
-#| msgid "Not enough {color}"
 msgid "Not enough blue"
 msgstr "Per mažai mėlynos"
 
 #: ../src/color_mix-activity/color_mix.py:253
-#| msgid "Too much {color}"
 msgid "Too much blue"
 msgstr "Per daug mėlynos"
 
 #: ../src/color_mix-activity/color_mix.py:255
-#| msgid "Not enough {color}"
 msgid "Not enough cyan"
 msgstr "Per mažai žydros"
 
 #: ../src/color_mix-activity/color_mix.py:255
-#| msgid "Too much {color}"
 msgid "Too much cyan"
 msgstr "Per daug žydros"
 
 #: ../src/color_mix-activity/color_mix.py:256
-#| msgid "Not enough {color}"
 msgid "Not enough magenta"
 msgstr "Per mažai violetinės"
 
@@ -2529,12 +2519,10 @@ msgid "Too much magenta"
 msgstr "Per daug violetinės"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#| msgid "Not enough {color}"
 msgid "Not enough yellow"
 msgstr "Per mažai geltonos"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#| msgid "Too much {color}"
 msgid "Too much yellow"
 msgstr "Per daug geltonos"
 
@@ -2641,52 +2629,42 @@ msgid "Listen to the color and click on the matching duck."
 msgstr "Klausykis ir paspausk atitinkamą antį."
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:1
-#| msgid "Find the {text} duck"
 msgid "Find the yellow duck"
 msgstr "Atraskite geltoną antį"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
-#| msgid "Find the {text} duck"
 msgid "Find the black duck"
 msgstr "Atraskite juodą antį"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-#| msgid "Find the {text} duck"
 msgid "Find the green duck"
 msgstr "Atraskite žalią antį"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-#| msgid "Find the {text} duck"
 msgid "Find the red duck"
 msgstr "Atraskite raudoną antį"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-#| msgid "Find the {text} duck"
 msgid "Find the white duck"
 msgstr "Atraskite baltą antį"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-#| msgid "Find the {text} duck"
 msgid "Find the blue duck"
 msgstr "Atraskite mėlyną antį"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-#| msgid "Find the {text} duck"
 msgid "Find the brown duck"
 msgstr "Atraskite rudą antį"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-#| msgid "Find the {text} duck"
 msgid "Find the grey duck"
 msgstr "Atraskite pilką antį"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
-#| msgid "Find the {text} duck"
 msgid "Find the orange duck"
 msgstr "Atraskite oranžinę antį"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-#| msgid "Find the purple butterfly"
 msgid "Find the purple duck"
 msgstr "Suraskite violetinę antį"
 
@@ -4453,18 +4431,18 @@ msgstr ""
 "Daugiau informacijos rasite FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1240
+#: ../src/gcompris/gcompris.c:1241
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Nepavyko įkelti apvalkalo „%s“ (patikrinkite, ar failas egzistuoja ir yra "
 "skaitomas)"
 
-#: ../src/gcompris/gcompris.c:1256
+#: ../src/gcompris/gcompris.c:1257
 msgid "Retrieving remote data..."
 msgstr "Gaunami nutolę duomenys..."
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1518
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4477,12 +4455,12 @@ msgstr[1] ""
 msgstr[2] ""
 "GCompris nepasileis, nes failo užraktas yra mažiau nei %d sekundžių senumo.\n"
 
-#: ../src/gcompris/gcompris.c:1521
+#: ../src/gcompris/gcompris.c:1522
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Užrakto failas yra: %s\n"
 
-#: ../src/gcompris/gcompris.c:1642
+#: ../src/gcompris/gcompris.c:1643
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4496,27 +4474,27 @@ msgstr ""
 "Daugiau informacijos - http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1827
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Naudokite -l tiesiogiai pasiekti veiklą.\n"
 
-#: ../src/gcompris/gcompris.c:1828
+#: ../src/gcompris/gcompris.c:1829
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Čia yra užduočių sąrašas :\n"
 
-#: ../src/gcompris/gcompris.c:1859
+#: ../src/gcompris/gcompris.c:1860
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Pamokėlių kiekis: %d\n"
 
-#: ../src/gcompris/gcompris.c:1895
+#: ../src/gcompris/gcompris.c:1896
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s yra, bet neskaitomas ir nerašomas"
 
-#: ../src/gcompris/gcompris.c:1990
+#: ../src/gcompris/gcompris.c:1991
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4525,7 +4503,7 @@ msgstr ""
 "KLAIDA: Profilis „%s“ nerastas. Paleiskite „gcompris --profile-list“ visiems "
 "išvardinti\n"
 
-#: ../src/gcompris/gcompris.c:2004
+#: ../src/gcompris/gcompris.c:2005
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Įmanomi profiliai čia:\n"
@@ -4665,42 +4643,44 @@ msgstr ""
 "dokumentacijos licensiją. Olafas Ronnebergeris ir jo dukros Lina ir Julia "
 "Ronneberger sukūrė Vokietijos lygį."
 
-#: ../src/geo_country-activity/resources/geo_country/board1_0.xml.in.h:1
-msgid "Regions of France"
-msgstr "Prancūzijos regionai"
-
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
 msgid "United States of America"
 msgstr "jungtinės Amerikos Valstijos"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:2
-#| msgid "Connect 4"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:2
 msgid "Connecticut"
 msgstr "Konektikutas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:3
-#| msgid "Cook Islands"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:3
 msgid "Rhode Island"
 msgstr "Rodo sala"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:4
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:4
 msgid "Massachusetts"
 msgstr "Masačiusetsas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:5
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:5
 msgid "Wyoming"
 msgstr "Vajomingas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:6
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:6
 msgid "Utah"
 msgstr "Juta"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:7
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:7
 msgid "Nevada"
 msgstr "Nevada"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:8
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:8
 msgid "California"
 msgstr "Kalifornija"
 
@@ -4709,190 +4689,234 @@ msgid "Wahington D.C."
 msgstr "Vašingtono valstija"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:10
-#| msgid "Main menu"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
 msgid "Maine"
 msgstr "Mainas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:11
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:11
 msgid "New Hampshire"
 msgstr "Niu Hempširas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:12
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:12
 msgid "Vermont"
 msgstr "Vermontas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:13
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:13
 msgid "New York"
 msgstr "Niujorkas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:14
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:14
 msgid "Pennsylvania"
 msgstr "Pensilvanija"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:15
-#| msgid "Oware"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:15
 msgid "Delaware"
 msgstr "Delaveras"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:16
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:16
 msgid "New Jersey"
 msgstr "Niudžersis"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:17
-#| msgid "Ireland"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:17
 msgid "Maryland"
 msgstr "Merilendas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:18
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:18
 msgid "Alabama"
 msgstr "Alabama"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:19
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:19
 msgid "Florida"
 msgstr "Florida"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:20
-#| msgid "Georgia"
 msgid "USA|Georgia"
 msgstr "JAV|Džordžija"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
-#| msgid "South Africa"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:21
 msgid "South Carolina"
 msgstr "Pietų Karolina"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
-#| msgid "North America"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:22
 msgid "North Carolina"
 msgstr "Šiaurės Karolina"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:23
 msgid "Virginia"
 msgstr "Virdžinija"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:24
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:24
 msgid "West Virginia"
 msgstr "Vakarų Virdžinija"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:25
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:25
 msgid "Ohio"
 msgstr "Ohajas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:26
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:26
 msgid "Michigan"
 msgstr "Mičiganas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:27
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:27
 msgid "Wisconsin"
 msgstr "Viskonsinas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:28
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:28
 msgid "Illinois"
 msgstr "Ilinojus"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:29
-#| msgid "India"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:29
 msgid "Indiana"
 msgstr "Indiana"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:30
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:30
 msgid "Kentucky"
 msgstr "Kentukis"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:31
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:31
 msgid "Tennessee"
 msgstr "Tenesis"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:32
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:32
 msgid "Mississippi"
 msgstr "Misisipė"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:33
-#| msgid "Russian"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:33
 msgid "Louisiana"
 msgstr "Luisiana"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:34
 msgid "Arkansas"
 msgstr "Arkanzasas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:35
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:35
 msgid "Missouri"
 msgstr "Misūris"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:36
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:36
 msgid "Iowa"
 msgstr "Aiova"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:37
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:37
 msgid "Minnesota"
 msgstr "Minesota"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:38
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:38
 msgid "Oklahoma"
 msgstr "Oklahoma"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:39
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:39
 msgid "Texas"
 msgstr "Teksasas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:40
-#| msgid "Hawaii"
-msgid "Hawai"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:40
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
+msgid "Hawaii"
 msgstr "Havajai"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:41
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:41
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
 msgid "Alaska"
 msgstr "Aliaska"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:42
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:42
 msgid "Arizona"
 msgstr "Arizona"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:43
-#| msgid "Mexico"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:43
 msgid "New Mexico"
 msgstr "Naujoji Meksika"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
-#| msgid "Colors"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:44
 msgid "Colorado"
 msgstr "Koloradas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:45
 msgid "Kansas"
 msgstr "Kanzasas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:46
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:46
 msgid "Nebraska"
 msgstr "Nebraska"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:47
-#| msgid "South Korea"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:47
 msgid "South Dakota"
 msgstr "Pietų Dakota"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
-#| msgid "North Korea"
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:48
 msgid "North Dakota"
 msgstr "Šiaurės Dakota"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:49
 msgid "Montana"
 msgstr "Montana"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:50
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:50
 msgid "Idaho"
 msgstr "Idaho"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:51
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:51
 msgid "Oregon"
 msgstr "Oregonas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:52
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:52
 msgid "Washington"
 msgstr "Wašingtonas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:9
+#| msgid "Wahington D.C."
+msgid "Washington D.C."
+msgstr "Vašingtono valstija"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:20
+#| msgid "Georgian"
+msgid "Georgia"
+msgstr "Gruzija"
+
+#: ../src/geo_country-activity/resources/geo_country/board1_0.xml.in.h:1
+msgid "Regions of France"
+msgstr "Prancūzijos regionai"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
@@ -5232,7 +5256,6 @@ msgid "Turkey"
 msgstr "Turkija"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:25
-#| msgid "Georgia"
 msgid "Asia|Georgia"
 msgstr "Azija|Gruzija"
 
@@ -5362,10 +5385,6 @@ msgstr "Europa"
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:1
 msgid "Oceania"
 msgstr "Okeanija"
-
-#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
-msgid "Hawaii"
-msgstr "Havajai"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:3
 msgid "United States Minor Outlying Islands"
@@ -6006,11 +6025,11 @@ msgstr ""
 "radžių sąrašas šiam žaidimui.\n"
 
 #. Should display the dialog box here
-#: ../src/gletters-activity/gletters.c:785
+#: ../src/gletters-activity/gletters.c:786
 msgid "ERROR: Unable to get letter from wordlist"
 msgstr "KLAIDA: Nepavyksta gauti radės iš žodžių sąrašo"
 
-#: ../src/gletters-activity/gletters.c:1031
+#: ../src/gletters-activity/gletters.c:1032
 #: ../src/imageid-activity/imageid.c:716
 #: ../src/readingh-activity/reading.c:918
 #: ../src/scalesboard-activity/scale.c:1259
@@ -6024,12 +6043,12 @@ msgstr ""
 "<b>%s</b> nustatymai\n"
 "profiliui <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:1063
+#: ../src/gletters-activity/gletters.c:1064
 #: ../src/smallnumbers-activity/smallnumbers.c:617
 msgid "Enable sounds"
 msgstr "Įjungti garsus"
 
-#: ../src/gletters-activity/gletters.c:1067
+#: ../src/gletters-activity/gletters.c:1068
 msgid ""
 "Show letters in UPPERCASE\n"
 "Type in lowercase or UPPERCASE as you wish"
@@ -6965,137 +6984,110 @@ msgid "Click on the correct instrument."
 msgstr "Spragtelėk ant teisingo instrumento."
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:1
-#| msgid "the clarinet"
 msgid "Find the clarinet"
 msgstr "Raskite klarnetą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
-#| msgid "the transverse flute"
 msgid "Find the transverse flute"
 msgstr "Raskite skersinę fleitą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
-#| msgid "the guitar"
 msgid "Find the guitar"
 msgstr "Raskite gitarą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-#| msgid "the harp"
 msgid "Find the harp"
 msgstr "Raskite arfą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
-#| msgid "the piano"
 msgid "Find the piano"
 msgstr "Raskite pianiną"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
-#| msgid "the saxophone"
 msgid "Find the saxophone"
 msgstr "Raskite saksofoną"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
-#| msgid "the trombone"
 msgid "Find the trombone"
 msgstr "Raskite tromboną"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
-#| msgid "the trumpet"
 msgid "Find the trumpet"
 msgstr "Raskite trumpetą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
-#| msgid "the violin"
 msgid "Find the violin"
 msgstr "Raskite smuiką"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-#| msgid "the flute traversiere"
 msgid "Find the flute traversiere"
 msgstr "Raskite išilginę fleita"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
-#| msgid "the drum kit"
 msgid "Find the drum kit"
 msgstr "Raskite būgnų rinkinį"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
-#| msgid "the accordion"
 msgid "Find the accordion"
 msgstr "Raskite akordeoną"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
-#| msgid "the banjo"
 msgid "Find the banjo"
 msgstr "Raskite banžą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
-#| msgid "the bongo"
 msgid "Find the bongo"
 msgstr "Raskite bongą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
-#| msgid "the electric guitar"
 msgid "Find the electric guitar"
 msgstr "Raskite elektrinę gitarą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
-#| msgid "the castanets"
 msgid "Find the castanets"
 msgstr "Raskite kastanjetes"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
-#| msgid "the cymbal"
 msgid "Find the cymbal"
 msgstr "Raskite cymbalus"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
-#| msgid "the cello"
 msgid "Find the cello"
 msgstr "Raskite violončelę"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
-#| msgid "the harmonica"
 msgid "Find the harmonica"
 msgstr "Raskite armonikėlę"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
-#| msgid "the horn"
 msgid "Find the horn"
 msgstr "Raskite ragą"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
-#| msgid "the maracas"
 msgid "Find the maracas"
 msgstr "Raskite marakasus"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
-#| msgid "the organ"
 msgid "Find the organ"
 msgstr "Raskite vargonus"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
-#| msgid "the snare drum"
 msgid "Find the snare drum"
 msgstr "Raskite bosinį būgną"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-#| msgid "the timpani"
 msgid "Find the timpani"
 msgstr "Raskite timpanus"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
-#| msgid "the triangle"
 msgid "Find the triangle"
 msgstr "Raskite trikampį"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
-#| msgid "the tambourine"
 msgid "Find the tambourine"
 msgstr "Raskite tamburiną"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
-#| msgid "the tuba"
 msgid "Find the tuba"
 msgstr "Raskite tūbą"
 
@@ -7238,28 +7230,7 @@ msgstr ""
 "nusileidimui.\n"
 "        "
 
-#: ../src/lang-activity/lang.py:99
-msgid "ERROR, we found no words in this language."
-msgstr "KLAIDA, neradome žodžių šia kalba"
-
-#: ../src/lang-activity/lang.py:100
-msgid "Please consider contributing a voice set."
-msgstr "Pateikite balso pavyzdį."
-
-#: ../src/lang-activity/lang.py:153
-#, python-format
-msgid ""
-"Configuration\n"
-" for profile <b>%s</b>"
-msgstr ""
-"Nustatymai\n"
-" profiliui <b>%s</b>"
-
-#: ../src/lang-activity/lang.py:158
-msgid "Select locale"
-msgstr "Pasirinkite lokalę"
-
-#: ../src/lang-activity/langEnterText.py:147
+#: ../src/lang-activity/langEnterText.py:133
 msgid "Enter the text you hear:"
 msgstr "Įveskite girdimą tekstą:"
 
@@ -7304,8 +7275,12 @@ msgstr ""
 #: ../src/lang-activity/lang-object.xml.in.h:6
 #: ../src/lang-activity/lang-other.xml.in.h:6
 #: ../src/lang-activity/lang-people.xml.in.h:6
+#| msgid ""
+#| "The images and voices comes from the Art4Apps project: http://www."
+#| "art4apps.org/. You can also access this activity online on http://laske."
+#| "fr/abecedarium/."
 msgid ""
-"The images and voices comes from the Art4Apps project: http://www.art4apps."
+"The images and voices come from the Art4Apps project: http://www.art4apps."
 "org/. You can also access this activity online on http://laske.fr/"
 "abecedarium/."
 msgstr ""
@@ -7324,6 +7299,27 @@ msgstr "Žodžių sąrašas „kitų“ kategorijai."
 #: ../src/lang-activity/lang-people.xml.in.h:2
 msgid "List of words in the 'people' category."
 msgstr "Žodžių sąrašas „žmonių“ kategorijai."
+
+#: ../src/lang-activity/lang.py:99
+msgid "ERROR, we found no words in this language."
+msgstr "KLAIDA, neradome žodžių šia kalba"
+
+#: ../src/lang-activity/lang.py:100
+msgid "Please consider contributing a voice set."
+msgstr "Pateikite balso pavyzdį."
+
+#: ../src/lang-activity/lang.py:153
+#, python-format
+msgid ""
+"Configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"Nustatymai\n"
+" profiliui <b>%s</b>"
+
+#: ../src/lang-activity/lang.py:158
+msgid "Select locale"
+msgstr "Pasirinkite lokalę"
 
 #: ../src/lang-activity/lang.xml.in.h:1
 msgid "Go to the language learning activities"
@@ -8008,7 +8004,6 @@ msgstr "Surask tinkamą porą"
 #. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
 #. * This is used in reading/click_on_letter and discovery/memory-group
 #: ../src/memory-activity/memory.c:734
-#| msgid "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
 msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
 msgstr "a/ą/b/c/č/d/e/ę/ė/f/g/h/i/į/y/j/k/l/m/n/o/p/r/s/š/t/u/ų/ū/v/z/ž"
 
@@ -9350,12 +9345,10 @@ msgid "Select A Melody to Load"
 msgstr "Pasirinkite melodiją įkėlimui"
 
 #: ../src/piano_composition-activity/piano_composition.py:405
-#| msgid "Previous level"
 msgid "Previous Page"
 msgstr "Ankstesnis puslapis"
 
 #: ../src/piano_composition-activity/piano_composition.py:415
-#| msgid "Next level"
 msgid "Next Page"
 msgstr "Kitas puslapis"
 
@@ -9538,7 +9531,6 @@ msgid "Satellite goes too slow"
 msgstr "Palydovas juda per lėtai"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:274
-#| msgid "Distance:"
 msgid "Distance: {:.1f}"
 msgstr "Atstumas: {:.1f}"
 
