@@ -515,8 +515,6 @@ dnl Autoconf output
 AC_OUTPUT([
 Makefile
 Makefile.mingw
-autopackage/Makefile
-autopackage/default.apspec
 boards/Makefile
 config.h.mingw
 docs/C/Makefile
