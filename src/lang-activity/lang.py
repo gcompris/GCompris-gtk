@@ -111,6 +111,7 @@ class Gcompris_lang:
     self.pause(0);
 
   def end(self):
+    gcompris.set_locale( "" )
     gcompris.sound.policy_set(self.saved_policy)
     gcompris.sound.resume()
     if self.currentExercise:
