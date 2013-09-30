@@ -9,23 +9,23 @@
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010.
 # Sylvia Sánchez <LailahFSF@gmail.com>, 2011.
 # Chris Leonard <cjlhomeaddress@gmail.com>, 2012.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013.
 # Milagros Alessandra Infante Montero <maim92@gmail.com>, 2013.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-21 01:17+0000\n"
-"PO-Revision-Date: 2013-08-21 13:10-0500\n"
-"Last-Translator: Milagros Alessandra Infante Montero <maim92@gmail.com>\n"
-"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"POT-Creation-Date: 2013-09-29 21:47+0000\n"
+"PO-Revision-Date: 2013-09-30 10:18+0200\n"
+"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Gtranslator 2.91.6\n"
 "X-Project-Style: gnome\n"
 
@@ -425,6 +425,9 @@ msgstr ""
 "dificultad para cada perfil <b>%s</b></span>"
 
 #: ../src/administration-activity/admin/board_list.py:645
+#| msgid ""
+#| "<b>Locale</b> configuration\n"
+#| " for profile <b>{profile}</b>"
 msgid ""
 "<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -433,6 +436,9 @@ msgstr ""
 " para el perfil <b>{perfil}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:657
+#| msgid ""
+#| "<b>Locale sound</b> configuration\n"
+#| " for profile <b>{profile}</b>"
 msgid ""
 "<b>Locale sound</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -509,8 +515,9 @@ msgid "Editing a Group"
 msgstr "Editar un grupo"
 
 #: ../src/administration-activity/admin/group_edit.py:62
+#| msgid "Editing group '{group}' for class '{aclass}'"
 msgid "Editing group '{group}' for class '{aclass}'"
-msgstr "Edición de grupo «{grupo}» para la clase «{aclase}»"
+msgstr "Edición de grupo «{grupo}» para la clase «{clase}»"
 
 #: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
@@ -612,13 +619,13 @@ msgstr ""
 "usado para leerlas, por ejemplo, y después el idioma usado para decir los "
 "nombres de los colores. \n"
 "- Puedes guardar configuraciones múltiples, y cambiar fácilmente entre "
-"ellas. En la sección «Perfil» añade un perfil, después en la sección "
-"«Tablero» selecciona el perfil en la lista desplegable, y después elige los "
-"tableros que quieres que estén activos. Puedes añadir un montón de perfiles, "
-"con diferentes listas de tableros, y diferentes idiomas. Puedes establecer "
-"el perfil por omisión en la sección «Perfil», eligiendo el perfil que "
-"quieras, y después pulsando el botón «Predeterminado». También puedes elegir "
-"un perfil desde la línea de comandos.\n"
+"ellas. En la sección «Perfil» añade un perfil, después en la sección «Tablero» "
+"selecciona el perfil en la lista desplegable, y después elige los tableros "
+"que quieres que estén activos. Puedes añadir un montón de perfiles, con "
+"diferentes listas de tableros, y diferentes idiomas. Puedes establecer el "
+"perfil por omisión en la sección «Perfil», eligiendo el perfil que quieras, y "
+"después pulsando el botón «Predeterminado». También puedes elegir un perfil "
+"desde la línea de comandos.\n"
 "- Puedes añadir usuarios, clases y para cada clase, puedes crear grupos de "
 "usuarios. Ten en cuenta que puedes importar usuarios de un archivo separado "
 "por comas. Asigna uno o más grupos a un perfil, y los nuevos identificadores "
@@ -642,7 +649,7 @@ msgstr "Todos los usuarios"
 #: ../src/administration-activity/admin/log_list.py:300
 #: ../src/administration-activity/admin/profile_list.py:118
 #: ../src/administration-activity/admin/wordlist.py:48
-#: ../src/lang-activity/lang.py:154 ../src/login-activity/login.py:483
+#: ../src/lang-activity/lang.py:171 ../src/login-activity/login.py:483
 #: ../src/missing_letter-activity/missingletter.c:802
 #: ../src/pythontest-activity/pythontest.py:451
 #: ../src/tuxpaint-activity/tuxpaint.py:189
@@ -1184,7 +1191,7 @@ msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/findit-activity/findit.py:228
+#: ../src/findit-activity/findit.py:228 ../src/lang-activity/lang.py:116
 #: ../src/play_piano-activity/play_piano.py:82
 #: ../src/play_rhythm-activity/play_rhythm.py:87
 #: ../src/readingh-activity/reading.c:643
@@ -3170,7 +3177,7 @@ msgstr ""
 "Pulsa en los rectángulos con el ratón hasta que desaparezcan todos los "
 "bloques."
 
-#: ../src/explore-activity/explore.py:85
+#: ../src/explore-activity/explore.py:85 ../src/lang-activity/lang.py:105
 #: ../src/note_names-activity/note_names.py:82
 #: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
@@ -3386,8 +3393,8 @@ msgid ""
 "The dog goes \"bark! bark!\". Dogs are great human companions and usually "
 "enjoy love and attention."
 msgstr ""
-"El perro hace «¡guau! ¡guau!». Los perros son grandes compañeros del hombre "
-"y suelen gozar de cariño y atención."
+"El perro hace «¡guau! ¡guau!». Los perros son grandes compañeros del hombre y "
+"suelen gozar de cariño y atención."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
 msgid "This animal's ancestors were wolves."
@@ -3879,7 +3886,7 @@ msgstr ""
 "Este software es un paquete GNU y se distribuye bajo los términos de la "
 "Licencia Pública General de GNU"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:488
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:490
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -4002,300 +4009,308 @@ msgid "Chinese (Simplified)"
 msgstr "Chino (simplificado)"
 
 #: ../src/gcompris/config.c:69
+msgid "Chinese (Hong Kong)"
+msgstr "Chino (Hong Kong)"
+
+#: ../src/gcompris/config.c:70
 msgid "Chinese (Traditional)"
 msgstr "Chino (tradicional)"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:71
 msgid "Croatian"
 msgstr "Croata"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:72
 #: ../src/geography-activity/resources/geography/board6_0.xml.in.h:7
 msgid "Czech Republic"
 msgstr "República Checa"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:73
 msgid "Danish"
 msgstr "Danés"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:74
 msgid "Dutch"
 msgstr "Holandés"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:75
 msgid "Dzongkha"
 msgstr "Dzongkha"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:76
 msgid "English (Canada)"
 msgstr "Inglés (Canadá)"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:77
 msgid "English (Great Britain)"
 msgstr "Inglés (Gran Bretaña)"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:78
 msgid "English (United States)"
 msgstr "Inglés (Estados Unidos)"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:79
 msgid "Finnish"
 msgstr "Finlandés"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:80
 msgid "French"
 msgstr "Francés"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:81
+msgid "Galician"
+msgstr "Galicia"
+
+#: ../src/gcompris/config.c:82
 msgid "Georgian"
 msgstr "Georgiano"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:83
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 msgid "German"
 msgstr "Alemán"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:84
 msgid "Greek"
 msgstr "Griego"
 
-#: ../src/gcompris/config.c:83 ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:85 ../src/gcompris/config.c:114
 msgid "Scottish Gaelic"
 msgstr "Gaélico escocés"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:86
 msgid "Gujarati"
 msgstr "Gujarati"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:87
 msgid "Hebrew"
 msgstr "Hebreo"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:88
 msgid "Hindi"
 msgstr "Hindi"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:89
 msgid "Hungarian"
 msgstr "Húngaro"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:90
 msgid "Indonesian"
 msgstr "Indonesio"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:91
 msgid "Irish (Gaelic)"
 msgstr "Irlandés (Galés)"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:92
 msgid "Italian"
 msgstr "Italiano"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:93
 msgid "Japanese"
 msgstr "Japonés"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:95
 msgid "Korean"
 msgstr "Coreano"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:96
 msgid "Latvian"
 msgstr "Letón"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:97
 msgid "Lithuanian"
 msgstr "Lituano"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:98
 msgid "Macedonian"
 msgstr "Macedonio"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:99
 msgid "Malay"
 msgstr "Malayo"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:100
 msgid "Malayalam"
 msgstr "Malayo"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:101
 msgid "Marathi"
 msgstr "Marathi"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:102
 msgid "Montenegrin"
 msgstr "Montenegrin"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:103
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:37
 msgid "Nepal"
 msgstr "Nepal"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:104
 msgid "Norwegian Bokmal"
 msgstr "Noruego Bokmal"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:105
 msgid "Norwegian Nynorsk"
 msgstr "Noruego Nynorsk"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:106
 msgid "Occitan (languedocien)"
 msgstr "Occitano (languedoc)"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:107
 msgid "Persian"
 msgstr "Persa"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:108
 msgid "Polish"
 msgstr "Polaco"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:109
 msgid "Portuguese (Brazil)"
 msgstr "Portugués (Brasil)"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:110
 msgid "Portuguese"
 msgstr "Portugués"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:111
 msgid "Punjabi"
 msgstr "Punjabi"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:112
 msgid "Romanian"
 msgstr "Rumano"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:113
 msgid "Russian"
 msgstr "Ruso"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:115
 msgid "Serbian (Latin)"
 msgstr "Servio (latino)"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:116
 msgid "Serbian"
 msgstr "Servio"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:117
 msgid "Slovak"
 msgstr "Eslovaco"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:118
 msgid "Slovenian"
 msgstr "Esloveno"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:119
 msgid "Somali"
 msgstr "Somalí"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:120
 msgid "Spanish"
 msgstr "Español"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:121
 msgid "Swedish"
 msgstr "Sueco"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:122
 msgid "Tamil"
 msgstr "Tamil"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:123
 msgid "Thai"
 msgstr "Tailandés"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:124
 msgid "Turkish (Azerbaijan)"
 msgstr "Turco (Azerbaiyaní)"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:125
 msgid "Turkish"
 msgstr "Turco"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:126
 msgid "Ukrainian"
 msgstr "Ucraniano"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:127
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:128
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:129
 msgid "Walloon"
 msgstr "Valón"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:130
 msgid "Zulu"
 msgstr "Zulú"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:135
 msgid "Timer: No time limit"
 msgstr "Temporizador: sin límite de tiempo"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:136
 msgid "Timer: Slow timer"
 msgstr "Temporizador: temporizador lento"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:137
 msgid "Timer: Normal timer"
 msgstr "Temporizador: temporizador normal"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:138
 msgid "Timer: Fast timer"
 msgstr "Temporizador: temporizador rápido"
 
-#: ../src/gcompris/config.c:140
+#: ../src/gcompris/config.c:142
 msgid "Use Gcompris administration module to filter boards"
 msgstr "Usa el módulo de administración de GCompris para filtrar tableros"
 
-#: ../src/gcompris/config.c:194
+#: ../src/gcompris/config.c:196
 msgid "GCompris Configuration"
 msgstr "Configuración de GCompris"
 
-#: ../src/gcompris/config.c:277
+#: ../src/gcompris/config.c:279
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: ../src/gcompris/config.c:302
+#: ../src/gcompris/config.c:304
 msgid "Remember level for default user"
 msgstr "Recordar el nivel para usuario predeterminado"
 
-#: ../src/gcompris/config.c:328
+#: ../src/gcompris/config.c:330
 msgid "Music"
 msgstr "Música"
 
-#: ../src/gcompris/config.c:353
+#: ../src/gcompris/config.c:355
 msgid "Effect"
 msgstr "Efecto"
 
-#: ../src/gcompris/config.c:377 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:379 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Ampliación"
 
-#: ../src/gcompris/config.c:414
+#: ../src/gcompris/config.c:416
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "No se pudo abrir la carpeta de apariencias: %s"
 
-#: ../src/gcompris/config.c:445 ../src/gcompris/config.c:925
-#: ../src/gcompris/config.c:939
+#: ../src/gcompris/config.c:447 ../src/gcompris/config.c:927
+#: ../src/gcompris/config.c:941
 #, c-format
 msgid "Skin : %s"
 msgstr "Apariencia : %s"
 
-#: ../src/gcompris/config.c:447
+#: ../src/gcompris/config.c:449
 msgid "SKINS NOT FOUND"
 msgstr "APARIENCIAS NO ENCONTRADAS"
 
@@ -7351,8 +7366,9 @@ msgid "Enter the text you hear:"
 msgstr "Escribe el texto que escuchas:"
 
 #: ../src/lang-activity/langLib.py:69
+#| msgid "Missing translation for '{word}'"
 msgid "Missing translation for '{word}'"
-msgstr "Traducciones faltantes para «{palabra}»"
+msgstr "Falta la traducción de «{palabra}»"
 
 #: ../src/lang-activity/lang-nature.xml.in.h:1
 #: ../src/lang-activity/lang-object.xml.in.h:1
@@ -7420,7 +7436,7 @@ msgstr "ERROR, no encontramos palabras en este idioma."
 msgid "Please consider contributing a voice set."
 msgstr "Considere contribuyendo un conjunto de voces."
 
-#: ../src/lang-activity/lang.py:153
+#: ../src/lang-activity/lang.py:170
 #, python-format
 msgid ""
 "Configuration\n"
@@ -7429,7 +7445,7 @@ msgstr ""
 "Configuración\n"
 " para el perfil <b>%s</b>"
 
-#: ../src/lang-activity/lang.py:158
+#: ../src/lang-activity/lang.py:175
 msgid "Select locale"
 msgstr "Seleccionar idioma"
 
@@ -8992,6 +9008,7 @@ msgid "Practice money usage including cents"
 msgstr "Practica de uso del dinero, incluyendo céntimos"
 
 #: ../src/mosaic-activity/mosaic.py:186
+#: ../src/mosaic-activity/mosaic.xml.in.h:2
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Reconstruye el mismo mosaico en el área de la derecha"
 
@@ -9614,6 +9631,30 @@ msgstr ""
 "  F3: Fa# / Sol♭\n"
 "  F4: Sol# / La♭\n"
 "  F5: La# / Si♭\n"
+
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:34
+msgid ""
+"\n"
+"Thank you to Bruno Coudoin for his mentorship.\n"
+"Thank you to Olivier Samyn for his contribution to improving the note design "
+"and coloring.\n"
+"Thank you to Federico Mena who inspired me with his wonderful enthusiasm for "
+"my music projects at GUADEC.\n"
+"Thank you to all contributors of children's songs from around the world, "
+"especially the GNOME community. Learn more about these\n"
+"melodies and who contributed them here: https://live.gnome.org/"
+"GComprisMelodies\n"
+msgstr ""
+"\n"
+"Gracias a Bruno Coudoin por su tutoría.\n"
+"Gracias a Olivier Samyn por su contribución para mejorar el diseño de nota y "
+"colores.\n"
+"Gracias a Federico Mena quien me inspira con su maravilloso entusiasmo por "
+"mis proyectos de música en la GUADEC.\n"
+"Gracias a todos los colaboradores de canciones de niños por todo el mundo, "
+"especialmente la comunidad de GNOME. Aprenda más sobre estas\n"
+"melodias y quien contribuye con ellas aquí: https://live.gnome.org/"
+"GComprisMelodies\n"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
 msgid "America: English Lullaby"
@@ -10339,11 +10380,11 @@ msgid ""
 msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu bote."
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
-"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
-"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
-"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
-"usa un valor de 1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
+"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
+"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
+"un parámetro con la distancia. De forma predeterminada se usa un valor de "
+"1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -10442,11 +10483,11 @@ msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu "
 "bote. \n"
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
-"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
-"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
-"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
-"usa un valor de 1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
+"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
+"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
+"un parámetro con la distancia. De forma predeterminada se usa un valor de "
+"1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
