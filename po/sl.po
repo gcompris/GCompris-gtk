@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-28 19:20+0000\n"
-"PO-Revision-Date: 2013-09-29 13:53+0100\n"
+"POT-Creation-Date: 2013-09-30 21:08+0000\n"
+"PO-Revision-Date: 2013-10-01 23:58+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -628,7 +628,7 @@ msgstr "Vsi uporabniki"
 #: ../src/administration-activity/admin/log_list.py:300
 #: ../src/administration-activity/admin/profile_list.py:118
 #: ../src/administration-activity/admin/wordlist.py:48
-#: ../src/lang-activity/lang.py:154 ../src/login-activity/login.py:483
+#: ../src/lang-activity/lang.py:171 ../src/login-activity/login.py:483
 #: ../src/missing_letter-activity/missingletter.c:802
 #: ../src/pythontest-activity/pythontest.py:451
 #: ../src/tuxpaint-activity/tuxpaint.py:189
@@ -1165,7 +1165,7 @@ msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/findit-activity/findit.py:228
+#: ../src/findit-activity/findit.py:228 ../src/lang-activity/lang.py:116
 #: ../src/play_piano-activity/play_piano.py:82
 #: ../src/play_rhythm-activity/play_rhythm.py:87
 #: ../src/readingh-activity/reading.c:643
@@ -3098,7 +3098,7 @@ msgstr "S klikom na miško počisti umazano polje in odkrij ozadje."
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Z miško klikni na vsak kvadratek, dokler zaslon ni čist."
 
-#: ../src/explore-activity/explore.py:85
+#: ../src/explore-activity/explore.py:85 ../src/lang-activity/lang.py:105
 #: ../src/note_names-activity/note_names.py:82
 #: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
@@ -7324,7 +7324,7 @@ msgstr "NAPAKA, v tem jeziku ni mogoče najti besed."
 msgid "Please consider contributing a voice set."
 msgstr "Razmisli o tem, da bi prispeval glasovni nabor."
 
-#: ../src/lang-activity/lang.py:153
+#: ../src/lang-activity/lang.py:170
 #, python-format
 msgid ""
 "Configuration\n"
@@ -7333,7 +7333,7 @@ msgstr ""
 "Nastavitev\n"
 " za profil <b>%s</b>"
 
-#: ../src/lang-activity/lang.py:158
+#: ../src/lang-activity/lang.py:175
 msgid "Select locale"
 msgstr "Izbor jezikovnih nastavitev"
 
