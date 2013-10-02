@@ -377,11 +377,6 @@ board_widget_key_press_callback (GtkWidget   *widget,
       if (gc_board_get_current()->previous_board != NULL)
 	gc_board_stop();
       return TRUE;
-    case GDK_F5:
-      g_message("Refreshing the canvas\n");
-      goo_canvas_update(GOO_CANVAS(canvas));
-      return TRUE;
-
     case GDK_KP_Multiply:
       break;
     case GDK_KP_0:
