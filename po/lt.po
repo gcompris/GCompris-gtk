@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-17 17:37+0000\n"
-"PO-Revision-Date: 2013-09-22 17:48+0300\n"
+"POT-Creation-Date: 2013-10-04 11:03+0000\n"
+"PO-Revision-Date: 2013-10-06 20:29+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -504,8 +504,9 @@ msgid "Editing a Group"
 msgstr "Grupės tvarkymas"
 
 #: ../src/administration-activity/admin/group_edit.py:62
+#| msgid "Editing group '{group}' for class '{aclass}'"
 msgid "Editing group '{group}' for class '{aclass}'"
-msgstr "Keičiama grupė „{group]“ klasei „{aclass}“"
+msgstr "Keičiama grupė „{group}“ klasei „{aclass}“"
 
 #: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
@@ -631,7 +632,7 @@ msgstr "Visi naudotojai"
 #: ../src/administration-activity/admin/log_list.py:300
 #: ../src/administration-activity/admin/profile_list.py:118
 #: ../src/administration-activity/admin/wordlist.py:48
-#: ../src/lang-activity/lang.py:154 ../src/login-activity/login.py:483
+#: ../src/lang-activity/lang.py:171 ../src/login-activity/login.py:483
 #: ../src/missing_letter-activity/missingletter.c:802
 #: ../src/pythontest-activity/pythontest.py:451
 #: ../src/tuxpaint-activity/tuxpaint.py:189
@@ -1168,7 +1169,7 @@ msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/findit-activity/findit.py:228
+#: ../src/findit-activity/findit.py:228 ../src/lang-activity/lang.py:116
 #: ../src/play_piano-activity/play_piano.py:82
 #: ../src/play_rhythm-activity/play_rhythm.py:87
 #: ../src/readingh-activity/reading.c:643
@@ -3101,7 +3102,7 @@ msgstr "Spragsėdamas pele nuvalysi plotą ir pamatysi foną"
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Spragsėk pele, kol dings visi kvadratėliai."
 
-#: ../src/explore-activity/explore.py:85
+#: ../src/explore-activity/explore.py:85 ../src/lang-activity/lang.py:105
 #: ../src/note_names-activity/note_names.py:82
 #: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
@@ -3912,7 +3913,6 @@ msgid "Chinese (Simplified)"
 msgstr "Kinų (supaprastinta)"
 
 #: ../src/gcompris/config.c:69
-#| msgid "Chinese (Traditional)"
 msgid "Chinese (Hong Kong)"
 msgstr "Kinų (Hong Kongo)"
 
@@ -4419,7 +4419,7 @@ msgstr "rodyti derinimo informaciją komandų eilutėje."
 msgid "Print the version of "
 msgstr "Išspausdinti "
 
-#: ../src/gcompris/gcompris.c:947
+#: ../src/gcompris/gcompris.c:942
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -4440,18 +4440,18 @@ msgstr ""
 "Daugiau informacijos rasite FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1241
+#: ../src/gcompris/gcompris.c:1236
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Nepavyko įkelti apvalkalo „%s“ (patikrinkite, ar failas egzistuoja ir yra "
 "skaitomas)"
 
-#: ../src/gcompris/gcompris.c:1257
+#: ../src/gcompris/gcompris.c:1252
 msgid "Retrieving remote data..."
 msgstr "Gaunami nutolę duomenys..."
 
-#: ../src/gcompris/gcompris.c:1518
+#: ../src/gcompris/gcompris.c:1513
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4464,12 +4464,12 @@ msgstr[1] ""
 msgstr[2] ""
 "GCompris nepasileis, nes failo užraktas yra mažiau nei %d sekundžių senumo.\n"
 
-#: ../src/gcompris/gcompris.c:1522
+#: ../src/gcompris/gcompris.c:1517
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Užrakto failas yra: %s\n"
 
-#: ../src/gcompris/gcompris.c:1643
+#: ../src/gcompris/gcompris.c:1638
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4483,27 +4483,27 @@ msgstr ""
 "Daugiau informacijos - http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1828
+#: ../src/gcompris/gcompris.c:1823
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Naudokite -l tiesiogiai pasiekti veiklą.\n"
 
-#: ../src/gcompris/gcompris.c:1829
+#: ../src/gcompris/gcompris.c:1824
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Čia yra užduočių sąrašas :\n"
 
-#: ../src/gcompris/gcompris.c:1860
+#: ../src/gcompris/gcompris.c:1855
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Pamokėlių kiekis: %d\n"
 
-#: ../src/gcompris/gcompris.c:1896
+#: ../src/gcompris/gcompris.c:1891
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s yra, bet neskaitomas ir nerašomas"
 
-#: ../src/gcompris/gcompris.c:1991
+#: ../src/gcompris/gcompris.c:1986
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4512,7 +4512,7 @@ msgstr ""
 "KLAIDA: Profilis „%s“ nerastas. Paleiskite „gcompris --profile-list“ visiems "
 "išvardinti\n"
 
-#: ../src/gcompris/gcompris.c:2005
+#: ../src/gcompris/gcompris.c:2000
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Įmanomi profiliai čia:\n"
@@ -7311,7 +7311,7 @@ msgstr "KLAIDA, neradome žodžių šia kalba"
 msgid "Please consider contributing a voice set."
 msgstr "Pateikite balso pavyzdį."
 
-#: ../src/lang-activity/lang.py:153
+#: ../src/lang-activity/lang.py:170
 #, python-format
 msgid ""
 "Configuration\n"
@@ -7320,7 +7320,7 @@ msgstr ""
 "Nustatymai\n"
 " profiliui <b>%s</b>"
 
-#: ../src/lang-activity/lang.py:158
+#: ../src/lang-activity/lang.py:175
 msgid "Select locale"
 msgstr "Pasirinkite lokalę"
 
@@ -9472,14 +9472,6 @@ msgstr ""
 "  F5: A# / Bb\n"
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:34
-#| msgid ""
-#| "Thank you to Bruno Coudoin for his mentorship. Thank you to Olivier Samyn "
-#| "for his contribution to improving the note design and coloring. Thank you "
-#| "to Federico Mena who inspired me with his wonderful enthusiasm for my "
-#| "music projects at GUADEC. Thank you to all contributors of children's "
-#| "songs from around the world, especially the GNOME community. Learn more "
-#| "about these melodies and who contributed them here: https://live.gnome."
-#| "org/GComprisMelodies"
 msgid ""
 "\n"
 "Thank you to Bruno Coudoin for his mentorship.\n"
