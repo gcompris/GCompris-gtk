@@ -30,7 +30,7 @@ import os
 import tempfile
 
 # Set to True to debug
-debug = True
+debug = False
 
 from gcompris import gcompris_gettext as _
 
@@ -1567,18 +1567,19 @@ class Bulb(Component):
     return True
 
   # Callback event to move the component
-  # We override it to repair the Bulb
   def component_move(self, widget, target, event, component):
     # If the Bulb is blown and we get a click repair it
     # If the bulb is not blown, you can blown it by right clicking on it
-    if (event.state & gtk.gdk.BUTTON1_MASK) \
+    if event.type & gtk.gdk.BUTTON_PRESS and event.button == 1 \
           and self.electric.get_current_tools() == "SELECT":
       if self.is_blown:
         self.is_blown = False
         self.gnucap_value = self.internal_resistor
         self.electric.run_simulation()
 
-    elif (event.state & gtk.gdk.BUTTON3_MASK) and self.electric.get_current_tools()=="SELECT":
+    elif event.type & gtk.gdk.BUTTON_PRESS \
+          and event.button == 3 \
+          and self.electric.get_current_tools()=="SELECT":
       if not self.is_blown:
         # Blown us with arbitrate high value
         self.set_voltage_intensity(True, 100, 10)
