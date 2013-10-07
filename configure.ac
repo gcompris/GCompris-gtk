@@ -517,10 +517,6 @@ Makefile
 Makefile.mingw
 boards/Makefile
 config.h.mingw
-docs/C/Makefile
-docs/Makefile
-docs/eu/Makefile
-docs/fr/Makefile
 gcompris-installer.nsi
 macosx/Info.plist
 macosx/InfoAdmin.plist
