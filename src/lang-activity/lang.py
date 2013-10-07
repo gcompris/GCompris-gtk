@@ -322,7 +322,7 @@ dialogue to\nenable the sound."), None)
     goocanvas.Rect(
       parent = self.lessonroot,
       x = (gcompris.BOARD_WIDTH - w) / 2,
-      y = (gcompris.BOARD_HEIGHT - h) / 2,
+      y = (gcompris.BOARD_HEIGHT - h) / 2 - 2,
       width = w,
       height = h + 50,
       fill_color_rgba = 0xCECECECCL,
