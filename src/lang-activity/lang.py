@@ -463,7 +463,7 @@ class TextButton:
                 y = bounds.y1 - TG,
                 height = bounds.y2 - bounds.y1 + TG * 2,
                 width = bounds.x2 - bounds.x1 + TG * 2,
-                pixbuf = gcompris.utils.load_pixmap('piano_composition/button_front.svg')
+                pixbuf = gcompris.utils.load_pixmap('lang/button_front.svg')
                 )
 
         gcompris.utils.item_focus_init(self.img, None)
