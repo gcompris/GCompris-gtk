@@ -11,18 +11,17 @@ msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-30 21:08+0000\n"
-"PO-Revision-Date: 2013-10-01 23:58+0100\n"
+"POT-Creation-Date: 2013-10-13 20:14+0000\n"
+"PO-Revision-Date: 2013-10-14 00:08+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.7\n"
 
 # http://gcompris.net/-On-one-page-
 #: ../boards/algebra_group.xml.in.h:1
@@ -4422,7 +4421,7 @@ msgstr "Prikaži podrobnosti razhroščevanja na konzoli."
 msgid "Print the version of "
 msgstr "Natisni različico "
 
-#: ../src/gcompris/gcompris.c:947
+#: ../src/gcompris/gcompris.c:942
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -4443,18 +4442,18 @@ msgstr ""
 "FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1241
+#: ../src/gcompris/gcompris.c:1236
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Nalaganje preobleke '%s' je spodletelo (preverite, ali datoteka obstaja in "
 "je berljiva)"
 
-#: ../src/gcompris/gcompris.c:1257
+#: ../src/gcompris/gcompris.c:1252
 msgid "Retrieving remote data..."
 msgstr "Pridobivanje oddaljenih podatkov ..."
 
-#: ../src/gcompris/gcompris.c:1518
+#: ../src/gcompris/gcompris.c:1513
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4473,12 +4472,12 @@ msgstr[3] ""
 "Program GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d "
 "sekunde.\n"
 
-#: ../src/gcompris/gcompris.c:1522
+#: ../src/gcompris/gcompris.c:1517
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Datoteka ključa je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1643
+#: ../src/gcompris/gcompris.c:1638
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4492,27 +4491,27 @@ msgstr ""
 "Več podrobnosti je mogoče najti na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1828
+#: ../src/gcompris/gcompris.c:1823
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Uporabi -l za neposreden dostop do dejavnosti.\n"
 
-#: ../src/gcompris/gcompris.c:1829
+#: ../src/gcompris/gcompris.c:1824
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostopnih dejavnosti je:\n"
 
-#: ../src/gcompris/gcompris.c:1860
+#: ../src/gcompris/gcompris.c:1855
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Število dejavnosti: %d\n"
 
-#: ../src/gcompris/gcompris.c:1896
+#: ../src/gcompris/gcompris.c:1891
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 
-#: ../src/gcompris/gcompris.c:1991
+#: ../src/gcompris/gcompris.c:1986
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4521,7 +4520,7 @@ msgstr ""
 "NAPAKA: Profila '%s' ni mogoče najti. Z ukazom 'gcompris --profile-list' se "
 "izpiše seznam razpoložljivih profilov.\n"
 
-#: ../src/gcompris/gcompris.c:2005
+#: ../src/gcompris/gcompris.c:2000
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostopnih profilov je:\n"
@@ -6459,7 +6458,7 @@ msgstr "Poenostavljen Hanojski stolp"
 msgid "Reproduce the given tower"
 msgstr "Postavi enak stolp."
 
-#: ../src/hanoi-activity/hanoi.c:348
+#: ../src/hanoi-activity/hanoi.c:349
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
