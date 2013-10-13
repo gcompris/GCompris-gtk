@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
 "is&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-04 11:03+0000\n"
-"PO-Revision-Date: 2013-10-13 20:09+0200\n"
+"POT-Creation-Date: 2013-10-13 18:49+0000\n"
+"PO-Revision-Date: 2013-10-13 22:06+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -417,10 +417,7 @@ msgstr ""
 "za profil <b>%s</b></span>"
 
 #: ../src/administration-activity/admin/board_list.py:645
-#, python-brace-format, 
-#| msgid ""
-#| "<b>{config}</b> configuration\n"
-#| " for profile <b>{profile}</b>"
+#, python-brace-format
 msgid ""
 "<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -430,9 +427,6 @@ msgstr ""
 
 #: ../src/administration-activity/admin/board_list.py:657
 #, python-brace-format
-#| msgid ""
-#| "<b>{config}</b> configuration\n"
-#| " for profile <b>{profile}</b>"
 msgid ""
 "<b>Locale sound</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -859,7 +853,6 @@ msgid "Learn to recognize unusual colors."
 msgstr "Nauči da prepoznaješ nesvakidašnje boje."
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:5
-#| msgid "Click on the correct colored box."
 msgid "Click on the correct colored butterfly."
 msgstr "Klikni na leptirića odgovarajuće boje."
 
@@ -1875,7 +1868,6 @@ msgstr "Kliknite na me da dobijete neki savet"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
 #, python-brace-format
-#| msgid "I don't have this number PLAYER {number}"
 msgid ""
 "I don't have this number\n"
 "PLAYER {number}"
@@ -2520,47 +2512,38 @@ msgid "Match the color "
 msgstr "Podudari boju "
 
 #: ../src/color_mix-activity/color_mix.py:251
-#| msgid "Not enough {color}"
 msgid "Not enough red"
 msgstr "Nedovoljno crvene"
 
 #: ../src/color_mix-activity/color_mix.py:251
-#| msgid "Too much {color}"
 msgid "Too much red"
 msgstr "Previše crvene"
 
 #: ../src/color_mix-activity/color_mix.py:252
-#| msgid "Not enough {color}"
 msgid "Not enough green"
 msgstr "Nedovoljno zelene"
 
 #: ../src/color_mix-activity/color_mix.py:252
-#| msgid "Too much {color}"
 msgid "Too much green"
 msgstr "Previše zelene"
 
 #: ../src/color_mix-activity/color_mix.py:253
-#| msgid "Not enough {color}"
 msgid "Not enough blue"
 msgstr "Nedovoljno plave"
 
 #: ../src/color_mix-activity/color_mix.py:253
-#| msgid "Too much {color}"
 msgid "Too much blue"
 msgstr "Previše plave"
 
 #: ../src/color_mix-activity/color_mix.py:255
-#| msgid "Not enough {color}"
 msgid "Not enough cyan"
 msgstr "Nedovoljno plavičaste"
 
 #: ../src/color_mix-activity/color_mix.py:255
-#| msgid "Too much {color}"
 msgid "Too much cyan"
 msgstr "Previše plavičaste"
 
 #: ../src/color_mix-activity/color_mix.py:256
-#| msgid "Not enough {color}"
 msgid "Not enough magenta"
 msgstr "Nedovoljno ljubičaste"
 
@@ -2569,12 +2552,10 @@ msgid "Too much magenta"
 msgstr "Previše ljubičaste"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#| msgid "Not enough {color}"
 msgid "Not enough yellow"
 msgstr "Nedovoljno žute"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#| msgid "Too much {color}"
 msgid "Too much yellow"
 msgstr "Previše žute"
 
@@ -2683,52 +2664,42 @@ msgid "Listen to the color and click on the matching duck."
 msgstr "Odslušajte izgovor za boju i kliknite na odgovarajuću patku."
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:1
-#| msgid "Find the {text} duck"
 msgid "Find the yellow duck"
 msgstr "Nađi žutu patku"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
-#| msgid "Find the {text} duck"
 msgid "Find the black duck"
 msgstr "Nađi crnu patku"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-#| msgid "Find the {text} duck"
 msgid "Find the green duck"
 msgstr "Nađi zelenu patku"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-#| msgid "Find the {text} duck"
 msgid "Find the red duck"
 msgstr "Nađi crvenu patku"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-#| msgid "Find the {text} duck"
 msgid "Find the white duck"
 msgstr "Nađi belu patku"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-#| msgid "Find the {text} duck"
 msgid "Find the blue duck"
 msgstr "Nađi plavu patku"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-#| msgid "Find the {text} duck"
 msgid "Find the brown duck"
 msgstr "Nađi braon patku"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-#| msgid "Find the {text} duck"
 msgid "Find the grey duck"
 msgstr "Nađi zelenu patku"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
-#| msgid "Find the {text} duck"
 msgid "Find the orange duck"
 msgstr "Nađi narandžastu patku"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-#| msgid "Find the purple butterfly"
 msgid "Find the purple duck"
 msgstr "Nađi ljubičastu patku"
 
@@ -3261,44 +3232,34 @@ msgstr ""
 "sve tekstove, pobedili ste!\n"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
-#| msgid " Click on the questions to explore each farm animal."
 msgid "Click on the questions to explore each farm animal."
 msgstr "Kliknite na pitanje da istražite svaku domaću životinju."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:2
-#| msgid " Click on the farm animal that makes the sound you hear."
 msgid "Click on the farm animal that makes the sound you hear."
 msgstr "Kliknite na domaću životinju koja se oglašava zvukom koji čujete."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:3
-#| msgid " Click the animal that matches the description."
 msgid "Click the animal that matches the description."
 msgstr "Kliknite na životinju koja odgovara opisu."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:4
-#| msgid " Horse"
 msgid "Horse"
 msgstr "Konj"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:5
-#| msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
 msgid "The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
 msgstr "Konj njišti „njiiihii! njiiihii!“. Konji obično spavaju stojeći."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:6
-#| msgid " You can ride on the back of this animal!"
 msgid "You can ride on the back of this animal!"
 msgstr "Možete da se voskarite na leđima ove životinje, što se naziva jahanjem!"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:7
-#| msgid " Chickens"
 msgid "Chickens"
 msgstr "Kokoš"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
-#| msgid ""
-#| " The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 "
-#| "different noises they can use to communicate."
 msgid ""
 "The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
 "noises they can use to communicate."
@@ -3307,40 +3268,29 @@ msgstr ""
 "zvuka za međusobno komuniciranje."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
-#| msgid " This animal lays eggs."
 msgid "This animal lays eggs."
 msgstr "Ova životinja nosi jaja."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:10
-#| msgid " Cows"
 msgid "Cows"
 msgstr "Krave"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
-#| msgid ""
-#| " The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all "
-#| "day in the meadow."
 msgid ""
 "The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all day "
 "in the meadow."
 msgstr ""
-"Krava muče „muu. muu.“. Krave su sisari biljojedi. Po celi dan pasu na "
-"livadi."
+"Krava muče „muu. muu.“. Krave su sisari biljojedi. Po celi dan pasu na livadi."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
-#| msgid " You can drink the milk this animal produces."
 msgid "You can drink the milk this animal produces."
 msgstr "Možete da pijete mleko koje ova životinja proizvodi."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:13
-#| msgid " Cat"
 msgid "Cat"
 msgstr "Mačka"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:14
-#| msgid ""
-#| " The cat goes \"meow, meow\". Cats usually hate water because their fur "
-#| "doesn't stay warm when it is wet."
 msgid ""
 "The cat goes \"meow, meow\". Cats usually hate water because their fur "
 "doesn't stay warm when it is wet."
@@ -3349,37 +3299,28 @@ msgstr ""
 "nije toplo kada je mokro."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
-#| msgid " This pet likes chasing mice."
 msgid "This pet likes chasing mice."
 msgstr "Ova životinjka obožava da lovi miševe."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
-#| msgid " Pigs"
 msgid "Pigs"
 msgstr "Svinje"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
-#| msgid ""
-#| " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
 msgid "The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
 msgstr ""
 "Svinje grokću „gronk, gronk“. Nalaze se na 4. mestu po inteligenciji međ "
 "životinjama."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-#| msgid " This animal likes to lay in the mud."
 msgid "This animal likes to lay in the mud."
 msgstr "Obožavaju da se valjaju po kaljugama."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
-#| msgid " White Duck"
 msgid "White Duck"
 msgstr "Bela patka"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
-#| msgid ""
-#| " The duck goes \"quack, quack\". Ducks have special features like webbed "
-#| "feet and produce an oil to make their feathers \"waterproof\"."
 msgid ""
 "The duck goes \"quack, quack\". Ducks have special features like webbed feet "
 "and produce an oil to make their feathers \"waterproof\"."
@@ -3389,37 +3330,27 @@ msgstr ""
 "vodu“."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
-#| msgid " This animal has webbed feet so it can swim in the water."
 msgid "This animal has webbed feet so it can swim in the water."
 msgstr "Ova životinja može da pliva u vodi zato što ima kožice između prstiju."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:22
-#| msgid " Owl"
 msgid "Owl"
 msgstr "Sova"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:23
-#| msgid ""
-#| " The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at "
-#| "night."
 msgid ""
 "The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at night."
 msgstr "Sova huče „huu, huu“. Izvrsno vidi i čuje i po mraku."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
-#| msgid " This animal likes to come out at night."
 msgid "This animal likes to come out at night."
 msgstr "Najčešće izlaze i kreću se noću."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:25
-#| msgid " Dogs"
 msgid "Dogs"
 msgstr "Psi"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:26
-#| msgid ""
-#| " The dog goes \"bark! bark!\". Dogs are great human companions and "
-#| "usually enjoy love and attention."
 msgid ""
 "The dog goes \"bark! bark!\". Dogs are great human companions and usually "
 "enjoy love and attention."
@@ -3428,19 +3359,14 @@ msgstr ""
 "pažnju."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
-#| msgid " This animal's ancestors were wolves."
 msgid "This animal's ancestors were wolves."
 msgstr "Ove životinje vode poreklo od vukova."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
-#| msgid " Rooster"
 msgid "Rooster"
 msgstr "Petao"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
-#| msgid ""
-#| " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
-#| "about 5,000 years. Every morning it wakes the farm up with its noises."
 msgid ""
 "The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
 "about 5,000 years. Every morning it wakes the farm up with its noises."
@@ -3450,7 +3376,6 @@ msgstr ""
 "ustajanje."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
-#| msgid " This animal wakes the farm up in the morning."
 msgid "This animal wakes the farm up in the morning."
 msgstr "Ova životinja ranim jutrom budi žitelje domaćinstva."
 
@@ -3490,24 +3415,18 @@ msgstr ""
 "sve tekstove, pobedili ste!\n"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
-#| msgid " Explore exotic animals from around the world."
 msgid "Explore exotic animals from around the world."
 msgstr "Istražite egzotične životinje iz celog sveta."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
-#| msgid " Click on location where the given animal lives."
 msgid "Click on location where the given animal lives."
 msgstr "Kliknite na mesto gde data životinja živi."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
-#| msgid " Jaguars in South America"
 msgid "Jaguars in South America"
 msgstr "Jaguari u Južnoj Americi"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:4
-#| msgid ""
-#| " Jaguars are named after the Native American word meaning 'he who kills "
-#| "with one leap'"
 msgid ""
 "Jaguars are named after the Native American word meaning 'he who kills with "
 "one leap' because they like to climb trees to attack their prey."
@@ -3516,20 +3435,14 @@ msgstr ""
 "koji ubija u jednom skoku“"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:5
-#| msgid " Jaguar"
 msgid "Jaguar"
 msgstr "Jaguar"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
-#| msgid " Hedgehogs in Europe"
 msgid "Hedgehogs in Europe"
 msgstr "Ježevi u Evropi"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:7
-#| msgid ""
-#| " Hedgehogs eat small animals, like frogs and insects, so many people keep "
-#| "them as useful pets. When in danger, they will curl up into a ball and "
-#| "stick up their coat of sharp spines."
 msgid ""
 "Hedgehogs eat small animals, like frogs and insects, so many people keep "
 "them as useful pets. When in danger, they will curl up into a ball and stick "
@@ -3540,20 +3453,14 @@ msgstr ""
 "njihovo krzno prekriveno oštrim bodljama."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
-#| msgid " Hedgehog"
 msgid "Hedgehog"
 msgstr "Jež"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:9
-#| msgid " Giraffes in Africa"
 msgid "Giraffes in Africa"
 msgstr "Žirafe u Africi"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:10
-#| msgid ""
-#| " The giraffe lives in Africa and is the tallest mammal in the world. Just "
-#| "their legs, which are usually 1.8 meters long, are taller than most "
-#| "humans!"
 msgid ""
 "The giraffe lives in Africa and is the tallest mammal in the world. Just "
 "their legs, which are usually 1.8 meters long, are taller than most humans!"
@@ -3562,19 +3469,14 @@ msgstr ""
 "obično visoke 1,8 metara, su više od većine ljudi!"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:11
-#| msgid " Giraffe"
 msgid "Giraffe"
 msgstr "Žirafa"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:12
-#| msgid " Bison in America"
 msgid "Bison in America"
 msgstr "Bizon u Americi"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:13
-#| msgid ""
-#| " Bison live on the plains of North America and were hunted by the Native "
-#| "Americans for food."
 msgid ""
 "Bison live on the plains of North America and were hunted by the Native "
 "Americans for food."
@@ -3583,19 +3485,14 @@ msgstr ""
 "zbog mesa."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:14
-#| msgid " Bison"
 msgid "Bison"
 msgstr "Bizon"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:15
-#| msgid " Narwhals in the Arctic"
 msgid "Narwhals in the Arctic"
 msgstr "Narvali u Arktiku"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:16
-#| msgid ""
-#| " Narwhals are whales that live in the Arctic Ocean and have long tusks. "
-#| "These tusks remind many people of the mythical unicorn's horn."
 msgid ""
 "Narwhals are whales that live in the Arctic Ocean and have long tusks. These "
 "tusks remind many people of the mythical unicorn's horn."
@@ -3604,7 +3501,6 @@ msgstr ""
 "podsećaju mnoge ljude na rog mitskog jednoroga."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:17
-#| msgid " Narwhal"
 msgid "Narwhal"
 msgstr "Narval"
 
@@ -3660,17 +3556,14 @@ msgid "Images from http://commons.wikimedia.org/wiki, http://archive.org"
 msgstr "Slike su sa http://commons.wikimedia.org/wiki, http://archive.org"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:1
-#| msgid " Explore world music! Click on the suitcases."
 msgid "Explore world music! Click on the suitcases."
 msgstr "Istražite svetsku muziku! Kliknite na kofere."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:2
-#| msgid " Click on the location that matches the music you hear."
 msgid "Click on the location that matches the music you hear."
 msgstr "Kliknite na mesto koje odgovara muzici koju čujete."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:3
-#| msgid " Click on the location that matches the text."
 msgid "Click on the location that matches the text."
 msgstr "Kliknite na mesto koje odgovara tekstu."
 
@@ -3681,10 +3574,6 @@ msgid "Australia"
 msgstr "Australija"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:5
-#| msgid ""
-#| " Aboriginals were the first people to live in Australia. They sing and "
-#| "play instruments, like the didgeridoo. It is made from a log and can be "
-#| "up to five meters long!"
 msgid ""
 "Aboriginals were the first people to live in Australia. They sing and play "
 "instruments, like the didgeridoo. It is made from a log and can be up to "
@@ -3695,7 +3584,6 @@ msgstr ""
 "metara!"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:6
-#| msgid " Where is the didgeridoo played?"
 msgid "Where is the didgeridoo played?"
 msgstr "Gde se svira didžeridu?"
 
@@ -3707,10 +3595,6 @@ msgid "Africa"
 msgstr "Afrika"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:8
-#| msgid ""
-#| " Music is a part of everyday life in Africa. African music features a "
-#| "great variety of drums, and they believe it is a sacred and magical "
-#| "instrument."
 msgid ""
 "Music is a part of everyday life in Africa. African music features a great "
 "variety of drums, and they believe it is a sacred and magical instrument."
@@ -3719,20 +3603,14 @@ msgstr ""
 "broj raznih doboša, a žitelji veruju da je to sveti i magični instrument."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:9
-#| msgid " Where is the drum considered a magical instrument?"
 msgid "Where is the drum considered a magical instrument?"
 msgstr "Gde se doboš smatra magičnim instrumentom?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:10
-#| msgid " Middle East"
 msgid "Middle East"
 msgstr "Bliski Istok"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:11
-#| msgid ""
-#| " Music is a very important part of middle eastern culture. Specific songs "
-#| "are played to call worshipers to prayer. The lute is an instrument "
-#| "invented thousands of years ago and still in use today."
 msgid ""
 "Music is a very important part of middle eastern culture. Specific songs are "
 "played to call worshipers to prayer. The lute is an instrument invented "
@@ -3743,7 +3621,6 @@ msgstr ""
 "hiljada godina i još uvek je u upotrebi."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:12
-#| msgid " Where is music used to call people to prayer?"
 msgid "Where is music used to call people to prayer?"
 msgstr "Gde se muzika koristi kao poziv na molitvu?"
 
@@ -3753,10 +3630,6 @@ msgid "Japan"
 msgstr "Japan"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
-#| msgid ""
-#| " Taiko drumming comes from Japan. This type of drumming was originally "
-#| "used to scare enemies in battle. It is very loud, and performances are "
-#| "very exciting with crowds cheering and performers yelling!"
 msgid ""
 "Taiko drumming comes from Japan. This type of drumming was originally used "
 "to scare enemies in battle. It is very loud, and performances are very "
@@ -3767,20 +3640,14 @@ msgstr ""
 "vrlo uzbudljiva uz urlanje navijača i viku izvođača!"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
-#| msgid " Where do performers yelp as they play the drums?"
 msgid "Where do performers yelp as they play the drums?"
 msgstr "Gde to izvođači viču dok sviraju doboše?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
-#| msgid " Scotland and Ireland"
 msgid "Scotland and Ireland"
 msgstr "Škotska i Irska"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
-#| msgid ""
-#| " Folk music of this region is called celtic music, often incorporates a "
-#| "narrative poem or story. Typical instruments include bagpipes, fiddles, "
-#| "flutes, harps, and accordions."
 msgid ""
 "Folk music of this region is called celtic music, often incorporates a "
 "narrative poem or story. Typical instruments include bagpipes, fiddles, "
@@ -3791,7 +3658,6 @@ msgstr ""
 "harfe i harmonike."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:18
-#| msgid " Bagpipers, who often wear kilts, are from this location."
 msgid "Bagpipers, who often wear kilts, are from this location."
 msgstr "Gajdaši, koji često nose kilt, su sa ovih prostora."
 
@@ -3802,10 +3668,6 @@ msgid "Italy"
 msgstr "Italija"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
-#| msgid ""
-#| " Italy is famous for its Opera. Opera is a musical theater where actors "
-#| "tell a story by acting and singing. Opera singers, both male and female, "
-#| "learn special techniques to sing operas."
 msgid ""
 "Italy is famous for its Opera. Opera is a musical theater where actors tell "
 "a story by acting and singing. Opera singers, both male and female, learn "
@@ -3816,19 +3678,14 @@ msgstr ""
 "veštine da bi pevali opere."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:21
-#| msgid " This country is known for its opera music."
 msgid "This country is known for its opera music."
 msgstr "Ova zemlja je poznata po svojoj operskoj muzici."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:22
-#| msgid " European Classical Music"
 msgid "European Classical Music"
 msgstr "Ecropska klasična muzika"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:23
-#| msgid ""
-#| " Europe is the home of classical music. Famous composers like Bach, "
-#| "Beethoven, and Mozart forever changed music history."
 msgid ""
 "Europe is the home of classical music. Famous composers like Bach, "
 "Beethoven, and Mozart forever changed music history."
@@ -3837,7 +3694,6 @@ msgstr ""
 "su zauvek izmenili muzičku istoriju."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:24
-#| msgid " Bach, Beethoven, and Mozart composed music in this location."
 msgid "Bach, Beethoven, and Mozart composed music in this location."
 msgstr "Bah, Betoven i Mocart su komponovali muziku na ovom prostoru."
 
@@ -3850,10 +3706,6 @@ msgid "Mexico"
 msgstr "Meksiko"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:26
-#| msgid ""
-#| " Mariachi is a famous type of Mexican music. It features guitars, "
-#| "trumpets, and violins. These bands play for many occasions, including "
-#| "weddings and parties."
 msgid ""
 "Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
 "and violins. These bands play for many occasions, including weddings and "
@@ -3863,28 +3715,20 @@ msgstr ""
 "Ove grupe sviraju u mnogim prilikama, uključujući svadbe i žurke."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:27
-#| msgid ""
-#| " At parties, people often dance to the Mariachi music. A Famous dance is:"
 msgid ""
 "At parties, people often dance to the Mariachi music. A Famous dance is:"
 msgstr ""
 "Na žurkama, ljudi često igraju prema Mariaki muzici. Poznata vrsta plesa je:"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:28
-#| msgid " Where is Mariachi music from?"
 msgid "Where is Mariachi music from?"
 msgstr "Odakle potiče Mariaki muzika?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-#| msgid " United State of America"
 msgid "United State of America"
 msgstr "Sjedinjene Američke Države"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
-#| msgid ""
-#| " USA also has a wide variety of musical genres, but perhaps it is most "
-#| "famous for rock n' roll music. This music features vocalists, guitars, "
-#| "and drums."
 msgid ""
 "USA also has a wide variety of musical genres, but perhaps it is most famous "
 "for rock n' roll music. This music features vocalists, guitars, and drums."
@@ -3893,20 +3737,15 @@ msgstr ""
 "rokenrol muzici. Ovu muziku odlikuju pevači, gitare, i bubnjevi."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
-#| msgid " The 'king' of rock n' roll is"
 msgid "The 'king' of rock n' roll is"
 msgstr "„Kralj“ rokenrola je"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
-#| msgid ""
-#| " The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
-#| "country."
 msgid ""
 "The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
 "country."
 msgstr ""
-"„Kralj“ rokenrola, Elvis Prisli, je učinio svoju muziku poznatom u ovoj "
-"zemlji."
+"„Kralj“ rokenrola, Elvis Prisli, je učinio svoju muziku poznatom u ovoj zemlji."
 
 # bug: unclear: "15th game" or "game of fifteen"
 #: ../src/fifteen-activity/fifteen.xml.in.h:1
@@ -4118,7 +3957,6 @@ msgid "Chinese (Simplified)"
 msgstr "Kineski (pojednostavljen)"
 
 #: ../src/gcompris/config.c:69
-#| msgid "Chinese (Traditional)"
 msgid "Chinese (Hong Kong)"
 msgstr "Kineski (Hong Kong)"
 
@@ -4185,7 +4023,6 @@ msgid "Greek"
 msgstr "Grčki"
 
 #: ../src/gcompris/config.c:85 ../src/gcompris/config.c:114
-#| msgid "Irish (Gaelic)"
 msgid "Scottish Gaelic"
 msgstr "Škotski galski"
 
@@ -4876,7 +4713,6 @@ msgstr "Sjedinjene Američke Države"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:2
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:2
-#| msgid "Connect 4"
 msgid "Connecticut"
 msgstr "Konektikat"
 
@@ -4916,7 +4752,6 @@ msgstr "Vašington D.C."
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:10
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
-#| msgid "Main menu"
 msgid "Maine"
 msgstr "Mejn"
 
@@ -4942,7 +4777,6 @@ msgstr "Pensilvanija"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:15
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:15
-#| msgid "Oware"
 msgid "Delaware"
 msgstr "Delaver"
 
@@ -4953,7 +4787,6 @@ msgstr "Nju Džersi"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:17
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:17
-#| msgid "Ireland"
 msgid "Maryland"
 msgstr "Merilend"
 
@@ -4968,19 +4801,16 @@ msgid "Florida"
 msgstr "Florida"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:20
-#| msgid "Georgia"
 msgid "USA|Georgia"
 msgstr "USA|Džordžija"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:21
-#| msgid "South Africa"
 msgid "South Carolina"
 msgstr "Južna Karolina"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:22
-#| msgid "North America"
 msgid "North Carolina"
 msgstr "Severna Karolina"
 
@@ -5016,7 +4846,6 @@ msgstr "Ilinois"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:29
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:29
-#| msgid "India"
 msgid "Indiana"
 msgstr "Indijana"
 
@@ -5037,7 +4866,6 @@ msgstr "Misisipi"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:33
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:33
-#| msgid "Russian"
 msgid "Louisiana"
 msgstr "Luizijana"
 
@@ -5090,13 +4918,11 @@ msgstr "Arizona"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:43
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:43
-#| msgid " Mexico"
 msgid "New Mexico"
 msgstr "Novi Meksiko"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:44
-#| msgid "Colors"
 msgid "Colorado"
 msgstr "Kolorado"
 
@@ -5112,13 +4938,11 @@ msgstr "Nebraska"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:47
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:47
-#| msgid "South Korea"
 msgid "South Dakota"
 msgstr "Južna Dakota"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:48
-#| msgid "North Korea"
 msgid "North Dakota"
 msgstr "Severna Dakota"
 
@@ -5161,7 +4985,6 @@ msgstr "Indija"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:1
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:1
-#| msgid "Northern Africa"
 msgid "Northern Scotland"
 msgstr "Severna Škotska"
 
@@ -5192,7 +5015,6 @@ msgstr "Ros"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:7
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:7
-#| msgid "Switzerland"
 msgid "Sutherland"
 msgstr "Saterlend"
 
@@ -5203,7 +5025,6 @@ msgstr "Kejtnes"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:9
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:9
-#| msgid "Iceland"
 msgid "Shetland"
 msgstr "Šetland"
 
@@ -5234,7 +5055,6 @@ msgstr "Aberdinšajr"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:1
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:1
-#| msgid "Southern Africa"
 msgid "Southern Scotland"
 msgstr "Južna Škotska"
 
@@ -5275,7 +5095,6 @@ msgstr "Klekmenšajr"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:9
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:9
-#| msgid "North America"
 msgid "North Ayrshire"
 msgstr "Severni Ejršajr"
 
@@ -5316,7 +5135,6 @@ msgstr "Istočni Ejršajr"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:17
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:17
-#| msgid "South Africa"
 msgid "South Ayrshire"
 msgstr "Južni Ejršajr"
 
@@ -5416,7 +5234,6 @@ msgid "Black Sea"
 msgstr "Crno more"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:4
-#| msgid "Mediteranean Sea"
 msgid "Mediterranean Sea"
 msgstr "Sredozemno more"
 
@@ -5499,7 +5316,6 @@ msgid "Turkey"
 msgstr "Turska"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:25
-#| msgid "Georgia"
 msgid "Asia|Georgia"
 msgstr "Gruzija"
 
@@ -5631,12 +5447,10 @@ msgid "Oceania"
 msgstr "Okeanija"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:3
-#| msgid "United States of America"
 msgid "United States Minor Outlying Islands"
 msgstr "Spoljna ivična ostrva SAD"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:5
-#| msgid "America"
 msgid "American Samoa"
 msgstr "Američka Samoa"
 
@@ -5645,7 +5459,6 @@ msgid "Cook Islands"
 msgstr "Ostrva Kuk"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:7
-#| msgid "Greenland"
 msgid "New Zealand"
 msgstr "Novi Zeland"
 
@@ -5666,7 +5479,6 @@ msgid "Marshall Islands"
 msgstr "Maršalska ostrva"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:12
-#| msgid "Macedonia"
 msgid "New Caledonia"
 msgstr "Nova Kaledonija"
 
@@ -5679,17 +5491,14 @@ msgid "Tuvalu"
 msgstr "Tuvalu"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:15
-#| msgid "Manual"
 msgid "Vanuatu"
 msgstr "Vanuatu"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:16
-#| msgid "Indonesia"
 msgid "Micronesia"
 msgstr "Mikronezija"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:17
-#| msgid "Northern Africa"
 msgid "Northern Mariana Islands"
 msgstr "Severna Marijanska ostrva"
 
@@ -5706,7 +5515,6 @@ msgid "Papua New Guinea"
 msgstr "Papua Nova Gvineja"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:22
-#| msgid "French Guiana"
 msgid "French Polynesia"
 msgstr "Francuska Polinezija"
 
@@ -5733,7 +5541,6 @@ msgstr "Island"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
-#| msgid "Central African Republic"
 msgid "Central America"
 msgstr "Centralna Amerika"
 
@@ -5789,7 +5596,6 @@ msgstr "Jamajka"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:13
-#| msgid "Paraguay"
 msgid "Nicaragua"
 msgstr "Nikaragva"
 
@@ -6271,9 +6077,6 @@ msgid "Type the falling letters before they reach the ground"
 msgstr "Ukucajte padajuća slova pre nego što stignu do zemlje"
 
 #: ../src/gletters-activity/gletters.c:215
-#| msgid ""
-#| "Error: We can't find\n"
-#| "a list of words to play this game.\n"
 msgid ""
 "Error: We can't find\n"
 "a list of letters to play this game.\n"
@@ -6645,7 +6448,6 @@ msgstr ""
 #. All the vowel of your language (keep empty if non applicable)
 #. Separate with /. You can use digraphs, trigraphs etc.
 #: ../src/hangman-activity/hangman.py:62
-#| msgid "cake/c_ke/a/o/e/i/u/y"
 msgid "a/e/i/o/u/y"
 msgstr "a/e/i/o/u"
 
@@ -6714,7 +6516,7 @@ msgid "Reproduce the given tower"
 msgstr "Napravite datu kulu"
 
 # bug: than the one -> like the one
-#: ../src/hanoi-activity/hanoi.c:348
+#: ../src/hanoi-activity/hanoi.c:349
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
@@ -7258,137 +7060,110 @@ msgid "Click on the correct instrument."
 msgstr "Kliknite na pravi instrument."
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:1
-#| msgid "the clarinet"
 msgid "Find the clarinet"
 msgstr "Nađi klarinet"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
-#| msgid "the transverse flute"
 msgid "Find the transverse flute"
 msgstr "Nađi poprečnu flautu"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
-#| msgid "the guitar"
 msgid "Find the guitar"
 msgstr "Nađi gitaru"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-#| msgid "the harp"
 msgid "Find the harp"
 msgstr "Nađi harfu"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
-#| msgid "the piano"
 msgid "Find the piano"
 msgstr "Nađi klavir"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
-#| msgid "the saxophone"
 msgid "Find the saxophone"
 msgstr "Nađi saksofon"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
-#| msgid "the trombone"
 msgid "Find the trombone"
 msgstr "Nađi trombon"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
-#| msgid "the trumpet"
 msgid "Find the trumpet"
 msgstr "Nađi trubu"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
-#| msgid "the violin"
 msgid "Find the violin"
 msgstr "Nađi violinu"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-#| msgid "the flute traversiere"
 msgid "Find the flute traversiere"
 msgstr "Nađi flautu"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
-#| msgid "the drum kit"
 msgid "Find the drum kit"
 msgstr "Nađi bubnjeve"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
-#| msgid "the accordion"
 msgid "Find the accordion"
 msgstr "Nađi harmoniku"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
-#| msgid "the banjo"
 msgid "Find the banjo"
 msgstr "Nađi bendžo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
-#| msgid "the bongo"
 msgid "Find the bongo"
 msgstr "Nađi bongo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
-#| msgid "the electric guitar"
 msgid "Find the electric guitar"
 msgstr "Nađi električnu gitaru"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
-#| msgid "the castanets"
 msgid "Find the castanets"
 msgstr "Nađi kastanjete"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
-#| msgid "the cymbal"
 msgid "Find the cymbal"
 msgstr "Nađi cimbal"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
-#| msgid "the cello"
 msgid "Find the cello"
 msgstr "Nađi violončelo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
-#| msgid "the harmonica"
 msgid "Find the harmonica"
 msgstr "Nađi usnu harmoniku"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
-#| msgid "the horn"
 msgid "Find the horn"
 msgstr "Nađi rog"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
-#| msgid "the maracas"
 msgid "Find the maracas"
 msgstr "Nađi marakas"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
-#| msgid "the organ"
 msgid "Find the organ"
 msgstr "Nađi orgulje"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
-#| msgid "the snare drum"
 msgid "Find the snare drum"
 msgstr "Nađi doboš"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-#| msgid "the timpani"
 msgid "Find the timpani"
 msgstr "Nađi timpane"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
-#| msgid "the triangle"
 msgid "Find the triangle"
 msgstr "Nađi trougao"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
-#| msgid "the tambourine"
 msgid "Find the tambourine"
 msgstr "Nađi daire"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
-#| msgid "the tuba"
 msgid "Find the tuba"
 msgstr "Nađi tubu"
 
@@ -7619,7 +7394,6 @@ msgid "Select locale"
 msgstr "Izaberite lokalitet"
 
 #: ../src/lang-activity/lang.xml.in.h:1
-#| msgid "Go to the Reading activities"
 msgid "Go to the language learning activities"
 msgstr "Idi na vežbe učenja jezika"
 
@@ -7628,17 +7402,14 @@ msgid "other"
 msgstr "ostalo"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:2
-#| msgid "Duration"
 msgid "action"
 msgstr "radnja"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:3
-#| msgid "Active"
 msgid "adjective"
 msgstr "prilog"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:5
-#| msgid "Number"
 msgid "number"
 msgstr "broj"
 
@@ -7651,7 +7422,6 @@ msgid "clothes"
 msgstr "odeća"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:8
-#| msgid "Question"
 msgid "emotion"
 msgstr "osećanja"
 
@@ -7664,7 +7434,6 @@ msgid "people"
 msgstr "ljudi"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:11
-#| msgid "Reports"
 msgid "sport"
 msgstr "sport"
 
@@ -7681,12 +7450,10 @@ msgid "fruit"
 msgstr "voće"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:15
-#| msgid "Picture"
 msgid "nature"
 msgstr "priroda"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:16
-#| msgid "plane"
 msgid "plant"
 msgstr "biljka"
 
@@ -7695,17 +7462,14 @@ msgid "vegetables"
 msgstr "povrće"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:18
-#| msgid "Learn subtraction"
 msgid "construction"
 msgstr "izgradnja"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:19
-#| msgid "Picture"
 msgid "furniture"
 msgstr "nameštaj"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:20
-#| msgid "house"
 msgid "houseware"
 msgstr "posuđe"
 
@@ -8571,29 +8335,6 @@ msgstr "Vežbajte oduzimanje, dok sve karte ne nestanu."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:5
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:5
-#| msgid ""
-#| "You can see some cards, but you can't see what's on the other side of "
-#| "them. Each card is hiding a subtraction, or the answer to it.\n"
-#| "A subtraction looks like this: 3 - 1 = 2\n"
-#| "The numbers on one side of the equals sign (=) have to be the same as the "
-#| "number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
-#| "when you work this out, and count on your fingers, because the more ways "
-#| "you do something, the better you remember it. You can also use blocks, or "
-#| "buttons, or anything you can count. If you have lots of brothers and "
-#| "sisters, you can count them! Or the kids in your class at school. Sing "
-#| "counting songs. Count lots of things, for practice, and you'll be very "
-#| "good at adding-up!\n"
-#| "\n"
-#| "In this game, these cards are hiding the two parts of a subtraction. You "
-#| "need to find the two parts of the subtraction, and bring them together "
-#| "again. Click on a card to see what number it's hiding, then try to find "
-#| "the other card that goes with it, to make a whole sum. You can only turn "
-#| "over two cards in one go, so you need to remember where the numbers are "
-#| "hiding, then you can match them when you find their other half. You're "
-#| "doing the job of the equals sign, and the numbers need you to put them "
-#| "together and make a proper sum. When you do that, both those cards "
-#| "disappear! When you've made them all disappear, found all the subtracts, "
-#| "you've won the game! :)"
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a subtraction, or the answer to it.\n"
@@ -9298,9 +9039,6 @@ msgid "Edgar Degas, The Dancing Class - 1873-75"
 msgstr "Edgar Dega, Čas plesa — 1873-75"
 
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
-#| msgid ""
-#| "Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the "
-#| "Ommaya Embankment - 1830"
 msgid ""
 "Katsushika Hokusai,\n"
 "Viewing Sunset over the Ryogoku Bridge from the Ommaya Embankment - 1830"
@@ -9345,8 +9083,6 @@ msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
 msgstr "Kacušika Hokusai, Veliki talas Kanagave — 1823-1829"
 
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
-#| msgid ""
-#| "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgid ""
 "Utagawa Hiroshige,\n"
 "The Benzaiten Shrine at Inokashira in Snow - 1760-70"
@@ -9669,12 +9405,10 @@ msgid "Select A Melody to Load"
 msgstr "Izaberi melodiju za učitavanje"
 
 #: ../src/piano_composition-activity/piano_composition.py:405
-#| msgid "Previous level"
 msgid "Previous Page"
 msgstr "Prethodna stranica"
 
 #: ../src/piano_composition-activity/piano_composition.py:415
-#| msgid "Next level"
 msgid "Next Page"
 msgstr "Sledeća stranica"
 
@@ -9794,6 +9528,17 @@ msgstr ""
 "  F5: A# / Bb\n"
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:34
+#| msgid ""
+#| "\n"
+#| "Thank you to Bruno Coudoin for his mentorship.\n"
+#| "Thank you to Olivier Samyn for his contribution to improving the note "
+#| "design and coloring.\n"
+#| "Thank you to Federico Mena who inspired me with his wonderful enthusiasm "
+#| "for my music projects at GUADEC.\n"
+#| "Thank you to all contributors of children's songs from around the world, "
+#| "especially the GNOME community. Learn more about these\n"
+#| "melodies and who contributed them here: HTTP://live.gnome.org/"
+#| "GComprisMelodies\n"
 msgid ""
 "\n"
 "Thank you to Bruno Coudoin for his mentorship.\n"
@@ -9803,8 +9548,8 @@ msgid ""
 "my music projects at GUADEC.\n"
 "Thank you to all contributors of children's songs from around the world, "
 "especially the GNOME community. Learn more about these\n"
-"melodies and who contributed them here: "
-"HTTP://live.gnome.org/GComprisMelodies\n"
+"melodies and who contributed them here: https://live.gnome.org/"
+"GComprisMelodies\n"
 msgstr ""
 "\n"
 "Zahvaljujem se Brunu Kuduanu za njegovo nadgledanj.\n"
@@ -9817,52 +9562,42 @@ msgstr ""
 "i ko ih je obezbedio na: https://live.gnome.org/GComprisMelodies\n"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
-#| msgid " America: English Lullaby"
 msgid "America: English Lullaby"
 msgstr "Amerika: Engleska uspavanka"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:2
-#| msgid " America: Patriotic"
 msgid "America: Patriotic"
 msgstr "Amerika: Rodoljuviva"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
-#| msgid " America: Shaker Tune"
 msgid "America: Shaker Tune"
 msgstr "Amerika: Šejkerov sklad"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
-#| msgid " America: Nursery Rhyme"
 msgid "America: Nursery Rhyme"
 msgstr "Amerika: Stihovi za obdanište"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:8
-#| msgid " German Kid's Song"
 msgid "German Kid's Song"
 msgstr "Nemačka dečija pesma"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
-#| msgid " Children's Song from Brazil"
 msgid "Children's Song from Brazil"
 msgstr "Dečija pesma iz Brazila"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:14
-#| msgid " Hungary, Nursery Rhyme"
 msgid "Hungary, Nursery Rhyme"
 msgstr "Mađarska, Stihovi za obdanište"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:15
-#| msgid " Hungary, Children's Song"
 msgid "Hungary, Children's Song"
 msgstr "Mađarska, Dečija pesma"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:17
-#| msgid " Britain"
 msgid "Britain"
 msgstr "Britanija"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
-#| msgid " Mexican song to break a piñata"
 msgid "Mexican song to break a piñata"
 msgstr "Meksička pesma za razbijanje pinjate (glinenog ćupa)"
 
@@ -9889,7 +9624,6 @@ msgid "Satellite goes too slow"
 msgstr "Satelit je previše spor"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:274
-#| msgid "Distance:"
 msgid "Distance: {:.1f}"
 msgstr "Udaljenost: {:.1f}"
 
