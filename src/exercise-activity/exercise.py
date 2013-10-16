@@ -46,7 +46,13 @@ class Gcompris_exercise:
 
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
-
+ 
+  # Catching an event and responding to it via printing on terminal the item which was clicked and the position.
+  def on_button_press(self, item, target, event, id):
+    print "%s received 'button-press' signal at %f, %f (root: %f, %f)" % \
+           (id, event.x, event.y, event.x_root, event.y_root)
+    return True  
+  
   def start(self):
     print "exercise start"
 
@@ -63,7 +69,7 @@ class Gcompris_exercise:
                                     self.gcomprisBoard.canvas.get_root_item())
 
  
-    goocanvas.Text(
+    Text = goocanvas.Text(
       parent = self.rootitem,
       x=400.0,
       y=100.0,
@@ -72,8 +78,9 @@ class Gcompris_exercise:
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER
       )
+    Text.connect("button_press_event", self.on_button_press, "Welcome text")
       
-    goocanvas.Rect(
+    Rectangle = goocanvas.Rect(
         parent = self.rootitem,
 	x = 20,
 	y = 400,
@@ -83,16 +90,19 @@ class Gcompris_exercise:
 	fill_color = "blue",
 	line_width = 5.0
 	)
+    Rectangle.connect("button_press_event", self.on_button_press, "Blue Rectangle")
 	
-    goocanvas.Polyline(
+    Triangle =goocanvas.Polyline(
 	parent = self.rootitem,
-	points = goocanvas.Points([(100.0, 100.0), (300.0, 100.0), (200.0, 300.0)]),
+	points = goocanvas.Points([(100.0, 100.0), (200.0, 100.0), (150.0, 200.0)]),
 	close_path = True,
 	stroke_color = "yellow",
 	fill_color = "green"
-	)     
+	)
+    Triangle.rotate(10,0,0)
+    Triangle.connect("button_press_event", self.on_button_press, "Green Triangle")
   
-    goocanvas.Ellipse(
+    Ellipse = goocanvas.Ellipse(
 	parent = self.rootitem,
         center_x = 400,
         center_y = 300,
@@ -102,10 +112,11 @@ class Gcompris_exercise:
         fill_color = "purple",
         line_width = 2.5
         )
+    Ellipse.connect("button_press_event", self.on_button_press, "Violet Ellipse")
      
     im = gtk.gdk.pixbuf_new_from_file ("/home/kesha/web.jpg") 
     
-    goocanvas.Image(
+    Imagescene = goocanvas.Image(
 	    parent = self.rootitem,
 	    pixbuf = im,
 	    x = 550,
@@ -113,7 +124,7 @@ class Gcompris_exercise:
 	    width = 200,
 	    height = 100,
 	    )
-	  
+    Imagescene.connect("button_press_event", self.on_button_press, "The image")
 
   def end(self):
     print "exercise end"
