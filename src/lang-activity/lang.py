@@ -64,7 +64,6 @@ class Gcompris_lang:
     handle = gcompris.utils.load_svg("lang/repeat.svg")
     gcompris.bar_set_repeat_icon(handle)
     gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON|gcompris.BAR_CONFIG)
-    gcompris.bar_location(gcompris.BOARD_WIDTH / 2 - 100, -1, 0.6)
 
     # Set a background image
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
@@ -144,7 +143,10 @@ dialogue to\nenable the sound."), None)
     if self.currentExercise:
       self.currentExercise.repeat()
     else:
-      self.playVoice( self.currentLesson.getTriplets()[self.currentTripletId] )
+      try:
+        self.playVoice( self.currentLesson.getTriplets()[self.currentTripletId] )
+      except:
+        pass
 
   def init_config(self):
     default_config = { 'locale_sound' : 'NULL' }
@@ -277,8 +279,8 @@ dialogue to\nenable the sound."), None)
       x = gcompris.BOARD_WIDTH / 2,
       y = 40.0,
       text = gcompris.gcompris_gettext(lesson.name),
-      fill_color = "black",
       font = gcompris.skin.get_font("gcompris/title"),
+      fill_color = "white",
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER,
       width = 300
@@ -310,8 +312,8 @@ dialogue to\nenable the sound."), None)
       parent = self.lessonroot,
       x = gcompris.BOARD_WIDTH - 40,
       y = gcompris.BOARD_HEIGHT - 40,
-      fill_color = "black",
       font = gcompris.skin.get_font("gcompris/board/tiny"),
+      fill_color = "white",
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER
       )
@@ -322,21 +324,35 @@ dialogue to\nenable the sound."), None)
     goocanvas.Rect(
       parent = self.lessonroot,
       x = (gcompris.BOARD_WIDTH - w) / 2,
-      y = (gcompris.BOARD_HEIGHT - h) / 2 - 2,
+      y = (gcompris.BOARD_HEIGHT - h) / 2 - 20,
       width = w,
       height = h + 50,
-      fill_color_rgba = 0xCECECECCL,
+      fill_color_rgba = 0xCECECEAAL,
       stroke_color_rgba = 0x111111CCL,
       line_width = 2.0,
       radius_x = 3,
       radius_y = 3)
     self.imageitem = goocanvas.Image( parent = self.lessonroot )
     self.imageitem.connect("button_press_event", self.next_event, None)
+
+    goocanvas.Rect(
+      parent = self.lessonroot,
+      x = (gcompris.BOARD_WIDTH - w) / 2,
+      y = (gcompris.BOARD_HEIGHT - h) / 2 - 10 + h,
+      width = w,
+      height = 40,
+      fill_color_rgba = 0x999999BBL,
+      stroke_color_rgba = 0x111111AAL,
+      line_width = 2.0,
+      radius_x = 3,
+      radius_y = 3)
+
+
     self.descriptionitem = goocanvas.Text(
       parent = self.lessonroot,
       x = gcompris.BOARD_WIDTH / 2,
-      y = gcompris.BOARD_HEIGHT - 80,
-      fill_color = "black",
+      y = gcompris.BOARD_HEIGHT - 100,
+      fill_color = "white",
       font = gcompris.skin.get_font("gcompris/subtitle"),
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER,
@@ -394,7 +410,7 @@ dialogue to\nenable the sound."), None)
     center_y =  pixbuf.get_height()/2
     self.imageitem.set_properties(pixbuf = pixbuf,
                                   x = gcompris.BOARD_WIDTH  / 2 - center_x,
-                                  y = gcompris.BOARD_HEIGHT / 2 - center_y )
+                                  y = gcompris.BOARD_HEIGHT / 2 - center_y - 18)
 
   def previous_event(self, event=None, target=None, item=None, dummy=None):
     self.currentTripletId -= 1
@@ -440,7 +456,8 @@ class TextButton:
             width=width,
             text=text,
             font = gcompris.skin.get_font("gcompris/board/small"),
-            fill_color="white", anchor=gtk.ANCHOR_CENTER,
+            fill_color="white",
+            anchor=gtk.ANCHOR_CENTER,
             alignment=pango.ALIGN_CENTER,
             pointer_events="GOO_CANVAS_EVENTS_NONE"
             )
