@@ -11,17 +11,18 @@ msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-13 20:14+0000\n"
-"PO-Revision-Date: 2013-10-14 00:08+0100\n"
+"POT-Creation-Date: 2013-10-20 15:17+0000\n"
+"PO-Revision-Date: 2013-10-20 18:14+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.5.4\n"
 
 # http://gcompris.net/-On-one-page-
 #: ../boards/algebra_group.xml.in.h:1
@@ -627,8 +628,8 @@ msgstr "Vsi uporabniki"
 #: ../src/administration-activity/admin/log_list.py:300
 #: ../src/administration-activity/admin/profile_list.py:118
 #: ../src/administration-activity/admin/wordlist.py:48
-#: ../src/lang-activity/lang.py:171 ../src/login-activity/login.py:483
-#: ../src/missing_letter-activity/missingletter.c:802
+#: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:483
+#: ../src/missing_letter-activity/missingletter.c:810
 #: ../src/pythontest-activity/pythontest.py:451
 #: ../src/tuxpaint-activity/tuxpaint.py:189
 msgid "Default"
@@ -1164,7 +1165,7 @@ msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/findit-activity/findit.py:228 ../src/lang-activity/lang.py:116
+#: ../src/findit-activity/findit.py:228 ../src/lang-activity/lang.py:115
 #: ../src/play_piano-activity/play_piano.py:82
 #: ../src/play_rhythm-activity/play_rhythm.py:87
 #: ../src/readingh-activity/reading.c:643
@@ -1549,7 +1550,7 @@ msgstr ""
 
 #: ../src/babymatch-activity/shapegame.c:2042
 #: ../src/click_on_letter-activity/click_on_letter.c:1315
-#: ../src/missing_letter-activity/missingletter.c:800
+#: ../src/missing_letter-activity/missingletter.c:808
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -3097,7 +3098,7 @@ msgstr "S klikom na miško počisti umazano polje in odkrij ozadje."
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Z miško klikni na vsak kvadratek, dokler zaslon ni čist."
 
-#: ../src/explore-activity/explore.py:85 ../src/lang-activity/lang.py:105
+#: ../src/explore-activity/explore.py:85 ../src/lang-activity/lang.py:104
 #: ../src/note_names-activity/note_names.py:82
 #: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
@@ -6725,7 +6726,7 @@ msgstr ""
 "preveč izbir."
 
 #: ../src/imageid-activity/imageid.c:538
-#: ../src/missing_letter-activity/missingletter.c:608
+#: ../src/missing_letter-activity/missingletter.c:616
 msgid "Data file for this level is not properly formatted."
 msgstr "Podatkovna datoteka za to raven ni pravilno oblikovana."
 
@@ -7249,7 +7250,7 @@ msgstr ""
 "pristajanje.\n"
 "        "
 
-#: ../src/lang-activity/langEnterText.py:133
+#: ../src/lang-activity/langEnterText.py:139
 msgid "Enter the text you hear:"
 msgstr "Vnesite besedilo, ki ga slišiš:"
 
@@ -7315,15 +7316,15 @@ msgstr "Seznam besed v kategoriji 'drugo'."
 msgid "List of words in the 'people' category."
 msgstr "Seznam besed v kategoriji 'ljudje'."
 
-#: ../src/lang-activity/lang.py:99
+#: ../src/lang-activity/lang.py:98
 msgid "ERROR, we found no words in this language."
 msgstr "NAPAKA, v tem jeziku ni mogoče najti besed."
 
-#: ../src/lang-activity/lang.py:100
+#: ../src/lang-activity/lang.py:99
 msgid "Please consider contributing a voice set."
 msgstr "Razmisli o tem, da bi prispeval glasovni nabor."
 
-#: ../src/lang-activity/lang.py:170
+#: ../src/lang-activity/lang.py:172
 #, python-format
 msgid ""
 "Configuration\n"
@@ -7332,7 +7333,7 @@ msgstr ""
 "Nastavitev\n"
 " za profil <b>%s</b>"
 
-#: ../src/lang-activity/lang.py:175
+#: ../src/lang-activity/lang.py:177
 msgid "Select locale"
 msgstr "Izbor jezikovnih nastavitev"
 
