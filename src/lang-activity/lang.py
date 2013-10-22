@@ -380,7 +380,7 @@ dialogue to\nenable the sound."), None)
     self.clearLesson()
     # We will run the exercise 3 times in different modes
     self.currentExerciseModes = [ ["findit",Findit.WITH_QUESTION|Findit.WITH_TEXT|Findit.WITH_IMAGE],
-                                  ["findit", Findit.WITH_QUESTION|Findit.WITH_IMAGE],
+                                  ["findit", Findit.WITH_TEXT|Findit.WITH_IMAGE],
                                   ["findit", Findit.WITH_IMAGE],
                                   ["text", EnterText.WITH_TEXT|EnterText.WITH_IMAGE]
                                   ]
