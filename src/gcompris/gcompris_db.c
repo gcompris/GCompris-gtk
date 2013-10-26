@@ -83,7 +83,7 @@ static sqlite3 *gcompris_db=NULL;
   "SELECT gcompris_version FROM informations;"
 
 #define SET_DEFAULT_PROFILE						\
-  "INSERT INTO profiles (profile_id, name, profile_directory, description) VALUES ( 1, \'Default\', \'Default\', \'Default profil for gcompris\');"
+  "INSERT INTO profiles (profile_id, name, profile_directory, description) VALUES ( 1, \'" GC_PROFILE_DEFAULT "\', \'Default\', \'Default profil for gcompris\');"
 #define ACTIVATE_DEFAULT_PROFILE		\
   "UPDATE informations SET profile_id=1;"
 

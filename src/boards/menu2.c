@@ -266,6 +266,25 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 	display_welcome(menuitems);
 
       {
+	if ( strcmp(gc_prop_get()->profile->name, GC_PROFILE_DEFAULT) != 0 )
+	  {
+	    gchar *text = g_strdup_printf(_("Profile: %s"),
+					  gc_prop_get()->profile->name);
+	    goo_canvas_text_new (boardRootItem,
+				 text,
+				 BOARDWIDTH - 10,
+				 BOARDHEIGHT - 30,
+				 -1,
+				 GTK_ANCHOR_EAST,
+				 "font", gc_skin_font_board_tiny,
+				 "fill-color-rgba", gc_skin_get_color("menu/text"),
+				 "alignment", PANGO_ALIGN_RIGHT,
+				 NULL);
+	    g_free(text);
+	  }
+      }
+
+      {
 	gchar *text = g_strdup_printf(_("Number of activities: %d"),
 				      gc_board_get_number_of_activity());
 	goo_canvas_text_new (boardRootItem,
