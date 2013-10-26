@@ -32,9 +32,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 23:06+0200\n"
-"PO-Revision-Date: 2013-09-14 19:00+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gcompris&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-10-14 21:25+0000\n"
+"PO-Revision-Date: 2013-10-26 19:00+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -435,6 +436,7 @@ msgstr ""
 "for profil <b>%s</b></span>"
 
 #: ../src/administration-activity/admin/board_list.py:645
+#, python-brace-format
 msgid ""
 "<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -443,6 +445,7 @@ msgstr ""
 " for profil <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:657
+#, python-brace-format
 msgid ""
 "<b>Locale sound</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -519,6 +522,7 @@ msgid "Editing a Group"
 msgstr "Redigere en gruppe"
 
 #: ../src/administration-activity/admin/group_edit.py:62
+#, python-brace-format
 msgid "Editing group '{group}' for class '{aclass}'"
 msgstr "Redigerer gruppe \"{group}\" for klasse \"{aclass}\""
 
@@ -841,6 +845,7 @@ msgstr ""
 #: ../src/login-activity/login.py:480
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/tuxpaint-activity/tuxpaint.py:186
+#, python-brace-format
 msgid ""
 "<b>{config}</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -868,425 +873,285 @@ msgstr "Lær at genkende usædvanlige farver."
 msgid "Click on the correct colored butterfly."
 msgstr "Klik på sommerfuglen med den rigtige farve."
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:1
-#, fuzzy
 msgid "Find the coral butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den koralrøde sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
-#, fuzzy
 msgid "Find the claret butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den mørke purpursommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
-#, fuzzy
 msgid "Find the navy butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den marineblå sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
-#, fuzzy
 msgid "Find the corn butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den majsgule sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
-#, fuzzy
 msgid "Find the cobalt butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den koboltfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
-#, fuzzy
 msgid "Find the cyan butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den cyanfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
-#, fuzzy
 msgid "Find the chestnut butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den kastanjefarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
-#, fuzzy
 msgid "Find the almond butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den mandelfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
-#, fuzzy
 msgid "Find the sapphire butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den safirblå sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
-#, fuzzy
 msgid "Find the ruby butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den rubinrøde sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
-#, fuzzy
 msgid "Find the sienna butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den siennafarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
-#, fuzzy
 msgid "Find the sage butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den salviefarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
-#, fuzzy
 msgid "Find the salmon butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den laksefarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
-#, fuzzy
 msgid "Find the sepia butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den sepiafarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
-#, fuzzy
 msgid "Find the sulfur butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den svovlfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
-#, fuzzy
 msgid "Find the tea butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den te-farvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
-#, fuzzy
 msgid "Find the lime butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den limefarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
-#, fuzzy
 msgid "Find the turquoise butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den turkise sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
-#, fuzzy
 msgid "Find the absinthe butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den absinthfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
-#, fuzzy
 msgid "Find the mahogany butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den mahognifarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
-#, fuzzy
 msgid "Find the aquamarine butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den akvamarine sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
-#, fuzzy
 msgid "Find the alabaster butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den alabastfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
-#, fuzzy
 msgid "Find the amber butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den ravfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
-#, fuzzy
 msgid "Find the amethyst butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den ametystfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
-#, fuzzy
 msgid "Find the anise butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den anisfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
-#, fuzzy
 msgid "Find the vermilion butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den cinnobberrøde sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
-#, fuzzy
 msgid "Find the ceruse butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den blyhvide sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
-#, fuzzy
 msgid "Find the fawn butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den dådyrbrune sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
-#, fuzzy
 msgid "Find the chartreuse butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den chartreusefarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
-#, fuzzy
 msgid "Find the emerald butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den smaragdgrønne sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
-#, fuzzy
 msgid "Find the aubergine butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den auberginefarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
-#, fuzzy
 msgid "Find the fuchsia butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den fuchsiafarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
-#, fuzzy
 msgid "Find the glaucous butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den glasgrønne sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
-#, fuzzy
 msgid "Find the auburn butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den kastanjebrune sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
-#, fuzzy
 msgid "Find the azure butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den azurblå sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
-#, fuzzy
 msgid "Find the grayish brown butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den gråbrune sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
-#, fuzzy
 msgid "Find the bistre butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den bistre sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
-#, fuzzy
 msgid "Find the crimson butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den blodrøde sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
-#, fuzzy
 msgid "Find the celadon butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den celadone sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
-#, fuzzy
 msgid "Find the cerulean butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den himmelblå sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
-#, fuzzy
 msgid "Find the dove butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den duegrå sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
-#, fuzzy
 msgid "Find the garnet butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den granatfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
-#, fuzzy
 msgid "Find the indigo butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den indigofarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
-#, fuzzy
 msgid "Find the ivory butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den elfenbenfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
-#, fuzzy
 msgid "Find the jade butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den jadefarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:46
-#, fuzzy
 msgid "Find the lavender butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den lavendelblå sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
-#, fuzzy
 msgid "Find the lichen butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den lav-farvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
-#, fuzzy
 msgid "Find the wine butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den vinrøde sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
-#, fuzzy
 msgid "Find the lilac butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den lilla sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
-#, fuzzy
 msgid "Find the magenta butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den magentafarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
-#, fuzzy
 msgid "Find the malachite butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den malakitfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
-#, fuzzy
 msgid "Find the larch butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den lærkefarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
-#, fuzzy
 msgid "Find the mimosa butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den mimosefarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
-#, fuzzy
 msgid "Find the ochre butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den okkerfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
-#, fuzzy
 msgid "Find the olive butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den olivenfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:56
-#, fuzzy
 msgid "Find the opaline butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den opalfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
-#, fuzzy
 msgid "Find the ultramarine butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den ultramarinfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
-#, fuzzy
 msgid "Find the mauve butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den grålilla sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:59
-#, fuzzy
 msgid "Find the grayish blue butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den gråblå sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
-#, fuzzy
 msgid "Find the pistachio butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den pistaciegrønne sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
-#, fuzzy
 msgid "Find the platinum butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den platinfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
-#, fuzzy
 msgid "Find the purple butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den purpurfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
-#, fuzzy
 msgid "Find the plum butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den blommefarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
-#, fuzzy
 msgid "Find the prussian blue butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den berlinerblå sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
-#, fuzzy
 msgid "Find the rust butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den rustfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
-#, fuzzy
 msgid "Find the saffron butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den safranfarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
-#, fuzzy
 msgid "Find the vanilla butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den vaniljefarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
-#, fuzzy
 msgid "Find the veronese butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den veronesefarvede sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
-#, fuzzy
 msgid "Find the verdigris butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den spanskgrønne sommerfugl"
 
-# engelsk fejl (farve kan ikke indsættes her, hvis det er tilfældet).
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
-#, fuzzy
 msgid "Find the dark purple butterfly"
-msgstr "Find den {text} sommerfugl"
+msgstr "Find den mørkviolette sommerfugl"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid "Practice the multiplication operation"
@@ -1926,6 +1791,7 @@ msgstr "Når du er klar, så klik på mig og prøv at genskabe Brailletegn."
 
 #. Translators : Do not translate the token {letter}
 #: ../src/braille_alphabets-activity/braille_alphabets.py:299
+#, python-brace-format
 msgid "Click on the dots in braille cell area to produce the letter {letter}."
 msgstr ""
 "Klik på prikkerne i Braillecelleområdet for at lave bogstavet {letter}."
@@ -2018,11 +1884,13 @@ msgid "Click me to get some hint"
 msgstr "Klik på mig for hjælp"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
-#, fuzzy
+#, python-brace-format
 msgid ""
 "I don't have this number\n"
 "PLAYER {number}"
-msgstr "Jeg har ikke dette tal SPILLER {number}"
+msgstr ""
+"Jeg har ikke dette tal\n"
+"SPILLER {number}"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:215
 msgid "Lotto Master"
@@ -2035,6 +1903,7 @@ msgstr "Opret et tal"
 #. Translators : Do not translate the token {column}
 #: ../src/braille_lotto-activity/braille_lotto.py:296
 #: ../src/braille_lotto-activity/braille_lotto.py:319
+#, python-brace-format
 msgid "Hey, you have it. It is there in your {column} column"
 msgstr "Super, du klarede det. Det er der i din {column} kolonne"
 
@@ -2064,6 +1933,7 @@ msgid "Game Over"
 msgstr "Spillet er slut"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:465
+#, python-brace-format
 msgid "Congratulation player {player_id}, you won"
 msgstr "Tillykke spiller {player_id}. Du vandt"
 
@@ -2654,64 +2524,52 @@ msgid "Match the color "
 msgstr "Find farven "
 
 #: ../src/color_mix-activity/color_mix.py:251
-#, fuzzy
 msgid "Not enough red"
-msgstr "Ikke nok {color}"
+msgstr "Ikke nok rød"
 
 #: ../src/color_mix-activity/color_mix.py:251
-#, fuzzy
 msgid "Too much red"
-msgstr "For meget {color}"
+msgstr "For meget rød"
 
 #: ../src/color_mix-activity/color_mix.py:252
-#, fuzzy
 msgid "Not enough green"
-msgstr "Ikke nok {color}"
+msgstr "Ikke nok grøn"
 
 #: ../src/color_mix-activity/color_mix.py:252
-#, fuzzy
 msgid "Too much green"
-msgstr "For meget {color}"
+msgstr "For meget grøn"
 
 #: ../src/color_mix-activity/color_mix.py:253
-#, fuzzy
 msgid "Not enough blue"
-msgstr "Ikke nok {color}"
+msgstr "Ikke nok blå"
 
 #: ../src/color_mix-activity/color_mix.py:253
-#, fuzzy
 msgid "Too much blue"
-msgstr "For meget {color}"
+msgstr "For meget blå"
 
 #: ../src/color_mix-activity/color_mix.py:255
-#, fuzzy
 msgid "Not enough cyan"
-msgstr "Ikke nok {color}"
+msgstr "Ikke nok cyan"
 
 #: ../src/color_mix-activity/color_mix.py:255
-#, fuzzy
 msgid "Too much cyan"
-msgstr "For meget {color}"
+msgstr "For meget cyan"
 
 #: ../src/color_mix-activity/color_mix.py:256
-#, fuzzy
 msgid "Not enough magenta"
-msgstr "Ikke nok {color}"
+msgstr "Ikke nok magenta"
 
 #: ../src/color_mix-activity/color_mix.py:256
-#, fuzzy
 msgid "Too much magenta"
-msgstr "magenta"
+msgstr "For meget magenta"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#, fuzzy
 msgid "Not enough yellow"
-msgstr "Ikke nok {color}"
+msgstr "Ikke nok gul"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#, fuzzy
 msgid "Too much yellow"
-msgstr "For meget {color}"
+msgstr "For meget gul"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:1
 msgid "Mixing color of paint"
@@ -2817,65 +2675,45 @@ msgstr ""
 msgid "Listen to the color and click on the matching duck."
 msgstr "Hør farvens navn og klik på den tilsvarende and."
 
-# yak hvis sort, rød sættes ind her går det da galt.
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:1
-#, fuzzy
 msgid "Find the yellow duck"
-msgstr "Find den {text} and"
+msgstr "Find den gule and"
 
-# yak hvis sort, rød sættes ind her går det da galt.
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
-#, fuzzy
 msgid "Find the black duck"
-msgstr "Find den {text} and"
+msgstr "Find den sorte and"
 
-# yak hvis sort, rød sættes ind her går det da galt.
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-#, fuzzy
 msgid "Find the green duck"
-msgstr "Find den {text} and"
+msgstr "Find den grønne and"
 
-# yak hvis sort, rød sættes ind her går det da galt.
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-#, fuzzy
 msgid "Find the red duck"
-msgstr "Find den {text} and"
+msgstr "Find den røde and"
 
-# yak hvis sort, rød sættes ind her går det da galt.
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-#, fuzzy
 msgid "Find the white duck"
-msgstr "Find den {text} and"
+msgstr "Find den hvide and"
 
-# yak hvis sort, rød sættes ind her går det da galt.
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-#, fuzzy
 msgid "Find the blue duck"
-msgstr "Find den {text} and"
+msgstr "Find den blå and"
 
-# yak hvis sort, rød sættes ind her går det da galt.
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-#, fuzzy
 msgid "Find the brown duck"
-msgstr "Find den {text} and"
+msgstr "Find den brune and"
 
-# yak hvis sort, rød sættes ind her går det da galt.
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-#, fuzzy
 msgid "Find the grey duck"
-msgstr "Find den {text} and"
+msgstr "Find den grå and"
 
-# yak hvis sort, rød sættes ind her går det da galt.
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
-#, fuzzy
 msgid "Find the orange duck"
-msgstr "Find den {text} and"
+msgstr "Find den orange and"
 
-# yak hvis sort, rød sættes ind her går det da galt.
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-#, fuzzy
 msgid "Find the purple duck"
-msgstr "Find den {text} and"
+msgstr "Find den purpur and"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 msgid "Connect 4 (2 Players)"
@@ -3138,6 +2976,7 @@ msgstr ""
 #: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:342
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:505
+#, python-brace-format
 msgid "Cannot find the file '{filename}'"
 msgstr "Kan ikke finde filen '{filename}'"
 
@@ -3349,6 +3188,7 @@ msgstr "Tilbage til hjemmesiden"
 #: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:347
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:510
+#, python-brace-format
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -4140,9 +3980,8 @@ msgid "Chinese (Simplified)"
 msgstr "Kinesisk (simplificeret)"
 
 #: ../src/gcompris/config.c:69
-#, fuzzy
 msgid "Chinese (Hong Kong)"
-msgstr "Kinesisk (traditionel)"
+msgstr "Kinesisk (Hong Kong)"
 
 #: ../src/gcompris/config.c:70
 msgid "Chinese (Traditional)"
@@ -4191,7 +4030,7 @@ msgstr "Fransk"
 
 #: ../src/gcompris/config.c:81
 msgid "Galician"
-msgstr ""
+msgstr "Galicisk"
 
 #: ../src/gcompris/config.c:82
 msgid "Georgian"
@@ -4890,201 +4729,191 @@ msgstr "USA"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:2
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:2
-#, fuzzy
 msgid "Connecticut"
-msgstr "Saml 4"
+msgstr "Connecticut"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:3
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:3
-#, fuzzy
 msgid "Rhode Island"
-msgstr "Cookøerne"
+msgstr "Rhode Island"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:4
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:4
 msgid "Massachusetts"
-msgstr ""
+msgstr "Massachusetts"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:5
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:5
 msgid "Wyoming"
-msgstr ""
+msgstr "Wyoming"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:6
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:6
 msgid "Utah"
-msgstr ""
+msgstr "Utah"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:7
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:7
 msgid "Nevada"
-msgstr ""
+msgstr "Nevada"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:8
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:8
 msgid "California"
-msgstr ""
+msgstr "Californien"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:9
 msgid "Wahington D.C."
-msgstr ""
+msgstr "Wahington D.C."
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:10
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
-#, fuzzy
 msgid "Maine"
-msgstr "Hovedmenu."
+msgstr "Maine"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:11
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:11
 msgid "New Hampshire"
-msgstr ""
+msgstr "New Hampshire"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:12
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:12
 msgid "Vermont"
-msgstr ""
+msgstr "Vermont"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:13
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:13
 msgid "New York"
-msgstr ""
+msgstr "New York"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:14
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:14
 msgid "Pennsylvania"
-msgstr ""
+msgstr "Pennsylvania"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:15
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:15
-#, fuzzy
 msgid "Delaware"
-msgstr "Oware"
+msgstr "Delaware"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:16
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:16
 msgid "New Jersey"
-msgstr ""
+msgstr "New Jersey"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:17
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:17
-#, fuzzy
 msgid "Maryland"
-msgstr "Irland"
+msgstr "Maryland"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:18
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:18
 msgid "Alabama"
-msgstr ""
+msgstr "Alabama"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:19
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:19
 msgid "Florida"
-msgstr ""
+msgstr "Florida"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:20
-#, fuzzy
 msgid "USA|Georgia"
-msgstr "Georgien"
+msgstr "USA|Georgia"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:21
-#, fuzzy
 msgid "South Carolina"
-msgstr "Sydafrika"
+msgstr "South Carolina"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:22
-#, fuzzy
 msgid "North Carolina"
-msgstr "Nordamerika"
+msgstr "North Carolina"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:23
 msgid "Virginia"
-msgstr ""
+msgstr "Virginia"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:24
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:24
 msgid "West Virginia"
-msgstr ""
+msgstr "West Virginia"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:25
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:25
 msgid "Ohio"
-msgstr ""
+msgstr "Ohio"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:26
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:26
 msgid "Michigan"
-msgstr ""
+msgstr "Michigan"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:27
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:27
 msgid "Wisconsin"
-msgstr ""
+msgstr "Wisconsin"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:28
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:28
 msgid "Illinois"
-msgstr ""
+msgstr "Illinois"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:29
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:29
-#, fuzzy
 msgid "Indiana"
-msgstr "Indien"
+msgstr "Indiana"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:30
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:30
 msgid "Kentucky"
-msgstr ""
+msgstr "Kentucky"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:31
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:31
 msgid "Tennessee"
-msgstr ""
+msgstr "Tennessee"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:32
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:32
 msgid "Mississippi"
-msgstr ""
+msgstr "Mississippi"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:33
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:33
-#, fuzzy
 msgid "Louisiana"
-msgstr "Russisk"
+msgstr "Louisiana"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:34
 msgid "Arkansas"
-msgstr ""
+msgstr "Arkansas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:35
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:35
 msgid "Missouri"
-msgstr ""
+msgstr "Missouri"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:36
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:36
 msgid "Iowa"
-msgstr ""
+msgstr "Iowa"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:37
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:37
 msgid "Minnesota"
-msgstr ""
+msgstr "Minnesota"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:38
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:38
 msgid "Oklahoma"
-msgstr ""
+msgstr "Oklahoma"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:39
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:39
 msgid "Texas"
-msgstr ""
+msgstr "Texas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:40
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:40
@@ -5101,65 +4930,61 @@ msgstr "Alaska"
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:42
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:42
 msgid "Arizona"
-msgstr ""
+msgstr "Arizona"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:43
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:43
-#, fuzzy
 msgid "New Mexico"
-msgstr "Mexico"
+msgstr "New Mexico"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:44
-#, fuzzy
 msgid "Colorado"
-msgstr "Farver"
+msgstr "Colorado"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:45
 msgid "Kansas"
-msgstr ""
+msgstr "Kansas"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:46
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:46
 msgid "Nebraska"
-msgstr ""
+msgstr "Nebraska"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:47
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:47
-#, fuzzy
 msgid "South Dakota"
-msgstr "Sydkorea"
+msgstr "South Dakota"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:48
-#, fuzzy
 msgid "North Dakota"
-msgstr "Nordkorea"
+msgstr "North Dakota"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:49
 msgid "Montana"
-msgstr ""
+msgstr "Montana"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:50
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:50
 msgid "Idaho"
-msgstr ""
+msgstr "Idaho"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:51
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:51
 msgid "Oregon"
-msgstr ""
+msgstr "Oregon"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:52
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:52
 msgid "Washington"
-msgstr ""
+msgstr "Washington"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:9
 msgid "Washington D.C."
-msgstr ""
+msgstr "Washington D.C."
 
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:20
 msgid "Georgia"
@@ -5507,9 +5332,8 @@ msgid "Turkey"
 msgstr "Tyrkiet"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:25
-#, fuzzy
 msgid "Asia|Georgia"
-msgstr "Georgien"
+msgstr "Asia|Georgia"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
 msgid "Azerbaijan"
@@ -6329,7 +6153,7 @@ msgid ""
 "Guide the Number Muncher to the expressions that equal the number at the top "
 "of the screen."
 msgstr ""
-"Hjælp talgnaskeren hen til det udtryk, der er lig med-tallet i toppen af "
+"Hjælp talgnaskeren hen til det udtryk, der er lig med tallet i toppen af "
 "skærmen."
 
 #: ../src/gnumch-equality-activity/gnumch-equality.xml.in.h:3
@@ -6356,6 +6180,7 @@ msgid " and %d"
 msgstr " og %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:115
+#, python-brace-format
 msgid "{0} is divisible by {1}."
 msgstr "{0} er delelig med {1}."
 
@@ -6384,6 +6209,7 @@ msgid "Factors of %d"
 msgstr "Divisorer af %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:195
+#, python-brace-format
 msgid "{0} are the factors of {1}."
 msgstr "{0} er divisorerne af {1}."
 
@@ -6393,22 +6219,27 @@ msgid "Multiples of %d"
 msgstr "Multiplum af %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:241
+#, python-brace-format
 msgid "{0} = {1}"
 msgstr "{0} = {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:252
+#, python-brace-format
 msgid "{0} + {1}"
 msgstr "{0} + {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:257
+#, python-brace-format
 msgid "{0} − {1}"
 msgstr "{0} − {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:262
+#, python-brace-format
 msgid "{0} × {1}"
 msgstr "{0} × {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:266
+#, python-brace-format
 msgid "{0} ÷ {1}"
 msgstr "{0} ÷ {1}"
 
@@ -6537,7 +6368,7 @@ msgid ""
 "multiples (or families or steps) of 5. Use the arrow keys to navigate around "
 "the board and to avoid the Troggles. Press the spacebar to eat a number."
 msgstr ""
-"Multiplum af et tal, er alle de tal der er lig med-tallet ganget med et "
+"Multiplum af et tal, er alle de tal der er lig med tallet ganget med et "
 "andet tal. F. eks. er 24, 36, 48, 60 .... alle multiplum af 12. 25 er ikke "
 "et multiplum af 12, da der ikke findes noget tal, der ganget med 12 giver "
 "25. Hvis et tal er en kvotient af et andet tal, er det andet tal et "
@@ -6575,10 +6406,12 @@ msgstr ""
 "til at undgå bøllerne. Tryk på mellemrumstasten for at spise et tal."
 
 #: ../src/guessnumber-activity/guessnumber.py:203
+#, python-brace-format
 msgid "Guess a number between {0} and {1}"
 msgstr "Gæt et tal mellem {0} og {1}"
 
 #: ../src/guessnumber-activity/guessnumber.py:307
+#, python-brace-format
 msgid "Please enter a number between {0} and {1}"
 msgstr "Skriv et tal mellem {0} og {1}"
 
@@ -7235,61 +7068,50 @@ msgid "Click on the correct instrument."
 msgstr "Klik på det rigtige instrument."
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:1
-#, fuzzy
 msgid "Find the clarinet"
-msgstr "klarinetten"
+msgstr "Find klarinetten"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
-#, fuzzy
 msgid "Find the transverse flute"
-msgstr "tværfløjten"
+msgstr "Find tværfløjten"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
-#, fuzzy
 msgid "Find the guitar"
-msgstr "guitaren"
+msgstr "Find guitaren"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-#, fuzzy
 msgid "Find the harp"
-msgstr "harpen"
+msgstr "Find harpen"
 
 # Piano er normalt enten et flygel (strenge sidder vandret) eller et klaver (opretstående)
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
-#, fuzzy
 msgid "Find the piano"
-msgstr "klaveret"
+msgstr "Find klaveret"
 
 # saxofonen http://ordnet.dk/ddo/ordbog?aselect=saksofon&query=sal
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
-#, fuzzy
 msgid "Find the saxophone"
-msgstr "saxofonen"
+msgstr "Find saxofonen"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
-#, fuzzy
 msgid "Find the trombone"
-msgstr "trækbasunen"
+msgstr "Find basunen"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
-#, fuzzy
 msgid "Find the trumpet"
-msgstr "trompeten"
+msgstr "Find trompeten"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
-#, fuzzy
 msgid "Find the violin"
-msgstr "violinen"
+msgstr "Find violinen"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-#, fuzzy
 msgid "Find the flute traversiere"
-msgstr "tværfløjten"
+msgstr "Find tværfløjten"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
-#, fuzzy
 msgid "Find the drum kit"
-msgstr "trommesættet"
+msgstr "Find trommesættet"
 
 # http://da.wikipedia.org/wiki/Harmonika#Akkordeon
 # Der er rent faktisk noget der hedder en Accordeon på dansk. 
@@ -7297,85 +7119,69 @@ msgstr "trommesættet"
 # se: http://www.smks.dk/uddannelser/efteruddannelser/accordeonharmonikaspil_paedagogik_og_metodik/
 # Da jeg ville sende, foreslog Thunderbirds oversætter at skrive det "akkordeonen"
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
-#, fuzzy
 msgid "Find the accordion"
-msgstr "akkordeonet"
+msgstr "Find akkordeonet"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
-#, fuzzy
 msgid "Find the banjo"
-msgstr "banjoen"
+msgstr "Find banjoen"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
-#, fuzzy
 msgid "Find the bongo"
-msgstr "bongoen"
+msgstr "Find bongoen"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
-#, fuzzy
 msgid "Find the electric guitar"
-msgstr "den elektriske guitar"
+msgstr "Find den elektriske guitar"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
-#, fuzzy
 msgid "Find the castanets"
-msgstr "kastagnetterne"
+msgstr "Find kastagnetterne"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
-#, fuzzy
 msgid "Find the cymbal"
-msgstr "bækkenet"
+msgstr "Find bækkenet"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
-#, fuzzy
 msgid "Find the cello"
-msgstr "celloen"
+msgstr "Find celloen"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
-#, fuzzy
 msgid "Find the harmonica"
-msgstr "harmonikaen"
+msgstr "Find harmonikaen"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
-#, fuzzy
 msgid "Find the horn"
-msgstr "hornet"
+msgstr "Find hornet"
 
 # http://www.denstoredanske.dk/Kunst_og_kultur/Musik/Musikinstrumenter_og_tilbeh%C3%B8r/maracas
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
-#, fuzzy
 msgid "Find the maracas"
-msgstr "maracasen"
+msgstr "Find maracaserne"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
-#, fuzzy
 msgid "Find the organ"
-msgstr "orglet"
+msgstr "Find orglet"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
-#, fuzzy
 msgid "Find the snare drum"
-msgstr "lilletrommen"
+msgstr "Find lilletrommen"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-#, fuzzy
 msgid "Find the timpani"
-msgstr "paukeren"
+msgstr "Find pauken"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
-#, fuzzy
 msgid "Find the triangle"
-msgstr "triangelen"
+msgstr "Find trianglen"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
-#, fuzzy
 msgid "Find the tambourine"
-msgstr "tamburinen"
+msgstr "Find tamburinen"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
-#, fuzzy
 msgid "Find the tuba"
-msgstr "tubaen"
+msgstr "Find tubaen"
 
 #: ../src/intro_gravity-activity/intro_gravity.py:100
 msgid ""
@@ -7521,6 +7327,7 @@ msgid "Enter the text you hear:"
 msgstr "Indtast teksten du hørte:"
 
 #: ../src/lang-activity/langLib.py:69
+#, python-brace-format
 msgid "Missing translation for '{word}'"
 msgstr "Manglende oversættelse for \"{word}\""
 
@@ -7560,7 +7367,6 @@ msgstr ""
 #: ../src/lang-activity/lang-object.xml.in.h:6
 #: ../src/lang-activity/lang-other.xml.in.h:6
 #: ../src/lang-activity/lang-people.xml.in.h:6
-#, fuzzy
 msgid ""
 "The images and voices come from the Art4Apps project: http://www.art4apps."
 "org/. You can also access this activity online on http://laske.fr/"
@@ -8291,9 +8097,8 @@ msgstr "Find de ens par"
 #. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
 #. * This is used in reading/click_on_letter and discovery/memory-group
 #: ../src/memory-activity/memory.c:734
-#, fuzzy
 msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
-msgstr "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
+msgstr "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z/æ/ø/å"
 
 #. TRANSLATORS: Put here the numbers in your language
 #: ../src/memory-activity/memory.c:949
@@ -8561,7 +8366,7 @@ msgstr ""
 "Du kan se nogle kort, men ikke hvad der er på den anden side. Hvert kort "
 "gemmer et minusstykke, eller svaret på stykket.\n"
 "Et minusstykke ser sådan ud: 3 - 1 = 2\n"
-"Regnestykkerne på hver side af lig med-tegnet (=) skal have samme resulat. "
+"Regnestykkerne på hver side af lighedstegnet (=) skal have samme resulat. "
 "Så 3 (1, 2, 3) minus 1 (1) giver 2. Tæl højt når du arbejder på dette "
 "stykke, og tæl på dine fingre, da flere måder at løse en opgave på gør, at "
 "det er nemmere at huske det. Du kan også bruge blokke eller knapper, eller "
@@ -8574,7 +8379,7 @@ msgstr ""
 "se hvilket tal det gemmer, og forsøg så at finde det andet kort som hører "
 "sammen med det første. Du kan kun vende to kort i en omgang, så du skal "
 "huske hvor tallene skjuler sig, så du kan matche dem når du finder den anden "
-"halvdel. Du udfører jobbet for lig med-tegnet, og tallene skal bruge dig til "
+"halvdel. Du udfører jobbet for lighedstegnet, og tallene skal bruge dig til "
 "at sætte dem sammen. Når du har gjort dette, forsvinder disse kort! Når alle "
 "kort er væk - dvs. du har fundet alle minusstykkerne - så har du vundet "
 "spillet! :)"
@@ -9613,14 +9418,12 @@ msgid "Select A Melody to Load"
 msgstr "Vælg en melodi at indlæse"
 
 #: ../src/piano_composition-activity/piano_composition.py:405
-#, fuzzy
 msgid "Previous Page"
-msgstr "Forrige niveau"
+msgstr "Forrige side"
 
 #: ../src/piano_composition-activity/piano_composition.py:415
-#, fuzzy
 msgid "Next Page"
-msgstr "Næste niveau"
+msgstr "Næste side"
 
 #. FIXME Should remove the space in the data file instead
 #: ../src/piano_composition-activity/piano_composition.py:450
@@ -9750,6 +9553,14 @@ msgid ""
 "melodies and who contributed them here: https://live.gnome.org/"
 "GComprisMelodies\n"
 msgstr ""
+"\n"
+"Tak til Bruno Coudoin for hans vejledning.\n"
+"Tak til Olivier Samyn for hans bidrag til at forbedre notedesign og farvelægning.\n"
+"Tak til Federico Mena som inspirerede mig med hans vidunderlige entusiasme for "
+"mine musikprojekter på GUADEC.\n"
+"Tak til alle bidragyderne af børnesange fra hele verden, specielt GNOME-fællesskabet. "
+"Læs mere om disse melodier og hvem som har bidraget med dem her: https://live.gnome.org/"
+"GComprisMelodies\n"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
 msgid "America: English Lullaby"
@@ -9815,9 +9626,8 @@ msgid "Satellite goes too slow"
 msgstr "Satellit er for langsom"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:274
-#, fuzzy
 msgid "Distance: {:.1f}"
-msgstr "Afstand:"
+msgstr "Afstand: {:.1f}"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:297
 msgid "Satellite is crashing"
@@ -11086,249 +10896,5 @@ msgstr "Tastaturtræning"
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Skriv hele ordet mens det falder, og før det når bunden"
 
-#~ msgid "coral"
-#~ msgstr "koralrød"
 
-#~ msgid "claret"
-#~ msgstr "mørk purpur"
 
-#~ msgid "sienna"
-#~ msgstr "sienna"
-
-#~ msgid "corn"
-#~ msgstr "majsgul"
-
-#~ msgid "cobalt"
-#~ msgstr "kobolt"
-
-#~ msgid "cyan"
-#~ msgstr "cyan"
-
-#~ msgid "chestnut"
-#~ msgstr "kastanie"
-
-#~ msgid "almond"
-#~ msgstr "mandel"
-
-#~ msgid "ruby"
-#~ msgstr "rubinrød"
-
-#~ msgid "sapphire"
-#~ msgstr "safirblå"
-
-#~ msgid "sage"
-#~ msgstr "salvie"
-
-#~ msgid "salmon"
-#~ msgstr "laksefarvet"
-
-#~ msgid "sepia"
-#~ msgstr "sepia"
-
-#~ msgid "sulfur"
-#~ msgstr "svovl"
-
-#~ msgid "tea"
-#~ msgstr "te"
-
-#~ msgid "lime"
-#~ msgstr "lime"
-
-#~ msgid "turquoise"
-#~ msgstr "turkis"
-
-#~ msgid "absinthe"
-#~ msgstr "absinth"
-
-#~ msgid "mahogany"
-#~ msgstr "mahogni"
-
-#~ msgid "aquamarine"
-#~ msgstr "akvamarin"
-
-#~ msgid "alabaster"
-#~ msgstr "alabast"
-
-#~ msgid "amber"
-#~ msgstr "rav"
-
-#~ msgid "amethyst"
-#~ msgstr "ametyst"
-
-#~ msgid "anise"
-#~ msgstr "anis"
-
-#~ msgid "vermilion"
-#~ msgstr "cinnobberrød"
-
-#~ msgid "ceruse"
-#~ msgstr "blyhvid"
-
-#~ msgid "fawn"
-#~ msgstr "dådyrbrun"
-
-#~ msgid "chartreuse"
-#~ msgstr "chartreuse"
-
-#~ msgid "emerald"
-#~ msgstr "smaragdgrøn"
-
-#~ msgid "aubergine"
-#~ msgstr "aubergine"
-
-#~ msgid "fuchsia"
-#~ msgstr "fuchsia"
-
-#~ msgid "glaucous"
-#~ msgstr "glasgrøn"
-
-#~ msgid "auburn"
-#~ msgstr "kastanjebrun"
-
-#~ msgid "azure"
-#~ msgstr "azurblå"
-
-#~ msgid "grayish brown"
-#~ msgstr "gråbrun"
-
-#~ msgid "bistre"
-#~ msgstr "bistre"
-
-#~ msgid "crimson"
-#~ msgstr "blodrød"
-
-#~ msgid "celadon"
-#~ msgstr "celadon"
-
-#~ msgid "cerulean"
-#~ msgstr "himmelblå"
-
-#~ msgid "dove"
-#~ msgstr "duegrå"
-
-#~ msgid "garnet"
-#~ msgstr "granat"
-
-#~ msgid "indigo"
-#~ msgstr "indigo"
-
-#~ msgid "ivory"
-#~ msgstr "elfenben"
-
-#~ msgid "jade"
-#~ msgstr "jade"
-
-#~ msgid "lavender"
-#~ msgstr "lavendelblå"
-
-#~ msgid "lichen"
-#~ msgstr "lav"
-
-#~ msgid "wine"
-#~ msgstr "vinrød"
-
-#~ msgid "lilac"
-#~ msgstr "lilla"
-
-#~ msgid "malachite"
-#~ msgstr "malakit"
-
-#~ msgid "navy"
-#~ msgstr "marineblå"
-
-#~ msgid "larch"
-#~ msgstr "lærk"
-
-#~ msgid "mimosa"
-#~ msgstr "mimose"
-
-#~ msgid "ochre"
-#~ msgstr "okker"
-
-#~ msgid "olive"
-#~ msgstr "oliven"
-
-#~ msgid "opaline"
-#~ msgstr "opal"
-
-#~ msgid "ultramarine"
-#~ msgstr "ultramarin"
-
-#~ msgid "mauve"
-#~ msgstr "grålilla"
-
-#~ msgid "grayish blue"
-#~ msgstr "gråblå"
-
-#~ msgid "pistachio"
-#~ msgstr "pistaciegrøn"
-
-#~ msgid "platinum"
-#~ msgstr "platin"
-
-#~ msgid "purple"
-#~ msgstr "purpur"
-
-#~ msgid "plum"
-#~ msgstr "blomme"
-
-#~ msgid "prussian blue"
-#~ msgstr "berlinerblå"
-
-#~ msgid "rust"
-#~ msgstr "rust"
-
-#~ msgid "saffron"
-#~ msgstr "safran"
-
-#~ msgid "vanilla"
-#~ msgstr "vanilje"
-
-#~ msgid "veronese"
-#~ msgstr "veronese"
-
-#~ msgid "verdigris"
-#~ msgstr "spanskgrønt"
-
-#~ msgid "dark purple"
-#~ msgstr "mørk violet"
-
-#~ msgid "red"
-#~ msgstr "rød"
-
-#~ msgid "green"
-#~ msgstr "grøn"
-
-#~ msgid "blue"
-#~ msgstr "blå"
-
-#~ msgid "yellow"
-#~ msgstr "gul"
-
-#~ msgid "black"
-#~ msgstr "sort"
-
-#~ msgid "white"
-#~ msgstr "hvid"
-
-#~ msgid "brown"
-#~ msgstr "brun"
-
-#~ msgid "grey"
-#~ msgstr "grå"
-
-#~ msgid "orange"
-#~ msgstr "orange"
-
-#~ msgid "Find {text}"
-#~ msgstr "Find {text}"
-
-#~ msgid ""
-#~ "<b>{0}</b> configuration\n"
-#~ " for profile <b>{1}</b>"
-#~ msgstr ""
-#~ "<b>{0}</b> konfiguration\n"
-#~ " for profilen <b>{1}</b>"
-
-#~ msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-#~ msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
