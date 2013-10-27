@@ -4,23 +4,22 @@
 # Viviani Ap. dos Santos <vivi_olivetti@brfree.com.br>, 2004.
 # Welther José O. Esteves <weltherjoe@yahoo.com.br>, 2004.
 # Leonardo Ferreira Fontenelle <leo.fontenelle@gmail.com>, 2007.
-# Frederico <frederico@teia.bio.br>, 2006, 2011, 2012.
+# Frederico <frederico@teia.bio.br>, 2006, 2011-2013.
 # Rafael Ferreira <rafael.f.f1@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-17 17:37+0000\n"
-"PO-Revision-Date: 2013-09-17 22:18-0300\n"
-"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
+"POT-Creation-Date: 2013-10-26 13:00+0000\n"
+"PO-Revision-Date: 2013-10-27 12:32-0200\n"
+"Last-Translator: Frederico Goncalves Guimaraes\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -175,7 +174,7 @@ msgstr "Jogos de memória matemática"
 msgid "GCompris Main Menu"
 msgstr "Menu principal do GCompris"
 
-#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:887
+#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:906
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -418,6 +417,7 @@ msgstr ""
 "para o perfil <b>%s</b></span>"
 
 #: ../src/administration-activity/admin/board_list.py:645
+#, python-brace-format
 msgid ""
 "<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -426,6 +426,7 @@ msgstr ""
 " para o perfil <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:657
+#, python-brace-format
 msgid ""
 "<b>Locale sound</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -502,6 +503,7 @@ msgid "Editing a Group"
 msgstr "Edição de grupo"
 
 #: ../src/administration-activity/admin/group_edit.py:62
+#, python-brace-format
 msgid "Editing group '{group}' for class '{aclass}'"
 msgstr "Editação do grupo \"{group}\" para classe \"{aclass}\""
 
@@ -633,8 +635,8 @@ msgstr "Todos os usuários"
 #: ../src/administration-activity/admin/log_list.py:300
 #: ../src/administration-activity/admin/profile_list.py:118
 #: ../src/administration-activity/admin/wordlist.py:48
-#: ../src/lang-activity/lang.py:154 ../src/login-activity/login.py:483
-#: ../src/missing_letter-activity/missingletter.c:802
+#: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:483
+#: ../src/missing_letter-activity/missingletter.c:810
 #: ../src/pythontest-activity/pythontest.py:451
 #: ../src/tuxpaint-activity/tuxpaint.py:189
 msgid "Default"
@@ -665,7 +667,7 @@ msgstr "Nível"
 
 #: ../src/administration-activity/admin/log_list.py:260
 msgid "Sublevel"
-msgstr "Sub-nível"
+msgstr "Subnível"
 
 #: ../src/administration-activity/admin/log_list.py:270
 msgid "Duration"
@@ -828,6 +830,7 @@ msgstr ""
 #: ../src/login-activity/login.py:480
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/tuxpaint-activity/tuxpaint.py:186
+#, python-brace-format
 msgid ""
 "<b>{config}</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -1174,7 +1177,7 @@ msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/findit-activity/findit.py:228
+#: ../src/findit-activity/findit.py:228 ../src/lang-activity/lang.py:115
 #: ../src/play_piano-activity/play_piano.py:82
 #: ../src/play_rhythm-activity/play_rhythm.py:87
 #: ../src/readingh-activity/reading.c:643
@@ -1520,7 +1523,7 @@ msgstr ""
 "partir da casa original, em um processo chamado \"semeadura\". As sementes "
 "não são distribuídas nas casas com as pontuações nem nas casas de onde foram "
 "tiradas. Isso significa que a casa de origem é deixada vazia; caso ela "
-"possua 12 sementes, ela é pulada e a décima-segunda semente é colocada na "
+"possua 12 sementes, ela é pulada e a décima segunda semente é colocada na "
 "próxima casa. Na rodada, caso a última semente seja colocada em uma casa do "
 "adversário e o total de sementes dessa casa resulte em dois ou três, todas "
 "as sementes dessa casa são capturadas e colocadas na casa de pontuação do "
@@ -1579,7 +1582,7 @@ msgstr ""
 
 #: ../src/babymatch-activity/shapegame.c:2042
 #: ../src/click_on_letter-activity/click_on_letter.c:1315
-#: ../src/missing_letter-activity/missingletter.c:800
+#: ../src/missing_letter-activity/missingletter.c:808
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1737,7 +1740,13 @@ msgstr "Menu principal - Segunda versão"
 msgid "Select a Board"
 msgstr "Selecione uma atividade"
 
-#: ../src/boards/menu2.c:269
+#: ../src/boards/menu2.c:271
+#, c-format
+#| msgid "Profile: "
+msgid "Profile: %s"
+msgstr "Perfil: %s"
+
+#: ../src/boards/menu2.c:288
 #, c-format
 msgid "Number of activities: %d"
 msgstr "Número de atividades: %d"
@@ -1786,6 +1795,7 @@ msgstr ""
 
 #. Translators : Do not translate the token {letter}
 #: ../src/braille_alphabets-activity/braille_alphabets.py:299
+#, python-brace-format
 msgid "Click on the dots in braille cell area to produce the letter {letter}."
 msgstr ""
 "Clique nos pontos na área da célula Braille para produzir a letra {letter}."
@@ -1879,6 +1889,7 @@ msgid "Click me to get some hint"
 msgstr "Clique em mim para receber uma dica"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
+#, python-brace-format
 msgid ""
 "I don't have this number\n"
 "PLAYER {number}"
@@ -1897,6 +1908,7 @@ msgstr "Gerar um número"
 #. Translators : Do not translate the token {column}
 #: ../src/braille_lotto-activity/braille_lotto.py:296
 #: ../src/braille_lotto-activity/braille_lotto.py:319
+#, python-brace-format
 msgid "Hey, you have it. It is there in your {column} column"
 msgstr "Ei, este você tem. Está na sua coluna {column}."
 
@@ -1926,6 +1938,7 @@ msgid "Game Over"
 msgstr "Fim de jogo"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:465
+#, python-brace-format
 msgid "Congratulation player {player_id}, you won"
 msgstr "Parabéns, jogador {player_id}! Você ganhou!"
 
@@ -2964,6 +2977,7 @@ msgstr ""
 #: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:342
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:505
+#, python-brace-format
 msgid "Cannot find the file '{filename}'"
 msgstr "Não foi possível encontrar o arquivo '{filename}'"
 
@@ -3150,7 +3164,7 @@ msgstr "Clique com o mouse para apagar a área e descobrir o fundo"
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Clique com o mouse nos retângulos até todos os blocos desaparecerem."
 
-#: ../src/explore-activity/explore.py:85
+#: ../src/explore-activity/explore.py:85 ../src/lang-activity/lang.py:104
 #: ../src/note_names-activity/note_names.py:82
 #: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
@@ -3177,6 +3191,7 @@ msgstr "Voltar ao início"
 #: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:347
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:510
+#, python-brace-format
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3639,7 +3654,7 @@ msgid "Where is music used to call people to prayer?"
 msgstr "Onde a música é usada para chamar as pessoas para orar?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:52
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:53
 msgid "Japan"
 msgstr "Japão"
 
@@ -4112,7 +4127,7 @@ msgid "Montenegrin"
 msgstr "Montenegro"
 
 #: ../src/gcompris/config.c:103
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:37
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
 msgid "Nepal"
 msgstr "Nepal"
 
@@ -4482,7 +4497,7 @@ msgstr "exibe informações de depuração no console."
 msgid "Print the version of "
 msgstr "Imprime a versão do "
 
-#: ../src/gcompris/gcompris.c:947
+#: ../src/gcompris/gcompris.c:942
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -4503,18 +4518,18 @@ msgstr ""
 "Linux. Mais informações na FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1241
+#: ../src/gcompris/gcompris.c:1236
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Não foi possível carregar o tema \"%s\". Por favor, verifique se o arquivo "
 "existe e se tem permissão de leitura."
 
-#: ../src/gcompris/gcompris.c:1257
+#: ../src/gcompris/gcompris.c:1252
 msgid "Retrieving remote data..."
 msgstr "Recebendo dados remotos..."
 
-#: ../src/gcompris/gcompris.c:1518
+#: ../src/gcompris/gcompris.c:1513
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4527,12 +4542,12 @@ msgstr[1] ""
 "O GCompris não iniciará porque o arquivo de trava possui menos de %d "
 "segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1522
+#: ../src/gcompris/gcompris.c:1517
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "O arquivo de trava é: %s\n"
 
-#: ../src/gcompris/gcompris.c:1643
+#: ../src/gcompris/gcompris.c:1638
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4546,27 +4561,27 @@ msgstr ""
 "Mais informações em http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1828
+#: ../src/gcompris/gcompris.c:1823
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Use -l para acessar uma atividade diretamente.\n"
 
-#: ../src/gcompris/gcompris.c:1829
+#: ../src/gcompris/gcompris.c:1824
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "A lista de atividades disponíveis é:\n"
 
-#: ../src/gcompris/gcompris.c:1860
+#: ../src/gcompris/gcompris.c:1855
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de atividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1896
+#: ../src/gcompris/gcompris.c:1891
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe, mas não permite leitura nem escrita"
 
-#: ../src/gcompris/gcompris.c:1991
+#: ../src/gcompris/gcompris.c:1986
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4575,7 +4590,7 @@ msgstr ""
 "Erro: o perfil '%s' não foi encontrado. Execute 'gcompris --profile-list' "
 "para listar os disponíveis\n"
 
-#: ../src/gcompris/gcompris.c:2005
+#: ../src/gcompris/gcompris.c:2000
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "A lista de perfis disponíveis é:\n"
@@ -4812,169 +4827,171 @@ msgstr "Alabama"
 msgid "Florida"
 msgstr "Flórida"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:20
+#. Translators: Keep USA| and translate only Georgia
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:21
 msgid "USA|Georgia"
 msgstr "EUA|Geórgia"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:21
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:22
 msgid "South Carolina"
 msgstr "Carolina do Sul"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:22
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:23
 msgid "North Carolina"
 msgstr "Carolina do Norte"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:23
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:24
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:24
 msgid "Virginia"
 msgstr "Virgínia"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:24
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:24
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:25
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:25
 msgid "West Virginia"
 msgstr "West Virgínia"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:25
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:25
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:26
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:26
 msgid "Ohio"
 msgstr "Ohio"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:26
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:26
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:27
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:27
 msgid "Michigan"
 msgstr "Michigan"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:27
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:27
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:28
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:28
 msgid "Wisconsin"
 msgstr "Wisconsin"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:28
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:28
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:29
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:29
 msgid "Illinois"
 msgstr "Ilinóis"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:29
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:29
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:30
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:30
 msgid "Indiana"
 msgstr "Indiana"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:30
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:30
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:31
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:31
 msgid "Kentucky"
 msgstr "Kentucky"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:31
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:31
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:32
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:32
 msgid "Tennessee"
 msgstr "Tennessee"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:32
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:32
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:33
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:33
 msgid "Mississippi"
 msgstr "Mississippi"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:33
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:33
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:34
 msgid "Louisiana"
 msgstr "Luisiana"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:34
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:35
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:35
 msgid "Arkansas"
 msgstr "Arkansas"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:35
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:35
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:36
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:36
 msgid "Missouri"
 msgstr "Missouri"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:36
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:36
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:37
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:37
 msgid "Iowa"
 msgstr "Iowa"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:37
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:37
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:38
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:38
 msgid "Minnesota"
 msgstr "Minnesota"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:38
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:38
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:39
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:39
 msgid "Oklahoma"
 msgstr "Oklahoma"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:39
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:39
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:40
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:40
 msgid "Texas"
 msgstr "Texas"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:40
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:40
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:41
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:41
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
 msgid "Hawaii"
 msgstr "Havaí"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:41
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:41
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:42
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:42
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
 msgid "Alaska"
 msgstr "Alaska"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:42
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:42
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:43
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:43
 msgid "Arizona"
 msgstr "Arizona"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:43
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:43
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:44
 msgid "New Mexico"
 msgstr "Novo México"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:44
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:45
 msgid "Colorado"
 msgstr "Colorado"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:45
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:46
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:46
 msgid "Kansas"
 msgstr "Kansas"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:46
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:46
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:47
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:47
 msgid "Nebraska"
 msgstr "Nebrasca"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:47
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:47
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:48
 msgid "South Dakota"
 msgstr "Dakota do Sul"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:48
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:49
 msgid "North Dakota"
 msgstr "Dakota do Norte"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:49
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:50
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:50
 msgid "Montana"
 msgstr "Montana"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:50
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:50
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:51
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:51
 msgid "Idaho"
 msgstr "Idaho"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:51
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:51
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:52
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:52
 msgid "Oregon"
 msgstr "Óregon"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:52
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:52
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:53
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:53
 msgid "Washington"
 msgstr "Washington"
 
@@ -4982,16 +4999,12 @@ msgstr "Washington"
 msgid "Washington D.C."
 msgstr "Washington D.C."
 
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:20
-msgid "Georgia"
-msgstr "Geórgia"
-
 #: ../src/geo_country-activity/resources/geo_country/board1_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Regiões da França"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:41
 msgid "India"
 msgstr "Índia"
 
@@ -5327,112 +5340,113 @@ msgstr "Síria"
 msgid "Turkey"
 msgstr "Turquia"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:25
+#. Translators: Keep Asia| and translate only Georgia
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
 msgid "Asia|Georgia"
 msgstr "Ásia|Geórgia"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:27
 msgid "Azerbaijan"
 msgstr "Azerbaidjão"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:28
 msgid "Iran"
 msgstr "Irã"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:29
 msgid "Turkmenistan"
 msgstr "Turquimenistão"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:30
 msgid "Kyrgyzstan"
 msgstr "Quirguistão"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:31
 msgid "Tajikistan"
 msgstr "Tajiquistão"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:32
 msgid "Afghanistan"
 msgstr "Afeganistão"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:33
 msgid "Malaysia"
 msgstr "Malásia"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:34
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:19
 msgid "Indonesia"
 msgstr "Indonésia"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:35
 msgid "Philippines"
 msgstr "Filipinas"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:35
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:36
 msgid "Myanmar"
 msgstr "Birmânia"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:36
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:37
 msgid "Pakistan"
 msgstr "Paquistão"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:39
 msgid "Bhutan"
 msgstr "Butão"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:39
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
 msgid "Bangladesh"
 msgstr "Bangladesh"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:41
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:42
 msgid "China"
 msgstr "China"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:42
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:43
 msgid "Sri Lanka"
 msgstr "Sri Lanka"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:43
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:44
 msgid "Thailand"
 msgstr "Tailândia"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:44
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:45
 msgid "Laos"
 msgstr "Laos"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:45
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:46
 msgid "Cambodia"
 msgstr "Cambodja"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:46
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:47
 msgid "Vietnam"
 msgstr "Vietnam"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:47
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:48
 msgid "Taiwan"
 msgstr "Taiwan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:48
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:49
 msgid "Uzbekistan"
 msgstr "Uzbesquistão"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:49
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:50
 msgid "Kazakhstan"
 msgstr "Casaquistão"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:50
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:51
 msgid "South Korea"
 msgstr "Coreia do Sul"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:51
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:52
 msgid "North Korea"
 msgstr "Coreia do Norte"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:53
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:54
 msgid "Mongolia"
 msgstr "Mongólia"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:54
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:55
 #: ../src/geography-activity/resources/geography/board6_0.xml.in.h:16
 msgid "Russia"
 msgstr "Rússia"
@@ -6173,6 +6187,7 @@ msgid " and %d"
 msgstr " e %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:115
+#, python-brace-format
 msgid "{0} is divisible by {1}."
 msgstr "{0} é divisível por {1}."
 
@@ -6201,6 +6216,7 @@ msgid "Factors of %d"
 msgstr "Fatores de %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:195
+#, python-brace-format
 msgid "{0} are the factors of {1}."
 msgstr "{0} são fatores de {1}."
 
@@ -6210,22 +6226,27 @@ msgid "Multiples of %d"
 msgstr "Múltiplos de %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:241
+#, python-brace-format
 msgid "{0} = {1}"
 msgstr "{0} = {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:252
+#, python-brace-format
 msgid "{0} + {1}"
 msgstr "{0} + {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:257
+#, python-brace-format
 msgid "{0} − {1}"
 msgstr "{0} − {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:262
+#, python-brace-format
 msgid "{0} × {1}"
 msgstr "{0} × {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:266
+#, python-brace-format
 msgid "{0} ÷ {1}"
 msgstr "{0} ÷ {1}"
 
@@ -6409,10 +6430,12 @@ msgstr ""
 "Pressione a barra de espaço para comer um número."
 
 #: ../src/guessnumber-activity/guessnumber.py:203
+#, python-brace-format
 msgid "Guess a number between {0} and {1}"
 msgstr "Adivinhe um número entre {0} e {1}"
 
 #: ../src/guessnumber-activity/guessnumber.py:307
+#, python-brace-format
 msgid "Please enter a number between {0} and {1}"
 msgstr "Por favor, digite um número entre {0} e {1}"
 
@@ -6532,7 +6555,7 @@ msgstr "Torre de Hanói simplificada"
 msgid "Reproduce the given tower"
 msgstr "Reproduza a torre apresentada"
 
-#: ../src/hanoi-activity/hanoi.c:348
+#: ../src/hanoi-activity/hanoi.c:349
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
@@ -6800,7 +6823,7 @@ msgstr ""
 "São propostas muitas opções."
 
 #: ../src/imageid-activity/imageid.c:538
-#: ../src/missing_letter-activity/missingletter.c:608
+#: ../src/missing_letter-activity/missingletter.c:616
 msgid "Data file for this level is not properly formatted."
 msgstr ""
 "O arquivo de dados para este nível não está formatado de maneira correta."
@@ -7325,11 +7348,12 @@ msgstr ""
 "Quando a velocidade estiver segura para o pouso, a plataforma ficará verde.\n"
 "        "
 
-#: ../src/lang-activity/langEnterText.py:133
+#: ../src/lang-activity/langEnterText.py:139
 msgid "Enter the text you hear:"
 msgstr "Digite o texto que você ouvir:"
 
 #: ../src/lang-activity/langLib.py:69
+#, python-brace-format
 msgid "Missing translation for '{word}'"
 msgstr "Faltando a tradução de \"{word}\""
 
@@ -7391,15 +7415,15 @@ msgstr "Lista de palavras na categoria \"outros\"."
 msgid "List of words in the 'people' category."
 msgstr "Lista de palavras na categoria \"pessoas\"."
 
-#: ../src/lang-activity/lang.py:99
+#: ../src/lang-activity/lang.py:98
 msgid "ERROR, we found no words in this language."
 msgstr "ERRO, nós não encontramos palavras neste idioma."
 
-#: ../src/lang-activity/lang.py:100
+#: ../src/lang-activity/lang.py:99
 msgid "Please consider contributing a voice set."
 msgstr "Por favor, considere contribuir com um pacote de voz."
 
-#: ../src/lang-activity/lang.py:153
+#: ../src/lang-activity/lang.py:172
 #, python-format
 msgid ""
 "Configuration\n"
@@ -7408,7 +7432,7 @@ msgstr ""
 "Configuração\n"
 " para o perfil <b>%s</b>"
 
-#: ../src/lang-activity/lang.py:158
+#: ../src/lang-activity/lang.py:177
 msgid "Select locale"
 msgstr "Selecione o idioma"
 
@@ -7866,7 +7890,7 @@ msgid ""
 "corner of the screen to toggle the run-fast-mode.\n"
 msgstr ""
 "Use as teclas de seta para mover o Tux até a porta. Neste labirinto, "
-"omovimento é relativo (primeira pessoa). Use a seta para cima para andar "
+"o movimento é relativo (primeira pessoa). Use a seta para cima para andar "
 "para frente. As outras setas viram o Tux para outra direção.\n"
 "\n"
 "Nos primeiros níveis, o Tux caminha devagar, um passo para cada vez que você "
@@ -9052,7 +9076,7 @@ msgid ""
 "over the note, and the pitch names can be color coded.\n"
 "        "
 msgstr ""
-"O primeiro e o décimo-primeiro níveis introduzem duas diferentes pautas com "
+"O primeiro e o décimo primeiro níveis introduzem duas diferentes pautas com "
 "a escala de C maior. Os níveis seguintes apresentam os nomes das notas. Para "
 "auxiliar no aprendizado dos nomes, as notas são tocadas quando o cursor do "
 "mouse passa sobre elas e os tons podem codificados por cor.\n"
@@ -10959,6 +10983,9 @@ msgstr "Treinar com o teclado"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Digite a palavra completa, antes que ela chegue no chão"
+
+#~ msgid "Georgia"
+#~ msgstr "Geórgia"
 
 #~ msgid "coral"
 #~ msgstr "coral"
