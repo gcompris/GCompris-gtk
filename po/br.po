@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2013-09-25 16:29+0000\n"
-"PO-Revision-Date: 2013-10-12 20:05+0100\n"
+"PO-Revision-Date: 2013-10-15 19:14+0100\n"
 "Last-Translator: Alan <alan@drouizig.org>\n"
 "Language-Team: An Drouizig <drouizig@drouizig.org>\n"
 "Language: br_FR\n"
@@ -6549,7 +6549,7 @@ msgstr "a/e/i/o/u/ù/y"
 #. Separate with /. You can use digraphs, trigraphs etc. For example, both 's' and 'sch' could be in the list for German
 #: ../src/hangman-activity/hangman.py:67
 msgid "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
-msgstr "b/c/c'h/d/f/g/h/j/k/l/m/n/p/r/s/t/v/w/y/z"
+msgstr "b/c/c'h/ch/d/f/g/h/j/k/l/m/n/ñ/p/r/s/t/v/w/y/z"
 
 #. Keys to letters equivalence for the hangman activity. It has the
 #. form of a space separated list like: "é=e/E è=e/E sch=S"
@@ -6559,14 +6559,14 @@ msgstr "b/c/c'h/d/f/g/h/j/k/l/m/n/p/r/s/t/v/w/y/z"
 #. on the right with the chararcter '/'. Keep the word NONE if not available in your language
 #: ../src/hangman-activity/hangman.py:77
 msgid "a=a"
-msgstr "a=a"
+msgstr "ñ=n ù=u c'h=c ch=ç"
 
 #. Letters equivalence for the hangman activity. It has the
 #. form of a space separated list like: "e=éè a=àâ"
 #. Keep the word NONE if not available in your language
 #: ../src/hangman-activity/hangman.py:94
 msgid "NONE"
-msgstr "Tra ebet"
+msgstr "u=ù n=ñ"
 
 #: ../src/hangman-activity/hangman.py:144
 #: ../src/hangman-activity/hangman.py:150
