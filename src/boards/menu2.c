@@ -117,9 +117,9 @@ static gdouble get_ratio(GdkPixbuf *pixmap, gdouble size);
 #define D_INT_X 50
 #define D_INT_Y 5
 
-#define I_X 140
+#define I_X 120
 #define I_Y 390
-#define I_W 600
+#define I_W 650
 #define I_H 125
 
 #define ICON_SIZE 100
