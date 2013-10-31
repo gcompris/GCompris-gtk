@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2013-10-28 21:32+0000\n"
-"PO-Revision-Date: 2013-11-01 00:05+0400\n"
+"PO-Revision-Date: 2013-11-01 00:58+0400\n"
 "Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
 "Language-Team: Sugar Labs\n"
 "Language: ru\n"
@@ -1874,12 +1874,14 @@ msgid "Click me to get some hint"
 msgstr "Щёлкните на мне, чтобы получить подсказку"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
-#, fuzzy, python-brace-format
+#, python-brace-format
 #| msgid "I don't have this number PLAYER {number}"
 msgid ""
 "I don't have this number\n"
 "PLAYER {number}"
-msgstr "У меня нет этого числа ИГРОК {number}"
+msgstr ""
+"У меня нет этого числа\n"
+"ИГРОК {number}"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:215
 msgid "Lotto Master"
@@ -3311,6 +3313,8 @@ msgid ""
 "The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all day "
 "in the meadow."
 msgstr ""
+"Корова мычит «му-у-у, му-у-у!». Коровы — травоядные млекопитающие, они весь "
+"день пасутся на лугу."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
 #| msgid " You can drink the milk this animal produces."
@@ -4157,7 +4161,7 @@ msgstr "Французский"
 
 #: ../src/gcompris/config.c:81
 msgid "Galician"
-msgstr ""
+msgstr "Галисийский"
 
 #: ../src/gcompris/config.c:82
 msgid "Georgian"
@@ -5158,17 +5162,17 @@ msgstr "Лохабер"
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:4
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:4
 msgid "Lochalsh, Badenoch, Cromarty and Strathspey"
-msgstr ""
+msgstr "Лохалш, Баденох, Кромарти и Страспей"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:5
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:5
 msgid "Inverness and Nairn"
-msgstr ""
+msgstr "Инвернесс-Найрн"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:6
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:6
 msgid "Ross"
-msgstr ""
+msgstr "Росс"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:7
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:7
@@ -5179,7 +5183,7 @@ msgstr "Сатерлендшир"
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:8
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:8
 msgid "Caithness"
-msgstr ""
+msgstr "Кейтнесс"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:9
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:9
@@ -5195,7 +5199,7 @@ msgstr "Оркни"
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:11
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:11
 msgid "Na h-Eileanan Siar"
-msgstr ""
+msgstr "Внешние Гебридские острова"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:12
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:12
@@ -6636,7 +6640,7 @@ msgstr "б/в/г/д/ж/з/й/к/л/м/н/п/р/с/т/ф/х/ц/ч/ш/щ"
 #. on the right with the chararcter '/'. Keep the word NONE if not available in your language
 #: ../src/hangman-activity/hangman.py:77
 msgid "a=a"
-msgstr ""
+msgstr "a=a"
 
 #. Letters equivalence for the hangman activity. It has the
 #. form of a space separated list like: "e=éè a=àâ"
@@ -7506,7 +7510,7 @@ msgstr "Введите текст, который услышали:"
 #: ../src/lang-activity/langLib.py:69
 #, python-brace-format
 msgid "Missing translation for '{word}'"
-msgstr ""
+msgstr "Перевод слова «{word}» отсутствует."
 
 #: ../src/lang-activity/lang-nature.xml.in.h:1
 #: ../src/lang-activity/lang-object.xml.in.h:1
@@ -7517,7 +7521,7 @@ msgstr "Пополните словарный запас"
 
 #: ../src/lang-activity/lang-nature.xml.in.h:2
 msgid "List of words in the 'nature' category."
-msgstr ""
+msgstr "Список слов в категории «природа»."
 
 #: ../src/lang-activity/lang-nature.xml.in.h:4
 #: ../src/lang-activity/lang-object.xml.in.h:4
@@ -7536,6 +7540,10 @@ msgid ""
 "find the right word. In the configuration you can select the language you "
 "want to learn."
 msgstr ""
+"Изучите с набором слов. Каждое слово сопровождается изображением с текстом и "
+"его произношением. После этого вам будет предложено выполнить упражнение: по "
+"произношению найти нужное слово. В параметрах можно установить используемый "
+"язык."
 
 #: ../src/lang-activity/lang-nature.xml.in.h:6
 #: ../src/lang-activity/lang-object.xml.in.h:6
@@ -7546,18 +7554,21 @@ msgid ""
 "org/. You can also access this activity online on http://laske.fr/"
 "abecedarium/."
 msgstr ""
+"Изображения и голоса взяты из проекта Art4Apps: http://www.art4apps.org/. Вы "
+"также можете пройти это упражнение в режиме онлайн на сайте http://laske.fr/"
+"abecedarium/."
 
 #: ../src/lang-activity/lang-object.xml.in.h:2
 msgid "List of words in the 'object' category."
-msgstr ""
+msgstr "Список слов в категории «объект»."
 
 #: ../src/lang-activity/lang-other.xml.in.h:2
 msgid "List of words in the 'other' category."
-msgstr ""
+msgstr "Список слов в категории «другое»."
 
 #: ../src/lang-activity/lang-people.xml.in.h:2
 msgid "List of words in the 'people' category."
-msgstr ""
+msgstr "Список слов в категории «люди»."
 
 #: ../src/lang-activity/lang.py:98
 msgid "ERROR, we found no words in this language."
@@ -7565,7 +7576,7 @@ msgstr "ОШИБКА: для этого языка не найдены слов�
 
 #: ../src/lang-activity/lang.py:99
 msgid "Please consider contributing a voice set."
-msgstr ""
+msgstr "Может быть и вы захотите озвучить некоторые слова."
 
 #: ../src/lang-activity/lang.py:172
 #, python-format
@@ -7581,10 +7592,9 @@ msgid "Select locale"
 msgstr "Выбор языка:"
 
 #: ../src/lang-activity/lang.xml.in.h:1
-#, fuzzy
 #| msgid "Go to the Reading activities"
 msgid "Go to the language learning activities"
-msgstr "Чтение"
+msgstr "Перейти к языковым упражнениям"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:1
 msgid "other"
@@ -8543,7 +8553,6 @@ msgstr "Практикуйтесь в вычитании до тех пор, п�
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:5
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:5
-#, fuzzy
 #| msgid ""
 #| "You can see some cards, but you can't see what's on the other side of "
 #| "them. Each card is hiding a subtraction, or the answer to it.\n"
@@ -8598,14 +8607,14 @@ msgstr ""
 "Числа на каждой стороне от знака равенства (=) должны быть одинаковы. Так, 3 "
 "(1, 2, 3) без 1 (1) даёт 2. Считайте вслух или на пальцах, потому что чем "
 "большим количеством способов вы сделаете это, тем лучше запомните. Кроме "
-"того, вы можете использовать кубики, пуговицы и все что угодно, что можно "
+"того, вы можете использовать кубики, пуговицы и всё что угодно, что можно "
 "считать. Если у вас есть много братьев и сестёр, то можете считать их! Вы "
-"можете считать детей в классе школы. Пейте считая песни. Практикуйтесь в "
-"счёте и вы станете очень умелыми в суммировании.\n"
+"можете считать детей в классе школы. Пойте, считая песни. Практикуйтесь в "
+"счёте и вы без труда будете складывать числа.\n"
 "\n"
 "В этой игре карты прячут две части операции вычитания. Вам нужно найти и "
 "открыть карточки с обеими частями выражения: операцией на вычитание и "
-"результатом. Щёлкните по карте чтобы увидеть какое число там спрятано, а "
+"результатом. Щёлкните по карте, чтобы увидеть, какое число там спрятано, а "
 "потом попытайся найти другую карту которая сочетается с первой и образует "
 "целую суму. Одновременно вы можете открывать только две карточки, поэтому "
 "вам нужно запоминать, что скрывали ранее открытые карточки. Вы выполняете "
@@ -9290,7 +9299,6 @@ msgid "Edgar Degas, The Dancing Class - 1873-75"
 msgstr "Эдгар Дега, «Урок танца» — 1873-75"
 
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
-#, fuzzy
 #| msgid ""
 #| "Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the "
 #| "Ommaya Embankment - 1830"
@@ -9298,8 +9306,8 @@ msgid ""
 "Katsushika Hokusai,\n"
 "Viewing Sunset over the Ryogoku Bridge from the Ommaya Embankment - 1830"
 msgstr ""
-"Кацусика Хокусай,\\n«Наблюдая закат над мостом Риогоку с набережной Оммайя» "
-"— 1830"
+"Кацусика Хокусай,\n"
+"«Наблюдая закат над мостом Риогоку с набережной Оммайя» — 1830"
 
 #: ../src/paintings-activity/resources/paintings/board1_11.xml.in.h:1
 msgid "Katsushika Hokusa, Poppies - 1833-1834"
@@ -9338,13 +9346,14 @@ msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
 msgstr "Кацусика Хокусай, «Большая волна в Канагаве» — 1823-1829"
 
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
-#, fuzzy
 #| msgid ""
 #| "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgid ""
 "Utagawa Hiroshige,\n"
 "The Benzaiten Shrine at Inokashira in Snow - 1760-70"
-msgstr "Утагава Хиросигэ,\\n«Храм Бензайтен в Инокашире» — 1760-1770"
+msgstr ""
+"Утагава Хиросигэ,\n"
+"«Храм Бензайтен в Инокашире» — 1760-1770"
 
 #: ../src/paintings-activity/resources/paintings/board1_9.xml.in.h:1
 msgid "Utagawa Hiroshige, Horse-mackerel and Prawn - 1840"
@@ -10689,62 +10698,63 @@ msgstr "Числа на кубиках"
 #: ../src/submarine-activity/submarine.c:394
 #: ../src/submarine-activity/submarine.c:637
 msgid "Engine control, use the buttons to select your speed."
-msgstr ""
+msgstr "Управление двигателем. Используйте кнопки, чтобы выбрать скорость."
 
 #: ../src/submarine-activity/submarine.c:410
 msgid "Compressed air tank is used to flush water out of the ballasts."
 msgstr ""
+"Танк со сжатым воздухом используется для выталкивания воды из балластов."
 
 #: ../src/submarine-activity/submarine.c:524
 msgid "Open or close the the ballast tank."
-msgstr ""
+msgstr "Открыть или закрыть балластный танк."
 
 #: ../src/submarine-activity/submarine.c:525
 msgid "It allows the water, to get in the tank."
-msgstr ""
+msgstr "Позволяет воде попадать в танк."
 
 #: ../src/submarine-activity/submarine.c:526
 #: ../src/submarine-activity/submarine.c:563
 msgid "Increase the water level to dive."
-msgstr ""
+msgstr "Увеличьте уровень воды, чтобы погрузиться."
 
 #: ../src/submarine-activity/submarine.c:527
 msgid "Lower the water level to rise to the surface."
-msgstr ""
+msgstr "Чтобы всплыть на поверхность, уменьшите уровень воды."
 
 #: ../src/submarine-activity/submarine.c:561
 msgid "Open or close the the ballast flush."
-msgstr ""
+msgstr "Начать или закончить выталкивание балласта."
 
 #: ../src/submarine-activity/submarine.c:562
 msgid "It flushes the water out of the tank."
-msgstr ""
+msgstr "Выталкивает воду из танка."
 
 #: ../src/submarine-activity/submarine.c:564
 msgid "Lower the water level to surface."
-msgstr ""
+msgstr "Чтобы всплыть на поверхность, уменьшите уровень воды."
 
 #: ../src/submarine-activity/submarine.c:603
 msgid "Horizontal rudders also called tailplanes."
-msgstr ""
+msgstr "Горизонтальные направляющие также называют хвостовым оперением."
 
 #: ../src/submarine-activity/submarine.c:604
 #: ../src/submarine-activity/submarine.c:619
 msgid "It controls the up and down orientation."
-msgstr ""
+msgstr "Управляет вертикальным положением."
 
 #: ../src/submarine-activity/submarine.c:605
 #: ../src/submarine-activity/submarine.c:620
 msgid "It needs water to flow around them to be effective."
-msgstr ""
+msgstr "Эффективно работает только при нахождении в воде."
 
 #: ../src/submarine-activity/submarine.c:618
 msgid "Horizontal rudders also called foreplanes."
-msgstr ""
+msgstr "Горизонтальные направляющие также называют передним оперением."
 
 #: ../src/submarine-activity/submarine.c:655
 msgid "Water level in the ballast."
-msgstr ""
+msgstr "Уровень воды в балласте."
 
 #: ../src/submarine-activity/submarine.xml.in.h:1
 msgid "Pilot a submarine"
@@ -10753,7 +10763,7 @@ msgstr "Подводная лодка"
 #: ../src/submarine-activity/submarine.xml.in.h:2
 msgid "Pilot a submarine using air tanks and dive rudders"
 msgstr ""
-"Управление подводной лодкой, используя воздушные цистерны и рули погружения"
+"Управление подводной лодкой, используя воздушные танки и рули погружения"
 
 #: ../src/submarine-activity/submarine.xml.in.h:3
 msgid "Physics basics"
@@ -10764,7 +10774,6 @@ msgid "Learn how a submarine works"
 msgstr "Узнайте как работает подводная лодка"
 
 #: ../src/submarine-activity/submarine.xml.in.h:5
-#, fuzzy
 #| msgid ""
 #| "Click on different active elements : engine, rudders and air tanks, in "
 #| "order to navigate to the required depth. There is a close gate on the "
@@ -10776,7 +10785,7 @@ msgid ""
 "the first level, your have to catch the jewel to open it. Pass through it to "
 "reach the next level."
 msgstr ""
-"Щёлкайте по разным активным элементам: двигателю, рулю и воздушным цистернам "
+"Нажимайте по различным рабочим элементам: двигателю, рулю и воздушным танкам "
 "в том порядке, в котором это приведёт к правильной навигации на заданной "
 "глубине. Заберите сокровище, чтобы пройти на следующий уровень."
 
