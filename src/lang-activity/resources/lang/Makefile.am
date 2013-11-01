@@ -284,7 +284,6 @@ wordsimg_DATA = \
 	words/dance.png \
 	words/dandelion.png \
 	words/danger.png \
-	words/dark.png \
 	words/dart_board.png \
 	words/date_fruit.png \
 	words/deer.png \
