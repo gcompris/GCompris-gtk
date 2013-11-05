@@ -18,28 +18,22 @@
 # exercise activity.
 import gtk
 import gtk.gdk
+import random
 import gcompris
 import gcompris.utils
 import gcompris.skin
+import gcompris.anim
+import gcompris.bonus
 import goocanvas
 import pango
-
+import gobject
 from gcompris import gcompris_gettext as _
 
-#
-# The name of the class is important. It must start with the prefix
-# 'Gcompris_' and the last part 'exercise' here is the name of
-# the activity and of the file in which you put this code. The name of
-# the activity must be used in your menu.xml file to reference this
-# class like this: type="python:exercise"
-#
 class Gcompris_exercise:
   """Empty gcompris Python class"""
 
 
   def __init__(self, gcomprisBoard):
-    print "exercise init"
-
     # Save the gcomprisBoard, it defines everything we need
     # to know from the core
     self.gcomprisBoard = gcomprisBoard
@@ -53,78 +47,84 @@ class Gcompris_exercise:
            (id, event.x, event.y, event.x_root, event.y_root)
     return True  
   
+
   def start(self):
-    print "exercise start"
+    self.gcomprisBoard.level=1
+    self.gcomprisBoard.maxlevel=2
+    self.gcomprisBoard.sublevel=1
+    self.gcomprisBoard.number_of_sublevel=4
 
     # Set the buttons we want in the bar
     gcompris.bar_set(gcompris.BAR_LEVEL)
+    gcompris.bar_location(0, -1, 0.8)
+    self.rootitem = goocanvas.Group(parent = self.gcomprisBoard.canvas.get_root_item())
 
     # Set a background image
-    gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
-
-    # Create our rootitem. We put each canvas item in it so at the end we
-    # only have to kill it. The canvas deletes all the items it contains
-    # automaticaly.
-    self.rootitem = goocanvas.Group(parent =
-                                    self.gcomprisBoard.canvas.get_root_item())
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
+								"exercise/background.png")
 
  
-    Text = goocanvas.Text(
+    self.Title = goocanvas.Text(
       parent = self.rootitem,
       x=400.0,
-      y=100.0,
-      text=("Welcome !! :) "),
-      fill_color="blue",
+      y=50.0,
+	  width=1000,
+      text=(" SEASON CYCLE "),
+      fill_color="purple",
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER
       )
-    Text.connect("button_press_event", self.on_button_press, "Welcome text")
-      
-    Rectangle = goocanvas.Rect(
-        parent = self.rootitem,
-	x = 20,
-	y = 400,
-	width = 200,
-	height = 100,
-	stroke_color = "red",
-	fill_color = "blue",
-	line_width = 5.0
-	)
-    Rectangle.connect("button_press_event", self.on_button_press, "Blue Rectangle")
-	
-    Triangle =goocanvas.Polyline(
-	parent = self.rootitem,
-	points = goocanvas.Points([(100.0, 100.0), (200.0, 100.0), (150.0, 200.0)]),
-	close_path = True,
-	stroke_color = "yellow",
-	fill_color = "green"
-	)
-    Triangle.rotate(10,0,0)
-    Triangle.connect("button_press_event", self.on_button_press, "Green Triangle")
-  
-    Ellipse = goocanvas.Ellipse(
-	parent = self.rootitem,
-        center_x = 400,
-        center_y = 300,
-        radius_x = 100,
-        radius_y = 60,
-        stroke_color="pink",
-        fill_color = "purple",
-        line_width = 2.5
-        )
-    Ellipse.connect("button_press_event", self.on_button_press, "Violet Ellipse")
-     
-    im = gtk.gdk.pixbuf_new_from_file ("/home/kesha/web.jpg") 
-    
-    Imagescene = goocanvas.Image(
-	    parent = self.rootitem,
-	    pixbuf = im,
-	    x = 550,
-	    y = 200,
-	    width = 200,
-	    height = 100,
-	    )
-    Imagescene.connect("button_press_event", self.on_button_press, "The image")
+   
+    self.Spring = goocanvas.Image(
+      parent = self.rootitem,
+      pixbuf = gcompris.utils.load_pixmap("exercise/spring.jpg"),
+      x = 100,
+      y = 75,
+	  width = 250,
+      height = 170
+      )
+    gcompris.utils.item_focus_init(self.Spring, None)
+    self.Spring.connect("button_press_event", self.on_button_press,"Spring")
+
+    self.Summer = goocanvas.Image(
+      parent = self.rootitem,
+      pixbuf = gcompris.utils.load_pixmap("exercise/summer.jpg"),
+      x = 450,
+      y = 75,
+	  width = 250,
+      height = 170
+      )
+    gcompris.utils.item_focus_init(self.Summer, None)
+    self.Summer.connect("button_press_event", self.on_button_press,"Summer")
+
+    self.Autumn = goocanvas.Image(
+      parent = self.rootitem,
+      pixbuf = gcompris.utils.load_pixmap("exercise/autumn.jpg"),
+      x = 100,
+      y = 300,
+	  width = 250,
+      height = 170
+      )
+    gcompris.utils.item_focus_init(self.Autumn, None)
+    self.Autumn.connect("button_press_event", self.on_button_press,"Autumn")
+
+    self.Winter = goocanvas.Image(
+      parent = self.rootitem,
+      pixbuf = gcompris.utils.load_pixmap("exercise/winter.jpg"),
+      x = 450,
+      y = 300,
+	  width = 250,
+      height = 170
+      )
+    gcompris.utils.item_focus_init(self.Winter, None)
+    self.Winter.connect("button_press_event", self.on_button_press,"Winter")
+
+    # Set the buttons we want in the bar
+    gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT)
+    gcompris.bar_location(gcompris.BOARD_WIDTH/2 - 90, -1, 0.6)
+    gcompris.bar_set_level(self.gcomprisBoard)
+
+    self.display_game()
 
   def end(self):
     print "exercise end"
@@ -149,15 +149,15 @@ class Gcompris_exercise:
     print("exercise config_start.")
 
   def key_press(self, keyval, commit_str, preedit_str):
-    utf8char = gtk.gdk.keyval_to_unicode(keyval)
-    strn = u'%c' % utf8char
-
-    print("Gcompris_exercise key press keyval=%i %s" % (keyval, strn))
+    pass
 
   def pause(self, pause):
     print("exercise pause. %i" % pause)
 
 
   def set_level(self, level):
+    self.gcomprisBoard.level = level
+    gcompris.bar_set_level(self.gcomprisBoard)
+    self.display_game()
     print("exercise set level. %i" % level)
 
