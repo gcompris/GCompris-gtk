@@ -77,6 +77,8 @@ class Gcompris_lang:
 
     self.langLib = LangLib(gcompris.DATA_DIR + "/lang/words.xml")
     self.chapters = self.langLib.getChapters()
+    self.currentExercise = None
+    self.currentExerciseModes = []
 
     if self.gcomprisBoard.mode == "":
       gcompris.utils.dialog("ERROR, missing 'mode' in the xml menu to specify the chapter",
@@ -107,8 +109,6 @@ dialogue to\nenable the sound."), None)
 
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    self.currentExerciseModes = []
-    self.currentExercise = None
     self.currentLesson = self.langLib.getLesson(self.currentChapterName,
                                                 self.gcomprisBoard.level - 1)
 
