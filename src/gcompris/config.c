@@ -139,7 +139,7 @@ static gchar *timername[] = {
 };
 
 static gchar *filtername =
-  N_("Use Gcompris administration module to filter boards");
+  N_("Use GCompris administration module to filter boards");
 
 static void set_locale_flag(gchar *locale);
 static gchar *get_next_locale(gchar *locale);
