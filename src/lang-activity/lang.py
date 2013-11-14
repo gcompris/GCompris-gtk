@@ -230,13 +230,13 @@ dialogue to\nenable the sound."), None)
       self.set_level(self.gcomprisBoard.level)
 
   def set_level(self, level):
-    # We are not yet started
-    if self.board_paused:
-      return
-
     self.gcomprisBoard.level = level;
     self.gcomprisBoard.sublevel = 1;
     gcompris.bar_set_level(self.gcomprisBoard)
+
+    # We are not yet started
+    if self.board_paused:
+      return
 
     if self.currentExercise:
       self.currentExercise.stop()
