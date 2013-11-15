@@ -29,7 +29,6 @@
 
 static GooCanvasItem	*rootitem		= NULL;
 static GooCanvasItem	*item_locale_text	= NULL;
-static GooCanvasItem	*item_bad_flag		= NULL;
 static GooCanvasItem	*item_timer_text	= NULL;
 static GooCanvasItem	*item_skin_text		= NULL;
 static GooCanvasItem	*item_filter_text	= NULL;
@@ -48,7 +47,6 @@ static double           stars_group_y;
 #define Y_GAP	38
 
 static gboolean is_displayed			= FALSE;
-static gint x_flag_start;
 static gint y_flag_start;
 
 
@@ -206,9 +204,8 @@ gc_config_start ()
   pixmap_unchecked = "#UNCHECKED";
   pixmap_width = 30;
 
-  x_start += 150;
-  x_flag_start = x_start + 50;
-  x_text_start = x_start + 115;
+  x_start += 60;
+  x_text_start = x_start + 80;
 
   //--------------------------------------------------
   // Locale
@@ -217,16 +214,6 @@ gc_config_start ()
   display_previous_next(x_start, y_start, "locale_previous", "locale_next");
 
   y_flag_start = y_start - pixmap_width/2;
-
-  /* Display a bad icon if this locale is not available */
-  item_bad_flag = goo_canvas_svg_new (rootitem,
-			     gc_skin_rsvg_get(),
-			     "svg-id", "#UNCHECKED",
-			     "pointer-events", GOO_CANVAS_EVENTS_NONE,
-			     NULL);
-  SET_ITEM_LOCATION(item_bad_flag,
-		    x_flag_start + 5,
-		    y_start - pixmap_width/2);
 
   /* A repeat icon to reset the selection */
   item = goo_canvas_svg_new (rootitem,
@@ -237,7 +224,7 @@ gc_config_start ()
     double zoom = 0.50;
     goo_canvas_item_scale(item, zoom, zoom);
     goo_canvas_item_translate(item,
-			      (-1 * bounds.x1 + x_flag_start - 380) * zoom,
+			      (-1 * bounds.x1 + x_start - 100) * zoom,
 			      (-1 * bounds.y1 + y_start - 145) * zoom);
   g_signal_connect(item, "button_press_event",
 		   (GCallback) item_event_ok,
@@ -698,24 +685,6 @@ set_locale_flag(gchar *locale)
     locale = gc_locale_get_user_default();
     g_message("gc_locale_get_user_default = %s\n", locale);
   }
-
-  /* Check wether or not the locale is available */
-#ifdef WIN32
-  /* On win32, it's always available, do not try to check */
-  g_object_set (item_bad_flag,
-		"visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		NULL);
-#else
-  if(setlocale(LC_MESSAGES, locale)==NULL)
-    g_object_set (item_bad_flag,
-		  "visibility", GOO_CANVAS_ITEM_VISIBLE,
-		  NULL);
-
-  else
-    g_object_set (item_bad_flag,
-		  "visibility", GOO_CANVAS_ITEM_INVISIBLE,
-		  NULL);
-#endif
 
 }
 
