@@ -109,9 +109,6 @@ dialogue to\nenable the sound."), None)
 
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    self.currentLesson = self.langLib.getLesson(self.currentChapterName,
-                                                self.gcomprisBoard.level - 1)
-
     readyButton = TextButton(400, 255, ' ' * 20 + _('I am Ready') + ' ' * 20,
                              self.rootitem, 0x11AA11FFL)
     readyButton.getBackground().connect("button_press_event",
@@ -122,6 +119,8 @@ dialogue to\nenable the sound."), None)
 
   def ready_event(self, widget, target, event, button):
     button.destroy()
+    self.currentLesson = self.langLib.getLesson(self.currentChapterName,
+                                                self.gcomprisBoard.level - 1)
     self.displayLesson( self.currentLesson )
     self.displayImage( self.currentLesson.getTriplets()[self.currentTripletId] )
     self.pause(0);
@@ -213,7 +212,8 @@ dialogue to\nenable the sound."), None)
     # the game is won
     if(self.gamewon == 1 and pause == 0):
       self.gamewon = 0
-      self.next_level()
+      if not self.runExercise():
+        self.next_level()
 
     return
 
@@ -430,9 +430,9 @@ dialogue to\nenable the sound."), None)
     self.displayImage( self.currentLesson.getTriplets()[self.currentTripletId] )
 
   def win(self):
-    if not self.runExercise():
-      self.gamewon = 1
-      gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
+    self.gamewon = 1
+    gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
+    self.gcomprisBoard.sublevel += 1;
 
   def loose(self):
     self.gamewon = 0
