@@ -53,6 +53,7 @@ typedef struct {
   gchar        *system_icon_dir;
   gchar	       *locale;
   gchar	       *skin;
+  gchar	       *fontface;
   gchar	       *key;
   GcomprisProfile *profile;
   GcomprisUser    *logged_user;

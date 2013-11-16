@@ -153,6 +153,7 @@ gc_prop_new ()
   tmp->nocursor		 = 0;
   tmp->timer		 = 1;
   tmp->skin		 = g_strdup("babytoy");
+  tmp->fontface		 = g_strdup("Sans");
   tmp->key		 = g_strdup("default");
   tmp->locale            = NULL;
   tmp->difficulty_max    = 0;
@@ -415,10 +416,10 @@ gc_prop_load (GcomprisProperties *props, GCPropSourceConf source_conf)
 	} else if(!strcmp(value.v_identifier, "filter_style")) {
 	  if(!scan_get_int(scanner, &props->filter_style))
 	    g_warning("Config file parsing error on token %s", token);
-	} else if(!strcmp(value.v_identifier, "skin")) {
-	  g_free(props->skin);
-	  props->skin = scan_get_string(scanner);
-	  if(!props->skin)
+	} else if(!strcmp(value.v_identifier, "fontface")) {
+	  g_free(props->fontface);
+	  props->fontface = scan_get_string(scanner);
+	  if(!props->fontface)
 	    g_warning("Config file parsing error on token %s", token);
 	} else if(!strcmp(value.v_identifier, "user_dir")) {
 	  g_free(props->user_dir);
@@ -539,6 +540,7 @@ gc_prop_destroy (GcomprisProperties *props)
   g_free(props->system_icon_dir);
   g_free(props->locale);
   g_free(props->skin);
+  g_free(props->fontface);
   g_free(props->key);
   gc_profile_destroy(props->profile);
   gc_user_destroy(props->logged_user);
@@ -568,7 +570,7 @@ gc_prop_save (GcomprisProperties *props)
   fprintf(filefd, "%s=%d\n", "fullscreen",		props->fullscreen);
   fprintf(filefd, "%s=%d\n", "timer",			props->timer);
 
-  fprintf(filefd, "%s=\"%s\"\n", "skin",		props->skin);
+  fprintf(filefd, "%s=\"%s\"\n", "fontface",		props->fontface);
   fprintf(filefd, "%s=\"%s\"\n", "locale",		props->locale);
   fprintf(filefd, "%s=\"%s\"\n", "key",			props->key);
 

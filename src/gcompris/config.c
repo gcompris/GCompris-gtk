@@ -30,15 +30,16 @@
 static GooCanvasItem	*rootitem		= NULL;
 static GooCanvasItem	*item_locale_text	= NULL;
 static GooCanvasItem	*item_timer_text	= NULL;
-static GooCanvasItem	*item_skin_text		= NULL;
+static GooCanvasItem	*item_font_text		= NULL;
 static GooCanvasItem	*item_filter_text	= NULL;
 static gchar		*pixmap_checked		= NULL;
 static gchar		*pixmap_unchecked	= NULL;
 static guint		 pixmap_width;
 
 static gchar		*current_locale		= NULL;
-static GList		*skinlist		= NULL;
-static guint		skin_index;
+static GList		*fontlist		= NULL;
+static guint		font_index;
+static guint		current_font_index;
 
 static GooCanvasGroup	*stars_group		= NULL;
 static double           stars_group_x;
@@ -387,57 +388,50 @@ gc_config_start ()
 					 "fill-color-rgba", gc_skin_color_content,
 					 NULL);
 
-  // Skin
+  // Font
+  y_start += Y_GAP;
   {
-    const gchar *one_dirent;
-    guint  i;
-    GDir  *dir;
-    gchar *skin_dir;
-    gchar *first_skin_name;
+    int i;
+    PangoFontFamily ** families;
+    int n_families;
+    PangoFontMap * fontmap;
+    const gchar *current_familly_name = NULL;
 
-    /* Load the Pixpmaps directory file names */
-    skin_dir = g_strconcat(properties->package_data_dir, "/skins", NULL);
-    dir = g_dir_open(skin_dir, 0, NULL);
-
-    if (!dir)
-      g_warning (_("Couldn't open skin dir: %s"), skin_dir);
-
-    /* Fill up the skin list */
-    while((one_dirent = g_dir_read_name(dir)) != NULL) {
-
-      if (one_dirent[0] != '.') {
-	gchar *filename;
-	/* Only directory here are skins */
-	filename = g_strdup_printf("%s/%s", properties->package_skin_dir, one_dirent);
-
-	if (g_file_test ((filename), G_FILE_TEST_IS_DIR)) {
-	  gchar *skin_name = g_strdup_printf("%s", one_dirent);
-	  skinlist = g_list_append (skinlist, skin_name);
-	}
-	g_free(filename);
-      }
+    fontmap = pango_cairo_font_map_get_default();
+    pango_font_map_list_families (fontmap, & families, & n_families);
+    for (i = 0; i < n_families; i++) {
+        PangoFontFamily * family = families[i];
+        const gchar * family_name;
+        family_name = pango_font_family_get_name (family);
+	fontlist = g_list_insert_sorted (fontlist, (gpointer)family_name,
+					 (GCompareFunc)strcmp);
+	if(!strcmp(properties->fontface, family_name))
+	  current_familly_name = family_name;
     }
-    g_dir_close(dir);
+    g_free (families);
 
-    /* Find the current skin index */
-    skin_index = 0;
-    for(i=0; i<g_list_length(skinlist);  i++)
-      if(!strcmp((char *)g_list_nth_data(skinlist, i), properties->skin))
-	skin_index = i;
+    current_font_index = font_index = g_list_index(fontlist, current_familly_name);
+    display_previous_next(x_start, y_start, "font_previous", "font_next");
 
-    y_start += Y_GAP;
+    /* A repeat icon to reset the selection */
+    item = goo_canvas_svg_new (rootitem,
+			       gc_skin_rsvg_get(),
+			       "svg-id", "#REPEAT",
+			       NULL);
+    goo_canvas_item_get_bounds(item, &bounds);
+    double zoom = 0.50;
+    goo_canvas_item_scale(item, zoom, zoom);
+    goo_canvas_item_translate(item,
+			      (-1 * bounds.x1 + x_start - 100) * zoom,
+			      (-1 * bounds.y1 + y_start + 650) * zoom);
+    g_signal_connect(item, "button_press_event",
+		     (GCallback) item_event_ok,
+		     "fontface_reset");
+    gc_item_focus_init(item, NULL);
 
-    /* Should not happen. It the user found the config, there should be a skin */
-    if(g_list_length(skinlist) > 0) {
-      g_warning("No skin found in %s\n", skin_dir);
-      display_previous_next(x_start, y_start, "skin_previous", "skin_next");
-      first_skin_name = g_strdup_printf(_("Skin : %s"), (char *)g_list_nth_data(skinlist, skin_index));
-    } else {
-      first_skin_name = g_strdup(_("SKINS NOT FOUND"));
-    }
-
-    item_skin_text = goo_canvas_text_new (rootitem,
-					  first_skin_name,
+    gchar *first_font_name = g_strdup_printf(_("Font: %s"), (char *)g_list_nth_data(fontlist, font_index));
+    item_font_text = goo_canvas_text_new (rootitem,
+					  first_font_name,
 					  (gdouble) x_text_start,
 					  (gdouble) y_start,
 					  -1,
@@ -445,9 +439,6 @@ gc_config_start ()
 					  "font", gc_skin_font_content,
 					  "fill-color-rgba", gc_skin_color_content,
 					  NULL);
-    g_free(first_skin_name);
-    g_free(skin_dir);
-
   }
 
   // Difficulty Filter
@@ -492,6 +483,9 @@ void gc_config_stop ()
   rootitem = NULL;
 
   stars_group = NULL;
+
+  g_list_free(fontlist);
+  fontlist = NULL;
 
   /* UnPause the board */
   if(is_displayed)
@@ -740,6 +734,23 @@ get_previous_locale(gchar *locale)
   return(locale);
 }
 
+static void _update_font()
+{
+  gchar *font_str;
+  gchar *display_font;
+
+  font_str = g_strdup_printf(_("Font: %s"),
+			     (char *)g_list_nth_data(fontlist, font_index));
+  display_font = g_strdup_printf("%s 12",
+				 (char *)g_list_nth_data(fontlist, font_index));
+  g_object_set (G_OBJECT(item_font_text),
+		"text", font_str,
+		"font", display_font,
+		NULL);
+  g_free(font_str);
+  g_free(display_font);
+}
+
 /* Callback for the bar operations */
 static gint
 item_event_ok(GooCanvasItem *item,
@@ -767,10 +778,11 @@ item_event_ok(GooCanvasItem *item,
       } else {
 	gc_locale_set(current_locale);
       }
-      g_free(properties->skin);
-      properties->skin = g_strdup((char *)g_list_nth_data(skinlist, skin_index));
-      gc_skin_load(properties->skin);
-      gc_config_stop();
+
+      // Font Face
+      g_free(properties->fontface);
+      properties->fontface = g_strdup((char *)g_list_nth_data(fontlist, font_index));
+      gc_skin_update_font();
 
       if(properties->music || properties->fx)
 	gc_sound_init();
@@ -786,6 +798,7 @@ item_event_ok(GooCanvasItem *item,
 	    gc_sound_fx_close();
 	}
       gc_prop_save(properties);
+      gc_config_stop();
     }
   else if(!strcmp((char *)data, "rememberlevel"))
     {
@@ -887,32 +900,24 @@ item_event_ok(GooCanvasItem *item,
 		    "text", gettext(timername[properties->timer]),
 		    NULL);
     }
-  else if(!strcmp((char *)data, "skin_previous"))
+  else if(!strcmp((char *)data, "font_previous"))
     {
-      gchar *skin_str;
-      if(skin_index-- < 1)
-	skin_index = g_list_length(skinlist)-1;
+      if(font_index-- < 1)
+	font_index = g_list_length(fontlist)-1;
 
-      skin_str = g_strdup_printf(_("Skin : %s"),
-				 (char *)g_list_nth_data(skinlist, skin_index));
-
-      g_object_set (G_OBJECT(item_skin_text),
-		    "text", skin_str,
-		    NULL);
-      g_free(skin_str);
+      _update_font();
     }
-  else if(!strcmp((char *)data, "skin_next"))
+  else if(!strcmp((char *)data, "font_next"))
     {
-      gchar *skin_str;
-      if(skin_index++ >= g_list_length(skinlist)-1)
-	skin_index = 0;
+      if(font_index++ >= g_list_length(fontlist)-1)
+	font_index = 0;
 
-      skin_str = g_strdup_printf(_("Skin : %s"),
-				 (char *)g_list_nth_data(skinlist, skin_index));
-      g_object_set (G_OBJECT(item_skin_text),
-		    "text", skin_str,
-		    NULL);
-      g_free(skin_str);
+      _update_font();
+    }
+  else if(!strcmp((char *)data, "fontface_reset"))
+    {
+      font_index = current_font_index;
+      _update_font();
     }
 
   return TRUE;
