@@ -512,7 +512,7 @@ AC_SUBST(CFLAGS)
 AC_SUBST(LIBS)
 
 dnl Autoconf output
-AC_OUTPUT([
+AC_OUTPUT([ src/mayya-activity/Makefile src/mayya-activity/Makefile src/mayya-activity/Makefile
 Makefile
 Makefile.mingw
 boards/Makefile
