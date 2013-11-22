@@ -67,7 +67,7 @@
 #define BOARDHEIGHT 520
 #define BARHEIGHT   40
 
-#define DEFAULT_SKIN "gartoon"
+#define DEFAULT_SKIN "babytoy"
 
 #define _(String) gettext (String)
 #define gettext_noop(String) String
