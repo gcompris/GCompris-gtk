@@ -150,6 +150,7 @@ class Gcompris_hydroelectric:
       parent = self.rootitem,
       svg_handle = self.svghandle,
       svg_id = "#RESERVOIR1",
+      pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
       )
 
@@ -237,7 +238,8 @@ class Gcompris_hydroelectric:
     self.boatitem = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = self.svghandle,
-      svg_id = "#BOAT"
+      svg_id = "#BOAT",
+      pointer_events = goocanvas.EVENTS_NONE
       )
     self.boatitem.translate(-100, 0);
     self.boatitem_bounds = self.boatitem.get_bounds()
@@ -246,6 +248,7 @@ class Gcompris_hydroelectric:
       parent = self.rootitem,
       svg_handle = self.svghandle,
       svg_id = "#BOAT_PARKED",
+      pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
       )
 
@@ -254,6 +257,7 @@ class Gcompris_hydroelectric:
       parent = self.rootitem,
       svg_handle = self.svghandle,
       svg_id = "#SALOON",
+      pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
       )
 
@@ -819,6 +823,7 @@ class Consumer:
       parent = rootitem,
       svg_handle = svghandle,
       svg_id = target_on,
+      pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
       )
     if target_off:
@@ -826,6 +831,7 @@ class Consumer:
         parent = rootitem,
         svg_handle = svghandle,
         svg_id = target_off,
+        pointer_events = goocanvas.EVENTS_NONE,
         visibility = goocanvas.ITEM_INVISIBLE
         )
     else:
@@ -940,6 +946,7 @@ class Producer:
       parent = rootitem,
       svg_handle = svghandle,
       svg_id = prod_item_on,
+      pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
       )
 
@@ -960,6 +967,7 @@ class Producer:
       parent = rootitem,
       svg_handle = svghandle,
       svg_id = transformer_on,
+      pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
       )
 
@@ -1086,6 +1094,7 @@ class Counter:
       parent = rootitem,
       svg_handle = svghandle,
       svg_id = svg_id,
+      pointer_events = goocanvas.EVENTS_NONE,
       tooltip = "\n\n\n" + tooltip
       )
     self.text = goocanvas.Text(
