@@ -63,7 +63,8 @@ AWALE *moveAwale(short int hole, AWALE * aw)
     return NULL;
   }
 
-  short int nbBeans, j, last;
+  short int nbBeans, i, j, last, start, end;
+  gboolean canGive;
 
   tempAw = g_malloc(sizeof(AWALE));
 
@@ -106,13 +107,42 @@ AWALE *moveAwale(short int hole, AWALE * aw)
       /* Grand Slam case */
       //g_warning("Grand Slam: no capture");
       g_free(tempAw);
+      tempAwGs->player = switch_player(tempAwGs->player);
       return tempAwGs;
     } else{
-      /* No capture and  opponent hungry -> forbidden */
-      //g_warning("isOpponentHungry %s TRUE",(tempAw->player == HUMAN)? "HUMAN" : "COMPUTER" );
-      g_free(tempAw);
-      g_free(tempAwGs);
-      return NULL;
+      /* 2 cases
+	 - or the player was able to give a bean to the opponent     -> this move must be done
+	 - or the player was not able to give a bean to the opponent -> he kept all the beans
+       */
+      canGive = FALSE;
+      start = (aw->player == HUMAN)? START_COMPUTER : START_HUMAN;
+      end   = (aw->player == HUMAN)? END_COMPUTER   : END_HUMAN;
+      for(i=start; i<=end; i++)
+	{
+	  if(NBHOLE/2-(i-start) <= aw->board[i]) // enough beans to be able to give
+	    {
+	      canGive = TRUE;
+	    }
+	}
+
+      if(canGive)
+	{
+	  /* No capture and opponent hungry -> forbidden */
+	  //g_warning("isOpponentHungry %s TRUE",(tempAw->player == HUMAN)? "HUMAN" : "COMPUTER" );
+	  g_free(tempAw);
+	  g_free(tempAwGs);
+	  return NULL;
+	} else
+	{
+	  /* No capture and opponent hungry, but cannot give */
+	  for(i=start; i<=end; i++)
+	    {
+	      tempAw->CapturedBeans[switch_player(tempAw->player)] += aw->board[i];
+	      tempAw->board[i] = 0;
+	    }
+	  g_free(tempAwGs);
+	  return tempAw;
+      }
     }
   }
   else {
