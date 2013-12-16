@@ -6,15 +6,17 @@
 # Leonardo Ferreira Fontenelle <leo.fontenelle@gmail.com>, 2007.
 # Frederico <frederico@teia.bio.br>, 2006, 2011-2013.
 # Rafael Ferreira <rafael.f.f1@gmail.com>, 2013.
+# Adorilson Bezerra <adorilson@gmail.com>, 2013.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-11-22 00:34+0000\n"
-"PO-Revision-Date: 2013-11-25 08:24-0300\n"
-"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2013-12-15 23:13+0000\n"
+"PO-Revision-Date: 2013-12-15 01:14-0300\n"
+"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1462,7 +1464,7 @@ msgstr "Selecione uma casa"
 msgid "Your turn to play ..."
 msgstr "Sua vez de jogar..."
 
-#: ../src/awele-activity/awele.c:690
+#: ../src/awele-activity/awele.c:692
 msgid "Not allowed! Try again !"
 msgstr "Não permitido! Tente novamente!"
 
@@ -3837,7 +3839,7 @@ msgstr ""
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:57
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr ""
 "Frederico Gonçalves Guimarães <frederico@teia.bio.br>\n"
 "Leonardo Ferreira Fontenelle <leo.fontenelle@gmail.com>\n"
@@ -6660,19 +6662,19 @@ msgstr ""
 "cair na forma de chuva"
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:171
 msgid "This is the meter for electricity produced by the turbine. "
 msgstr "Este é o medidor para a eletricidade produzida pela turbina. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:171
-#: ../src/hydroelectric-activity/hydroelectric.py:284
-#: ../src/hydroelectric-activity/hydroelectric.py:292
-#: ../src/hydroelectric-activity/hydroelectric.py:323
-#: ../src/hydroelectric-activity/hydroelectric.py:346
+#: ../src/hydroelectric-activity/hydroelectric.py:172
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+#: ../src/hydroelectric-activity/hydroelectric.py:296
+#: ../src/hydroelectric-activity/hydroelectric.py:327
+#: ../src/hydroelectric-activity/hydroelectric.py:350
 msgid "The electricity power is measured in watts (W)."
 msgstr "A energia elétrica é medida em Watts (W)."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:176
+#: ../src/hydroelectric-activity/hydroelectric.py:177
 msgid ""
 "Flowing water is directed on to the blades of a turbine runner, creating a "
 "force on the blades. In this way, energy is transferred from the water flow "
@@ -6681,11 +6683,11 @@ msgstr ""
 "O fluxo da água é direcionado para as palhetas da turbina, forçando a sua "
 "rotação. Desta forma, a energia é transferida do fluxo da água para a turbina"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:190
+#: ../src/hydroelectric-activity/hydroelectric.py:191
 msgid "This cloud simulates the wind, click on it to have wind."
 msgstr "Esta nuvem simula o vento. Clique nela para produzir vento."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:228
+#: ../src/hydroelectric-activity/hydroelectric.py:229
 msgid ""
 "This is a step down transformer. Electricity is transformed in low voltage, "
 "ready to be used by the customers."
@@ -6694,22 +6696,22 @@ msgstr ""
 "voltagem, pronta para ser utilizada pelos consumidores."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:283
+#: ../src/hydroelectric-activity/hydroelectric.py:287
 msgid "This is the meter for all the electricity produced. "
 msgstr "Este é um medidor para toda a eletricidade produzida. "
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:291
+#: ../src/hydroelectric-activity/hydroelectric.py:295
 msgid "This is the meter for electricity consumed by the users. "
 msgstr "Este é um medidor para a eletricidade consumida pelos usuários. "
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:322
+#: ../src/hydroelectric-activity/hydroelectric.py:326
 msgid "This is the meter for electricity produced by the solar panels. "
 msgstr ""
 "Este é um medidor para a eletricidade produzida pelos painéis solares. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:328
+#: ../src/hydroelectric-activity/hydroelectric.py:332
 msgid ""
 "Solar panels use light energy (photons) from the sun to generate electricity "
 "through the photovoltaic effect."
@@ -6718,12 +6720,12 @@ msgstr ""
 "eletricidade através do efeito fotovoltaico."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:345
+#: ../src/hydroelectric-activity/hydroelectric.py:349
 msgid "This is the meter for electricity produced by the wind turbines. "
 msgstr ""
 "Este é um medidor para a eletricidade produzida pelas turbinas eólicas. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:351
+#: ../src/hydroelectric-activity/hydroelectric.py:355
 msgid ""
 "A wind turbine is a device that converts wind motion energy into electricity "
 "generation. It is called a wind generator or wind charger. "
@@ -6732,7 +6734,7 @@ msgstr ""
 "energia mecânica. Quando utilizada para gerar eletricidade, é chamada "
 "gerador eólico."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:737
+#: ../src/hydroelectric-activity/hydroelectric.py:741
 msgid ""
 "It is not possible to consume more electricity than what is produced. This "
 "is a key limitation in the distribution of electricity, with minor "
@@ -6752,7 +6754,7 @@ msgstr ""
 "as usinas e os equipamentos de transmissão podem entrar em colapso, o que, "
 "em casos mais graves, pode provocar um \"apagão\" regional."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:951
+#: ../src/hydroelectric-activity/hydroelectric.py:958
 msgid ""
 "This is a step up transformer. Electricity is transmitted at high voltages "
 "(110 kV or above) to reduce the energy lost in long distance transmission."
@@ -7515,24 +7517,12 @@ msgid "tool"
 msgstr "ferramenta"
 
 #: ../src/leftright-activity/leftright.c:230
-#: ../src/searace-activity/searace.py:415
-#: ../src/searace-activity/searace.py:439
-#: ../src/searace-activity/searace.py:529
-#: ../src/searace-activity/searace.py:838
-#: ../src/searace-activity/searace.py:872
-#: ../src/searace-activity/searace.py:964
-msgid "left"
-msgstr "esquerda"
+msgid "Left hand"
+msgstr "Mão esquerda"
 
 #: ../src/leftright-activity/leftright.c:236
-#: ../src/searace-activity/searace.py:415
-#: ../src/searace-activity/searace.py:439
-#: ../src/searace-activity/searace.py:539
-#: ../src/searace-activity/searace.py:840
-#: ../src/searace-activity/searace.py:874
-#: ../src/searace-activity/searace.py:958
-msgid "right"
-msgstr "direita"
+msgid "Right hand"
+msgstr "Mão direita"
 
 #: ../src/leftright-activity/leftright.xml.in.h:1
 msgid "Find your left and right hands"
@@ -7551,18 +7541,12 @@ msgstr ""
 "Representação espacial"
 
 #: ../src/leftright-activity/leftright.xml.in.h:4
-#: ../src/note_names-activity/note_names.xml.in.h:3
-#: ../src/railroad-activity/railroad.xml.in.h:4
-msgid "None"
-msgstr "Nenhum"
-
-#: ../src/leftright-activity/leftright.xml.in.h:5
 msgid ""
-"You can see a hand: is it a left hand or a right hand? Click on the red "
-"button on the left, or the green button on the right."
+"You can see a hand: is it a left hand or a right hand? Click on the left "
+"button, or the right button depending on the displayed hand."
 msgstr ""
 "Você consegue perceber se a mão mostrada é a esquerda ou a direita? Clique "
-"no botão vermelho à esquerda ou no botão verde à direita."
+"no botão à esquerda ou no botão à direita, dependendo de qual mão é mostrada."
 
 #: ../src/lightsoff-activity/lightsoff.py:442
 msgid ""
@@ -9050,6 +9034,11 @@ msgstr ""
 "Aprenda os nomes das notas, nas claves de sol e de fá, com a ajuda de sons e "
 "cores"
 
+#: ../src/note_names-activity/note_names.xml.in.h:3
+#: ../src/railroad-activity/railroad.xml.in.h:4
+msgid "None"
+msgstr "Nenhum"
+
 #: ../src/note_names-activity/note_names.xml.in.h:4
 msgid ""
 "To develop a good understanding of note position and naming convention. To "
@@ -10354,6 +10343,15 @@ msgstr ""
 msgid "The race is already being run"
 msgstr "A corrida já começou"
 
+#: ../src/searace-activity/searace.py:415
+#: ../src/searace-activity/searace.py:439
+#: ../src/searace-activity/searace.py:539
+#: ../src/searace-activity/searace.py:840
+#: ../src/searace-activity/searace.py:874
+#: ../src/searace-activity/searace.py:958
+msgid "right"
+msgstr "direita"
+
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
 #: ../src/searace-activity/searace.py:415
@@ -10366,6 +10364,15 @@ msgstr "A corrida já começou"
 #: ../src/searace-activity/searace.py:970
 msgid "forward"
 msgstr "frente"
+
+#: ../src/searace-activity/searace.py:415
+#: ../src/searace-activity/searace.py:439
+#: ../src/searace-activity/searace.py:529
+#: ../src/searace-activity/searace.py:838
+#: ../src/searace-activity/searace.py:872
+#: ../src/searace-activity/searace.py:964
+msgid "left"
+msgstr "esquerda"
 
 #: ../src/searace-activity/searace.py:509
 msgid "COMMANDS ARE"
@@ -10845,7 +10852,7 @@ msgstr "Esta é uma estação de bombeamento de água."
 msgid "This is a water cleanup station."
 msgstr "Esta é uma estação de limpeza de água."
 
-#: ../src/watercycle-activity/watercycle.py:263
+#: ../src/watercycle-activity/watercycle.py:268
 msgid ""
 "A water tower or elevated water tower is a large elevated water storage "
 "container constructed to hold a water supply at a height sufficient to "
