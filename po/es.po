@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-12-09 10:48+0000\n"
-"PO-Revision-Date: 2013-12-11 09:52+0100\n"
+"POT-Creation-Date: 2013-12-15 23:13+0000\n"
+"PO-Revision-Date: 2013-12-18 14:50+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -432,7 +432,7 @@ msgid ""
 "<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
 msgstr ""
-"Configuración del <b>idioma</b>\n"
+"Configuración <b>regional</b>\n"
 " para el perfil <b>{perfil}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:657
@@ -443,7 +443,7 @@ msgid ""
 "<b>Locale sound</b> configuration\n"
 " for profile <b>{profile}</b>"
 msgstr ""
-"Configuración del <b>idioma del sonido</b>\n"
+"Configuración <b>regional de sonido</b>\n"
 " para el perfil <b>{perfil}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:663
@@ -1477,7 +1477,7 @@ msgstr "Escoge una casa"
 msgid "Your turn to play ..."
 msgstr "Tu turno para jugar ..."
 
-#: ../src/awele-activity/awele.c:690
+#: ../src/awele-activity/awele.c:692
 msgid "Not allowed! Try again !"
 msgstr "¡No permitido! ¡Prueba otra vez!"
 
@@ -3862,9 +3862,10 @@ msgstr ""
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:57
-msgid "translator_credits"
+#| msgid "translator_credits"
+msgid "translator-credits"
 msgstr ""
-"Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2012\n"
+"Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2013\n"
 "Jorge González <jorgegonz@svn.gnome.org>, 2007-2010\n"
 "Susana González <sgonzalez@igalia.com>, 2007\n"
 "QA: Jorge González <jorgegonz@svn.gnome.org>, 2007\n"
@@ -7360,6 +7361,7 @@ msgid "Enter the text you hear:"
 msgstr "Escribe el texto que escuchas:"
 
 #: ../src/lang-activity/langLib.py:69
+#, fuzzy
 #| msgid "Missing translation for '{word}'"
 msgid "Missing translation for '{word}'"
 msgstr "Falta la traducción de «{palabra}»"
