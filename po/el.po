@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-11-26 02:22+0000\n"
-"PO-Revision-Date: 2013-11-26 21:06+0200\n"
+"POT-Creation-Date: 2013-12-18 13:51+0000\n"
+"PO-Revision-Date: 2013-12-17 17:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
@@ -433,7 +433,6 @@ msgstr ""
 "για το προφίλ <b>%s</b></span>"
 
 #: ../src/administration-activity/admin/board_list.py:645
-#, python-brace-format
 msgid ""
 "<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -442,7 +441,6 @@ msgstr ""
 " για το προφίλ <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:657
-#, python-brace-format
 msgid ""
 "<b>Locale sound</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -519,7 +517,6 @@ msgid "Editing a Group"
 msgstr "Επεξεργασία μιας ομάδας"
 
 #: ../src/administration-activity/admin/group_edit.py:62
-#, python-brace-format
 msgid "Editing group '{group}' for class '{aclass}'"
 msgstr "Επεξεργασία ομα΄δας '{group}' για την τάξη '{aclass}'"
 
@@ -849,7 +846,6 @@ msgstr ""
 #: ../src/login-activity/login.py:480
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/tuxpaint-activity/tuxpaint.py:186
-#, python-brace-format
 msgid ""
 "<b>{config}</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -1484,7 +1480,7 @@ msgstr "Διάλεξε ένα σπίτι"
 msgid "Your turn to play ..."
 msgstr "Η σειρά σου να παίξεις ..."
 
-#: ../src/awele-activity/awele.c:690
+#: ../src/awele-activity/awele.c:692
 msgid "Not allowed! Try again !"
 msgstr "Δεν επιτρέπεται! Προσπάθησε ξανά!"
 
@@ -1832,7 +1828,6 @@ msgstr ""
 
 #. Translators : Do not translate the token {letter}
 #: ../src/braille_alphabets-activity/braille_alphabets.py:299
-#, python-brace-format
 msgid "Click on the dots in braille cell area to produce the letter {letter}."
 msgstr ""
 "Κάντε κλικ στις θέσεις τελειών του κελιού Μπράιγ για να σχηματίσετε το "
@@ -1930,7 +1925,6 @@ msgid "Click me to get some hint"
 msgstr "Κάντε κλικ  για να λάβετε μια συμβουλή"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
-#, python-brace-format
 msgid ""
 "I don't have this number\n"
 "PLAYER {number}"
@@ -1949,7 +1943,6 @@ msgstr "Δημιουργία αριθμού"
 #. Translators : Do not translate the token {column}
 #: ../src/braille_lotto-activity/braille_lotto.py:296
 #: ../src/braille_lotto-activity/braille_lotto.py:319
-#, python-brace-format
 msgid "Hey, you have it. It is there in your {column} column"
 msgstr "Εεε, το έχεις! Είναι εκεί, στην {column} στήλη."
 
@@ -1979,7 +1972,6 @@ msgid "Game Over"
 msgstr "Τέλος παιχνιδιού"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:465
-#, python-brace-format
 msgid "Congratulation player {player_id}, you won"
 msgstr "Συγχαρητήρια παίκτη {player_id}, κέρδισες!"
 
@@ -3057,7 +3049,6 @@ msgstr ""
 #: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:342
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:505
-#, python-brace-format
 msgid "Cannot find the file '{filename}'"
 msgstr "Αδυναμία εύρεσης του αρχείου '{filename}'"
 
@@ -3282,7 +3273,6 @@ msgstr "Επιστροφή στην αρχική σελίδα"
 #: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:347
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:510
-#, python-brace-format
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3953,7 +3943,7 @@ msgstr ""
 #  TRANSLATORS: Replace this string with your names, one name per line.
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:57
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr ""
 "Γιάννης Κασκαμανίδης <kiolalis@gmail.com>\n"
 "Δημήτρης Σπίγγος <dmtrs32@gmail.com>\n"
@@ -6310,7 +6300,6 @@ msgid " and %d"
 msgstr "και %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:115
-#, python-brace-format
 msgid "{0} is divisible by {1}."
 msgstr "{0} διαιρείται από το {1}."
 
@@ -6339,7 +6328,6 @@ msgid "Factors of %d"
 msgstr "Διαιρέτες του %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:195
-#, python-brace-format
 msgid "{0} are the factors of {1}."
 msgstr "{0} είναι διαιρέτες του {1}."
 
@@ -6349,27 +6337,22 @@ msgid "Multiples of %d"
 msgstr "Πολλαπλάσια του %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:241
-#, python-brace-format
 msgid "{0} = {1}"
 msgstr "{0} = {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:252
-#, python-brace-format
 msgid "{0} + {1}"
 msgstr "{0} + {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:257
-#, python-brace-format
 msgid "{0} − {1}"
 msgstr "{0} − {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:262
-#, python-brace-format
 msgid "{0} × {1}"
 msgstr "{0} × {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:266
-#, python-brace-format
 msgid "{0} ÷ {1}"
 msgstr "{0} ÷ {1}"
 
@@ -6559,12 +6542,10 @@ msgstr ""
 "\"φάτε\" έναν αριθμό."
 
 #: ../src/guessnumber-activity/guessnumber.py:203
-#, python-brace-format
 msgid "Guess a number between {0} and {1}"
 msgstr "Μάντεψε έναν αριθμό μεταξύ του {0} και του {1}"
 
 #: ../src/guessnumber-activity/guessnumber.py:307
-#, python-brace-format
 msgid "Please enter a number between {0} and {1}"
 msgstr "Παρακαλώ βάλε έναν αριθμό μεταξύ {0} και {1}"
 
@@ -6805,21 +6786,21 @@ msgstr ""
 "μορφή βροχής."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:171
 msgid "This is the meter for electricity produced by the turbine. "
 msgstr ""
 "Αυτή είναι το όργανο μέτρησης της ηλεκτρικής ενέργειας που παράγεται από την "
 "τουρμπίνα."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:171
-#: ../src/hydroelectric-activity/hydroelectric.py:284
-#: ../src/hydroelectric-activity/hydroelectric.py:292
-#: ../src/hydroelectric-activity/hydroelectric.py:323
-#: ../src/hydroelectric-activity/hydroelectric.py:346
+#: ../src/hydroelectric-activity/hydroelectric.py:172
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+#: ../src/hydroelectric-activity/hydroelectric.py:296
+#: ../src/hydroelectric-activity/hydroelectric.py:327
+#: ../src/hydroelectric-activity/hydroelectric.py:350
 msgid "The electricity power is measured in watts (W)."
 msgstr "Η ηλεκτρική ενέργεια μετριέται σε Watt (W)."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:176
+#: ../src/hydroelectric-activity/hydroelectric.py:177
 msgid ""
 "Flowing water is directed on to the blades of a turbine runner, creating a "
 "force on the blades. In this way, energy is transferred from the water flow "
@@ -6829,13 +6810,13 @@ msgstr ""
 "τουρμπίνας, ασκώντας δύναμη επάνω τους. Με αυτόν τον τρόπο η ενέργεια του "
 "νερού μεταφέρεται από το τρεχούμενο νερό στην τουρμπίνα."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:190
+#: ../src/hydroelectric-activity/hydroelectric.py:191
 msgid "This cloud simulates the wind, click on it to have wind."
 msgstr ""
 "Αυτό το σύννεφο προσομοιώνει τον άνεμο. Κάντε κλικ επάνω του για να "
 "δημιουργήσετε άνεμο."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:228
+#: ../src/hydroelectric-activity/hydroelectric.py:229
 msgid ""
 "This is a step down transformer. Electricity is transformed in low voltage, "
 "ready to be used by the customers."
@@ -6844,26 +6825,26 @@ msgstr ""
 "μπορεί να χρησιμοποιηθεί από τους καταναλωτές."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:283
+#: ../src/hydroelectric-activity/hydroelectric.py:287
 msgid "This is the meter for all the electricity produced. "
 msgstr ""
 "Αυτό είναι ένα όργανο μέτρησης της ηλεκτρικής ενέργειας που έχει παραχθεί."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:291
+#: ../src/hydroelectric-activity/hydroelectric.py:295
 msgid "This is the meter for electricity consumed by the users. "
 msgstr ""
 "Αυτό είναι ένα όργανο μέτρησης της ηλεκτρικής ενέργειας που καταναλώθηκε από "
 "τους χρήστες."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:322
+#: ../src/hydroelectric-activity/hydroelectric.py:326
 msgid "This is the meter for electricity produced by the solar panels. "
 msgstr ""
 "Αυτό είναι ένα όργανο μέτρησης της ηλεκτρικής ενέργειας που έχει παραχθεί "
 "από τα φωτοβολταϊκά τόξα."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:328
+#: ../src/hydroelectric-activity/hydroelectric.py:332
 msgid ""
 "Solar panels use light energy (photons) from the sun to generate electricity "
 "through the photovoltaic effect."
@@ -6872,20 +6853,20 @@ msgstr ""
 "για να παράγουν ηλεκτρική ενέργεια μέσω της φωτοβολταϊκής επίδρασης."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:345
+#: ../src/hydroelectric-activity/hydroelectric.py:349
 msgid "This is the meter for electricity produced by the wind turbines. "
 msgstr ""
 "Αυτό είναι ένα όργανο μέτρησης της ηλεκτρικής ενέργειας που έχει παραχθεί "
 "από τις ανεμογεννήτριες."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:351
+#: ../src/hydroelectric-activity/hydroelectric.py:355
 msgid ""
 "A wind turbine is a device that converts wind motion energy into electricity "
 "generation. It is called a wind generator or wind charger. "
 msgstr ""
 "Μια ανεμογεννήτρια μετατρέπει την κινητική ενέργεια του ανέμου σε ηλεκτρική. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:737
+#: ../src/hydroelectric-activity/hydroelectric.py:741
 msgid ""
 "It is not possible to consume more electricity than what is produced. This "
 "is a key limitation in the distribution of electricity, with minor "
@@ -6904,7 +6885,7 @@ msgstr ""
 "ηλεκτρικής ενέργειας μπορεί να καταρρεύσει, με αποτέλεσμα τις διακοπές "
 "ρεύματος, που είναι γνωστές και ως blackout."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:951
+#: ../src/hydroelectric-activity/hydroelectric.py:958
 msgid ""
 "This is a step up transformer. Electricity is transmitted at high voltages "
 "(110 kV or above) to reduce the energy lost in long distance transmission."
@@ -7504,7 +7485,6 @@ msgid "Enter the text you hear:"
 msgstr "Εισάγετε το κείμενο που ακούτε:"
 
 #: ../src/lang-activity/langLib.py:69
-#, python-brace-format
 msgid "Missing translation for '{word}'"
 msgstr "Λείπει η μετάφραση της λέξης '{word}'"
 
@@ -7676,24 +7656,12 @@ msgid "tool"
 msgstr "εργαλείο"
 
 #: ../src/leftright-activity/leftright.c:230
-#: ../src/searace-activity/searace.py:415
-#: ../src/searace-activity/searace.py:439
-#: ../src/searace-activity/searace.py:529
-#: ../src/searace-activity/searace.py:838
-#: ../src/searace-activity/searace.py:872
-#: ../src/searace-activity/searace.py:964
-msgid "left"
-msgstr "αριστερά"
+msgid "Left hand"
+msgstr "Αριστερό χέρι"
 
 #: ../src/leftright-activity/leftright.c:236
-#: ../src/searace-activity/searace.py:415
-#: ../src/searace-activity/searace.py:439
-#: ../src/searace-activity/searace.py:539
-#: ../src/searace-activity/searace.py:840
-#: ../src/searace-activity/searace.py:874
-#: ../src/searace-activity/searace.py:958
-msgid "right"
-msgstr "δεξιά"
+msgid "Right hand"
+msgstr "Δεξί χέρι"
 
 #: ../src/leftright-activity/leftright.xml.in.h:1
 msgid "Find your left and right hands"
@@ -7712,18 +7680,12 @@ msgstr ""
 "δεξί χέρι. Εικονίζεται από διάφορες πλευρές"
 
 #: ../src/leftright-activity/leftright.xml.in.h:4
-#: ../src/note_names-activity/note_names.xml.in.h:3
-#: ../src/railroad-activity/railroad.xml.in.h:4
-msgid "None"
-msgstr "Κανένα"
-
-#: ../src/leftright-activity/leftright.xml.in.h:5
 msgid ""
-"You can see a hand: is it a left hand or a right hand? Click on the red "
-"button on the left, or the green button on the right."
+"You can see a hand: is it a left hand or a right hand? Click on the left "
+"button, or the right button depending on the displayed hand."
 msgstr ""
-"Εμφανίζεται ένα χέρι. Είναι το αριστερό ή το δεξί; Κάνε κλικ στο κόκκινο "
-"κουμπί για το αριστερό ή στο πράσινο κουμπί για το δεξί χέρι."
+"Εμφανίζεται ένα χέρι. Είναι το αριστερό ή το δεξί; Κάνε κλικ στο αριστερό ή "
+"το δεξί κουμπί, ανάλογα με το χέρι που εμφανίζεται."
 
 #: ../src/lightsoff-activity/lightsoff.py:442
 msgid ""
@@ -7760,8 +7722,8 @@ msgid ""
 "Lights Off game: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 msgstr ""
 "Ο αλγόριθμος επίλυσης περιγράφεται στη Wikipedia. Για να μάθεις περισσότερα "
-"για το παιχνίδι Φώτα σβηστά: &lt;http://en.wikipedia.org/wiki/"
-"Lights_Out_(game)&gt;"
+"για το παιχνίδι Φώτα σβηστά: &lt;http://en.wikipedia.org/wiki/Lights_Out_"
+"(game)&gt;"
 
 #: ../src/login-activity/login.py:102
 msgid "Profile: "
@@ -9249,6 +9211,11 @@ msgstr ""
 "Μάθετε το όνομα κάθε νότας στο κλειδί για τα μπάσα και τα πρίμα, με τη "
 "βοήθεια των ήχων και των χρωμάτων."
 
+#: ../src/note_names-activity/note_names.xml.in.h:3
+#: ../src/railroad-activity/railroad.xml.in.h:4
+msgid "None"
+msgstr "Κανένα"
+
 #: ../src/note_names-activity/note_names.xml.in.h:4
 msgid ""
 "To develop a good understanding of note position and naming convention. To "
@@ -10600,6 +10567,15 @@ msgstr ""
 msgid "The race is already being run"
 msgstr "Ο αγώνας είναι ήδη έτοιμος να αρχίσει"
 
+#: ../src/searace-activity/searace.py:415
+#: ../src/searace-activity/searace.py:439
+#: ../src/searace-activity/searace.py:539
+#: ../src/searace-activity/searace.py:840
+#: ../src/searace-activity/searace.py:874
+#: ../src/searace-activity/searace.py:958
+msgid "right"
+msgstr "δεξιά"
+
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
 #: ../src/searace-activity/searace.py:415
@@ -10612,6 +10588,15 @@ msgstr "Ο αγώνας είναι ήδη έτοιμος να αρχίσει"
 #: ../src/searace-activity/searace.py:970
 msgid "forward"
 msgstr "μπροστά"
+
+#: ../src/searace-activity/searace.py:415
+#: ../src/searace-activity/searace.py:439
+#: ../src/searace-activity/searace.py:529
+#: ../src/searace-activity/searace.py:838
+#: ../src/searace-activity/searace.py:872
+#: ../src/searace-activity/searace.py:964
+msgid "left"
+msgstr "αριστερά"
 
 #: ../src/searace-activity/searace.py:509
 msgid "COMMANDS ARE"
@@ -11114,7 +11099,7 @@ msgstr "Αυτό είναι ένα αντλιοστάσιο νερού."
 msgid "This is a water cleanup station."
 msgstr "Αυτός είναι ένας σταθμός βιολογικού καθαρισμού."
 
-#: ../src/watercycle-activity/watercycle.py:263
+#: ../src/watercycle-activity/watercycle.py:268
 msgid ""
 "A water tower or elevated water tower is a large elevated water storage "
 "container constructed to hold a water supply at a height sufficient to "
