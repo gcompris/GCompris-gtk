@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GCompris>
+  <Board
+        name="whattime"
+        type="python:whattime"
+        section="/experimental"
+        icon="whattime.svg"
+        difficulty="1"
+        author="Kesha Shah |kesha.shah1106@gmail.com"
+        boarddir=""
+        >
+        <title>Guess the Time</title>
+        <description>This activity is to make a child proficient in reading the analog clock</description>
+        <prerequisite>Reading 1-60 numbers and understanding basic English as well as operating keyboard and mouse</prerequisite>
+        <goal>The goal is to make the user proficient in reading time from the analog clock</goal>
+        <manual>The activity is divided into three levels. The first level tells what this activity is all about.
+	  In the next level, the minute hand will be at a distance of 15 units and in the third level the time would be with the accuracy of 1 minute.</manual>
+  </Board>
+  <Data directory=""/>
+</GCompris>
