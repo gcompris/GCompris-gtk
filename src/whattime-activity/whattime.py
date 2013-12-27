@@ -35,15 +35,15 @@ from gcompris import gcompris_gettext as _
 
 #Array Declaration
 #hour array
-hour_arr = ['01','02','03','04','05','06','07','08','09','10','11','12']
+hour_arr = ['1','2','3','4','5','6','7','8','9','10','11','12']
 random.shuffle(hour_arr)
 
 #minute -level 2 array
-minute_arr_one = ['00','15','30','45']
+minute_arr_one = ['0','15','30','45']
 random.shuffle(minute_arr_one)
 
 #minute -level 3 array
-minute_arr_two = ['O0','01','02','03','04','05','06','07','08','09',
+minute_arr_two = ['0','1','2','3','4','5','6','7','8','9',
 		  '10','11','12','13','14','15','16','17','18','19',
 		  '20','21','22','23','24','25','26','27','28','29',
 		  '30','31','32','33','34','35','36','37','38','39',
@@ -77,6 +77,7 @@ class Gcompris_whattime:
 
     #Boolean variable decaration
     self.mapActive = False
+    self.stopped = True
     
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
@@ -98,11 +99,12 @@ class Gcompris_whattime:
     # only have to kill it. The canvas deletes all the items it contains
     # automaticaly.
     self.rootitem = goocanvas.Group(parent = self.gcomprisBoard.canvas.get_root_item())
-    
+    self.stopped = False
     self.board_upper(self.gcomprisBoard.level)
 
   def end(self):
     print "whattime end"
+    self.stopped = True
     # Remove the root item removes all the others inside it
     self.rootitem.remove()
 
@@ -232,9 +234,9 @@ class Gcompris_whattime:
     print("whattime pause. %i" % pause)
     # Hack for widget that can't be covered by bonus and/or help
     if pause:
-       self.entry.props.visibility = goocanvas.ITEM_INVISIBLE
+       self.hour.props.visibility = goocanvas.ITEM_INVISIBLE
     else:
-      self.entry.props.visibility = goocanvas.ITEM_VISIBLE
+      self.hour.props.visibility = goocanvas.ITEM_VISIBLE
 
     if(pause == 0):
       self.counter += 1
@@ -320,17 +322,19 @@ class Gcompris_whattime:
     elif(level == 2):
 	  #selecting a random minute hand position
 	  #for level three, it would be either 00 to 03
-	  self.random_minute = minute_arr_two[random.randint(0,3)]
-	  
+	  self.random_minute = minute_arr_one[random.randint(0,3)]
+	  self.sublevel = 5
+    
     elif(level == 3):
 	  #selecting a random minute hand position
 	  #for level three, it would be either 00 to 59 
 	  self.random_minute = minute_arr_two[random.randint(0,59)]
+	  self.sublevel = 10
     
     # Set a background image
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"whattime/background.jpg")
 
-    if ( level != 1):
+    if ( level == 3 or level == 2):
 	goocanvas.Text(
 	  parent = self.rootitem,
 	  x=450.0,
@@ -373,32 +377,87 @@ class Gcompris_whattime:
 	  stroke_color = "blue", 
 	  line_width = 2.5)
 	  
-	self.ok_cell()
+	self.indicator =goocanvas.Text(
+        parent = self.rootitem,
+        x=100.0,
+        y=200.0,
+        width = 700,
+        font=gcompris.skin.get_font("gcompris/subtitle"),
+        text=(""),
+        fill_color="dark green",
+        anchor = gtk.ANCHOR_CENTER,
+        alignment = pango.ALIGN_CENTER,
+        )
 
-  #def scale_moved(self, event):
-  #     self.correct_hour=str(int(self.h_scale1.get_value()))
-  #      self.correct_minute=str(int(self.h_scale2.get_value()))
-  
-  def ok_cell(self):
-      print("In ok_cell function\n")
-      #OK Button
-      ok = goocanvas.Svg(parent = self.rootitem,
-                         svg_handle = gcompris.skin.svg_get(),
-                         svg_id = "#OK",
-                         tooltip = "Click to confirm your answer"
-                         )
-      ok.translate(-400,0)
+        #OK Button
+	ok = goocanvas.Svg(parent = self.rootitem,
+			  svg_handle = gcompris.skin.svg_get(),
+			  svg_id = "#OK",
+			  tooltip = "Click to confirm your answer"
+			  )
+	ok.translate(-400,0)
 
-      ok.connect("button_press_event", self.ok_event)
-      gcompris.utils.item_focus_init(ok, None)
+	hour_item = self.hour_text()
+	
+	ok.connect("button_press_event", self.ok_event, hour_item )
+	gcompris.utils.item_focus_init(ok, None)
 
-  def ok_event(self,item,target,event):
-      print("In ok_event function\n")
-      if(self.random_hour == self.correct_hour and self.random_minute == self.correct_minute):
-          gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.SMILEY)
-      else :
-          gcompris.bonus.display(gcompris.bonus.LOOSE,gcompris.bonus.SMILEY)
- 
+  def hour_text(self):
+    self.hour = gtk.Entry()
+
+    self.hour.modify_font(pango.FontDescription(gcompris.skin.get_font("gcompris/board/big bold")))
+    text_color = gtk.gdk.color_parse("blue")
+    text_color_selected = gtk.gdk.color_parse("green")
+
+    self.hour.modify_text(gtk.STATE_NORMAL, text_color)
+    self.hour.modify_text(gtk.STATE_SELECTED, text_color_selected)
+
+    # allow only 2 number of digits 
+    self.hour.set_max_length(2)
+    self.hour.connect("activate", self.enter_callback)
+    self.hour.connect("changed", self.enter_char_callback)
+
+    self.hour.props.visibility = goocanvas.ITEM_VISIBLE
+
+    self.widget = goocanvas.Widget(
+      parent = self.rootitem,
+      widget=self.hour,
+      x=60,
+      y=400,
+      width=40,
+      height=46,
+      anchor=gtk.ANCHOR_CENTER,
+      )
+
+    self.widget.raise_(None)
+
+    self.hour.grab_focus()
+
+    return self.hour
+
+  def enter_char_callback(self, widget):
+      text = widget.get_text()
+      widget.set_text(text.decode('utf8').upper().encode('utf8'))
+
+  def enter_callback(self, widget):
+    text = widget.get_text()
+
+    # Find a number game
+    if self.random_hour == text:
+      self.indicator.props.text = ""
+      gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.TUX)
+      self.next_level()
+    else:
+      self.indicator.props.text = \
+	  _("Wrong Answer.\nTry Again")
+      widget.set_text('')
+      return
+
+  def ok_event(self, widget, target, event, data):
+    if self.stopped:
+      return
+    self.enter_callback(data) 
+    
   def next_level(self,event,target,item):
       print("In next_level function\n");
       self.increment_level()
