@@ -24,6 +24,7 @@ import gcompris.utils
 import gcompris.skin
 import gcompris.bonus
 import gcompris.sound
+import gobject
 import goocanvas
 import pango
 import string
@@ -229,6 +230,12 @@ class Gcompris_whattime:
     
   def pause(self, pause):
     print("whattime pause. %i" % pause)
+    # Hack for widget that can't be covered by bonus and/or help
+    if pause:
+       self.entry.props.visibility = goocanvas.ITEM_INVISIBLE
+    else:
+      self.entry.props.visibility = goocanvas.ITEM_VISIBLE
+
     if(pause == 0):
       self.counter += 1
       if(self.counter == self.sublevel):
@@ -311,129 +318,63 @@ class Gcompris_whattime:
           gcompris.utils.item_focus_init(self.nextlev,None)
           
     elif(level == 2):
-	  # Set a background image
-	  gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"whattime/background.jpg")
-    
-	  goocanvas.Text(
-	    parent = self.rootitem,
-	    x=450.0,
-	    y=50.0,
-	    text=_("Can You Guess \n"
-		    "What Time Is It ? "),
-	    fill_color="dark blue",
-	    font="Sans 15",
-	    anchor = gtk.ANCHOR_CENTER,
-	    alignment = pango.ALIGN_CENTER
-	    )
-	  
-	  #displaying the main clock
-	  self.Clock = goocanvas.Image(
-	    parent = self.rootitem,
-	    pixbuf = gcompris.utils.load_pixmap("whattime/alarm-clock.png"),
-	    x = 250,
-	    y = 60,
-	    width = 400,
-	    height = 400    
-	  )
-	  
-	  #selecting a random hour hand position
-	  self.random_hour = hour_arr[random.randint(0,11)]
-	  print("Random hour is "+self.random_hour)
-	  
 	  #selecting a random minute hand position
-	  #for level two, it would be either 00,15,30 or 45 
-	  self.random_minute = minute_arr_one[random.randint(0,3)]
-	  print("Random minute is "+self.random_minute)
-	  
-	  #yellow line indicating hour
-	  goocanvas.Polyline(
-	    parent = self.rootitem,
-	    points = goocanvas.Points([(450,280), 
-			(450+75*math.cos(math.radians(int(self.random_hour)*30 - 90+ int(self.random_minute)/2)),280+75*math.sin(math.radians(int(self.random_hour)*30 - 90+ int(self.random_minute)/2)))]),
-	    stroke_color = "yellow", 
-	    line_width = 5.0)
-	  
-	  #blue line indicating hour
-	  goocanvas.Polyline(
-	    parent = self.rootitem,
-	    points = goocanvas.Points([(450,280), (450+120*math.cos(math.radians(int(self.random_minute)*6 - 90)),280+120*math.sin(math.radians(int(self.random_minute)*6 - 90)))]),
-	    stroke_color = "blue", 
-	    line_width = 2.5)
-	    
-	  #scale for hour  
-	  #self.h_scale1 = Gtk.Scale(orientation=Gtk.Orientation.HORIZONTAL,
-	  #			    adjustment=Gtk.Adjustment(0,0,12,1,1,0) )
-	  #self.h_scale1.connect("value-changed",self.scale_moved)
-
-	  #scale for minute 
-	  #self.h_scale2 = Gtk.Scale(orientation=Gtk.Orientation.HORIZONTAL,
-	  #			    adjustment=Gtk.Adjustment(0,0,60,1,1,0) )
-	  #self.h_scale2.connect("value-changed",self.scale_moved)
-	    
-	  self.ok_cell()
+	  #for level three, it would be either 00 to 03
+	  self.random_minute = minute_arr_two[random.randint(0,3)]
 	  
     elif(level == 3):
-	  # Set a background image
-	  gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"whattime/background.jpg")
-    
-	  goocanvas.Text(
-	    parent = self.rootitem,
-	    x=450.0,
-	    y=50.0,
-	    text=_("Can You Guess \n"
-		  "What Time Is It ? "),
-	    fill_color="dark blue",
-	    font="Sans 15",
-	    anchor = gtk.ANCHOR_CENTER,
-	    alignment = pango.ALIGN_CENTER
-	    )
-	  
-	  #displaying the main clock
-	  self.Clock = goocanvas.Image(
-	    parent = self.rootitem,
-	    pixbuf = gcompris.utils.load_pixmap("whattime/alarm-clock.png"),
-	    x = 250,
-	    y = 60,
-	    width = 400,
-	    height = 400    
-	  )
-	  
-	  #selecting a random hour hand position
-	  self.random_hour = hour_arr[random.randint(0,11)] 
-	  print("Random hour is "+self.random_hour)
-	  
 	  #selecting a random minute hand position
 	  #for level three, it would be either 00 to 59 
 	  self.random_minute = minute_arr_two[random.randint(0,59)]
-	  print("Random hour is "+self.random_minute)
-	  
-	  #yellow line indicating hour
-	  goocanvas.Polyline(
-	    parent = self.rootitem,
-	    points = goocanvas.Points([(450,280),
-			  (450+75*math.cos(math.radians(int(self.random_hour)*30 - 90 + int(self.random_minute)/2)),280+75*math.sin(math.radians(int(self.random_hour)*30 - 90 + int(self.random_minute)/2)))]),
-	    stroke_color = "yellow", 
-	    line_width = 5.0)
-	    
-	  #blue line indicating hour
-	  goocanvas.Polyline(
-	    parent = self.rootitem,
-	    points = goocanvas.Points([(450,280), (450+120*math.cos(math.radians(int(self.random_minute)*6 - 90)),280+120*math.sin(math.radians(int(self.random_minute)*6 - 90)))]),
-	    stroke_color = "blue", 
-	    line_width = 2.5)
-	    
-	  #scale for hour  
-	  #self.h_scale1 = Gtk.Scale(orientation=Gtk.Orientation.HORIZONTAL,
-	  #			    adjustment=Gtk.Adjustment(0,0,12,1,1,0) )
-	  #self.h_scale1.connect("value-changed",self.scale_moved)
+    
+    # Set a background image
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"whattime/background.jpg")
 
-	  #scale for minute 
-	  #self.h_scale2 = Gtk.Scale(orientation=Gtk.Orientation.HORIZONTAL,
-	  #			    adjustment=Gtk.Adjustment(0,0,60,1,1,0) )
-	  #self.h_scale2.connect("value-changed",self.scale_moved)
+    if ( level != 1):
+	goocanvas.Text(
+	  parent = self.rootitem,
+	  x=450.0,
+	  y=50.0,
+	  text=_("Can You Guess \n"
+		"What Time Is It ? "),
+	  fill_color="dark blue",
+	  font="Sans 15",
+	  anchor = gtk.ANCHOR_CENTER,
+	  alignment = pango.ALIGN_CENTER
+	  )
+	
+	#displaying the main clock
+	self.Clock = goocanvas.Image(
+	  parent = self.rootitem,
+	  pixbuf = gcompris.utils.load_pixmap("whattime/alarm-clock.png"),
+	  x = 250,
+	  y = 60,
+	  width = 400,
+	  height = 400    
+	)
+	
+	#selecting a random hour hand position
+	self.random_hour = hour_arr[random.randint(0,11)] 
+	print("Random hour is "+self.random_hour)
+	print("Random minute is "+self.random_minute)
+	
+	#yellow line indicating hour
+	goocanvas.Polyline(
+	  parent = self.rootitem,
+	  points = goocanvas.Points([(450,280),
+			(450+75*math.cos(math.radians(int(self.random_hour)*30 - 90 + int(self.random_minute)/2)),280+75*math.sin(math.radians(int(self.random_hour)*30 - 90 + int(self.random_minute)/2)))]),
+	  stroke_color = "yellow", 
+	  line_width = 5.0)
 	  
-	  self.ok_cell()
- 
+	#blue line indicating hour
+	goocanvas.Polyline(
+	  parent = self.rootitem,
+	  points = goocanvas.Points([(450,280), (450+120*math.cos(math.radians(int(self.random_minute)*6 - 90)),280+120*math.sin(math.radians(int(self.random_minute)*6 - 90)))]),
+	  stroke_color = "blue", 
+	  line_width = 2.5)
+	  
+	self.ok_cell()
+
   #def scale_moved(self, event):
   #     self.correct_hour=str(int(self.h_scale1.get_value()))
   #      self.correct_minute=str(int(self.h_scale2.get_value()))
