@@ -71,13 +71,16 @@ class Gcompris_whattime:
     self.counter = 0
     self.gcomprisBoard = gcomprisBoard
     self.gcomprisBoard.level = 1
-    self.gcomprisBoard.maxlevel = 3
+    self.gcomprisBoard.maxlevel = 4
     self.gcomprisBoard.sublevel = 1
     self.gcomprisBoard.number_of_sublevel = 1
 
     #Boolean variable decaration
     self.mapActive = False
     self.stopped = True
+    self.wrongcount = 0
+    self.correctcount = 0
+    self.hrdone=0
     
     # Needed to get key_press
     gcomprisBoard.disable_im_context = True
@@ -330,6 +333,20 @@ class Gcompris_whattime:
 	  #for level three, it would be either 00 to 59 
 	  self.random_minute = minute_arr_two[random.randint(0,59)]
 	  self.sublevel = 10
+	  
+    elif(level == 4):
+          self.sublevel = 1
+          goocanvas.Text(parent=self.rootitem,
+			  x=400,
+			  y=220,
+			  fill_color="black",
+			  font="Sans 20",
+			  anchor=gtk.ANCHOR_CENTER,
+			  text="ScoreBoard: \n\n\n"
+			  "Correct Attempts:"+str(self.correctcount)+"\n"
+			  "Wrong Attempts:"+str(self.wrongcount)+"\n"
+			  "Total Attempts:"+str(self.correctcount+self.wrongcount)+"\n"
+			)  
     
     # Set a background image
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"whattime/background.jpg")
@@ -377,6 +394,7 @@ class Gcompris_whattime:
 	  stroke_color = "blue", 
 	  line_width = 2.5)
 	  
+	#displaying if the answer is wrong    
 	self.indicator =goocanvas.Text(
         parent = self.rootitem,
         x=100.0,
@@ -384,10 +402,22 @@ class Gcompris_whattime:
         width = 700,
         font=gcompris.skin.get_font("gcompris/subtitle"),
         text=(""),
-        fill_color="dark green",
+        fill_color="dark blue",
         anchor = gtk.ANCHOR_CENTER,
         alignment = pango.ALIGN_CENTER,
         )
+        
+        #displaying ":" between minute and hour
+        goocanvas.Text(
+	  parent = self.rootitem,
+	  x=100.0,
+	  y=400.0,
+	  text=_(" :"),
+	  fill_color="dark blue",
+	  font="Sans 15",
+	  anchor = gtk.ANCHOR_CENTER,
+	  alignment = pango.ALIGN_CENTER
+	  )
 
         #OK Button
 	ok = goocanvas.Svg(parent = self.rootitem,
@@ -398,10 +428,42 @@ class Gcompris_whattime:
 	ok.translate(-400,0)
 
 	hour_item = self.hour_text()
+	minute_item = self.minute_text()
 	
-	ok.connect("button_press_event", self.ok_event, hour_item )
+	ok.connect("button_press_event", self.ok_event, hour_item, minute_item )
 	gcompris.utils.item_focus_init(ok, None)
 
+  def minute_text(self):
+    self.minute = gtk.Entry()
+
+    self.minute.modify_font(pango.FontDescription(gcompris.skin.get_font("gcompris/board/big bold")))
+    text_color = gtk.gdk.color_parse("blue")
+    text_color_selected = gtk.gdk.color_parse("green")
+
+    self.minute.modify_text(gtk.STATE_NORMAL, text_color)
+    self.minute.modify_text(gtk.STATE_SELECTED, text_color_selected)
+
+    # allow only 2 number of digits 
+    self.minute.set_max_length(2)
+    self.minute.connect("activate", self.enter_callback_2)
+    self.minute.connect("changed", self.enter_char_callback_2)
+
+    self.minute.props.visibility = goocanvas.ITEM_VISIBLE
+
+    self.widget2 = goocanvas.Widget(
+      parent = self.rootitem,
+      widget=self.minute,
+      x=150,
+      y=400,
+      width=40,
+      height=46,
+      anchor=gtk.ANCHOR_CENTER,
+      )
+
+    self.widget2.raise_(None)
+
+    return self.minute
+    
   def hour_text(self):
     self.hour = gtk.Entry()
 
@@ -434,6 +496,7 @@ class Gcompris_whattime:
     self.hour.grab_focus()
 
     return self.hour
+    
 
   def enter_char_callback(self, widget):
       text = widget.get_text()
@@ -441,22 +504,53 @@ class Gcompris_whattime:
 
   def enter_callback(self, widget):
     text = widget.get_text()
-
-    # Find a number game
+    self.hrdone = 0
+    
+    # Check if the hour on the click matches
     if self.random_hour == text:
       self.indicator.props.text = ""
-      gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.TUX)
-      self.next_level()
+      self.hrdone = 1
     else:
-      self.indicator.props.text = \
-	  _("Wrong Answer.\nTry Again")
+      self.wrongcount=self.wrongcount+1
+      if text > 12 or number <= 0:
+        self.indicator.props.text = _("Out of range Hour.\nTry Again.")
+      else:
+	self.indicator.props.text = \
+	  _("Wrong Hour.\nTry Again")
+      self.hour.grab_focus()
       widget.set_text('')
       return
 
-  def ok_event(self, widget, target, event, data):
+      
+  def enter_char_callback_2(self, widget2):
+      text = widget2.get_text()
+      widget2.set_text(text.decode('utf8').upper().encode('utf8'))
+
+  def enter_callback_2(self, widget2):
+    text = widget2.get_text()
+
+    # Check if the minute on the clock matches
+    if self.random_minute == text and self.hrdone == 1:
+      self.correctcount=self.correctcount+1
+      self.indicator.props.text = ""
+      gcompris.bonus.display(gcompris.bonus.WIN,gcompris.bonus.TUX)
+      self.next_level()
+    elif self.hrdone == 1:
+      self.wrongcount=self.wrongcount+1
+      if text > 59 or number < 0:
+        self.indicator.props.text = _("Out of range Minute.\nTry Again")
+      else:
+	self.indicator.props.text = \
+	  _("Wrong Minute.\nTry Again")
+      self.minute.grab_focus()
+      widget2.set_text('')
+      return
+      
+  def ok_event(self, item, target, event, data_hr, data_min):
     if self.stopped:
       return
-    self.enter_callback(data) 
+    self.enter_callback(data_hr)
+    self.enter_callback_2(data_min)
     
   def next_level(self,event,target,item):
       print("In next_level function\n");
