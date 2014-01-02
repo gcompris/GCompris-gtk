@@ -297,6 +297,7 @@ class Gcompris_whattime:
 				"Moreover,there are 24 hours in a day\n"
 				"First 12 hours indicated by AM.\n"
 				"And the later half of day by PM.\n"
+				"We will play with 12-hour format.\n"
 			)
 	
 	  #displaying the main clock
