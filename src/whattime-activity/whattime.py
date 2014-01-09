@@ -481,7 +481,7 @@ class Gcompris_whattime:
       self.hrdone = 1
     else:
       self.wrongcount=self.wrongcount+1
-      if text > 12 or number <= 0:
+      if int(text) > 12 or int(text) <= 0:
         self.indicator.props.text = _("Out of range Hour.\nTry Again.")
       else:
 	self.indicator.props.text = \
@@ -506,7 +506,7 @@ class Gcompris_whattime:
       self.next_level()
     elif self.hrdone == 1:
       self.wrongcount=self.wrongcount+1
-      if text > 59 or number < 0:
+      if int(text) > 59 or int(text) < 0:
         self.indicator.props.text = _("Out of range Minute.\nTry Again")
       else:
 	self.indicator.props.text = \
