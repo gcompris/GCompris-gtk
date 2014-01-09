@@ -307,7 +307,7 @@ class Gcompris_whattime:
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"whattime/gcompris-clock.svgz")
 
     if ( level == 1 or level == 2):
-	#text displaying hour hand for left hand clock
+	#text displaying hour 
 	goocanvas.Text(
 	  parent = self.rootitem,
 	  x=60.0,
@@ -319,7 +319,7 @@ class Gcompris_whattime:
 	  alignment = pango.ALIGN_CENTER
 	  )
 	
-	#text displaying hour hand for right hand clock
+	#text displaying minute
 	goocanvas.Text(
 	  parent = self.rootitem,
 	  x=150.0,
@@ -351,16 +351,16 @@ class Gcompris_whattime:
 	#yellow line indicating hour
 	goocanvas.Polyline(
 	  parent = self.rootitem,
-	  points = goocanvas.Points([(450,280),
-			(450+75*math.cos(math.radians(int(self.random_hour)*30 - 90 + int(self.random_minute)/2)),280+75*math.sin(math.radians(int(self.random_hour)*30 - 90 + int(self.random_minute)/2)))]),
-	  stroke_color = "yellow", 
+	  points = goocanvas.Points([(415,250),
+			(415+100*math.cos(math.radians(int(self.random_hour)*30 - 90 + int(self.random_minute)/2)),250+100*math.sin(math.radians(int(self.random_hour)*30 - 90 + int(self.random_minute)/2)))]),
+	  stroke_color = "blue", 
 	  line_width = 5.0)
 	  
 	#blue line indicating hour
 	goocanvas.Polyline(
 	  parent = self.rootitem,
-	  points = goocanvas.Points([(450,280), (450+120*math.cos(math.radians(int(self.random_minute)*6 - 90)),280+120*math.sin(math.radians(int(self.random_minute)*6 - 90)))]),
-	  stroke_color = "blue", 
+	  points = goocanvas.Points([(415,250), (415+150*math.cos(math.radians(int(self.random_minute)*6 - 90)),250+150*math.sin(math.radians(int(self.random_minute)*6 - 90)))]),
+	  stroke_color = "red", 
 	  line_width = 2.5)
 	  
 	#displaying if the answer is wrong    
