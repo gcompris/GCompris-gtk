@@ -353,6 +353,30 @@ class Gcompris_whattime:
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"whattime/background.jpg")
 
     if ( level == 3 or level == 2):
+	#text displaying hour hand for left hand clock
+	goocanvas.Text(
+	  parent = self.rootitem,
+	  x=60.0,
+	  y=375.0,
+	  text=_("Hour"),
+	  fill_color="black",
+	  width=5000,
+	  anchor = gtk.ANCHOR_CENTER,
+	  alignment = pango.ALIGN_CENTER
+	  )
+	
+	#text displaying hour hand for right hand clock
+	goocanvas.Text(
+	  parent = self.rootitem,
+	  x=150.0,
+	  y=375.0,
+	  text=_("Minute"),
+	  fill_color="black",
+	  width=5000,
+	  anchor = gtk.ANCHOR_CENTER,
+	  alignment = pango.ALIGN_CENTER
+	  )
+    
 	goocanvas.Text(
 	  parent = self.rootitem,
 	  x=450.0,
