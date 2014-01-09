@@ -71,7 +71,7 @@ class Gcompris_whattime:
     self.counter = 0
     self.gcomprisBoard = gcomprisBoard
     self.gcomprisBoard.level = 1
-    self.gcomprisBoard.maxlevel = 4
+    self.gcomprisBoard.maxlevel = 3
     self.gcomprisBoard.sublevel = 1
     self.gcomprisBoard.number_of_sublevel = 1
 
@@ -93,9 +93,9 @@ class Gcompris_whattime:
     gcompris.bar_set_level(self.gcomprisBoard)
     
     pixmap = gcompris.utils.load_svg("whattime/target.svg")
-    gcompris.bar_set_repeat_icon(pixmap)
-    gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
-    gcompris.bar_location(300,-1,0.8)
+    #gcompris.bar_set_repeat_icon(pixmap)
+    #gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON)
+    #gcompris.bar_location(300,-1,0.8)
     gcompris.bar_set_level(self.gcomprisBoard)
 
     # Create our rootitem. We put each canvas item in it so at the end we
@@ -116,101 +116,101 @@ class Gcompris_whattime:
 
   def repeat(self):
     print("whattime repeat.")
-    if(self.mapActive):
-          self.end()
-          self.start()
-          self.mapActive = False
-    else:
-          self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
-          self.rootitem = goocanvas.Group(parent=
-                                   self.gcomprisBoard.canvas.get_root_item())
-          gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
+    #if(self.mapActive):
+          #self.end()
+          #self.start()
+          #self.mapActive = False
+    #else:
+          #self.rootitem.props.visibility = goocanvas.ITEM_INVISIBLE
+          #self.rootitem = goocanvas.Group(parent=
+                                   #self.gcomprisBoard.canvas.get_root_item())
+          #gcompris.set_default_background(self.gcomprisBoard.canvas.get_root_item())
           
-          #text displaying how to read clock
-          goocanvas.Text(
-	    parent = self.rootitem,
-	    x=400.0,
-	    y=40.0,
-	    text=_("Learn to Read Clock"),
-	    fill_color="black",
-	    width=5000,
-	    anchor = gtk.ANCHOR_CENTER,
-	    alignment = pango.ALIGN_CENTER
-	    )
+          ##text displaying how to read clock
+          #goocanvas.Text(
+	    #parent = self.rootitem,
+	    #x=400.0,
+	    #y=40.0,
+	    #text=_("Learn to Read Clock"),
+	    #fill_color="black",
+	    #width=5000,
+	    #anchor = gtk.ANCHOR_CENTER,
+	    #alignment = pango.ALIGN_CENTER
+	    #)
           
-          #text displaying hour hand for left hand clock
-          goocanvas.Text(
-	    parent = self.rootitem,
-	    x=200.0,
-	    y=80.0,
-	    text=_("Hour Hand"),
-	    fill_color="black",
-	    width=5000,
-	    anchor = gtk.ANCHOR_CENTER,
-	    alignment = pango.ALIGN_CENTER
-	    )
+          ##text displaying hour hand for left hand clock
+          #goocanvas.Text(
+	    #parent = self.rootitem,
+	    #x=200.0,
+	    #y=80.0,
+	    #text=_("Hour Hand"),
+	    #fill_color="black",
+	    #width=5000,
+	    #anchor = gtk.ANCHOR_CENTER,
+	    #alignment = pango.ALIGN_CENTER
+	    #)
           
-          #text displaying hour hand for right hand clock
-          goocanvas.Text(
-	    parent = self.rootitem,
-	    x=550.0,
-	    y=80.0,
-	    text=_("Minute Hand"),
-	    fill_color="black",
-	    width=5000,
-	    anchor = gtk.ANCHOR_CENTER,
-	    alignment = pango.ALIGN_CENTER
-	    )
+          ##text displaying hour hand for right hand clock
+          #goocanvas.Text(
+	    #parent = self.rootitem,
+	    #x=550.0,
+	    #y=80.0,
+	    #text=_("Minute Hand"),
+	    #fill_color="black",
+	    #width=5000,
+	    #anchor = gtk.ANCHOR_CENTER,
+	    #alignment = pango.ALIGN_CENTER
+	    #)
 	    
-          #clock on right
-          self.Clockstudy1 = goocanvas.Image(
-	    parent = self.rootitem,
-	    pixbuf = gcompris.utils.load_pixmap("whattime/clock_study1.png"),
-	    x = 400,
-	    y = 100,
-	    width = 300,
-	    height = 300,
-	    tooltip = "Reading different positions of minute hand on clock"
-	  )
-          gcompris.utils.item_focus_init(self.Clockstudy1,None)
+          ##clock on right
+          #self.Clockstudy1 = goocanvas.Image(
+	    #parent = self.rootitem,
+	    #pixbuf = gcompris.utils.load_pixmap("whattime/clock_study1.png"),
+	    #x = 400,
+	    #y = 100,
+	    #width = 300,
+	    #height = 300,
+	    #tooltip = "Reading different positions of minute hand on clock"
+	  #)
+          #gcompris.utils.item_focus_init(self.Clockstudy1,None)
           
-          #clock on left
-          self.Clockstudy2 = goocanvas.Image(
-	    parent = self.rootitem,
-	    pixbuf = gcompris.utils.load_pixmap("whattime/clock_study2.png"),
-	    x = 50,
-	    y = 100,
-	    width = 300,
-	    height = 300,
-	    tooltip = "Reading different time of hour hand on clock"
-	  )
-          gcompris.utils.item_focus_init(self.Clockstudy2,None)
+          ##clock on left
+          #self.Clockstudy2 = goocanvas.Image(
+	    #parent = self.rootitem,
+	    #pixbuf = gcompris.utils.load_pixmap("whattime/clock_study2.png"),
+	    #x = 50,
+	    #y = 100,
+	    #width = 300,
+	    #height = 300,
+	    #tooltip = "Reading different time of hour hand on clock"
+	  #)
+          #gcompris.utils.item_focus_init(self.Clockstudy2,None)
           
-          #text displaying go back
-          self.goback = goocanvas.Text(
-	    parent = self.rootitem,
-	    x=700.0,
-	    y=450.0,
-	    text=_("Move Back"),
-	    fill_color="green",
-	    width=5000,
-	    anchor = gtk.ANCHOR_CENTER,
-	    alignment = pango.ALIGN_CENTER
-	    )
-	  self.goback.connect("button_press_event", self.move_back)
-          gcompris.utils.item_focus_init(self.goback,None)
+          ##text displaying go back
+          #self.goback = goocanvas.Text(
+	    #parent = self.rootitem,
+	    #x=700.0,
+	    #y=450.0,
+	    #text=_("Move Back"),
+	    #fill_color="green",
+	    #width=5000,
+	    #anchor = gtk.ANCHOR_CENTER,
+	    #alignment = pango.ALIGN_CENTER
+	    #)
+	  #self.goback.connect("button_press_event", self.move_back)
+          #gcompris.utils.item_focus_init(self.goback,None)
           
-          #Move back item
-          self.backitem = goocanvas.Image(parent = self.rootitem,
-                    pixbuf = gcompris.utils.load_pixmap("whattime/back.svg"),
-                    x = 600,
-                    y = 425,
-                    tooltip = "Move Back"
-                    )
-          self.backitem.connect("button_press_event", self.move_back)
-          gcompris.utils.item_focus_init(self.backitem, None)
+          ##Move back item
+          #self.backitem = goocanvas.Image(parent = self.rootitem,
+                    #pixbuf = gcompris.utils.load_pixmap("whattime/back.svg"),
+                    #x = 600,
+                    #y = 425,
+                    #tooltip = "Move Back"
+                    #)
+          #self.backitem.connect("button_press_event", self.move_back)
+          #gcompris.utils.item_focus_init(self.backitem, None)
 
-          self.mapActive = True
+          #self.mapActive = True
 
   def move_back(self,event,target,item):
     print("In move_back function.")
@@ -271,71 +271,18 @@ class Gcompris_whattime:
   def board_upper(self, level):
     
     if(level == 1):
-	  # Set a background image
-	  gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"whattime/background.jpg")
-    
-	  goocanvas.Text(parent=self.rootitem,
-			x=390,
-			y=100,
-			fill_color="dark blue",
-			font="Sans 15",
-			anchor=gtk.ANCHOR_CENTER,
-			text="Clock-Activity : What is the Time ?")
-		  
-	  #Activity Description
-	  goocanvas.Text(parent=self.rootitem,
-			  x=520,
-			  y=260,
-			  fill_color="dark blue",
-			  font="Sans 15",
-			  anchor=gtk.ANCHOR_CENTER,
-			  text="Reading a clock is the basic\n"
-				"thing a child must know.\n"
-				"The clock has 12 basic marks on it,\n"
-				"relative to which we have 60 different\n"
-				"positions indicating various time\n"
-				"Moreover,there are 24 hours in a day\n"
-				"First 12 hours indicated by AM.\n"
-				"And the later half of day by PM.\n"
-				"We will play with 12-hour format.\n"
-			)
-	
-	  #displaying the main clock
-	  self.Clock = goocanvas.Image(
-	    parent = self.rootitem,
-	    pixbuf = gcompris.utils.load_pixmap("whattime/Eternal_clock.png"),
-	    x = 50,
-	    y = 150,
-	    tooltip = "This is just a representation of clock",
-	    width = 250,
-	    height = 200    
-	  )
-	  
-	  self.nextlev = goocanvas.Text(parent=self.rootitem,
-			  x=215,
-			  y=400,
-			  fill_color="dark red",
-			  font="Sans 15",
-			  anchor=gtk.ANCHOR_CENTER,
-			  text="Okay. Got it !\n"
-			       "Next Level Please ->"
-			)  
-	  self.nextlev.connect("button_press_event", self.next_level)
-          gcompris.utils.item_focus_init(self.nextlev,None)
-          
-    elif(level == 2):
 	  #selecting a random minute hand position
 	  #for level three, it would be either 00 to 03
 	  self.random_minute = minute_arr_one[random.randint(0,3)]
 	  self.sublevel = 5
     
-    elif(level == 3):
+    elif(level == 2):
 	  #selecting a random minute hand position
 	  #for level three, it would be either 00 to 59 
 	  self.random_minute = minute_arr_two[random.randint(0,59)]
 	  self.sublevel = 10
 	  
-    elif(level == 4):
+    elif(level == 3):
           self.sublevel = 1
           goocanvas.Text(parent=self.rootitem,
 			  x=400,
@@ -352,7 +299,7 @@ class Gcompris_whattime:
     # Set a background image
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"whattime/background.jpg")
 
-    if ( level == 3 or level == 2):
+    if ( level == 1 or level == 2):
 	#text displaying hour hand for left hand clock
 	goocanvas.Text(
 	  parent = self.rootitem,
