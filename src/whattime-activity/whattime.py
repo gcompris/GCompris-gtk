@@ -285,26 +285,33 @@ class Gcompris_whattime:
     elif(level == 3):
           self.sublevel = 1
           goocanvas.Text(parent=self.rootitem,
-			  x=400,
-			  y=220,
-			  fill_color="black",
+			  x=130,
+			  y=90,
+			  fill_color="red",
 			  font="Sans 20",
 			  anchor=gtk.ANCHOR_CENTER,
-			  text="ScoreBoard: \n\n\n"
-			  "Correct Attempts:"+str(self.correctcount)+"\n"
+			  text="ScoreBoard: "
+			)  
+    
+          goocanvas.Text(parent=self.rootitem,
+			  x=400,
+			  y=220,
+			  fill_color="blue",
+			  font="Sans 20",
+			  anchor=gtk.ANCHOR_CENTER,
+			  text="\n\n\nCorrect Attempts:"+str(self.correctcount)+"\n"
 			  "Wrong Attempts:"+str(self.wrongcount)+"\n"
 			  "Total Attempts:"+str(self.correctcount+self.wrongcount)+"\n"
 			)  
-    
     # Set a background image
-    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"whattime/background.jpg")
+    gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),"whattime/gcompris-clock.svgz")
 
     if ( level == 1 or level == 2):
 	#text displaying hour hand for left hand clock
 	goocanvas.Text(
 	  parent = self.rootitem,
 	  x=60.0,
-	  y=375.0,
+	  y=450.0,
 	  text=_("Hour"),
 	  fill_color="black",
 	  width=5000,
@@ -316,7 +323,7 @@ class Gcompris_whattime:
 	goocanvas.Text(
 	  parent = self.rootitem,
 	  x=150.0,
-	  y=375.0,
+	  y=450.0,
 	  text=_("Minute"),
 	  fill_color="black",
 	  width=5000,
@@ -324,27 +331,17 @@ class Gcompris_whattime:
 	  alignment = pango.ALIGN_CENTER
 	  )
     
-	goocanvas.Text(
-	  parent = self.rootitem,
-	  x=450.0,
-	  y=50.0,
-	  text=_("Can You Guess \n"
-		"What Time Is It ? "),
-	  fill_color="dark blue",
-	  font="Sans 15",
-	  anchor = gtk.ANCHOR_CENTER,
-	  alignment = pango.ALIGN_CENTER
-	  )
-	
-	#displaying the main clock
-	self.Clock = goocanvas.Image(
-	  parent = self.rootitem,
-	  pixbuf = gcompris.utils.load_pixmap("whattime/alarm-clock.png"),
-	  x = 250,
-	  y = 60,
-	  width = 400,
-	  height = 400    
-	)
+	#goocanvas.Text(
+	  #parent = self.rootitem,
+	  #x=450.0,
+	  #y=50.0,
+	  #text=_("Can You Guess \n"
+		#"What Time Is It ? "),
+	  #fill_color="dark blue",
+	  #font="Sans 15",
+	  #anchor = gtk.ANCHOR_CENTER,
+	  #alignment = pango.ALIGN_CENTER
+	  #)
 	
 	#selecting a random hour hand position
 	self.random_hour = hour_arr[random.randint(0,11)] 
@@ -383,8 +380,8 @@ class Gcompris_whattime:
         goocanvas.Text(
 	  parent = self.rootitem,
 	  x=100.0,
-	  y=400.0,
-	  text=_(" :"),
+	  y=475.0,
+	  text=_(":"),
 	  fill_color="dark blue",
 	  font="Sans 15",
 	  anchor = gtk.ANCHOR_CENTER,
@@ -397,7 +394,7 @@ class Gcompris_whattime:
 			  svg_id = "#OK",
 			  tooltip = "Click to confirm your answer"
 			  )
-	ok.translate(-400,0)
+	ok.translate(-450,-150)
 
 	hour_item = self.hour_text()
 	minute_item = self.minute_text()
@@ -426,7 +423,7 @@ class Gcompris_whattime:
       parent = self.rootitem,
       widget=self.minute,
       x=150,
-      y=400,
+      y=475,
       width=40,
       height=46,
       anchor=gtk.ANCHOR_CENTER,
@@ -457,7 +454,7 @@ class Gcompris_whattime:
       parent = self.rootitem,
       widget=self.hour,
       x=60,
-      y=400,
+      y=475,
       width=40,
       height=46,
       anchor=gtk.ANCHOR_CENTER,
