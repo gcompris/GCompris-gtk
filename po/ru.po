@@ -9,22 +9,24 @@
 # Yuri Myasoedov <omerta13@yandex.ru>, 2012.
 # Chris Leonard <cjlhomeaddress@gmail.com>, 2012.
 # Mayya Sharipova <mayya.sharipova@gmail.com>, 2013.
+# Stas Solovey <whats_up@tut.by>, 2013.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-28 21:32+0000\n"
-"PO-Revision-Date: 2013-11-01 00:58+0400\n"
-"Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
-"Language-Team: Sugar Labs\n"
+"POT-Creation-Date: 2014-01-12 16:43+0000\n"
+"PO-Revision-Date: 2013-12-03 16:18+0300\n"
+"Last-Translator: Stas Solovey <whats_up@tut.by>\n"
+"Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.5.7\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Generator: Gtranslator 2.91.6\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -195,6 +197,29 @@ msgstr ""
 "популярному проприетарному образовательному программному обеспечению"
 
 #: ../boards/menu.xml.in.h:5
+#, fuzzy
+#| msgid ""
+#| "A simple click on an icon brings you to an activity or a menu of "
+#| "activities.\n"
+#| "At the bottom of the screen is the GCompris control bar.\n"
+#| "The following icons are displayed from right to left.\n"
+#| "(note that each icon is displayed only if available in the current "
+#| "activity)\n"
+#| "    Home - Exit an activity, go back to menu (ctrl-w and escape key)\n"
+#| "    Thumb - OK. Confirm your answer\n"
+#| "    Arrows - Display the current level. Click to select another level\n"
+#| "    Lips - Repeat the question\n"
+#| "    Question Mark - Help\n"
+#| "    Tool - The configuration menu\n"
+#| "    Tux Plane - About GCompris\n"
+#| "    Quit - Quit GCompris (ctrl-x)\n"
+#| "The stars show suitable age groups for each game:\n"
+#| "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
+#| "    1, 2 or 3 complex stars - 7 years and up\n"
+#| "Shortcuts:\n"
+#| "    ctrl-b Show or Hide the control bar\n"
+#| "    ctrl-f Toggle full screen\n"
+#| "    ctrl-m Toggle mute for the background music"
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -420,9 +445,6 @@ msgstr ""
 
 #: ../src/administration-activity/admin/board_list.py:645
 #, python-brace-format
-#| msgid ""
-#| "<b>{config}</b> configuration\n"
-#| " for profile <b>{profile}</b>"
 msgid ""
 "<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -432,9 +454,6 @@ msgstr ""
 
 #: ../src/administration-activity/admin/board_list.py:657
 #, python-brace-format
-#| msgid ""
-#| "<b>{config}</b> configuration\n"
-#| " for profile <b>{profile}</b>"
 msgid ""
 "<b>Locale sound</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -858,7 +877,6 @@ msgid "Learn to recognize unusual colors."
 msgstr "Обучение распознаванию редких цветов."
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:5
-#| msgid "Click on the correct colored box."
 msgid "Click on the correct colored butterfly."
 msgstr "Нажмите на бабочку с нужным цветом."
 
@@ -1180,7 +1198,7 @@ msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/findit-activity/findit.py:228 ../src/lang-activity/lang.py:115
+#: ../src/findit-activity/findit.py:228 ../src/lang-activity/lang.py:112
 #: ../src/play_piano-activity/play_piano.py:82
 #: ../src/play_rhythm-activity/play_rhythm.py:87
 #: ../src/readingh-activity/reading.c:643
@@ -1459,7 +1477,7 @@ msgstr "Выберите дом"
 msgid "Your turn to play ..."
 msgstr "Ваш ход..."
 
-#: ../src/awele-activity/awele.c:690
+#: ../src/awele-activity/awele.c:692
 msgid "Not allowed! Try again !"
 msgstr "Нельзя! Попробуйте снова!"
 
@@ -1730,7 +1748,6 @@ msgstr "Выбор упражнения"
 
 #: ../src/boards/menu2.c:271
 #, c-format
-#| msgid "Profile: "
 msgid "Profile: %s"
 msgstr "Профиль: %s"
 
@@ -1875,7 +1892,6 @@ msgstr "Щёлкните на мне, чтобы получить подсказ
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
 #, python-brace-format
-#| msgid "I don't have this number PLAYER {number}"
 msgid ""
 "I don't have this number\n"
 "PLAYER {number}"
@@ -2514,47 +2530,38 @@ msgid "Match the color "
 msgstr "Получите нужный цвет"
 
 #: ../src/color_mix-activity/color_mix.py:251
-#| msgid "Not enough {color}"
 msgid "Not enough red"
 msgstr "Мало красного цвета"
 
 #: ../src/color_mix-activity/color_mix.py:251
-#| msgid "Too much {color}"
 msgid "Too much red"
 msgstr "Слишком много красного цвета"
 
 #: ../src/color_mix-activity/color_mix.py:252
-#| msgid "Not enough {color}"
 msgid "Not enough green"
 msgstr "Мало зелёного цвета"
 
 #: ../src/color_mix-activity/color_mix.py:252
-#| msgid "Too much {color}"
 msgid "Too much green"
 msgstr "Слишком много зелёного цвета"
 
 #: ../src/color_mix-activity/color_mix.py:253
-#| msgid "Not enough {color}"
 msgid "Not enough blue"
 msgstr "Мало синего цвета"
 
 #: ../src/color_mix-activity/color_mix.py:253
-#| msgid "Too much {color}"
 msgid "Too much blue"
 msgstr "Слишком много синего цвета"
 
 #: ../src/color_mix-activity/color_mix.py:255
-#| msgid "Not enough {color}"
 msgid "Not enough cyan"
 msgstr "Мало цианового цвета"
 
 #: ../src/color_mix-activity/color_mix.py:255
-#| msgid "Too much {color}"
 msgid "Too much cyan"
 msgstr "Слишком много "
 
 #: ../src/color_mix-activity/color_mix.py:256
-#| msgid "Not enough {color}"
 msgid "Not enough magenta"
 msgstr "Мало пурпурного цвета"
 
@@ -2563,12 +2570,10 @@ msgid "Too much magenta"
 msgstr "Слишком много пурпурного"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#| msgid "Not enough {color}"
 msgid "Not enough yellow"
 msgstr "Мало жёлтого цвета"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#| msgid "Too much {color}"
 msgid "Too much yellow"
 msgstr "Слишком много жёлтого цвета"
 
@@ -2679,52 +2684,42 @@ msgid "Listen to the color and click on the matching duck."
 msgstr "Прослушайте название цвета и щёлкните на нужном рисунке."
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:1
-#| msgid "Click on the yellow duck"
 msgid "Find the yellow duck"
 msgstr "Найдите жёлтую утку"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
-#| msgid "Click on the black duck"
 msgid "Find the black duck"
 msgstr "Найдите чёрную утку"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-#| msgid "Click on the green duck"
 msgid "Find the green duck"
 msgstr "Найдите зелёную утку"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-#| msgid "Find the {text} duck"
 msgid "Find the red duck"
 msgstr "Найдите красную утку"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-#| msgid "Find the {text} duck"
 msgid "Find the white duck"
 msgstr "Найдите белую утку"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-#| msgid "Click on the blue duck"
 msgid "Find the blue duck"
 msgstr "Найдите синюю утку"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-#| msgid "Click on the brown duck"
 msgid "Find the brown duck"
 msgstr "Найдите коричневую утку"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-#| msgid "Click on the grey duck"
 msgid "Find the grey duck"
 msgstr "Найдите серую утку"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
-#| msgid "Click on the orange duck"
 msgid "Find the orange duck"
 msgstr "Найдите оранжевую утку"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-#| msgid "Click on the purple duck"
 msgid "Find the purple duck"
 msgstr "Найдите пурпурную утку"
 
@@ -3111,8 +3106,8 @@ msgstr "Двигайте мышкой для того, чтобы очистит
 msgid "Error: No images found\n"
 msgstr "Ошибка: изображения не найдены\n"
 
-#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:510
-#: ../src/gcompris/properties.c:517
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:511
+#: ../src/gcompris/properties.c:518
 msgid "readme"
 msgstr "readme"
 
@@ -3160,7 +3155,7 @@ msgstr "Щёлкайте кнопкой мышки до полной очист�
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Щёлкайте кнопкой мыши на частых, пока все части не откроются."
 
-#: ../src/explore-activity/explore.py:85 ../src/lang-activity/lang.py:104
+#: ../src/explore-activity/explore.py:85 ../src/lang-activity/lang.py:106
 #: ../src/note_names-activity/note_names.py:82
 #: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
@@ -3252,45 +3247,35 @@ msgstr ""
 "сопоставите все тексты!\n"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
-#| msgid " Click on the questions to explore each farm animal."
 msgid "Click on the questions to explore each farm animal."
 msgstr ""
 "Щёлкни на вопросительный знак, чтобы узнать о каждом домашнем животном."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:2
-#| msgid " Click on the farm animal that makes the sound you hear."
 msgid "Click on the farm animal that makes the sound you hear."
 msgstr "Щёлкни на животное, которое издаёт этот звук."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:3
-#| msgid " Click the animal that matches the description."
 msgid "Click the animal that matches the description."
 msgstr "Щёлкни на животное, которому соответствует описание."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:4
-#| msgid " Horse"
 msgid "Horse"
 msgstr "Лошадь"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:5
-#| msgid " The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
 msgid "The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
 msgstr "Лошадь ржёт «Иго-го!». Лошади обычно спят стоя."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:6
-#| msgid " You can ride on the back of this animal!"
 msgid "You can ride on the back of this animal!"
 msgstr "Ты можешь ездить верхом на этом животном!"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:7
-#| msgid " Chickens"
 msgid "Chickens"
 msgstr "Курицы"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
-#| msgid ""
-#| " The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 "
-#| "different noises they can use to communicate."
 msgid ""
 "The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
 "noises they can use to communicate."
@@ -3299,12 +3284,10 @@ msgstr ""
 "различных звуков."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
-#| msgid " This animal lays eggs."
 msgid "This animal lays eggs."
 msgstr "Это животное несёт яйца."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:10
-#| msgid " Cows"
 msgid "Cows"
 msgstr "Коровы"
 
@@ -3317,19 +3300,14 @@ msgstr ""
 "день пасутся на лугу."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
-#| msgid " You can drink the milk this animal produces."
 msgid "You can drink the milk this animal produces."
 msgstr "Ты пьёшь молоко этого животного."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:13
-#| msgid " Cat"
 msgid "Cat"
 msgstr "Кошка"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:14
-#| msgid ""
-#| " The cat goes \"meow, meow\". Cats usually hate water because their fur "
-#| "doesn't stay warm when it is wet."
 msgid ""
 "The cat goes \"meow, meow\". Cats usually hate water because their fur "
 "doesn't stay warm when it is wet."
@@ -3338,37 +3316,28 @@ msgstr ""
 "становится холодным, когда намокает."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
-#| msgid " This pet likes to chase mice."
 msgid "This pet likes chasing mice."
 msgstr "Этому домашнему животному нравится охотиться на мышей."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
-#| msgid " Pigs"
 msgid "Pigs"
 msgstr "Свиньи"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
-#| msgid ""
-#| " The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
 msgid "The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
 msgstr ""
 "Свинья хрюкает «хрю, хрю». Свиньи занимают четвёртое место по интеллекту "
 "среди животных. "
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-#| msgid " This animal likes to lay in the mud."
 msgid "This animal likes to lay in the mud."
 msgstr "Это животное любит лежать в грязи."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
-#| msgid " White Duck"
 msgid "White Duck"
 msgstr "Белая утка"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
-#| msgid ""
-#| " The duck goes \"quack, quack\". Ducks have special features like webbed "
-#| "feet and waterproof feathers."
 msgid ""
 "The duck goes \"quack, quack\". Ducks have special features like webbed feet "
 "and produce an oil to make their feathers \"waterproof\"."
@@ -3377,37 +3346,27 @@ msgstr ""
 "перья. "
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
-#| msgid " This animal has webbed feet so it can swim in the water."
 msgid "This animal has webbed feet so it can swim in the water."
 msgstr "У этого животного перепончатые лапы, которые помогают плавать."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:22
-#| msgid " Owl"
 msgid "Owl"
 msgstr "Сова"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:23
-#| msgid ""
-#| " The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at "
-#| "night."
 msgid ""
 "The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at night."
 msgstr "Сова ухает «у-у-уф». У сов отличное ночное зрение и слух."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
-#| msgid " This animal likes to come out at night."
 msgid "This animal likes to come out at night."
 msgstr "Это животное ведёт активную жизнь ночью."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:25
-#| msgid " Dogs"
 msgid "Dogs"
 msgstr "Собаки"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:26
-#| msgid ""
-#| " The dog goes \"bark! bark!\". Dogs are great human companions and "
-#| "usually enjoy love and attention."
 msgid ""
 "The dog goes \"bark! bark!\". Dogs are great human companions and usually "
 "enjoy love and attention."
@@ -3416,19 +3375,14 @@ msgstr ""
 "внимание."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
-#| msgid " This animal's ancestors were wolves."
 msgid "This animal's ancestors were wolves."
 msgstr "Предками этого животного были волки."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
-#| msgid " Rooster"
 msgid "Rooster"
 msgstr "Петух"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
-#| msgid ""
-#| " The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
-#| "about 5,000 years. Every morning it wakes the farm up with its noises."
 msgid ""
 "The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
 "about 5,000 years. Every morning it wakes the farm up with its noises."
@@ -3437,7 +3391,6 @@ msgstr ""
 "утро петух будет деревню своим криком."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
-#| msgid " This animal wakes the farm up in the morning."
 msgid "This animal wakes the farm up in the morning."
 msgstr "Это животное будет деревню своим криком."
 
@@ -3476,24 +3429,18 @@ msgstr ""
 "сопоставишь все тексты!\n"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
-#| msgid " Explore exotic animals from around the world."
 msgid "Explore exotic animals from around the world."
 msgstr "Изучи экзотических животных со всего мира!"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:2
-#| msgid " Click on location where the given animal lives."
 msgid "Click on location where the given animal lives."
 msgstr "Щёлкни по месту, где живёт это животное."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
-#| msgid " Jaguars in South America"
 msgid "Jaguars in South America"
 msgstr "Ягуары в  Южной Америке"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:4
-#| msgid ""
-#| " Jaguars are named after the Native American word meaning 'he who kills "
-#| "with one leap'"
 msgid ""
 "Jaguars are named after the Native American word meaning 'he who kills with "
 "one leap' because they like to climb trees to attack their prey."
@@ -3503,20 +3450,14 @@ msgstr ""
 "нападают сверху на свою добычу."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:5
-#| msgid " Jaguar"
 msgid "Jaguar"
 msgstr "Ягуар"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
-#| msgid " Hedgehogs in Europe"
 msgid "Hedgehogs in Europe"
 msgstr "Ежи в Европе"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:7
-#| msgid ""
-#| " Hedgehogs eat small animals, like frogs and insects, so many people keep "
-#| "them as useful pets. When in danger, they will curl up into a ball and "
-#| "stick up their coat of sharp spines."
 msgid ""
 "Hedgehogs eat small animals, like frogs and insects, so many people keep "
 "them as useful pets. When in danger, they will curl up into a ball and stick "
@@ -3527,20 +3468,14 @@ msgstr ""
 "в клубок и расправляют свои острые иголки. "
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:8
-#| msgid " Hedgehog"
 msgid "Hedgehog"
 msgstr "Ёж"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:9
-#| msgid " Giraffes in Africa"
 msgid "Giraffes in Africa"
 msgstr "Жирафы в Африке"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:10
-#| msgid ""
-#| " The giraffe lives in Africa and is the tallest mammal in the world. Just "
-#| "their legs, which are usually 1.8 meters long, are taller than most "
-#| "humans!"
 msgid ""
 "The giraffe lives in Africa and is the tallest mammal in the world. Just "
 "their legs, which are usually 1.8 meters long, are taller than most humans!"
@@ -3549,19 +3484,14 @@ msgstr ""
 "его ноги, которые обычно составляют 1,8 метра, выше, чем большинство людей."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:11
-#| msgid " Giraffe"
 msgid "Giraffe"
 msgstr "Жираф"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:12
-#| msgid " Bison in America"
 msgid "Bison in America"
 msgstr "Бизон в Америке"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:13
-#| msgid ""
-#| " Bison live on the plains of North America and were hunted by the Native "
-#| "Americans for food."
 msgid ""
 "Bison live on the plains of North America and were hunted by the Native "
 "Americans for food."
@@ -3570,19 +3500,14 @@ msgstr ""
 "охотились на них ради еды."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:14
-#| msgid " Bison"
 msgid "Bison"
 msgstr "Бизон"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:15
-#| msgid " Narwhals in the Arctic"
 msgid "Narwhals in the Arctic"
 msgstr "Нарвал в Арктике"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:16
-#| msgid ""
-#| " Narwhals are whales that live in the Arctic Ocean and have long tusks. "
-#| "These tusks remind many people of the mythical unicorn's horn."
 msgid ""
 "Narwhals are whales that live in the Arctic Ocean and have long tusks. These "
 "tusks remind many people of the mythical unicorn's horn."
@@ -3591,7 +3516,6 @@ msgstr ""
 "длинные бивни. Эти бивни напоминают рог сказочного единорога."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:17
-#| msgid " Narwhal"
 msgid "Narwhal"
 msgstr "Нарвал"
 
@@ -3647,17 +3571,14 @@ msgstr ""
 "Изображения с сайтов http://commons.wikimedia.org/wiki, http://archive.org"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:1
-#| msgid " Explore world music! Click on the suitcases."
 msgid "Explore world music! Click on the suitcases."
 msgstr "Изучи мировую музыку! Щёлкни по чемоданам!"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:2
-#| msgid " Click on the location that matches the music you hear."
 msgid "Click on the location that matches the music you hear."
 msgstr "Щёлкни по месту на карте, которое соответствует услышанной музыке."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:3
-#| msgid " Click on the location that matches the text."
 msgid "Click on the location that matches the text."
 msgstr "Щёлкни по месту на карте, которое соответствует тексту."
 
@@ -3668,10 +3589,6 @@ msgid "Australia"
 msgstr "Австралия"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:5
-#| msgid ""
-#| " Aboriginals were the first people to live in Australia. They sing and "
-#| "play instruments, like the didgeridoo. It is made from a log and can be "
-#| "up to five meters long!"
 msgid ""
 "Aboriginals were the first people to live in Australia. They sing and play "
 "instruments, like the didgeridoo. It is made from a log and can be up to "
@@ -3682,7 +3599,6 @@ msgstr ""
 "и достигает до 5 метров в длину. "
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:6
-#| msgid " Where is the didgeridoo played?"
 msgid "Where is the didgeridoo played?"
 msgstr "Где играют на диджериду?"
 
@@ -3694,10 +3610,6 @@ msgid "Africa"
 msgstr "Африка"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:8
-#| msgid ""
-#| " Music is a part of everyday life in Africa. African music features a "
-#| "great variety of drums, and they believe it is a sacred and magical "
-#| "instrument."
 msgid ""
 "Music is a part of everyday life in Africa. African music features a great "
 "variety of drums, and they believe it is a sacred and magical instrument."
@@ -3707,20 +3619,14 @@ msgstr ""
 "это священный и магический инструмент."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:9
-#| msgid " Where is the drum considered a magical instrument?"
 msgid "Where is the drum considered a magical instrument?"
 msgstr "Где барабан считается магическим инструментом?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:10
-#| msgid " Middle East"
 msgid "Middle East"
 msgstr "Ближний Восток"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:11
-#| msgid ""
-#| " Music is a very important part of middle eastern culture. Specific songs "
-#| "are played to call worshipers to prayer. The lute is an instrument "
-#| "invented thousands of years ago and still in use today."
 msgid ""
 "Music is a very important part of middle eastern culture. Specific songs are "
 "played to call worshipers to prayer. The lute is an instrument invented "
@@ -3732,7 +3638,6 @@ msgstr ""
 "сегодня."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:12
-#| msgid " Where is music used to call people to prayer?"
 msgid "Where is music used to call people to prayer?"
 msgstr "Где музыка призывает верующих на молитву?"
 
@@ -3742,10 +3647,6 @@ msgid "Japan"
 msgstr "Япония"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:14
-#| msgid ""
-#| " Taiko drumming comes from Japan. This type of drumming was originally "
-#| "used to scare enemies in battle. It is very loud, and performances are "
-#| "very exciting with crowds cheering and performers yelling!"
 msgid ""
 "Taiko drumming comes from Japan. This type of drumming was originally used "
 "to scare enemies in battle. It is very loud, and performances are very "
@@ -3757,20 +3658,14 @@ msgstr ""
 "возгласами, а исполнители сильно кричат во время исполнения."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:15
-#| msgid " Where do performers yelp as they play the drums?"
 msgid "Where do performers yelp as they play the drums?"
 msgstr "Где исполнители сильно кричат, когда играют на барабанах?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:16
-#| msgid " Scotland and Ireland"
 msgid "Scotland and Ireland"
 msgstr "Шотландия и Ирландия"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:17
-#| msgid ""
-#| " Folk music of this region is called celtic music, often incorporates a "
-#| "narrative poem or story. Typical instruments include bagpipes, fiddles, "
-#| "flutes, harps, and accordions."
 msgid ""
 "Folk music of this region is called celtic music, often incorporates a "
 "narrative poem or story. Typical instruments include bagpipes, fiddles, "
@@ -3781,7 +3676,6 @@ msgstr ""
 "волынки, скрипки, флейты, арфы и аккордеоны. "
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:18
-#| msgid " Bagpipers, who often wear kilts, are from this location."
 msgid "Bagpipers, who often wear kilts, are from this location."
 msgstr "Волынщики из этих мест носят кильты."
 
@@ -3792,10 +3686,6 @@ msgid "Italy"
 msgstr "Италия"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:20
-#| msgid ""
-#| " Italy is famous for its Opera. Opera is a musical theater where actors "
-#| "tell a story by acting and singing. Opera singers, both male and female, "
-#| "learn special techniques to sing operas."
 msgid ""
 "Italy is famous for its Opera. Opera is a musical theater where actors tell "
 "a story by acting and singing. Opera singers, both male and female, learn "
@@ -3806,19 +3696,14 @@ msgstr ""
 "осваивают особую технику пения опер."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:21
-#| msgid " This country is known for its opera music."
 msgid "This country is known for its opera music."
 msgstr "Эта страна известна своей оперной музыкой. "
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:22
-#| msgid " European Classical Music"
 msgid "European Classical Music"
 msgstr "Европейская классическая музыка"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:23
-#| msgid ""
-#| " Europe is the home of classical music. Famous composers like Bach, "
-#| "Beethoven, and Mozart forever changed music history."
 msgid ""
 "Europe is the home of classical music. Famous composers like Bach, "
 "Beethoven, and Mozart forever changed music history."
@@ -3827,7 +3712,6 @@ msgstr ""
 "Бетховен и Моцарт навсегда изменили историю музыки."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:24
-#| msgid " Bach, Beethoven, and Mozart composed music in this location."
 msgid "Bach, Beethoven, and Mozart composed music in this location."
 msgstr "Бах, Бетховен, и Моцарт сочиняли музыку в этом регионе. "
 
@@ -3840,10 +3724,6 @@ msgid "Mexico"
 msgstr "Мексика"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:26
-#| msgid ""
-#| " Mariachi is a famous type of Mexican music. It features guitars, "
-#| "trumpets, and violins. These bands play for many occasions, including "
-#| "weddings and parties."
 msgid ""
 "Mariachi is a famous type of Mexican music. It features guitars, trumpets, "
 "and violins. These bands play for many occasions, including weddings and "
@@ -3854,28 +3734,20 @@ msgstr ""
 "— свадеб и вечеринок. "
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:27
-#| msgid ""
-#| " At parties, people often dance to the Mariachi music. A Famous dance is:"
 msgid ""
 "At parties, people often dance to the Mariachi music. A Famous dance is:"
 msgstr ""
 "На вечеринках люди часто танцуют под музыку мариачи. Известный танец — это: "
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:28
-#| msgid " Where is Mariachi music from?"
 msgid "Where is Mariachi music from?"
 msgstr "Где играют музыку мариачи?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-#| msgid "United States of America"
 msgid "United State of America"
 msgstr "Соединённые Штаты Америки"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:30
-#| msgid ""
-#| " America also has a wide variety of musical genres, but perhaps it is "
-#| "most famous for rock n' roll music. This music features vocalists, "
-#| "guitars, and drums."
 msgid ""
 "USA also has a wide variety of musical genres, but perhaps it is most famous "
 "for rock n' roll music. This music features vocalists, guitars, and drums."
@@ -3885,14 +3757,10 @@ msgstr ""
 "гитарами и барабанами."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
-#| msgid " The 'king' of rock n' roll is"
 msgid "The 'king' of rock n' roll is"
 msgstr "Король рок-н-ролла — это"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
-#| msgid ""
-#| " The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
-#| "country."
 msgid ""
 "The 'king' of rock n' roll, Elvis Presley, made his music famous in this "
 "country."
@@ -3960,6 +3828,8 @@ msgstr ""
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:57
+#, fuzzy
+#| msgid "translator_credits"
 msgid "translator-credits"
 msgstr ""
 "  Анна и Кирилл Полесские\n"
@@ -3986,7 +3856,7 @@ msgid ""
 "License"
 msgstr "Это программа является частью GNU и выпущена под лицензией GPL"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:490
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:468
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -4065,357 +3935,345 @@ msgstr "Выберите язык"
 msgid "Choice of the level"
 msgstr "Выберите уровень"
 
-#: ../src/gcompris/config.c:58
+#: ../src/gcompris/config.c:57
 msgid "Language: your system default"
 msgstr "Язык: системный по умолчанию"
 
-#: ../src/gcompris/config.c:59
+#: ../src/gcompris/config.c:58
 msgid "Afrikaans"
 msgstr "Африкаанс"
 
-#: ../src/gcompris/config.c:60
+#: ../src/gcompris/config.c:59
 msgid "Albanian"
 msgstr "Албанский"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:60
 msgid "Amharic"
 msgstr "Амхарский"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:61
 msgid "Arabic"
 msgstr "Арабский"
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/config.c:62
 msgid "Asturian"
 msgstr "Австрийский"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:63
 msgid "Basque"
 msgstr "Баскский"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:64
 msgid "Breton"
 msgstr "Бретонский"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:65
 msgid "Bulgarian"
 msgstr "Болгарский"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:66
 msgid "Catalan"
 msgstr "Каталонский"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:67
 msgid "Chinese (Simplified)"
 msgstr "Китайский (упрощённый)"
 
-#: ../src/gcompris/config.c:69
-#| msgid "Chinese (Traditional)"
+#: ../src/gcompris/config.c:68
 msgid "Chinese (Hong Kong)"
 msgstr "Китайский (Гонконг)"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:69
 msgid "Chinese (Traditional)"
 msgstr "Китайский (традиционный)"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:70
 msgid "Croatian"
 msgstr "Хорватский"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:71
 #: ../src/geography-activity/resources/geography/board6_0.xml.in.h:7
 msgid "Czech Republic"
 msgstr "Чехия"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:72
 msgid "Danish"
 msgstr "Датский"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:73
 msgid "Dutch"
 msgstr "Голландский"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:74
 msgid "Dzongkha"
 msgstr "Дзонгка"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:75
 msgid "English (Canada)"
 msgstr "Английский (Канада)"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:76
 msgid "English (Great Britain)"
 msgstr "Английский (Великобритания)"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:77
 msgid "English (United States)"
 msgstr "Английский (США)"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:78
 msgid "Finnish"
 msgstr "Финский"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:79
 msgid "French"
 msgstr "Французский"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:80
 msgid "Galician"
 msgstr "Галисийский"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:81
 msgid "Georgian"
 msgstr "Грузинский"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:82
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 msgid "German"
 msgstr "Немецкий"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:83
 msgid "Greek"
 msgstr "Греческий"
 
-#: ../src/gcompris/config.c:85 ../src/gcompris/config.c:114
-#| msgid "Irish (Gaelic)"
+#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:113
 msgid "Scottish Gaelic"
 msgstr "Ирландский (галльский)"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:85
 msgid "Gujarati"
 msgstr "Гуджарати"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:86
 msgid "Hebrew"
 msgstr "Еврейский"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:87
 msgid "Hindi"
 msgstr "Индийский (Хинди)"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:88
 msgid "Hungarian"
 msgstr "Венгерский"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:89
 msgid "Indonesian"
 msgstr "Индонезийский"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:90
 msgid "Irish (Gaelic)"
 msgstr "Ирландский (галльский)"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:91
 msgid "Italian"
 msgstr "Итальянский"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:92
 msgid "Japanese"
 msgstr "Японский"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:93
 msgid "Kinyarwanda"
 msgstr "Киньяруанда"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:94
 msgid "Korean"
 msgstr "Корейский"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:95
 msgid "Latvian"
 msgstr "Латвийский"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:96
 msgid "Lithuanian"
 msgstr "Литовский"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:97
 msgid "Macedonian"
 msgstr "Македонский"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:98
 msgid "Malay"
 msgstr "Малайский"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:99
 msgid "Malayalam"
 msgstr "Малаялам"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:100
 msgid "Marathi"
 msgstr "Марати"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:101
 msgid "Montenegrin"
 msgstr "Черногорский"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:102
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
 msgid "Nepal"
 msgstr "Непальский"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:103
 msgid "Norwegian Bokmal"
 msgstr "Норвежский букмол"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:104
 msgid "Norwegian Nynorsk"
 msgstr "Новонорвежский (нюнорск)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:105
 msgid "Occitan (languedocien)"
 msgstr "Французский (диалект Occitan)"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:106
 msgid "Persian"
 msgstr "Персидский"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:107
 msgid "Polish"
 msgstr "Польский"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:108
 msgid "Portuguese (Brazil)"
 msgstr "Португальский (Бразилия)"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:109
 msgid "Portuguese"
 msgstr "Португальский"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:110
 msgid "Punjabi"
 msgstr "Индийский (Пенджаб)"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:111
 msgid "Romanian"
 msgstr "Румынский"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:112
 msgid "Russian"
 msgstr "Русский"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:114
 msgid "Serbian (Latin)"
 msgstr "Сербский (латиница)"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:115
 msgid "Serbian"
 msgstr "Сербский"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:116
 msgid "Slovak"
 msgstr "Словацкий"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:117
 msgid "Slovenian"
 msgstr "Словенский"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:118
 msgid "Somali"
 msgstr "Сомалийский"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:119
 msgid "Spanish"
 msgstr "Испанский"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:120
 msgid "Swedish"
 msgstr "Шведский"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:121
 msgid "Tamil"
 msgstr "Тамильский"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:122
 msgid "Thai"
 msgstr "Тайский"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:123
 msgid "Turkish (Azerbaijan)"
 msgstr "Турецкий (Азербайджан)"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:124
 msgid "Turkish"
 msgstr "Турецкий"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:125
 msgid "Ukrainian"
 msgstr "Украинский"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:126
 msgid "Urdu"
 msgstr "Урду"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:127
 msgid "Vietnamese"
 msgstr "Вьетнамский"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:128
 msgid "Walloon"
 msgstr "Валлонский"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:129
 msgid "Zulu"
 msgstr "Зулусский"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:134
 msgid "Timer: No time limit"
 msgstr "Таймер: без ограничения времени"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:135
 msgid "Timer: Slow timer"
 msgstr "Таймер: медленный таймер"
 
-#: ../src/gcompris/config.c:137
+#: ../src/gcompris/config.c:136
 msgid "Timer: Normal timer"
 msgstr "Таймер: обычный таймер"
 
-#: ../src/gcompris/config.c:138
+#: ../src/gcompris/config.c:137
 msgid "Timer: Fast timer"
 msgstr "Таймер: быстрый таймер"
 
-#: ../src/gcompris/config.c:142
+#: ../src/gcompris/config.c:141
 msgid "Use GCompris administration module to filter boards"
 msgstr "Для фильтрации упражнений используйте административный модуль GCompris"
 
-#: ../src/gcompris/config.c:196
+#: ../src/gcompris/config.c:195
 msgid "GCompris Configuration"
 msgstr "Настройка GCompris"
 
-#: ../src/gcompris/config.c:279
+#: ../src/gcompris/config.c:267
 msgid "Fullscreen"
 msgstr "Во весь экран"
 
-#: ../src/gcompris/config.c:304
+#: ../src/gcompris/config.c:292
 msgid "Remember level for default user"
 msgstr "Запомнить уровень для пользователя по умолчанию"
 
-#: ../src/gcompris/config.c:330
+#: ../src/gcompris/config.c:318
 msgid "Music"
 msgstr "Музыка"
 
-#: ../src/gcompris/config.c:355
+#: ../src/gcompris/config.c:343
 msgid "Effect"
 msgstr "Эффекты"
 
-#: ../src/gcompris/config.c:379 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:367 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Масштаб"
 
-#: ../src/gcompris/config.c:416
+#: ../src/gcompris/config.c:432 ../src/gcompris/config.c:742
 #, c-format
-msgid "Couldn't open skin dir: %s"
-msgstr "Невозможно открыть папку с темами: %s"
-
-#: ../src/gcompris/config.c:447 ../src/gcompris/config.c:927
-#: ../src/gcompris/config.c:941
-#, c-format
-msgid "Skin : %s"
-msgstr "Тема: %s"
-
-#: ../src/gcompris/config.c:449
-msgid "SKINS NOT FOUND"
-msgstr "ТЕМЫ НЕ НАЙДЕНЫ"
+msgid "Font: %s"
+msgstr ""
 
 #: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
@@ -4769,13 +4627,13 @@ msgstr ""
 "Все упражнения в этом профиле отключены. Перейдите в модуль "
 "администрирования GCompris и активируйте хотя бы одно упражнение."
 
-#: ../src/gcompris/properties.c:512
+#: ../src/gcompris/properties.c:513
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
 msgstr "Эта папка содержит файлы, которые вы создали в GCompris\n"
 
-#: ../src/gcompris/properties.c:519
+#: ../src/gcompris/properties.c:520
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4862,7 +4720,6 @@ msgstr "Соединённые Штаты Америки"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:2
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:2
-#| msgid "Connect 4"
 msgid "Connecticut"
 msgstr "Коннектикут"
 
@@ -4902,7 +4759,6 @@ msgstr "Вашингтон (округ Колумбия)"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:10
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
-#| msgid "Main menu"
 msgid "Maine"
 msgstr "Мэн"
 
@@ -4928,7 +4784,6 @@ msgstr "Пенсильвания"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:15
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:15
-#| msgid "Oware"
 msgid "Delaware"
 msgstr "Делавэр"
 
@@ -4939,7 +4794,6 @@ msgstr "Нью-Джерси"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:17
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:17
-#| msgid "Ireland"
 msgid "Maryland"
 msgstr "Мэриленд"
 
@@ -4956,19 +4810,16 @@ msgstr "Флорида"
 #. Translators: Keep USA| and translate only Georgia
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:21
-#| msgid "Georgia"
 msgid "USA|Georgia"
 msgstr "USA|Джорджия"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:22
-#| msgid "South Africa"
 msgid "South Carolina"
 msgstr "Южная Каролина"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:23
-#| msgid "North America"
 msgid "North Carolina"
 msgstr "Северная Каролина"
 
@@ -5004,7 +4855,6 @@ msgstr "Иллинойс"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:30
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:30
-#| msgid "India"
 msgid "Indiana"
 msgstr "Индиана"
 
@@ -5025,7 +4875,6 @@ msgstr "Mississippi"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:34
-#| msgid "Russian"
 msgid "Louisiana"
 msgstr "Луизиана"
 
@@ -5078,13 +4927,11 @@ msgstr "Аризона"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:44
-#| msgid " Mexico"
 msgid "New Mexico"
 msgstr "Нью-Мексико"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:45
-#| msgid "Colors"
 msgid "Colorado"
 msgstr "Колорадо"
 
@@ -5100,13 +4947,11 @@ msgstr "Небраска"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:48
-#| msgid "South Korea"
 msgid "South Dakota"
 msgstr "Южная Дакота"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:49
-#| msgid "North Korea"
 msgid "North Dakota"
 msgstr "Северная Дакота"
 
@@ -5145,7 +4990,6 @@ msgstr "Индия"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:1
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:1
-#| msgid "Northern Africa"
 msgid "Northern Scotland"
 msgstr "Северная Шотландия"
 
@@ -5176,7 +5020,6 @@ msgstr "Росс"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:7
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:7
-#| msgid "Switzerland"
 msgid "Sutherland"
 msgstr "Сатерлендшир"
 
@@ -5187,7 +5030,6 @@ msgstr "Кейтнесс"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:9
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:9
-#| msgid "Iceland"
 msgid "Shetland"
 msgstr "Шетланд"
 
@@ -5218,7 +5060,6 @@ msgstr "Абердиншир"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:1
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:1
-#| msgid "Southern Africa"
 msgid "Southern Scotland"
 msgstr "Южная Шотландия"
 
@@ -5259,7 +5100,6 @@ msgstr "Клакманнаншир"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:9
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:9
-#| msgid "North America"
 msgid "North Ayrshire"
 msgstr "Северный Эршир"
 
@@ -5300,7 +5140,6 @@ msgstr "Восточный Эршир"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:17
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:17
-#| msgid "South Africa"
 msgid "South Ayrshire"
 msgstr "Южный Эршир"
 
@@ -5400,7 +5239,6 @@ msgid "Black Sea"
 msgstr "Чёрное море"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:4
-#| msgid "Mediteranean Sea"
 msgid "Mediterranean Sea"
 msgstr "Средиземное море"
 
@@ -5484,7 +5322,6 @@ msgstr "Турция"
 
 #. Translators: Keep Asia| and translate only Georgia
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
-#| msgid "Georgia"
 msgid "Asia|Georgia"
 msgstr "Asia|Грузия"
 
@@ -5616,12 +5453,10 @@ msgid "Oceania"
 msgstr "Океания"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:3
-#| msgid "United States of America"
 msgid "United States Minor Outlying Islands"
 msgstr "Внешние малые острова США"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:5
-#| msgid "America"
 msgid "American Samoa"
 msgstr "Американское Самоа"
 
@@ -5630,7 +5465,6 @@ msgid "Cook Islands"
 msgstr "Острова Кука"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:7
-#| msgid "Greenland"
 msgid "New Zealand"
 msgstr "Новая Зеландия"
 
@@ -5651,7 +5485,6 @@ msgid "Marshall Islands"
 msgstr "Маршалловы Острова"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:12
-#| msgid "Macedonia"
 msgid "New Caledonia"
 msgstr "Новая Каледония"
 
@@ -5664,17 +5497,14 @@ msgid "Tuvalu"
 msgstr "Тувалу"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:15
-#| msgid "Manual"
 msgid "Vanuatu"
 msgstr "Вануату"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:16
-#| msgid "Indonesia"
 msgid "Micronesia"
 msgstr "Микронезия"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:17
-#| msgid "Northern Africa"
 msgid "Northern Mariana Islands"
 msgstr "Северные Марианские острова"
 
@@ -5691,7 +5521,6 @@ msgid "Papua New Guinea"
 msgstr "Папуа — Новая Гвинея"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:22
-#| msgid "French Guiana"
 msgid "French Polynesia"
 msgstr "Французская Полинезия"
 
@@ -5718,7 +5547,6 @@ msgstr "Исландия"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
-#| msgid " America"
 msgid "Central America"
 msgstr "Центральная Америка"
 
@@ -5774,7 +5602,6 @@ msgstr "Ямайка"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:13
-#| msgid "Paraguay"
 msgid "Nicaragua"
 msgstr "Никарагуа"
 
@@ -6256,9 +6083,6 @@ msgid "Type the falling letters before they reach the ground"
 msgstr "Нажимайте клавиши с буквами, пока они не упали на землю"
 
 #: ../src/gletters-activity/gletters.c:215
-#| msgid ""
-#| "Error: We can't find\n"
-#| "a list of words to play this game.\n"
 msgid ""
 "Error: We can't find\n"
 "a list of letters to play this game.\n"
@@ -6622,7 +6446,6 @@ msgstr ""
 #. All the vowel of your language (keep empty if non applicable)
 #. Separate with /. You can use digraphs, trigraphs etc.
 #: ../src/hangman-activity/hangman.py:62
-#| msgid "cake/c_ke/a/o/e/i/u/y"
 msgid "a/e/i/o/u/y"
 msgstr "а/е/ё/и/о/у/ы/э/ю/я"
 
@@ -6799,19 +6622,19 @@ msgstr ""
 "достаточно большими, то они упадут на землю в виде дождя."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:171
 msgid "This is the meter for electricity produced by the turbine. "
 msgstr "Это — измеритель электричества, полученного с помощью турбины. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:171
-#: ../src/hydroelectric-activity/hydroelectric.py:284
-#: ../src/hydroelectric-activity/hydroelectric.py:292
-#: ../src/hydroelectric-activity/hydroelectric.py:323
-#: ../src/hydroelectric-activity/hydroelectric.py:346
+#: ../src/hydroelectric-activity/hydroelectric.py:172
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+#: ../src/hydroelectric-activity/hydroelectric.py:296
+#: ../src/hydroelectric-activity/hydroelectric.py:327
+#: ../src/hydroelectric-activity/hydroelectric.py:350
 msgid "The electricity power is measured in watts (W)."
 msgstr "Электрическая мощность измеряется в Ваттах (Вт)."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:176
+#: ../src/hydroelectric-activity/hydroelectric.py:177
 msgid ""
 "Flowing water is directed on to the blades of a turbine runner, creating a "
 "force on the blades. In this way, energy is transferred from the water flow "
@@ -6820,11 +6643,11 @@ msgstr ""
 "Текущая вода направлена на лопасти турбины, прикладывая к лопастям силу. "
 "Таким образом, энергия передаётся от воды к турбине."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:190
+#: ../src/hydroelectric-activity/hydroelectric.py:191
 msgid "This cloud simulates the wind, click on it to have wind."
 msgstr "Это облако имитирует ветер, щёлкните по нему, чтобы получить ветер."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:228
+#: ../src/hydroelectric-activity/hydroelectric.py:229
 msgid ""
 "This is a step down transformer. Electricity is transformed in low voltage, "
 "ready to be used by the customers."
@@ -6833,22 +6656,22 @@ msgstr ""
 "потребителями."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:283
+#: ../src/hydroelectric-activity/hydroelectric.py:287
 msgid "This is the meter for all the electricity produced. "
 msgstr "Это — измеритель общего количества полученного электричества. "
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:291
+#: ../src/hydroelectric-activity/hydroelectric.py:295
 msgid "This is the meter for electricity consumed by the users. "
 msgstr "Это — измеритель электричества, потреблённого пользователями. "
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:322
+#: ../src/hydroelectric-activity/hydroelectric.py:326
 msgid "This is the meter for electricity produced by the solar panels. "
 msgstr ""
 "Это — измеритель электричества, полученного с помощью солнечных панелей. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:328
+#: ../src/hydroelectric-activity/hydroelectric.py:332
 msgid ""
 "Solar panels use light energy (photons) from the sun to generate electricity "
 "through the photovoltaic effect."
@@ -6857,12 +6680,12 @@ msgstr ""
 "за счёт фотоэффекта."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:345
+#: ../src/hydroelectric-activity/hydroelectric.py:349
 msgid "This is the meter for electricity produced by the wind turbines. "
 msgstr ""
 "Это — измеритель электричества, полученного с помощью ветрогенератора. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:351
+#: ../src/hydroelectric-activity/hydroelectric.py:355
 msgid ""
 "A wind turbine is a device that converts wind motion energy into electricity "
 "generation. It is called a wind generator or wind charger. "
@@ -6870,7 +6693,7 @@ msgstr ""
 "Ветрогенератор — это устройство, преобразующее энергию ветра в "
 "электричество. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:737
+#: ../src/hydroelectric-activity/hydroelectric.py:741
 msgid ""
 "It is not possible to consume more electricity than what is produced. This "
 "is a key limitation in the distribution of electricity, with minor "
@@ -6890,7 +6713,7 @@ msgstr ""
 "оборудование, предназначенное для передачи электричества, могут отключиться, "
 "в худшем случае это может привести к масштабному отключению света."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:951
+#: ../src/hydroelectric-activity/hydroelectric.py:958
 msgid ""
 "This is a step up transformer. Electricity is transmitted at high voltages "
 "(110 kV or above) to reduce the energy lost in long distance transmission."
@@ -7229,137 +7052,110 @@ msgid "Click on the correct instrument."
 msgstr "Щёлкните по правильному инструменту."
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:1
-#| msgid "the clarinet"
 msgid "Find the clarinet"
 msgstr "Найдите кларнет"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
-#| msgid "the transverse flute"
 msgid "Find the transverse flute"
 msgstr "Найдите поперечную флейта"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
-#| msgid "the guitar"
 msgid "Find the guitar"
 msgstr "Найдите гитару"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-#| msgid "the harp"
 msgid "Find the harp"
 msgstr "Найдите арфу"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
-#| msgid "the piano"
 msgid "Find the piano"
 msgstr "Найдите фортепиано"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
-#| msgid "the saxophone"
 msgid "Find the saxophone"
 msgstr "Найдите саксофон"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
-#| msgid "the trombone"
 msgid "Find the trombone"
 msgstr "Найдите тромбон"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
-#| msgid "the trumpet"
 msgid "Find the trumpet"
 msgstr "Найдите трубу"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
-#| msgid "the violin"
 msgid "Find the violin"
 msgstr "Найдите скрипку"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-#| msgid "the flute traversiere"
 msgid "Find the flute traversiere"
 msgstr "Найдите поперечная флейта"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
-#| msgid "the drum kit"
 msgid "Find the drum kit"
 msgstr "Найдите набор ударных инструментов"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
-#| msgid "the accordion"
 msgid "Find the accordion"
 msgstr "Найдите аккордеон"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
-#| msgid "the banjo"
 msgid "Find the banjo"
 msgstr "Найдите банджо"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
-#| msgid "the bongo"
 msgid "Find the bongo"
 msgstr "Найдите бонго"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
-#| msgid "the electric guitar"
 msgid "Find the electric guitar"
 msgstr "Найдите электрогитару"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
-#| msgid "the castanets"
 msgid "Find the castanets"
 msgstr "Найдите кастаньеты"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
-#| msgid "the cymbal"
 msgid "Find the cymbal"
 msgstr "Найдите тарелки"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
-#| msgid "the cello"
 msgid "Find the cello"
 msgstr "Найдите виолончель"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
-#| msgid "the harmonica"
 msgid "Find the harmonica"
 msgstr "Найдите губную гармошку"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
-#| msgid "the horn"
 msgid "Find the horn"
 msgstr "Найдите валторну"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
-#| msgid "the maracas"
 msgid "Find the maracas"
 msgstr "Найдите маракас"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
-#| msgid "the organ"
 msgid "Find the organ"
 msgstr "Найдите орган"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
-#| msgid "the snare drum"
 msgid "Find the snare drum"
 msgstr "Найдите малый барабан"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-#| msgid "the timpani"
 msgid "Find the timpani"
 msgstr "Найдите литавры"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
-#| msgid "the triangle"
 msgid "Find the triangle"
 msgstr "Найдите треугольник"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
-#| msgid "the tambourine"
 msgid "Find the tambourine"
 msgstr "Найдите тамбурин"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
-#| msgid "the tuba"
 msgid "Find the tuba"
 msgstr "Найдите тубу"
 
@@ -7555,8 +7351,8 @@ msgid ""
 "activity/lang."
 msgstr ""
 "Изображения и голоса взяты из проекта Art4Apps: http://www.art4apps.org/. Вы "
-"также можете пройти это упражнение в режиме онлайн на сайте http://gcompris.net/"
-"activity/lang."
+"также можете пройти это упражнение в режиме онлайн на сайте http://gcompris."
+"net/activity/lang."
 
 #: ../src/lang-activity/lang-object.xml.in.h:2
 msgid "List of words in the 'object' category."
@@ -7570,11 +7366,11 @@ msgstr "Список слов в категории «другое»."
 msgid "List of words in the 'people' category."
 msgstr "Список слов в категории «люди»."
 
-#: ../src/lang-activity/lang.py:98
+#: ../src/lang-activity/lang.py:100
 msgid "ERROR, we found no words in this language."
 msgstr "ОШИБКА: для этого языка не найдены слова."
 
-#: ../src/lang-activity/lang.py:99
+#: ../src/lang-activity/lang.py:101
 msgid "Please consider contributing a voice set."
 msgstr "Может быть и вы захотите озвучить некоторые слова."
 
@@ -7589,10 +7385,9 @@ msgstr ""
 
 #: ../src/lang-activity/lang.py:177
 msgid "Select locale"
-msgstr "Выбор языка:"
+msgstr "Выбрать язык"
 
 #: ../src/lang-activity/lang.xml.in.h:1
-#| msgid "Go to the Reading activities"
 msgid "Go to the language learning activities"
 msgstr "Перейти к языковым упражнениям"
 
@@ -7601,17 +7396,14 @@ msgid "other"
 msgstr "другое"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:2
-#| msgid "Duration"
 msgid "action"
 msgstr "действие"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:3
-#| msgid "Active"
 msgid "adjective"
 msgstr "имя прилагательное"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:5
-#| msgid "Number"
 msgid "number"
 msgstr "число"
 
@@ -7624,7 +7416,6 @@ msgid "clothes"
 msgstr "одежда"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:8
-#| msgid "Question"
 msgid "emotion"
 msgstr "эмоция"
 
@@ -7637,7 +7428,6 @@ msgid "people"
 msgstr "люди"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:11
-#| msgid "Reports"
 msgid "sport"
 msgstr "спорт"
 
@@ -7654,12 +7444,10 @@ msgid "fruit"
 msgstr "фрукт"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:15
-#| msgid "Picture"
 msgid "nature"
 msgstr "природа"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:16
-#| msgid "plane"
 msgid "plant"
 msgstr "растение"
 
@@ -7668,17 +7456,14 @@ msgid "vegetables"
 msgstr "овощи"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:18
-#| msgid "Learn subtraction"
 msgid "construction"
 msgstr "конструкция"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:19
-#| msgid "Picture"
 msgid "furniture"
 msgstr "мебель"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:20
-#| msgid "house"
 msgid "houseware"
 msgstr "хозяйство"
 
@@ -7691,24 +7476,12 @@ msgid "tool"
 msgstr "инструмент"
 
 #: ../src/leftright-activity/leftright.c:230
-#: ../src/searace-activity/searace.py:415
-#: ../src/searace-activity/searace.py:439
-#: ../src/searace-activity/searace.py:529
-#: ../src/searace-activity/searace.py:838
-#: ../src/searace-activity/searace.py:872
-#: ../src/searace-activity/searace.py:964
-msgid "left"
-msgstr "влево"
+msgid "Left hand"
+msgstr ""
 
 #: ../src/leftright-activity/leftright.c:236
-#: ../src/searace-activity/searace.py:415
-#: ../src/searace-activity/searace.py:439
-#: ../src/searace-activity/searace.py:539
-#: ../src/searace-activity/searace.py:840
-#: ../src/searace-activity/searace.py:874
-#: ../src/searace-activity/searace.py:958
-msgid "right"
-msgstr "вправо"
+msgid "Right hand"
+msgstr ""
 
 #: ../src/leftright-activity/leftright.xml.in.h:1
 msgid "Find your left and right hands"
@@ -7716,7 +7489,7 @@ msgstr "Найди свою левую и правую руки"
 
 #: ../src/leftright-activity/leftright.xml.in.h:2
 msgid "Determine if a hand is a right or a left hand"
-msgstr "Определите правую и левую руку"
+msgstr "Определите рука правая или левая"
 
 #: ../src/leftright-activity/leftright.xml.in.h:3
 msgid ""
@@ -7726,18 +7499,17 @@ msgstr ""
 "Отличать левую руку от правой с разных точек зрения. Пространственные образы"
 
 #: ../src/leftright-activity/leftright.xml.in.h:4
-#: ../src/note_names-activity/note_names.xml.in.h:3
-#: ../src/railroad-activity/railroad.xml.in.h:4
-msgid "None"
-msgstr "Нет"
-
-#: ../src/leftright-activity/leftright.xml.in.h:5
+#, fuzzy
+#| msgid ""
+#| "You can see a hand: is it a left hand or a right hand? Click on the red "
+#| "button on the left, or the green button on the right."
 msgid ""
-"You can see a hand: is it a left hand or a right hand? Click on the red "
-"button on the left, or the green button on the right."
+"You can see a hand: is it a left hand or a right hand? Click on the left "
+"button, or the right button depending on the displayed hand."
 msgstr ""
-"Показывается рука. Необходимо определить, это правая или левая рука.\n"
-"Щелчок по красной кнопке — левая рука, по зелёной — правая."
+"Показана рука: определите какая она — правая или левая. Нажмите на красную "
+"кнопку, чтобы указать, что это левая рука, или на зелёную, чтобы указать, "
+"что это правая."
 
 #: ../src/lightsoff-activity/lightsoff.py:442
 msgid ""
@@ -7745,7 +7517,7 @@ msgid ""
 "If you need help, click on me."
 msgstr ""
 "Погасите все огоньки, я хочу поспать.\n"
-"Если вам понадобится помощь, щёлкните по мне мышкой."
+"Если вам понадобится помощь, нажмите на меня."
 
 #: ../src/lightsoff-activity/lightsoff.xml.in.h:1
 msgid "Lights Off"
@@ -8553,29 +8325,6 @@ msgstr "Практикуйтесь в вычитании до тех пор, п�
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:5
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:5
-#| msgid ""
-#| "You can see some cards, but you can't see what's on the other side of "
-#| "them. Each card is hiding a subtraction, or the answer to it.\n"
-#| "A subtraction looks like this: 3 - 1 = 2\n"
-#| "The numbers on one side of the equals sign (=) have to be the same as the "
-#| "number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
-#| "when you work this out, and count on your fingers, because the more ways "
-#| "you do something, the better you remember it. You can also use blocks, or "
-#| "buttons, or anything you can count. If you have lots of brothers and "
-#| "sisters, you can count them! Or the kids in your class at school. Sing "
-#| "counting songs. Count lots of things, for practice, and you'll be very "
-#| "good at adding-up!\n"
-#| "\n"
-#| "In this game, these cards are hiding the two parts of a subtraction. You "
-#| "need to find the two parts of the subtraction, and bring them together "
-#| "again. Click on a card to see what number it's hiding, then try to find "
-#| "the other card that goes with it, to make a whole sum. You can only turn "
-#| "over two cards in one go, so you need to remember where the numbers are "
-#| "hiding, then you can match them when you find their other half. You're "
-#| "doing the job of the equals sign, and the numbers need you to put them "
-#| "together and make a proper sum. When you do that, both those cards "
-#| "disappear! When you've made them all disappear, found all the subtracts, "
-#| "you've won the game! :)"
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a subtraction, or the answer to it.\n"
@@ -9248,6 +8997,11 @@ msgid ""
 msgstr ""
 "Изучи названия нот в басовом и скрипичным ключах с помощью звуков и цветов"
 
+#: ../src/note_names-activity/note_names.xml.in.h:3
+#: ../src/railroad-activity/railroad.xml.in.h:4
+msgid "None"
+msgstr "Нет"
+
 #: ../src/note_names-activity/note_names.xml.in.h:4
 msgid ""
 "To develop a good understanding of note position and naming convention. To "
@@ -9299,9 +9053,6 @@ msgid "Edgar Degas, The Dancing Class - 1873-75"
 msgstr "Эдгар Дега, «Урок танца» — 1873-75"
 
 #: ../src/paintings-activity/resources/paintings/board1_10.xml.in.h:1
-#| msgid ""
-#| "Katsushika Hokusai,\\nViewing Sunset over the Ryogoku Bridge from the "
-#| "Ommaya Embankment - 1830"
 msgid ""
 "Katsushika Hokusai,\n"
 "Viewing Sunset over the Ryogoku Bridge from the Ommaya Embankment - 1830"
@@ -9346,8 +9097,6 @@ msgid "Katsushika Hokusai, The Great Wave off Kanagawa - 1823-1829"
 msgstr "Кацусика Хокусай, «Большая волна в Канагаве» — 1823-1829"
 
 #: ../src/paintings-activity/resources/paintings/board1_8.xml.in.h:1
-#| msgid ""
-#| "Utagawa Hiroshige,\\nThe Benzaiten Shrine at Inokashira in Snow - 1760-70"
 msgid ""
 "Utagawa Hiroshige,\n"
 "The Benzaiten Shrine at Inokashira in Snow - 1760-70"
@@ -9678,12 +9427,10 @@ msgid "Select A Melody to Load"
 msgstr "Выбрать мелодию для загрузки"
 
 #: ../src/piano_composition-activity/piano_composition.py:405
-#| msgid "Previous level"
 msgid "Previous Page"
 msgstr "Предыдущая страница"
 
 #: ../src/piano_composition-activity/piano_composition.py:415
-#| msgid "Next level"
 msgid "Next Page"
 msgstr "Следующая страница"
 
@@ -9820,53 +9567,43 @@ msgid ""
 msgstr ""
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
-#| msgid " America: English Lullaby"
 msgid "America: English Lullaby"
 msgstr "Америка: английская колыбельная"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:2
-#| msgid " America: Patriotic"
 msgid "America: Patriotic"
 msgstr "Америка: патриотическая"
 
 # шейкеры - название американской религиозной группы
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:3
-#| msgid " America: Shaker Tune"
 msgid "America: Shaker Tune"
 msgstr "Америка: музыка шейкеров"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:4
-#| msgid " America: Nursery Rhyme"
 msgid "America: Nursery Rhyme"
 msgstr "Америка: детские стишки"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:8
-#| msgid " German Kid's Song"
 msgid "German Kid's Song"
 msgstr "Немецкая детская песня"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
-#| msgid " Children's Song from Brazil"
 msgid "Children's Song from Brazil"
 msgstr "Детская песня из Бразилии"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:14
-#| msgid " Hungary, Nursery Rhyme"
 msgid "Hungary, Nursery Rhyme"
 msgstr "Венгерские детские стишки"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:15
-#| msgid " Hungary, Children's Song"
 msgid "Hungary, Children's Song"
 msgstr "Венгерская детская песня"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:17
-#| msgid " Britain"
 msgid "Britain"
 msgstr "Британские"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:21
-#| msgid " Mexican song to break a piñata"
 msgid "Mexican song to break a piñata"
 msgstr "Мексиканская песня разбиение пиньяты"
 
@@ -9895,7 +9632,6 @@ msgid "Satellite goes too slow"
 msgstr "Спутник движется слишком медленно"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:274
-#| msgid "Distance:"
 msgid "Distance: {:.1f}"
 msgstr "Расстояние: {:.1f}"
 
@@ -10569,6 +10305,15 @@ msgstr ""
 msgid "The race is already being run"
 msgstr "Гонка уже началась"
 
+#: ../src/searace-activity/searace.py:415
+#: ../src/searace-activity/searace.py:439
+#: ../src/searace-activity/searace.py:539
+#: ../src/searace-activity/searace.py:840
+#: ../src/searace-activity/searace.py:874
+#: ../src/searace-activity/searace.py:958
+msgid "right"
+msgstr "правая"
+
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
 #: ../src/searace-activity/searace.py:415
@@ -10581,6 +10326,15 @@ msgstr "Гонка уже началась"
 #: ../src/searace-activity/searace.py:970
 msgid "forward"
 msgstr "вперёд"
+
+#: ../src/searace-activity/searace.py:415
+#: ../src/searace-activity/searace.py:439
+#: ../src/searace-activity/searace.py:529
+#: ../src/searace-activity/searace.py:838
+#: ../src/searace-activity/searace.py:872
+#: ../src/searace-activity/searace.py:964
+msgid "left"
+msgstr "левая"
 
 #: ../src/searace-activity/searace.py:509
 msgid "COMMANDS ARE"
@@ -10774,11 +10528,6 @@ msgid "Learn how a submarine works"
 msgstr "Узнайте как работает подводная лодка"
 
 #: ../src/submarine-activity/submarine.xml.in.h:5
-#| msgid ""
-#| "Click on different active elements : engine, rudders and air tanks, in "
-#| "order to navigate to the required depth. There is a close gate on the "
-#| "right. Catch the jewel to open it, then pass through it to reach the next "
-#| "level."
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
 "to navigate to the required depth. There is a close gate on the right. After "
@@ -11063,7 +10812,7 @@ msgstr "Это — насосная станция."
 msgid "This is a water cleanup station."
 msgstr "Это — водоочистительная станция."
 
-#: ../src/watercycle-activity/watercycle.py:263
+#: ../src/watercycle-activity/watercycle.py:268
 msgid ""
 "A water tower or elevated water tower is a large elevated water storage "
 "container constructed to hold a water supply at a height sufficient to "
@@ -11189,6 +10938,15 @@ msgstr "Тренировка навыков работы с клавиатуро
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Наберите слово полностью пока оно падает и не достигло земли"
+
+#~ msgid "Couldn't open skin dir: %s"
+#~ msgstr "Невозможно открыть папку с темами: %s"
+
+#~ msgid "Skin : %s"
+#~ msgstr "Тема: %s"
+
+#~ msgid "SKINS NOT FOUND"
+#~ msgstr "ТЕМЫ НЕ НАЙДЕНЫ"
 
 #~ msgid "Editing group: "
 #~ msgstr "Редактирование группы: "
