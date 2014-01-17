@@ -104,7 +104,7 @@ class Log_list:
 
       for auser in user_list:
 
-        if(auser[0] == -1 or not auser[0]):
+        if(auser[0] == -1):
           # This is the name of the Default user profile
           self.combo_user.append_text(_("Default"))
           self.user_list.append(-1)
