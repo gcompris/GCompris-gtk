@@ -358,7 +358,7 @@ class GroupEdit(gtk.Window):
         if(self.entry_group.get_text() != self.group_name):
             # Check the group does not exist already
             self.cur.execute('SELECT name FROM groups WHERE name=?',
-                             (self.entry_group.get_text(),))
+                             (unicode(self.entry_group.get_text()),))
             if(self.cur.fetchone()):
                 dialog = gtk.MessageDialog(None,
                                            gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
@@ -373,9 +373,9 @@ class GroupEdit(gtk.Window):
         #
 
         group_data = (self.group_id,
-                      self.entry_group.get_text(),
+                      unicode(self.entry_group.get_text()),
                       self.class_id,
-                      self.entry_description.get_text()
+                      unicode(self.entry_description.get_text())
                       )
 
         if(self.new_group):

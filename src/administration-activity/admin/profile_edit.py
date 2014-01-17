@@ -132,8 +132,8 @@ class ProfileEdit(gtk.Window):
             dialog.destroy()
             return
 
-        self.profile_widget.ok(self.entry_profile.get_text().strip(),
-                self.entry_description.get_text())
+        self.profile_widget.ok(unicode(self.entry_profile.get_text().strip()),
+                unicode(self.entry_description.get_text()))
 
         # Close the dialog window now
         self.profile_list.reload_profile()

@@ -176,9 +176,9 @@ class UserEdit(gtk.Window):
         # Now everything is correct, create the user
         #
         user_data = (self.user_id,
-                     self.entry_login.get_text(),
-                     self.entry_firstname.get_text(),
-                     self.entry_lastname.get_text(),
+                     unicode(self.entry_login.get_text()),
+                     unicode(self.entry_firstname.get_text()),
+                     unicode(self.entry_lastname.get_text()),
                      self.entry_birthdate.get_text(),
                      self.class_id
                      )
