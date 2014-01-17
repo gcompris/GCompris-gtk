@@ -410,7 +410,7 @@ class Gcompris_login:
   def entry_text(self):
     self.entry = gtk.Entry()
 
-    self.entry.modify_font(gcompris.skin.get_font("gcompris/board/huge bold"))
+    self.entry.modify_font(pango.FontDescription(gcompris.skin.get_font("gcompris/board/huge bold")))
     text_color = gtk.gdk.color_parse("black")
     text_color_selected = gtk.gdk.color_parse("black")
     bg_color = gtk.gdk.color_parse("white")
