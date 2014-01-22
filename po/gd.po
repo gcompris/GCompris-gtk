@@ -1,6 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+#
 # Translators:
 # GunChleoc <fios@foramnagaidhlig.net>, 2013
 # GunChleoc <fios@foramnagaidhlig.net>, 2013
@@ -10,8 +11,8 @@ msgstr ""
 "Project-Id-Version: GCompris-Unofficial\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-06-23 20:43+0000\n"
-"PO-Revision-Date: 2013-07-17 09:28-0000\n"
+"POT-Creation-Date: 2013-09-19 08:00+0000\n"
+"PO-Revision-Date: 2013-09-19 14:26-0000\n"
 "Last-Translator: GunChleoc <fiosAIGforamnagaidhligDOTnet>\n"
 "Language-Team: Fòram na Gàidhlig http://www.foramnagaidhlig.net\n"
 "Language: gd\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
 "(n > 2 && n < 20) ? 2 : 3;\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -207,7 +208,7 @@ msgid ""
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
-"    Quit - Quit GCompris (ctrl-q)\n"
+"    Quit - Quit GCompris (ctrl-x)\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
 "    1, 2 or 3 complex stars - 7 years and up\n"
@@ -230,7 +231,7 @@ msgstr ""
 "    Comharra ceist - Cobhair\n"
 "    Toinnear - An clàr-taice rèiteachaidh\n"
 "    Plèana Tux - Mu dheidhinn GCompris\n"
-"    Fàg an-seo - Fàg GCompris (ctrl-q)\n"
+"    Fàg an-seo - Fàg GCompris (ctrl-x)\n"
 "Seallaidh na rionnagan buidheann aoise airson gach geama:\n"
 "    1, 2 no 3 rionnagan simplidh  - eadar 2 is 6 bliadhna a dh'aois\n"
 "    1, 2 no 3 rionnagan iomadh-rinneach - 7 bliadhna 's nas sine\n"
@@ -424,7 +425,7 @@ msgid ""
 "<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
 msgstr ""
-"rèiteachadh <b>an sgeama ionadail</b>\n"
+"A' rèiteachadh <b>an sgeama ionadail</b>\n"
 " airson na pròifil <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:657
@@ -432,11 +433,11 @@ msgid ""
 "<b>Locale sound</b> configuration\n"
 " for profile <b>{profile}</b>"
 msgstr ""
-"rèiteachadh <b>fuaim an sgeama ionadail</b>\n"
+"A' rèiteachadh <b>fuaim an sgeama ionadail</b>\n"
 " airson na pròifil <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:663
-#: ../src/pythontest-activity/pythontest.py:511
+#: ../src/pythontest-activity/pythontest.py:513
 #: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
 msgstr "Tagh sgeama ionadail nam fuaimean"
@@ -547,7 +548,7 @@ msgstr "Buidheann"
 
 #: ../src/administration-activity/admin/group_list.py:221
 #: ../src/administration-activity/admin/profile_group_list.py:160
-#: ../src/administration-activity/admin/profile_list.py:194
+#: ../src/administration-activity/admin/profile_list.py:195
 #: ../src/administration-activity/admin/profile_widget.py:200
 msgid "Description"
 msgstr "Tuairisgeul"
@@ -634,46 +635,50 @@ msgstr "Tagh cleachdaiche:"
 msgid "All users"
 msgstr "Na h-uile cleachdaiche"
 
-#: ../src/administration-activity/admin/log_list.py:108
-#: ../src/administration-activity/admin/log_list.py:298
-#: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/lang-activity/lang.py:154 ../src/login-activity/login.py:481
+#. This is the name of the Default user profile
+#: ../src/administration-activity/admin/log_list.py:109
+#: ../src/administration-activity/admin/log_list.py:300
+#: ../src/administration-activity/admin/profile_list.py:118
+#: ../src/administration-activity/admin/wordlist.py:48
+#: ../src/lang-activity/lang.py:154 ../src/login-activity/login.py:483
 #: ../src/missing_letter-activity/missingletter.c:802
+#: ../src/pythontest-activity/pythontest.py:451
+#: ../src/tuxpaint-activity/tuxpaint.py:189
 msgid "Default"
 msgstr "Bunaiteach"
 
 #. Reset buttons
-#: ../src/administration-activity/admin/log_list.py:162
+#: ../src/administration-activity/admin/log_list.py:163
 msgid "Reset"
 msgstr "Ath-shuidhich"
 
-#: ../src/administration-activity/admin/log_list.py:219
+#: ../src/administration-activity/admin/log_list.py:220
 msgid "Date"
 msgstr "Ceann-là"
 
-#: ../src/administration-activity/admin/log_list.py:229
+#: ../src/administration-activity/admin/log_list.py:230
 msgid "User"
 msgstr "Cleachdaiche"
 
-#: ../src/administration-activity/admin/log_list.py:239
+#: ../src/administration-activity/admin/log_list.py:240
 msgid "Board"
 msgstr "Bòrd"
 
-#: ../src/administration-activity/admin/log_list.py:249
+#: ../src/administration-activity/admin/log_list.py:250
 #: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Leibheil"
 
-#: ../src/administration-activity/admin/log_list.py:259
+#: ../src/administration-activity/admin/log_list.py:260
 msgid "Sublevel"
 msgstr "Fo-leibheil"
 
-#: ../src/administration-activity/admin/log_list.py:269
+#: ../src/administration-activity/admin/log_list.py:270
 msgid "Duration"
 msgstr "Faid"
 
-#: ../src/administration-activity/admin/log_list.py:279
+#: ../src/administration-activity/admin/log_list.py:280
 msgid "Status"
 msgstr "Staid"
 
@@ -743,11 +748,11 @@ msgstr "Iomruin na h-uile buidheann a bhuineas dhan phròifil seo"
 msgid "You need to provide at least a name for your profile"
 msgstr "Feumaidh tu ainm a shònrachadh airson na pròifil agad co-dhiù"
 
-#: ../src/administration-activity/admin/profile_list.py:184
+#: ../src/administration-activity/admin/profile_list.py:185
 msgid "Profile"
 msgstr "Pròifil"
 
-#: ../src/administration-activity/admin/profile_list.py:311
+#: ../src/administration-activity/admin/profile_list.py:312
 msgid "[Default]"
 msgstr "[Bunaiteach]"
 
@@ -821,12 +826,21 @@ msgstr ""
 "Tha co-dhiù aon fhar-ainm ann dà thuras!\n"
 "Feumaidh tu an atharrachadh: %s !"
 
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
 #: ../src/administration-activity/admin/wordlist.py:45
+#: ../src/login-activity/login.py:480
+#: ../src/pythontest-activity/pythontest.py:448
+#: ../src/tuxpaint-activity/tuxpaint.py:186
 msgid ""
 "<b>{config}</b> configuration\n"
 " for profile <b>{profile}</b>"
 msgstr ""
-"rèiteachadh <b>{config}</b>\n"
+"A' rèiteachadh <b>{config}</b>\n"
 " airson na pròifil <b>{profile}</b>"
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:1
@@ -846,297 +860,288 @@ msgid "Learn to recognize unusual colors."
 msgstr "Ionnsaich aithneachadh dhathan neo-àbhaisteach."
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:5
-#| msgid "Click on the correct colored box."
 msgid "Click on the correct colored butterfly."
-msgstr "Briog air an dealan-dè air a bheil an dath ceart."
+msgstr "Briog air an dealan-dè dathte cheart."
 
-#. Translator: Do not translate {text}.
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:1
+msgid "Find the coral butterfly"
+msgstr "Lorg an dealan-dè dath a' ghròim"
+
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
-msgid "Find the {text} butterfly"
-msgstr "Lorg an dealan-dè {text}"
+msgid "Find the claret butterfly"
+msgstr "Lorg an dealan-dè corcar"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
-msgid "coral"
-msgstr "dath a' ghròim"
+msgid "Find the navy butterfly"
+msgstr "Lorg an dealan-dè gorm a' chabhlaich"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
-msgid "claret"
-msgstr "corcar"
+msgid "Find the corn butterfly"
+msgstr "Lorg an dealan-dè òr-bhuidhe an arbhair"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
-msgid "sienna"
-msgstr "donn ùir Shiena"
+msgid "Find the cobalt butterfly"
+msgstr "Lorg an dealan-dè còbalt"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
-msgid "corn"
-msgstr "òr-bhuidhe an arbhair"
+msgid "Find the cyan butterfly"
+msgstr "Lorg an dealan-dè saidhean"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
-msgid "cobalt"
-msgstr "còbalt"
+msgid "Find the chestnut butterfly"
+msgstr "Lorg an dealan-dè ciar-dhonn"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
-#: ../src/color_mix-activity/color_mix.py:255
-msgid "cyan"
-msgstr "saidhean"
+msgid "Find the almond butterfly"
+msgstr "Lorg an dealan-dè donn an almoin"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
-msgid "chestnut"
-msgstr "ciar-dhonn"
+msgid "Find the sapphire butterfly"
+msgstr "Lorg an dealan-dè gorm an t-saifeir"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
-msgid "almond"
-msgstr "donn an almoin"
+msgid "Find the ruby butterfly"
+msgstr "Lorg an dealan-dè dath an ruiteachain"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
-msgid "ruby"
-msgstr "dath an ruiteachain"
+msgid "Find the sienna butterfly"
+msgstr "Lorg an dealan-dè donn ùir Shiena"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
-msgid "sapphire"
-msgstr "gorm an t-saifeir"
+msgid "Find the sage butterfly"
+msgstr "Lorg an dealan-dè dath na sàiste"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
-msgid "sage"
-msgstr "dath na sàiste"
+msgid "Find the salmon butterfly"
+msgstr "Lorg an dealan-dè ruadh a' bhradain"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
-msgid "salmon"
-msgstr "ruadh a' bhradain"
+msgid "Find the sepia butterfly"
+msgstr "Lorg an dealan-dè donn gibearnaich"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
-msgid "sepia"
-msgstr "donn gibearnaich"
+msgid "Find the sulfur butterfly"
+msgstr "Lorg an dealan-dè buidhe a' phronnaisg"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
-msgid "sulfur"
-msgstr "buidhe a' phronnaisg"
+msgid "Find the tea butterfly"
+msgstr "Lorg an dealan-dè dearg ròs na tì"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
-msgid "tea"
-msgstr "dearg ròs na tì"
+msgid "Find the lime butterfly"
+msgstr "Lorg an dealan-dè dath na liomaideig"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
-msgid "lime"
-msgstr "dath na liomaideig"
+msgid "Find the turquoise butterfly"
+msgstr "Lorg an dealan-dè tuirceas"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
-msgid "turquoise"
-msgstr "tuirceas"
+msgid "Find the absinthe butterfly"
+msgstr "Lorg an dealan-dè gorm na burmaide"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
-msgid "absinthe"
-msgstr "gorm na burmaide"
+msgid "Find the mahogany butterfly"
+msgstr "Lorg an dealan-dè donn a' mhathoganaidh"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
-msgid "mahogany"
-msgstr "donna' mhathoganaidh"
+msgid "Find the aquamarine butterfly"
+msgstr "Lorg an dealan-dè gorm na cloiche-mara"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
-msgid "aquamarine"
-msgstr "gorm na cloiche-mara"
+msgid "Find the alabaster butterfly"
+msgstr "Lorg an dealan-dè geal na cloich-èiteig"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
-msgid "alabaster"
-msgstr "geal na cloich-èiteig"
+msgid "Find the amber butterfly"
+msgstr "Lorg an dealan-dè òmarach"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
-msgid "amber"
-msgstr "òmarach"
+msgid "Find the amethyst butterfly"
+msgstr "Lorg an dealan-dè dath amaitist"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
-msgid "amethyst"
-msgstr "dath amaitist"
+msgid "Find the anise butterfly"
+msgstr "Lorg an dealan-dè bàn na h-ainise"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
-msgid "anise"
-msgstr "bàn na h-ainise"
+msgid "Find the vermilion butterfly"
+msgstr "Lorg an dealan-dè beirmeilean"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
-msgid "vermilion"
-msgstr "beirmeilean"
+msgid "Find the ceruse butterfly"
+msgstr "Lorg an dealan-dè geal"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
-msgid "ceruse"
-msgstr "geal"
+msgid "Find the fawn butterfly"
+msgstr "Lorg an dealan-dè donn na maing"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
-msgid "fawn"
-msgstr "donn na maing"
+msgid "Find the chartreuse butterfly"
+msgstr "Lorg an dealan-dè uaine feurach"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
-msgid "chartreuse"
-msgstr "uaine feurach"
+msgid "Find the emerald butterfly"
+msgstr "Lorg an dealan-dè smàragach"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
-msgid "emerald"
-msgstr "smàragach"
+msgid "Find the aubergine butterfly"
+msgstr "Lorg an dealan-dè dath aubergine"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
-msgid "aubergine"
-msgstr "dath aubergine"
+msgid "Find the fuchsia butterfly"
+msgstr "Lorg an dealan-dè purpaidh na fiùise"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
-msgid "fuchsia"
-msgstr "purpaidh na fiùise"
+msgid "Find the glaucous butterfly"
+msgstr "Lorg an dealan-dè liath-ghorm"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
-msgid "glaucous"
-msgstr "liath-ghorm"
+msgid "Find the auburn butterfly"
+msgstr "Lorg an dealan-dè ruadh"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
-msgid "auburn"
-msgstr "ruadh"
+msgid "Find the azure butterfly"
+msgstr "Lorg an dealan-dè speur-ghorm"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
-msgid "azure"
-msgstr "speur-ghorm"
+msgid "Find the grayish brown butterfly"
+msgstr "Lorg an dealan-dè liath-dhonn"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
-msgid "grayish brown"
-msgstr "liath-dhonn"
+msgid "Find the bistre butterfly"
+msgstr "Lorg an dealan-dè donn na cloiche"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
-msgid "bistre"
-msgstr "donn na cloiche"
+msgid "Find the crimson butterfly"
+msgstr "Lorg an dealan-dè dubh-dhearg"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
-msgid "crimson"
-msgstr "dubh-dhearg"
+msgid "Find the celadon butterfly"
+msgstr "Lorg an dealan-dè liath-uaine"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
-msgid "celadon"
-msgstr "liath-uaine"
+msgid "Find the cerulean butterfly"
+msgstr "Lorg an dealan-dè gorm-ghlas"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
-msgid "cerulean"
-msgstr "gorm-ghlas"
+msgid "Find the dove butterfly"
+msgstr "Lorg an dealan-dè liath an calmain"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
-msgid "dove"
-msgstr "liath an calmain"
+msgid "Find the garnet butterfly"
+msgstr "Lorg an dealan-dè gàirneideach"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
-msgid "garnet"
-msgstr "gàirneideach"
+msgid "Find the indigo butterfly"
+msgstr "Lorg an dealan-dè guirmean Innseanach"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
-msgid "indigo"
-msgstr "guirmean Innseanach"
+msgid "Find the ivory butterfly"
+msgstr "Lorg an dealan-dè ìbhri"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
-msgid "ivory"
-msgstr "ìbhri"
+msgid "Find the jade butterfly"
+msgstr "Lorg an dealan-dè glas-chlach"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:46
-msgid "jade"
-msgstr "glas-chlach"
+msgid "Find the lavender butterfly"
+msgstr "Lorg an dealan-dè corca an lus-liath"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
-msgid "lavender"
-msgstr "corca an lus-liath"
+msgid "Find the lichen butterfly"
+msgstr "Lorg an dealan-dè gorm a' chrotail"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
-msgid "lichen"
-msgstr "gorm a' chrotail"
+msgid "Find the wine butterfly"
+msgstr "Lorg an dealan-dè ruadh an fhìona"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
-msgid "wine"
-msgstr "ruadh an fhìona"
+msgid "Find the lilac butterfly"
+msgstr "Lorg an dealan-dè bàn-phurpaidh"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
-msgid "lilac"
-msgstr "bàn-phurpaidh"
+msgid "Find the magenta butterfly"
+msgstr "Lorg an dealan-dè maidèanta"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
-#: ../src/color_mix-activity/color_mix.py:256
-msgid "magenta"
-msgstr "maidèanta"
+msgid "Find the malachite butterfly"
+msgstr "Lorg an dealan-dè uaine duilleagan lus nam meall"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
-msgid "malachite"
-msgstr "uaine duilleagan lus nam meall"
+msgid "Find the larch butterfly"
+msgstr "Lorg an dealan-dè donn na learaig"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
-msgid "navy"
-msgstr "gorm a' chabhlaich"
+msgid "Find the mimosa butterfly"
+msgstr "Lorg an dealan-dè dath mimosa"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
-msgid "larch"
-msgstr "donn na learaig"
+msgid "Find the ochre butterfly"
+msgstr "Lorg an dealan-dè clach-dhearg"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
-msgid "mimosa"
-msgstr "dath mimosa"
+msgid "Find the olive butterfly"
+msgstr "Lorg an dealan-dè donn-uaine na dearc-ola"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:56
-msgid "ochre"
-msgstr "clach-dhearg"
+msgid "Find the opaline butterfly"
+msgstr "Lorg an dealan-dè geal na bainne"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
-msgid "olive"
-msgstr "donn-uaine na dearc-ola"
+msgid "Find the ultramarine butterfly"
+msgstr "Lorg an dealan-dè gorm na mara"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
-msgid "opaline"
-msgstr "geal na bainne"
+msgid "Find the mauve butterfly"
+msgstr "Lorg an dealan-dè liath-phurpur"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:59
-msgid "ultramarine"
-msgstr "gorm na mara"
+msgid "Find the grayish blue butterfly"
+msgstr "Lorg an dealan-dè liath-ghorm dorcha"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
-msgid "mauve"
-msgstr "liath-phurpur"
+msgid "Find the pistachio butterfly"
+msgstr "Lorg an dealan-dè uaine na maisteig"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
-msgid "grayish blue"
-msgstr "liath-ghorm dorcha"
+msgid "Find the platinum butterfly"
+msgstr "Lorg an dealan-dè airgid"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
-msgid "pistachio"
-msgstr "uaine na maisteig"
+msgid "Find the purple butterfly"
+msgstr "Lorg an dealan-dè purpaidh"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
-msgid "platinum"
-msgstr "airgid"
+msgid "Find the plum butterfly"
+msgstr "Lorg an dealan-dè purpaidh na plumaise"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
-msgid "purple"
-msgstr "purpaidh"
+msgid "Find the prussian blue butterfly"
+msgstr "Lorg an dealan-dè gorm Pruiseach"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
-msgid "plum"
-msgstr "purpaidh na plumaise"
+msgid "Find the rust butterfly"
+msgstr "Lorg an dealan-dè ruadh"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
-msgid "prussian blue"
-msgstr "gorm Pruiseach"
+msgid "Find the saffron butterfly"
+msgstr "Lorg an dealan-dè crò-dhearg"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
-msgid "rust"
-msgstr "ruadh"
+msgid "Find the vanilla butterfly"
+msgstr "Lorg an dealan-dè bàn na faoineige"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
-msgid "saffron"
-msgstr "crò-dhearg"
+msgid "Find the veronese butterfly"
+msgstr "Lorg an dealan-dè gorm Verona"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
-msgid "vanilla"
-msgstr "bàn na faoineige"
+msgid "Find the verdigris butterfly"
+msgstr "Lorg an dealan-dè liath meirg-umha"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
-msgid "veronese"
-msgstr "gorm Verona"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:71
-msgid "verdigris"
-msgstr "liath meirg-umha"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:72
-msgid "dark purple"
-msgstr "dorch-phurpaidh"
+msgid "Find the dark purple butterfly"
+msgstr "Lorg an dealan-dè dorch-phurpaidh"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid "Practice the multiplication operation"
@@ -1169,8 +1174,10 @@ msgstr ""
 "ceart. Mur eil, cha leig thu leas ach feuchainn a-rithist."
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:946
+#: ../src/memory-activity/memory.c:953
 msgid "+-×÷"
 msgstr "+-×÷"
 
@@ -1223,7 +1230,7 @@ msgstr ""
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
-"(http://schmode.net/). Ralf has kindly permitted GCompris to include his "
+"(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
 "pictures. Thanks a lot, Ralf."
 msgstr ""
 "Thàinig dealbhan nam beathaichean o dhuilleag dealbhan bheathaichean aig "
@@ -1585,7 +1592,7 @@ msgstr ""
 "ann eadar na h-oibseactan seo. Dè an dòigh a bhuineas iad ri chèile? Slaod "
 "gach nì dhan ionad dearg sa phrìomh roinn."
 
-#: ../src/babymatch-activity/shapegame.c:2041
+#: ../src/babymatch-activity/shapegame.c:2042
 #: ../src/click_on_letter-activity/click_on_letter.c:1315
 #: ../src/missing_letter-activity/missingletter.c:800
 #, c-format
@@ -1593,7 +1600,7 @@ msgid ""
 "<b>%1$s</b> configuration\n"
 " for profile <b>%2$s</b>"
 msgstr ""
-"rèiteachadh <b>%1$s</b>\n"
+"A' rèiteachadh <b>%1$s</b>\n"
 " airson na pròifil <b>%2$s</b>"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:1
@@ -1876,11 +1883,11 @@ msgstr ""
 
 #: ../src/braille_lotto-activity/braille_lotto.py:120
 msgid "PLAYER 1"
-msgstr "CLUICH. 1"
+msgstr "CLUICHEADAIR 1"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:130
 msgid "PLAYER 2"
-msgstr "CLUICH. 2"
+msgstr "CLUICHEADAIR 2"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:151
 msgid "Check Number"
@@ -1892,8 +1899,12 @@ msgid "Click me to get some hint"
 msgstr "Briog orm gus gliocas fhaighinn"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
-msgid "I don't have this number PLAYER {number}"
-msgstr "Chan eil an àireamh seo agam CLUICHEADAIR {number}"
+msgid ""
+"I don't have this number\n"
+"PLAYER {number}"
+msgstr ""
+"Chan eil an àireamh seo agam\n"
+"CLUICHEADAIR {number}"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:215
 msgid "Lotto Master"
@@ -1907,7 +1918,7 @@ msgstr "Gin àireamh"
 #: ../src/braille_lotto-activity/braille_lotto.py:296
 #: ../src/braille_lotto-activity/braille_lotto.py:319
 msgid "Hey, you have it. It is there in your {column} column"
-msgstr "Tha e agad, a ghràidh. Tha e sa cholbh {column} agad"
+msgstr "Tha e agad, a ghràidh. Tha e sa {column} cholbh agad"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:298
 #: ../src/braille_lotto-activity/braille_lotto.py:321
@@ -2400,10 +2411,7 @@ msgstr ""
 "Chaidh na h-èisg a thogail on ghoireas Unix xfishtank. Tha na h-uile dealbh "
 "le Guillaume Rousse."
 
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/click_on_letter-activity/click_on_letter.c:368
-#: ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "aàbcdeèfghiìlmnoòprstuù"
 
@@ -2416,7 +2424,7 @@ msgstr ""
 "gam bruidhinn"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:384
-#: ../src/memory-activity/memory.c:906
+#: ../src/memory-activity/memory.c:922
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2568,36 +2576,52 @@ msgstr ""
 "t-aon dath"
 
 #: ../src/color_mix-activity/color_mix.py:251
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-msgid "red"
-msgstr "dhearg"
+msgid "Not enough red"
+msgstr "Chan eil dearg gu leòr ann"
+
+#: ../src/color_mix-activity/color_mix.py:251
+msgid "Too much red"
+msgstr "Tha cus deirg ann"
 
 #: ../src/color_mix-activity/color_mix.py:252
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-msgid "green"
-msgstr "uaine"
+msgid "Not enough green"
+msgstr "Chan eil uaine gu leòr ann"
+
+#: ../src/color_mix-activity/color_mix.py:252
+msgid "Too much green"
+msgstr "Tha cus uaine ann"
 
 #: ../src/color_mix-activity/color_mix.py:253
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-msgid "blue"
-msgstr "ghorm"
+msgid "Not enough blue"
+msgstr "Chan eil gorm gu leòr ann"
+
+#: ../src/color_mix-activity/color_mix.py:253
+msgid "Too much blue"
+msgstr "Tha cus gorm ann"
+
+#: ../src/color_mix-activity/color_mix.py:255
+msgid "Not enough cyan"
+msgstr "Chan eil saidhean gu leòr ann"
+
+#: ../src/color_mix-activity/color_mix.py:255
+msgid "Too much cyan"
+msgstr "Tha cus saidhein ann"
+
+#: ../src/color_mix-activity/color_mix.py:256
+msgid "Not enough magenta"
+msgstr "Chan eil maidèanta gu leòr ann"
+
+#: ../src/color_mix-activity/color_mix.py:256
+msgid "Too much magenta"
+msgstr "Tha cus maidèanta ann"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-msgid "yellow"
-msgstr "bhuidhe"
+msgid "Not enough yellow"
+msgstr "Chan eil buidhe gu leòr ann"
 
-#: ../src/color_mix-activity/color_mix.py:336
-#: ../src/color_mix-activity/color_mix.py:341
-#: ../src/color_mix-activity/color_mix.py:346
-msgid "Too much {color}"
-msgstr "Cus {color}"
-
-#: ../src/color_mix-activity/color_mix.py:338
-#: ../src/color_mix-activity/color_mix.py:343
-#: ../src/color_mix-activity/color_mix.py:348
-msgid "Not enough {color}"
-msgstr "Chan eil {color} gu leòr"
+#: ../src/color_mix-activity/color_mix.py:257
+msgid "Too much yellow"
+msgstr "Tha cus buidhe ann"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:1
 msgid "Mixing color of paint"
@@ -2709,30 +2733,45 @@ msgstr ""
 msgid "Listen to the color and click on the matching duck."
 msgstr "Èist ris an dath is briog air an tunnag fhreagarrach."
 
-#. Translator: Do not translate {text}.
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:1
+msgid "Find the yellow duck"
+msgstr "Lorg an tunnag bhuidhe"
+
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
-msgid "Find the {text} duck"
-msgstr "Lorg an tunnag {text}"
+msgid "Find the black duck"
+msgstr "Lorg an tunnag dhubh"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+msgid "Find the green duck"
+msgstr "Lorg an tunnag uaine"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-msgid "black"
-msgstr "dhubh"
+msgid "Find the red duck"
+msgstr "Lorg an tunnag dhearg"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+msgid "Find the white duck"
+msgstr "Lorg an tunnag gheal"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+msgid "Find the blue duck"
+msgstr "Lorg an tunnag ghorm"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-msgid "white"
-msgstr "gheal"
+msgid "Find the brown duck"
+msgstr "Lorg an tunnag dhonn"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+msgid "Find the grey duck"
+msgstr "Lorg an tunnag liath"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
-msgid "brown"
-msgstr "dhonn"
+msgid "Find the orange duck"
+msgstr "Lorg an tunnag orains"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-msgid "grey"
-msgstr "liath"
-
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
-msgid "orange"
-msgstr "orains"
+msgid "Find the purple duck"
+msgstr "Lorg an tunnag phurpaidh"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 msgid "Connect 4 (2 Players)"
@@ -2986,9 +3025,9 @@ msgstr ""
 "às."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:410 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:342
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:504
+#: ../src/piano_composition-activity/piano_composition.py:505
 msgid "Cannot find the file '{filename}'"
 msgstr "Cha ghabh am faidhle \"{filename}\" a lorg"
 
@@ -3184,7 +3223,7 @@ msgstr ""
 
 #: ../src/explore-activity/explore.py:85
 #: ../src/note_names-activity/note_names.py:82
-#: ../src/piano_composition-activity/piano_composition.py:371
+#: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
 #: ../src/play_rhythm-activity/play_rhythm.py:83
 msgid ""
@@ -3207,9 +3246,9 @@ msgstr "Briog gus fuaim a chluich"
 msgid "Back to Homepage"
 msgstr "Till dhan duilleag-dhachaigh"
 
-#: ../src/explore-activity/explore.py:415 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:347
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:509
+#: ../src/piano_composition-activity/piano_composition.py:510
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3217,7 +3256,7 @@ msgstr ""
 "Dh'fhàillig parsadh an t-seata dàta \"{filename}\" leis a' mhearachd:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:505
+#: ../src/explore-activity/explore.py:507
 msgid "Explore Status:"
 msgstr "Cor an fhiosrachaidh:"
 
@@ -3274,7 +3313,7 @@ msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
 msgid "Click on the questions to explore each farm animal."
-msgstr "Briog air comharradh-ceiste gus beathach croite fhiosrachadh."
+msgstr "Briog air gach beathach na croite gus fhiosrachadh."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:2
 msgid "Click on the farm animal that makes the sound you hear."
@@ -3870,7 +3909,7 @@ msgstr ""
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:57
-msgid "translator-credits"
+msgid "translator_credits"
 msgstr "Akerbeltz ┐ GunChleoc"
 
 #: ../src/gcompris/about.c:86
@@ -3893,7 +3932,7 @@ msgstr ""
 "'S e pacaid GNU a th' anns a' bhathar-bhog seo is chaidh fhoillseachadh fo "
 "GNU General Public License"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:488
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:490
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -3926,8 +3965,8 @@ msgid ""
 "Select the language\n"
 " to use in the board"
 msgstr ""
-"Tagh an cànan\n"
-" a chleachdas tu sa bhòrd"
+"Tagh an cànan airson\n"
+"a' bhùird seo"
 
 #: ../src/gcompris/board_config_combo.c:252
 msgid "Global GCompris mode"
@@ -4017,300 +4056,308 @@ msgid "Chinese (Simplified)"
 msgstr "Sìnis (Shimplichte)"
 
 #: ../src/gcompris/config.c:69
+msgid "Chinese (Hong Kong)"
+msgstr "Sìnis (Hong Kong)"
+
+#: ../src/gcompris/config.c:70
 msgid "Chinese (Traditional)"
 msgstr "Sìnis (Thradaiseanta)"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:71
 msgid "Croatian"
 msgstr "Cròthaisis"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:72
 #: ../src/geography-activity/resources/geography/board6_0.xml.in.h:7
 msgid "Czech Republic"
 msgstr "Poblachd na Seice"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:73
 msgid "Danish"
 msgstr "Danmhairgis"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:74
 msgid "Dutch"
 msgstr "Duitsis"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:75
 msgid "Dzongkha"
 msgstr "Dzongkha"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:76
 msgid "English (Canada)"
 msgstr "Beurla (Canada)"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:77
 msgid "English (Great Britain)"
 msgstr "Beurla (na Breatainne Mòire)"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:78
 msgid "English (United States)"
 msgstr "Beurla (nan Stàitean Aonaichte)"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:79
 msgid "Finnish"
 msgstr "Fionnlannais"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:80
 msgid "French"
 msgstr "Fraingis"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:81
+msgid "Galician"
+msgstr "Gailìsis"
+
+#: ../src/gcompris/config.c:82
 msgid "Georgian"
 msgstr "Cairtbheilis"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:83
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 msgid "German"
 msgstr "Gearmailtis"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:84
 msgid "Greek"
 msgstr "Greugais"
 
-#: ../src/gcompris/config.c:83 ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:85 ../src/gcompris/config.c:114
 msgid "Scottish Gaelic"
 msgstr "Gàidhlig"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:86
 msgid "Gujarati"
 msgstr "Gujarati"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:87
 msgid "Hebrew"
 msgstr "Eabhra"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:88
 msgid "Hindi"
 msgstr "Hindis"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:89
 msgid "Hungarian"
 msgstr "Ungairis"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:90
 msgid "Indonesian"
 msgstr "Innd-Innsis"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:91
 msgid "Irish (Gaelic)"
 msgstr "Gaeilge"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:92
 msgid "Italian"
 msgstr "Eadailtis"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:93
 msgid "Japanese"
 msgstr "Seapanais"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:95
 msgid "Korean"
 msgstr "Coirèanais"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:96
 msgid "Latvian"
 msgstr "Laitbheis"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:97
 msgid "Lithuanian"
 msgstr "Liotuainis"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:98
 msgid "Macedonian"
 msgstr "Masadonais"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:99
 msgid "Malay"
 msgstr "Malaidhis"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:100
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:101
 msgid "Marathi"
 msgstr "Marati"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:102
 msgid "Montenegrin"
 msgstr "Monadh Neagrach"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:103
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:37
 msgid "Nepal"
 msgstr "Neapàl"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:104
 msgid "Norwegian Bokmal"
 msgstr "Bokmål na Nirribhidh"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:105
 msgid "Norwegian Nynorsk"
 msgstr "Nynorsk na Nirribhidh"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:106
 msgid "Occitan (languedocien)"
 msgstr "Ogsatanais (Languedocien)"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:107
 msgid "Persian"
 msgstr "Peirsis"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:108
 msgid "Polish"
 msgstr "Pòlainnis"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:109
 msgid "Portuguese (Brazil)"
 msgstr "Portagailis (Braisil)"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:110
 msgid "Portuguese"
 msgstr "Portagailis"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:111
 msgid "Punjabi"
 msgstr "Panjabi"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:112
 msgid "Romanian"
 msgstr "Romàinis"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:113
 msgid "Russian"
 msgstr "Ruisis"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:115
 msgid "Serbian (Latin)"
 msgstr "Sèirbis (Laidinneach)"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:116
 msgid "Serbian"
 msgstr "Sèirbis"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:117
 msgid "Slovak"
 msgstr "Slòbhacais"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:118
 msgid "Slovenian"
 msgstr "Slòbhainis"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:119
 msgid "Somali"
 msgstr "Somàilis"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:120
 msgid "Spanish"
 msgstr "Spàinntis"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:121
 msgid "Swedish"
 msgstr "Suainis"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:122
 msgid "Tamil"
 msgstr "Taimilis"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:123
 msgid "Thai"
 msgstr "Cànan nan Tàidh"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:124
 msgid "Turkish (Azerbaijan)"
 msgstr "Turcais (Asarbaideàn)"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:125
 msgid "Turkish"
 msgstr "Turcais"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:126
 msgid "Ukrainian"
 msgstr "Ucràinis"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:127
 msgid "Urdu"
 msgstr "Ùrdu"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:128
 msgid "Vietnamese"
 msgstr "Bhiet-Nàmais"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:129
 msgid "Walloon"
 msgstr "Walloon"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:130
 msgid "Zulu"
 msgstr "Zulu"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:135
 msgid "Timer: No time limit"
 msgstr "Tìmear: Gun chrìoch ùine"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:136
 msgid "Timer: Slow timer"
 msgstr "Tìmear: Tìmear slaodach"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:137
 msgid "Timer: Normal timer"
 msgstr "Tìmear: Tìmear àbhaisteach"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:138
 msgid "Timer: Fast timer"
 msgstr "Tìmear: Tìmear luath"
 
-#: ../src/gcompris/config.c:140
-msgid "Use GCompris administration module to filter boards"
+#: ../src/gcompris/config.c:142
+msgid "Use Gcompris administration module to filter boards"
 msgstr "Cleachd mòideal rianachd GCompris gus bùird a chriathradh"
 
-#: ../src/gcompris/config.c:194
+#: ../src/gcompris/config.c:196
 msgid "GCompris Configuration"
 msgstr "Rèiteachadh GCompris"
 
-#: ../src/gcompris/config.c:277
+#: ../src/gcompris/config.c:279
 msgid "Fullscreen"
 msgstr "Làn-sgrìn"
 
-#: ../src/gcompris/config.c:302
+#: ../src/gcompris/config.c:304
 msgid "Remember level for default user"
 msgstr "Cuimhnich leibheil a' chleachdaiche bhunaitich"
 
-#: ../src/gcompris/config.c:328
+#: ../src/gcompris/config.c:330
 msgid "Music"
 msgstr "Ceòl"
 
-#: ../src/gcompris/config.c:353
+#: ../src/gcompris/config.c:355
 msgid "Effect"
 msgstr "Èifeachd"
 
-#: ../src/gcompris/config.c:377 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:379 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Sùm"
 
-#: ../src/gcompris/config.c:414
+#: ../src/gcompris/config.c:416
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Cha b' urrainn dhuinn pasgan nan craiceann fhosgladh: %s"
 
-#: ../src/gcompris/config.c:445 ../src/gcompris/config.c:925
-#: ../src/gcompris/config.c:939
+#: ../src/gcompris/config.c:447 ../src/gcompris/config.c:927
+#: ../src/gcompris/config.c:941
 #, c-format
 msgid "Skin : %s"
 msgstr "Craiceann : %s"
 
-#: ../src/gcompris/config.c:447
+#: ../src/gcompris/config.c:449
 msgid "SKINS NOT FOUND"
 msgstr "CHA DEACH CRAICEANN A LORG"
 
@@ -4545,18 +4592,18 @@ msgstr ""
 "GNU/Linux a chleachdadh. Faigh barrachd fiosrachaidh aig FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1240
+#: ../src/gcompris/gcompris.c:1241
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Dh'fhàillig le luchdadh a' chraicinn \"%s\" (Dearbhaich gu bheil am faidhle "
 "ann is gun gabh a leughadh)"
 
-#: ../src/gcompris/gcompris.c:1256
+#: ../src/gcompris/gcompris.c:1257
 msgid "Retrieving remote data..."
 msgstr "A' faighinn dàta cèin ..."
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1518
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4571,12 +4618,12 @@ msgstr[2] ""
 msgstr[3] ""
 "Cha tòisich GCompris oir tha am faidhle glasaidh nas òige na %d diog.\n"
 
-#: ../src/gcompris/gcompris.c:1521
+#: ../src/gcompris/gcompris.c:1522
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Am faidhle glasaidh: %s\n"
 
-#: ../src/gcompris/gcompris.c:1642
+#: ../src/gcompris/gcompris.c:1643
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4590,27 +4637,27 @@ msgstr ""
 "Barrachd fiosrachaidh air http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1827
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Cleachd -l gus inntrigeadh fhaighinn do chleas sa bhad.\n"
 
-#: ../src/gcompris/gcompris.c:1828
+#: ../src/gcompris/gcompris.c:1829
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Na cleasan a tha ri làimh :\n"
 
-#: ../src/gcompris/gcompris.c:1859
+#: ../src/gcompris/gcompris.c:1860
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Àireamh de chleasan: %d\n"
 
-#: ../src/gcompris/gcompris.c:1895
+#: ../src/gcompris/gcompris.c:1896
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "Tha %s ann ach cha ghabh a leughadh no sgrìobhadh"
 
-#: ../src/gcompris/gcompris.c:1990
+#: ../src/gcompris/gcompris.c:1991
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4619,7 +4666,7 @@ msgstr ""
 "MEARACHD: Cha deach am pròifil \"%s\" a lorg. Ruith 'gcompris --profile-"
 "list' gus liosta dhe na pròifilean ri làimh fhaighinn\n"
 
-#: ../src/gcompris/gcompris.c:2004
+#: ../src/gcompris/gcompris.c:2005
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Na pròifilean a tha ri làimh :\n"
@@ -4762,6 +4809,275 @@ msgstr ""
 "Thàinig mapa na Gearmailte on Uicipeid is chaidh fhoillseachadh o GNU Free "
 "Documentation License. Chruthaich Olaf Ronneberger is a chlann-nighean Lina "
 "is Julia Ronneberger an leibheil Gearmailteach."
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
+msgid "United States of America"
+msgstr "Stàitean Aonaichte Aimeireaga"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:2
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:2
+msgid "Connecticut"
+msgstr "Connecticut"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:3
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:3
+msgid "Rhode Island"
+msgstr "Rhode Island"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:4
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:4
+msgid "Massachusetts"
+msgstr "Massachusetts"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:5
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:5
+msgid "Wyoming"
+msgstr "Wyoming"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:6
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:6
+msgid "Utah"
+msgstr "Utah"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:7
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:7
+msgid "Nevada"
+msgstr "Nevada"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:8
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:8
+msgid "California"
+msgstr "California"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:9
+msgid "Wahington D.C."
+msgstr "Wahington D.C."
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:10
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
+msgid "Maine"
+msgstr "Maine"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:11
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:11
+msgid "New Hampshire"
+msgstr "New Hampshire"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:12
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:12
+msgid "Vermont"
+msgstr "Vermont"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:13
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:13
+msgid "New York"
+msgstr "New York"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:14
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:14
+msgid "Pennsylvania"
+msgstr "Pennsylvania"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:15
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:15
+msgid "Delaware"
+msgstr "Delaware"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:16
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:16
+msgid "New Jersey"
+msgstr "New Jersey"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:17
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:17
+msgid "Maryland"
+msgstr "Maryland"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:18
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:18
+msgid "Alabama"
+msgstr "Alabama"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:19
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:19
+msgid "Florida"
+msgstr "Florida"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:20
+msgid "USA|Georgia"
+msgstr "Georgia"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:21
+msgid "South Carolina"
+msgstr "South Carolina"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:22
+msgid "North Carolina"
+msgstr "North Carolina"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:23
+msgid "Virginia"
+msgstr "Virginia"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:24
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:24
+msgid "West Virginia"
+msgstr "West Virginia"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:25
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:25
+msgid "Ohio"
+msgstr "Ohio"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:26
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:26
+msgid "Michigan"
+msgstr "Michigan"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:27
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:27
+msgid "Wisconsin"
+msgstr "Wisconsin"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:28
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:28
+msgid "Illinois"
+msgstr "Illinois"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:29
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:29
+msgid "Indiana"
+msgstr "Indiana"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:30
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:30
+msgid "Kentucky"
+msgstr "Kentucky"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:31
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:31
+msgid "Tennessee"
+msgstr "Tennessee"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:32
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:32
+msgid "Mississippi"
+msgstr "Mississippi"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:33
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:33
+msgid "Louisiana"
+msgstr "Louisiana"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:34
+msgid "Arkansas"
+msgstr "Arkansas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:35
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:35
+msgid "Missouri"
+msgstr "Missouri"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:36
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:36
+msgid "Iowa"
+msgstr "Iowa"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:37
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:37
+msgid "Minnesota"
+msgstr "Minnesota"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:38
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:38
+msgid "Oklahoma"
+msgstr "Oklahoma"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:39
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:39
+msgid "Texas"
+msgstr "Texas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:40
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:40
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
+msgid "Hawaii"
+msgstr "Na h-Eileanan Hawai'i"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:41
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:41
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
+msgid "Alaska"
+msgstr "Alasga"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:42
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:42
+msgid "Arizona"
+msgstr "Arizona"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:43
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:43
+msgid "New Mexico"
+msgstr "New Mexico"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:44
+msgid "Colorado"
+msgstr "Colorado"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:45
+msgid "Kansas"
+msgstr "Kansas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:46
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:46
+msgid "Nebraska"
+msgstr "Nebraska"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:47
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:47
+msgid "South Dakota"
+msgstr "South Dakota"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:48
+msgid "North Dakota"
+msgstr "North Dakota"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:49
+msgid "Montana"
+msgstr "Montana"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:50
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:50
+msgid "Idaho"
+msgstr "Idaho"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:51
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:51
+msgid "Oregon"
+msgstr "Oregon"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:52
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:52
+msgid "Washington"
+msgstr "Washington"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:9
+msgid "Washington D.C."
+msgstr "Washington D.C."
+
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:20
+msgid "Georgia"
+msgstr "Georgia"
 
 #: ../src/geo_country-activity/resources/geo_country/board1_0.xml.in.h:1
 msgid "Regions of France"
@@ -5105,7 +5421,7 @@ msgid "Turkey"
 msgstr "An Tuirc"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:25
-msgid "Georgia"
+msgid "Asia|Georgia"
 msgstr "A' Chairtbheil"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
@@ -5235,10 +5551,6 @@ msgstr "An Roinn-Eòrpa"
 msgid "Oceania"
 msgstr "Roinn a' Chuain Sèimh"
 
-#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
-msgid "Hawaii"
-msgstr "Na h-Eileanan Hawai'i"
-
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:3
 msgid "United States Minor Outlying Islands"
 msgstr "Meanbh-Eileanan Iomallach nan Stàitean Aonaichte"
@@ -5331,14 +5643,6 @@ msgstr "A' Ghraonlann"
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:8
 msgid "Iceland"
 msgstr "Innis Tìle"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
-msgid "United States of America"
-msgstr "Stàitean Aonaichte Aimeireaga"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
-msgid "Alaska"
-msgstr "Alasga"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
@@ -5878,55 +6182,44 @@ msgid "Type the falling letters before they reach the ground"
 msgstr "Sgrìobh na litrichean a thuiteas mus ruig iad an làr"
 
 #: ../src/gletters-activity/gletters.c:215
-#| msgid ""
-#| "Error: We can't find\n"
-#| "a list of words to play this game.\n"
 msgid ""
 "Error: We can't find\n"
 "a list of letters to play this game.\n"
 msgstr ""
 "Mearachd: Cha d' fhuair sinn lorg air\n"
-"liosta nan litrichean gus an geama seo a chluich.\n"
+"liosta litrichean gus an geama seo a chluich\n"
 
 #. Should display the dialog box here
-#: ../src/gletters-activity/gletters.c:762
+#: ../src/gletters-activity/gletters.c:786
 msgid "ERROR: Unable to get letter from wordlist"
-msgstr "MEARACHD: Cha deach leinn litir o wordlist fhaighinn"
+msgstr "MEARACHD: Cha deach leinn litir fhaighinn on wordlist"
 
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:1007
+#: ../src/gletters-activity/gletters.c:1032
 #: ../src/imageid-activity/imageid.c:716
-#: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:918
-#: ../src/scalesboard-activity/scale.c:1258
+#: ../src/scalesboard-activity/scale.c:1259
 #: ../src/smallnumbers-activity/smallnumbers.c:598
-#: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:907
-#, c-format, python-format
+#: ../src/wordsgame-activity/wordsgame.c:936
+#, c-format
 msgid ""
 "<b>%s</b> configuration\n"
 " for profile <b>%s</b>"
 msgstr ""
-"rèiteachadh <b>%s</b>\n"
+"A' rèiteachadh <b>%s</b>\n"
 " airson na pròifil <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:1036
+#: ../src/gletters-activity/gletters.c:1064
 #: ../src/smallnumbers-activity/smallnumbers.c:617
 msgid "Enable sounds"
 msgstr "Cuir fuaimean an comas"
 
-#: ../src/gletters-activity/gletters.c:1040
+#: ../src/gletters-activity/gletters.c:1068
 msgid ""
 "Show letters in UPPERCASE\n"
 "Type in lowercase or UPPERCASE as you wish"
 msgstr ""
-"Seall LITRICHEAN MORA\n"
-"Sgrìobh litrichean beaga no MÒRA mar a thogras tu"
+"Seall LITRICHEAN MÒRA\n"
+"Faodaidh tu litrichean beaga no MÒRA a sgrìobhadh"
 
 #: ../src/gletters-activity/gletters.xml.in.h:3
 msgid "Letter association between the screen and the keyboard"
@@ -6276,25 +6569,28 @@ msgstr ""
 #. All the vowel of your language (keep empty if non applicable)
 #. Separate with /. You can use digraphs, trigraphs etc.
 #: ../src/hangman-activity/hangman.py:62
-#| msgid "cake/c_ke/a/o/e/i/u/y"
 msgid "a/e/i/o/u/y"
 msgstr "a/à/e/è/i/ì/o/ò/u/ù"
 
 #. All the consonants of your language (keep empty if non applicable)
-#. Separate with /. You can use digraphs, trigraphs etc. For example, both 's' and 'sch' could be in the list for German
+#. Separate with /. You can use digraphs, trigraphs etc. For example, both 's'
+#. and 'sch' could be in the list for German
 #: ../src/hangman-activity/hangman.py:67
 msgid "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
-msgstr "b/bh/c/ch/d/dh/f/fh/g/gh/l/m/mh/n/p/ph/r/s/sh/t/th/"
+msgstr "b/bh/c/ch/d/dh/f/fh/g/gh/l/m/mh/n/p/ph/r/s/sh/t/th"
 
 #. Keys to letters equivalence for the hangman activity. It has the
 #. form of a space separated list like: "é=e/E è=e/E sch=S"
-#. Letters on the left of the = can be multigraphs and represent the letters on the buttons.
+#. Letters on the left of the = can be multigraphs and represent the letters
+#. on the buttons.
 #. Letters on the right are single letters pressed on the keyboard.
-#. If you wish to allow different key presses for the same letter, separate the letters
-#. on the right with /
-#: ../src/hangman-activity/hangman.py:76
+#. If you wish to allow different key presses for the same letter, separate
+#. the letters
+#. on the right with the chararcter '/'. Keep the word NONE if not available
+#. in your language
+#: ../src/hangman-activity/hangman.py:77
 msgid "a=a"
-msgstr "bh=B ch=C dh=D fh=F gh=G mh=M ph=P sh=S th=T"
+msgstr "ch=C dh=D fh=F gh=G mh=M sh=S th=T"
 
 #. Letters equivalence for the hangman activity. It has the
 #. form of a space separated list like: "e=éè a=àâ"
@@ -6888,118 +7184,113 @@ msgstr "Ionnsaich innealan-ciùil aithneachadh."
 msgid "Click on the correct instrument."
 msgstr "Briog air an inneal-ciùil ceart."
 
-#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:1
+msgid "Find the clarinet"
+msgstr "Lorg am feadan-clàirneid"
+
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
-msgid "Find {text}"
-msgstr "Lorg {text}"
+msgid "Find the transverse flute"
+msgstr "Lorg an duiseal"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
-msgid "the clarinet"
-msgstr "am feadan-clàirneid"
+msgid "Find the guitar"
+msgstr "Lorg an giotàr"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-msgid "the transverse flute"
-msgstr "an duiseal"
+msgid "Find the harp"
+msgstr "Lorg an clàrsach"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
-msgid "the guitar"
-msgstr "an giotàr"
+msgid "Find the piano"
+msgstr "Lorg am piàno"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
-msgid "the harp"
-msgstr "an clàrsach"
+msgid "Find the saxophone"
+msgstr "Lorg an sacsafon"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
-msgid "the piano"
-msgstr "am piàno"
+msgid "Find the trombone"
+msgstr "Lorg an trompan"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
-msgid "the saxophone"
-msgstr "an sacsafon"
+msgid "Find the trumpet"
+msgstr "Lorg an trombaid"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
-msgid "the trombone"
-msgstr "an trompan"
+msgid "Find the violin"
+msgstr "Lorg an fhìdheall"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-msgid "the trumpet"
-msgstr "an trombaid"
+msgid "Find the flute traversiere"
+msgstr "Lorg an duiseal"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
-msgid "the violin"
-msgstr "an fhìdheall"
+msgid "Find the drum kit"
+msgstr "Lorg na drumaichean"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
-msgid "the flute traversiere"
-msgstr "an duiseal"
+msgid "Find the accordion"
+msgstr "Lorg am bogsa"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
-msgid "the drum kit"
-msgstr "na drumaichean"
+msgid "Find the banjo"
+msgstr "Lorg am bainsio"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
-msgid "the accordion"
-msgstr "am bogsa"
+msgid "Find the bongo"
+msgstr "Lorg am bongo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
-msgid "the banjo"
-msgstr "am bainsio"
+msgid "Find the electric guitar"
+msgstr "Lorg an giotàr-dealain"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
-msgid "the bongo"
-msgstr "am bongo"
+msgid "Find the castanets"
+msgstr "Lorg na castañeataichean"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
-msgid "the electric guitar"
-msgstr "an giotàr-dealain"
+msgid "Find the cymbal"
+msgstr "Lorg an gliongan"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
-msgid "the castanets"
-msgstr "na castañeataichean"
+msgid "Find the cello"
+msgstr "Lorg a' bheus-fhìdheall"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
-msgid "the cymbal"
-msgstr "an gliongan"
+msgid "Find the harmonica"
+msgstr "Lorg an t-organ-beòil"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
-msgid "the cello"
-msgstr "a' bheus-fhìdheall"
+msgid "Find the horn"
+msgstr "Lorg an dùdach"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
-msgid "the harmonica"
-msgstr "an t-organ-beòil"
+msgid "Find the maracas"
+msgstr "Lorg am maracas"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
-msgid "the horn"
-msgstr "an dùdach"
+msgid "Find the organ"
+msgstr "Lorg an t-organ"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
-msgid "the maracas"
-msgstr "am maracas"
+msgid "Find the snare drum"
+msgstr "Lorg an druma-tormain"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-msgid "the organ"
-msgstr "an t-organ"
+msgid "Find the timpani"
+msgstr "Lorg a' ghall-druma"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
-msgid "the snare drum"
-msgstr "an druma-tormain"
+msgid "Find the triangle"
+msgstr "Lorg an triantan"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
-msgid "the timpani"
-msgstr "a' ghall-druma"
+msgid "Find the tambourine"
+msgstr "Lorg an tambairin"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
-msgid "the triangle"
-msgstr "an triantan"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
-msgid "the tambourine"
-msgstr "an tambairin"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:29
-msgid "the tuba"
-msgstr "an tiùba"
+msgid "Find the tuba"
+msgstr "Lorg an tiùba"
 
 #: ../src/intro_gravity-activity/intro_gravity.py:100
 msgid ""
@@ -7069,7 +7360,7 @@ msgstr "Lean air an stiùireadh uair a ruitheas tu an cleas seo."
 msgid "Gravity: %s"
 msgstr "Iom-tharraing: %s"
 
-#: ../src/land_safe-activity/land_safe.py:165
+#: ../src/land_safe-activity/land_safe.py:166
 msgid ""
 "Use the up and down keys to control the thrust\n"
 "Use the right and left keys to control direction.\n"
@@ -7081,23 +7372,23 @@ msgstr ""
 "Feumaidh tu an soitheach aig Tux a stiùireadh dhan ùrlar-laighe.\n"
 "Thèid an ùrlar-laighe uaine nuair a bhios an luaths sàbhailte gus laighe air."
 
-#: ../src/land_safe-activity/land_safe.py:170
+#: ../src/land_safe-activity/land_safe.py:171
 msgid "Click on me or press the Return key when you are ready."
 msgstr "Briog orm no brùth air an iuchair Return nuair a bhios tu ullamh."
 
-#: ../src/land_safe-activity/land_safe.py:172
+#: ../src/land_safe-activity/land_safe.py:173
 msgid "I am ready!"
 msgstr "Tha mi ullamh!"
 
-#: ../src/land_safe-activity/land_safe.py:470
+#: ../src/land_safe-activity/land_safe.py:473
 msgid "Height: "
 msgstr "Àirde:"
 
-#: ../src/land_safe-activity/land_safe.py:486
+#: ../src/land_safe-activity/land_safe.py:491
 msgid "Fuel"
 msgstr "Connadh"
 
-#: ../src/land_safe-activity/land_safe.py:519
+#: ../src/land_safe-activity/land_safe.py:525
 msgid "Velocity: "
 msgstr "Luaths:"
 
@@ -7141,34 +7432,13 @@ msgstr ""
 "air.\n"
 "        "
 
-#: ../src/lang-activity/lang.py:99
-msgid "ERROR, we found no words in this language."
-msgstr "MEARACHD, cha do lorg sinn faclan airson a' chànain seo."
-
-#: ../src/lang-activity/lang.py:100
-msgid "Please consider contributing a voice set."
-msgstr "Saoil an clàraich thu guthan air ur son?"
-
-#: ../src/lang-activity/lang.py:153
-#, python-format
-msgid ""
-"Configuration\n"
-" for profile <b>%s</b>"
-msgstr ""
-"Rèiteachadh\n"
-" airson na pròifil <b>%s</b>"
-
-#: ../src/lang-activity/lang.py:158
-msgid "Select locale"
-msgstr "Tagh sgeama ionadail"
-
-#: ../src/lang-activity/langEnterText.py:147
+#: ../src/lang-activity/langEnterText.py:133
 msgid "Enter the text you hear:"
 msgstr "Cuir a-steach an teacsa a chluinneas tu:"
 
 #: ../src/lang-activity/langLib.py:69
 msgid "Missing translation for '{word}'"
-msgstr "Tha eadar-theangachadh airson \"{word}\" a dhìth"
+msgstr "Tha an t-eadar-theangachadh airson \"{word}\" a dhìth"
 
 #: ../src/lang-activity/lang-nature.xml.in.h:1
 #: ../src/lang-activity/lang-object.xml.in.h:1
@@ -7186,7 +7456,7 @@ msgstr "Liosta nam faclan san roinn-seòrsa \"nàdar\"."
 #: ../src/lang-activity/lang-other.xml.in.h:4
 #: ../src/lang-activity/lang-people.xml.in.h:4
 msgid "Enrich your vocabulary in your native language or in a foreign one."
-msgstr "Ionnsaich barrachd fhaclan sa chànan agad fhèin no ann an cànan eile."
+msgstr "Ionnsaich barrachd faclan sa chànan agad fhèin no ann an cànan eile."
 
 #: ../src/lang-activity/lang-nature.xml.in.h:5
 #: ../src/lang-activity/lang-object.xml.in.h:5
@@ -7201,24 +7471,24 @@ msgstr ""
 "Sgrùd seata dhe dh'abairtean. Thèid gach abairt a shealltainn dhut le guth "
 "ga innse is dealbh. Nuair a bhios tu deiseil, cluinnidh tu an abairt ga "
 "bruidhinn is feumaidh tu an dealbh a bhuineas dhi a lorg. Cleachd na "
-"roghainnean gus an cànan a thaghadh a tha thu airson ionnsachadh."
+"rogainnean gus an cànan a thaghadh a tha thu airson ionnsachadh."
 
 #: ../src/lang-activity/lang-nature.xml.in.h:6
 #: ../src/lang-activity/lang-object.xml.in.h:6
 #: ../src/lang-activity/lang-other.xml.in.h:6
 #: ../src/lang-activity/lang-people.xml.in.h:6
 msgid ""
-"The images and voices comes from the Art4Apps project: http://www.art4apps."
-"org/. You can also access this activity online on http://gcompris.net/"
-"activity/lang."
+"The images and voices come from the Art4Apps project: http://www.art4apps."
+"org/. You can also access this activity online on http://laske.fr/"
+"abecedarium/."
 msgstr ""
 "Thàinig na dealbhan is guthan on phròiseact Art4Apps: http://www.art4apps."
-"org/. Gheibh thu inntrigeadh dhan chleas seo air loidhne air http://gcompris.net/"
-"activity/lang."
+"org/. Gheibh thu inntrigeadh dhan chleas seo air loidhne air http://laske.fr/"
+"abecedarium/."
 
 #: ../src/lang-activity/lang-object.xml.in.h:2
 msgid "List of words in the 'object' category."
-msgstr "Liosta nam faclan san roinn-seòrsa \"rud\"."
+msgstr "Liosta nam faclan san roinn-seòrsa \"rudan\"."
 
 #: ../src/lang-activity/lang-other.xml.in.h:2
 msgid "List of words in the 'other' category."
@@ -7226,10 +7496,30 @@ msgstr "Liosta nam faclan san roinn-seòrsa \"eile\"."
 
 #: ../src/lang-activity/lang-people.xml.in.h:2
 msgid "List of words in the 'people' category."
-msgstr "Liosta nam faclan san roinn-seòrsa \"neach\"."
+msgstr "Liosta nam faclan san roinn-seòrsa \"daoine\"."
+
+#: ../src/lang-activity/lang.py:99
+msgid "ERROR, we found no words in this language."
+msgstr "MEARACHD: Cha d' fhuair sinn facal sa chànan seo."
+
+#: ../src/lang-activity/lang.py:100
+msgid "Please consider contributing a voice set."
+msgstr "Saoil an clàraich thu seata ghuthan dhuinn?"
+
+#: ../src/lang-activity/lang.py:153
+#, python-format
+msgid ""
+"Configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"A' rèiteachadh\n"
+" airson na pròifil <b>%s</b>"
+
+#: ../src/lang-activity/lang.py:158
+msgid "Select locale"
+msgstr "Tagh sgeama ionadail"
 
 #: ../src/lang-activity/lang.xml.in.h:1
-#| msgid "Go to the Reading activities"
 msgid "Go to the language learning activities"
 msgstr "Cleasan ionnsachadh cànain"
 
@@ -7238,45 +7528,40 @@ msgid "other"
 msgstr "eile"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:2
-#| msgid "Duration"
 msgid "action"
 msgstr "gnìomh"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:3
-#| msgid "Active"
 msgid "adjective"
 msgstr "buadhair"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:5
-#| msgid "Number"
 msgid "number"
 msgstr "àireamh"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:6
 msgid "bodyparts"
-msgstr "pàirt den bhodhaig"
+msgstr "pàirtean dhen bhodhaig"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:7
 msgid "clothes"
 msgstr "aodach"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:8
-#| msgid "Question"
 msgid "emotion"
-msgstr "faireachdainn"
+msgstr "faireachdainnean"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:9
 msgid "job"
-msgstr "dreuchd"
+msgstr "obair"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:10
 msgid "people"
-msgstr "neach"
+msgstr "daoine"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:11
-#| msgid "Reports"
 msgid "sport"
-msgstr "spors"
+msgstr "spòrs"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:12
 msgid "food"
@@ -7284,48 +7569,43 @@ msgstr "biadh"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:13
 msgid "animal"
-msgstr "beathach"
+msgstr "beathaichean"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:14
 msgid "fruit"
-msgstr "meas"
+msgstr "measan"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:15
-#| msgid "Picture"
 msgid "nature"
 msgstr "an nàdar"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:16
-#| msgid "plane"
 msgid "plant"
-msgstr "lus"
+msgstr "lusan"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:17
 msgid "vegetables"
 msgstr "glasraich"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:18
-#| msgid "Learn subtraction"
 msgid "construction"
 msgstr "togail"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:19
-#| msgid "Picture"
 msgid "furniture"
 msgstr "àirneis"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:20
-#| msgid "house"
 msgid "houseware"
-msgstr "acainn taighe"
+msgstr "acainnean taighe"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:21
 msgid "object"
-msgstr "rud"
+msgstr "rudan"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:22
 msgid "tool"
-msgstr "acainn"
+msgstr "ball-acainn"
 
 #: ../src/leftright-activity/leftright.c:230
 #: ../src/searace-activity/searace.py:415
@@ -7422,30 +7702,16 @@ msgstr "Pròifil: "
 msgid "Login: "
 msgstr "Far-ainm: "
 
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/login-activity/login.py:480
-msgid ""
-"<b>{0}</b> configuration\n"
-" for profile <b>{1}</b>"
-msgstr ""
-"Rèiteachadh <b>{0}</b>\n"
-" airson na pròifil <b>{1}</b>"
-
 #. toggle box
-#: ../src/login-activity/login.py:486
+#: ../src/login-activity/login.py:488
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:942
-#: ../src/wordsgame-activity/wordsgame.c:930
+#: ../src/wordsgame-activity/wordsgame.c:959
 msgid "Uppercase only text"
 msgstr "Litrichean mòra a-mhàin"
 
 #. toggle box
-#: ../src/login-activity/login.py:496
+#: ../src/login-activity/login.py:498
 msgid "Enter login to log in"
 msgstr "Cuir far-ainm a-steach gus logadh a-steach"
 
@@ -7764,7 +8030,8 @@ msgid ""
 "moves"
 msgstr ""
 "Thoir sùil air an ionad agad is an uairsin gearr leum air ais dhan mhodh do-"
-"fhaicsinneach gus leantainn air na gluasadan agad"
+"fhaicsinneach\n"
+"gus leantainn air na gluasadan agad"
 
 #: ../src/maze-activity/maze.c:639
 msgid ""
@@ -7900,63 +8167,68 @@ msgstr ""
 "na h-eileamaidean. Faodaidh tu èisteachd a-rithist is cha leig thu leas ach "
 "brùthadh air a' phutan."
 
-#: ../src/memory-activity/memory.c:280
+#: ../src/memory-activity/memory.c:272
 msgid "zero"
 msgstr "neoni"
 
-#: ../src/memory-activity/memory.c:281
+#: ../src/memory-activity/memory.c:273
 msgid "one"
 msgstr "a h-aon"
 
-#: ../src/memory-activity/memory.c:282
+#: ../src/memory-activity/memory.c:274
 msgid "two"
 msgstr "a dhà"
 
-#: ../src/memory-activity/memory.c:283
+#: ../src/memory-activity/memory.c:275
 msgid "three"
 msgstr "a trì"
 
-#: ../src/memory-activity/memory.c:284
+#: ../src/memory-activity/memory.c:276
 msgid "four"
 msgstr "a ceithir"
 
-#: ../src/memory-activity/memory.c:285
+#: ../src/memory-activity/memory.c:277
 msgid "five"
 msgstr "a còig"
 
-#: ../src/memory-activity/memory.c:286
+#: ../src/memory-activity/memory.c:278
 msgid "six"
 msgstr "a sia"
 
-#: ../src/memory-activity/memory.c:287
+#: ../src/memory-activity/memory.c:279
 msgid "seven"
 msgstr "a seachd"
 
-#: ../src/memory-activity/memory.c:288
+#: ../src/memory-activity/memory.c:280
 msgid "eight"
 msgstr "a h-ochd"
 
-#: ../src/memory-activity/memory.c:289
+#: ../src/memory-activity/memory.c:281
 msgid "nine"
 msgstr "a naoidh"
 
-#: ../src/memory-activity/memory.c:301
+#: ../src/memory-activity/memory.c:293
 msgid "Memory"
 msgstr "Cuimhne"
 
-#: ../src/memory-activity/memory.c:302
+#: ../src/memory-activity/memory.c:294
 msgid "Find the matching pair"
 msgstr "Lorg an seise"
 
+#. TRANSLATORS: Put here the alphabet in your language, letters separated by:
+#. /
+#. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
+#. * This is used in reading/click_on_letter and discovery/memory-group
+#: ../src/memory-activity/memory.c:734
+msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
+msgstr ""
+"a/à/b/bh/c/ch/d/dh/e/è/f/fh/g/gh/i/ì/l/ll/m/mh/n/nn/o/ò/p/ph/r/rr/s/sh/t/th/"
+"u/ù"
+
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/memory-activity/memory.c:931
+#: ../src/memory-activity/memory.c:949
 msgid "0123456789"
 msgstr "0123456789"
-
-#. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/memory-activity/memory.c:941
-msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-msgstr "AÀBCDEÈFGHIÌLMNOÒPRSTUÙ"
 
 #: ../src/memory-activity/memory.xml.in.h:1
 msgid "Memory Game with images"
@@ -8425,7 +8697,7 @@ msgstr ""
 
 #: ../src/mining-activity/mining.xml.in.h:1
 msgid "Mining for gold"
-msgstr "A' tochladh òr"
+msgstr "Tochail òr"
 
 #: ../src/mining-activity/mining.xml.in.h:2
 msgid "Use the mousewheel to approach the rockwall an look for gold nuggets."
@@ -8746,19 +9018,24 @@ msgstr "cèic/cèi_/c/g/d/r/s"
 msgid "ball/bal_/l/h/s/z/t"
 msgstr "bàla/bà_a/l/h/s/g/t"
 
-#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#. Set here the way to display money. Change only the money sign, and it's
+#. place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in
+#. your locale
 #: ../src/money-activity/money.c:795
 #, c-format
 msgid "$ %.2f"
 msgstr "£ %.2f"
 
-#. Set here the way to display money. Change only the money sign, and it's place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in your locale
+#. Set here the way to display money. Change only the money sign, and it's
+#. place, always keep %.2f, it will be replaced by 0,34 if decimal is ',' in
+#. your locale
 #: ../src/money-activity/money.c:809
 #, c-format
 msgid "$ %.0f"
 msgstr "£ %.0f"
 
-#. Set here the way to display money. Change only the money sign, and it's place, always keep %d
+#. Set here the way to display money. Change only the money sign, and it's
+#. place, always keep %d
 #: ../src/money-activity/money.c:940
 #, c-format
 msgid ""
@@ -8836,6 +9113,7 @@ msgstr ""
 "Cleachdaich mar a dh'obraicheas airgead, a' ghabhail a-steach sgillinnean"
 
 #: ../src/mosaic-activity/mosaic.py:186
+#: ../src/mosaic-activity/mosaic.xml.in.h:2
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Ath-thog a' mhosaic taobh deas"
 
@@ -8856,44 +9134,44 @@ msgstr ""
 "Seo na h-ochd pongan san iuchair bheus. Nì iad am mòr-sgàla C cuideachd. "
 "Thoir an aire gu bheil àite eile aca na tha san iuchair thrìobailte."
 
-#: ../src/note_names-activity/note_names.py:143
+#: ../src/note_names-activity/note_names.py:144
 msgid "Play Scale"
 msgstr "Cluich an sgàla"
 
-#: ../src/note_names-activity/note_names.py:150
+#: ../src/note_names-activity/note_names.py:151
 msgid "Play Treble Clef Game"
 msgstr "Cluich geama le iuchair thrìobailte."
 
-#: ../src/note_names-activity/note_names.py:152
+#: ../src/note_names-activity/note_names.py:153
 msgid "Play Bass Clef Game"
 msgstr "Cluich geama le iuchair bheus."
 
-#: ../src/note_names-activity/note_names.py:183
+#: ../src/note_names-activity/note_names.py:184
 msgid "Click on the note name to match the pitch. Then click OK to check."
 msgstr ""
 "Briog air ainm a' phuing aig a bheil an gleus seo. Briog air \"OK\" gus "
 "dearbhadh an uair sin."
 
-#: ../src/note_names-activity/note_names.py:185
+#: ../src/note_names-activity/note_names.py:186
 msgid "Now there are sharp notes. These pitches are raised a half step."
 msgstr ""
 "Tha notaichean geura ann a-nis. Tha an gleus air a thogail le leth-cheum."
 
-#: ../src/note_names-activity/note_names.py:187
+#: ../src/note_names-activity/note_names.py:188
 msgid "Now there are flat notes. These pitches are lowered a half step."
 msgstr ""
 "Tha notaichean maola ann a-nis. Tha an gleus air ìsleachadh le leth-cheum."
 
-#: ../src/note_names-activity/note_names.py:193
+#: ../src/note_names-activity/note_names.py:194
 msgid "Click the note to hear it played"
 msgstr "Briog air pong gus èisteachd ris"
 
-#: ../src/note_names-activity/note_names.py:246
+#: ../src/note_names-activity/note_names.py:247
 msgid "Need a hint? Click here for color-coded note names."
 msgstr ""
 "A bheil taic a dhìth ort? Briog an seo airson ainmean dathte nam pongan."
 
-#: ../src/note_names-activity/note_names.py:249
+#: ../src/note_names-activity/note_names.py:250
 msgid "Ready for a challenge? Color all buttons black!"
 msgstr "A bheil dùbhlan a dhìth ort? Thoir dubh air a h-uile pong!"
 
@@ -9056,7 +9334,7 @@ msgstr "Bazille, Na rampairean aig Aigues-Mortes - 1867"
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
 msgid "Mary Cassatt, Summertime - 1894"
-msgstr "Mary Cassatt, An t-samhradh - 1894"
+msgstr "Mary Cassatt, As t-samhradh - 1894"
 
 #: ../src/paintings-activity/resources/paintings/board6_0.xml.in.h:1
 msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
@@ -9227,7 +9505,7 @@ msgstr "Ab"
 msgid "Bb"
 msgstr "Bb"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:290
+#: ../src/piano_composition-activity/gcomprismusic.py:291
 msgid "The staff is full. Please erase some notes"
 msgstr "Tha an cliath làn. Feuch an sguab thu às dha phong no dhà"
 
@@ -9304,35 +9582,35 @@ msgstr "Cluich na sgrìobh thu"
 msgid "Erase and Change Clef"
 msgstr "Sguab às dha is atharraich an iuchair"
 
-#: ../src/piano_composition-activity/piano_composition.py:222
+#: ../src/piano_composition-activity/piano_composition.py:223
 msgid "Change Note Type:"
 msgstr "Atharraich seòrsa a' phuing:"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
-#: ../src/piano_composition-activity/piano_composition.py:243
+#: ../src/piano_composition-activity/piano_composition.py:244
 msgid "Eighth Note"
 msgstr "Ochdamh no caman"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
-#: ../src/piano_composition-activity/piano_composition.py:266
+#: ../src/piano_composition-activity/piano_composition.py:267
 msgid "Quarter Note"
 msgstr "Cairteal no dubh"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
-#: ../src/piano_composition-activity/piano_composition.py:279
+#: ../src/piano_composition-activity/piano_composition.py:280
 msgid "Half Note"
 msgstr "Leth-làn no geal"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
-#: ../src/piano_composition-activity/piano_composition.py:292
+#: ../src/piano_composition-activity/piano_composition.py:293
 msgid "Whole Note"
 msgstr "Slàn no cruinn"
 
-#: ../src/piano_composition-activity/piano_composition.py:324
+#: ../src/piano_composition-activity/piano_composition.py:325
 msgid "Load Music"
 msgstr "Luchdaich ceòl"
 
-#: ../src/piano_composition-activity/piano_composition.py:329
+#: ../src/piano_composition-activity/piano_composition.py:330
 msgid "Change Accidental Style:"
 msgstr "Atharraich stoidhle nam pongan seachranach:"
 
@@ -9340,9 +9618,17 @@ msgstr "Atharraich stoidhle nam pongan seachranach:"
 msgid "Select A Melody to Load"
 msgstr "Tagh fonn airson luchdadh"
 
+#: ../src/piano_composition-activity/piano_composition.py:405
+msgid "Previous Page"
+msgstr "An duilleag roimhpe"
+
+#: ../src/piano_composition-activity/piano_composition.py:415
+msgid "Next Page"
+msgstr "An ath-dhuilleag"
+
 #. FIXME Should remove the space in the data file instead
-#: ../src/piano_composition-activity/piano_composition.py:449
-#: ../src/piano_composition-activity/piano_composition.py:578
+#: ../src/piano_composition-activity/piano_composition.py:450
+#: ../src/piano_composition-activity/piano_composition.py:580
 msgid " "
 msgstr " "
 
@@ -9456,6 +9742,30 @@ msgstr ""
 "  F4: G# / Ab\n"
 "  F5: A# / Bb\n"
 
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:34
+msgid ""
+"\n"
+"Thank you to Bruno Coudoin for his mentorship.\n"
+"Thank you to Olivier Samyn for his contribution to improving the note design "
+"and coloring.\n"
+"Thank you to Federico Mena who inspired me with his wonderful enthusiasm for "
+"my music projects at GUADEC.\n"
+"Thank you to all contributors of children's songs from around the world, "
+"especially the GNOME community. Learn more about these\n"
+"melodies and who contributed them here: https://live.gnome.org/"
+"GComprisMelodies\n"
+msgstr ""
+"\n"
+"Taing do Bruno Coudoin airson oideachadh.\n"
+"Taing do Olivier Samyn a chuidich gus piseach a thoirt air dealbhachadh is "
+"dathan nam puingean.\n"
+"Taing do Federico Mena a thog m' inntinn leis an ùidh mhìorbhaileach aige "
+"sna pròiseactan ciùil agam aig GUADEC.\n"
+"Taing dhan a h-uile duine a chuir òrain cloinne o air fheadh an t-saoghail "
+"dhuinn, gu h-àraidh sa choimhearsnachd GNOME. Gheibh thu barrachd "
+"fiosrachaidh air na fuinn seo\n"
+"is cò thug seachad iad an-seo: https://live.gnome.org/GComprisMelodies\n"
+
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
 msgid "America: English Lullaby"
 msgstr "Aimeireaga: Òran tàlaidh Beurla"
@@ -9512,23 +9822,27 @@ msgstr ""
 "An uair sin, briog air an t-saideal is slaod loidhne a shuidhicheas dè cho "
 "luath 's a bhios an saideal"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:267
+#: ../src/place_your_satellite-activity/place_your_satellite.py:268
 msgid "Satellite goes too fast"
 msgstr "Tha an saideal a' dol ro luath"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:269
+#: ../src/place_your_satellite-activity/place_your_satellite.py:270
 msgid "Satellite goes too slow"
 msgstr "Tha an saideal a' dol ro shlaodach"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:296
+#: ../src/place_your_satellite-activity/place_your_satellite.py:274
+msgid "Distance: {:.1f}"
+msgstr "Astar: {:.1f}"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:297
 msgid "Satellite is crashing"
 msgstr "Tha an saideal a' tuiteam"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:330
+#: ../src/place_your_satellite-activity/place_your_satellite.py:331
 msgid "Satellite not in orbit"
 msgstr "Chan eil an saideal ann an reul-chuairt"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:394
+#: ../src/place_your_satellite-activity/place_your_satellite.py:397
 msgid "Speed"
 msgstr "Luaths"
 
@@ -9825,7 +10139,7 @@ msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
 "Programming language."
 msgstr ""
-"Seo a' chiad plugain ann an GCompris a chaidh a chòdachadh\n"
+"Seo a' chiad plugan ann an GCompris a chaidh a chòdachadh\n"
 "leis a' chànan prògramachaidh Python."
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:1
@@ -9868,26 +10182,26 @@ msgid "This activity is not playable, just a test"
 msgstr "Na cluich seo, chan e ach deuchainn a th' ann"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:454
+#: ../src/pythontest-activity/pythontest.py:456
 msgid "Disable line drawing in circle"
 msgstr "Cuir tarraing loidhne ann an cearcall à comas"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:463
+#: ../src/pythontest-activity/pythontest.py:465
 msgid "Color of the line"
 msgstr "Dath na loidhne"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:474
+#: ../src/pythontest-activity/pythontest.py:476
 msgid "Distance between circles"
 msgstr "Astar eadar cearcaill"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:485
+#: ../src/pythontest-activity/pythontest.py:487
 msgid "Use circles"
 msgstr "Cleachd cearcaill"
 
-#: ../src/pythontest-activity/pythontest.py:486
+#: ../src/pythontest-activity/pythontest.py:488
 msgid "Use rectangles"
 msgstr "Cleachd ceart-cheàrnaich"
 
@@ -9933,7 +10247,7 @@ msgstr ""
 "làmh air a bhonn."
 
 #: ../src/readingh-activity/reading.c:240
-#: ../src/wordsgame-activity/wordsgame.c:222
+#: ../src/wordsgame-activity/wordsgame.c:227
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -10100,7 +10414,7 @@ msgstr ""
 "bhios tu deiseil, briog air a' phutan \"OK\" no brùth air an iuchair \"Enter"
 "\"."
 
-#: ../src/scalesboard-activity/scale.c:1086
+#: ../src/scalesboard-activity/scale.c:1087
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr ""
 "Thoir an aire gur urrainn dhut cuideaman a chur air an dà thaobh na meidhe."
@@ -10673,23 +10987,23 @@ msgstr ""
 msgid "Waiting for Tuxpaint to finish"
 msgstr "A' feitheamh air Tux Paint"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:189
+#: ../src/tuxpaint-activity/tuxpaint.py:194
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Faigh roghainn làn-sgrìn mar dhìleab o GCompris"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:193
+#: ../src/tuxpaint-activity/tuxpaint.py:198
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Faigh roghainn meud mar dhìleab o GCompris (800x600, 640x480)"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:197
+#: ../src/tuxpaint-activity/tuxpaint.py:202
 msgid "Disable shape rotation"
 msgstr "Cuir cuairteachadh chruthan à comas"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:201
+#: ../src/tuxpaint-activity/tuxpaint.py:206
 msgid "Show Uppercase text only"
 msgstr "Teacsa ann an litrichean mòra a-mhàin"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:205
+#: ../src/tuxpaint-activity/tuxpaint.py:210
 msgid "Disable stamps"
 msgstr "Cuir na stampaichean à comas"
 
@@ -10836,12 +11150,12 @@ msgstr ""
 "cuir a-steach agad. Leis an 2 phutan eile, gheibh thu iomadh roghainn ri an "
 "taghadh o sgrìobhainn is ùrlar dhathan ro-mhìnichte."
 
-#: ../src/wordsgame-activity/wordsgame.c:115
+#: ../src/wordsgame-activity/wordsgame.c:120
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "Faclan a' tuiteam"
 
-#: ../src/wordsgame-activity/wordsgame.c:116
+#: ../src/wordsgame-activity/wordsgame.c:121
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
 msgid "Type the falling words before they reach the ground"
 msgstr "Sgrìobh na faclan a thuiteas mus ruig iad an làr"
