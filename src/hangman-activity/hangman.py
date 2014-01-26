@@ -466,11 +466,12 @@ class Letter:
         self.letterItem.props.visibility = goocanvas.ITEM_VISIBLE
 
     def check(self, targetLetter):
-      if (self.letters.count(targetLetter) > 0):
-        self.rect.set_properties(fill_color_rgba = 0x66CC33AAL)
-        self.letterItem.props.visibility = goocanvas.ITEM_VISIBLE
-        self.found = True
-        return True
+      for letter in self.letters:
+        if (letter.count(targetLetter) > 0):
+          self.rect.set_properties(fill_color_rgba = 0x66CC33AAL)
+          self.letterItem.props.visibility = goocanvas.ITEM_VISIBLE
+          self.found = True
+          return True
 
       return False
 
