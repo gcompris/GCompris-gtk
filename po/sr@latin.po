@@ -4,14 +4,14 @@
 # Warning: Color translations are not very good.
 # Courtesy of Prevod.org team (http://prevod.org/) -- 2003—2012.
 # Slobodan Simić <simicsl@verat.net>, 2007.
-# Miroslav Nikolić <miroslavnikolic@rocketmail.com>, 2011, 2012, 2013.
+# Miroslav Nikolić <miroslavnikolic@rocketmail.com>, 2011, 2012, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
 "is&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-13 18:49+0000\n"
-"PO-Revision-Date: 2013-10-13 22:06+0200\n"
+"POT-Creation-Date: 2014-01-26 12:02+0000\n"
+"PO-Revision-Date: 2014-01-27 22:03+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -175,7 +175,7 @@ msgid "GCompris Main Menu"
 msgstr "Glavni izbornik Gkomprisa"
 
 # bug: "is an educational games" -> "is an educational game"/"is a set of educational games"
-#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:887
+#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:906
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -635,8 +635,8 @@ msgstr "Svi korisnici"
 #: ../src/administration-activity/admin/log_list.py:300
 #: ../src/administration-activity/admin/profile_list.py:118
 #: ../src/administration-activity/admin/wordlist.py:48
-#: ../src/lang-activity/lang.py:171 ../src/login-activity/login.py:483
-#: ../src/missing_letter-activity/missingletter.c:802
+#: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:481
+#: ../src/missing_letter-activity/missingletter.c:810
 #: ../src/pythontest-activity/pythontest.py:451
 #: ../src/tuxpaint-activity/tuxpaint.py:189
 msgid "Default"
@@ -825,7 +825,7 @@ msgstr ""
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/administration-activity/admin/wordlist.py:45
-#: ../src/login-activity/login.py:480
+#: ../src/login-activity/login.py:478
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/tuxpaint-activity/tuxpaint.py:186
 #, python-brace-format
@@ -1176,7 +1176,7 @@ msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/findit-activity/findit.py:228 ../src/lang-activity/lang.py:116
+#: ../src/findit-activity/findit.py:228 ../src/lang-activity/lang.py:112
 #: ../src/play_piano-activity/play_piano.py:82
 #: ../src/play_rhythm-activity/play_rhythm.py:87
 #: ../src/readingh-activity/reading.c:643
@@ -1458,7 +1458,7 @@ msgstr "Izaberite kuću"
 msgid "Your turn to play ..."
 msgstr "Vi ste na potezu ..."
 
-#: ../src/awele-activity/awele.c:690
+#: ../src/awele-activity/awele.c:692
 msgid "Not allowed! Try again !"
 msgstr "Nije dozvoljeno! Pokušajte ponovo !"
 
@@ -1574,7 +1574,7 @@ msgstr ""
 
 #: ../src/babymatch-activity/shapegame.c:2042
 #: ../src/click_on_letter-activity/click_on_letter.c:1315
-#: ../src/missing_letter-activity/missingletter.c:800
+#: ../src/missing_letter-activity/missingletter.c:808
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1730,7 +1730,14 @@ msgstr "Drugo izdanje glavnog izbornika"
 msgid "Select a Board"
 msgstr "Izaberite tablu"
 
-#: ../src/boards/menu2.c:269
+#. Display the profile name
+#: ../src/boards/menu2.c:271 ../src/login-activity/login.py:100
+#, c-format, python-format
+#| msgid "Profile: "
+msgid "Profile: %s"
+msgstr "Profil: %s"
+
+#: ../src/boards/menu2.c:288
 #, c-format
 msgid "Number of activities: %d"
 msgstr "Broj vežbi: %d"
@@ -3089,8 +3096,8 @@ msgstr "Pomerajte miša da obrišete površinu i otkrijete pozadinu"
 msgid "Error: No images found\n"
 msgstr "Greška: Nisam pronašao slike\n"
 
-#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:510
-#: ../src/gcompris/properties.c:517
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:511
+#: ../src/gcompris/properties.c:518
 msgid "readme"
 msgstr "pročitaj me"
 
@@ -3139,7 +3146,7 @@ msgstr "Kliknite mišem da obrišete površinu i otkrijete pozadinu"
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Kliknite mišem na pravougaonike sve dok ne nestanu svi blokovi."
 
-#: ../src/explore-activity/explore.py:85 ../src/lang-activity/lang.py:105
+#: ../src/explore-activity/explore.py:85 ../src/lang-activity/lang.py:106
 #: ../src/note_names-activity/note_names.py:82
 #: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
@@ -3625,7 +3632,7 @@ msgid "Where is music used to call people to prayer?"
 msgstr "Gde se muzika koristi kao poziv na molitvu?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:52
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:53
 msgid "Japan"
 msgstr "Japan"
 
@@ -3834,7 +3841,7 @@ msgid ""
 msgstr ""
 "Ovaj program je GNU-ov paket i objavljen je pod Gnuovom opštom javnom licencom"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:490
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:468
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -3912,355 +3919,345 @@ msgstr "Izbor jezika"
 msgid "Choice of the level"
 msgstr "Izbor nivoa"
 
-#: ../src/gcompris/config.c:58
+#: ../src/gcompris/config.c:57
 msgid "Language: your system default"
 msgstr "Jezik: osnovni sa sistema"
 
-#: ../src/gcompris/config.c:59
+#: ../src/gcompris/config.c:58
 msgid "Afrikaans"
 msgstr "Afrikanski"
 
-#: ../src/gcompris/config.c:60
+#: ../src/gcompris/config.c:59
 msgid "Albanian"
 msgstr "Albanski"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:60
 msgid "Amharic"
 msgstr "Amariski"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:61
 msgid "Arabic"
 msgstr "Arapski"
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/config.c:62
 msgid "Asturian"
 msgstr "Asturijski"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:63
 msgid "Basque"
 msgstr "Baskijski"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:64
 msgid "Breton"
 msgstr "Bretonski"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:65
 msgid "Bulgarian"
 msgstr "Bugarski"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:66
 msgid "Catalan"
 msgstr "Katalonski"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:67
 msgid "Chinese (Simplified)"
 msgstr "Kineski (pojednostavljen)"
 
-#: ../src/gcompris/config.c:69
+#: ../src/gcompris/config.c:68
 msgid "Chinese (Hong Kong)"
 msgstr "Kineski (Hong Kong)"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:69
 msgid "Chinese (Traditional)"
 msgstr "Kineski (tradicionalni)"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:70
 msgid "Croatian"
 msgstr "Hrvatski"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:71
 #: ../src/geography-activity/resources/geography/board6_0.xml.in.h:7
 msgid "Czech Republic"
 msgstr "Češki"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:72
 msgid "Danish"
 msgstr "Danski"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:73
 msgid "Dutch"
 msgstr "Holandski"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:74
 msgid "Dzongkha"
 msgstr "Dzongka"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:75
 msgid "English (Canada)"
 msgstr "Engleski (Kanada)"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:76
 msgid "English (Great Britain)"
 msgstr "Engleski (Velika Britanija)"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:77
 msgid "English (United States)"
 msgstr "Engleski (Sjedinjene Države)"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:78
 msgid "Finnish"
 msgstr "Finski"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:79
 msgid "French"
 msgstr "Francuski"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:80
 msgid "Galician"
 msgstr "Galicijski"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:81
 msgid "Georgian"
 msgstr "Gruzijski"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:82
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 msgid "German"
 msgstr "Nemački"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:83
 msgid "Greek"
 msgstr "Grčki"
 
-#: ../src/gcompris/config.c:85 ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:113
 msgid "Scottish Gaelic"
 msgstr "Škotski galski"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:85
 msgid "Gujarati"
 msgstr "Gudžarati"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:86
 msgid "Hebrew"
 msgstr "Hebrejski"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:87
 msgid "Hindi"
 msgstr "Hindu"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:88
 msgid "Hungarian"
 msgstr "Mađarski"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:89
 msgid "Indonesian"
 msgstr "Indonežanski"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:90
 msgid "Irish (Gaelic)"
 msgstr "Irski (Galski)"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:91
 msgid "Italian"
 msgstr "Italijanski"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:92
 msgid "Japanese"
 msgstr "Japanski"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:93
 msgid "Kinyarwanda"
 msgstr "Kinjaruanda"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:94
 msgid "Korean"
 msgstr "Korejski"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:95
 msgid "Latvian"
 msgstr "Letonski"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:96
 msgid "Lithuanian"
 msgstr "Litvanski"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:97
 msgid "Macedonian"
 msgstr "Makedonski"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:98
 msgid "Malay"
 msgstr "Malajski"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:99
 msgid "Malayalam"
 msgstr "Malajamski"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:100
 msgid "Marathi"
 msgstr "Marati"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:101
 msgid "Montenegrin"
 msgstr "Crnogorski"
 
-#: ../src/gcompris/config.c:103
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:37
+#: ../src/gcompris/config.c:102
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
 msgid "Nepal"
 msgstr "Nepalski"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:103
 msgid "Norwegian Bokmal"
 msgstr "Norveški Bokmal"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:104
 msgid "Norwegian Nynorsk"
 msgstr "Norveški Ninorsk"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:105
 msgid "Occitan (languedocien)"
 msgstr "Oksitanski"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:106
 msgid "Persian"
 msgstr "Persijski"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:107
 msgid "Polish"
 msgstr "Poljski"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:108
 msgid "Portuguese (Brazil)"
 msgstr "Portugalski (Brazil)"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:109
 msgid "Portuguese"
 msgstr "Portugalski"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:110
 msgid "Punjabi"
 msgstr "Pandžabi"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:111
 msgid "Romanian"
 msgstr "Rumunski"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:112
 msgid "Russian"
 msgstr "Ruski"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:114
 msgid "Serbian (Latin)"
 msgstr "Srpski (latinica)"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:115
 msgid "Serbian"
 msgstr "Srpski"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:116
 msgid "Slovak"
 msgstr "Slovački"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:117
 msgid "Slovenian"
 msgstr "Slovenački"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:118
 msgid "Somali"
 msgstr "Somalijski"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:119
 msgid "Spanish"
 msgstr "Španski"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:120
 msgid "Swedish"
 msgstr "Švedski"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:121
 msgid "Tamil"
 msgstr "Tamilski"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:122
 msgid "Thai"
 msgstr "Tai"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:123
 msgid "Turkish (Azerbaijan)"
 msgstr "Turski (Azerbejdžan)"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:124
 msgid "Turkish"
 msgstr "Turski"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:125
 msgid "Ukrainian"
 msgstr "Ukrajinski"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:126
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:127
 msgid "Vietnamese"
 msgstr "Vijetnamski"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:128
 msgid "Walloon"
 msgstr "Valunski"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:129
 msgid "Zulu"
 msgstr "Zulu"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:134
 msgid "Timer: No time limit"
 msgstr "Vreme: Bez ograničenja"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:135
 msgid "Timer: Slow timer"
 msgstr "Vreme: Usporeno"
 
-#: ../src/gcompris/config.c:137
+#: ../src/gcompris/config.c:136
 msgid "Timer: Normal timer"
 msgstr "Vreme: Normalno"
 
-#: ../src/gcompris/config.c:138
+#: ../src/gcompris/config.c:137
 msgid "Timer: Fast timer"
 msgstr "Vreme: Brzo"
 
-#: ../src/gcompris/config.c:142
+#: ../src/gcompris/config.c:141
 msgid "Use GCompris administration module to filter boards"
 msgstr "Koristite administratorski modul GKomprisa za filtriranje tabli"
 
-#: ../src/gcompris/config.c:196
+#: ../src/gcompris/config.c:195
 msgid "GCompris Configuration"
 msgstr "Podešavanje GKomprisa"
 
-#: ../src/gcompris/config.c:279
+#: ../src/gcompris/config.c:267
 msgid "Fullscreen"
 msgstr "Preko celog ekrana"
 
-#: ../src/gcompris/config.c:304
+#: ../src/gcompris/config.c:292
 msgid "Remember level for default user"
 msgstr "Upamti nivo za podrazumevanog korisnika"
 
-#: ../src/gcompris/config.c:330
+#: ../src/gcompris/config.c:318
 msgid "Music"
 msgstr "Muzika"
 
-#: ../src/gcompris/config.c:355
+#: ../src/gcompris/config.c:343
 msgid "Effect"
 msgstr "Dejstvo"
 
-#: ../src/gcompris/config.c:379 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:367 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Uvećanje"
 
-#: ../src/gcompris/config.c:416
+#: ../src/gcompris/config.c:432 ../src/gcompris/config.c:742
 #, c-format
-msgid "Couldn't open skin dir: %s"
-msgstr "Ne mogu da otvorim direktorijum sa maskama: %s"
-
-#: ../src/gcompris/config.c:447 ../src/gcompris/config.c:927
-#: ../src/gcompris/config.c:941
-#, c-format
-msgid "Skin : %s"
-msgstr "Maska : %s"
-
-#: ../src/gcompris/config.c:449
-msgid "SKINS NOT FOUND"
-msgstr "MASKE NISU NAĐENE"
+msgid "Font: %s"
+msgstr "Slovni lik: %s"
 
 #: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
@@ -4618,7 +4615,7 @@ msgstr ""
 "Sve aktivnosti su isključene u ovom profilu. Idite na modul administracije "
 "GKomprisa i aktivirajte barem jednu aktivnost."
 
-#: ../src/gcompris/properties.c:512
+#: ../src/gcompris/properties.c:513
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -4626,7 +4623,7 @@ msgstr ""
 "Ovaj direktorijum sadrži datoteke koje ste napravili sa obrazovnim paketom "
 "GKompris\n"
 
-#: ../src/gcompris/properties.c:519
+#: ../src/gcompris/properties.c:520
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4800,169 +4797,171 @@ msgstr "Alabama"
 msgid "Florida"
 msgstr "Florida"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:20
+#. Translators: Keep USA| and translate only Georgia
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:21
 msgid "USA|Georgia"
 msgstr "USA|Džordžija"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:21
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:22
 msgid "South Carolina"
 msgstr "Južna Karolina"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:22
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:23
 msgid "North Carolina"
 msgstr "Severna Karolina"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:23
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:24
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:24
 msgid "Virginia"
 msgstr "Virdžinija"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:24
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:24
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:25
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:25
 msgid "West Virginia"
 msgstr "Vest Virdžinija"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:25
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:25
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:26
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:26
 msgid "Ohio"
 msgstr "Ohajo"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:26
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:26
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:27
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:27
 msgid "Michigan"
 msgstr "Mičigen"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:27
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:27
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:28
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:28
 msgid "Wisconsin"
 msgstr "Viskonsin"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:28
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:28
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:29
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:29
 msgid "Illinois"
 msgstr "Ilinois"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:29
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:29
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:30
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:30
 msgid "Indiana"
 msgstr "Indijana"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:30
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:30
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:31
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:31
 msgid "Kentucky"
 msgstr "Kentaki"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:31
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:31
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:32
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:32
 msgid "Tennessee"
 msgstr "Tenesi"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:32
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:32
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:33
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:33
 msgid "Mississippi"
 msgstr "Misisipi"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:33
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:33
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:34
 msgid "Louisiana"
 msgstr "Luizijana"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:34
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:35
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:35
 msgid "Arkansas"
 msgstr "Arkanzas"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:35
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:35
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:36
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:36
 msgid "Missouri"
 msgstr "Misuri"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:36
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:36
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:37
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:37
 msgid "Iowa"
 msgstr "Ajova"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:37
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:37
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:38
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:38
 msgid "Minnesota"
 msgstr "Minesota"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:38
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:38
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:39
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:39
 msgid "Oklahoma"
 msgstr "Oklahoma"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:39
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:39
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:40
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:40
 msgid "Texas"
 msgstr "Teksas"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:40
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:40
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:41
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:41
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
 msgid "Hawaii"
 msgstr "Havaji"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:41
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:41
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:42
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:42
 #: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
 msgid "Alaska"
 msgstr "Aljaska"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:42
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:42
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:43
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:43
 msgid "Arizona"
 msgstr "Arizona"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:43
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:43
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:44
 msgid "New Mexico"
 msgstr "Novi Meksiko"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:44
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:45
 msgid "Colorado"
 msgstr "Kolorado"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:45
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:46
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:46
 msgid "Kansas"
 msgstr "Kanzas"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:46
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:46
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:47
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:47
 msgid "Nebraska"
 msgstr "Nebraska"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:47
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:47
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:48
 msgid "South Dakota"
 msgstr "Južna Dakota"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:48
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:49
 msgid "North Dakota"
 msgstr "Severna Dakota"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:49
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:50
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:50
 msgid "Montana"
 msgstr "Montana"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:50
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:50
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:51
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:51
 msgid "Idaho"
 msgstr "Ajdaho"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:51
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:51
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:52
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:52
 msgid "Oregon"
 msgstr "Oregon"
 
-#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:52
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:52
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:53
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:53
 msgid "Washington"
 msgstr "Vašington"
 
@@ -4970,16 +4969,12 @@ msgstr "Vašington"
 msgid "Washington D.C."
 msgstr "Vašington D.C."
 
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:20
-msgid "Georgia"
-msgstr "Gruzija"
-
 #: ../src/geo_country-activity/resources/geo_country/board1_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Oblasti Francuske"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:41
 msgid "India"
 msgstr "Indija"
 
@@ -5315,112 +5310,113 @@ msgstr "Sirija"
 msgid "Turkey"
 msgstr "Turska"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:25
+#. Translators: Keep Asia| and translate only Georgia
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
 msgid "Asia|Georgia"
 msgstr "Gruzija"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:27
 msgid "Azerbaijan"
 msgstr "Azerbejdžan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:28
 msgid "Iran"
 msgstr "Iran"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:29
 msgid "Turkmenistan"
 msgstr "Turkmenistan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:30
 msgid "Kyrgyzstan"
 msgstr "Kirgistan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:31
 msgid "Tajikistan"
 msgstr "Tadžikistan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:32
 msgid "Afghanistan"
 msgstr "Avganistan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:33
 msgid "Malaysia"
 msgstr "Malezija"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:34
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:19
 msgid "Indonesia"
 msgstr "Indonezija"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:35
 msgid "Philippines"
 msgstr "Filipini"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:35
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:36
 msgid "Myanmar"
 msgstr "Burma"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:36
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:37
 msgid "Pakistan"
 msgstr "Pakistan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:39
 msgid "Bhutan"
 msgstr "Butan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:39
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
 msgid "Bangladesh"
 msgstr "Bangladeš"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:41
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:42
 msgid "China"
 msgstr "Kina"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:42
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:43
 msgid "Sri Lanka"
 msgstr "Šri Lanka"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:43
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:44
 msgid "Thailand"
 msgstr "Tajland"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:44
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:45
 msgid "Laos"
 msgstr "Laos"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:45
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:46
 msgid "Cambodia"
 msgstr "Kambodža"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:46
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:47
 msgid "Vietnam"
 msgstr "Vijetnam"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:47
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:48
 msgid "Taiwan"
 msgstr "Tajvan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:48
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:49
 msgid "Uzbekistan"
 msgstr "Uzbekistan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:49
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:50
 msgid "Kazakhstan"
 msgstr "Kazakistan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:50
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:51
 msgid "South Korea"
 msgstr "Južna Koreja"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:51
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:52
 msgid "North Korea"
 msgstr "Severna Koreja"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:53
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:54
 msgid "Mongolia"
 msgstr "Mongolija"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:54
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:55
 #: ../src/geography-activity/resources/geography/board6_0.xml.in.h:16
 msgid "Russia"
 msgstr "Rusija"
@@ -6632,19 +6628,19 @@ msgstr ""
 "koje mogu da padnu u vidu kiše"
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:171
 msgid "This is the meter for electricity produced by the turbine. "
 msgstr "Ovo je merač električne energije proizvedene u turbini. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:171
-#: ../src/hydroelectric-activity/hydroelectric.py:284
-#: ../src/hydroelectric-activity/hydroelectric.py:292
-#: ../src/hydroelectric-activity/hydroelectric.py:323
-#: ../src/hydroelectric-activity/hydroelectric.py:346
+#: ../src/hydroelectric-activity/hydroelectric.py:172
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+#: ../src/hydroelectric-activity/hydroelectric.py:296
+#: ../src/hydroelectric-activity/hydroelectric.py:327
+#: ../src/hydroelectric-activity/hydroelectric.py:350
 msgid "The electricity power is measured in watts (W)."
 msgstr "Snaga električne energije se meri u vatima (W)."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:176
+#: ../src/hydroelectric-activity/hydroelectric.py:177
 msgid ""
 "Flowing water is directed on to the blades of a turbine runner, creating a "
 "force on the blades. In this way, energy is transferred from the water flow "
@@ -6653,11 +6649,11 @@ msgstr ""
 "Tekuća voda se usmerava na lopatice rotora turbine, stvarajući silu na "
 "oštricama. Na taj način, tekuća voda predaje energiju turbini"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:190
+#: ../src/hydroelectric-activity/hydroelectric.py:191
 msgid "This cloud simulates the wind, click on it to have wind."
 msgstr "Ovaj oblak simulira vetar, kliknite na njega da dobijete vetar."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:228
+#: ../src/hydroelectric-activity/hydroelectric.py:229
 msgid ""
 "This is a step down transformer. Electricity is transformed in low voltage, "
 "ready to be used by the customers."
@@ -6666,21 +6662,21 @@ msgstr ""
 "napon, spremna za isporuku krajnjim korisnicima."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:283
+#: ../src/hydroelectric-activity/hydroelectric.py:287
 msgid "This is the meter for all the electricity produced. "
 msgstr "Ovo je merač ukupne proizvedene električne energije. "
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:291
+#: ../src/hydroelectric-activity/hydroelectric.py:295
 msgid "This is the meter for electricity consumed by the users. "
 msgstr "Ovo je merač električne energije koju su potrošili korisnici. "
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:322
+#: ../src/hydroelectric-activity/hydroelectric.py:326
 msgid "This is the meter for electricity produced by the solar panels. "
 msgstr "Ovo je merač električne energije proizvedene sunčanim panelima. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:328
+#: ../src/hydroelectric-activity/hydroelectric.py:332
 msgid ""
 "Solar panels use light energy (photons) from the sun to generate electricity "
 "through the photovoltaic effect."
@@ -6689,11 +6685,11 @@ msgstr ""
 "električnu energiju primenom fotoelektričnog efekta."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:345
+#: ../src/hydroelectric-activity/hydroelectric.py:349
 msgid "This is the meter for electricity produced by the wind turbines. "
 msgstr "Ovo je merač električne energije proizvedene vetrenjačama. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:351
+#: ../src/hydroelectric-activity/hydroelectric.py:355
 msgid ""
 "A wind turbine is a device that converts wind motion energy into electricity "
 "generation. It is called a wind generator or wind charger. "
@@ -6701,7 +6697,7 @@ msgstr ""
 "Vetrenjače su uređaji koji pretvaraju energiju kretanja vetra u električnu "
 "energiju. Poznate su i pod nazivom generatori vetra ili punjači vetra. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:737
+#: ../src/hydroelectric-activity/hydroelectric.py:741
 msgid ""
 "It is not possible to consume more electricity than what is produced. This "
 "is a key limitation in the distribution of electricity, with minor "
@@ -6721,7 +6717,7 @@ msgstr ""
 "što, u najgorem slučaju, može da dovede do nestanka el. energije na "
 "regionalnom nivou."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:951
+#: ../src/hydroelectric-activity/hydroelectric.py:958
 msgid ""
 "This is a step up transformer. Electricity is transmitted at high voltages "
 "(110 kV or above) to reduce the energy lost in long distance transmission."
@@ -6783,7 +6779,7 @@ msgstr ""
 "previše izbora."
 
 #: ../src/imageid-activity/imageid.c:538
-#: ../src/missing_letter-activity/missingletter.c:608
+#: ../src/missing_letter-activity/missingletter.c:616
 msgid "Data file for this level is not properly formatted."
 msgstr "Datoteka podataka za ovaj nivo nije ispravno formatirana."
 
@@ -7306,7 +7302,7 @@ msgstr ""
 "sletanje.\n"
 "        "
 
-#: ../src/lang-activity/langEnterText.py:133
+#: ../src/lang-activity/langEnterText.py:139
 msgid "Enter the text you hear:"
 msgstr "Unesi tekst koji čuješ:"
 
@@ -7358,7 +7354,8 @@ msgid ""
 "activity/lang."
 msgstr ""
 "Slike i glasovi dolaze sa projekta Art4Aps: http://www.art4apps.org/. Takođe "
-"možete da pristupite ovoj vežbi na mreži na http://gcompris.net/activity/lang."
+"možete da pristupite ovoj vežbi na mreži na http://gcompris.net/activity/"
+"lang."
 
 #: ../src/lang-activity/lang-object.xml.in.h:2
 msgid "List of words in the 'object' category."
@@ -7372,15 +7369,15 @@ msgstr "Spisak reči u kategoriji „ostalo“."
 msgid "List of words in the 'people' category."
 msgstr "Spisak reči u kategoriji „ljudi“."
 
-#: ../src/lang-activity/lang.py:99
+#: ../src/lang-activity/lang.py:100
 msgid "ERROR, we found no words in this language."
 msgstr "GREŠKA, nisam pronašao reči na ovom jeziku."
 
-#: ../src/lang-activity/lang.py:100
+#: ../src/lang-activity/lang.py:101
 msgid "Please consider contributing a voice set."
 msgstr "Potrebna nam je vaša pomoć za skup glasova."
 
-#: ../src/lang-activity/lang.py:170
+#: ../src/lang-activity/lang.py:172
 #, python-format
 msgid ""
 "Configuration\n"
@@ -7389,7 +7386,7 @@ msgstr ""
 "Podešavanja\n"
 " za profil <b>%s</b>"
 
-#: ../src/lang-activity/lang.py:175
+#: ../src/lang-activity/lang.py:177
 msgid "Select locale"
 msgstr "Izaberite lokalitet"
 
@@ -7482,24 +7479,12 @@ msgid "tool"
 msgstr "alat"
 
 #: ../src/leftright-activity/leftright.c:230
-#: ../src/searace-activity/searace.py:415
-#: ../src/searace-activity/searace.py:439
-#: ../src/searace-activity/searace.py:529
-#: ../src/searace-activity/searace.py:838
-#: ../src/searace-activity/searace.py:872
-#: ../src/searace-activity/searace.py:964
-msgid "left"
-msgstr "leva"
+msgid "Left hand"
+msgstr "Leva ruka"
 
 #: ../src/leftright-activity/leftright.c:236
-#: ../src/searace-activity/searace.py:415
-#: ../src/searace-activity/searace.py:439
-#: ../src/searace-activity/searace.py:539
-#: ../src/searace-activity/searace.py:840
-#: ../src/searace-activity/searace.py:874
-#: ../src/searace-activity/searace.py:958
-msgid "right"
-msgstr "desna"
+msgid "Right hand"
+msgstr "Desna ruka"
 
 #: ../src/leftright-activity/leftright.xml.in.h:1
 msgid "Find your left and right hands"
@@ -7518,18 +7503,15 @@ msgstr ""
 "predstavljanje"
 
 #: ../src/leftright-activity/leftright.xml.in.h:4
-#: ../src/note_names-activity/note_names.xml.in.h:3
-#: ../src/railroad-activity/railroad.xml.in.h:4
-msgid "None"
-msgstr "Ništa"
-
-#: ../src/leftright-activity/leftright.xml.in.h:5
+#| msgid ""
+#| "You can see a hand: is it a left hand or a right hand? Click on the red "
+#| "button on the left, or the green button on the right."
 msgid ""
-"You can see a hand: is it a left hand or a right hand? Click on the red "
-"button on the left, or the green button on the right."
+"You can see a hand: is it a left hand or a right hand? Click on the left "
+"button, or the right button depending on the displayed hand."
 msgstr ""
-"Nacrtana je šaka. Da li je to desna ili leva šaka? Kliknite na crveno dugme "
-"za levu, ili zeleno dugme za desnu."
+"Nacrtana je šaka. Da li je to desna ili leva šaka? Kliknite na levo dugme za "
+"levu, ili na desno dugme za desnu."
 
 #: ../src/lightsoff-activity/lightsoff.py:442
 msgid ""
@@ -7554,7 +7536,7 @@ msgid ""
 "the sky depend on the number of clicks needed to solve the puzzle. If you "
 "click on Tux, the solution is shown."
 msgstr ""
-"Efekat pritiska na dugme je promena stanja tog dugmeta, kao i njegovih "
+"Dejstvo pritiska na dugme je promena stanja tog dugmeta, kao i njegovih "
 "neposrednih uspravnih i vodoravnih suseda. Sunce i boja neba zavise od broja "
 "klikova koji su bili potrebni da rešite slagalicu. Ako kliknete na "
 "Pingoslava, biće vam prikazano rešenje."
@@ -7568,16 +7550,12 @@ msgstr ""
 "saznate više o igri „Pogasi svetla“: &lt;http://en.wikipedia.org/wiki/"
 "Lights_Out_(game)&gt;"
 
-#: ../src/login-activity/login.py:102
-msgid "Profile: "
-msgstr "Profil: "
-
-#: ../src/login-activity/login.py:235
+#: ../src/login-activity/login.py:233
 msgid "Login: "
 msgstr "Prijava: "
 
 #. toggle box
-#: ../src/login-activity/login.py:488
+#: ../src/login-activity/login.py:486
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:942
 #: ../src/wordsgame-activity/wordsgame.c:959
@@ -7585,7 +7563,7 @@ msgid "Uppercase only text"
 msgstr "Tekst samo sa velikim slovima"
 
 #. toggle box
-#: ../src/login-activity/login.py:498
+#: ../src/login-activity/login.py:496
 msgid "Enter login to log in"
 msgstr "Unesite prijavu"
 
@@ -7683,7 +7661,7 @@ msgstr ""
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:5
 msgid "He impressed his classmates and began to play the piano and the organ."
-msgstr "Zadivio jen svoje vršnjake i počeo je da svira klavir i orgulje."
+msgstr "Zadivio je svoje vršnjake i počeo je da svira klavir i orgulje."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:6
 msgid ""
@@ -7720,8 +7698,8 @@ msgid ""
 "He died of tuberculosis. He is buried in the Pantheon in Paris. A monument "
 "is erected to honor him."
 msgstr ""
-"Umro je od tuberkuloze. Sahranjen je u Panteonu u Parizu. Spomenik je "
-"podignut u njegovu čast."
+"Umro je od tuberkuloze. Sahranjen je u Panteonu u Parizu. U njegovu čast je "
+"podignut spomenik."
 
 #: ../src/louis_braille-activity/resources/louis_braille/activity.desktop.in.h:11
 msgid "After his Death"
@@ -8989,6 +8967,11 @@ msgid ""
 "sounds and colors"
 msgstr "Naučite nazive nota, u bas i violinskom ključu, uz pomoć zvuka i boja"
 
+#: ../src/note_names-activity/note_names.xml.in.h:3
+#: ../src/railroad-activity/railroad.xml.in.h:4
+msgid "None"
+msgstr "Ništa"
+
 #: ../src/note_names-activity/note_names.xml.in.h:4
 msgid ""
 "To develop a good understanding of note position and naming convention. To "
@@ -9528,17 +9511,6 @@ msgstr ""
 "  F5: A# / Bb\n"
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:34
-#| msgid ""
-#| "\n"
-#| "Thank you to Bruno Coudoin for his mentorship.\n"
-#| "Thank you to Olivier Samyn for his contribution to improving the note "
-#| "design and coloring.\n"
-#| "Thank you to Federico Mena who inspired me with his wonderful enthusiasm "
-#| "for my music projects at GUADEC.\n"
-#| "Thank you to all contributors of children's songs from around the world, "
-#| "especially the GNOME community. Learn more about these\n"
-#| "melodies and who contributed them here: HTTP://live.gnome.org/"
-#| "GComprisMelodies\n"
 msgid ""
 "\n"
 "Thank you to Bruno Coudoin for his mentorship.\n"
@@ -10279,6 +10251,15 @@ msgstr ""
 msgid "The race is already being run"
 msgstr "Trka je već počela"
 
+#: ../src/searace-activity/searace.py:415
+#: ../src/searace-activity/searace.py:439
+#: ../src/searace-activity/searace.py:539
+#: ../src/searace-activity/searace.py:840
+#: ../src/searace-activity/searace.py:874
+#: ../src/searace-activity/searace.py:958
+msgid "right"
+msgstr "desna"
+
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
 #: ../src/searace-activity/searace.py:415
@@ -10291,6 +10272,15 @@ msgstr "Trka je već počela"
 #: ../src/searace-activity/searace.py:970
 msgid "forward"
 msgstr "napred"
+
+#: ../src/searace-activity/searace.py:415
+#: ../src/searace-activity/searace.py:439
+#: ../src/searace-activity/searace.py:529
+#: ../src/searace-activity/searace.py:838
+#: ../src/searace-activity/searace.py:872
+#: ../src/searace-activity/searace.py:964
+msgid "left"
+msgstr "leva"
 
 #: ../src/searace-activity/searace.py:509
 msgid "COMMANDS ARE"
@@ -10765,7 +10755,7 @@ msgstr "Ovo je stanica za pumpanje vode."
 msgid "This is a water cleanup station."
 msgstr "Ovo je stanica za prečišćavanje vode."
 
-#: ../src/watercycle-activity/watercycle.py:263
+#: ../src/watercycle-activity/watercycle.py:268
 msgid ""
 "A water tower or elevated water tower is a large elevated water storage "
 "container constructed to hold a water supply at a height sufficient to "
