@@ -7,22 +7,23 @@
 # Frederico <frederico@teia.bio.br>, 2006, 2011-2013.
 # Rafael Ferreira <rafael.f.f1@gmail.com>, 2013.
 # Adorilson Bezerra <adorilson@gmail.com>, 2013.
+# Enrico Nicoletto <liverig@gmail.com>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-12-15 23:13+0000\n"
-"PO-Revision-Date: 2013-12-15 01:14-0300\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>\n"
+"POT-Creation-Date: 2014-02-12 17:43+0000\n"
+"PO-Revision-Date: 2014-02-17 07:55-0300\n"
+"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.3\n"
 
 #: ../boards/algebra_group.xml.in.h:1
 msgid "Go to Algebra activities"
@@ -638,7 +639,7 @@ msgstr "Todos os usuários"
 #: ../src/administration-activity/admin/log_list.py:300
 #: ../src/administration-activity/admin/profile_list.py:118
 #: ../src/administration-activity/admin/wordlist.py:48
-#: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:483
+#: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:810
 #: ../src/pythontest-activity/pythontest.py:451
 #: ../src/tuxpaint-activity/tuxpaint.py:189
@@ -663,7 +664,7 @@ msgid "Board"
 msgstr "Atividade"
 
 #: ../src/administration-activity/admin/log_list.py:250
-#: ../src/click_on_letter-activity/click_on_letter.c:1248
+#: ../src/click_on_letter-activity/click_on_letter.c:1435
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Nível"
@@ -830,7 +831,7 @@ msgstr ""
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/administration-activity/admin/wordlist.py:45
-#: ../src/login-activity/login.py:480
+#: ../src/login-activity/login.py:478
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/tuxpaint-activity/tuxpaint.py:186
 #, python-brace-format
@@ -1584,7 +1585,6 @@ msgstr ""
 "Arraste os objetos para o espaço vermelho correspondente, na área principal."
 
 #: ../src/babymatch-activity/shapegame.c:2042
-#: ../src/click_on_letter-activity/click_on_letter.c:1315
 #: ../src/missing_letter-activity/missingletter.c:808
 #, c-format
 msgid ""
@@ -1743,8 +1743,9 @@ msgstr "Menu principal - Segunda versão"
 msgid "Select a Board"
 msgstr "Selecione uma atividade"
 
-#: ../src/boards/menu2.c:271
-#, c-format
+#. Display the profile name
+#: ../src/boards/menu2.c:271 ../src/login-activity/login.py:100
+#, c-format, python-format
 msgid "Profile: %s"
 msgstr "Perfil: %s"
 
@@ -2383,17 +2384,13 @@ msgstr ""
 "Os peixes foram tirados do utilitário Unix xfishtank. Os créditos de todas "
 "as imagens pertencem a Guillaume Rousse."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:368
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "abcdefghijklmnopqrstuvwxyz"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:379
+#: ../src/click_on_letter-activity/click_on_letter.c:388
 msgid ""
 "This activity will be played with questions displayed as text instead of "
 "being spoken"
 msgstr "Esta atividade será executada exibindo textos ao invés de ser falada."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:384
+#: ../src/click_on_letter-activity/click_on_letter.c:393
 #: ../src/memory-activity/memory.c:922
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -2406,7 +2403,7 @@ msgstr ""
 "Vá para a janela de configuração para\n"
 "habilitar o som."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:405
+#: ../src/click_on_letter-activity/click_on_letter.c:412
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2415,24 +2412,32 @@ msgstr ""
 "Erro: esta atividade requer que você instale os pacotes\n"
 "com as vozes do GCompris para o idioma %s."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:908
+#. TRANSLATORS: Put here the alphabet in your language, letters separated by: /
+#. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
+#. * This is used in reading/click_on_letter and discovery/memory-group
+#: ../src/click_on_letter-activity/click_on_letter.c:833
+#: ../src/memory-activity/memory.c:734
+msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
+msgstr "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1057
 msgid "Questions cannot be empty."
 msgstr "A questão não pode ficar em branco."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:918
+#: ../src/click_on_letter-activity/click_on_letter.c:1066
 msgid "Answers cannot be empty."
 msgstr "A resposta não pode ficar em branco."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:924
+#: ../src/click_on_letter-activity/click_on_letter.c:1072
 #, c-format
 msgid "Too many characters in the Answer (maximum is %d)."
 msgstr "Excesso de caracteres na resposta (no máximo %d)."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:948
+#: ../src/click_on_letter-activity/click_on_letter.c:1090
 msgid "All the characters in Questions must also be in the Answers."
 msgstr "Todos os caracteres nas questões também devem estar nas respostas."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:965
+#: ../src/click_on_letter-activity/click_on_letter.c:1115
 #, c-format
 msgid ""
 "Invalid entry:\n"
@@ -2443,21 +2448,43 @@ msgstr ""
 "No nível %d, Questões '%s' / Respostas '%s'\n"
 "%s"
 
-#. answer
-#: ../src/click_on_letter-activity/click_on_letter.c:1259
-#: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:548
-msgid "Answer"
-msgstr "Resposta"
-
 #. question
-#: ../src/click_on_letter-activity/click_on_letter.c:1270
+#: ../src/click_on_letter-activity/click_on_letter.c:1447
 #: ../src/missing_letter-activity/missingletter_config.c:426
 #: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Pergunta"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:1405
+#. answer
+#: ../src/click_on_letter-activity/click_on_letter.c:1459
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Answer"
+msgstr "Resposta"
+
+#.
+#. * TRANSLATORS: %1$s is the board name (click_on_letter),
+#. * 2$s is the name of the current user profile
+#.
+#: ../src/click_on_letter-activity/click_on_letter.c:1508
+#, c-format
+#| msgid ""
+#| "<b>%1$s</b> configuration\n"
+#| " for profile <b>%2$s</b>"
+msgctxt "click_on_letter_config"
+msgid ""
+"<b>%1$s</b> configuration\n"
+" for profile <b>%2$s</b>"
+msgstr ""
+"Configuração de <b>%1$s</b>\n"
+" para o perfil <b>%2$s</b>"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1521
+#| msgid "Choice of the language"
+msgid "Choose a language"
+msgstr "Escolha um idioma"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1597
 #: ../src/gcompris/board_config_wordlist.c:273
 msgid "Back to default"
 msgstr "Retornar ao padrão"
@@ -6168,32 +6195,32 @@ msgstr ""
 "Use as teclas de seta para navegar pelo tabuleiro e evitar os Troggles. "
 "Pressione a barra de espaço para comer um número."
 
-#: ../src/gnumch-equality-activity/gnumch.py:94
+#: ../src/gnumch-equality-activity/gnumch.py:95
 #, python-format
 msgid ", %d"
 msgstr ", %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:95
+#: ../src/gnumch-equality-activity/gnumch.py:96
 #, python-format
 msgid " and %d"
 msgstr " e %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:115
+#: ../src/gnumch-equality-activity/gnumch.py:116
 #, python-brace-format
 msgid "{0} is divisible by {1}."
 msgstr "{0} é divisível por {1}."
 
-#: ../src/gnumch-equality-activity/gnumch.py:119
+#: ../src/gnumch-equality-activity/gnumch.py:120
 msgid "1 is not a prime number."
 msgstr "1 não é um número primo."
 
-#: ../src/gnumch-equality-activity/gnumch.py:129
+#: ../src/gnumch-equality-activity/gnumch.py:130
 #, python-format
 msgid "Primes less than %d"
 msgstr "Números primos menores do que %d"
 
 #. Translators: You can swap %(x)y elements in the string.
-#: ../src/gnumch-equality-activity/gnumch.py:151
+#: ../src/gnumch-equality-activity/gnumch.py:152
 #, python-format
 msgid ""
 "Multiples of %(d1)d include %(s)s,\n"
@@ -6202,57 +6229,57 @@ msgstr ""
 "Múltiplos de %(d1)d incluem %(s)s,\n"
 "mas %(d2)d não é múltiplo de %(d3)d."
 
-#: ../src/gnumch-equality-activity/gnumch.py:162
+#: ../src/gnumch-equality-activity/gnumch.py:163
 #, python-format
 msgid "Factors of %d"
 msgstr "Fatores de %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:195
+#: ../src/gnumch-equality-activity/gnumch.py:196
 #, python-brace-format
 msgid "{0} are the factors of {1}."
 msgstr "{0} são fatores de {1}."
 
-#: ../src/gnumch-equality-activity/gnumch.py:207
+#: ../src/gnumch-equality-activity/gnumch.py:208
 #, python-format
 msgid "Multiples of %d"
 msgstr "Múltiplos de %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:241
+#: ../src/gnumch-equality-activity/gnumch.py:242
 #, python-brace-format
 msgid "{0} = {1}"
 msgstr "{0} = {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:252
+#: ../src/gnumch-equality-activity/gnumch.py:253
 #, python-brace-format
 msgid "{0} + {1}"
 msgstr "{0} + {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:257
+#: ../src/gnumch-equality-activity/gnumch.py:258
 #, python-brace-format
 msgid "{0} − {1}"
 msgstr "{0} − {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:262
+#: ../src/gnumch-equality-activity/gnumch.py:263
 #, python-brace-format
 msgid "{0} × {1}"
 msgstr "{0} × {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:266
+#: ../src/gnumch-equality-activity/gnumch.py:267
 #, python-brace-format
 msgid "{0} ÷ {1}"
 msgstr "{0} ÷ {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:274
+#: ../src/gnumch-equality-activity/gnumch.py:275
 #, python-format
 msgid "Equal to %d"
 msgstr "Igual à %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:295
+#: ../src/gnumch-equality-activity/gnumch.py:296
 #, python-format
 msgid "Not equal to %d"
 msgstr "Diferente de %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:439
+#: ../src/gnumch-equality-activity/gnumch.py:443
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
@@ -6260,11 +6287,11 @@ msgstr ""
 "Você foi devorado por um Troggle.\n"
 "Pressione <Enter> para continuar."
 
-#: ../src/gnumch-equality-activity/gnumch.py:488
+#: ../src/gnumch-equality-activity/gnumch.py:492
 msgid "You ate a wrong number.\n"
 msgstr "Você comeu um número errado.\n"
 
-#: ../src/gnumch-equality-activity/gnumch.py:489
+#: ../src/gnumch-equality-activity/gnumch.py:493
 msgid ""
 "\n"
 "Press <Return> to continue."
@@ -6272,7 +6299,7 @@ msgstr ""
 "\n"
 "Pressione <Enter> para continuar."
 
-#: ../src/gnumch-equality-activity/gnumch.py:783
+#: ../src/gnumch-equality-activity/gnumch.py:787
 msgid ""
 "T\n"
 "R\n"
@@ -7585,16 +7612,12 @@ msgstr ""
 "jogo Apague as Luzes veja essa página da Wikipédia (em inglês): &lt;http://"
 "en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 
-#: ../src/login-activity/login.py:102
-msgid "Profile: "
-msgstr "Perfil: "
-
-#: ../src/login-activity/login.py:235
+#: ../src/login-activity/login.py:233
 msgid "Login: "
 msgstr "Identificação: "
 
 #. toggle box
-#: ../src/login-activity/login.py:488
+#: ../src/login-activity/login.py:486
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:942
 #: ../src/wordsgame-activity/wordsgame.c:959
@@ -7602,7 +7625,7 @@ msgid "Uppercase only text"
 msgstr "Somente texto em maiúsculas"
 
 #. toggle box
-#: ../src/login-activity/login.py:498
+#: ../src/login-activity/login.py:496
 msgid "Enter login to log in"
 msgstr "Digite a identificação para entrar"
 
@@ -8091,13 +8114,6 @@ msgstr "Memória"
 #: ../src/memory-activity/memory.c:294
 msgid "Find the matching pair"
 msgstr "Encontre o par correspondente"
-
-#. TRANSLATORS: Put here the alphabet in your language, letters separated by: /
-#. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
-#. * This is used in reading/click_on_letter and discovery/memory-group
-#: ../src/memory-activity/memory.c:734
-msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
-msgstr "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
 
 #. TRANSLATORS: Put here the numbers in your language
 #: ../src/memory-activity/memory.c:949
@@ -10980,6 +10996,12 @@ msgstr "Treinar com o teclado"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Digite a palavra completa, antes que ela chegue no chão"
+
+#~ msgid "abcdefghijklmnopqrstuvwxyz"
+#~ msgstr "abcdefghijklmnopqrstuvwxyz"
+
+#~ msgid "Profile: "
+#~ msgstr "Perfil: "
 
 #~ msgid "Couldn't open skin dir: %s"
 #~ msgstr "Não foi possível abrir o diretório de temas: %s"
