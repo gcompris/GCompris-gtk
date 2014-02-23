@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: GCompris-Unofficial\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
 "is&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-04 18:11+0000\n"
-"PO-Revision-Date: 2014-02-05 12:45+0100\n"
+"POT-Creation-Date: 2014-02-12 17:43+0000\n"
+"PO-Revision-Date: 2014-02-23 12:21+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig http://www.foramnagaidhlig.net\n"
 "Language: gd\n"
@@ -193,28 +193,6 @@ msgstr ""
 "bog coimeirsealta"
 
 #: ../boards/menu.xml.in.h:5
-#| msgid ""
-#| "A simple click on an icon brings you to an activity or a menu of "
-#| "activities.\n"
-#| "At the bottom of the screen is the GCompris control bar.\n"
-#| "The following icons are displayed from right to left.\n"
-#| "(note that each icon is displayed only if available in the current "
-#| "activity)\n"
-#| "    Home - Exit an activity, go back to menu (ctrl-w and escape key)\n"
-#| "    Thumb - OK. Confirm your answer\n"
-#| "    Arrows - Display the current level. Click to select another level\n"
-#| "    Lips - Repeat the question\n"
-#| "    Question Mark - Help\n"
-#| "    Tool - The configuration menu\n"
-#| "    Tux Plane - About GCompris\n"
-#| "    Quit - Quit GCompris (ctrl-x)\n"
-#| "The stars show suitable age groups for each game:\n"
-#| "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
-#| "    1, 2 or 3 complex stars - 7 years and up\n"
-#| "Shortcuts:\n"
-#| "    ctrl-b Show or Hide the control bar\n"
-#| "    ctrl-f Toggle full screen\n"
-#| "    ctrl-m Toggle mute for the background music"
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -238,8 +216,8 @@ msgid ""
 "    ctrl-f Toggle full screen\n"
 "    ctrl-m Toggle mute for the background music"
 msgstr ""
-"Cha leig thu leas ach briogadh air ìomhaigheag gus dol gu cleas no "
-"clàr-taice de chleasan.\n"
+"Cha leig thu leas ach briogadh air ìomhaigheag gus dol gu cleas no clàr-"
+"taice de chleasan.\n"
 "Tha bàr-smachd GCompris aig bonn na sgrìn.\n"
 "Chì thu na h-ìomhaighean a leanas o dheas gu clì.\n"
 "(thoir an aire nach faic thu ìomhaigheag ach ma tha i iomchaidh airson a' "
@@ -689,7 +667,7 @@ msgid "Board"
 msgstr "Bòrd"
 
 #: ../src/administration-activity/admin/log_list.py:250
-#: ../src/click_on_letter-activity/click_on_letter.c:1248
+#: ../src/click_on_letter-activity/click_on_letter.c:1435
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Leibheil"
@@ -1253,10 +1231,6 @@ msgstr ""
 #: ../src/algebra_guesscount-activity/algebra_guesscount.xml.in.h:6
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:6
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
-#| msgid ""
-#| "Animal pictures come from the Animal Photography Page of Ralf Schmode "
-#| "(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
-#| "pictures. Thanks a lot, Ralf."
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
 "(http://schmode.net/). Ralf has kindly permitted GCompris to include his "
@@ -1622,7 +1596,6 @@ msgstr ""
 "gach nì dhan ionad dearg sa phrìomh roinn."
 
 #: ../src/babymatch-activity/shapegame.c:2042
-#: ../src/click_on_letter-activity/click_on_letter.c:1315
 #: ../src/missing_letter-activity/missingletter.c:808
 #, c-format
 msgid ""
@@ -1785,7 +1758,6 @@ msgstr "Tagh bòrd"
 #. Display the profile name
 #: ../src/boards/menu2.c:271 ../src/login-activity/login.py:100
 #, c-format, python-format
-#| msgid "Profile: "
 msgid "Profile: %s"
 msgstr "Pròifil: %s"
 
@@ -2451,11 +2423,7 @@ msgstr ""
 "Chaidh na h-èisg a thogail on ghoireas Unix xfishtank. Tha na h-uile dealbh "
 "le Guillaume Rousse."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:368
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "aàbcdeèfghiìlmnoòprstuù"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:379
+#: ../src/click_on_letter-activity/click_on_letter.c:388
 msgid ""
 "This activity will be played with questions displayed as text instead of "
 "being spoken"
@@ -2463,7 +2431,7 @@ msgstr ""
 "Cluichidh tu an cleas seo leis na ceistean gan sealltainn mar theacsa seach "
 "gam bruidhinn"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:384
+#: ../src/click_on_letter-activity/click_on_letter.c:393
 #: ../src/memory-activity/memory.c:922
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -2476,7 +2444,7 @@ msgstr ""
 "Rach gu còmhradh an rèiteachaidh\n"
 "gus an fhuaim a chur an comas"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:405
+#: ../src/click_on_letter-activity/click_on_letter.c:412
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2485,24 +2453,34 @@ msgstr ""
 "Mearachd: feumaidh tu na pacaidean le guthan GCompris airson\n"
 "an sgeama ionadail %s a stàladh mus urrainn dhut an cleas seo a chluich."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:908
+#. TRANSLATORS: Put here the alphabet in your language, letters separated by: /
+#. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
+#. * This is used in reading/click_on_letter and discovery/memory-group
+#: ../src/click_on_letter-activity/click_on_letter.c:833
+#: ../src/memory-activity/memory.c:734
+msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
+msgstr ""
+"a/à/b/bh/c/ch/d/dh/e/è/f/fh/g/gh/i/ì/l/ll/m/mh/n/nn/o/ò/p/ph/r/rr/s/sh/t/th/"
+"u/ù"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1057
 msgid "Questions cannot be empty."
 msgstr "Chan urrainn do cheistean a bhith falamh."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:918
+#: ../src/click_on_letter-activity/click_on_letter.c:1066
 msgid "Answers cannot be empty."
 msgstr "Chan urrainn do dh'fhreagairtean a bhith falamh."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:924
+#: ../src/click_on_letter-activity/click_on_letter.c:1072
 #, c-format
 msgid "Too many characters in the Answer (maximum is %d)."
 msgstr "Tha cus litrichean san fhreagairt (%d air a char as motha)."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:948
+#: ../src/click_on_letter-activity/click_on_letter.c:1090
 msgid "All the characters in Questions must also be in the Answers."
 msgstr "Feumaidh a h-uile litir ann an ceist a bhith sna freagairtean."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:965
+#: ../src/click_on_letter-activity/click_on_letter.c:1115
 #, c-format
 msgid ""
 "Invalid entry:\n"
@@ -2513,21 +2491,43 @@ msgstr ""
 "aig leibheil %d, ceistean '%s' / freagairtean '%s'\n"
 "%s"
 
-#. answer
-#: ../src/click_on_letter-activity/click_on_letter.c:1259
-#: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:548
-msgid "Answer"
-msgstr "Freagairt"
-
 #. question
-#: ../src/click_on_letter-activity/click_on_letter.c:1270
+#: ../src/click_on_letter-activity/click_on_letter.c:1447
 #: ../src/missing_letter-activity/missingletter_config.c:426
 #: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Ceist"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:1405
+#. answer
+#: ../src/click_on_letter-activity/click_on_letter.c:1459
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Answer"
+msgstr "Freagairt"
+
+#.
+#. * TRANSLATORS: %1$s is the board name (click_on_letter),
+#. * 2$s is the name of the current user profile
+#.
+#: ../src/click_on_letter-activity/click_on_letter.c:1508
+#, c-format
+#| msgid ""
+#| "<b>%1$s</b> configuration\n"
+#| " for profile <b>%2$s</b>"
+msgctxt "click_on_letter_config"
+msgid ""
+"<b>%1$s</b> configuration\n"
+" for profile <b>%2$s</b>"
+msgstr ""
+"A' rèiteachadh <b>%1$s</b>\n"
+" airson na pròifil <b>%2$s</b>"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1521
+#| msgid "Choice of the language"
+msgid "Choose a language"
+msgstr "Tagh cànan"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1597
 #: ../src/gcompris/board_config_wordlist.c:273
 msgid "Back to default"
 msgstr "Till dhan bhun-roghainn"
@@ -3951,7 +3951,6 @@ msgstr ""
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:57
-#| msgid "translator_credits"
 msgid "translator-credits"
 msgstr "Akerbeltz ┐ GunChleoc"
 
@@ -4362,7 +4361,6 @@ msgid "Timer: Fast timer"
 msgstr "Tìmear: Tìmear luath"
 
 #: ../src/gcompris/config.c:141
-#| msgid "Use Gcompris administration module to filter boards"
 msgid "Use GCompris administration module to filter boards"
 msgstr "Cleachd mòideal rianachd GCompris gus bùird a chriathradh"
 
@@ -6297,32 +6295,32 @@ msgstr ""
 "Cleachd na saighdean gus gluasad timcheall a' bhùird is na bòcain a "
 "sheachnadh. Briog air an spacebar gus àireamh ithe."
 
-#: ../src/gnumch-equality-activity/gnumch.py:94
+#: ../src/gnumch-equality-activity/gnumch.py:95
 #, python-format
 msgid ", %d"
 msgstr ", %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:95
+#: ../src/gnumch-equality-activity/gnumch.py:96
 #, python-format
 msgid " and %d"
 msgstr " is %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:115
+#: ../src/gnumch-equality-activity/gnumch.py:116
 #, python-brace-format
 msgid "{0} is divisible by {1}."
 msgstr "gabhaidh {0} a roinneadh le {1}."
 
-#: ../src/gnumch-equality-activity/gnumch.py:119
+#: ../src/gnumch-equality-activity/gnumch.py:120
 msgid "1 is not a prime number."
 msgstr "Chan eil 1 na prìomh-àireamh."
 
-#: ../src/gnumch-equality-activity/gnumch.py:129
+#: ../src/gnumch-equality-activity/gnumch.py:130
 #, python-format
 msgid "Primes less than %d"
 msgstr "Prìomh-àireamhan nas lugha na %d"
 
 #. Translators: You can swap %(x)y elements in the string.
-#: ../src/gnumch-equality-activity/gnumch.py:151
+#: ../src/gnumch-equality-activity/gnumch.py:152
 #, python-format
 msgid ""
 "Multiples of %(d1)d include %(s)s,\n"
@@ -6331,57 +6329,57 @@ msgstr ""
 "Gabhaidh na h-iomadan de %(d1)d a-steach %(s)s\n"
 "ach chan e %(d2)d na iomad de %(d3)d."
 
-#: ../src/gnumch-equality-activity/gnumch.py:162
+#: ../src/gnumch-equality-activity/gnumch.py:163
 #, python-format
 msgid "Factors of %d"
 msgstr "Factaran aig %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:195
+#: ../src/gnumch-equality-activity/gnumch.py:196
 #, python-brace-format
 msgid "{0} are the factors of {1}."
 msgstr "'S iad {0} na factaran de {1}."
 
-#: ../src/gnumch-equality-activity/gnumch.py:207
+#: ../src/gnumch-equality-activity/gnumch.py:208
 #, python-format
 msgid "Multiples of %d"
 msgstr "Iomadan de %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:241
+#: ../src/gnumch-equality-activity/gnumch.py:242
 #, python-brace-format
 msgid "{0} = {1}"
 msgstr "{0} = {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:252
+#: ../src/gnumch-equality-activity/gnumch.py:253
 #, python-brace-format
 msgid "{0} + {1}"
 msgstr "{0} + {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:257
+#: ../src/gnumch-equality-activity/gnumch.py:258
 #, python-brace-format
 msgid "{0} − {1}"
 msgstr "{0} − {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:262
+#: ../src/gnumch-equality-activity/gnumch.py:263
 #, python-brace-format
 msgid "{0} × {1}"
 msgstr "{0} × {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:266
+#: ../src/gnumch-equality-activity/gnumch.py:267
 #, python-brace-format
 msgid "{0} ÷ {1}"
 msgstr "{0} ÷ {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:274
+#: ../src/gnumch-equality-activity/gnumch.py:275
 #, python-format
 msgid "Equal to %d"
 msgstr "Co-ionnan ri %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:295
+#: ../src/gnumch-equality-activity/gnumch.py:296
 #, python-format
 msgid "Not equal to %d"
 msgstr "Chan ionnan ri %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:439
+#: ../src/gnumch-equality-activity/gnumch.py:443
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
@@ -6389,11 +6387,11 @@ msgstr ""
 "Chaidh d' ithe le bòcan.\n"
 "Briog air <Return> gus leantainn air adhart."
 
-#: ../src/gnumch-equality-activity/gnumch.py:488
+#: ../src/gnumch-equality-activity/gnumch.py:492
 msgid "You ate a wrong number.\n"
 msgstr "Dh'ith thu àireamh chearr.\n"
 
-#: ../src/gnumch-equality-activity/gnumch.py:489
+#: ../src/gnumch-equality-activity/gnumch.py:493
 msgid ""
 "\n"
 "Press <Return> to continue."
@@ -6401,7 +6399,7 @@ msgstr ""
 "\n"
 "Brùth air <Return> gus leantainn air adhart."
 
-#: ../src/gnumch-equality-activity/gnumch.py:783
+#: ../src/gnumch-equality-activity/gnumch.py:787
 msgid ""
 "T\n"
 "R\n"
@@ -7516,18 +7514,14 @@ msgstr ""
 #: ../src/lang-activity/lang-object.xml.in.h:6
 #: ../src/lang-activity/lang-other.xml.in.h:6
 #: ../src/lang-activity/lang-people.xml.in.h:6
-#| msgid ""
-#| "The images and voices come from the Art4Apps project: http://www.art4apps."
-#| "org/. You can also access this activity online on http://laske.fr/"
-#| "abecedarium/."
 msgid ""
 "The images and voices come from the Art4Apps project: http://www.art4apps."
 "org/. You can also access this activity online on http://gcompris.net/"
 "activity/lang."
 msgstr ""
-"Thàinig na dealbhan is guthan on phròiseact Art4Apps: "
-"http://www.art4apps.org/. Gheibh thu inntrigeadh dhan chleas seo air loidhne "
-"air http://gcompris.net/activity/lang."
+"Thàinig na dealbhan is guthan on phròiseact Art4Apps: http://www.art4apps."
+"org/. Gheibh thu inntrigeadh dhan chleas seo air loidhne air http://gcompris."
+"net/activity/lang."
 
 #: ../src/lang-activity/lang-object.xml.in.h:2
 msgid "List of words in the 'object' category."
@@ -7675,9 +7669,6 @@ msgstr ""
 "spàsail"
 
 #: ../src/leftright-activity/leftright.xml.in.h:4
-#| msgid ""
-#| "You can see a hand: is it a left hand or a right hand? Click on the red "
-#| "button on the left, or the green button on the right."
 msgid ""
 "You can see a hand: is it a left hand or a right hand? Click on the left "
 "button, or the right button depending on the displayed hand."
@@ -8238,15 +8229,6 @@ msgstr "Cuimhne"
 #: ../src/memory-activity/memory.c:294
 msgid "Find the matching pair"
 msgstr "Lorg an seise"
-
-#. TRANSLATORS: Put here the alphabet in your language, letters separated by: /
-#. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
-#. * This is used in reading/click_on_letter and discovery/memory-group
-#: ../src/memory-activity/memory.c:734
-msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
-msgstr ""
-"a/à/b/bh/c/ch/d/dh/e/è/f/fh/g/gh/i/ì/l/ll/m/mh/n/nn/o/ò/p/ph/r/rr/s/sh/t/th/"
-"u/ù"
 
 #. TRANSLATORS: Put here the numbers in your language
 #: ../src/memory-activity/memory.c:949
@@ -11209,6 +11191,9 @@ msgstr "Cleachdadh a' mheur-chlàir"
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr ""
 "Sgrìobh am facal gu lèir fhad 's a tha e a' tuiteam is mus ruig e an làr"
+
+#~ msgid "abcdefghijklmnopqrstuvwxyz"
+#~ msgstr "aàbcdeèfghiìlmnoòprstuù"
 
 #~ msgid "Couldn't open skin dir: %s"
 #~ msgstr "Cha b' urrainn dhuinn pasgan nan craiceann fhosgladh: %s"
