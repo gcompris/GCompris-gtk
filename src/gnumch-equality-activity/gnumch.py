@@ -384,6 +384,8 @@ class Player(object):
         eatfile = gcompris.utils.find_file_absolute("voices/$LOCALE/misc/eat.wav")
         if(not eatfile):
             gcompris.sound.play_ogg("sounds/eat.wav")
+        else:
+            gcompris.sound.play_ogg(eatfile)
 
         self.anim.setState(2)
         self.munch_timer = game.timeout_add(game.munch_time, self.stopMunching)
