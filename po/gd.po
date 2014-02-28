@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
 "is&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2014-02-23 12:23+0000\n"
-"PO-Revision-Date: 2014-02-27 15:37+0100\n"
+"PO-Revision-Date: 2014-02-28 11:13+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig http://www.foramnagaidhlig.net\n"
 "Language: gd\n"
@@ -215,8 +215,8 @@ msgid ""
 "    ctrl-f Toggle full screen\n"
 "    ctrl-m Toggle mute for the background music"
 msgstr ""
-"Cha leig thu leas ach briogadh air ìomhaigheag gus dol gu cleas no "
-"clàr-taice de chleasan.\n"
+"Cha leig thu leas ach briogadh air ìomhaigheag gus dol gu cleas no clàr-"
+"taice de chleasan.\n"
 "Tha bàr-smachd GCompris aig bonn na sgrìn.\n"
 "Seo na h-ìomhaigheagan a chì thu o dheas gu clì\n"
 "(thoir an aire nach faic thu ìomhaigheag ach ma tha i iomchaidh airson a’ "
@@ -3929,7 +3929,7 @@ msgid ""
 "bringing it, part by part, up to the flowers. Be careful, if you move off "
 "the hose, the red part will go back down."
 msgstr ""
-"Gluais an luchag os cionn pàirt dhearg an stealladair. Bheir seo gluasad "
+"Gluais an luchag air barr pàirt dhearg an stealladair. Bheir seo gluasad "
 "air, a’ dol suas beag air bheag. Thoir an aire gun tèid a’ phàirt dhearg "
 "sìos a-rithist nuair a ghluaiseas tu air falbh."
 
@@ -6625,14 +6625,14 @@ msgstr "b/bh/c/ch/d/dh/f/fh/g/gh/l/m/mh/n/p/ph/r/s/sh/t/th"
 #. on the right with the chararcter '/'. Keep the word NONE if not available in your language
 #: ../src/hangman-activity/hangman.py:77
 msgid "a=a"
-msgstr "ch=C dh=D fh=F gh=G mh=M sh=S th=T"
+msgstr "ch=C dh=D fh=F gh=G mh=M sh=S th=T à=A è=E ì=I ò=O ù=U"
 
 #. Letters equivalence for the hangman activity. It has the
 #. form of a space separated list like: "e=éè a=àâ"
 #. Keep the word NONE if not available in your language
 #: ../src/hangman-activity/hangman.py:94
 msgid "NONE"
-msgstr "a=à e=è i=ì o=ò u=ù"
+msgstr "NONE"
 
 #: ../src/hangman-activity/hangman.py:144
 #: ../src/hangman-activity/hangman.py:150
@@ -6668,7 +6668,11 @@ msgid ""
 msgstr ""
 "’S urrainn dhut na litrichean a chur a-steach leis a’ mheur-chlàr air an "
 "sgrìn no leis an fhìor mheur-chlàr.\n"
-"An aire: b=b, B=bh, c=c, C=ch agus msaa."
+"\n"
+"Mur eil na stràcan agad air a’ mheur-chlàr, faodaidh tu litrichean mòra a "
+"chleachdadh nan àite. Mar eisimpleir, ma sgrìobhas tu “A”, gheibh thu “à”.\n"
+"\n"
+"An aire: b=b, B=bh, c=c, C=ch ... a leithid ceudna."
 
 #: ../src/hanoi-activity/hanoi.c:112 ../src/hanoi-activity/hanoi.xml.in.h:1
 msgid "Simplified Tower of Hanoi"
@@ -7062,7 +7066,7 @@ msgstr "plèana"
 
 #: ../src/imagename-activity/imagename.xml.in.h:1
 msgid "Drag and Drop each item above its name"
-msgstr "Slaod gach nì is leig às e os cionn ainm"
+msgstr "Slaod gach nì is leig às e air barr ainm"
 
 #: ../src/imagename-activity/imagename.xml.in.h:2
 msgid "Image Name"
@@ -7088,7 +7092,7 @@ msgstr ""
 #: ../src/imagename-activity/resources/imagename/board6_0.xml.in.h:1
 #: ../src/imagename-activity/resources/imagename/board7_0.xml.in.h:1
 msgid "Drag and Drop each item onto its name"
-msgstr "Slaod gach nì is leig às e os cionn ainm"
+msgstr "Slaod gach nì is leig às e air barr ainm"
 
 #: ../src/imagename-activity/resources/imagename/board1_0.xml.in.h:2
 #: ../src/imagename-activity/resources/imagename/board7_0.xml.in.h:3
@@ -10865,10 +10869,10 @@ msgid ""
 "opposite order."
 msgstr ""
 "Briog air na nithean gus an lorg thu an fhreagairt a tha ceart dhut rèir-sa. "
-"An uair sin, briog air a’ phutan “OK” air a’ bhàr-smachd. Air na "
-"leibheilean nas ìsle, bheir Tux fios dhut an do lorg thu àite fhalaich is "
-"cuiridh e comharra air an nì le bogsa dubh. ’S urrainn dhut putan deas na "
-"luchaige a chleachdadh gus car a thoirt air na dathan san òrdugh chontrarra."
+"An uair sin, briog air a’ phutan “OK” air a’ bhàr-smachd. Air na leibheilean "
+"nas ìsle, bheir Tux fios dhut an do lorg thu àite fhalaich is cuiridh e "
+"comharra air an nì le bogsa dubh. ’S urrainn dhut putan deas na luchaige a "
+"chleachdadh gus car a thoirt air na dathan san òrdugh chontrarra."
 
 #: ../src/tangram-activity/tangram.xml.in.h:1
 msgid "The tangram puzzle game"
