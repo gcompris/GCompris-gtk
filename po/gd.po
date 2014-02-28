@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
 "is&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2014-02-23 12:23+0000\n"
-"PO-Revision-Date: 2014-02-28 11:13+0100\n"
+"PO-Revision-Date: 2014-02-28 18:19+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig http://www.foramnagaidhlig.net\n"
 "Language: gd\n"
@@ -1892,11 +1892,11 @@ msgstr ""
 
 #: ../src/braille_lotto-activity/braille_lotto.py:120
 msgid "PLAYER 1"
-msgstr "CLUICHEADAIR 1"
+msgstr "NEACH 1"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:130
 msgid "PLAYER 2"
-msgstr "CLUICHEADAIR 2"
+msgstr "NEACH 2"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:151
 msgid "Check Number"
@@ -1913,8 +1913,9 @@ msgid ""
 "I don't have this number\n"
 "PLAYER {number}"
 msgstr ""
-"Chan eil an àireamh seo agam\n"
-"CLUICHEADAIR {number}"
+"Chan eil an àireamh seo\n"
+"agam\n"
+"NEACH {number}"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:215
 msgid "Lotto Master"
@@ -7414,15 +7415,15 @@ msgstr ""
 
 #: ../src/land_safe-activity/land_safe.py:171
 msgid "Click on me or press the Return key when you are ready."
-msgstr "Briog orm no brùth air an iuchair Enter nuair a bhios tu ullamh."
+msgstr "Briog orm no brùth air an iuchair Enter nuair a bhios tu deiseil."
 
 #: ../src/land_safe-activity/land_safe.py:173
 msgid "I am ready!"
-msgstr "Tha mi ullamh!"
+msgstr "Tha mi deiseil!"
 
 #: ../src/land_safe-activity/land_safe.py:473
 msgid "Height: "
-msgstr "Àirde:"
+msgstr "Àirde"
 
 #: ../src/land_safe-activity/land_safe.py:491
 msgid "Fuel"
@@ -7430,7 +7431,7 @@ msgstr "Connadh"
 
 #: ../src/land_safe-activity/land_safe.py:525
 msgid "Velocity: "
-msgstr "Luaths:"
+msgstr "Luaths"
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:1
 msgid "Land Safe"
