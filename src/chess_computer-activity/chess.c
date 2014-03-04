@@ -248,8 +248,12 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 	{
 	  /* Check in our exec prefix */
 	  extern gchar *exec_prefix;
-	  gnuchess_bin = g_build_filename(exec_prefix, *gnuchess_pathptr,
-					  NULL);
+
+	  if (exec_prefix != NULL)
+	    gnuchess_bin = g_build_filename(exec_prefix, *gnuchess_pathptr,
+					    NULL);
+	  else
+	    gnuchess_bin = g_find_program_in_path(*gnuchess_pathptr);
 	}
 
       if (g_file_test (gnuchess_bin, G_FILE_TEST_IS_EXECUTABLE))

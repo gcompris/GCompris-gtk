@@ -357,7 +357,7 @@ else
   AC_DEFINE_UNQUOTED(SYSTEM_CONFIG_DIR, "/etc", [System GCompris config directory])
 
   dnl Test for gnuchess
-  if test x$GNUCHESS = xno; then
+  if test x$GNUCHESS = x; then
     GNUCHESS="gcompris-gnuchess"
   fi
   AC_DEFINE_UNQUOTED(GNUCHESS, "$GNUCHESS", Defines where GNU Chess resides on the system)
