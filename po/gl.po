@@ -1,16 +1,17 @@
 # Galician translation of GCompris
-# Copyright (C) 2012 GCompris
+# Copyright (C) 2014 GCompris
 # This file is distributed under the same license as the GCompris package.
 # Ignacio Casal Quinteiro <icq@cvs.gnome.org>, 2007.
 # Paula Iglesias <localizacion@tagenata.com>, 2009.
-# Gonçalo Cordeiro <gzcordeiro@gmail.com>, 2009-2013.
+# Gonçalo Cordeiro <gzcordeiro@gmail.com>, 2009-2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris - master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-28 01:01+0100\n"
-"PO-Revision-Date: 2013-10-18 13:21+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gcompris&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-02-12 17:43+0000\n"
+"PO-Revision-Date: 2014-03-08 09:29+0200\n"
 "Last-Translator: Gonçalo Cordeiro <gzcordeiro@gmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -417,6 +418,7 @@ msgstr ""
 "para o perfil<b>%s</b></span>"
 
 #: ../src/administration-activity/admin/board_list.py:645
+#, python-brace-format
 msgid ""
 "<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -425,6 +427,7 @@ msgstr ""
 " para o perfil <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:657
+#, python-brace-format
 msgid ""
 "<b>Locale sound</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -501,6 +504,7 @@ msgid "Editing a Group"
 msgstr "Editar un grupo"
 
 #: ../src/administration-activity/admin/group_edit.py:62
+#, python-brace-format
 msgid "Editing group '{group}' for class '{aclass}'"
 msgstr "Editando o grupo '{group}' para a clase '{aclass}'"
 
@@ -634,7 +638,7 @@ msgstr "Todas as persoas usuarias"
 #: ../src/administration-activity/admin/log_list.py:300
 #: ../src/administration-activity/admin/profile_list.py:118
 #: ../src/administration-activity/admin/wordlist.py:48
-#: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:483
+#: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:810
 #: ../src/pythontest-activity/pythontest.py:451
 #: ../src/tuxpaint-activity/tuxpaint.py:189
@@ -659,7 +663,7 @@ msgid "Board"
 msgstr "Taboleiro"
 
 #: ../src/administration-activity/admin/log_list.py:250
-#: ../src/click_on_letter-activity/click_on_letter.c:1248
+#: ../src/click_on_letter-activity/click_on_letter.c:1435
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Nivel"
@@ -828,9 +832,10 @@ msgstr ""
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/administration-activity/admin/wordlist.py:45
-#: ../src/login-activity/login.py:480
+#: ../src/login-activity/login.py:478
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/tuxpaint-activity/tuxpaint.py:186
+#, python-brace-format
 msgid ""
 "<b>{config}</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -1177,7 +1182,7 @@ msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/findit-activity/findit.py:228 ../src/lang-activity/lang.py:115
+#: ../src/findit-activity/findit.py:228 ../src/lang-activity/lang.py:112
 #: ../src/play_piano-activity/play_piano.py:82
 #: ../src/play_rhythm-activity/play_rhythm.py:87
 #: ../src/readingh-activity/reading.c:643
@@ -1461,7 +1466,7 @@ msgstr "Escoller unha casa"
 msgid "Your turn to play ..."
 msgstr "A túa quenda para xogar…"
 
-#: ../src/awele-activity/awele.c:690
+#: ../src/awele-activity/awele.c:692
 msgid "Not allowed! Try again !"
 msgstr "Non está permitido! Téntao de novo!"
 
@@ -1585,7 +1590,6 @@ msgstr ""
 "obxecto ao espazo vermello correcto da área principal."
 
 #: ../src/babymatch-activity/shapegame.c:2042
-#: ../src/click_on_letter-activity/click_on_letter.c:1315
 #: ../src/missing_letter-activity/missingletter.c:808
 #, c-format
 msgid ""
@@ -1743,10 +1747,10 @@ msgstr "Segunda versión do menú principal"
 msgid "Select a Board"
 msgstr "Escolle un taboleiro"
 
-#: ../src/boards/menu2.c:271
-#, fuzzy, c-format
+#. Display the profile name
+#: ../src/boards/menu2.c:271 ../src/login-activity/login.py:100
 msgid "Profile: %s"
-msgstr "Perfil: "
+msgstr "Perfil: %s"
 
 #: ../src/boards/menu2.c:288
 #, c-format
@@ -1796,6 +1800,7 @@ msgstr "Cando esteas listo, prémeme e tenta reproducir os caracteres Braille."
 
 #. Translators : Do not translate the token {letter}
 #: ../src/braille_alphabets-activity/braille_alphabets.py:299
+#, python-brace-format
 msgid "Click on the dots in braille cell area to produce the letter {letter}."
 msgstr ""
 "Preme nos puntos da zona de cela de braille para producir a letra {letter}."
@@ -1890,6 +1895,7 @@ msgid "Click me to get some hint"
 msgstr "Prémeme para obter algunha pista"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
+#, python-brace-format
 msgid ""
 "I don't have this number\n"
 "PLAYER {number}"
@@ -1908,6 +1914,7 @@ msgstr "Xerar un número"
 #. Translators : Do not translate the token {column}
 #: ../src/braille_lotto-activity/braille_lotto.py:296
 #: ../src/braille_lotto-activity/braille_lotto.py:319
+#, python-brace-format
 msgid "Hey, you have it. It is there in your {column} column"
 msgstr "Ei! xa o tes! Está na túa columna {column}"
 
@@ -1937,6 +1944,7 @@ msgid "Game Over"
 msgstr "Fin da partida"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:465
+#, python-brace-format
 msgid "Congratulation player {player_id}, you won"
 msgstr "Parabéns xogador {player_id}! Gañaches!"
 
@@ -2377,11 +2385,7 @@ msgstr ""
 "Os peixes proveñen da utilidade Unix xfishtank. Os créditos de todas as "
 "imaxes pertencen a Guillaume Rousse."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:368
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "abcdefghilmnñopqrstuvxz"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:379
+#: ../src/click_on_letter-activity/click_on_letter.c:388
 msgid ""
 "This activity will be played with questions displayed as text instead of "
 "being spoken"
@@ -2389,7 +2393,7 @@ msgstr ""
 "Esta actividade será reproducida coas preguntas mostradas como texto, no "
 "canto de lelas"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:384
+#: ../src/click_on_letter-activity/click_on_letter.c:393
 #: ../src/memory-activity/memory.c:922
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -2402,7 +2406,7 @@ msgstr ""
 "Vai ao diálogo de configuración para \n"
 "activar o son"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:405
+#: ../src/click_on_letter-activity/click_on_letter.c:412
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2411,24 +2415,32 @@ msgstr ""
 "Erro: esta actividade require que instale primeiro\n"
 "os paquetes coas voces de GCompris para configuración rexional %s."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:908
+#. TRANSLATORS: Put here the alphabet in your language, letters separated by: /
+#. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
+#. * This is used in reading/click_on_letter and discovery/memory-group
+#: ../src/click_on_letter-activity/click_on_letter.c:833
+#: ../src/memory-activity/memory.c:734
+msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
+msgstr "a/b/c/ch/d/e/f/g/h/i/j/k/l/m/n/ñ/o/p/q/r/s/t/u/v/w/x/y/z"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1057
 msgid "Questions cannot be empty."
 msgstr "As preguntas non poden estar baleiras."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:918
+#: ../src/click_on_letter-activity/click_on_letter.c:1066
 msgid "Answers cannot be empty."
 msgstr "As respostas non poden estar baleiras."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:924
+#: ../src/click_on_letter-activity/click_on_letter.c:1072
 #, c-format
 msgid "Too many characters in the Answer (maximum is %d)."
 msgstr "Hai demasiados caracteres na Resposta (o máximo é %d)."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:948
+#: ../src/click_on_letter-activity/click_on_letter.c:1090
 msgid "All the characters in Questions must also be in the Answers."
 msgstr "Todos os caracteres das Preguntas deben estar tamén nas Respostas."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:965
+#: ../src/click_on_letter-activity/click_on_letter.c:1115
 #, c-format
 msgid ""
 "Invalid entry:\n"
@@ -2439,21 +2451,38 @@ msgstr ""
 "No nivel %d, Preguntas '%s' / Respostas '%s'\n"
 "%s"
 
-#. answer
-#: ../src/click_on_letter-activity/click_on_letter.c:1259
-#: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:548
-msgid "Answer"
-msgstr "Resposta"
-
 #. question
-#: ../src/click_on_letter-activity/click_on_letter.c:1270
+#: ../src/click_on_letter-activity/click_on_letter.c:1447
 #: ../src/missing_letter-activity/missingletter_config.c:426
 #: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Pregunta"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:1405
+#. answer
+#: ../src/click_on_letter-activity/click_on_letter.c:1459
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Answer"
+msgstr "Resposta"
+
+#.
+#. * TRANSLATORS: %1$s is the board name (click_on_letter),
+#. * 2$s is the name of the current user profile
+#.
+#: ../src/click_on_letter-activity/click_on_letter.c:1508
+msgctxt "click_on_letter_config"
+msgid ""
+"<b>%1$s</b> configuration\n"
+" for profile <b>%2$s</b>"
+msgstr ""
+"Configuración de <b>%1$s</b>\n"
+" para o perfil de <b>%2$s</b>"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1521
+msgid "Choose a language"
+msgstr "Seleccione un idioma"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1597
 #: ../src/gcompris/board_config_wordlist.c:273
 msgid "Back to default"
 msgstr "Volver ás opcións predeterminadas"
@@ -2979,6 +3008,7 @@ msgstr ""
 #: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:342
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:505
+#, python-brace-format
 msgid "Cannot find the file '{filename}'"
 msgstr "Non foi posíbel encontrar o ficheiro '{filename}'"
 
@@ -3116,8 +3146,8 @@ msgstr "Move o rato para borrar a zona e descubrir o fondo"
 msgid "Error: No images found\n"
 msgstr "Erro: non se encontrou ningunha imaxe\n"
 
-#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:510
-#: ../src/gcompris/properties.c:517
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:511
+#: ../src/gcompris/properties.c:518
 msgid "readme"
 msgstr "leme"
 
@@ -3167,7 +3197,7 @@ msgstr "Preme co rato para borrar a zona e descubrir o fondo"
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Preme co rato sobre os rectángulos até que desaparezan os bloques."
 
-#: ../src/explore-activity/explore.py:85 ../src/lang-activity/lang.py:104
+#: ../src/explore-activity/explore.py:85 ../src/lang-activity/lang.py:106
 #: ../src/note_names-activity/note_names.py:82
 #: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
@@ -3195,6 +3225,7 @@ msgstr "Volver ao Inicio"
 #: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:347
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:510
+#, python-brace-format
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3869,7 +3900,7 @@ msgstr ""
 "Este software é un paquete GNU e está publicado baixo a licenza pública "
 "xeral de GNU"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:490
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:468
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -3948,355 +3979,345 @@ msgstr "Selección de idioma"
 msgid "Choice of the level"
 msgstr "Selección de nivel"
 
-#: ../src/gcompris/config.c:58
+#: ../src/gcompris/config.c:57
 msgid "Language: your system default"
 msgstr "Idioma: o predeterminado do teu sistema"
 
-#: ../src/gcompris/config.c:59
+#: ../src/gcompris/config.c:58
 msgid "Afrikaans"
 msgstr "Africáner"
 
-#: ../src/gcompris/config.c:60
+#: ../src/gcompris/config.c:59
 msgid "Albanian"
 msgstr "Albanés"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:60
 msgid "Amharic"
 msgstr "Amhárico"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:61
 msgid "Arabic"
 msgstr "Árabe"
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/config.c:62
 msgid "Asturian"
 msgstr "Asturiano"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:63
 msgid "Basque"
 msgstr "Éuscaro"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:64
 msgid "Breton"
 msgstr "Bretón"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:65
 msgid "Bulgarian"
 msgstr "Búlgaro"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:66
 msgid "Catalan"
 msgstr "Catalán"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:67
 msgid "Chinese (Simplified)"
 msgstr "Chinés (simplificado)"
 
-#: ../src/gcompris/config.c:69
+#: ../src/gcompris/config.c:68
 msgid "Chinese (Hong Kong)"
 msgstr "Chinés (Hong Kong)"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:69
 msgid "Chinese (Traditional)"
 msgstr "Chinés (tradicional)"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:70
 msgid "Croatian"
 msgstr "Croata"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:71
 #: ../src/geography-activity/resources/geography/board6_0.xml.in.h:7
 msgid "Czech Republic"
 msgstr "República Checa"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:72
 msgid "Danish"
 msgstr "Danés"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:73
 msgid "Dutch"
 msgstr "Holandés"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:74
 msgid "Dzongkha"
 msgstr "Dzongkha"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:75
 msgid "English (Canada)"
 msgstr "Inglés (Canadá)"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:76
 msgid "English (Great Britain)"
 msgstr "Inglés (Reino Unido)"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:77
 msgid "English (United States)"
 msgstr "Inglés (Estados Unidos)"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:78
 msgid "Finnish"
 msgstr "Finés"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:79
 msgid "French"
 msgstr "Francés"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:80
 msgid "Galician"
 msgstr "Galego"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:81
 msgid "Georgian"
 msgstr "Xeorxiano"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:82
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 msgid "German"
 msgstr "Alemán"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:83
 msgid "Greek"
 msgstr "Grego"
 
-#: ../src/gcompris/config.c:85 ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:113
 msgid "Scottish Gaelic"
 msgstr "Gaélico escocés"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:85
 msgid "Gujarati"
 msgstr "Gujarati"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:86
 msgid "Hebrew"
 msgstr "Hebreo"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:87
 msgid "Hindi"
 msgstr "Hindi"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:88
 msgid "Hungarian"
 msgstr "Húngaro"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:89
 msgid "Indonesian"
 msgstr "Indonesio"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:90
 msgid "Irish (Gaelic)"
 msgstr "Irlandés (Gaélico)"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:91
 msgid "Italian"
 msgstr "Italiano"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:92
 msgid "Japanese"
 msgstr "Xaponés"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:93
 msgid "Kinyarwanda"
 msgstr "Ruandés"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:94
 msgid "Korean"
 msgstr "Coreano"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:95
 msgid "Latvian"
 msgstr "Lituano"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:96
 msgid "Lithuanian"
 msgstr "Lituano"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:97
 msgid "Macedonian"
 msgstr "Macedonio"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:98
 msgid "Malay"
 msgstr "Malaio"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:99
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:100
 msgid "Marathi"
 msgstr "Maratí"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:101
 msgid "Montenegrin"
 msgstr "Montenegrino"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:102
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
 msgid "Nepal"
 msgstr "Nepalés"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:103
 msgid "Norwegian Bokmal"
 msgstr "Noruegués Bokmal"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:104
 msgid "Norwegian Nynorsk"
 msgstr "Noruegués Nynorsk"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:105
 msgid "Occitan (languedocien)"
 msgstr "Occitano (languedociano)"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:106
 msgid "Persian"
 msgstr "Persa"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:107
 msgid "Polish"
 msgstr "Polaco"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:108
 msgid "Portuguese (Brazil)"
 msgstr "Portugués (Brasil)"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:109
 msgid "Portuguese"
 msgstr "Portugués"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:110
 msgid "Punjabi"
 msgstr "Punjabi"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:111
 msgid "Romanian"
 msgstr "Romanés"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:112
 msgid "Russian"
 msgstr "Ruso"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:114
 msgid "Serbian (Latin)"
 msgstr "Serbio (latino)"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:115
 msgid "Serbian"
 msgstr "Serbio"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:116
 msgid "Slovak"
 msgstr "Eslovaco"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:117
 msgid "Slovenian"
 msgstr "Esloveno"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:118
 msgid "Somali"
 msgstr "Somalí"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:119
 msgid "Spanish"
 msgstr "Español"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:120
 msgid "Swedish"
 msgstr "Sueco"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:121
 msgid "Tamil"
 msgstr "Támil"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:122
 msgid "Thai"
 msgstr "Tailandés"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:123
 msgid "Turkish (Azerbaijan)"
 msgstr "Turco (Acerbaixán)"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:124
 msgid "Turkish"
 msgstr "Turco"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:125
 msgid "Ukrainian"
 msgstr "Ucraíno"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:126
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:127
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:128
 msgid "Walloon"
 msgstr "Valón"
 
-#: ../src/gcompris/config.c:130
+#: ../src/gcompris/config.c:129
 msgid "Zulu"
 msgstr "Zulú"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:134
 msgid "Timer: No time limit"
 msgstr "Temporizador: sen límite de tempo"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:135
 msgid "Timer: Slow timer"
 msgstr "Temporizador: temporizador lento"
 
-#: ../src/gcompris/config.c:137
+#: ../src/gcompris/config.c:136
 msgid "Timer: Normal timer"
 msgstr "Temporizador: temporizador normal"
 
-#: ../src/gcompris/config.c:138
+#: ../src/gcompris/config.c:137
 msgid "Timer: Fast timer"
 msgstr "Temporizador: temporizador rápido"
 
-#: ../src/gcompris/config.c:142
+#: ../src/gcompris/config.c:141
 msgid "Use GCompris administration module to filter boards"
 msgstr "Use o módulo de administración de GCompris para filtrar taboleiros"
 
-#: ../src/gcompris/config.c:196
+#: ../src/gcompris/config.c:195
 msgid "GCompris Configuration"
 msgstr "Configuración de GCompris"
 
-#: ../src/gcompris/config.c:279
+#: ../src/gcompris/config.c:267
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: ../src/gcompris/config.c:304
+#: ../src/gcompris/config.c:292
 msgid "Remember level for default user"
 msgstr "Recordar o nivel do usuario predeterminado"
 
-#: ../src/gcompris/config.c:330
+#: ../src/gcompris/config.c:318
 msgid "Music"
 msgstr "Música"
 
-#: ../src/gcompris/config.c:355
+#: ../src/gcompris/config.c:343
 msgid "Effect"
 msgstr "Efecto"
 
-#: ../src/gcompris/config.c:379 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:367 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/gcompris/config.c:416
+#: ../src/gcompris/config.c:432 ../src/gcompris/config.c:742
 #, c-format
-msgid "Couldn't open skin dir: %s"
-msgstr "Non foi posíbel abrir o directorio de ficheiros de aparencia: %s"
-
-#: ../src/gcompris/config.c:447 ../src/gcompris/config.c:927
-#: ../src/gcompris/config.c:941
-#, c-format
-msgid "Skin : %s"
-msgstr "Ficheiro de aparencia: %s"
-
-#: ../src/gcompris/config.c:449
-msgid "SKINS NOT FOUND"
-msgstr "NON SE ATOPARON FICHEIROS DE APARENCIA"
+msgid "Font: %s"
+msgstr "Tipo de letra: %s"
 
 #: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
@@ -4654,7 +4675,7 @@ msgstr ""
 "Neste perfil están desactivadas todas as actividades. Vaia ao módulo de "
 "administración de GCompris e active cando menos unha delas."
 
-#: ../src/gcompris/properties.c:512
+#: ../src/gcompris/properties.c:513
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -4662,7 +4683,7 @@ msgstr ""
 "Este directorio contén os ficheiros que vostede creou coa suite educativa "
 "GCompris\n"
 
-#: ../src/gcompris/properties.c:519
+#: ../src/gcompris/properties.c:520
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -6185,31 +6206,32 @@ msgstr ""
 "Usa as frechas para navegar polo taboleiro para evitar os Troggles. Preme na "
 "barra de espazos para comer un número."
 
-#: ../src/gnumch-equality-activity/gnumch.py:94
+#: ../src/gnumch-equality-activity/gnumch.py:95
 #, python-format
 msgid ", %d"
 msgstr ", %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:95
+#: ../src/gnumch-equality-activity/gnumch.py:96
 #, python-format
 msgid " and %d"
 msgstr " e %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:115
+#: ../src/gnumch-equality-activity/gnumch.py:116
+#, python-brace-format
 msgid "{0} is divisible by {1}."
 msgstr "{0} é divisíbel por {1}."
 
-#: ../src/gnumch-equality-activity/gnumch.py:119
+#: ../src/gnumch-equality-activity/gnumch.py:120
 msgid "1 is not a prime number."
 msgstr "1 non é un número primo."
 
-#: ../src/gnumch-equality-activity/gnumch.py:129
+#: ../src/gnumch-equality-activity/gnumch.py:130
 #, python-format
 msgid "Primes less than %d"
 msgstr "Primos menores que %d"
 
 #. Translators: You can swap %(x)y elements in the string.
-#: ../src/gnumch-equality-activity/gnumch.py:151
+#: ../src/gnumch-equality-activity/gnumch.py:152
 #, python-format
 msgid ""
 "Multiples of %(d1)d include %(s)s,\n"
@@ -6218,51 +6240,57 @@ msgstr ""
 "Os múltiplos de %(d1)d inclúen %(s)s,\n"
 "mais %(d2)d non é un múltiplo de %(d3)d."
 
-#: ../src/gnumch-equality-activity/gnumch.py:162
+#: ../src/gnumch-equality-activity/gnumch.py:163
 #, python-format
 msgid "Factors of %d"
 msgstr "Factores de %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:195
+#: ../src/gnumch-equality-activity/gnumch.py:196
+#, python-brace-format
 msgid "{0} are the factors of {1}."
 msgstr "{0} son os factores de {1}."
 
-#: ../src/gnumch-equality-activity/gnumch.py:207
+#: ../src/gnumch-equality-activity/gnumch.py:208
 #, python-format
 msgid "Multiples of %d"
 msgstr "Múltiplos de %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:241
+#: ../src/gnumch-equality-activity/gnumch.py:242
+#, python-brace-format
 msgid "{0} = {1}"
 msgstr "{0} = {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:252
+#: ../src/gnumch-equality-activity/gnumch.py:253
+#, python-brace-format
 msgid "{0} + {1}"
 msgstr "{0} + {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:257
+#: ../src/gnumch-equality-activity/gnumch.py:258
+#, python-brace-format
 msgid "{0} − {1}"
 msgstr "{0} − {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:262
+#: ../src/gnumch-equality-activity/gnumch.py:263
+#, python-brace-format
 msgid "{0} × {1}"
 msgstr "{0} × {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:266
+#: ../src/gnumch-equality-activity/gnumch.py:267
+#, python-brace-format
 msgid "{0} ÷ {1}"
 msgstr "{0} ÷ {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:274
+#: ../src/gnumch-equality-activity/gnumch.py:275
 #, python-format
 msgid "Equal to %d"
 msgstr "Igual a %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:295
+#: ../src/gnumch-equality-activity/gnumch.py:296
 #, python-format
 msgid "Not equal to %d"
 msgstr "Distinto de %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:439
+#: ../src/gnumch-equality-activity/gnumch.py:443
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
@@ -6270,11 +6298,11 @@ msgstr ""
 "Comeute un Troggle.\n"
 "Preme <Intro> para continuar."
 
-#: ../src/gnumch-equality-activity/gnumch.py:488
+#: ../src/gnumch-equality-activity/gnumch.py:492
 msgid "You ate a wrong number.\n"
 msgstr "Comiches un número equivocado.\n"
 
-#: ../src/gnumch-equality-activity/gnumch.py:489
+#: ../src/gnumch-equality-activity/gnumch.py:493
 msgid ""
 "\n"
 "Press <Return> to continue."
@@ -6282,7 +6310,7 @@ msgstr ""
 "\n"
 "Preme <Intro> para continuar."
 
-#: ../src/gnumch-equality-activity/gnumch.py:783
+#: ../src/gnumch-equality-activity/gnumch.py:787
 msgid ""
 "T\n"
 "R\n"
@@ -6433,10 +6461,12 @@ msgstr ""
 "barra de espazo para comer un número."
 
 #: ../src/guessnumber-activity/guessnumber.py:203
+#, python-brace-format
 msgid "Guess a number between {0} and {1}"
 msgstr "Adiviña un número entre {0} e {1}"
 
 #: ../src/guessnumber-activity/guessnumber.py:307
+#, python-brace-format
 msgid "Please enter a number between {0} and {1}"
 msgstr "Introduce un número entre {0} e {1}"
 
@@ -6667,19 +6697,19 @@ msgstr ""
 "para formar pingas o suficientemente grandes como para caíren como chuvia"
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:171
 msgid "This is the meter for electricity produced by the turbine. "
 msgstr "Este é o medidor para a electricidade producida pola turbina. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:171
-#: ../src/hydroelectric-activity/hydroelectric.py:284
-#: ../src/hydroelectric-activity/hydroelectric.py:292
-#: ../src/hydroelectric-activity/hydroelectric.py:323
-#: ../src/hydroelectric-activity/hydroelectric.py:346
+#: ../src/hydroelectric-activity/hydroelectric.py:172
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+#: ../src/hydroelectric-activity/hydroelectric.py:296
+#: ../src/hydroelectric-activity/hydroelectric.py:327
+#: ../src/hydroelectric-activity/hydroelectric.py:350
 msgid "The electricity power is measured in watts (W)."
 msgstr "A enerxía eléctrica mídese en watts (W)."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:176
+#: ../src/hydroelectric-activity/hydroelectric.py:177
 msgid ""
 "Flowing water is directed on to the blades of a turbine runner, creating a "
 "force on the blades. In this way, energy is transferred from the water flow "
@@ -6688,11 +6718,11 @@ msgstr ""
 "A corrente de auga diríxese ás aspas dunha turbina, o que xenera unha forza "
 "nas aspas. Deste modo, a enerxía transmítese desde a auga á turbina"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:190
+#: ../src/hydroelectric-activity/hydroelectric.py:191
 msgid "This cloud simulates the wind, click on it to have wind."
 msgstr "Esta nube simula o vento; preme nela para ter vento."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:228
+#: ../src/hydroelectric-activity/hydroelectric.py:229
 msgid ""
 "This is a step down transformer. Electricity is transformed in low voltage, "
 "ready to be used by the customers."
@@ -6701,22 +6731,22 @@ msgstr ""
 "baixa voltaxe, lista para ser usada polos consumidores e consumidoras."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:283
+#: ../src/hydroelectric-activity/hydroelectric.py:287
 msgid "This is the meter for all the electricity produced. "
 msgstr "Este é o medidor para toda a electricidade producida. "
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:291
+#: ../src/hydroelectric-activity/hydroelectric.py:295
 msgid "This is the meter for electricity consumed by the users. "
 msgstr ""
 "Este é o medidor para a electricidade consumida polos usuarios e usuarias. "
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:322
+#: ../src/hydroelectric-activity/hydroelectric.py:326
 msgid "This is the meter for electricity produced by the solar panels. "
 msgstr "Este é o medidor para a electricidade producida polos paneis solares. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:328
+#: ../src/hydroelectric-activity/hydroelectric.py:332
 msgid ""
 "Solar panels use light energy (photons) from the sun to generate electricity "
 "through the photovoltaic effect."
@@ -6725,12 +6755,12 @@ msgstr ""
 "electricidade mediante o fenómeno fotovoltaico."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:345
+#: ../src/hydroelectric-activity/hydroelectric.py:349
 msgid "This is the meter for electricity produced by the wind turbines. "
 msgstr ""
 "Este é o medidor para a electricidade producida polas turbinas eólicas. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:351
+#: ../src/hydroelectric-activity/hydroelectric.py:355
 msgid ""
 "A wind turbine is a device that converts wind motion energy into electricity "
 "generation. It is called a wind generator or wind charger. "
@@ -6738,7 +6768,7 @@ msgstr ""
 "Unha turbina eólica é un dispositivo que converte a enerxía motriz do vento "
 "en xeración de electricidade. Chámaselle xerador eólico ou cargador eólico. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:737
+#: ../src/hydroelectric-activity/hydroelectric.py:741
 msgid ""
 "It is not possible to consume more electricity than what is produced. This "
 "is a key limitation in the distribution of electricity, with minor "
@@ -6758,7 +6788,7 @@ msgstr ""
 "os equipos de transmisión poden virse abaixo, o que na maioría dos casos "
 "pode levar a unha apagada nunha zona."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:951
+#: ../src/hydroelectric-activity/hydroelectric.py:958
 msgid ""
 "This is a step up transformer. Electricity is transmitted at high voltages "
 "(110 kV or above) to reduce the energy lost in long distance transmission."
@@ -7351,6 +7381,7 @@ msgid "Enter the text you hear:"
 msgstr "Escribe o texto que escoitas:"
 
 #: ../src/lang-activity/langLib.py:69
+#, python-brace-format
 msgid "Missing translation for '{word}'"
 msgstr "Falta a tradución de '{word}'"
 
@@ -7412,11 +7443,11 @@ msgstr "Lista de palabras da categoría «outros»."
 msgid "List of words in the 'people' category."
 msgstr "Lista de palabras da categoría «persoas»."
 
-#: ../src/lang-activity/lang.py:98
+#: ../src/lang-activity/lang.py:100
 msgid "ERROR, we found no words in this language."
 msgstr "ERRO! Non se encontraron palabras nese idioma."
 
-#: ../src/lang-activity/lang.py:99
+#: ../src/lang-activity/lang.py:101
 msgid "Please consider contributing a voice set."
 msgstr "Pense en achegar un conxunto de voces."
 
@@ -7522,24 +7553,12 @@ msgid "tool"
 msgstr "ferramenta"
 
 #: ../src/leftright-activity/leftright.c:230
-#: ../src/searace-activity/searace.py:415
-#: ../src/searace-activity/searace.py:439
-#: ../src/searace-activity/searace.py:529
-#: ../src/searace-activity/searace.py:838
-#: ../src/searace-activity/searace.py:872
-#: ../src/searace-activity/searace.py:964
-msgid "left"
-msgstr "esquerda"
+msgid "Left hand"
+msgstr "A man esquerda"
 
 #: ../src/leftright-activity/leftright.c:236
-#: ../src/searace-activity/searace.py:415
-#: ../src/searace-activity/searace.py:439
-#: ../src/searace-activity/searace.py:539
-#: ../src/searace-activity/searace.py:840
-#: ../src/searace-activity/searace.py:874
-#: ../src/searace-activity/searace.py:958
-msgid "right"
-msgstr "dereita"
+msgid "Right hand"
+msgstr "A man dereita"
 
 #: ../src/leftright-activity/leftright.xml.in.h:1
 msgid "Find your left and right hands"
@@ -7558,18 +7577,12 @@ msgstr ""
 "vista. Representación espacial."
 
 #: ../src/leftright-activity/leftright.xml.in.h:4
-#: ../src/note_names-activity/note_names.xml.in.h:3
-#: ../src/railroad-activity/railroad.xml.in.h:4
-msgid "None"
-msgstr "Ningún"
-
-#: ../src/leftright-activity/leftright.xml.in.h:5
 msgid ""
-"You can see a hand: is it a left hand or a right hand? Click on the red "
-"button on the left, or the green button on the right."
+"You can see a hand: is it a left hand or a right hand? Click on the left "
+"button, or the right button depending on the displayed hand."
 msgstr ""
-"Podes ver unha man: é a esquerda ou a dereita? Preme o botón vermello á "
-"esquerda ou o botón verde á dereita."
+"Podes ver unha man: é a esquerda ou a dereita? Preme o botón á dereita "
+"ou á esquerda dependendo da man que se mostre."
 
 #: ../src/lightsoff-activity/lightsoff.py:442
 msgid ""
@@ -7605,19 +7618,15 @@ msgid ""
 "Lights Off game: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 msgstr ""
 "O algoritmo solucionador está descrito na Wikipedia.Para saber máis sobre o "
-"xogo Apagar as luces, consulte: &lt;http://en.wikipedia.org/wiki/Lights_Out_"
-"(game)&gt;"
+"xogo Apagar as luces, consulte: &lt;http://en.wikipedia.org/wiki/"
+"Lights_Out_(game)&gt;"
 
-#: ../src/login-activity/login.py:102
-msgid "Profile: "
-msgstr "Perfil: "
-
-#: ../src/login-activity/login.py:235
+#: ../src/login-activity/login.py:233
 msgid "Login: "
 msgstr "Nome de usuario: "
 
 #. toggle box
-#: ../src/login-activity/login.py:488
+#: ../src/login-activity/login.py:486
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:942
 #: ../src/wordsgame-activity/wordsgame.c:959
@@ -7625,7 +7634,7 @@ msgid "Uppercase only text"
 msgstr "Só texto en maiúsculas"
 
 #. toggle box
-#: ../src/login-activity/login.py:498
+#: ../src/login-activity/login.py:496
 msgid "Enter login to log in"
 msgstr "Introduce o teu nome de usuario para iniciar a sesión"
 
@@ -8113,13 +8122,6 @@ msgstr "Memoria"
 #: ../src/memory-activity/memory.c:294
 msgid "Find the matching pair"
 msgstr "Atopa a parella que lle corresponde"
-
-#. TRANSLATORS: Put here the alphabet in your language, letters separated by: /
-#. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
-#. * This is used in reading/click_on_letter and discovery/memory-group
-#: ../src/memory-activity/memory.c:734
-msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
-msgstr "a/b/c/ch/d/e/f/g/h/i/j/k/l/m/n/ñ/o/p/q/r/s/t/u/v/w/x/y/z"
 
 #. TRANSLATORS: Put here the numbers in your language
 #: ../src/memory-activity/memory.c:949
@@ -9055,6 +9057,11 @@ msgid ""
 msgstr ""
 "Aprende os nomes das notas, nas claves de Sol e de Fa, coa axuda dos sons e "
 "a cores"
+
+#: ../src/note_names-activity/note_names.xml.in.h:3
+#: ../src/railroad-activity/railroad.xml.in.h:4
+msgid "None"
+msgstr "Ningún"
 
 #: ../src/note_names-activity/note_names.xml.in.h:4
 msgid ""
@@ -10364,6 +10371,15 @@ msgstr ""
 msgid "The race is already being run"
 msgstr "A carreira xa está en marcha"
 
+#: ../src/searace-activity/searace.py:415
+#: ../src/searace-activity/searace.py:439
+#: ../src/searace-activity/searace.py:539
+#: ../src/searace-activity/searace.py:840
+#: ../src/searace-activity/searace.py:874
+#: ../src/searace-activity/searace.py:958
+msgid "right"
+msgstr "dereita"
+
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
 #: ../src/searace-activity/searace.py:415
@@ -10376,6 +10392,15 @@ msgstr "A carreira xa está en marcha"
 #: ../src/searace-activity/searace.py:970
 msgid "forward"
 msgstr "adiante"
+
+#: ../src/searace-activity/searace.py:415
+#: ../src/searace-activity/searace.py:439
+#: ../src/searace-activity/searace.py:529
+#: ../src/searace-activity/searace.py:838
+#: ../src/searace-activity/searace.py:872
+#: ../src/searace-activity/searace.py:964
+msgid "left"
+msgstr "esquerda"
 
 #: ../src/searace-activity/searace.py:509
 msgid "COMMANDS ARE"
@@ -10853,7 +10878,7 @@ msgstr "Esta é unha estación de bombeo de auga."
 msgid "This is a water cleanup station."
 msgstr "Esta é unha depuradora de auga."
 
-#: ../src/watercycle-activity/watercycle.py:263
+#: ../src/watercycle-activity/watercycle.py:268
 msgid ""
 "A water tower or elevated water tower is a large elevated water storage "
 "container constructed to hold a water supply at a height sufficient to "
@@ -10980,6 +11005,21 @@ msgstr "Adestramento co teclado"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Escribe a palabra completa mentres cae e antes de que chegue ao chan"
+
+#~ msgid "abcdefghijklmnopqrstuvwxyz"
+#~ msgstr "abcdefghilmnñopqrstuvxz"
+
+#~ msgid "Couldn't open skin dir: %s"
+#~ msgstr "Non foi posíbel abrir o directorio de ficheiros de aparencia: %s"
+
+#~ msgid "Skin : %s"
+#~ msgstr "Ficheiro de aparencia: %s"
+
+#~ msgid "SKINS NOT FOUND"
+#~ msgstr "NON SE ATOPARON FICHEIROS DE APARENCIA"
+
+#~ msgid "Profile: "
+#~ msgstr "Perfil: "
 
 #~ msgid "Georgia"
 #~ msgstr "Xeorxia"
