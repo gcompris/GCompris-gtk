@@ -15,7 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gcompris&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2014-03-24 11:56+0100\n"
 "PO-Revision-Date: 2014-02-24 11:13+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
@@ -429,7 +430,7 @@ msgid ""
 " for profile <b>{profile}</b>"
 msgstr ""
 "Configuración <b>regional</b>\n"
-" para el perfil <b>{perfil}</b>"
+" para el perfil <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:657
 msgid ""
@@ -437,7 +438,7 @@ msgid ""
 " for profile <b>{profile}</b>"
 msgstr ""
 "Configuración <b>regional de sonido</b>\n"
-" para el perfil <b>{perfil}</b>"
+" para el perfil <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:663
 #: ../src/pythontest-activity/pythontest.py:513
@@ -509,7 +510,7 @@ msgstr "Editar un grupo"
 
 #: ../src/administration-activity/admin/group_edit.py:62
 msgid "Editing group '{group}' for class '{aclass}'"
-msgstr "Editar grupo «{grupo}» para la clase «{clase}»"
+msgstr "Editar grupo «{group}» para la clase «{aclass}»"
 
 #: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
@@ -7375,7 +7376,7 @@ msgstr "Escribe el texto que escuchas:"
 
 #: ../src/lang-activity/langLib.py:69
 msgid "Missing translation for '{word}'"
-msgstr "Falta la traducción de «{palabra}»"
+msgstr "Falta la traducción de «{word}»"
 
 #: ../src/lang-activity/lang-nature.xml.in.h:1
 #: ../src/lang-activity/lang-object.xml.in.h:1
