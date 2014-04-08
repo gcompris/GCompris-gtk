@@ -23,16 +23,16 @@ msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-12-18 13:51+0000\n"
-"PO-Revision-Date: 2013-12-17 17:56+0200\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2014-02-12 17:43+0000\n"
+"PO-Revision-Date: 2014-03-11 09:01+0200\n"
+"Last-Translator: Yannis Kaskamanidis <kiolalis@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.5.5\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -652,7 +652,7 @@ msgstr "Όλοι οι χρήστες"
 #: ../src/administration-activity/admin/log_list.py:300
 #: ../src/administration-activity/admin/profile_list.py:118
 #: ../src/administration-activity/admin/wordlist.py:48
-#: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:483
+#: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:810
 #: ../src/pythontest-activity/pythontest.py:451
 #: ../src/tuxpaint-activity/tuxpaint.py:189
@@ -677,7 +677,7 @@ msgid "Board"
 msgstr "Πίνακας"
 
 #: ../src/administration-activity/admin/log_list.py:250
-#: ../src/click_on_letter-activity/click_on_letter.c:1248
+#: ../src/click_on_letter-activity/click_on_letter.c:1435
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Επίπεδο"
@@ -843,7 +843,7 @@ msgstr ""
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
 #: ../src/administration-activity/admin/wordlist.py:45
-#: ../src/login-activity/login.py:480
+#: ../src/login-activity/login.py:478
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/tuxpaint-activity/tuxpaint.py:186
 msgid ""
@@ -1607,7 +1607,6 @@ msgstr ""
 "κύρια περιοχή."
 
 #: ../src/babymatch-activity/shapegame.c:2042
-#: ../src/click_on_letter-activity/click_on_letter.c:1315
 #: ../src/missing_letter-activity/missingletter.c:808
 #, c-format
 msgid ""
@@ -1770,8 +1769,9 @@ msgstr "Κυρίως Μενού Δεύτερη Έκδοση"
 msgid "Select a Board"
 msgstr "Διάλεξε πίνακα"
 
-#: ../src/boards/menu2.c:271
-#, c-format
+#. Display the profile name
+#: ../src/boards/menu2.c:271 ../src/login-activity/login.py:100
+#, c-format, python-format
 msgid "Profile: %s"
 msgstr "Προφίλ: %s"
 
@@ -2436,11 +2436,7 @@ msgstr ""
 "Τα ψάρια είναι παρμένα από το xfishtank του Unix. Όλες οι φωτογραφίες "
 "ανήκουν στον Guillaume Rousse."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:368
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "αβγδεζηθικλμνξοπρστυφχψω"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:379
+#: ../src/click_on_letter-activity/click_on_letter.c:388
 msgid ""
 "This activity will be played with questions displayed as text instead of "
 "being spoken"
@@ -2448,7 +2444,7 @@ msgstr ""
 "Αυτή η δραστηριότητα διεξάγεται με ερωτήσεις που εμφανίζονται ως κείμενο, "
 "αντί να εκφωνούνται. "
 
-#: ../src/click_on_letter-activity/click_on_letter.c:384
+#: ../src/click_on_letter-activity/click_on_letter.c:393
 #: ../src/memory-activity/memory.c:922
 msgid ""
 "Error: this activity cannot be played with the\n"
@@ -2461,7 +2457,7 @@ msgstr ""
 "Από τη Διαχείριση του GCompris\n"
 "ενεργοποίησε τον ήχο"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:405
+#: ../src/click_on_letter-activity/click_on_letter.c:412
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2470,26 +2466,34 @@ msgstr ""
 "Σφάλμα: αυτή η δραστηριότητα απαιτεί την εγκατάσταση\n"
 "των πακέτων ήχου του GCompris για τη γλώσσα %s."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:908
+#. TRANSLATORS: Put here the alphabet in your language, letters separated by: /
+#. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
+#. * This is used in reading/click_on_letter and discovery/memory-group
+#: ../src/click_on_letter-activity/click_on_letter.c:833
+#: ../src/memory-activity/memory.c:734
+msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
+msgstr "α/β/η/δ/ε/ζ/η/θ/ι/κ/λ/μ/ν/ξ/ο/π/ρ/σ/τ/υ/φ/χ/ψ/ω"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1057
 msgid "Questions cannot be empty."
 msgstr "Η ερώτηση δεν μπορεί να είναι κενή"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:918
+#: ../src/click_on_letter-activity/click_on_letter.c:1066
 msgid "Answers cannot be empty."
 msgstr "Η ερώτηση δεν μπορεί να είναι κενή."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:924
+#: ../src/click_on_letter-activity/click_on_letter.c:1072
 #, c-format
 msgid "Too many characters in the Answer (maximum is %d)."
 msgstr "Πάρα πολλοί χαρακτήρες στην απάντηση (το μέγιστο είναι %d)."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:948
+#: ../src/click_on_letter-activity/click_on_letter.c:1090
 msgid "All the characters in Questions must also be in the Answers."
 msgstr ""
 "Όλοι οι χαρακτήρες των ερωτήσεων θα πρέπει να συμπεριλαμβάνονται και στις "
 "απαντήσεις."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:965
+#: ../src/click_on_letter-activity/click_on_letter.c:1115
 #, c-format
 msgid ""
 "Invalid entry:\n"
@@ -2500,21 +2504,43 @@ msgstr ""
 "Στο επίπεδο %d, Ερωτήσεις '%s' / Απαντήσεις '%s'\n"
 "%s"
 
-#. answer
-#: ../src/click_on_letter-activity/click_on_letter.c:1259
-#: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:548
-msgid "Answer"
-msgstr "Απάντηση"
-
 #. question
-#: ../src/click_on_letter-activity/click_on_letter.c:1270
+#: ../src/click_on_letter-activity/click_on_letter.c:1447
 #: ../src/missing_letter-activity/missingletter_config.c:426
 #: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Ερώτηση"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:1405
+#. answer
+#: ../src/click_on_letter-activity/click_on_letter.c:1459
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Answer"
+msgstr "Απάντηση"
+
+#.
+#. * TRANSLATORS: %1$s is the board name (click_on_letter),
+#. * 2$s is the name of the current user profile
+#.
+#: ../src/click_on_letter-activity/click_on_letter.c:1508
+#, c-format
+#| msgid ""
+#| "<b>%1$s</b> configuration\n"
+#| " for profile <b>%2$s</b>"
+msgctxt "click_on_letter_config"
+msgid ""
+"<b>%1$s</b> configuration\n"
+" for profile <b>%2$s</b>"
+msgstr ""
+"<b>%1$s</b> Ρυθμίσεις\n"
+" για το προφίλ <b>%2$s</b>"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1521
+#| msgid "Choice of the language"
+msgid "Choose a language"
+msgstr "Επιλογή γλώσσας"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1597
 #: ../src/gcompris/board_config_wordlist.c:273
 msgid "Back to default"
 msgstr "Επιστροφή στο προκαθορισμένο"
@@ -6289,31 +6315,31 @@ msgstr ""
 "αποφεύγοντας τα λάθη. Πάτησε τη μπάρα διαστήματος ώστε ο Αριθμοφάγος να φάει "
 "τους αριθμούς."
 
-#: ../src/gnumch-equality-activity/gnumch.py:94
+#: ../src/gnumch-equality-activity/gnumch.py:95
 #, python-format
 msgid ", %d"
 msgstr ", %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:95
+#: ../src/gnumch-equality-activity/gnumch.py:96
 #, python-format
 msgid " and %d"
 msgstr "και %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:115
+#: ../src/gnumch-equality-activity/gnumch.py:116
 msgid "{0} is divisible by {1}."
 msgstr "{0} διαιρείται από το {1}."
 
-#: ../src/gnumch-equality-activity/gnumch.py:119
+#: ../src/gnumch-equality-activity/gnumch.py:120
 msgid "1 is not a prime number."
 msgstr "Το 1 δεν είναι πρώτος αριθμός."
 
-#: ../src/gnumch-equality-activity/gnumch.py:129
+#: ../src/gnumch-equality-activity/gnumch.py:130
 #, python-format
 msgid "Primes less than %d"
 msgstr "Πρώτοι αριθμοί μικρότεροι του %d"
 
 #. Translators: You can swap %(x)y elements in the string.
-#: ../src/gnumch-equality-activity/gnumch.py:151
+#: ../src/gnumch-equality-activity/gnumch.py:152
 #, python-format
 msgid ""
 "Multiples of %(d1)d include %(s)s,\n"
@@ -6322,51 +6348,51 @@ msgstr ""
 "Πολλαπλάσια του %(d1)d περιέχουν %(s)s,\n"
 "αλλά %(d2)d δεν είναι πολλαπλάσιο του %(d3)d."
 
-#: ../src/gnumch-equality-activity/gnumch.py:162
+#: ../src/gnumch-equality-activity/gnumch.py:163
 #, python-format
 msgid "Factors of %d"
 msgstr "Διαιρέτες του %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:195
+#: ../src/gnumch-equality-activity/gnumch.py:196
 msgid "{0} are the factors of {1}."
 msgstr "{0} είναι διαιρέτες του {1}."
 
-#: ../src/gnumch-equality-activity/gnumch.py:207
+#: ../src/gnumch-equality-activity/gnumch.py:208
 #, python-format
 msgid "Multiples of %d"
 msgstr "Πολλαπλάσια του %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:241
+#: ../src/gnumch-equality-activity/gnumch.py:242
 msgid "{0} = {1}"
 msgstr "{0} = {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:252
+#: ../src/gnumch-equality-activity/gnumch.py:253
 msgid "{0} + {1}"
 msgstr "{0} + {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:257
+#: ../src/gnumch-equality-activity/gnumch.py:258
 msgid "{0} − {1}"
 msgstr "{0} − {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:262
+#: ../src/gnumch-equality-activity/gnumch.py:263
 msgid "{0} × {1}"
 msgstr "{0} × {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:266
+#: ../src/gnumch-equality-activity/gnumch.py:267
 msgid "{0} ÷ {1}"
 msgstr "{0} ÷ {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:274
+#: ../src/gnumch-equality-activity/gnumch.py:275
 #, python-format
 msgid "Equal to %d"
 msgstr "Ίσο με το %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:295
+#: ../src/gnumch-equality-activity/gnumch.py:296
 #, python-format
 msgid "Not equal to %d"
 msgstr "Δεν είναι ίσο με το %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:439
+#: ../src/gnumch-equality-activity/gnumch.py:443
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
@@ -6374,11 +6400,11 @@ msgstr ""
 "Καταβροχθίστηκες από τον Τρωγλοδύτη.\n"
 "Πάτησε <Return> για να συνεχίσεις."
 
-#: ../src/gnumch-equality-activity/gnumch.py:488
+#: ../src/gnumch-equality-activity/gnumch.py:492
 msgid "You ate a wrong number.\n"
 msgstr "Έφαγες λάθος νούμερο.\n"
 
-#: ../src/gnumch-equality-activity/gnumch.py:489
+#: ../src/gnumch-equality-activity/gnumch.py:493
 msgid ""
 "\n"
 "Press <Return> to continue."
@@ -6386,7 +6412,7 @@ msgstr ""
 "\n"
 "Πάτησε <Return> για να συνεχίσεις."
 
-#: ../src/gnumch-equality-activity/gnumch.py:783
+#: ../src/gnumch-equality-activity/gnumch.py:787
 msgid ""
 "T\n"
 "R\n"
@@ -7725,16 +7751,12 @@ msgstr ""
 "για το παιχνίδι Φώτα σβηστά: &lt;http://en.wikipedia.org/wiki/Lights_Out_"
 "(game)&gt;"
 
-#: ../src/login-activity/login.py:102
-msgid "Profile: "
-msgstr "Προφίλ: "
-
-#: ../src/login-activity/login.py:235
+#: ../src/login-activity/login.py:233
 msgid "Login: "
 msgstr "Σύνδεση:"
 
 #. toggle box
-#: ../src/login-activity/login.py:488
+#: ../src/login-activity/login.py:486
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:942
 #: ../src/wordsgame-activity/wordsgame.c:959
@@ -7742,7 +7764,7 @@ msgid "Uppercase only text"
 msgstr "Κείμενο μόνο με κεφαλαία γράμματα"
 
 #. toggle box
-#: ../src/login-activity/login.py:498
+#: ../src/login-activity/login.py:496
 msgid "Enter login to log in"
 msgstr "Πιέστε Σύνδεση για να συνδεθείτε"
 
@@ -8242,13 +8264,6 @@ msgstr "Μνήμη"
 #: ../src/memory-activity/memory.c:294
 msgid "Find the matching pair"
 msgstr "Βρες το ζευγάρι που ταιριάζει"
-
-#. TRANSLATORS: Put here the alphabet in your language, letters separated by: /
-#. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
-#. * This is used in reading/click_on_letter and discovery/memory-group
-#: ../src/memory-activity/memory.c:734
-msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
-msgstr "α/β/η/δ/ε/ζ/η/θ/ι/κ/λ/μ/ν/ξ/ο/π/ρ/σ/τ/υ/φ/χ/ψ/ω"
 
 #. TRANSLATORS: Put here the numbers in your language
 #: ../src/memory-activity/memory.c:949
@@ -11230,6 +11245,12 @@ msgstr "Εξάσκηση στο πληκτρολόγιο"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Πληκτρολόγησε την λέξη πριν αυτή πέσει στο έδαφος"
+
+#~ msgid "abcdefghijklmnopqrstuvwxyz"
+#~ msgstr "αβγδεζηθικλμνξοπρστυφχψω"
+
+#~ msgid "Profile: "
+#~ msgstr "Προφίλ: "
 
 #~ msgid "Couldn't open skin dir: %s"
 #~ msgstr "Αδυναμία ανοίγματος καταλόγου skin: %s"
