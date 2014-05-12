@@ -69,7 +69,7 @@ class Gcompris_color_mix:
       anchor = gtk.ANCHOR_CENTER,
       width = 150,
       alignment = pango.ALIGN_CENTER,
-      text = _("Match the color "))
+      text = _("Match the color"))
 
     # Set the points for the sliders
     c_points = goocanvas.Points( [(242, 210), (130, 175)] )
