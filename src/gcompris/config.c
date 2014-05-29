@@ -140,6 +140,14 @@ static gchar *timername[] = {
 static gchar *filtername =
   N_("Use GCompris administration module to filter boards");
 
+/* Some fonts are just symbols. If a children select one
+ * it creates a mess to read the screen and to revert
+ */
+static gchar *excluded_fonts[] = {
+  "msam10", "msbm10", "cmex10", "cmsy10", "wasy10", "wingdings",
+  NULL
+};
+
 static void set_locale_flag(gchar *locale);
 static gchar *get_next_locale(gchar *locale);
 static gchar *get_previous_locale(gchar *locale);
@@ -403,6 +411,20 @@ gc_config_start ()
         PangoFontFamily * family = families[i];
         const gchar * family_name;
         family_name = pango_font_family_get_name (family);
+
+	/* Skip font to exclude */
+	guint j = 0;
+	gboolean exclude = FALSE;
+	while(excluded_fonts[j] != NULL) {
+	  if( !g_ascii_strncasecmp(excluded_fonts[j], family_name,
+				   strlen(excluded_fonts[j])) ) {
+	    exclude = TRUE;
+	    break;
+	  }
+	  j++;
+	}
+	if(exclude)
+	  continue;
 	fontlist = g_list_insert_sorted (fontlist, (gpointer)family_name,
 					 (GCompareFunc)strcmp);
 	if(!strcmp(properties->fontface, family_name))
