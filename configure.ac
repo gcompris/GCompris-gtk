@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(gcompris, 14.03, http://gcompris.net)
+AC_INIT(gcompris, 14.05, http://gcompris.net)
 
 AM_INIT_AUTOMAKE([tar-ustar no-dist-gzip dist-bzip2 -Wno-portability])
 
@@ -921,4 +921,3 @@ echo type sh configure --prefix=/usr
 echo
 echo type \'make\' to compile gcompris
 echo type \'make install\' to install it
-
