@@ -309,9 +309,9 @@ class Staff():
             x = note.x
             for n in note.beatNums:
                 if n == note.beatNums[0]:
-                    size = "10000"
+                    size = "12"
                 else:
-                    size = "5000"
+                    size = "8"
                 blob = goocanvas.Text(
                 parent=self.rootitem,
                 x=x, #x + self.x,
