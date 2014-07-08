@@ -17,22 +17,22 @@
 # kiolalis <ttnfy17@yahoo.gr>, 2008, 2010.
 # Yannis Kaskamanidis <kiolalis@gmail.com>, 2010.
 # Γιάννης Κασκαμανίδης, 2011.
-# Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2012, 2013.
+# Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2012, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-12 17:43+0000\n"
-"PO-Revision-Date: 2014-03-11 09:01+0200\n"
-"Last-Translator: Yannis Kaskamanidis <kiolalis@gmail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
+"is&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-07-04 04:53+0000\n"
+"PO-Revision-Date: 2014-07-08 10:16+0300\n"
+"Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -42,7 +42,8 @@ msgstr "Δραστηριότητες Άλγεβρας"
 #: ../boards/algebra_group.xml.in.h:2 ../boards/menu.xml.in.h:2
 #: ../boards/money_group.xml.in.h:2 ../src/lang-activity/lang.xml.in.h:2
 msgid "Left-click the mouse on an activity to select it."
-msgstr "Κάνε δεξί κλικ σε μια δραστηριότητα για να την επιλέξεις."
+msgstr ""
+"Αριστερό πάτημα του ποντικιού σε μια δραστηριότητα για να την επιλέξεις."
 
 #: ../boards/algebramenu.xml.in.h:1
 msgid "Go to calculation activities"
@@ -85,7 +86,7 @@ msgstr "Δραστηριότητες βασισμένες στο χρώμα."
 
 #: ../boards/computer.xml.in.h:1
 msgid "Discover the Computer"
-msgstr "Ανακάλυψε τον Υπολογιστή"
+msgstr "Εξερεύνηση υπολογιστή"
 
 #: ../boards/computer.xml.in.h:2
 msgid "Play with computer peripherals."
@@ -101,7 +102,7 @@ msgstr "Χρώματα, ήχοι, μνήμη..."
 
 #: ../boards/experience.xml.in.h:1
 msgid "Go to experiential activities"
-msgstr "Δραστηριότητες βιωματικής εμπειρίας"
+msgstr "Επιστήμη"
 
 #: ../boards/experience.xml.in.h:2
 msgid "Various activities based on physical movement."
@@ -113,7 +114,7 @@ msgstr "Δραστηριότητες πειραματισμού"
 
 #: ../boards/experimental.xml.in.h:2
 msgid "Run gcompris --experimental to see this menu."
-msgstr "Εκτέλεσε το gcompris --experimental  για να δεις το μενού."
+msgstr "Εκτέλεσε το gcompris --experimental για να δεις το μενού."
 
 #: ../boards/fun.xml.in.h:1
 msgid "Go to Amusement activities"
@@ -188,7 +189,7 @@ msgstr "Δραστηριότητες μαθηματικών"
 
 #: ../boards/menu.xml.in.h:1
 msgid "GCompris Main Menu"
-msgstr "Κύριο μενού του GCompris "
+msgstr "Κύριο μενού του GCompris"
 
 #: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:906
 msgid ""
@@ -236,7 +237,7 @@ msgstr ""
 "(λάβε υπόψη σου ότι κάθε εικόνα εμφανίζεται μόνον αν είναι διαθέσιμη στην "
 "τρέχουσα δραστηριότητα)\n"
 "    Αρχική σελίδα - Έξοδος από μία δραστηριότητα, επιστροφή στο μενού\n"
-"    Αντίχειρας - ΟΚ. Επαλήθευση της απάντησης\n"
+"    Αντίχειρας - Εντάξει. Επαλήθευση της απάντησης\n"
 "    Ζάρι - Εμφανίζει το τρέχον επίπεδο. Κάνε κλικ για να επιλέξεις\n"
 "    διαφορετικό επίπεδο\n"
 "    Χείλη - Επανάληψη της ερώτησης\n"
@@ -312,6 +313,81 @@ msgstr "Παιχνίδια στρατηγικής"
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
 msgstr "Παιχνίδια στρατηγικής, όπως το σκάκι, σύνδεσε 4, ..."
+
+#: ../gcompris.appdata.xml.in.h:1
+msgid ""
+"GCompris is an educational software suite comprising of numerous activities "
+"for children aged 2 to 10."
+msgstr ""
+"Το GCompris είναι μια συλλογή εκπαιδευτικών δραστηριοτήτων για παιδιά από 2 "
+"έως 10 ετών."
+
+#: ../gcompris.appdata.xml.in.h:2
+msgid ""
+"Some of the activities are game orientated, but nonetheless still "
+"educational."
+msgstr ""
+"Μερικές δραστηριότητες έχουν παιγνιώδη προσανατολισμό, παρόλα αυτά όμως "
+"διατηρούν τον εκπαιδευτικό τους χαρακτήρα."
+
+#: ../gcompris.appdata.xml.in.h:3
+msgid ""
+"Below you can find a list of categories with some of the activities "
+"available in that category."
+msgstr ""
+"Παρακάτω θα δείτε έναν κατάλογο κατηγοριών με δραστηριότητες κατανεμημένες "
+"σε αυτές."
+
+#: ../gcompris.appdata.xml.in.h:4
+msgid "computer discovery: keyboard, mouse, different mouse gesture, ..."
+msgstr ""
+"Εξερεύνηση υπολογιστή: πληκτρολόγιο, ποντίκι, διαφορετικές χρήσεις του "
+"ποντικού, ..."
+
+#: ../gcompris.appdata.xml.in.h:5
+msgid ""
+"arithmetic: table memory, enumeration, double entry table, mirror image, ..."
+msgstr "Αριθμητική: παιχνίδια μνήμης, μέτρηση, πίνακες διπλής εισόδου, ..."
+
+#: ../gcompris.appdata.xml.in.h:6
+msgid ""
+"science: the canal lock, the water cycle, the submarine, electric "
+"simulation, ..."
+msgstr ""
+"Επιστήμη: χειρισμός διώρυγας, ο κύκλος του νερού, το υποβρύχιο, προσομοίωση "
+"ηλεκτρικού κυκλώματος, ..."
+
+#: ../gcompris.appdata.xml.in.h:7
+msgid "geography: place the country on the map"
+msgstr "Γεωγραφία: τοποθέτησε τη χώρα στον χάρτη"
+
+#: ../gcompris.appdata.xml.in.h:8
+msgid "games: chess, memory, connect 4, oware, sudoku, ..."
+msgstr "Παιχνίδια στρατηγικής: σκάκι, μνήμη, oware, sudoku, ..."
+
+#: ../gcompris.appdata.xml.in.h:9
+msgid "reading: reading practice"
+msgstr "Ανάγνωση: εξάσκηση στην ανάγνωση"
+
+#: ../gcompris.appdata.xml.in.h:10
+msgid ""
+"other: learn to tell time, puzzle of famous paintings, vector drawing, "
+"cartoon making, ..."
+msgstr ""
+"Συλλογή ποικίλων δραστηριοτήτων: εκμάθηση της ώρας, παζλ με διάσημους "
+"πίνακες, δημιουργία κόμικ, ..."
+
+#: ../gcompris.appdata.xml.in.h:11
+msgid ""
+"Currently GCompris offers in excess of 100 activities and more are being "
+"developed. GCompris is free software, that means that you can adapt it to "
+"your own needs, improve it and, most importantly, share it with children "
+"everywhere."
+msgstr ""
+"Το GCompris προσφέρει περισσότερες από 100 δραστηριότητες, ενώ αρκετές "
+"βρίσκονται σε στάδιο ανάπτυξης. Το GCompris είναι Ελεύθερο Λογισμικό, κάτι "
+"που σημαίνει ότι μπορείτε να το προσαρμόσετε στις δικές σας ανάγκες, να το "
+"βελτιώσετε και, το πιο σημαντικό, να το μοιραστείτε με τα παιδιά."
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational suite GCompris"
@@ -433,6 +509,7 @@ msgstr ""
 "για το προφίλ <b>%s</b></span>"
 
 #: ../src/administration-activity/admin/board_list.py:645
+#, python-brace-format
 msgid ""
 "<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -441,6 +518,7 @@ msgstr ""
 " για το προφίλ <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:657
+#, python-brace-format
 msgid ""
 "<b>Locale sound</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -517,6 +595,7 @@ msgid "Editing a Group"
 msgstr "Επεξεργασία μιας ομάδας"
 
 #: ../src/administration-activity/admin/group_edit.py:62
+#, python-brace-format
 msgid "Editing group '{group}' for class '{aclass}'"
 msgstr "Επεξεργασία ομα΄δας '{group}' για την τάξη '{aclass}'"
 
@@ -615,8 +694,8 @@ msgid ""
 "children as individuals; they can learn to type in and recognize their own "
 "usernames (login is configurable)."
 msgstr ""
-"- Στο μενού \"Πίνακες\" μπορείτε να αλλάξετε τον κατάλογο δραστηριοτήτων. "
-"Απλά αποεπιλέξτε τις από το δενδροειδές διάγραμμα. Μπορείτε να αλλάξετε τη "
+"- Στο μενού \"Πίνακες\" μπορείτε να αλλάξετε τον κατάλογο δραστηριοτήτων. Απλά "
+"αποεπιλέξτε τις από το δενδροειδές διάγραμμα. Μπορείτε να αλλάξετε τη "
 "γλώσσα που χρησιμοποιείται για την ανάγνωση, παραδείγματος χάριν αυτή που "
 "χρησιμοποιείται για την ανάγνωση των χρωμάτων.\n"
 "- Μπορείτε να αποθηκεύσετε πολλές διαφορετικές διαμορφώσεις και να επιλέγετε "
@@ -846,6 +925,7 @@ msgstr ""
 #: ../src/login-activity/login.py:478
 #: ../src/pythontest-activity/pythontest.py:448
 #: ../src/tuxpaint-activity/tuxpaint.py:186
+#, python-brace-format
 msgid ""
 "<b>{config}</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -947,7 +1027,7 @@ msgstr "Βρες την τιρκουάζ πεταλούδα"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
 msgid "Find the absinthe butterfly"
-msgstr "Βρες την αψέντι  πεταλούδα"
+msgstr "Βρες την αψέντι πεταλούδα"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
 msgid "Find the mahogany butterfly"
@@ -1486,7 +1566,7 @@ msgstr "Δεν επιτρέπεται! Προσπάθησε ξανά!"
 
 #: ../src/awele-activity/awele.xml.in.h:1
 msgid "Oware"
-msgstr "Oware "
+msgstr "Oware"
 
 #: ../src/awele-activity/awele.xml.in.h:2
 msgid "Play the Oware strategy game against Tux"
@@ -1675,8 +1755,7 @@ msgstr "Vincent Van Gogh, Υπνοδωμάτιο στην Αρλ - 1888"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_4.xml.in.h:1
 msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
-msgstr ""
-"Ambrosius Bosschaert ο πρεσβύτερος,  Η ακίνητη ζωή του λουλουδιού - 1614"
+msgstr "Ambrosius Bosschaert ο πρεσβύτερος, Η ακίνητη ζωή του λουλουδιού - 1614"
 
 #: ../src/ballcatch-activity/ballcatch.py:75
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:2
@@ -1780,11 +1859,11 @@ msgstr "Προφίλ: %s"
 msgid "Number of activities: %d"
 msgstr "Αριθμός δραστηριοτήτων: %d"
 
-#: ../src/boards/python.c:64 ../src/boards/python.c:88
+#: ../src/boards/python.c:69 ../src/boards/python.c:93
 msgid "Python Board"
 msgstr "Python Board"
 
-#: ../src/boards/python.c:65 ../src/boards/python.c:89
+#: ../src/boards/python.c:70 ../src/boards/python.c:94
 msgid "Special board that embeds Python into GCompris."
 msgstr ""
 "Ειδικός πίνακας που ενσωματώνει τη γλώσσα προγραμματισμού Python στο "
@@ -1828,6 +1907,7 @@ msgstr ""
 
 #. Translators : Do not translate the token {letter}
 #: ../src/braille_alphabets-activity/braille_alphabets.py:299
+#, python-brace-format
 msgid "Click on the dots in braille cell area to produce the letter {letter}."
 msgstr ""
 "Κάντε κλικ στις θέσεις τελειών του κελιού Μπράιγ για να σχηματίσετε το "
@@ -1922,9 +2002,10 @@ msgstr "Έλεγχος αριθμού"
 #: ../src/braille_lotto-activity/braille_lotto.py:168
 #: ../src/braille_lotto-activity/braille_lotto.py:180
 msgid "Click me to get some hint"
-msgstr "Κάντε κλικ  για να λάβετε μια συμβουλή"
+msgstr "Κάντε κλικ για να λάβετε μια συμβουλή"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
+#, python-brace-format
 msgid ""
 "I don't have this number\n"
 "PLAYER {number}"
@@ -1943,6 +2024,7 @@ msgstr "Δημιουργία αριθμού"
 #. Translators : Do not translate the token {column}
 #: ../src/braille_lotto-activity/braille_lotto.py:296
 #: ../src/braille_lotto-activity/braille_lotto.py:319
+#, python-brace-format
 msgid "Hey, you have it. It is there in your {column} column"
 msgstr "Εεε, το έχεις! Είναι εκεί, στην {column} στήλη."
 
@@ -1972,6 +2054,7 @@ msgid "Game Over"
 msgstr "Τέλος παιχνιδιού"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:465
+#, python-brace-format
 msgid "Congratulation player {player_id}, you won"
 msgstr "Συγχαρητήρια παίκτη {player_id}, κέρδισες!"
 
@@ -2096,8 +2179,8 @@ msgstr ""
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Σφάλμα: Η εξωτερική εφαρμογή gnuchess τερματίστηκε απροσδόκητα"
 
-#: ../src/chess_computer-activity/chess.c:265
-#: ../src/chess_computer-activity/chess.c:311
+#: ../src/chess_computer-activity/chess.c:269
+#: ../src/chess_computer-activity/chess.c:315
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2107,48 +2190,48 @@ msgstr ""
 "για να παίξεις σκάκι στο GCompris.\n"
 "Εγκατέστησές την πρώτα και έλεγξε ότι υπάρχει"
 
-#: ../src/chess_computer-activity/chess.c:656
+#: ../src/chess_computer-activity/chess.c:660
 msgid "White's Turn"
 msgstr ""
 "Σειρά του παίκτη\n"
 "με τα άσπρα πιόνια"
 
-#: ../src/chess_computer-activity/chess.c:656
+#: ../src/chess_computer-activity/chess.c:660
 msgid "Black's Turn"
 msgstr ""
 "Σειρά του παίκτη\n"
 "με τα μαύρα πιόνια"
 
-#: ../src/chess_computer-activity/chess.c:797
+#: ../src/chess_computer-activity/chess.c:801
 msgid "White checks"
 msgstr ""
 "Ο παίκτης με τα άσπρα απειλεί\n"
 "το βασιλιά του αντιπάλου"
 
-#: ../src/chess_computer-activity/chess.c:799
+#: ../src/chess_computer-activity/chess.c:803
 msgid "Black checks"
 msgstr ""
 "Ο παίκτης με τα μαύρα απειλεί\n"
 "το βασιλιά του αντιπάλου"
 
-#: ../src/chess_computer-activity/chess.c:1209
+#: ../src/chess_computer-activity/chess.c:1213
 msgid "Black mates"
 msgstr ""
 "Κίνηση ματ του παίκτη\n"
 "με τα μαύρα πιόνια"
 
-#: ../src/chess_computer-activity/chess.c:1216
+#: ../src/chess_computer-activity/chess.c:1220
 msgid "White mates"
 msgstr ""
 "Κίνηση ματ του παίκτη\n"
 "με τα άσπρα πιόνια"
 
-#: ../src/chess_computer-activity/chess.c:1223 ../src/gcompris/bonus.c:194
+#: ../src/chess_computer-activity/chess.c:1227 ../src/gcompris/bonus.c:194
 #: ../src/gcompris/bonus.c:203
 msgid "Drawn game"
 msgstr "Ισόπαλο παιχνίδι"
 
-#: ../src/chess_computer-activity/chess.c:1251
+#: ../src/chess_computer-activity/chess.c:1255
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Σφάλμα: Η εξωτερική εφαρμογή gnuchess τερματίστηκε απροσδόκητα"
 
@@ -2353,7 +2436,7 @@ msgid ""
 "1934 Hélène Boucher's\n"
 "speed record of 444km/h"
 msgstr ""
-"1934  Της  Helene Boucher\n"
+"1934 Της Helene Boucher\n"
 "ρεκόρ ταχύτητας 444km/h"
 
 #: ../src/chronos-activity/resources/chronos/board4_2.xml.in.h:1
@@ -2442,7 +2525,7 @@ msgid ""
 "being spoken"
 msgstr ""
 "Αυτή η δραστηριότητα διεξάγεται με ερωτήσεις που εμφανίζονται ως κείμενο, "
-"αντί να εκφωνούνται. "
+"αντί να εκφωνούνται."
 
 #: ../src/click_on_letter-activity/click_on_letter.c:393
 #: ../src/memory-activity/memory.c:922
@@ -2524,9 +2607,6 @@ msgstr "Απάντηση"
 #.
 #: ../src/click_on_letter-activity/click_on_letter.c:1508
 #, c-format
-#| msgid ""
-#| "<b>%1$s</b> configuration\n"
-#| " for profile <b>%2$s</b>"
 msgctxt "click_on_letter_config"
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -2536,7 +2616,6 @@ msgstr ""
 " για το προφίλ <b>%2$s</b>"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:1521
-#| msgid "Choice of the language"
 msgid "Choose a language"
 msgstr "Επιλογή γλώσσας"
 
@@ -3075,6 +3154,7 @@ msgstr ""
 #: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:342
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:505
+#, python-brace-format
 msgid "Cannot find the file '{filename}'"
 msgstr "Αδυναμία εύρεσης του αρχείου '{filename}'"
 
@@ -3299,6 +3379,7 @@ msgstr "Επιστροφή στην αρχική σελίδα"
 #: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:347
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:510
+#, python-brace-format
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3360,8 +3441,8 @@ msgstr ""
 "όλες τις αντιστοιχίσεις.\n"
 "\n"
 "Στο τρίτο επίπεδο, ένα τυχαίο κείμενο θα εμφανίζεται στην οθόνη σας και "
-"εσείς θα πρέπει  να κάνετε κλικ στο ζώο που ταιριάζει στο κείμενο. Σκοπός "
-"σας είναι να κάνετε σωστά όλες τις αντιστοιχίσεις.\n"
+"εσείς θα πρέπει να κάνετε κλικ στο ζώο που ταιριάζει στο κείμενο. Σκοπός σας "
+"είναι να κάνετε σωστά όλες τις αντιστοιχίσεις.\n"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
 msgid "Click on the questions to explore each farm animal."
@@ -3415,8 +3496,8 @@ msgid ""
 "The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all day "
 "in the meadow."
 msgstr ""
-"Η αγελάδα μουγκανίζει  \"μουου, μουου.\". Οι αγελάδες είναι φυτοφάγα "
-"θηλαστικά. Βόσκουν όλη μέρα στα λειβάδια."
+"Η αγελάδα μουγκανίζει \"μουου, μουου.\". Οι αγελάδες είναι φυτοφάγα θηλαστικά. "
+"Βόσκουν όλη μέρα στα λειβάδια."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
 msgid "You can drink the milk this animal produces."
@@ -3548,7 +3629,7 @@ msgstr ""
 "τις πληροφορίες γιατί θα σας χρειαστούν στο δεύτερο επίπεδο.\n"
 "\n"
 "Στο τρίτο επίπεδο ένα τυχαίο κείμενο θα εμφανίζεται στην οθόνη σας και εσείς "
-"θα πρέπει  να κάνετε κλικ στο ζώο που ταιριάζει στο κείμενο. Σκοπός σας "
+"θα πρέπει να κάνετε κλικ στο ζώο που ταιριάζει στο κείμενο. Σκοπός σας "
 "είναι να κάνετε σωστά όλες τις αντιστοιχίσεις.\n"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
@@ -3896,7 +3977,7 @@ msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:31
 msgid "The 'king' of rock n' roll is"
-msgstr "Ο 'βασιλιάς' του ροκ εντ ρολ είναι ο "
+msgstr "Ο 'βασιλιάς' του ροκ εντ ρολ είναι ο"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:32
 msgid ""
@@ -3995,7 +4076,7 @@ msgid ""
 msgstr ""
 "Το GCompris είναι ένα πακέτο GNU και διέπεται από τους όρους της GNU/GPL"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:468
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:490
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -4386,31 +4467,31 @@ msgid "Use GCompris administration module to filter boards"
 msgstr ""
 "Χρησιμοποιήστε τη διαχείριση του GCompris για να φιλτράρετε τους πίνακες."
 
-#: ../src/gcompris/config.c:195
+#: ../src/gcompris/config.c:203
 msgid "GCompris Configuration"
 msgstr "Ρύθμιση GCompris"
 
-#: ../src/gcompris/config.c:267
+#: ../src/gcompris/config.c:275
 msgid "Fullscreen"
 msgstr "Πλήρης οθόνη"
 
-#: ../src/gcompris/config.c:292
+#: ../src/gcompris/config.c:300
 msgid "Remember level for default user"
 msgstr "Απομνημόνευση επιπέδου για τον προκαθορισμένο χρήστη"
 
-#: ../src/gcompris/config.c:318
+#: ../src/gcompris/config.c:326
 msgid "Music"
 msgstr "Μουσική"
 
-#: ../src/gcompris/config.c:343
+#: ../src/gcompris/config.c:351
 msgid "Effect"
 msgstr "Εφέ"
 
-#: ../src/gcompris/config.c:367 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:375 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Εστίαση"
 
-#: ../src/gcompris/config.c:432 ../src/gcompris/config.c:742
+#: ../src/gcompris/config.c:454 ../src/gcompris/config.c:764
 #, c-format
 msgid "Font: %s"
 msgstr "Γραμματοσειρά: %s"
@@ -6326,6 +6407,7 @@ msgid " and %d"
 msgstr "και %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:116
+#, python-brace-format
 msgid "{0} is divisible by {1}."
 msgstr "{0} διαιρείται από το {1}."
 
@@ -6354,6 +6436,7 @@ msgid "Factors of %d"
 msgstr "Διαιρέτες του %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:196
+#, python-brace-format
 msgid "{0} are the factors of {1}."
 msgstr "{0} είναι διαιρέτες του {1}."
 
@@ -6363,22 +6446,27 @@ msgid "Multiples of %d"
 msgstr "Πολλαπλάσια του %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:242
+#, python-brace-format
 msgid "{0} = {1}"
 msgstr "{0} = {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:253
+#, python-brace-format
 msgid "{0} + {1}"
 msgstr "{0} + {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:258
+#, python-brace-format
 msgid "{0} − {1}"
 msgstr "{0} − {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:263
+#, python-brace-format
 msgid "{0} × {1}"
 msgstr "{0} × {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:267
+#, python-brace-format
 msgid "{0} ÷ {1}"
 msgstr "{0} ÷ {1}"
 
@@ -6392,7 +6480,7 @@ msgstr "Ίσο με το %d"
 msgid "Not equal to %d"
 msgstr "Δεν είναι ίσο με το %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:443
+#: ../src/gnumch-equality-activity/gnumch.py:445
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
@@ -6400,11 +6488,11 @@ msgstr ""
 "Καταβροχθίστηκες από τον Τρωγλοδύτη.\n"
 "Πάτησε <Return> για να συνεχίσεις."
 
-#: ../src/gnumch-equality-activity/gnumch.py:492
+#: ../src/gnumch-equality-activity/gnumch.py:494
 msgid "You ate a wrong number.\n"
 msgstr "Έφαγες λάθος νούμερο.\n"
 
-#: ../src/gnumch-equality-activity/gnumch.py:493
+#: ../src/gnumch-equality-activity/gnumch.py:495
 msgid ""
 "\n"
 "Press <Return> to continue."
@@ -6412,7 +6500,7 @@ msgstr ""
 "\n"
 "Πάτησε <Return> για να συνεχίσεις."
 
-#: ../src/gnumch-equality-activity/gnumch.py:787
+#: ../src/gnumch-equality-activity/gnumch.py:789
 msgid ""
 "T\n"
 "R\n"
@@ -6568,10 +6656,12 @@ msgstr ""
 "\"φάτε\" έναν αριθμό."
 
 #: ../src/guessnumber-activity/guessnumber.py:203
+#, python-brace-format
 msgid "Guess a number between {0} and {1}"
 msgstr "Μάντεψε έναν αριθμό μεταξύ του {0} και του {1}"
 
 #: ../src/guessnumber-activity/guessnumber.py:307
+#, python-brace-format
 msgid "Please enter a number between {0} and {1}"
 msgstr "Παρακαλώ βάλε έναν αριθμό μεταξύ {0} και {1}"
 
@@ -7511,6 +7601,7 @@ msgid "Enter the text you hear:"
 msgstr "Εισάγετε το κείμενο που ακούτε:"
 
 #: ../src/lang-activity/langLib.py:69
+#, python-brace-format
 msgid "Missing translation for '{word}'"
 msgstr "Λείπει η μετάφραση της λέξης '{word}'"
 
@@ -7748,8 +7839,8 @@ msgid ""
 "Lights Off game: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 msgstr ""
 "Ο αλγόριθμος επίλυσης περιγράφεται στη Wikipedia. Για να μάθεις περισσότερα "
-"για το παιχνίδι Φώτα σβηστά: &lt;http://en.wikipedia.org/wiki/Lights_Out_"
-"(game)&gt;"
+"για το παιχνίδι Φώτα σβηστά: &lt;http://en.wikipedia.org/wiki/"
+"Lights_Out_(game)&gt;"
 
 #: ../src/login-activity/login.py:233
 msgid "Login: "
