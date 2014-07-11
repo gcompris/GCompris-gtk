@@ -8,15 +8,15 @@
 # Kamil Páral <ripper42@gmail.com>, 2008.
 # Petr Kovar <pknbe@volny.cz>, 2008.
 # Vladimír Burian <vladimir.burian@email.cz>, 2010.
-# Marek Černocký <marek@manet.cz>, 2009, 2010, 2011, 2012, 2013.
+# Marek Černocký <marek@manet.cz>, 2009, 2010, 2011, 2012, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-12 17:43+0000\n"
-"PO-Revision-Date: 2013-12-24 19:16+0100\n"
+"POT-Creation-Date: 2014-06-18 13:49+0000\n"
+"PO-Revision-Date: 2014-07-11 18:36+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -298,6 +298,75 @@ msgstr "Strategické hry"
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
 msgstr "Strategické hry – šachy, spoj 4, …"
+
+#: ../gcompris.appdata.xml.in.h:1
+msgid ""
+"GCompris is an educational software suite comprising of numerous activities "
+"for children aged 2 to 10."
+msgstr ""
+"GCompris je balík výukového softwaru sestávající z různých aktivit pro děti "
+"od 2 do 10 let."
+
+#: ../gcompris.appdata.xml.in.h:2
+msgid ""
+"Some of the activities are game orientated, but nonetheless still "
+"educational."
+msgstr "Některé aktivity jsou v podobě her, ale přesto jsou poučné."
+
+#: ../gcompris.appdata.xml.in.h:3
+msgid ""
+"Below you can find a list of categories with some of the activities "
+"available in that category."
+msgstr ""
+"V následujícím seznamu najdete některé z aktivit dostupných v příslušné "
+"kategorii."
+
+#: ../gcompris.appdata.xml.in.h:4
+msgid "computer discovery: keyboard, mouse, different mouse gesture, ..."
+msgstr "poznávání počítače: klávesnice, myš, různá gesta myší, …"
+
+#: ../gcompris.appdata.xml.in.h:5
+msgid ""
+"arithmetic: table memory, enumeration, double entry table, mirror image, ..."
+msgstr ""
+"matematika: pamatování čísel, počítání, tabulky s čísly, zrcadlení obrázků, …"
+
+#: ../gcompris.appdata.xml.in.h:6
+msgid ""
+"science: the canal lock, the water cycle, the submarine, electric "
+"simulation, ..."
+msgstr "věda: plavební komora, koloběh vody, ponorka, simulace s elektřinou, …"
+
+#: ../gcompris.appdata.xml.in.h:7
+msgid "geography: place the country on the map"
+msgstr "zeměpis: slepá mapa"
+
+#: ../gcompris.appdata.xml.in.h:8
+msgid "games: chess, memory, connect 4, oware, sudoku, ..."
+msgstr "hry: šachy, paměťová, spoj 4, oware, sudoku, …"
+
+#: ../gcompris.appdata.xml.in.h:9
+msgid "reading: reading practice"
+msgstr "čtení: procvičování čtení"
+
+#: ../gcompris.appdata.xml.in.h:10
+msgid ""
+"other: learn to tell time, puzzle of famous paintings, vector drawing, "
+"cartoon making, ..."
+msgstr ""
+"ostatní: nauč se říkat čas, puzzle ze známých maleb, vektorové kreslení, "
+"vytváření animací, …"
+
+#: ../gcompris.appdata.xml.in.h:11
+msgid ""
+"Currently GCompris offers in excess of 100 activities and more are being "
+"developed. GCompris is free software, that means that you can adapt it to "
+"your own needs, improve it and, most importantly, share it with children "
+"everywhere."
+msgstr ""
+"V současnosti nabízí GCompris více než 100 aktivit a na dalších se pracuje. "
+"GCompris je svobodný software, což znamená, že si jej můžete přizpůsobit "
+"svým potřebám, zdokonalovat jej a hlavně jej kdekoliv sdílet s dětmi."
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational suite GCompris"
@@ -1732,11 +1801,11 @@ msgstr "Profil: %s"
 msgid "Number of activities: %d"
 msgstr "Počet aktivit: %d"
 
-#: ../src/boards/python.c:64 ../src/boards/python.c:88
+#: ../src/boards/python.c:69 ../src/boards/python.c:93
 msgid "Python Board"
 msgstr "Deska Python"
 
-#: ../src/boards/python.c:65 ../src/boards/python.c:89
+#: ../src/boards/python.c:70 ../src/boards/python.c:94
 msgid "Special board that embeds Python into GCompris."
 msgstr "Speciální deska, která vkládá Python do GCompris."
 
@@ -2034,8 +2103,8 @@ msgstr ""
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Chyba: Externí program gnuchess neočekávaně skončil"
 
-#: ../src/chess_computer-activity/chess.c:265
-#: ../src/chess_computer-activity/chess.c:311
+#: ../src/chess_computer-activity/chess.c:269
+#: ../src/chess_computer-activity/chess.c:315
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2045,36 +2114,36 @@ msgstr ""
 "externí program gnuchess.\n"
 "Nejdříve jej nainstaluj a zkontroluj, jestli je v "
 
-#: ../src/chess_computer-activity/chess.c:656
+#: ../src/chess_computer-activity/chess.c:660
 msgid "White's Turn"
 msgstr "Bílý na tahu"
 
-#: ../src/chess_computer-activity/chess.c:656
+#: ../src/chess_computer-activity/chess.c:660
 msgid "Black's Turn"
 msgstr "Černý na tahu"
 
-#: ../src/chess_computer-activity/chess.c:797
+#: ../src/chess_computer-activity/chess.c:801
 msgid "White checks"
 msgstr "Bílý dává šach"
 
-#: ../src/chess_computer-activity/chess.c:799
+#: ../src/chess_computer-activity/chess.c:803
 msgid "Black checks"
 msgstr "Černý dává šach"
 
-#: ../src/chess_computer-activity/chess.c:1209
+#: ../src/chess_computer-activity/chess.c:1213
 msgid "Black mates"
 msgstr "Černý dává mat"
 
-#: ../src/chess_computer-activity/chess.c:1216
+#: ../src/chess_computer-activity/chess.c:1220
 msgid "White mates"
 msgstr "Bílý dává mat"
 
-#: ../src/chess_computer-activity/chess.c:1223 ../src/gcompris/bonus.c:194
+#: ../src/chess_computer-activity/chess.c:1227 ../src/gcompris/bonus.c:194
 #: ../src/gcompris/bonus.c:203
 msgid "Drawn game"
 msgstr "Remíza"
 
-#: ../src/chess_computer-activity/chess.c:1251
+#: ../src/chess_computer-activity/chess.c:1255
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Chyba: Externí program gnuchess neočekávaně skončil"
 
@@ -3852,7 +3921,7 @@ msgstr ""
 "Tento software je balíček GNU a je uvolněn za podmínek GNU General Public "
 "Licence"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:468
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:490
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -4241,31 +4310,31 @@ msgstr "Stopky: Rychlé stopky"
 msgid "Use GCompris administration module to filter boards"
 msgstr "Použij modul správy GCompris pro filtrování hracích desek"
 
-#: ../src/gcompris/config.c:195
+#: ../src/gcompris/config.c:203
 msgid "GCompris Configuration"
 msgstr "Nastavení GCompris"
 
-#: ../src/gcompris/config.c:267
+#: ../src/gcompris/config.c:275
 msgid "Fullscreen"
 msgstr "Přes celou obrazovku"
 
-#: ../src/gcompris/config.c:292
+#: ../src/gcompris/config.c:300
 msgid "Remember level for default user"
 msgstr "Pamatovat si úroveň pro výchozího uživatele"
 
-#: ../src/gcompris/config.c:318
+#: ../src/gcompris/config.c:326
 msgid "Music"
 msgstr "Hudba"
 
-#: ../src/gcompris/config.c:343
+#: ../src/gcompris/config.c:351
 msgid "Effect"
 msgstr "Efekty"
 
-#: ../src/gcompris/config.c:367 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:375 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Přiblížení"
 
-#: ../src/gcompris/config.c:432 ../src/gcompris/config.c:742
+#: ../src/gcompris/config.c:454 ../src/gcompris/config.c:764
 #, c-format
 msgid "Font: %s"
 msgstr "Písmo: %s"
@@ -6235,7 +6304,7 @@ msgstr "Rovná se %d"
 msgid "Not equal to %d"
 msgstr "Nerovná se %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:443
+#: ../src/gnumch-equality-activity/gnumch.py:445
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
@@ -6243,11 +6312,11 @@ msgstr ""
 "Snědl tě Troggle.\n"
 "Pokračuj stisknutím <Enter>."
 
-#: ../src/gnumch-equality-activity/gnumch.py:492
+#: ../src/gnumch-equality-activity/gnumch.py:494
 msgid "You ate a wrong number.\n"
 msgstr "Snědl jsi špatné číslo.\n"
 
-#: ../src/gnumch-equality-activity/gnumch.py:493
+#: ../src/gnumch-equality-activity/gnumch.py:495
 msgid ""
 "\n"
 "Press <Return> to continue."
@@ -6255,7 +6324,7 @@ msgstr ""
 "\n"
 "Pokračuj stisknutím <Enter>."
 
-#: ../src/gnumch-equality-activity/gnumch.py:787
+#: ../src/gnumch-equality-activity/gnumch.py:789
 msgid ""
 "T\n"
 "R\n"
