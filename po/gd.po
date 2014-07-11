@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: GCompris-Unofficial\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
 "is&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-23 12:23+0000\n"
-"PO-Revision-Date: 2014-03-03 10:51+0100\n"
+"POT-Creation-Date: 2014-06-18 13:49+0000\n"
+"PO-Revision-Date: 2014-07-11 10:56+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig http://www.foramnagaidhlig.net\n"
 "Language: gd\n"
@@ -297,6 +297,85 @@ msgstr "Geamannan ro-innleachd"
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
 msgstr "Geamannan ro-innleachd a leithid tàileisg, 4 ann an sreath, ..."
+
+#: ../gcompris.appdata.xml.in.h:1
+#| msgid ""
+#| "GCompris is a collection of educational games that provides different "
+#| "activities for children aged 2 and up."
+msgid ""
+"GCompris is an educational software suite comprising of numerous activities "
+"for children aged 2 to 10."
+msgstr ""
+"’S e cruinneachadh de gheamannan foghlaim a tha ann an GCompris a bheir "
+"iomadh cleas do chlann a tha eadar 2 ’s 10 bliadhnaichean a dh’aois."
+
+#: ../gcompris.appdata.xml.in.h:2
+msgid ""
+"Some of the activities are game orientated, but nonetheless still "
+"educational."
+msgstr ""
+"’S e geamannan a tha cuid dhe na cleasan ach ionnsaichidh a’ chlann leotha "
+"co-dhiù."
+
+#: ../gcompris.appdata.xml.in.h:3
+msgid ""
+"Below you can find a list of categories with some of the activities "
+"available in that category."
+msgstr ""
+"Chì thu liosta dhe na roinnean-seòrsa gu h-ìosal le buill-eisimpleir dhe na "
+"cleasan a tha ri làmh san roinn-seòrsa ud."
+
+#: ../gcompris.appdata.xml.in.h:4
+msgid "computer discovery: keyboard, mouse, different mouse gesture, ..."
+msgstr ""
+"faigh a-mach mun choimpiutair: meur-chlàr, luchag, gluasadan luchaige, ..."
+
+#: ../gcompris.appdata.xml.in.h:5
+msgid ""
+"arithmetic: table memory, enumeration, double entry table, mirror image, ..."
+msgstr "àireamhachadh: cuimhne, àireamhachd, an griod, sgàthanaich dealbh, ..."
+
+#: ../gcompris.appdata.xml.in.h:6
+msgid ""
+"science: the canal lock, the water cycle, the submarine, electric "
+"simulation, ..."
+msgstr ""
+"saidheans: loc a’ chanail, cearcall an uisge, bàta-tumaidh, atharrais "
+"dealain, ..."
+
+#: ../gcompris.appdata.xml.in.h:7
+msgid "geography: place the country on the map"
+msgstr "cruinn-eòlas: cuir an dùthaich air a’ mhapa"
+
+#: ../gcompris.appdata.xml.in.h:8
+msgid "games: chess, memory, connect 4, oware, sudoku, ..."
+msgstr "geamannan: tàileasg, cuimhne, ceangail 4, oware, sudoku, ..."
+
+#: ../gcompris.appdata.xml.in.h:9
+#| msgid "Horizontal reading practice"
+msgid "reading: reading practice"
+msgstr "leughadh: cleachd leughadh"
+
+#: ../gcompris.appdata.xml.in.h:10
+msgid ""
+"other: learn to tell time, puzzle of famous paintings, vector drawing, "
+"cartoon making, ..."
+msgstr ""
+"eile: innis dè an uair a tha e, tòimhseachan le dealbhan cliùiteach, "
+"tarraing vector, dèan cartùn, ..."
+
+#: ../gcompris.appdata.xml.in.h:11
+msgid ""
+"Currently GCompris offers in excess of 100 activities and more are being "
+"developed. GCompris is free software, that means that you can adapt it to "
+"your own needs, improve it and, most importantly, share it with children "
+"everywhere."
+msgstr ""
+"Tha barrachd air 100 cleas aig GCompris an-dràsta 's tha barrachd dhiubh "
+"'gan cruthachadh. 'S e bathar-bog saor a th' ann an GCompris, is ciall dha "
+"seo gum faod thu a gleusadh a-rèir nam feumalachdan agad fhèin, a leasachadh "
+"agus – seo an rud as cudromaiche – a cho-roinneadh leis a' chlann air feadh "
+"an t-saoghail."
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational suite GCompris"
@@ -1766,11 +1845,11 @@ msgstr "Pròifil: %s"
 msgid "Number of activities: %d"
 msgstr "Àireamh de chleasan: %d"
 
-#: ../src/boards/python.c:64 ../src/boards/python.c:88
+#: ../src/boards/python.c:69 ../src/boards/python.c:93
 msgid "Python Board"
 msgstr "Bòrd Python"
 
-#: ../src/boards/python.c:65 ../src/boards/python.c:89
+#: ../src/boards/python.c:70 ../src/boards/python.c:94
 msgid "Special board that embeds Python into GCompris."
 msgstr "Bòrd sònraichte a nì leabachadh aig Python ann an GCompris."
 
@@ -2085,8 +2164,8 @@ msgstr ""
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Mearachd: bhàsaich am prògram gnuchess gun dùil"
 
-#: ../src/chess_computer-activity/chess.c:265
-#: ../src/chess_computer-activity/chess.c:311
+#: ../src/chess_computer-activity/chess.c:269
+#: ../src/chess_computer-activity/chess.c:315
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2096,19 +2175,19 @@ msgstr ""
 "gus tàileasg a chluich ann an GCompris.\n"
 "Stàlaich e an toiseach is dearbhaich gu bheil e an-seo: "
 
-#: ../src/chess_computer-activity/chess.c:656
+#: ../src/chess_computer-activity/chess.c:660
 msgid "White's Turn"
 msgstr ""
 "Cuairt\n"
 "a’ chluicheadair ghil"
 
-#: ../src/chess_computer-activity/chess.c:656
+#: ../src/chess_computer-activity/chess.c:660
 msgid "Black's Turn"
 msgstr ""
 "Cuairt\n"
 "a’ chluicheadair dhuibh"
 
-#: ../src/chess_computer-activity/chess.c:797
+#: ../src/chess_computer-activity/chess.c:801
 msgid "White checks"
 msgstr ""
 "Tha casg\n"
@@ -2116,7 +2195,7 @@ msgstr ""
 "aig a’\n"
 "chluicheadair gheal"
 
-#: ../src/chess_computer-activity/chess.c:799
+#: ../src/chess_computer-activity/chess.c:803
 msgid "Black checks"
 msgstr ""
 "Tha casg\n"
@@ -2124,26 +2203,26 @@ msgstr ""
 "aig a’\n"
 "chluicheadair dhubh"
 
-#: ../src/chess_computer-activity/chess.c:1209
+#: ../src/chess_computer-activity/chess.c:1213
 msgid "Black mates"
 msgstr ""
 "Tha tul-chasg\n"
 "aig a’ chluicheadair\n"
 "dubh air an rìgh"
 
-#: ../src/chess_computer-activity/chess.c:1216
+#: ../src/chess_computer-activity/chess.c:1220
 msgid "White mates"
 msgstr ""
 "Tha tul-chasg\n"
 "aig a’ chluicheadair\n"
 "gheal air an rìgh"
 
-#: ../src/chess_computer-activity/chess.c:1223 ../src/gcompris/bonus.c:194
+#: ../src/chess_computer-activity/chess.c:1227 ../src/gcompris/bonus.c:194
 #: ../src/gcompris/bonus.c:203
 msgid "Drawn game"
 msgstr "Geama ionnanach"
 
-#: ../src/chess_computer-activity/chess.c:1251
+#: ../src/chess_computer-activity/chess.c:1255
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Mearachd: bhàsaich am prògram gnuchess gun dùil"
 
@@ -2413,8 +2492,8 @@ msgid ""
 "Use the left mouse button to click on the moving fish. A level 5 and after, "
 "a double click is mandatory."
 msgstr ""
-"Briog le putan clì na luchaige air an iasg a tha a’ gluasad. On leibheil 5 a-"
-"mach, bidh feum air briogadh dùbailte."
+"Briog le putan clì na luchaige air an iasg a tha a’ gluasad. On leibheil 5 "
+"a-mach, bidh feum air briogadh dùbailte."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
 msgid ""
@@ -3126,8 +3205,8 @@ msgid ""
 "information on gnucap at &lt;http://www.gnu.org/software/gnucap/&gt;."
 msgstr ""
 "Cleachdaidh GCompris an t-inneal atharrais dealain Gnucap mar backend. "
-"Gheibh thu barrachd fiosrachaidh mu gnucap air &lt;http://www.gnu.org/"
-"software/gnucap/&gt;."
+"Gheibh thu barrachd fiosrachaidh mu gnucap air "
+"&lt;http://www.gnu.org/software/gnucap/&gt;."
 
 #: ../src/electric-activity/electric.xml.in.h:6
 msgid ""
@@ -3973,7 +4052,7 @@ msgstr ""
 "’S e pacaid GNU a th’ anns a’ bhathar-bhog seo is chaidh fhoillseachadh fo "
 "GNU General Public License"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:468
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:490
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -4363,31 +4442,31 @@ msgstr "Tìmear: Tìmear luath"
 msgid "Use GCompris administration module to filter boards"
 msgstr "Cleachd mòideal rianachd GCompris gus bùird a chriathradh"
 
-#: ../src/gcompris/config.c:195
+#: ../src/gcompris/config.c:203
 msgid "GCompris Configuration"
 msgstr "Rèiteachadh GCompris"
 
-#: ../src/gcompris/config.c:267
+#: ../src/gcompris/config.c:275
 msgid "Fullscreen"
 msgstr "Làn-sgrìn"
 
-#: ../src/gcompris/config.c:292
+#: ../src/gcompris/config.c:300
 msgid "Remember level for default user"
 msgstr "Cuimhnich leibheil a’ chleachdaiche tùsail"
 
-#: ../src/gcompris/config.c:318
+#: ../src/gcompris/config.c:326
 msgid "Music"
 msgstr "Ceòl"
 
-#: ../src/gcompris/config.c:343
+#: ../src/gcompris/config.c:351
 msgid "Effect"
 msgstr "Èifeachd"
 
-#: ../src/gcompris/config.c:367 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:375 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Sùm"
 
-#: ../src/gcompris/config.c:432 ../src/gcompris/config.c:742
+#: ../src/gcompris/config.c:454 ../src/gcompris/config.c:764
 #, c-format
 msgid "Font: %s"
 msgstr "Cruth-clò: %s"
@@ -6380,7 +6459,7 @@ msgstr "Co-ionnan ri %d"
 msgid "Not equal to %d"
 msgstr "Chan ionnan ri %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:443
+#: ../src/gnumch-equality-activity/gnumch.py:445
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
@@ -6388,11 +6467,11 @@ msgstr ""
 "Chaidh d’ ithe le bòcan.\n"
 "Briog air <Enter> gus leantainn air adhart."
 
-#: ../src/gnumch-equality-activity/gnumch.py:492
+#: ../src/gnumch-equality-activity/gnumch.py:494
 msgid "You ate a wrong number.\n"
 msgstr "Dh’ith thu àireamh chearr.\n"
 
-#: ../src/gnumch-equality-activity/gnumch.py:493
+#: ../src/gnumch-equality-activity/gnumch.py:495
 msgid ""
 "\n"
 "Press <Return> to continue."
@@ -6400,7 +6479,7 @@ msgstr ""
 "\n"
 "Brùth air <Enter> gus leantainn air adhart."
 
-#: ../src/gnumch-equality-activity/gnumch.py:787
+#: ../src/gnumch-equality-activity/gnumch.py:789
 msgid ""
 "T\n"
 "R\n"
@@ -10008,13 +10087,12 @@ msgstr ""
 "Thèid na pongan a chì thu a chluiche dhut. Briog air na h-iuchraichean "
 "freagarrach air a’ mheur-chlàr gus an ceòl a chì is a chluinneas tu a "
 "chluich. Tha dathan air na pongan uile ach air an leibheil mu dheireadh, mar "
-"sin tha an aon dath air gach pong is air iuchair a’ mheur-chlàir a "
-"fhreagras dha. Thèid barrachd phongan a chur ris gach leibheil gus a "
-"dhèanamh nas dorra. Cleachdaidh sinn an iuchair thrìobailte air na "
-"leibheilean 1-6 is an iuchair bheus air na leibheilean 7-12. Nuair a bhios "
-"còig puingean agad, ruigidh tu an t-ath leibheil (buannaichidh tu puing le "
-"gach freagairt cheart, ach bheir sinn puing uat airson gach freagairt "
-"chearr).\n"
+"sin tha an aon dath air gach pong is air iuchair a’ mheur-chlàir a fhreagras "
+"dha. Thèid barrachd phongan a chur ris gach leibheil gus a dhèanamh nas "
+"dorra. Cleachdaidh sinn an iuchair thrìobailte air na leibheilean 1-6 is an "
+"iuchair bheus air na leibheilean 7-12. Nuair a bhios còig puingean agad, "
+"ruigidh tu an t-ath leibheil (buannaichidh tu puing le gach freagairt "
+"cheart, ach bheir sinn puing uat airson gach freagairt chearr).\n"
 "\n"
 "Seo nasgadh iuchraichean a’ mheur-chlàir leis a’ chleas seo:\n"
 "– backspace: sguab às an oidhirp\n"
