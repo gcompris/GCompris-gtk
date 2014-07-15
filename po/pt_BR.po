@@ -5,16 +5,16 @@
 # Welther José O. Esteves <weltherjoe@yahoo.com.br>, 2004.
 # Leonardo Ferreira Fontenelle <leo.fontenelle@gmail.com>, 2007.
 # Frederico <frederico@teia.bio.br>, 2006, 2011-2013.
-# Rafael Ferreira <rafael.f.f1@gmail.com>, 2013.
 # Adorilson Bezerra <adorilson@gmail.com>, 2013.
 # Enrico Nicoletto <liverig@gmail.com>, 2014.
+# Rafael Ferreira <rafael.f.f1@gmail.com>, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-12 17:43+0000\n"
+"POT-Creation-Date: 2014-07-14 16:48+0000\n"
 "PO-Revision-Date: 2014-02-17 07:55-0300\n"
 "Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
@@ -299,6 +299,82 @@ msgstr "Estratégia"
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
 msgstr "Jogos de estratégia, como xadrez, ligue 4, ..."
+
+#: ../gcompris.appdata.xml.in.h:1
+msgid ""
+"GCompris is an educational software suite comprising of numerous activities "
+"for children aged 2 to 10."
+msgstr ""
+"GCompris é uma suíte de softwares educacionais compreendendo diversas "
+"atividades para crianças entre 2 e 10 anos de idade."
+
+#: ../gcompris.appdata.xml.in.h:2
+msgid ""
+"Some of the activities are game orientated, but nonetheless still "
+"educational."
+msgstr ""
+"Algumas das atividades são orientadas a jogos, mas ainda sim são "
+"educacionais."
+
+#: ../gcompris.appdata.xml.in.h:3
+msgid ""
+"Below you can find a list of categories with some of the activities "
+"available in that category."
+msgstr ""
+"Abaixo você encontra uma lista de categorias com algumas das atividades "
+"disponíveis naquela categoria."
+
+#: ../gcompris.appdata.xml.in.h:4
+msgid "computer discovery: keyboard, mouse, different mouse gesture, ..."
+msgstr ""
+"descoberta de computador: teclado, mouse, diferentes gestos de mouse, ..."
+
+#: ../gcompris.appdata.xml.in.h:5
+msgid ""
+"arithmetic: table memory, enumeration, double entry table, mirror image, ..."
+msgstr ""
+"aritmético: memorização de tabelas, enumeração, tabela de correlação, iamgem "
+"espelhada, ..."
+
+#: ../gcompris.appdata.xml.in.h:6
+msgid ""
+"science: the canal lock, the water cycle, the submarine, electric "
+"simulation, ..."
+msgstr ""
+"ciência: a comporta de canal, o clico da água, o submarino, simulador "
+"elétrico, ..."
+
+#: ../gcompris.appdata.xml.in.h:7
+msgid "geography: place the country on the map"
+msgstr "geografia: lugar do país no mapa"
+
+#: ../gcompris.appdata.xml.in.h:8
+msgid "games: chess, memory, connect 4, oware, sudoku, ..."
+msgstr "jogos: xadrez, memória, ligue 4, oware, sudoku, ..."
+
+#: ../gcompris.appdata.xml.in.h:9
+msgid "reading: reading practice"
+msgstr "leitura: prática de leitura"
+
+#: ../gcompris.appdata.xml.in.h:10
+msgid ""
+"other: learn to tell time, puzzle of famous paintings, vector drawing, "
+"cartoon making, ..."
+msgstr ""
+"outro: aprenda a dizer as horas, quebra-cabeça de pinturas famosas, desenho "
+"veotrial, criação de desenhos animados, ..."
+
+#: ../gcompris.appdata.xml.in.h:11
+msgid ""
+"Currently GCompris offers in excess of 100 activities and more are being "
+"developed. GCompris is free software, that means that you can adapt it to "
+"your own needs, improve it and, most importantly, share it with children "
+"everywhere."
+msgstr ""
+"O GCompris oferece atualmente em excesso da 100 atividades ou mais que estão "
+"sendo desenvolvidas. É um software livre, o que significa que você pode "
+"adaptá-lo para as suas necessidades, melhorá-lo e, mais importante, "
+"compartilhá-lo com crianças por todo mundo."
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational suite GCompris"
@@ -1754,11 +1830,11 @@ msgstr "Perfil: %s"
 msgid "Number of activities: %d"
 msgstr "Número de atividades: %d"
 
-#: ../src/boards/python.c:64 ../src/boards/python.c:88
+#: ../src/boards/python.c:69 ../src/boards/python.c:93
 msgid "Python Board"
 msgstr "Área Python"
 
-#: ../src/boards/python.c:65 ../src/boards/python.c:89
+#: ../src/boards/python.c:70 ../src/boards/python.c:94
 msgid "Special board that embeds Python into GCompris."
 msgstr "Atividade especial que embute o Python no GCompris."
 
@@ -2065,8 +2141,8 @@ msgstr ""
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Erro: O programa externo gnuchess encerrou inesperadamente"
 
-#: ../src/chess_computer-activity/chess.c:265
-#: ../src/chess_computer-activity/chess.c:311
+#: ../src/chess_computer-activity/chess.c:269
+#: ../src/chess_computer-activity/chess.c:315
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2076,36 +2152,36 @@ msgstr ""
 "para jogar xadrez no GCompris.\n"
 "Instale-o e certifique-se de que ele esteja em "
 
-#: ../src/chess_computer-activity/chess.c:656
+#: ../src/chess_computer-activity/chess.c:660
 msgid "White's Turn"
 msgstr "Jogada das brancas"
 
-#: ../src/chess_computer-activity/chess.c:656
+#: ../src/chess_computer-activity/chess.c:660
 msgid "Black's Turn"
 msgstr "Jogada das pretas"
 
-#: ../src/chess_computer-activity/chess.c:797
+#: ../src/chess_computer-activity/chess.c:801
 msgid "White checks"
 msgstr "Xeque das brancas"
 
-#: ../src/chess_computer-activity/chess.c:799
+#: ../src/chess_computer-activity/chess.c:803
 msgid "Black checks"
 msgstr "Xeque das pretas"
 
-#: ../src/chess_computer-activity/chess.c:1209
+#: ../src/chess_computer-activity/chess.c:1213
 msgid "Black mates"
 msgstr "Xeque-mate das pretas"
 
-#: ../src/chess_computer-activity/chess.c:1216
+#: ../src/chess_computer-activity/chess.c:1220
 msgid "White mates"
 msgstr "Xeque-mate das brancas"
 
-#: ../src/chess_computer-activity/chess.c:1223 ../src/gcompris/bonus.c:194
+#: ../src/chess_computer-activity/chess.c:1227 ../src/gcompris/bonus.c:194
 #: ../src/gcompris/bonus.c:203
 msgid "Drawn game"
 msgstr "Jogo empatado"
 
-#: ../src/chess_computer-activity/chess.c:1251
+#: ../src/chess_computer-activity/chess.c:1255
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Erro: O programa externo gnuchess encerrou inesperadamente"
 
@@ -2468,9 +2544,6 @@ msgstr "Resposta"
 #.
 #: ../src/click_on_letter-activity/click_on_letter.c:1508
 #, c-format
-#| msgid ""
-#| "<b>%1$s</b> configuration\n"
-#| " for profile <b>%2$s</b>"
 msgctxt "click_on_letter_config"
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -2480,7 +2553,6 @@ msgstr ""
 " para o perfil <b>%2$s</b>"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:1521
-#| msgid "Choice of the language"
 msgid "Choose a language"
 msgstr "Escolha um idioma"
 
@@ -3894,7 +3966,7 @@ msgid ""
 msgstr ""
 "Este software é um pacote da GNU e é liberado sob a Licença Geral Pública GNU"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:468
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:490
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -4284,31 +4356,31 @@ msgstr "Tempo: mais rápido"
 msgid "Use GCompris administration module to filter boards"
 msgstr "Use o módulo de administração do GCompris para filtrar as atividades"
 
-#: ../src/gcompris/config.c:195
+#: ../src/gcompris/config.c:203
 msgid "GCompris Configuration"
 msgstr "Configuração do GCompris"
 
-#: ../src/gcompris/config.c:267
+#: ../src/gcompris/config.c:275
 msgid "Fullscreen"
 msgstr "Tela inteira"
 
-#: ../src/gcompris/config.c:292
+#: ../src/gcompris/config.c:300
 msgid "Remember level for default user"
 msgstr "Lembrar nível para usuário padrão"
 
-#: ../src/gcompris/config.c:318
+#: ../src/gcompris/config.c:326
 msgid "Music"
 msgstr "Música"
 
-#: ../src/gcompris/config.c:343
+#: ../src/gcompris/config.c:351
 msgid "Effect"
 msgstr "Efeito"
 
-#: ../src/gcompris/config.c:367 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:375 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/gcompris/config.c:432 ../src/gcompris/config.c:742
+#: ../src/gcompris/config.c:454 ../src/gcompris/config.c:764
 #, c-format
 msgid "Font: %s"
 msgstr "Fonte: %s"
@@ -6279,7 +6351,7 @@ msgstr "Igual à %d"
 msgid "Not equal to %d"
 msgstr "Diferente de %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:443
+#: ../src/gnumch-equality-activity/gnumch.py:445
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
@@ -6287,11 +6359,11 @@ msgstr ""
 "Você foi devorado por um Troggle.\n"
 "Pressione <Enter> para continuar."
 
-#: ../src/gnumch-equality-activity/gnumch.py:492
+#: ../src/gnumch-equality-activity/gnumch.py:494
 msgid "You ate a wrong number.\n"
 msgstr "Você comeu um número errado.\n"
 
-#: ../src/gnumch-equality-activity/gnumch.py:493
+#: ../src/gnumch-equality-activity/gnumch.py:495
 msgid ""
 "\n"
 "Press <Return> to continue."
@@ -6299,7 +6371,7 @@ msgstr ""
 "\n"
 "Pressione <Enter> para continuar."
 
-#: ../src/gnumch-equality-activity/gnumch.py:787
+#: ../src/gnumch-equality-activity/gnumch.py:789
 msgid ""
 "T\n"
 "R\n"
