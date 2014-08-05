@@ -982,7 +982,7 @@ gint gc_activation_check(const char *code)
 
   // A special code to test the full version without
   // saving the activation
-  if (strncmp(code, "121212", 6) == 0)
+  if (strncmp(code, "THANKS", 6) == 0)
     {
       return 2;
     }
