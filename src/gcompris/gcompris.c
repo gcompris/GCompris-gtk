@@ -1627,7 +1627,7 @@ main (int argc, char *argv[])
   sugar_setup(&argc, &argv);
 
   /* Argument parsing */
-  context = g_option_context_new(" - An educational software for chilren 2 to 10");
+  context = g_option_context_new(" - An educational software for children 2 to 10");
   g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
   g_option_context_add_group (context, gtk_get_option_group (TRUE));
   g_option_context_parse (context, &argc, &argv, &error);
