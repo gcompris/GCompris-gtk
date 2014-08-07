@@ -256,7 +256,7 @@ static GOptionEntry options[] = {
    N_("For test purpose, run in a loop all the activities"), NULL},
 
   {"debug", 'D', 0, G_OPTION_ARG_NONE, &popt_debug,
-   N_("display debug informations on the console."), NULL},
+   N_("display debug information on the console."), NULL},
 
   {"version", 'v', 0, G_OPTION_ARG_NONE, &popt_version,
    N_("Print the version of " PACKAGE), NULL},
