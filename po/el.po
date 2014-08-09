@@ -21,18 +21,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
-"is&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-07-04 04:53+0000\n"
-"PO-Revision-Date: 2014-07-08 10:16+0300\n"
-"Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gcompris&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-08-07 15:44+0000\n"
+"PO-Revision-Date: 2014-08-09 18:20+0200\n"
+"Last-Translator: Yannis Kaskamanidis <kiolalis@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Poedit 1.6.6\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -339,7 +339,8 @@ msgstr ""
 "σε αυτές."
 
 #: ../gcompris.appdata.xml.in.h:4
-msgid "computer discovery: keyboard, mouse, different mouse gesture, ..."
+#| msgid "computer discovery: keyboard, mouse, different mouse gesture, ..."
+msgid "computer discovery: keyboard, mouse, different mouse gestures, ..."
 msgstr ""
 "Εξερεύνηση υπολογιστή: πληκτρολόγιο, ποντίκι, διαφορετικές χρήσεις του "
 "ποντικού, ..."
@@ -694,8 +695,8 @@ msgid ""
 "children as individuals; they can learn to type in and recognize their own "
 "usernames (login is configurable)."
 msgstr ""
-"- Στο μενού \"Πίνακες\" μπορείτε να αλλάξετε τον κατάλογο δραστηριοτήτων. Απλά "
-"αποεπιλέξτε τις από το δενδροειδές διάγραμμα. Μπορείτε να αλλάξετε τη "
+"- Στο μενού \"Πίνακες\" μπορείτε να αλλάξετε τον κατάλογο δραστηριοτήτων. "
+"Απλά αποεπιλέξτε τις από το δενδροειδές διάγραμμα. Μπορείτε να αλλάξετε τη "
 "γλώσσα που χρησιμοποιείται για την ανάγνωση, παραδείγματος χάριν αυτή που "
 "χρησιμοποιείται για την ανάγνωση των χρωμάτων.\n"
 "- Μπορείτε να αποθηκεύσετε πολλές διαφορετικές διαμορφώσεις και να επιλέγετε "
@@ -1755,7 +1756,8 @@ msgstr "Vincent Van Gogh, Υπνοδωμάτιο στην Αρλ - 1888"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_4.xml.in.h:1
 msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
-msgstr "Ambrosius Bosschaert ο πρεσβύτερος, Η ακίνητη ζωή του λουλουδιού - 1614"
+msgstr ""
+"Ambrosius Bosschaert ο πρεσβύτερος, Η ακίνητη ζωή του λουλουδιού - 1614"
 
 #: ../src/ballcatch-activity/ballcatch.py:75
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:2
@@ -3496,8 +3498,8 @@ msgid ""
 "The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all day "
 "in the meadow."
 msgstr ""
-"Η αγελάδα μουγκανίζει \"μουου, μουου.\". Οι αγελάδες είναι φυτοφάγα θηλαστικά. "
-"Βόσκουν όλη μέρα στα λειβάδια."
+"Η αγελάδα μουγκανίζει \"μουου, μουου.\". Οι αγελάδες είναι φυτοφάγα "
+"θηλαστικά. Βόσκουν όλη μέρα στα λειβάδια."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
 msgid "You can drink the milk this animal produces."
@@ -3530,8 +3532,9 @@ msgstr ""
 "θέση όσον αφορά τη νοημοσύνη τους."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-msgid "This animal likes to lay in the mud."
-msgstr "Του αρέσει να κυλιέται στη λάσπη."
+#| msgid "This animal likes to lay in the mud."
+msgid "This animal likes to lie in the mud."
+msgstr "Σε αυτό το ζώο του αρέσει να κυλιέται στη λάσπη."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
 msgid "White Duck"
@@ -3629,8 +3632,8 @@ msgstr ""
 "τις πληροφορίες γιατί θα σας χρειαστούν στο δεύτερο επίπεδο.\n"
 "\n"
 "Στο τρίτο επίπεδο ένα τυχαίο κείμενο θα εμφανίζεται στην οθόνη σας και εσείς "
-"θα πρέπει να κάνετε κλικ στο ζώο που ταιριάζει στο κείμενο. Σκοπός σας "
-"είναι να κάνετε σωστά όλες τις αντιστοιχίσεις.\n"
+"θα πρέπει να κάνετε κλικ στο ζώο που ταιριάζει στο κείμενο. Σκοπός σας είναι "
+"να κάνετε σωστά όλες τις αντιστοιχίσεις.\n"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:1
 msgid "Explore exotic animals from around the world."
@@ -4992,7 +4995,7 @@ msgid "California"
 msgstr "Καλιφόρνια"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:9
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:9
 msgid "Washington D.C."
 msgstr "Ουάσινγκτον D.C."
 
@@ -5556,7 +5559,7 @@ msgstr "Συρία"
 msgid "Turkey"
 msgstr "Τουρκία"
 
-#. Translators: strip Asia| and translate only Georgia
+#. Translators: Strip Asia| and translate only Georgia
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
 msgid "Asia|Georgia"
 msgstr "Γεωργία"
@@ -7374,74 +7377,70 @@ msgid "Find the violin"
 msgstr "Βρες το βιολί"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-msgid "Find the flute traversiere"
-msgstr "Βρες το πλάγιο φλάουτο"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
 msgid "Find the drum kit"
 msgstr "Βρες τα ντραμς"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
 msgid "Find the accordion"
 msgstr "Βρες το ακορντεόν"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
 msgid "Find the banjo"
 msgstr "Βρες το μπάντζο"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
 msgid "Find the bongo"
 msgstr "Βρες το μπόνγκο"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
 msgid "Find the electric guitar"
 msgstr "Βρες την ηλεκτρική κιθάρα"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
 msgid "Find the castanets"
 msgstr "Βρες τις καστανιέτες"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
 msgid "Find the cymbal"
 msgstr "Βρες τα κύμβαλα"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
 msgid "Find the cello"
 msgstr "Βρες το τσέλο"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
 msgid "Find the harmonica"
 msgstr "Βρες τη φυσαρμόνικα"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
 msgid "Find the horn"
 msgstr "Βρες το κόρνο"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
 msgid "Find the maracas"
 msgstr "Βρες τις μαράκες"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
 msgid "Find the organ"
 msgstr "Βρες το όργανο"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
 msgid "Find the snare drum"
 msgstr "Βρες το μικρό τύμπανο"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
 msgid "Find the timpani"
 msgstr "Βρες το τύμπανο"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
 msgid "Find the triangle"
 msgstr "Βρες το τρίγωνο"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
 msgid "Find the tambourine"
 msgstr "Βρες το ταμπουρίνο"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
 msgid "Find the tuba"
 msgstr "Βρες την τούμπα"
 
@@ -10849,10 +10848,9 @@ msgid "Lower the water level to rise to the surface."
 msgstr "Μείωση του επιπέδου του νερού για άνοδο στην επιφάνεια."
 
 #: ../src/submarine-activity/submarine.c:561
-msgid "Open or close the ballast flush."
-msgstr ""
-"Άνοιγμα ή κλείσιμο της ροής της συσκευής ελέγχου της άνωσης και της "
-"σταθερότητας."
+#| msgid "Open or close the ballast flush."
+msgid "Open or close the the ballast flush."
+msgstr "Άνοιγμα ή κλείσιμο του πρόσθετου βάρους της υπερχείλισης."
 
 #: ../src/submarine-activity/submarine.c:562
 msgid "It flushes the water out of the tank."
@@ -10906,9 +10904,9 @@ msgstr "Εκμάθηση λειτουργίας υποβρυχίου"
 #: ../src/submarine-activity/submarine.xml.in.h:5
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth. There is a closed gate on the right. After "
-"the first level, you have to catch the jewel to open it. Pass through it to "
-"reach the next level."
+"to navigate to the required depth. There is a closed gate on the right. "
+"After the first level, you have to catch the jewel to open it. Pass through "
+"it to reach the next level."
 msgstr ""
 "Κάνε κλικ στα διαφορετικά μηχανικά μέρη (κινητήρας, τιμόνι και δεξαμενή "
 "αέρα) με σκοπό να πλοηγηθείς στο απαιτούμενο βάθος. Υπάρχει μια κλειστή πύλη "
@@ -11333,6 +11331,9 @@ msgstr "Εξάσκηση στο πληκτρολόγιο"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Πληκτρολόγησε την λέξη πριν αυτή πέσει στο έδαφος"
+
+#~ msgid "Find the flute traversiere"
+#~ msgstr "Βρες το πλάγιο φλάουτο"
 
 #~ msgid "abcdefghijklmnopqrstuvwxyz"
 #~ msgstr "αβγδεζηθικλμνξοπρστυφχψω"
