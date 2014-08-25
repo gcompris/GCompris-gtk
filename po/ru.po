@@ -17,8 +17,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2014-03-04 22:10+0000\n"
-"PO-Revision-Date: 2014-04-10 22:53+0400\n"
-"Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
+"PO-Revision-Date: 2014-08-25 14:24+0300\n"
+"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -6723,10 +6723,10 @@ msgstr ""
 "напряжениях (110 кВ и выше), чтобы уменьшить потери энергии при передачи на "
 "дальние расстояния."
 
+# Перевод должен быть как можно короче, иначе он не помещается в интерфейсе (см. https://bugzilla.gnome.org/show_bug.cgi?id=719678)
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
 msgid "Learn about an electrical system based on renewable energy"
-msgstr ""
-"Узнайте об электрических системах, основанных на возобновляемой энергии"
+msgstr "Узнайте о возобновляемых электрических системах"
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
 msgid ""
@@ -8981,7 +8981,7 @@ msgid ""
 "Learn the names of the notes, in bass and treble clef, with the help of "
 "sounds and colors"
 msgstr ""
-"Изучи названия нот в басовом и скрипичным ключах с помощью звуков и цветов"
+"Изучи названия нот в басовом и скрипичном ключах с помощью звуков и цветов"
 
 #: ../src/note_names-activity/note_names.xml.in.h:3
 #: ../src/railroad-activity/railroad.xml.in.h:4
@@ -10526,9 +10526,9 @@ msgstr "Узнайте как работает подводная лодка"
 #: ../src/submarine-activity/submarine.xml.in.h:5
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth. There is a closed gate on the right. After "
-"the first level, you have to catch the jewel to open it. Pass through it to "
-"reach the next level."
+"to navigate to the required depth. There is a closed gate on the right. "
+"After the first level, you have to catch the jewel to open it. Pass through "
+"it to reach the next level."
 msgstr ""
 "Нажимайте по различным рабочим элементам: двигателю, рулю и воздушным танкам "
 "в том порядке, в котором это приведёт к правильной навигации на заданной "
@@ -11019,155 +11019,3 @@ msgstr "Наберите слово полностью пока оно пада�
 
 #~ msgid "Missing Image"
 #~ msgstr "Пропущенное изображение"
-
-#~| msgid "Practice money usage"
-#~ msgid "Practice a foreign language"
-#~ msgstr "Практика иностранного языка"
-
-#~| msgid ""
-#~| "<b>%s</b> configuration\n"
-#~| " for profile <b>%s</b>"
-#~ msgid ""
-#~ "<b>{0}</b> configuration\n"
-#~ " for profile <b>{1}</b>"
-#~ msgstr ""
-#~ "<b>{0}</b> Настройка \n"
-#~ " профиля <b>{1}</b>"
-
-#~ msgid " Spain"
-#~ msgstr " Испания"
-
-#~| msgid "German"
-#~ msgid " German"
-#~ msgstr " Немецкий"
-
-#~ msgid " France"
-#~ msgstr " Франция"
-
-#~ msgid " Germany"
-#~ msgstr " Германия"
-
-#~ msgid " Brazil"
-#~ msgstr " Бразилия"
-
-#~ msgid " Serbia"
-#~ msgstr " Сербия"
-
-#~ msgid " Poland"
-#~ msgstr " Польша"
-
-#~ msgid " Greece"
-#~ msgstr " Греция"
-
-#~ msgid " Ukraine"
-#~ msgstr " Украина"
-
-#~ msgid " Finland"
-#~ msgstr " Финляндия"
-
-#~ msgid "Weight in g = %s"
-#~ msgstr "Вес в граммах = %s"
-
-#~ msgid "Weight = %s"
-#~ msgstr "Вес: %s"
-
-#~ msgid "Special board that embeds python into gcompris."
-#~ msgstr "Специальный компонент, который встраивает Python в GCompris."
-
-#~ msgid ""
-#~ "GCompris will get images, sounds and activity data from this server if "
-#~ "not found locally."
-#~ msgstr ""
-#~ "GCompris может получать изображения, звуки и данные упражнений с сервера, "
-#~ "если они не обнаружены локально."
-
-#~ msgid ""
-#~ "Only when --server is provided, disable check for local resource first. "
-#~ "Data are always taken from the web server."
-#~ msgstr ""
-#~ "Отключить использование локальных ресурсов (при указании параметра «--"
-#~ "server»). Все данные будут браться с веб-сервера."
-
-#~ msgid ""
-#~ "In server mode, specify the cache directory used to avoid useless "
-#~ "downloads."
-#~ msgstr "Расположение кеша в режиме работы с сервером."
-
-#~ msgid ""
-#~ "The --server option cannot be used because GCompris has been compiled "
-#~ "without network support!"
-#~ msgstr ""
-#~ "Опция --server не может быть использована так как программа GCompris была "
-#~ "собрана без поддержки сети!"
-
-#~ msgid "Serbia Montenegro"
-#~ msgstr "Сербия и Черногория"
-
-#~ msgid "%s = %d"
-#~ msgstr "%s = %d"
-
-#~ msgid "%d + %d"
-#~ msgstr "%d + %d"
-
-#~ msgid "%d − %d"
-#~ msgstr "%d − %d"
-
-#~ msgid "%d × %d"
-#~ msgstr "%d × %d"
-
-#~ msgid "%d ÷ %d"
-#~ msgstr "%d ÷ %d"
-
-#~ msgid ""
-#~ "Use the keyboard arrows to move Tux up to the door. In this maze, the "
-#~ "move is relative (first person). Use the up arrow to go forward. The "
-#~ "other arrow let you turn Tux in another direction."
-#~ msgstr ""
-#~ "Используйте стрелки на клавиатуре для перемещения Тукса к двери. В этом "
-#~ "лабиринте вид показывается от первого лица. Используйте стрелку вверх для "
-#~ "движения вперёд. Другие стрелки позволяют поворачивать Тукса в разные "
-#~ "направления."
-
-#~ msgid "Use the keyboard arrows to move Tux up to the door."
-#~ msgstr "Используя стрелки на клавиатуре, передвигайте Тукса к двери."
-
-#~ msgid ""
-#~ "Use the keyboard arrows to move Tux up to the door. Use the spacebar to "
-#~ "switch between invisible and visible modes. Visible mode just gives you "
-#~ "an indication of your position, like a map. You cannot move Tux in "
-#~ "visible mode."
-#~ msgstr ""
-#~ "Используя стрелки на клавиатуре, переместите пингвинёнка Тукса к двери."
-#~ "Используйте пробел для переключения между видимым и невидимым режимами. "
-#~ "Видимый режим позволяет видеть свою позицию на карте. В видимом режиме "
-#~ "перемещаться нельзя."
-
-#~ msgid "satchel/s_tchel/a/o/i"
-#~ msgstr "сумка/с_мка/у/ы/о"
-
-#~ msgid ""
-#~ "Error: this activity requires that you first install\n"
-#~ "the packages with GCompris voices for the locale '%s' ! Fallback to "
-#~ "english, sorry!"
-#~ msgstr ""
-#~ "Ошибка: это упражнение требует установленного \n"
-#~ "пакета с речью для GCompris для локали «%s». \n"
-#~ "Будет использован английский язык!"
-
-#~ msgid "Click on the red duck"
-#~ msgstr "Щёлкните по красной утке"
-
-#~ msgid "Click on the white duck"
-#~ msgstr "Щёлкните по белой утке"
-
-#~ msgid "English (United State)"
-#~ msgstr "Английский (США)"
-
-#~ msgid "Help"
-#~ msgstr "Справка"
-
-#~ msgid "Stop"
-#~ msgstr "Остановить"
-
-#~ msgid "Choice of pattern"
-#~ msgstr "Выбор шаблона"
