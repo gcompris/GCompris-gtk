@@ -371,9 +371,9 @@ scale_anim_plate(void)
       GooCanvasItem *text_item;
 
       if(board_mode == MODE_WEIGHT) {
-	answer_label_string = "Enter the weight in g";
+	answer_label_string = _("Enter the weight of the object in gram");
       } else {
-	answer_label_string = "Enter the weight of the object";
+	answer_label_string = _("Enter the weight of the object");
       }
 
       text_item = \
