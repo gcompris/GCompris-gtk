@@ -10,10 +10,10 @@ msgstr ""
 "Project-Id-Version: GCompris-Unofficial\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
 "is&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-06-18 13:49+0000\n"
-"PO-Revision-Date: 2014-07-11 10:56+0100\n"
+"POT-Creation-Date: 2014-09-14 21:30+0000\n"
+"PO-Revision-Date: 2014-09-17 13:49+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
-"Language-Team: Fòram na Gàidhlig http://www.foramnagaidhlig.net\n"
+"Language-Team: Fòram na Gàidhlig\n"
 "Language: gd\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -299,9 +299,6 @@ msgid "Strategy games like chess, connect4, ..."
 msgstr "Geamannan ro-innleachd a leithid tàileisg, 4 ann an sreath, ..."
 
 #: ../gcompris.appdata.xml.in.h:1
-#| msgid ""
-#| "GCompris is a collection of educational games that provides different "
-#| "activities for children aged 2 and up."
 msgid ""
 "GCompris is an educational software suite comprising of numerous activities "
 "for children aged 2 to 10."
@@ -326,7 +323,8 @@ msgstr ""
 "cleasan a tha ri làmh san roinn-seòrsa ud."
 
 #: ../gcompris.appdata.xml.in.h:4
-msgid "computer discovery: keyboard, mouse, different mouse gesture, ..."
+#| msgid "computer discovery: keyboard, mouse, different mouse gesture, ..."
+msgid "computer discovery: keyboard, mouse, different mouse gestures, ..."
 msgstr ""
 "faigh a-mach mun choimpiutair: meur-chlàr, luchag, gluasadan luchaige, ..."
 
@@ -352,7 +350,6 @@ msgid "games: chess, memory, connect 4, oware, sudoku, ..."
 msgstr "geamannan: tàileasg, cuimhne, ceangail 4, oware, sudoku, ..."
 
 #: ../gcompris.appdata.xml.in.h:9
-#| msgid "Horizontal reading practice"
 msgid "reading: reading practice"
 msgstr "leughadh: cleachd leughadh"
 
@@ -2492,8 +2489,8 @@ msgid ""
 "Use the left mouse button to click on the moving fish. A level 5 and after, "
 "a double click is mandatory."
 msgstr ""
-"Briog le putan clì na luchaige air an iasg a tha a’ gluasad. On leibheil 5 "
-"a-mach, bidh feum air briogadh dùbailte."
+"Briog le putan clì na luchaige air an iasg a tha a’ gluasad. On leibheil 5 a-"
+"mach, bidh feum air briogadh dùbailte."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
 msgid ""
@@ -3205,8 +3202,8 @@ msgid ""
 "information on gnucap at &lt;http://www.gnu.org/software/gnucap/&gt;."
 msgstr ""
 "Cleachdaidh GCompris an t-inneal atharrais dealain Gnucap mar backend. "
-"Gheibh thu barrachd fiosrachaidh mu gnucap air "
-"&lt;http://www.gnu.org/software/gnucap/&gt;."
+"Gheibh thu barrachd fiosrachaidh mu gnucap air &lt;http://www.gnu.org/"
+"software/gnucap/&gt;."
 
 #: ../src/electric-activity/electric.xml.in.h:6
 msgid ""
@@ -3514,7 +3511,8 @@ msgstr ""
 "mhuc."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-msgid "This animal likes to lay in the mud."
+#| msgid "This animal likes to lay in the mud."
+msgid "This animal likes to lie in the mud."
 msgstr "’S toil leis a’ bheathach seo a bhith na laighe sa pholl."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
@@ -4964,7 +4962,7 @@ msgid "California"
 msgstr "California"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:9
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:9
 msgid "Washington D.C."
 msgstr "Washington D.C."
 
@@ -7338,74 +7336,70 @@ msgid "Find the violin"
 msgstr "Lorg an fhìdheall"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-msgid "Find the flute traversiere"
-msgstr "Lorg an duiseal"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
 msgid "Find the drum kit"
 msgstr "Lorg na drumaichean"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
 msgid "Find the accordion"
 msgstr "Lorg am bogsa"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
 msgid "Find the banjo"
 msgstr "Lorg am bainsio"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
 msgid "Find the bongo"
 msgstr "Lorg am bongo"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
 msgid "Find the electric guitar"
 msgstr "Lorg an giotàr-dealain"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
 msgid "Find the castanets"
 msgstr "Lorg na castañeataichean"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
 msgid "Find the cymbal"
 msgstr "Lorg an gliongan"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
 msgid "Find the cello"
 msgstr "Lorg a’ bheus-fhìdheall"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
 msgid "Find the harmonica"
 msgstr "Lorg an t-organ-beòil"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
 msgid "Find the horn"
 msgstr "Lorg an dùdach"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
 msgid "Find the maracas"
 msgstr "Lorg am maracas"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
 msgid "Find the organ"
 msgstr "Lorg an t-organ"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
 msgid "Find the snare drum"
 msgstr "Lorg an druma-tormain"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
 msgid "Find the timpani"
 msgstr "Lorg a’ ghall-druma"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
 msgid "Find the triangle"
 msgstr "Lorg an triantan"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
 msgid "Find the tambourine"
 msgstr "Lorg an tambairin"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
 msgid "Find the tuba"
 msgstr "Lorg an tiùba"
 
@@ -10500,6 +10494,15 @@ msgstr ""
 "an iasg. Briog air an dìsinn leis a’ phutan deas gus cunntadh sìos. Nuair a "
 "bhios tu deiseil, briog air a’ phutan “OK” no brùth air an iuchair “Enter”."
 
+#: ../src/scalesboard-activity/scale.c:374
+msgid "Enter the weight of the object in gram"
+msgstr "Cuir a-steach cuideam an rud ann an gramaichean"
+
+#: ../src/scalesboard-activity/scale.c:376
+#| msgid "Enter the text you hear:"
+msgid "Enter the weight of the object"
+msgstr "Cuir a-steach cuideam an rud"
+
 #: ../src/scalesboard-activity/scale.c:1087
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr ""
@@ -10800,8 +10803,9 @@ msgid "Lower the water level to rise to the surface."
 msgstr "Lùghdaich ìre an uisge gus dìreadh dhan uachdar."
 
 #: ../src/submarine-activity/submarine.c:561
-msgid "Open or close the ballast flush."
-msgstr "Fosgail no dùin sruthlachadh na balaiste."
+#| msgid "Open or close the ballast flush."
+msgid "Open or close the the ballast flush."
+msgstr "Fosgail no dùin an tanca-balaiste."
 
 #: ../src/submarine-activity/submarine.c:562
 msgid "It flushes the water out of the tank."
@@ -10852,9 +10856,9 @@ msgstr "Ionnsaich mar a dh’obraicheas bàta-tumaidh"
 #: ../src/submarine-activity/submarine.xml.in.h:5
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth. There is a closed gate on the right. After "
-"the first level, you have to catch the jewel to open it. Pass through it to "
-"reach the next level."
+"to navigate to the required depth. There is a closed gate on the right. "
+"After the first level, you have to catch the jewel to open it. Pass through "
+"it to reach the next level."
 msgstr ""
 "Gus seòladh dhan doimhne a tha a dhìth, briog air na nithean gnìomhach: "
 "einnsean, falmadairean is tancaichean adhair. Tha geata dùinte taobh deas. "
@@ -11276,6 +11280,9 @@ msgstr "Cleachdadh a’ mheur-chlàir"
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr ""
 "Sgrìobh am facal gu lèir fhad ’s a tha e a’ tuiteam is mus ruig e an làr"
+
+#~ msgid "Find the flute traversiere"
+#~ msgstr "Lorg an duiseal"
 
 #~ msgid "abcdefghijklmnopqrstuvwxyz"
 #~ msgstr "aàbcdeèfghiìlmnoòprstuù"
