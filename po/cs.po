@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-08-07 15:44+0000\n"
-"PO-Revision-Date: 2014-08-18 22:22+0100\n"
+"POT-Creation-Date: 2014-09-14 21:30+0000\n"
+"PO-Revision-Date: 2014-10-29 20:07+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -10192,6 +10192,14 @@ msgstr ""
 "Na kostce napočítej, kolik kusů ledu je mezi Tuxem a rybou. Pravým tlačítkem "
 "můžeš počítat pozpátku. Až budeš hotov, klikni na tlačítko Budiž, nebo "
 "stiskni klávesu Enter."
+
+#: ../src/scalesboard-activity/scale.c:374
+msgid "Enter the weight of the object in gram"
+msgstr "Zadej hmotnost objektu v gramech"
+
+#: ../src/scalesboard-activity/scale.c:376
+msgid "Enter the weight of the object"
+msgstr "Zadej hmotnost objektu"
 
 #: ../src/scalesboard-activity/scale.c:1087
 msgid "Take care, you can drop weights on both sides of the scale."
