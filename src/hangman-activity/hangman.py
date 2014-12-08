@@ -235,28 +235,25 @@ class Gcompris_hangman:
                                     self.backitem)
     self.display_level()
 
-  def display_letter_set(self, letter_set, y,
+  def display_letter_set(self, letter_set, w, h,
                          fill_color, stroke_color):
     group = goocanvas.Group(parent = self.rootitem)
 
-    w = 60
     max_per_line =gcompris.BOARD_WIDTH / w - 2
     x = (gcompris.BOARD_WIDTH - (max_per_line * w)) / 2
     wc = 0
     line = 0
-    #shifting the virtual keyboard down
-    # - tested with 2 or 3 rows of consonants + 1 row of vowels
-    yshift=60
+
     for line in range(0, len(letter_set) / max_per_line + 1):
       for i in range(0, max_per_line):
         if wc < len(letter_set):
           self.keys.append(
-            Key(self, group, x + i*w, y +yshift + line*w/3*2, letter_set[wc],
+            Key(self, group, x + i * w, line * h, w - 5, h - 5, letter_set[wc],
                 self.get_equiv(letter_set[wc]),
                 fill_color, stroke_color) )
           wc += 1
 
-    return (group, y + (line + 1 )* w)
+    return (group, (line + 1) * h)
 
   def display_level(self):
     w = 40
@@ -337,13 +334,21 @@ class Gcompris_hangman:
       )
 
     # Display the virtual keyboard
-    (group_vowels, y_vowels) = self.display_letter_set(self.vowels, 0,
-                                                       0xFF6633AAL, 0xFF33CCBBL)
-    (group_cons, y_cons) = self.display_letter_set(self.consonants, y_vowels,
-                                                   0x66FF33AAL, 0xFF33CCBBL)
+    key_width = 60
+    key_height = 40
+    if len(self.vowels) + len(self.consonants) >= 30:
+		 key_width = 50
+		 key_height = 35
 
-    group_vowels.translate(0, gcompris.BOARD_HEIGHT - y_cons - 40)
-    group_cons.translate(0, gcompris.BOARD_HEIGHT - y_cons - 40)
+    (group_vowels, y_vowels) = self.display_letter_set(self.vowels,
+                                                       key_width, key_height,
+                                                       0xFF6633AAL, 0xFF33CCBBL)
+    (group_cons, y_cons) = self.display_letter_set(self.consonants,
+                                                       key_width, key_height,
+                                                       0x66FF33AAL, 0xFF33CCBBL)
+
+    group_vowels.translate(0, gcompris.BOARD_HEIGHT - y_cons - y_vowels - key_height)
+    group_cons.translate(0, gcompris.BOARD_HEIGHT - y_cons - 20)
 
 
   def get_next_word(self):
@@ -478,16 +483,12 @@ class Letter:
 
 # A virtual key on screen
 class Key:
-    def __init__(self, hangman, parent, x, y,
+    def __init__(self, hangman, parent, x, y, w, h,
                  letter, letters, fill_color, stroke_color):
       self.hangman = hangman
       self.letter = letter
       self.letters = letters
       self.disabled = False
-
-      # wide enough to fit "mmm". If there should be a need for longer multigraphs in the future, some dynamic programming will be required
-      w = 55
-      h = 30
 
       self.rect = goocanvas.Rect(
         parent = parent,
