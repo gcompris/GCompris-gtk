@@ -19,7 +19,6 @@
 
 import gtk
 import gobject
-import gettext
 from gcompris import gcompris_gettext as _
 
 import user_list
@@ -339,9 +338,12 @@ class ClassEdit(gtk.Window):
         # Now everything is correct, create the class
         #
 
+        self.class_name   = unicode(self.entry_class.get_text())
+        self.teacher_name = unicode(self.entry_teacher.get_text())
+
         class_data = (self.class_id,
-                      self.entry_class.get_text(),
-                      self.entry_teacher.get_text()
+                      self.class_name,
+                      self.teacher_name
                       )
 
         if(self.new_class):
@@ -349,16 +351,13 @@ class ClassEdit(gtk.Window):
 
         # Save the changes in the base
         self.cur.execute('UPDATE class set name=?,teacher=? where class_id=?',
-                         (self.entry_class.get_text(),
-                          self.entry_teacher.get_text(),
+                         (self.class_name,
+                          self.teacher_name,
                           self.class_id));
         self.con.commit()
 
         # Close the dialog window now
         # (The close code will refresh the class_list)
-        self.class_name   = self.entry_class.get_text()
-        self.teacher_name = self.entry_teacher.get_text()
-
         self.destroy()
 
 
@@ -370,7 +369,7 @@ class ClassEdit(gtk.Window):
 
         # Check the login do not exist already
         self.cur.execute('SELECT name FROM class WHERE name=?',
-                         (self.entry_class.get_text(),))
+                         (unicode(self.entry_class.get_text()),))
         if(self.cur.fetchone()):
             dialog = gtk.MessageDialog(None,
                                        gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
@@ -387,8 +386,8 @@ class ClassEdit(gtk.Window):
                          (group_id, self.class_id));
 
         class_data = (self.class_id,
-                      self.entry_class.get_text(),
-                      self.entry_teacher.get_text(),
+                      unicode(self.entry_class.get_text()),
+                      unicode(self.entry_teacher.get_text()),
                       group_id
                       )
 

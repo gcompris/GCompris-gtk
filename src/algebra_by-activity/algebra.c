@@ -734,6 +734,9 @@ static void process_ok()
   ToBeFoundItem *toBeFoundItem;
   ToBeFoundItem *hasfail=NULL;
 
+  if(!currentToBeFoundItem)
+    return;
+
   set_focus_item(currentToBeFoundItem, FALSE);
   /* Go to the leftmost digit */
   while(currentToBeFoundItem->previous!=NULL)

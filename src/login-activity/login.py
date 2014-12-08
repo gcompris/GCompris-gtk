@@ -23,8 +23,8 @@ import gcompris.admin
 import gtk
 import gtk.gdk
 import pango
-import gettext
 from gcompris import gcompris_gettext as _
+
 import math
 
 # Background screens
@@ -97,19 +97,17 @@ class Gcompris_login:
     self.rootitem = goocanvas.Group(parent =  self.gcomprisBoard.canvas.get_root_item())
 
     # Display the profile name
-    x = gcompris.BOARD_WIDTH-100
-    y = 20.0
-    text = _("Profile: ") + (Prop.profile.name if Prop.profile else "")
+    text = _("Profile: %s") % (Prop.profile.name if Prop.profile else "")
 
     # Profile name
     goocanvas.Text(
       parent = self.rootitem,
-      x= x,
-      y= y,
+      x= gcompris.BOARD_WIDTH - 10,
+      y= gcompris.BOARD_HEIGHT - 30,
       text= text,
       fill_color="white",
       font=gcompris.skin.get_font("gcompris/board/small"),
-      anchor = gtk.ANCHOR_CENTER
+      anchor = gtk.ANCHOR_EAST
       )
 
 
@@ -477,13 +475,11 @@ class Gcompris_login:
     #we can add what you want in it.
 
     bconf = gcompris.configuration_window ( \
-      _( \
-        '<b>{activity}</b> configuration\n for profile <b>{profile}</b>'.format( \
-                        activity=_('Login'),
+      _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format( \
+                        config='Login',
                         # This is the name of the Default user profile
                         profile=profile.name if profile else _("Default")),
-        ),
-        self.ok_callback
+      self.ok_callback
       )
 
     # toggle box

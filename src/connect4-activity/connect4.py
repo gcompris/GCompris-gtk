@@ -108,27 +108,27 @@ class Gcompris_connect4:
         for i in range(2):
             goocanvas.Image(
                 parent = self.rootitem,
-                pixbuf = gcompris.utils.load_pixmap("connect4/stone_%d.png" % (i+1)),
-                x= 25,
-                y=175 + i * 73 )
+                pixbuf = gcompris.utils.load_pixmap("connect4/score_%d.svg" % (i+1)),
+                x= 8,
+                y=160 + i * 90 )
         self.score_item = \
             goocanvas.Text(
                 parent = self.rootitem,
                 font=gcompris.skin.get_font("gcompris/board/huge bold"),
-                x=60,
-                y=211,
+                x=90,
+                y=205,
                 anchor = gtk.ANCHOR_CENTER,
-                fill_color_rgba=0xFF0000FFL)
+                fill_color_rgba=0xFFFFFFFFL)
 
         self.score_item2 = \
             goocanvas.Text(
                 parent = self.rootitem,
                 font=gcompris.skin.get_font("gcompris/board/huge bold"),
-                x=60,
-                y=284,
+                x=90,
+                y=290,
                 anchor = gtk.ANCHOR_CENTER,
-                fill_color_rgba=0xFF0000FFL)
-            
+                fill_color_rgba=0xFFFFFFFFL)
+
         self.update_scores((0, 0))
 
         self.newGame()
@@ -173,7 +173,7 @@ class Gcompris_connect4:
         self.player_stone = \
             goocanvas.Image(
                 parent = self.rootitem,
-            pixbuf = gcompris.utils.load_pixmap("connect4/stone_%d.png"
+            pixbuf = gcompris.utils.load_pixmap("connect4/stone_%d.svg"
                                                 % self.cur_player),
             x=0,
             y=-20 )
@@ -308,7 +308,7 @@ class Gcompris_connect4:
         stone = self.board.state[self.board.last_move][-1]
         x = self.board.last_move
         y = len(self.board.state[self.board.last_move])-1
-        file = "connect4/stone_%d.png" % stone
+        file = "connect4/stone_%d.svg" % stone
 
         self.stone = \
             goocanvas.Image(

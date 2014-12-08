@@ -1,16 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-if !BUILD_MINGW32
-if TEXINFO
-DOCS_SUBDIR=docs
-else
-DOCS_SUBDIR=
-endif
-else
-DOCS_SUBDIR=
-endif
-
-SUBDIRS = po src boards $(DOCS_SUBDIR) autopackage sugar
+SUBDIRS = po src boards sugar
 
 # if OS_MACOSX
 # SUBDIRS += macosx
@@ -28,12 +18,18 @@ else
 Applicationsdir = $(datadir)/applications/
 Applications_in_files = gcompris.desktop.in gcompris-edit.desktop.in
 Applications_DATA = gcompris.desktop gcompris-edit.desktop
+
+appdatadir = $(datadir)/appdata
+appdata_DATA = $(appdata_in_files:.xml.in=.xml)
+appdata_in_files = gcompris.appdata.xml.in
 endif
 
 @INTLTOOL_DESKTOP_RULE@
+@INTLTOOL_XML_RULE@
 
 EXTRA_DIST = \
 	$(Applications_in_files) \
+	$(appdata_in_files) \
 	$(icon_DATA) \
 	intltool-extract.in \
 	intltool-merge.in \

@@ -227,13 +227,13 @@ static GooCanvasItem *leftright_create_item(GooCanvasItem *parent) {
   gc_util_button_text_svg(boardRootItem,
 			  BOARDWIDTH/3, BOARDHEIGHT*2/3 + 50,
 			  "#BUTTON_TEXT",
-			  _("left"),
+			  _("Left hand"),
 			  (GCallback) clicked_left, NULL);
 
   gc_util_button_text_svg(boardRootItem,
 			  BOARDWIDTH*2/3, BOARDHEIGHT*2/3 + 50,
 			  "#BUTTON_TEXT",
-			  _("right"),
+			  _("Right hand"),
 			  (GCallback) clicked_right, NULL);
 
   // make sure that next hand is not the same as previous

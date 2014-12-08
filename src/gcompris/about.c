@@ -54,7 +54,7 @@ void gc_about_start ()
        );
 
   /* TRANSLATORS: Replace this string with your names, one name per line. */
-  gchar *translators = _("translator_credits");
+  gchar *translators = _("translator-credits");
 
   /* Pause the board */
   gc_board_pause(TRUE);

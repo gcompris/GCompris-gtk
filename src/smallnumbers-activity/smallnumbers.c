@@ -17,7 +17,6 @@
  */
 #include <string.h>
 #include <stdlib.h> //for atoi
-#include <glib/gi18n.h>
 
 #include "gcompris/gcompris.h"
 
@@ -594,12 +593,10 @@ smallnumber_config_start(GcomprisBoard *agcomprisBoard,
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  /*
-   * TRANSLATORS: %1$s is the board name (smallnumbers),
-   * 2$s is the name of the current user profile
-   */
-  gchar *label = g_strdup_printf(C_("smallnumbers_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
-			  _(agcomprisBoard->name), aProfile ? aProfile->name : "");
+  gchar *label;
+
+  label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
+			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
   GcomprisBoardConf *bconf;
   bconf = gc_board_config_window_display(label, conf_ok);
@@ -619,7 +616,7 @@ smallnumber_config_start(GcomprisBoard *agcomprisBoard,
 
   GtkCheckButton  *sound_control = gc_board_config_boolean_box(bconf, _("Enable sounds"), "with_sound", with_sound);
 
-  GtkComboBox *sound_box = gc_board_config_combo_locales_asset(bconf, _("Choose a language"),
+  GtkComboBox *sound_box = gc_board_config_combo_locales_asset(bconf, _("Select sound locale"),
 							       saved_locale_sound,
 							       "voices/$LOCALE/colors/purple.ogg",
 							       NULL);

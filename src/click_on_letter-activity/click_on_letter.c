@@ -68,14 +68,14 @@ enum
 #define N_LETTER_PER_LINE 6
 #define MAX_N_LETTER_LINE 4
 #define MAX_N_ANSWER      (N_LETTER_PER_LINE * MAX_N_LETTER_LINE)
-  
+
 
 static gboolean uppercase_only;
 
 /* length of the alphabet*/
 static guint alphlen;
 /* alphabet storage*/
-static gchar **letterlist=NULL; 
+static gchar **letterlist=NULL;
 
 /* The data structure of a level */
 typedef struct
@@ -176,9 +176,9 @@ static void start_board (GcomprisBoard *agcomprisBoard)
   guint ready;
 
   board_paused = TRUE;
-  
+
   get_alphabet(); /* read and init letters */
-  
+
   gc_locale_set(g_hash_table_lookup( config, "locale_sound"));
 
   g_hash_table_destroy(config);
@@ -251,7 +251,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
     string_passed = commit_str;
   else
     string_passed = preedit_str;
-  
+
   length_passed = g_utf8_strlen(string_passed, -1);
   length_right = g_utf8_strlen(answerletter, -1);
 
@@ -271,7 +271,7 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str) {
     else if(ckey != cright)
     {
         gc_sound_play_ogg ("sounds/crash.wav", NULL);
-        
+
         /*
          * Todo: It would be nice to add some color here to help the child
         if(g_utf8_strlen(answerletter, -1) != g_utf8_strlen(right_letter, -1))
@@ -466,7 +466,7 @@ static void make_random_indices(guint *indices, guint length)
     int save = indices[i];
     indices[i] = indices[swap_index];
     indices[swap_index] = save;
-  } 
+  }
 }
 
 
@@ -481,7 +481,7 @@ shuffle_pointers(gchar **pointers, guint length)
   /* Randomize the list, create a random index first */
   guint random[length];
   make_random_indices(random,length);
-  guint i;  
+  guint i;
   /* Now use the index to swap pointer */
   for ( i = 0 ; i < length-1; i++) {
     char *savearray = pointers[random[i]];
@@ -524,11 +524,11 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
       g_assert(0 < n_answer && n_answer <= MAX_N_ANSWER );
       g_assert( n_answer >=  n_questions);
       g_message("New level: %d, Sublevels: %d",gcomprisBoard->level - 1,n_questions);
-      
+
       /* Randomize questions and answers each time a level is called*/
       level->questions = randomize_list(level->questions);
       level->answers = randomize_list(level->answers);
-      
+
       /* Go to next level after this number of 'play' */
           gcomprisBoard->number_of_sublevel = n_questions;
     }
@@ -536,7 +536,7 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
   /* Display in uppercase? */
   if(uppercase_only) right_letter=g_utf8_strup(right_letter,-1);
   answerletter = right_letter;
-  
+
   boardRootItem = goo_canvas_group_new (goo_canvas_get_root_item(gcomprisBoard->canvas),
 					NULL);
   if ( ! _repeat() )
@@ -576,7 +576,7 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
 
   RsvgHandle *svg_handle= carriage_svg_handle;
   RsvgDimensionData svg_dimension = carriage_svg_dimension;
-  
+
   GSList *answerpointer = level->answers;
 
   for (i = 0; answerpointer; i++) {
@@ -600,7 +600,7 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
     goo_canvas_item_translate( button_item,
 			       xOffset,
 			       yOffset);
-    
+
     gchar *answer = (gchar *) answerpointer->data;
     /* Display in uppercase? */
     if(uppercase_only) answer=g_utf8_strup(answer,-1);
@@ -626,7 +626,7 @@ static GooCanvasItem *click_on_letter_create_item(GooCanvasItem *parent)
     gc_item_focus_init(button_item, NULL);
     g_object_set_data(G_OBJECT(button_item), "button_item", button_item);
     g_object_set_data(G_OBJECT(text_item), "button_item", button_item);
-    
+
     /* Move to next letter */
     answerpointer = g_slist_next(answerpointer);
   }
@@ -767,13 +767,13 @@ static gboolean load_desktop_datafile(gchar *filename)
 
   gsize n_level;
   gchar **groups = g_key_file_get_groups (keyfile, &n_level);
-  
+
   if (!groups[0])
   {
       g_warning ("Desktop file contains no levels");
       return FALSE;
   }
-  
+
   gchar *questions ="";
   gchar *answers ="";
   int i;
@@ -802,7 +802,7 @@ static gboolean load_desktop_datafile(gchar *filename)
           g_warning ("Level %d contains garbage. Q: %s - A: %s",i+1,questions, answers);
           break;
       }
-      
+
       if(questions && answers)
       {
         level.questions=string_to_list(questions);
@@ -815,7 +815,7 @@ static gboolean load_desktop_datafile(gchar *filename)
           break;
       }
   }
-    
+
   g_free(questions);
   g_free(answers);
   g_strfreev(groups);
@@ -847,7 +847,7 @@ get_alphabet()
 
 
 /*
- * Read random letters from letterlist and create the levels 
+ * Read random letters from letterlist and create the levels
  */
 static void create_levels_from_alphabet()
 {
@@ -858,7 +858,7 @@ static void create_levels_from_alphabet()
       Level level;
       level.level = ++level_i;
       n_questions = level_i + 5;
-      
+
       /* Make sure levels fit on screen */
       n_questions = (n_questions > MAX_N_ANSWER) ? MAX_N_ANSWER : n_questions;
       n_questions = (n_questions > alphlen) ? alphlen : n_questions;
@@ -871,10 +871,10 @@ static void create_levels_from_alphabet()
             randomlist[j]=letterlist[j];
       }
       shuffle_pointers(randomlist, alphlen);
-      
+
       level.questions=NULL;
       level.answers=NULL;
-            
+
       for(j=0;j<n_questions;++j)
       {
         level.questions=g_slist_append (level.questions,randomlist[j]);
@@ -899,7 +899,7 @@ static void load_datafile() {
 
     /* create level array */
     levels = g_array_sized_new (FALSE, FALSE, sizeof (Level), 10);
-  
+
     gboolean fileloaded = FALSE;
     gchar *filename = "";
     /* Try to get special file for uppercase mode */
@@ -1015,7 +1015,7 @@ load_model_from_levels(GtkListStore *model)
 
   gtk_list_store_clear(model);
   guint i;
-  
+
   for ( i = 0; i < levels->len; i++)
     {
       Level level = g_array_index (levels, Level, i);
@@ -1033,7 +1033,7 @@ clear_levels()
 {
   if ( ! levels )
     return;
-  
+
   g_array_free(levels, TRUE);
   levels = NULL;
 }
@@ -1045,11 +1045,11 @@ valid_entry(Level *level)
   gboolean result=FALSE;
   gchar *error;
   GtkWidget *dialog;
-  
+
   GSList *questionpointer = NULL;
   GSList *answerpointer = NULL;
 
-  if ((level->questions == NULL) 
+  if ((level->questions == NULL)
           || ((level->questions)->data == NULL)
           || g_strcmp0 ("",(level->questions)->data)==0
           || g_slist_length(level->questions) < 1)
@@ -1057,7 +1057,7 @@ valid_entry(Level *level)
       error = g_strdup (_("Questions cannot be empty.") );
       goto error;
   }
-  
+
   if (((level->answers) == NULL)
           || ((level->answers)->data == NULL)
           || g_strcmp0 ("",(level->answers)->data)==0
@@ -1066,14 +1066,14 @@ valid_entry(Level *level)
       error = g_strdup (_("Answers cannot be empty.") );
       goto error;
   }
-  
+
   if ( g_slist_length(level->answers) > MAX_N_ANSWER )
   {
       error = g_strdup_printf(_("Too many characters in the Answer (maximum is %d)."),
 				 MAX_N_ANSWER );
       goto error;
   }
-  
+
   /* Now check all chars in questions are in answers */
   questionpointer = level->questions;
   do {
@@ -1137,7 +1137,7 @@ _check_errors(GtkTreeModel *model, GtkTreePath *path,
 {
   Level level;
   gboolean *has_error = (gboolean*)data;
-  
+
   gchar *answers = "";
   gchar *questions = "";
 
@@ -1161,11 +1161,11 @@ _check_errors(GtkTreeModel *model, GtkTreePath *path,
       level.answers = NULL;
       level.answers = g_slist_append(level.answers,"");
   }
-  
+
   if(!valid_entry( &level ) )
   {
       *has_error = TRUE;
-      // Don't check more errors 
+      // Don't check more errors
   }
   g_free(answers);
   g_free(questions);
@@ -1216,7 +1216,7 @@ conf_ok(GHashTable *table)
   profile_conf = NULL;
 
   if (gcomprisBoard){
-      
+
     GHashTable *config;
     if (profile_conf)
       config = gc_db_get_board_conf();
@@ -1438,7 +1438,7 @@ static void configure_colummns(GtkTreeView *treeview)
 						    NULL);
   gtk_tree_view_append_column(treeview, column);
 
-  
+
   /* Question column */
   renderer = gtk_cell_renderer_text_new();
   g_object_set(renderer, "editable", TRUE, NULL);
@@ -1450,7 +1450,7 @@ static void configure_colummns(GtkTreeView *treeview)
 						    NULL);
   gtk_tree_view_append_column(treeview, column);
 
-  
+
   /* Answer column */
   renderer = gtk_cell_renderer_text_new();
   g_object_set(renderer, "editable", TRUE, NULL);

@@ -472,7 +472,7 @@ void config_missing_letter(GcomprisBoardConf *bconf, GHashTable *config)
     gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 8);
 
     level = gtk_combo_box_new_text();
-    for(i=1; i< gcomprisBoard_missing->maxlevel; i++)
+    for(i=1; i <=  gcomprisBoard_missing->maxlevel; i++)
       {
         gchar *tmp;
         tmp = g_strdup_printf(_("Level %d"), i);

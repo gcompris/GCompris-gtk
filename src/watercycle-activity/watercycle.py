@@ -191,13 +191,15 @@ class Gcompris_watercycle:
     self.boatitem = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
-      svg_id = "#BOAT"
+      svg_id = "#BOAT",
+      pointer_events = goocanvas.EVENTS_NONE
       )
     self.boatitem.translate(-100, 0);
     self.boatitem_parked = goocanvas.Svg(
       parent = self.rootitem,
       svg_handle = svghandle,
       svg_id = "#BOAT_PARKED",
+      pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
       )
 
@@ -206,6 +208,7 @@ class Gcompris_watercycle:
       parent = self.rootitem,
       svg_handle = svghandle,
       svg_id = "#SHOWER",
+      pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
       )
 
@@ -213,6 +216,7 @@ class Gcompris_watercycle:
       parent = self.rootitem,
       svg_handle = svghandle,
       svg_id = "#SHOWER_TUX",
+      pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
       )
 
@@ -221,6 +225,7 @@ class Gcompris_watercycle:
       parent = self.rootitem,
       svg_handle = svghandle,
       svg_id = "#SHOWER_ON",
+      pointer_events = goocanvas.EVENTS_NONE,
       visibility = goocanvas.ITEM_INVISIBLE
       )
 

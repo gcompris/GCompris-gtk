@@ -24,7 +24,7 @@ import gcompris.skin
 import gcompris.sound
 import goocanvas
 import pango
-import gettext
+
 from gcompris import gcompris_gettext as _
 from langLib import *
 from langFindit import *
@@ -64,7 +64,6 @@ class Gcompris_lang:
     handle = gcompris.utils.load_svg("lang/repeat.svg")
     gcompris.bar_set_repeat_icon(handle)
     gcompris.bar_set(gcompris.BAR_LEVEL|gcompris.BAR_REPEAT_ICON|gcompris.BAR_CONFIG)
-    gcompris.bar_location(gcompris.BOARD_WIDTH / 2 - 100, -1, 0.6)
 
     # Set a background image
     gcompris.set_background(self.gcomprisBoard.canvas.get_root_item(),
@@ -78,6 +77,8 @@ class Gcompris_lang:
 
     self.langLib = LangLib(gcompris.DATA_DIR + "/lang/words.xml")
     self.chapters = self.langLib.getChapters()
+    self.currentExercise = None
+    self.currentExerciseModes = []
 
     if self.gcomprisBoard.mode == "":
       gcompris.utils.dialog("ERROR, missing 'mode' in the xml menu to specify the chapter",
@@ -101,16 +102,31 @@ class Gcompris_lang:
                             None)
       return
 
+    if not (gcompris.get_properties().fx):
+      gcompris.utils.dialog(_("Error: This activity cannot be \
+played with the\nsound effects disabled.\nGo to the configuration \
+dialogue to\nenable the sound."), None)
+
     gcompris.bar_set_level(self.gcomprisBoard)
 
-    self.currentExerciseModes = []
-    self.currentExercise = None
+    readyButton = TextButton(400, 255, ' ' * 20 + _('I am Ready') + ' ' * 20,
+                             self.rootitem, 0x11AA11FFL)
+    readyButton.getBackground().connect("button_press_event",
+                                        self.ready_event, readyButton)
+
+    self.pause(1);
+
+
+  def ready_event(self, widget, target, event, button):
+    button.destroy()
     self.currentLesson = self.langLib.getLesson(self.currentChapterName,
                                                 self.gcomprisBoard.level - 1)
     self.displayLesson( self.currentLesson )
+    self.displayImage( self.currentLesson.getTriplets()[self.currentTripletId] )
     self.pause(0);
 
   def end(self):
+    gcompris.set_locale( "" )
     gcompris.sound.policy_set(self.saved_policy)
     gcompris.sound.resume()
     if self.currentExercise:
@@ -127,7 +143,10 @@ class Gcompris_lang:
     if self.currentExercise:
       self.currentExercise.repeat()
     else:
-      self.playVoice( self.currentLesson.getTriplets()[self.currentTripletId] )
+      try:
+        self.playVoice( self.currentLesson.getTriplets()[self.currentTripletId] )
+      except:
+        pass
 
   def init_config(self):
     default_config = { 'locale_sound' : 'NULL' }
@@ -150,16 +169,12 @@ class Gcompris_lang:
     self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
 
     bconf = gcompris.configuration_window ( \
-      _( \
-        '<b>{activity}</b> configuration\n for profile <b>{profile}</b>'.format( \
-                        activity=_('Language learning'),
-                        # This is the name of the Default user profile
-                        profile=profile.name if profile else _("Default")),
-        ),
-        self.ok_callback
+      _('Configuration\n for profile <b>%s</b>')
+      % ( (profile.name if profile else _("Default") ) ),
+      self.ok_callback
       )
 
-    gcompris.combo_locales_asset(bconf, _("Choose a language"),
+    gcompris.combo_locales_asset(bconf, _("Select locale"),
                                  self.config_dict['locale_sound'],
                                  "voices/$LOCALE/words/red.ogg")
 
@@ -172,7 +187,7 @@ class Gcompris_lang:
     for key,value in table.iteritems():
       gcompris.set_board_conf(self.configuring_profile,
                               self.gcomprisBoard, key, value)
-    
+
     return True;
 
 
@@ -197,7 +212,8 @@ class Gcompris_lang:
     # the game is won
     if(self.gamewon == 1 and pause == 0):
       self.gamewon = 0
-      self.next_level()
+      if not self.runExercise():
+        self.next_level()
 
     return
 
@@ -218,6 +234,10 @@ class Gcompris_lang:
     self.gcomprisBoard.sublevel = 1;
     gcompris.bar_set_level(self.gcomprisBoard)
 
+    # We are not yet started
+    if self.board_paused:
+      return
+
     if self.currentExercise:
       self.currentExercise.stop()
       self.currentExercise = None
@@ -225,6 +245,7 @@ class Gcompris_lang:
     self.currentLesson = self.langLib.getLesson(self.currentChapterName,
                                                 self.gcomprisBoard.level - 1)
     self.displayLesson( self.currentLesson )
+    self.displayImage( self.currentLesson.getTriplets()[self.currentTripletId] )
 
 # -------
 
@@ -263,8 +284,8 @@ class Gcompris_lang:
       x = gcompris.BOARD_WIDTH / 2,
       y = 40.0,
       text = gcompris.gcompris_gettext(lesson.name),
-      fill_color = "black",
       font = gcompris.skin.get_font("gcompris/title"),
+      fill_color = "white",
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER,
       width = 300
@@ -296,8 +317,8 @@ class Gcompris_lang:
       parent = self.lessonroot,
       x = gcompris.BOARD_WIDTH - 40,
       y = gcompris.BOARD_HEIGHT - 40,
-      fill_color = "black",
       font = gcompris.skin.get_font("gcompris/board/tiny"),
+      fill_color = "white",
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER
       )
@@ -308,27 +329,40 @@ class Gcompris_lang:
     goocanvas.Rect(
       parent = self.lessonroot,
       x = (gcompris.BOARD_WIDTH - w) / 2,
-      y = (gcompris.BOARD_HEIGHT - h) / 2,
+      y = (gcompris.BOARD_HEIGHT - h) / 2 - 20,
       width = w,
       height = h + 50,
-      fill_color_rgba = 0xCECECECCL,
+      fill_color_rgba = 0xCECECEAAL,
       stroke_color_rgba = 0x111111CCL,
       line_width = 2.0,
       radius_x = 3,
       radius_y = 3)
     self.imageitem = goocanvas.Image( parent = self.lessonroot )
     self.imageitem.connect("button_press_event", self.next_event, None)
+
+    goocanvas.Rect(
+      parent = self.lessonroot,
+      x = (gcompris.BOARD_WIDTH - w) / 2,
+      y = (gcompris.BOARD_HEIGHT - h) / 2 - 10 + h,
+      width = w,
+      height = 40,
+      fill_color_rgba = 0x999999BBL,
+      stroke_color_rgba = 0x111111AAL,
+      line_width = 2.0,
+      radius_x = 3,
+      radius_y = 3)
+
+
     self.descriptionitem = goocanvas.Text(
       parent = self.lessonroot,
       x = gcompris.BOARD_WIDTH / 2,
-      y = gcompris.BOARD_HEIGHT - 80,
-      fill_color = "black",
+      y = gcompris.BOARD_HEIGHT - 100,
+      fill_color = "white",
       font = gcompris.skin.get_font("gcompris/subtitle"),
       anchor = gtk.ANCHOR_CENTER,
       alignment = pango.ALIGN_CENTER,
       width = 500
       )
-    self.displayImage( lesson.getTriplets()[self.currentTripletId] )
 
   def playVoice(self, triplet):
     if triplet.voice:
@@ -351,7 +385,7 @@ class Gcompris_lang:
     self.clearLesson()
     # We will run the exercise 3 times in different modes
     self.currentExerciseModes = [ ["findit",Findit.WITH_QUESTION|Findit.WITH_TEXT|Findit.WITH_IMAGE],
-                                  ["findit", Findit.WITH_QUESTION|Findit.WITH_IMAGE],
+                                  ["findit", Findit.WITH_TEXT|Findit.WITH_IMAGE],
                                   ["findit", Findit.WITH_IMAGE],
                                   ["text", EnterText.WITH_TEXT|EnterText.WITH_IMAGE]
                                   ]
@@ -381,7 +415,7 @@ class Gcompris_lang:
     center_y =  pixbuf.get_height()/2
     self.imageitem.set_properties(pixbuf = pixbuf,
                                   x = gcompris.BOARD_WIDTH  / 2 - center_x,
-                                  y = gcompris.BOARD_HEIGHT / 2 - center_y )
+                                  y = gcompris.BOARD_HEIGHT / 2 - center_y - 18)
 
   def previous_event(self, event=None, target=None, item=None, dummy=None):
     self.currentTripletId -= 1
@@ -396,13 +430,70 @@ class Gcompris_lang:
     self.displayImage( self.currentLesson.getTriplets()[self.currentTripletId] )
 
   def win(self):
-    if not self.runExercise():
-      self.gamewon = 1
-      gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
+    self.gamewon = 1
+    gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.FLOWER)
+    self.gcomprisBoard.sublevel += 1;
 
   def loose(self):
     self.gamewon = 0
     gcompris.bonus.display(gcompris.bonus.LOOSE, gcompris.bonus.FLOWER)
 
 
+
+class TextButton:
+
+    def __init__(self, x, y, text, rootitem, color_rgba=0x666666AAL):
+        '''
+        Add a text button to the screen with the following parameters:
+        1. x: the x position of the button
+        2. y: the y position of the button
+        3. text: the text of the button
+        4. rootitem: the item to draw the button in
+        5. color: the color of button background
+
+        TextButton(200, 300, 'Hello World!', self, color_rgba=0x6600FFFFL)
+        '''
+        width = -1
+        self.rootitem = goocanvas.Group(parent=rootitem, x=0, y=0)
+        textbox = goocanvas.Text(
+            parent = self.rootitem,
+            x=x, y=y,
+            width=width,
+            text=text,
+            font = gcompris.skin.get_font("gcompris/board/small"),
+            fill_color="white",
+            anchor=gtk.ANCHOR_CENTER,
+            alignment=pango.ALIGN_CENTER,
+            pointer_events="GOO_CANVAS_EVENTS_NONE"
+            )
+        TG = 15
+        bounds = textbox.get_bounds()
+
+        self.back = goocanvas.Rect(parent = self.rootitem,
+                       x = bounds.x1 - TG,
+                       y = bounds.y1 - TG,
+                       height = bounds.y2 - bounds.y1 + TG * 2,
+                       width = bounds.x2 - bounds.x1 + TG * 2,
+                       stroke_color = "black",
+                       fill_color_rgba = color_rgba,
+                       radius_x = 3, radius_y = 3,
+                       line_width = 2.0)
+
+        self.img = goocanvas.Image(
+                parent = self.rootitem,
+                x = bounds.x1 - TG,
+                y = bounds.y1 - TG,
+                height = bounds.y2 - bounds.y1 + TG * 2,
+                width = bounds.x2 - bounds.x1 + TG * 2,
+                pixbuf = gcompris.utils.load_pixmap('lang/button_front.svg')
+                )
+
+        gcompris.utils.item_focus_init(self.img, None)
+        textbox.raise_(self.img)
+
+    def getBackground(self):
+        return self.img
+
+    def destroy(self):
+        return self.rootitem.remove()
 

@@ -25,11 +25,11 @@ import gcompris.admin
 import gtk
 import os
 import gobject
+
 import pango
 import platform
 
-#gettext support
-import gettext
+#import gobject
 from gcompris import gcompris_gettext as _
 
 pid = None
@@ -86,10 +86,61 @@ class Gcompris_tuxpaint:
 
     self.rootitem = goocanvas.Group(parent = self.gcomprisBoard.canvas.get_root_item())
 
+
+
+    # first run: find version
+    options = [progname]
+    options.append('--version')
+    global pid
+    try:
+       # bug in working_directory=None ?
+       if (tuxpaint_dir):
+          pid, stdin, stdout, stderr = gobject.spawn_async(
+            argv=options,
+            flags=flags,
+            working_directory=tuxpaint_dir,
+            standard_output=True
+            )
+
+       else:
+          pid, stdin, stdout, stderr = gobject.spawn_async(
+            argv=options,
+            flags=flags,
+            standard_output=True
+            )
+
+    except:
+       gcompris.utils.dialog(_("Cannot find Tuxpaint.\nInstall it to use this activity !"),stop_board)
+       return
+
+    gobject.child_watch_add(pid, child_callback, data=self, priority=gobject.PRIORITY_HIGH)
+
+    output=os.read(stdout, 255)
+
+    parsenext = False
+    oldfullscreensyntax = False
+    for i in output.split():
+      if ( parsenext):
+        tpversion = i.split(".")
+        major, minor, sub = tpversion
+        if (int(major) < 1 and int(minor) < 10 and int(sub) < 22):
+          oldfullscreensyntax=True
+        break
+
+      if (i == "Version"):
+        # next is the version number
+        parsenext = True
+
+
+    # second run: adapt the parms to the version and run
     options = [progname]
 
     if (Prop.fullscreen and eval(self.config_dict['fullscreen'])):
-      options.append('--fullscreen')
+      if (oldfullscreensyntax):
+        options.append('--fullscreen')
+        options.append('--native')
+      else:
+        options.append('--fullscreen=native')
 
     if eval(self.config_dict['disable_shape_rotation']):
       options.append('--simpleshapes')
@@ -105,7 +156,6 @@ class Gcompris_tuxpaint:
 
     gcompris.sound.close()
 
-    global pid
     try:
        # bug in working_directory=None ?
        if (tuxpaint_dir):
@@ -182,14 +232,12 @@ class Gcompris_tuxpaint:
     #set already configured values
     self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
 
-    bconfig = gcompris.configuration_window ( \
-      _( \
-        '<b>{activity}</b> configuration\n for profile <b>{profile}</b>'.format( \
-                        activity=_('Tuxpaint'),
+    bconfig = gcompris.configuration_window( \
+      _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format( \
+                        config='Tuxpaint',
                         # This is the name of the Default user profile
                         profile=profile.name if profile else _("Default")),
-        ),
-        self.apply_callback
+      self.apply_callback
       )
 
 
@@ -212,7 +260,7 @@ class Gcompris_tuxpaint:
     stamps = gcompris.boolean_box(bconfig, _('Disable stamps'), 'disable_stamps', eval(self.config_dict['disable_stamps']))
     stamps.connect("toggled", self.stamps_changed)
 
-    self.stamps_control = gcompris.boolean_box(bconfig, _('Disable stamps control'), 'disable_stamps_control', eval(self.config_dict['disable_stamps_control']))
+    self.stamps_control = gcompris.boolean_box(bconfig, 'Disable stamps control', 'disable_stamps_control', eval(self.config_dict['disable_stamps_control']))
     self.stamps_control.set_sensitive(not eval(self.config_dict['disable_stamps']))
 
   def stamps_changed(self, button):

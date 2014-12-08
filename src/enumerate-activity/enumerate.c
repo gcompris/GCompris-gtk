@@ -491,7 +491,7 @@ static GooCanvasItem *enumerate_create_item(GooCanvasItem *parent)
 			     -1,
 			     GTK_ANCHOR_EAST,
 			     "font", gc_skin_font_board_big,
-			     "fill-color", "blue",
+			     "fill-color", "black",
 			     NULL);
       g_signal_connect(answer_item[i],
 		       "button-press-event",

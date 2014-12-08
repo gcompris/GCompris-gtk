@@ -23,8 +23,8 @@ import gcompris.skin
 import gtk
 import gtk.gdk
 import gobject
-import gettext
 from gcompris import gcompris_gettext as _
+
 import profile_group_list
 import profile_edit
 
@@ -309,7 +309,7 @@ class Profile_list:
       description  = self.profile_model.get_value(iter, COLUMN_DESCRIPTION)
 
       self.profile_model.set (iter,
-                              COLUMN_DESCRIPTION, description + _("[Default]"),
+                              COLUMN_DESCRIPTION,        description + " " + _("[Default]"),
                               )
 
       # There was a previous default TAG, erase it

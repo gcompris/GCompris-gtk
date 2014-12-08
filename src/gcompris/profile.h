@@ -30,6 +30,8 @@
 #ifndef PROFILES_H
 #define PROFILES_H
 
+#define GC_PROFILE_DEFAULT "Default"
+
 /*****************************************************************************/
 /* The following structure dsecribes a class, partitionning the users set     */
 struct _GcomprisClass {

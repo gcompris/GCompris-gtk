@@ -80,7 +80,7 @@ static gchar *numbers;
 /* length of the alphabet*/
 static guint alphlen;
 /* alphabet storage*/
-static gchar **letterlist=NULL; 
+static gchar **letterlist=NULL;
 
 static gchar *operators;
 static gchar *op_add = NULL;
@@ -585,11 +585,9 @@ void get_random_token(int token_type, gint *returned_type, gchar **string, gchar
       g_utf8_strncpy(result, g_utf8_offset_to_pointer (numbers,k),1);
       break;
     case TYPE_UPPERCASE:
-      //result = g_malloc0(2*sizeof(gunichar));
       result = g_strdup(g_utf8_strup(letterlist[k],-1));
       break;
     case TYPE_LOWERCASE:
-      //result = g_malloc0(2*sizeof(gunichar));
       result = g_strdup(g_utf8_strdown(letterlist[k],-1));
       break;
     case TYPE_SOUND:
@@ -730,10 +728,10 @@ static void
 get_alphabet()
 {
   g_message("Getting alphabet");
-  gchar *alphabet = _("a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z");
   /* TRANSLATORS: Put here the alphabet in your language, letters separated by: /
    * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
    * This is used in reading/click_on_letter and discovery/memory-group */
+  gchar *alphabet = _("a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z");
   g_assert(g_utf8_validate(alphabet, -1, NULL)); // require by all utf8-functions
 
   /* fill letter storage */
@@ -946,7 +944,7 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       /* getting alphabet with multigraphs */
       get_alphabet();
-      
+
       /* TRANSLATORS: Put here the numbers in your language */
       numbers=_("0123456789");
       g_assert(g_utf8_validate(numbers,-1,NULL)); // require by all utf8-functions
@@ -1492,7 +1490,7 @@ static void create_item(GooCanvasItem *parent)
                   else if(gcomprisBoard->level <=5)
                       font = TEXT_FONT_BIG;
                   else
-                      font = TEXT_FONT_SMALL;
+                      font = TEXT_FONT_MEDIUM;
               }
               else if(memoryItem->type & TYPE_WORDNUMBER)
               {

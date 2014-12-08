@@ -24,7 +24,6 @@ import gcompris.utils
 import gcompris.skin
 import gtk
 import gtk.gdk
-import gettext
 from gcompris import gcompris_gettext as _
 
 class Module:
@@ -76,7 +75,8 @@ class Module:
             parent = self.root_select_item,
             svg_handle = gcompris.utils.load_svg("administration/config_" +
                                                 self.module_name +
-                                                 ".svgz")
+                                                 ".svgz"),
+            tooltip = _(self.module_label)
             )
 
         bounds = itemimg.get_bounds()
@@ -86,20 +86,6 @@ class Module:
         gcompris.utils.item_focus_init(itemimg, None)
 
         y1 += bounds.y2 - bounds.y1 + 3
-
-        item = goocanvas.Text(
-            parent = self.root_select_item,
-            text=_(self.module_label),
-            font = gcompris.skin.get_font("gcompris/board/minuscule"),
-            x = centered_x,
-            y = y1,
-            fill_color="black"
-            )
-        bounds = item.get_bounds()
-        centered_x = x - (bounds.x2 - bounds.x1)/2
-        item.props.x = centered_x
-        item.connect("button_press_event", callback, self)
-        gcompris.utils.item_focus_init(item, itemimg)
 
     def get_module_name(self):
         return self.module_name

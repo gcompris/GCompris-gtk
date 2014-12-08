@@ -16,6 +16,7 @@ $(xml_DATA): %.xml: %.xml.in
 
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/lang
 img_DATA = \
+	button_front.svg \
 	background.svgz \
 	repeat.svg
 
@@ -65,6 +66,7 @@ wordsimg_DATA = \
 	words/ball_soccer.png \
 	words/ballet.png \
 	words/bank.png \
+	words/banker_female.png \
 	words/bark.png \
 	words/barn.png \
 	words/bat.png \
@@ -76,6 +78,7 @@ wordsimg_DATA = \
 	words/bean.png \
 	words/bear.png \
 	words/beard.png \
+	words/beat.png \
 	words/beaver.png \
 	words/bed.png \
 	words/bedroom.png \
@@ -113,7 +116,9 @@ wordsimg_DATA = \
 	words/bone.png \
 	words/book.png \
 	words/bookcase.png \
+	words/bottom.png \
 	words/box.png \
+	words/boxer.png \
 	words/boy.png \
 	words/braid.png \
 	words/brain.png \
@@ -153,6 +158,7 @@ wordsimg_DATA = \
 	words/cake.png \
 	words/call.png \
 	words/camel.png \
+	words/camera.png \
 	words/camp.png \
 	words/can.png \
 	words/canary.png \
@@ -206,7 +212,7 @@ wordsimg_DATA = \
 	words/chin.png \
 	words/chocolate.png \
 	words/chop.png \
-	words/chore.png \
+	words/chores.png \
 	words/christmas.png \
 	words/cigar.png \
 	words/circus.png \
@@ -265,6 +271,7 @@ wordsimg_DATA = \
 	words/crumb.png \
 	words/crust.png \
 	words/cry.png \
+	words/crystal.png \
 	words/cube.png \
 	words/cucumber.png \
 	words/curtain.png \
@@ -277,7 +284,6 @@ wordsimg_DATA = \
 	words/dance.png \
 	words/dandelion.png \
 	words/danger.png \
-	words/dark.png \
 	words/dart_board.png \
 	words/date_fruit.png \
 	words/deer.png \
@@ -311,6 +317,7 @@ wordsimg_DATA = \
 	words/dream.png \
 	words/dress.png \
 	words/drink.png \
+	words/drinking.png \
 	words/drip.png \
 	words/drive.png \
 	words/drool.png \
@@ -379,6 +386,7 @@ wordsimg_DATA = \
 	words/float.png \
 	words/flour.png \
 	words/flower.png \
+	words/fluff.png \
 	words/flute.png \
 	words/fly.png \
 	words/foam.png \
@@ -510,6 +518,7 @@ wordsimg_DATA = \
 	words/keyboard.png \
 	words/kimono.png \
 	words/king.png \
+	words/kiss.png \
 	words/kitchen.png \
 	words/kite.png \
 	words/kitten.png \
@@ -572,11 +581,13 @@ wordsimg_DATA = \
 	words/magnet.png \
 	words/magnifying_glass.png \
 	words/magpie.png \
+	words/mail.png \
 	words/man.png \
 	words/mane.png \
 	words/mango.png \
 	words/map.png \
 	words/maple.png \
+	words/marble.png \
 	words/mashed_potatoes.png \
 	words/mask.png \
 	words/mast.png \
@@ -708,6 +719,7 @@ wordsimg_DATA = \
 	words/pine_cone.png \
 	words/pink.png \
 	words/pip.png \
+	words/pipe.png \
 	words/piranha.png \
 	words/pirate.png \
 	words/pizza.png \
@@ -723,6 +735,7 @@ wordsimg_DATA = \
 	words/pocket.png \
 	words/pod.png \
 	words/pole.png \
+	words/police.png \
 	words/pompon.png \
 	words/pond.png \
 	words/pony.png \
@@ -730,6 +743,7 @@ wordsimg_DATA = \
 	words/pop.png \
 	words/pope.png \
 	words/porthole.png \
+	words/post.png \
 	words/pot.png \
 	words/potato.png \
 	words/pounce.png \
@@ -782,6 +796,7 @@ wordsimg_DATA = \
 	words/river.png \
 	words/road.png \
 	words/roast.png \
+	words/robe.png \
 	words/robot.png \
 	words/rock.png \
 	words/rocket.png \
@@ -803,6 +818,7 @@ wordsimg_DATA = \
 	words/salamander.png \
 	words/salmon.png \
 	words/sand.png \
+	words/sandals.png \
 	words/sandwich.png \
 	words/sash.png \
 	words/sat.png \
@@ -866,6 +882,7 @@ wordsimg_DATA = \
 	words/skirt.png \
 	words/skunk.png \
 	words/sky.png \
+	words/slam.png \
 	words/sled.png \
 	words/sleep.png \
 	words/sleeve.png \
@@ -906,6 +923,7 @@ wordsimg_DATA = \
 	words/spatula.png \
 	words/speak.png \
 	words/spear.png \
+	words/spice.png \
 	words/spider.png \
 	words/spider_web.png \
 	words/spike.png \
@@ -972,6 +990,7 @@ wordsimg_DATA = \
 	words/suit.png \
 	words/suitcase.png \
 	words/summer.png \
+	words/summit.png \
 	words/sun.png \
 	words/swan.png \
 	words/sweat.png \
@@ -1096,6 +1115,7 @@ wordsimg_DATA = \
 	words/woman.png \
 	words/wood.png \
 	words/word.png \
+	words/worker.png \
 	words/world.png \
 	words/wreath.png \
 	words/wrench.png \

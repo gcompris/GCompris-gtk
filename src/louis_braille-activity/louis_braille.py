@@ -27,7 +27,7 @@ import pango
 import random
 import ConfigParser
 from BrailleChar import *
-import gettext
+
 from gcompris import gcompris_gettext as _
 
 COLOR_ON = 0XFF0000FFL

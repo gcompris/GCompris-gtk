@@ -10,15 +10,15 @@
 # Sylvia Sánchez <LailahFSF@gmail.com>, 2011.
 # Chris Leonard <cjlhomeaddress@gmail.com>, 2012.
 # Milagros Alessandra Infante Montero <maim92@gmail.com>, 2013.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-05-20 01:32+0000\n"
-"PO-Revision-Date: 2013-05-27 11:10+0200\n"
+"POT-Creation-Date: 2014-03-24 11:56+0100\n"
+"PO-Revision-Date: 2014-02-24 11:13+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.5\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -182,7 +182,7 @@ msgstr "Ir a las actividades de memoria matemática"
 msgid "GCompris Main Menu"
 msgstr "Menú principal de GCompris"
 
-#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:887
+#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:906
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -213,7 +213,7 @@ msgid ""
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
-"    Quit - Quit GCompris (ctrl-x)\n"
+"    Quit - Quit GCompris (ctrl-q)\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
 "    1, 2 or 3 complex stars - 7 years and up\n"
@@ -430,7 +430,7 @@ msgid ""
 " for profile <b>{profile}</b>"
 msgstr ""
 "Configuración <b>regional</b>\n"
-" para el perfil <b>{perfil}</b>"
+" para el perfil <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:657
 msgid ""
@@ -438,10 +438,10 @@ msgid ""
 " for profile <b>{profile}</b>"
 msgstr ""
 "Configuración <b>regional de sonido</b>\n"
-" para el perfil <b>{perfil}</b>"
+" para el perfil <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:663
-#: ../src/pythontest-activity/pythontest.py:511
+#: ../src/pythontest-activity/pythontest.py:513
 #: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
 msgstr "Selecciona el idioma del sonido"
@@ -510,7 +510,7 @@ msgstr "Editar un grupo"
 
 #: ../src/administration-activity/admin/group_edit.py:62
 msgid "Editing group '{group}' for class '{aclass}'"
-msgstr "Edición de grupo «{grupo}» para la clase «{aclase}»"
+msgstr "Editar grupo «{group}» para la clase «{aclass}»"
 
 #: ../src/administration-activity/admin/group_edit.py:66
 msgid "Editing a new group"
@@ -552,7 +552,7 @@ msgstr "Grupo"
 
 #: ../src/administration-activity/admin/group_list.py:221
 #: ../src/administration-activity/admin/profile_group_list.py:160
-#: ../src/administration-activity/admin/profile_list.py:194
+#: ../src/administration-activity/admin/profile_list.py:195
 #: ../src/administration-activity/admin/profile_widget.py:200
 msgid "Description"
 msgstr "Descripción"
@@ -612,13 +612,13 @@ msgstr ""
 "usado para leerlas, por ejemplo, y después el idioma usado para decir los "
 "nombres de los colores. \n"
 "- Puedes guardar configuraciones múltiples, y cambiar fácilmente entre "
-"ellas. En la sección «Perfil» añade un perfil, después en la sección «Tablero» "
-"selecciona el perfil en la lista desplegable, y después elige los tableros "
-"que quieres que estén activos. Puedes añadir un montón de perfiles, con "
-"diferentes listas de tableros, y diferentes idiomas. Puedes establecer el "
-"perfil por omisión en la sección «Perfil», eligiendo el perfil que quieras, y "
-"después pulsando el botón «Predeterminado». También puedes elegir un perfil "
-"desde la línea de comandos.\n"
+"ellas. En la sección «Perfil» añade un perfil, después en la sección "
+"«Tablero» selecciona el perfil en la lista desplegable, y después elige los "
+"tableros que quieres que estén activos. Puedes añadir un montón de perfiles, "
+"con diferentes listas de tableros, y diferentes idiomas. Puedes establecer "
+"el perfil por omisión en la sección «Perfil», eligiendo el perfil que "
+"quieras, y después pulsando el botón «Predeterminado». También puedes elegir "
+"un perfil desde la línea de comandos.\n"
 "- Puedes añadir usuarios, clases y para cada clase, puedes crear grupos de "
 "usuarios. Ten en cuenta que puedes importar usuarios de un archivo separado "
 "por comas. Asigna uno o más grupos a un perfil, y los nuevos identificadores "
@@ -637,46 +637,50 @@ msgstr "Seleccione un usuario:"
 msgid "All users"
 msgstr "Todos los usuarios"
 
-#: ../src/administration-activity/admin/log_list.py:108
-#: ../src/administration-activity/admin/log_list.py:298
-#: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/lang-activity/lang.py:153 ../src/login-activity/login.py:481
-#: ../src/missing_letter-activity/missingletter.c:802
+#. This is the name of the Default user profile
+#: ../src/administration-activity/admin/log_list.py:109
+#: ../src/administration-activity/admin/log_list.py:300
+#: ../src/administration-activity/admin/profile_list.py:118
+#: ../src/administration-activity/admin/wordlist.py:48
+#: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:481
+#: ../src/missing_letter-activity/missingletter.c:810
+#: ../src/pythontest-activity/pythontest.py:451
+#: ../src/tuxpaint-activity/tuxpaint.py:189
 msgid "Default"
 msgstr "Predeterminado"
 
 #. Reset buttons
-#: ../src/administration-activity/admin/log_list.py:162
+#: ../src/administration-activity/admin/log_list.py:163
 msgid "Reset"
 msgstr "Restablecer"
 
-#: ../src/administration-activity/admin/log_list.py:219
+#: ../src/administration-activity/admin/log_list.py:220
 msgid "Date"
 msgstr "Fecha"
 
-#: ../src/administration-activity/admin/log_list.py:229
+#: ../src/administration-activity/admin/log_list.py:230
 msgid "User"
 msgstr "Usuario"
 
-#: ../src/administration-activity/admin/log_list.py:239
+#: ../src/administration-activity/admin/log_list.py:240
 msgid "Board"
 msgstr "Tablero"
 
-#: ../src/administration-activity/admin/log_list.py:249
-#: ../src/click_on_letter-activity/click_on_letter.c:1248
+#: ../src/administration-activity/admin/log_list.py:250
+#: ../src/click_on_letter-activity/click_on_letter.c:1435
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Nivel"
 
-#: ../src/administration-activity/admin/log_list.py:259
+#: ../src/administration-activity/admin/log_list.py:260
 msgid "Sublevel"
 msgstr "Subnivel"
 
-#: ../src/administration-activity/admin/log_list.py:269
+#: ../src/administration-activity/admin/log_list.py:270
 msgid "Duration"
 msgstr "Duración"
 
-#: ../src/administration-activity/admin/log_list.py:279
+#: ../src/administration-activity/admin/log_list.py:280
 msgid "Status"
 msgstr "Estado"
 
@@ -746,11 +750,11 @@ msgstr "Asignar todos los grupos que pertenecen a este perfil"
 msgid "You need to provide at least a name for your profile"
 msgstr "Es necesario indicar al menos un nombre para tu perfil"
 
-#: ../src/administration-activity/admin/profile_list.py:184
+#: ../src/administration-activity/admin/profile_list.py:185
 msgid "Profile"
 msgstr "Perfil"
 
-#: ../src/administration-activity/admin/profile_list.py:311
+#: ../src/administration-activity/admin/profile_list.py:312
 msgid "[Default]"
 msgstr "[Predeterminado]"
 
@@ -824,7 +828,16 @@ msgstr ""
 "Hay uno o más usuarios que no son únicos\n"
 "Es necesario cambiarlos: %s"
 
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
 #: ../src/administration-activity/admin/wordlist.py:45
+#: ../src/login-activity/login.py:478
+#: ../src/pythontest-activity/pythontest.py:448
+#: ../src/tuxpaint-activity/tuxpaint.py:186
 msgid ""
 "<b>{config}</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -852,293 +865,285 @@ msgstr "Aprende a reconocer colores inusuales."
 msgid "Click on the correct colored butterfly."
 msgstr "Pulsa en la mariposa coloreada correcta."
 
-#. Translator: Do not translate {text}.
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:1
+msgid "Find the coral butterfly"
+msgstr "Busca el mariposa coral"
+
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
-msgid "Find the {text} butterfly"
-msgstr "Busca el mariposa {text}"
+msgid "Find the claret butterfly"
+msgstr "Busca el mariposa clarete"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
-msgid "coral"
-msgstr "coral"
+msgid "Find the navy butterfly"
+msgstr "Busca el mariposa azul marino"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
-msgid "claret"
-msgstr "clarete"
+msgid "Find the corn butterfly"
+msgstr "Busca el mariposa trigo"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
-msgid "sienna"
-msgstr "siena"
+msgid "Find the cobalt butterfly"
+msgstr "Busca el mariposa cobalto"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
-msgid "corn"
-msgstr "trigo"
+msgid "Find the cyan butterfly"
+msgstr "Busca el mariposa cían"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
-msgid "cobalt"
-msgstr "cobalto"
+msgid "Find the chestnut butterfly"
+msgstr "Busca el mariposa castaño"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
-#: ../src/color_mix-activity/color_mix.py:255
-msgid "cyan"
-msgstr "cían"
+msgid "Find the almond butterfly"
+msgstr "Busca el mariposa almendra"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
-msgid "chestnut"
-msgstr "castaño"
+msgid "Find the sapphire butterfly"
+msgstr "Busca el mariposa zafiro"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
-msgid "almond"
-msgstr "almendra"
+msgid "Find the ruby butterfly"
+msgstr "Busca el mariposa rubí"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
-msgid "ruby"
-msgstr "rubí"
+msgid "Find the sienna butterfly"
+msgstr "Busca el mariposa siena"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
-msgid "sapphire"
-msgstr "zafiro"
+msgid "Find the sage butterfly"
+msgstr "Busca el mariposa salvia"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
-msgid "sage"
-msgstr "salvia"
+msgid "Find the salmon butterfly"
+msgstr "Busca el mariposa salmón"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
-msgid "salmon"
-msgstr "salmón"
+msgid "Find the sepia butterfly"
+msgstr "Busca el mariposa sepia"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
-msgid "sepia"
-msgstr "sepia"
+msgid "Find the sulfur butterfly"
+msgstr "Busca el mariposa azufre"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
-msgid "sulfur"
-msgstr "azufre"
+msgid "Find the tea butterfly"
+msgstr "Busca el mariposa té"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
-msgid "tea"
-msgstr "té"
+msgid "Find the lime butterfly"
+msgstr "Busca el mariposa lima"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
-msgid "lime"
-msgstr "lima"
+msgid "Find the turquoise butterfly"
+msgstr "Busca el mariposa turquesa"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
-msgid "turquoise"
-msgstr "turquesa"
+msgid "Find the absinthe butterfly"
+msgstr "Busca el mariposa ajenjo"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
-msgid "absinthe"
-msgstr "ajenjo"
+msgid "Find the mahogany butterfly"
+msgstr "Busca el mariposa caoba"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
-msgid "mahogany"
-msgstr "caoba"
+msgid "Find the aquamarine butterfly"
+msgstr "Busca el mariposa aguamarina"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
-msgid "aquamarine"
-msgstr "aguamarina"
+msgid "Find the alabaster butterfly"
+msgstr "Busca el mariposa alabastro"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
-msgid "alabaster"
-msgstr "alabastro"
+msgid "Find the amber butterfly"
+msgstr "Busca el mariposa ámbar"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
-msgid "amber"
-msgstr "ámbar"
+msgid "Find the amethyst butterfly"
+msgstr "Busca el mariposa amatista"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
-msgid "amethyst"
-msgstr "amatista"
+msgid "Find the anise butterfly"
+msgstr "Busca el mariposa anís"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
-msgid "anise"
-msgstr "anís"
+msgid "Find the vermilion butterfly"
+msgstr "Busca el mariposa bermellón"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
-msgid "vermilion"
-msgstr "bermellón"
+msgid "Find the ceruse butterfly"
+msgstr "Busca el mariposa cerusita"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
-msgid "ceruse"
-msgstr "cerusita"
+msgid "Find the fawn butterfly"
+msgstr "Busca el mariposa amarillo-marrón"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
-msgid "fawn"
-msgstr "amarillo-marrón"
+msgid "Find the chartreuse butterfly"
+msgstr "Busca el mariposa cartuja"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
-msgid "chartreuse"
-msgstr "cartuja"
+msgid "Find the emerald butterfly"
+msgstr "Busca el mariposa esmeralda"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
-msgid "emerald"
-msgstr "esmeralda"
+msgid "Find the aubergine butterfly"
+msgstr "Busca el mariposa berenjena"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
-msgid "aubergine"
-msgstr "berenjena"
+msgid "Find the fuchsia butterfly"
+msgstr "Busca el mariposa fucsia"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
-msgid "fuchsia"
-msgstr "fucsia"
+msgid "Find the glaucous butterfly"
+msgstr "Busca el mariposa glauco"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
-msgid "glaucous"
-msgstr "glauco"
+msgid "Find the auburn butterfly"
+msgstr "Busca el mariposa castaño rojizo"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
-msgid "auburn"
-msgstr "castaño rojizo"
+msgid "Find the azure butterfly"
+msgstr "Busca el mariposa azul celeste"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
-msgid "azure"
-msgstr "azul celeste"
+msgid "Find the grayish brown butterfly"
+msgstr "Busca el mariposa marrón grisáceo"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
-msgid "grayish brown"
-msgstr "marrón grisáceo"
+msgid "Find the bistre butterfly"
+msgstr "Busca el mariposa rojizo oscuro"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
-msgid "bistre"
-msgstr "rojizo oscuro"
+msgid "Find the crimson butterfly"
+msgstr "Busca el mariposa carmesí"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
-msgid "crimson"
-msgstr "carmesí"
+msgid "Find the celadon butterfly"
+msgstr "Busca el mariposa celedón"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
-msgid "celadon"
-msgstr "celedón"
+msgid "Find the cerulean butterfly"
+msgstr "Busca el mariposa cerúleo"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
-msgid "cerulean"
-msgstr "cerúleo"
+msgid "Find the dove butterfly"
+msgstr "Busca el mariposa paloma"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
-msgid "dove"
-msgstr "paloma"
+msgid "Find the garnet butterfly"
+msgstr "Busca el mariposa granate"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
-msgid "garnet"
-msgstr "granate"
+msgid "Find the indigo butterfly"
+msgstr "Busca el mariposa índigo"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
-msgid "indigo"
-msgstr "índigo"
+msgid "Find the ivory butterfly"
+msgstr "Busca el mariposa marfil"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
-msgid "ivory"
-msgstr "marfil"
+msgid "Find the jade butterfly"
+msgstr "Busca el mariposa jade"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:46
-msgid "jade"
-msgstr "jade"
+msgid "Find the lavender butterfly"
+msgstr "Busca el mariposa lavanda"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
-msgid "lavender"
-msgstr "lavanda"
+msgid "Find the lichen butterfly"
+msgstr "Busca el mariposa liquen"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
-msgid "lichen"
-msgstr "liquen"
+msgid "Find the wine butterfly"
+msgstr "Busca el mariposa vino"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
-msgid "wine"
-msgstr "vino"
+msgid "Find the lilac butterfly"
+msgstr "Busca el mariposa lila"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
-msgid "lilac"
-msgstr "lila"
+msgid "Find the magenta butterfly"
+msgstr "Busca el mariposa magenta"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
-#: ../src/color_mix-activity/color_mix.py:256
-msgid "magenta"
-msgstr "magenta"
+msgid "Find the malachite butterfly"
+msgstr "Busca el mariposa malaquita"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
-msgid "malachite"
-msgstr "malaquita"
+msgid "Find the larch butterfly"
+msgstr "Busca el mariposa alerce"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
-msgid "navy"
-msgstr "azul marino"
+msgid "Find the mimosa butterfly"
+msgstr "Busca el mariposa mimosa"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
-msgid "larch"
-msgstr "alerce"
+msgid "Find the ochre butterfly"
+msgstr "Busca el mariposa ocre"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
-msgid "mimosa"
-msgstr "mimosa"
+msgid "Find the olive butterfly"
+msgstr "Busca el mariposa oliva"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:56
-msgid "ochre"
-msgstr "ocre"
+msgid "Find the opaline butterfly"
+msgstr "Busca el mariposa opalino"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
-msgid "olive"
-msgstr "oliva"
+msgid "Find the ultramarine butterfly"
+msgstr "Busca el mariposa azul ultramarino"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
-msgid "opaline"
-msgstr "opalino"
+msgid "Find the mauve butterfly"
+msgstr "Busca el mariposa malva"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:59
-msgid "ultramarine"
-msgstr "azul ultramarino"
+msgid "Find the grayish blue butterfly"
+msgstr "Busca el mariposa azul grisáceo"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
-msgid "mauve"
-msgstr "malva"
+msgid "Find the pistachio butterfly"
+msgstr "Busca el mariposa pistacho"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
-msgid "grayish blue"
-msgstr "azul grisáceo"
+msgid "Find the platinum butterfly"
+msgstr "Busca el mariposa platino"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
-msgid "pistachio"
-msgstr "pistacho"
+msgid "Find the purple butterfly"
+msgstr "Busca el mariposa púrpura"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
-msgid "platinum"
-msgstr "platino"
+msgid "Find the plum butterfly"
+msgstr "Busca el mariposa ciruela"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
-msgid "purple"
-msgstr "púrpura"
+msgid "Find the prussian blue butterfly"
+msgstr "Busca el mariposa azul de Prusia"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
-msgid "plum"
-msgstr "ciruela"
+msgid "Find the rust butterfly"
+msgstr "Busca el mariposa oxidado"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
-msgid "prussian blue"
-msgstr "azul de Prusia"
+msgid "Find the saffron butterfly"
+msgstr "Busca el mariposa azafrán"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
-msgid "rust"
-msgstr "oxidado"
+msgid "Find the vanilla butterfly"
+msgstr "Busca el mariposa vainilla"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
-msgid "saffron"
-msgstr "azafrán"
+msgid "Find the veronese butterfly"
+msgstr "Busca el mariposa veronés"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
-msgid "vanilla"
-msgstr "vainilla"
+msgid "Find the verdigris butterfly"
+msgstr "Busca el mariposa verdín"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
-msgid "veronese"
-msgstr "veronés"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:71
-msgid "verdigris"
-msgstr "verdín"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:72
-msgid "dark purple"
-msgstr "púrpura oscuro"
+msgid "Find the dark purple butterfly"
+msgstr "Busca el mariposa púrpura oscuro"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid "Practice the multiplication operation"
@@ -1171,13 +1176,15 @@ msgstr ""
 "inténtalo de nuevo."
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:946
+#: ../src/memory-activity/memory.c:953
 msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/findit-activity/findit.py:228
+#: ../src/findit-activity/findit.py:228 ../src/lang-activity/lang.py:112
 #: ../src/play_piano-activity/play_piano.py:82
 #: ../src/play_rhythm-activity/play_rhythm.py:87
 #: ../src/readingh-activity/reading.c:643
@@ -1226,7 +1233,7 @@ msgstr ""
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
-"(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
+"(http://schmode.net/). Ralf has kindly permitted GCompris to include his "
 "pictures. Thanks a lot, Ralf."
 msgstr ""
 "Las fotografías de animales provienen de la Página de Fotografía Animal de "
@@ -1463,7 +1470,7 @@ msgstr "Escoge una casa"
 msgid "Your turn to play ..."
 msgstr "Tu turno para jugar ..."
 
-#: ../src/awele-activity/awele.c:690
+#: ../src/awele-activity/awele.c:692
 msgid "Not allowed! Try again !"
 msgstr "¡No permitido! ¡Prueba otra vez!"
 
@@ -1584,9 +1591,8 @@ msgstr ""
 "entre estos objetos. Arrastra cada objetos al espacio rojo correcto en el "
 "área principal."
 
-#: ../src/babymatch-activity/shapegame.c:2041
-#: ../src/click_on_letter-activity/click_on_letter.c:1315
-#: ../src/missing_letter-activity/missingletter.c:800
+#: ../src/babymatch-activity/shapegame.c:2042
+#: ../src/missing_letter-activity/missingletter.c:808
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1744,7 +1750,13 @@ msgstr "Segunda versión del menú principal"
 msgid "Select a Board"
 msgstr "Selecciona un tablero"
 
-#: ../src/boards/menu2.c:269
+#. Display the profile name
+#: ../src/boards/menu2.c:271 ../src/login-activity/login.py:100
+#, c-format, python-format
+msgid "Profile: %s"
+msgstr "Perfil: %s"
+
+#: ../src/boards/menu2.c:288
 #, c-format
 msgid "Number of activities: %d"
 msgstr "Número de actividades: %d"
@@ -1887,8 +1899,12 @@ msgid "Click me to get some hint"
 msgstr "Pulsa con el botón del ratón sobre mí para obtener alguna pista"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
-msgid "I don't have this number PLAYER {number}"
-msgstr "Yo no tengo este número de JUGADOR {number}"
+msgid ""
+"I don't have this number\n"
+"PLAYER {number}"
+msgstr ""
+"Yo no tengo este número\n"
+"JUGADOR {number}"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:215
 msgid "Lotto Master"
@@ -2047,8 +2063,8 @@ msgstr ""
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Error: el programa externo gnuchess finalizó inesperadamente"
 
-#: ../src/chess_computer-activity/chess.c:265
-#: ../src/chess_computer-activity/chess.c:311
+#: ../src/chess_computer-activity/chess.c:269
+#: ../src/chess_computer-activity/chess.c:315
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2058,36 +2074,36 @@ msgstr ""
 "para jugar al ajedrez en gcompris.\n"
 "Instálalo primero, y verifique que éste se encuentre "
 
-#: ../src/chess_computer-activity/chess.c:656
+#: ../src/chess_computer-activity/chess.c:660
 msgid "White's Turn"
 msgstr "El turno de las blancas"
 
-#: ../src/chess_computer-activity/chess.c:656
+#: ../src/chess_computer-activity/chess.c:660
 msgid "Black's Turn"
 msgstr "El turno de las negras"
 
-#: ../src/chess_computer-activity/chess.c:797
+#: ../src/chess_computer-activity/chess.c:801
 msgid "White checks"
 msgstr "Jaque de blancas"
 
-#: ../src/chess_computer-activity/chess.c:799
+#: ../src/chess_computer-activity/chess.c:803
 msgid "Black checks"
 msgstr "Jaque de negras"
 
-#: ../src/chess_computer-activity/chess.c:1209
+#: ../src/chess_computer-activity/chess.c:1213
 msgid "Black mates"
 msgstr "Jaque mate de negras"
 
-#: ../src/chess_computer-activity/chess.c:1216
+#: ../src/chess_computer-activity/chess.c:1220
 msgid "White mates"
 msgstr "Jaque de blancas"
 
-#: ../src/chess_computer-activity/chess.c:1223 ../src/gcompris/bonus.c:194
+#: ../src/chess_computer-activity/chess.c:1227 ../src/gcompris/bonus.c:194
 #: ../src/gcompris/bonus.c:203
 msgid "Drawn game"
 msgstr "Tablas"
 
-#: ../src/chess_computer-activity/chess.c:1251
+#: ../src/chess_computer-activity/chess.c:1255
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Error: El programa externo gnuchess finalizó inesperadamente"
 
@@ -2367,14 +2383,7 @@ msgstr ""
 "EL pez se toma de la utilidad de Unix xfishtank. Todos los créditos de las "
 "imágenes pertenecen a Guillaume Rousse."
 
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
-#: ../src/click_on_letter-activity/click_on_letter.c:368
-#: ../src/memory-activity/memory.c:935
-msgid "abcdefghijklmnopqrstuvwxyz"
-msgstr "abcdefghijklmnñopqrstuvwxyz"
-
-#: ../src/click_on_letter-activity/click_on_letter.c:379
+#: ../src/click_on_letter-activity/click_on_letter.c:388
 msgid ""
 "This activity will be played with questions displayed as text instead of "
 "being spoken"
@@ -2382,8 +2391,8 @@ msgstr ""
 "Esta actividad se jugará con preguntas mostradas como texto en lugar de "
 "hablarse"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:384
-#: ../src/memory-activity/memory.c:906
+#: ../src/click_on_letter-activity/click_on_letter.c:393
+#: ../src/memory-activity/memory.c:922
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2395,7 +2404,7 @@ msgstr ""
 "Ve al diálogo de configuración para\n"
 "activar el sonido"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:405
+#: ../src/click_on_letter-activity/click_on_letter.c:412
 #, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
@@ -2404,25 +2413,33 @@ msgstr ""
 "Error: esta actividad requiere que instale primero\n"
 "los paquetes con las voces de GCompris para el idioma %s."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:908
+#. TRANSLATORS: Put here the alphabet in your language, letters separated by: /
+#. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
+#. * This is used in reading/click_on_letter and discovery/memory-group
+#: ../src/click_on_letter-activity/click_on_letter.c:833
+#: ../src/memory-activity/memory.c:734
+msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
+msgstr "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1057
 msgid "Questions cannot be empty."
 msgstr "Las preguntas no pueden estar vacías."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:918
+#: ../src/click_on_letter-activity/click_on_letter.c:1066
 msgid "Answers cannot be empty."
 msgstr "Las respuestas no pueden estar vacías."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:924
+#: ../src/click_on_letter-activity/click_on_letter.c:1072
 #, c-format
 msgid "Too many characters in the Answer (maximum is %d)."
 msgstr "Demasiados caracteres en la respuesta (el máximo es %d)."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:948
+#: ../src/click_on_letter-activity/click_on_letter.c:1090
 msgid "All the characters in Questions must also be in the Answers."
 msgstr ""
 "Todos los caracteres de las preguntas deben estar también en las respuestas."
 
-#: ../src/click_on_letter-activity/click_on_letter.c:965
+#: ../src/click_on_letter-activity/click_on_letter.c:1115
 #, c-format
 msgid ""
 "Invalid entry:\n"
@@ -2433,21 +2450,39 @@ msgstr ""
 "En el nivel %d, Preguntas «%s» /Respuestas «%s»\n"
 "%s"
 
-#. answer
-#: ../src/click_on_letter-activity/click_on_letter.c:1259
-#: ../src/missing_letter-activity/missingletter_config.c:420
-#: ../src/missing_letter-activity/missingletter_config.c:548
-msgid "Answer"
-msgstr "Respuesta"
-
 #. question
-#: ../src/click_on_letter-activity/click_on_letter.c:1270
+#: ../src/click_on_letter-activity/click_on_letter.c:1447
 #: ../src/missing_letter-activity/missingletter_config.c:426
 #: ../src/missing_letter-activity/missingletter_config.c:571
 msgid "Question"
 msgstr "Pregunta"
 
-#: ../src/click_on_letter-activity/click_on_letter.c:1405
+#. answer
+#: ../src/click_on_letter-activity/click_on_letter.c:1459
+#: ../src/missing_letter-activity/missingletter_config.c:420
+#: ../src/missing_letter-activity/missingletter_config.c:548
+msgid "Answer"
+msgstr "Respuesta"
+
+#.
+#. * TRANSLATORS: %1$s is the board name (click_on_letter),
+#. * 2$s is the name of the current user profile
+#.
+#: ../src/click_on_letter-activity/click_on_letter.c:1508
+#, c-format
+msgctxt "click_on_letter_config"
+msgid ""
+"<b>%1$s</b> configuration\n"
+" for profile <b>%2$s</b>"
+msgstr ""
+"Configuración de <b>%1$s</b>\n"
+" para el perfil <b>%2$s</b>"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1521
+msgid "Choose a language"
+msgstr "Elige un idioma"
+
+#: ../src/click_on_letter-activity/click_on_letter.c:1597
 #: ../src/gcompris/board_config_wordlist.c:273
 msgid "Back to default"
 msgstr "Restablecer predeterminados"
@@ -2520,40 +2555,56 @@ msgstr ""
 "ratón, para hacer que los números suban o bajen."
 
 #: ../src/color_mix-activity/color_mix.py:72
-msgid "Match the color "
+msgid "Match the color"
 msgstr "Iguala el color "
 
 #: ../src/color_mix-activity/color_mix.py:251
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-msgid "red"
-msgstr "rojo"
+msgid "Not enough red"
+msgstr "Poco rojo"
+
+#: ../src/color_mix-activity/color_mix.py:251
+msgid "Too much red"
+msgstr "Demasiado rojo"
 
 #: ../src/color_mix-activity/color_mix.py:252
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-msgid "green"
-msgstr "verde"
+msgid "Not enough green"
+msgstr "Poco verde"
+
+#: ../src/color_mix-activity/color_mix.py:252
+msgid "Too much green"
+msgstr "Demasiado verde"
 
 #: ../src/color_mix-activity/color_mix.py:253
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-msgid "blue"
-msgstr "azul"
+msgid "Not enough blue"
+msgstr "Poco azul"
+
+#: ../src/color_mix-activity/color_mix.py:253
+msgid "Too much blue"
+msgstr "Demasiado azul"
+
+#: ../src/color_mix-activity/color_mix.py:255
+msgid "Not enough cyan"
+msgstr "Poco cián"
+
+#: ../src/color_mix-activity/color_mix.py:255
+msgid "Too much cyan"
+msgstr "Demasiado cián"
+
+#: ../src/color_mix-activity/color_mix.py:256
+msgid "Not enough magenta"
+msgstr "Poco magenta"
+
+#: ../src/color_mix-activity/color_mix.py:256
+msgid "Too much magenta"
+msgstr "Demasiado magenta"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-msgid "yellow"
-msgstr "amarillo"
+msgid "Not enough yellow"
+msgstr "Poco amarillo"
 
-#: ../src/color_mix-activity/color_mix.py:336
-#: ../src/color_mix-activity/color_mix.py:341
-#: ../src/color_mix-activity/color_mix.py:346
-msgid "Too much {color}"
-msgstr "Demasiado {color}"
-
-#: ../src/color_mix-activity/color_mix.py:338
-#: ../src/color_mix-activity/color_mix.py:343
-#: ../src/color_mix-activity/color_mix.py:348
-msgid "Not enough {color}"
-msgstr "Poco {color}"
+#: ../src/color_mix-activity/color_mix.py:257
+msgid "Too much yellow"
+msgstr "Demasiado amarillo"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:1
 msgid "Mixing color of paint"
@@ -2660,30 +2711,45 @@ msgstr ""
 msgid "Listen to the color and click on the matching duck."
 msgstr "Escucha el color y pulsa en el pato que corresponda."
 
-#. Translator: Do not translate {text}.
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:1
+msgid "Find the yellow duck"
+msgstr "Encuentra el pato amarillo"
+
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
-msgid "Find the {text} duck"
-msgstr "Busca el pato {text}"
+msgid "Find the black duck"
+msgstr "Encuentra el pato negro"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+msgid "Find the green duck"
+msgstr "Encuentra el pato verde"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-msgid "black"
-msgstr "negro"
+msgid "Find the red duck"
+msgstr "Encuentra el pato rojo"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+msgid "Find the white duck"
+msgstr "Encuentra el pato blanco"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+msgid "Find the blue duck"
+msgstr "Encuentra el pato azul"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-msgid "white"
-msgstr "blanco"
+msgid "Find the brown duck"
+msgstr "Encuentra el pato marrón"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+msgid "Find the grey duck"
+msgstr "Encuentra el pato gris"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
-msgid "brown"
-msgstr "marrón"
+msgid "Find the orange duck"
+msgstr "Encuentra el pato naranja"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-msgid "grey"
-msgstr "gris"
-
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
-msgid "orange"
-msgstr "naranja"
+msgid "Find the purple duck"
+msgstr "Encuentra el pato púrpura"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 msgid "Connect 4 (2 Players)"
@@ -2937,9 +3003,9 @@ msgstr ""
 "borrar un objeto."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:410 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:342
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:504
+#: ../src/piano_composition-activity/piano_composition.py:505
 msgid "Cannot find the file '{filename}'"
 msgstr "No se puede encontrar el archivo «{filename}»"
 
@@ -3078,8 +3144,8 @@ msgstr "Mueve el ratón para aclarar la zona y descubre el dibujo escondido"
 msgid "Error: No images found\n"
 msgstr "Error: no se encontró ninguna imagen\n"
 
-#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:510
-#: ../src/gcompris/properties.c:517
+#: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:511
+#: ../src/gcompris/properties.c:518
 msgid "readme"
 msgstr "léeme"
 
@@ -3131,9 +3197,9 @@ msgstr ""
 "Pulsa en los rectángulos con el ratón hasta que desaparezcan todos los "
 "bloques."
 
-#: ../src/explore-activity/explore.py:85
+#: ../src/explore-activity/explore.py:85 ../src/lang-activity/lang.py:106
 #: ../src/note_names-activity/note_names.py:82
-#: ../src/piano_composition-activity/piano_composition.py:371
+#: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
 #: ../src/play_rhythm-activity/play_rhythm.py:83
 msgid ""
@@ -3156,9 +3222,9 @@ msgstr "Pulsa para reproducir el sonido"
 msgid "Back to Homepage"
 msgstr "Volver a la página inicial"
 
-#: ../src/explore-activity/explore.py:415 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:347
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:509
+#: ../src/piano_composition-activity/piano_composition.py:510
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3166,7 +3232,7 @@ msgstr ""
 "Falló al analizar el conjunto de datos «{filename}» con el error:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:505
+#: ../src/explore-activity/explore.py:507
 msgid "Explore Status:"
 msgstr "Explorar estado:"
 
@@ -3347,8 +3413,8 @@ msgid ""
 "The dog goes \"bark! bark!\". Dogs are great human companions and usually "
 "enjoy love and attention."
 msgstr ""
-"El perro hace «¡guau! ¡guau!». Los perros son grandes compañeros del hombre y "
-"suelen gozar de cariño y atención."
+"El perro hace «¡guau! ¡guau!». Los perros son grandes compañeros del hombre "
+"y suelen gozar de cariño y atención."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
 msgid "This animal's ancestors were wolves."
@@ -3624,7 +3690,7 @@ msgid "Where is music used to call people to prayer?"
 msgstr "¿Dónde se usa la música para llamar a la gente a rezar?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:52
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:53
 msgid "Japan"
 msgstr "Japón"
 
@@ -3811,9 +3877,9 @@ msgstr ""
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:57
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr ""
-"Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2012\n"
+"Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2013\n"
 "Jorge González <jorgegonz@svn.gnome.org>, 2007-2010\n"
 "Susana González <sgonzalez@igalia.com>, 2007\n"
 "QA: Jorge González <jorgegonz@svn.gnome.org>, 2007\n"
@@ -3840,25 +3906,25 @@ msgstr ""
 "Este software es un paquete GNU y se distribuye bajo los términos de la "
 "Licencia Pública General de GNU"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:487
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:468
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
 msgstr "Aceptar"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:701
 msgid "GCompris confirmation"
 msgstr "Confirmación de GCompris"
 
-#: ../src/gcompris/bar.c:696
+#: ../src/gcompris/bar.c:702
 msgid "Are you sure you want to quit?"
 msgstr "¿Seguro que deseas salir?"
 
-#: ../src/gcompris/bar.c:697
+#: ../src/gcompris/bar.c:703
 msgid "Yes, I am sure!"
 msgstr "¡Sí, estoy seguro!"
 
-#: ../src/gcompris/bar.c:698
+#: ../src/gcompris/bar.c:704
 msgid "No, I want to keep going"
 msgstr "No, quiero continuar"
 
@@ -3918,49 +3984,53 @@ msgstr "Elección de idioma"
 msgid "Choice of the level"
 msgstr "Elección de nivel"
 
-#: ../src/gcompris/config.c:58
+#: ../src/gcompris/config.c:57
 msgid "Language: your system default"
 msgstr "Idioma: el predeterminado en su sistema"
 
-#: ../src/gcompris/config.c:59
+#: ../src/gcompris/config.c:58
 msgid "Afrikaans"
 msgstr "Afrikáans"
 
-#: ../src/gcompris/config.c:60
+#: ../src/gcompris/config.c:59
 msgid "Albanian"
 msgstr "Albanés"
 
-#: ../src/gcompris/config.c:61
+#: ../src/gcompris/config.c:60
 msgid "Amharic"
 msgstr "Amharico"
 
-#: ../src/gcompris/config.c:62
+#: ../src/gcompris/config.c:61
 msgid "Arabic"
 msgstr "Árabe"
 
-#: ../src/gcompris/config.c:63
+#: ../src/gcompris/config.c:62
 msgid "Asturian"
 msgstr "Asturiano"
 
-#: ../src/gcompris/config.c:64
+#: ../src/gcompris/config.c:63
 msgid "Basque"
 msgstr "Vasco"
 
-#: ../src/gcompris/config.c:65
+#: ../src/gcompris/config.c:64
 msgid "Breton"
 msgstr "Bretón"
 
-#: ../src/gcompris/config.c:66
+#: ../src/gcompris/config.c:65
 msgid "Bulgarian"
 msgstr "Búlgaro"
 
-#: ../src/gcompris/config.c:67
+#: ../src/gcompris/config.c:66
 msgid "Catalan"
 msgstr "Catalán"
 
-#: ../src/gcompris/config.c:68
+#: ../src/gcompris/config.c:67
 msgid "Chinese (Simplified)"
 msgstr "Chino (simplificado)"
+
+#: ../src/gcompris/config.c:68
+msgid "Chinese (Hong Kong)"
+msgstr "Chino (Hong Kong)"
 
 #: ../src/gcompris/config.c:69
 msgid "Chinese (Traditional)"
@@ -4008,257 +4078,251 @@ msgid "French"
 msgstr "Francés"
 
 #: ../src/gcompris/config.c:80
+msgid "Galician"
+msgstr "Galicia"
+
+#: ../src/gcompris/config.c:81
 msgid "Georgian"
 msgstr "Georgiano"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:82
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 msgid "German"
 msgstr "Alemán"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:83
 msgid "Greek"
 msgstr "Griego"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:113
 msgid "Scottish Gaelic"
 msgstr "Gaélico escocés"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:85
 msgid "Gujarati"
 msgstr "Gujarati"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:86
 msgid "Hebrew"
 msgstr "Hebreo"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:87
 msgid "Hindi"
 msgstr "Hindi"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:88
 msgid "Hungarian"
 msgstr "Húngaro"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:89
 msgid "Indonesian"
 msgstr "Indonesio"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:90
 msgid "Irish (Gaelic)"
 msgstr "Irlandés (Galés)"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:91
 msgid "Italian"
 msgstr "Italiano"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:92
 msgid "Japanese"
 msgstr "Japonés"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:93
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:94
 msgid "Korean"
 msgstr "Coreano"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Latvian"
 msgstr "Letón"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Lithuanian"
 msgstr "Lituano"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Macedonian"
 msgstr "Macedonio"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Malay"
 msgstr "Malayo"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Malayalam"
 msgstr "Malayo"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Marathi"
 msgstr "Marathi"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Montenegrin"
 msgstr "Montenegrin"
 
-#: ../src/gcompris/config.c:101
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:37
+#: ../src/gcompris/config.c:102
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
 msgid "Nepal"
 msgstr "Nepal"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 msgid "Norwegian Bokmal"
 msgstr "Noruego Bokmal"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Norwegian Nynorsk"
 msgstr "Noruego Nynorsk"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Occitan (languedocien)"
 msgstr "Occitano (languedoc)"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Persian"
 msgstr "Persa"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Polish"
 msgstr "Polaco"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Portuguese (Brazil)"
 msgstr "Portugués (Brasil)"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Portuguese"
 msgstr "Portugués"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Punjabi"
 msgstr "Punjabi"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Romanian"
 msgstr "Rumano"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Russian"
 msgstr "Ruso"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:114
 msgid "Serbian (Latin)"
 msgstr "Servio (latino)"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:115
 msgid "Serbian"
 msgstr "Servio"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:116
 msgid "Slovak"
 msgstr "Eslovaco"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:117
 msgid "Slovenian"
 msgstr "Esloveno"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:118
 msgid "Somali"
 msgstr "Somalí"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:119
 msgid "Spanish"
 msgstr "Español"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:120
 msgid "Swedish"
 msgstr "Sueco"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:121
 msgid "Tamil"
 msgstr "Tamil"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:122
 msgid "Thai"
 msgstr "Tailandés"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:123
 msgid "Turkish (Azerbaijan)"
 msgstr "Turco (Azerbaiyaní)"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:124
 msgid "Turkish"
 msgstr "Turco"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:125
 msgid "Ukrainian"
 msgstr "Ucraniano"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:126
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:127
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:128
 msgid "Walloon"
 msgstr "Valón"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:129
 msgid "Zulu"
 msgstr "Zulú"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:134
 msgid "Timer: No time limit"
 msgstr "Temporizador: sin límite de tiempo"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:135
 msgid "Timer: Slow timer"
 msgstr "Temporizador: temporizador lento"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:136
 msgid "Timer: Normal timer"
 msgstr "Temporizador: temporizador normal"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:137
 msgid "Timer: Fast timer"
 msgstr "Temporizador: temporizador rápido"
 
-#: ../src/gcompris/config.c:139
-msgid "Use Gcompris administration module to filter boards"
+#: ../src/gcompris/config.c:141
+msgid "Use GCompris administration module to filter boards"
 msgstr "Usa el módulo de administración de GCompris para filtrar tableros"
 
-#: ../src/gcompris/config.c:193
+#: ../src/gcompris/config.c:195
 msgid "GCompris Configuration"
 msgstr "Configuración de GCompris"
 
-#: ../src/gcompris/config.c:276
+#: ../src/gcompris/config.c:267
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: ../src/gcompris/config.c:301
+#: ../src/gcompris/config.c:292
 msgid "Remember level for default user"
 msgstr "Recordar el nivel para usuario predeterminado"
 
-#: ../src/gcompris/config.c:327
+#: ../src/gcompris/config.c:318
 msgid "Music"
 msgstr "Música"
 
-#: ../src/gcompris/config.c:352
+#: ../src/gcompris/config.c:343
 msgid "Effect"
 msgstr "Efecto"
 
-#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:367 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Ampliación"
 
-#: ../src/gcompris/config.c:413
+#: ../src/gcompris/config.c:432 ../src/gcompris/config.c:742
 #, c-format
-msgid "Couldn't open skin dir: %s"
-msgstr "No se pudo abrir la carpeta de apariencias: %s"
-
-#: ../src/gcompris/config.c:444 ../src/gcompris/config.c:924
-#: ../src/gcompris/config.c:938
-#, c-format
-msgid "Skin : %s"
-msgstr "Apariencia : %s"
-
-#: ../src/gcompris/config.c:446
-msgid "SKINS NOT FOUND"
-msgstr "APARIENCIAS NO ENCONTRADAS"
+msgid "Font: %s"
+msgstr "Tipografía: %s"
 
 #: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
@@ -4457,14 +4521,14 @@ msgid "For test purpose, run in a loop all the activities"
 msgstr "Para pruebas, ejecutar en un bucle todas las actividades"
 
 #: ../src/gcompris/gcompris.c:259
-msgid "display debug informations on the console."
+msgid "display debug information on the console."
 msgstr "mostrar información de depuración en la consola."
 
 #: ../src/gcompris/gcompris.c:262
 msgid "Print the version of "
 msgstr "Imprime la versión de "
 
-#: ../src/gcompris/gcompris.c:947
+#: ../src/gcompris/gcompris.c:942
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -4486,18 +4550,18 @@ msgstr ""
 "considera usar GNU/Linux. Obtén más información acerca de esto en la FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1240
+#: ../src/gcompris/gcompris.c:1236
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Falló al cargar la apariencia «%s» (comprueba que el archivo existe y se "
 "puede leer)"
 
-#: ../src/gcompris/gcompris.c:1256
+#: ../src/gcompris/gcompris.c:1252
 msgid "Retrieving remote data..."
 msgstr "Recuperando datos remotos..."
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1513
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4510,12 +4574,12 @@ msgstr[1] ""
 "No se iniciará GCompris porque el archivo de bloqueo es menos antiguo de %d "
 "segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1521
+#: ../src/gcompris/gcompris.c:1517
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "El archivo de bloqueo es: %s\n"
 
-#: ../src/gcompris/gcompris.c:1642
+#: ../src/gcompris/gcompris.c:1638
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4529,27 +4593,27 @@ msgstr ""
 "Más información en http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1827
+#: ../src/gcompris/gcompris.c:1823
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Usa -l actividad para acceder directamente a una actividad.\n"
 
-#: ../src/gcompris/gcompris.c:1828
+#: ../src/gcompris/gcompris.c:1824
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Lista de actividades disponibles es :\n"
 
-#: ../src/gcompris/gcompris.c:1859
+#: ../src/gcompris/gcompris.c:1855
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de actividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1895
+#: ../src/gcompris/gcompris.c:1891
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe pero no se puede leer o escribir"
 
-#: ../src/gcompris/gcompris.c:1990
+#: ../src/gcompris/gcompris.c:1986
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4558,7 +4622,7 @@ msgstr ""
 "ERROR: no se encontró el perfil «%s». Ejecute «gcompris --profile list» para "
 "listar los disponibles\n"
 
-#: ../src/gcompris/gcompris.c:2004
+#: ../src/gcompris/gcompris.c:2000
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "La lista de perfiles disponibles es:\n"
@@ -4611,9 +4675,9 @@ msgid ""
 "administration module and activate at least one activity."
 msgstr ""
 "Se han desactivado todas las actividades en este perfil. Vaya al módulo de "
-"administración de Gcompris y active al menos una actividad."
+"administración de GCompris y active al menos una actividad."
 
-#: ../src/gcompris/properties.c:512
+#: ../src/gcompris/properties.c:513
 msgid ""
 "This directory contains the files you create with the GCompris educational "
 "suite\n"
@@ -4621,7 +4685,7 @@ msgstr ""
 "Esta carpeta contiene los archivos que creas con la suit educacional "
 "GCompris\n"
 
-#: ../src/gcompris/properties.c:519
+#: ../src/gcompris/properties.c:520
 msgid ""
 "Put any number of images in this directory.\n"
 "You can include these images in your drawings and animations.\n"
@@ -4700,12 +4764,276 @@ msgstr ""
 "Licencia de Documentación Libre GNU. Olaf Ronneberger y sus hijos Lina y "
 "Julia Ronneberger crearon el nivel alemán."
 
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
+msgid "United States of America"
+msgstr "Estados Unidos de América"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:2
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:2
+msgid "Connecticut"
+msgstr "Connecticut"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:3
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:3
+msgid "Rhode Island"
+msgstr "Rhode Island"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:4
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:4
+msgid "Massachusetts"
+msgstr "Massachusetts"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:5
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:5
+msgid "Wyoming"
+msgstr "Wyoming"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:6
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:6
+msgid "Utah"
+msgstr "Utah"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:7
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:7
+msgid "Nevada"
+msgstr "Nevada"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:8
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:8
+msgid "California"
+msgstr "California"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:9
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
+msgid "Washington D.C."
+msgstr "Washington D.C."
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:10
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
+msgid "Maine"
+msgstr "Maine"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:11
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:11
+msgid "New Hampshire"
+msgstr "New Hampshire"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:12
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:12
+msgid "Vermont"
+msgstr "Vermont"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:13
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:13
+msgid "New York"
+msgstr "Nueva York"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:14
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:14
+msgid "Pennsylvania"
+msgstr "Pensilvania"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:15
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:15
+msgid "Delaware"
+msgstr "Delaware"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:16
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:16
+msgid "New Jersey"
+msgstr "Nueva Jersey"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:17
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:17
+msgid "Maryland"
+msgstr "Maryland"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:18
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:18
+msgid "Alabama"
+msgstr "Alabama"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:19
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:19
+msgid "Florida"
+msgstr "Florida"
+
+#. Translators: Strip USA| and translate only Georgia
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:21
+msgid "USA|Georgia"
+msgstr "Georgia"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:22
+msgid "South Carolina"
+msgstr "Carolina del Sur"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:23
+msgid "North Carolina"
+msgstr "Carolina del Norte"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:24
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:24
+msgid "Virginia"
+msgstr "Virginia"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:25
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:25
+msgid "West Virginia"
+msgstr "Virginia Occidental"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:26
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:26
+msgid "Ohio"
+msgstr "Ohio"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:27
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:27
+msgid "Michigan"
+msgstr "Michigan"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:28
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:28
+msgid "Wisconsin"
+msgstr "Wisconsin"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:29
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:29
+msgid "Illinois"
+msgstr "Illinois"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:30
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:30
+msgid "Indiana"
+msgstr "Indiana"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:31
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:31
+msgid "Kentucky"
+msgstr "Kentucky"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:32
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:32
+msgid "Tennessee"
+msgstr "Tennessee"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:33
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:33
+msgid "Mississippi"
+msgstr "Mississippi"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:34
+msgid "Louisiana"
+msgstr "Louisiana"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:35
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:35
+msgid "Arkansas"
+msgstr "Arkansas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:36
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:36
+msgid "Missouri"
+msgstr "Missouri"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:37
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:37
+msgid "Iowa"
+msgstr "Iowa"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:38
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:38
+msgid "Minnesota"
+msgstr "Minnesota"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:39
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:39
+msgid "Oklahoma"
+msgstr "Oklahoma"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:40
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:40
+msgid "Texas"
+msgstr "Texas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:41
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:41
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
+msgid "Hawaii"
+msgstr "Hawái"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:42
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:42
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
+msgid "Alaska"
+msgstr "Alaska"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:43
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:43
+msgid "Arizona"
+msgstr "Arizona"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:44
+msgid "New Mexico"
+msgstr "Nuevo México"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:45
+msgid "Colorado"
+msgstr "Colorado"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:46
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:46
+msgid "Kansas"
+msgstr "Kansas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:47
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:47
+msgid "Nebraska"
+msgstr "Nebraska"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:48
+msgid "South Dakota"
+msgstr "Dakota del Sur"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:49
+msgid "North Dakota"
+msgstr "Dakota del Norte"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:50
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:50
+msgid "Montana"
+msgstr "Montana"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:51
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:51
+msgid "Idaho"
+msgstr "Idaho"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:52
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:52
+msgid "Oregon"
+msgstr "Oregon"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:53
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:53
+msgid "Washington"
+msgstr "Washington"
+
 #: ../src/geo_country-activity/resources/geo_country/board1_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Regiones de Francia"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:41
 msgid "India"
 msgstr "India"
 
@@ -5041,112 +5369,113 @@ msgstr "Siria"
 msgid "Turkey"
 msgstr "Turquía"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:25
-msgid "Georgia"
+#. Translators: Strip Asia| and translate only Georgia
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
+msgid "Asia|Georgia"
 msgstr "Georgia"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:27
 msgid "Azerbaijan"
 msgstr "Azerbaiyán"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:28
 msgid "Iran"
 msgstr "Irán"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:29
 msgid "Turkmenistan"
 msgstr "Turkmenistán"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:30
 msgid "Kyrgyzstan"
 msgstr "Kirguistán"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:31
 msgid "Tajikistan"
 msgstr "Tayikistán"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:32
 msgid "Afghanistan"
 msgstr "Agfanistán"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:33
 msgid "Malaysia"
 msgstr "Malasia"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:34
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:19
 msgid "Indonesia"
 msgstr "Indonesia"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:35
 msgid "Philippines"
 msgstr "Filipinas"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:35
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:36
 msgid "Myanmar"
 msgstr "Myanmar"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:36
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:37
 msgid "Pakistan"
 msgstr "Pakistán"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:39
 msgid "Bhutan"
 msgstr "Bután"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:39
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
 msgid "Bangladesh"
 msgstr "Bangladesh"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:41
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:42
 msgid "China"
 msgstr "China"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:42
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:43
 msgid "Sri Lanka"
 msgstr "Sri Lanka"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:43
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:44
 msgid "Thailand"
 msgstr "Tailandia"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:44
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:45
 msgid "Laos"
 msgstr "Laos"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:45
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:46
 msgid "Cambodia"
 msgstr "Camboya"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:46
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:47
 msgid "Vietnam"
 msgstr "Vietnam"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:47
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:48
 msgid "Taiwan"
 msgstr "Taiwan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:48
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:49
 msgid "Uzbekistan"
 msgstr "Uzbekistán"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:49
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:50
 msgid "Kazakhstan"
 msgstr "Kazajistán"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:50
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:51
 msgid "South Korea"
 msgstr "Corea del Sur"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:51
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:52
 msgid "North Korea"
 msgstr "Corea del Norte"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:53
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:54
 msgid "Mongolia"
 msgstr "Mongolia"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:54
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:55
 #: ../src/geography-activity/resources/geography/board6_0.xml.in.h:16
 msgid "Russia"
 msgstr "Rusia"
@@ -5171,10 +5500,6 @@ msgstr "Europa"
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:1
 msgid "Oceania"
 msgstr "Oceanía"
-
-#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
-msgid "Hawaii"
-msgstr "Hawái"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:3
 msgid "United States Minor Outlying Islands"
@@ -5268,14 +5593,6 @@ msgstr "Groenlandia"
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:8
 msgid "Iceland"
 msgstr "Islandia"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
-msgid "United States of America"
-msgstr "Estados Unidos de América"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
-msgid "Alaska"
-msgstr "Alaska"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
@@ -5587,7 +5904,7 @@ msgid "Central African Republic"
 msgstr "República de África Central"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
 msgid "Chad"
 msgstr "Chad"
 
@@ -5685,7 +6002,7 @@ msgid "Rwanda"
 msgstr "Ruanda"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:27
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
 msgid "Senegal"
 msgstr "Senegal"
 
@@ -5694,22 +6011,22 @@ msgid "Sierra Leone"
 msgstr "Sierra Leona"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:29
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
 msgid "Somalia"
 msgstr "Somalia"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:30
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
 msgid "Sudan"
 msgstr "Sudán"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:31
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Togo"
 msgstr "Togo"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:32
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
 msgid "Tunisia"
 msgstr "Túnez"
 
@@ -5742,7 +6059,7 @@ msgid "Burundi"
 msgstr "Burundi"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
 msgid "Democratic Republic of Congo"
 msgstr "República Democrática del Congo"
 
@@ -5776,6 +6093,7 @@ msgid "Namibia"
 msgstr "Namibia"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
 msgid "Republic of Congo"
 msgstr "República del Congo"
 
@@ -5789,17 +6107,17 @@ msgid "Swaziland"
 msgstr "Swaziland"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
 msgid "Tanzania"
 msgstr "Tanzania"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
 msgid "Zambia"
 msgstr "Zambia"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:40
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
@@ -5822,25 +6140,17 @@ msgstr ""
 "una lista de palabras para jugar este juego.\n"
 
 #. Should display the dialog box here
-#: ../src/gletters-activity/gletters.c:762
+#: ../src/gletters-activity/gletters.c:786
 msgid "ERROR: Unable to get letter from wordlist"
 msgstr "ERROR: no se puede obtener letras de la lista de palabras"
 
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:1007
+#: ../src/gletters-activity/gletters.c:1032
 #: ../src/imageid-activity/imageid.c:716
-#: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:918
-#: ../src/scalesboard-activity/scale.c:1258
+#: ../src/scalesboard-activity/scale.c:1259
 #: ../src/smallnumbers-activity/smallnumbers.c:598
-#: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:907
-#, c-format, python-format
+#: ../src/wordsgame-activity/wordsgame.c:936
+#, c-format
 msgid ""
 "<b>%s</b> configuration\n"
 " for profile <b>%s</b>"
@@ -5848,12 +6158,12 @@ msgstr ""
 "<b>%s</b> configuración\n"
 " para el perfil <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:1036
+#: ../src/gletters-activity/gletters.c:1064
 #: ../src/smallnumbers-activity/smallnumbers.c:617
 msgid "Enable sounds"
 msgstr "Activar sonidos"
 
-#: ../src/gletters-activity/gletters.c:1040
+#: ../src/gletters-activity/gletters.c:1068
 msgid ""
 "Show letters in UPPERCASE\n"
 "Type in lowercase or UPPERCASE as you wish"
@@ -5895,31 +6205,31 @@ msgstr ""
 "Usa los cursores del teclado para moverte por el tablero y evitar a los "
 "Troggles. Pulsa la barra espaciadora para comerte un número."
 
-#: ../src/gnumch-equality-activity/gnumch.py:94
+#: ../src/gnumch-equality-activity/gnumch.py:95
 #, python-format
 msgid ", %d"
 msgstr ", %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:95
+#: ../src/gnumch-equality-activity/gnumch.py:96
 #, python-format
 msgid " and %d"
 msgstr " y %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:115
+#: ../src/gnumch-equality-activity/gnumch.py:116
 msgid "{0} is divisible by {1}."
 msgstr "{0} es divisible por {1}."
 
-#: ../src/gnumch-equality-activity/gnumch.py:119
+#: ../src/gnumch-equality-activity/gnumch.py:120
 msgid "1 is not a prime number."
 msgstr "1 no es un número primo."
 
-#: ../src/gnumch-equality-activity/gnumch.py:129
+#: ../src/gnumch-equality-activity/gnumch.py:130
 #, python-format
 msgid "Primes less than %d"
 msgstr "Primos menores que %d"
 
 #. Translators: You can swap %(x)y elements in the string.
-#: ../src/gnumch-equality-activity/gnumch.py:151
+#: ../src/gnumch-equality-activity/gnumch.py:152
 #, python-format
 msgid ""
 "Multiples of %(d1)d include %(s)s,\n"
@@ -5928,51 +6238,51 @@ msgstr ""
 "Los múltiplos de %(d1)d incluyen a %(s)s,\n"
 "pero %(d2)d no es un múltiplo de %(d3)d."
 
-#: ../src/gnumch-equality-activity/gnumch.py:162
+#: ../src/gnumch-equality-activity/gnumch.py:163
 #, python-format
 msgid "Factors of %d"
 msgstr "Factores de %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:195
+#: ../src/gnumch-equality-activity/gnumch.py:196
 msgid "{0} are the factors of {1}."
 msgstr "{0} son los factores de {1}."
 
-#: ../src/gnumch-equality-activity/gnumch.py:207
+#: ../src/gnumch-equality-activity/gnumch.py:208
 #, python-format
 msgid "Multiples of %d"
 msgstr "Múltiplos de %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:241
+#: ../src/gnumch-equality-activity/gnumch.py:242
 msgid "{0} = {1}"
 msgstr "{0} = {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:252
+#: ../src/gnumch-equality-activity/gnumch.py:253
 msgid "{0} + {1}"
 msgstr "{0} + {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:257
+#: ../src/gnumch-equality-activity/gnumch.py:258
 msgid "{0} − {1}"
 msgstr "{0} − {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:262
+#: ../src/gnumch-equality-activity/gnumch.py:263
 msgid "{0} × {1}"
 msgstr "{0} × {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:266
+#: ../src/gnumch-equality-activity/gnumch.py:267
 msgid "{0} ÷ {1}"
 msgstr "{0} ÷ {1}"
 
-#: ../src/gnumch-equality-activity/gnumch.py:274
+#: ../src/gnumch-equality-activity/gnumch.py:275
 #, python-format
 msgid "Equal to %d"
 msgstr "Igual a %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:295
+#: ../src/gnumch-equality-activity/gnumch.py:296
 #, python-format
 msgid "Not equal to %d"
 msgstr "No igual que %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:439
+#: ../src/gnumch-equality-activity/gnumch.py:445
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
@@ -5980,11 +6290,11 @@ msgstr ""
 "Te ha comido un Troggle.\n"
 "Pulsa <Intro> para continuar."
 
-#: ../src/gnumch-equality-activity/gnumch.py:488
+#: ../src/gnumch-equality-activity/gnumch.py:494
 msgid "You ate a wrong number.\n"
 msgstr "Te has comido un número equivocado.\n"
 
-#: ../src/gnumch-equality-activity/gnumch.py:489
+#: ../src/gnumch-equality-activity/gnumch.py:495
 msgid ""
 "\n"
 "Press <Return> to continue."
@@ -5992,7 +6302,7 @@ msgstr ""
 "\n"
 "Pulsa <Intro> para continuar."
 
-#: ../src/gnumch-equality-activity/gnumch.py:783
+#: ../src/gnumch-equality-activity/gnumch.py:789
 msgid ""
 "T\n"
 "R\n"
@@ -6208,8 +6518,8 @@ msgstr "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
 #. Letters on the left of the = can be multigraphs and represent the letters on the buttons.
 #. Letters on the right are single letters pressed on the keyboard.
 #. If you wish to allow different key presses for the same letter, separate the letters
-#. on the right with /
-#: ../src/hangman-activity/hangman.py:76
+#. on the right with the chararcter '/'. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:77
 msgid "a=a"
 msgstr "a=a"
 
@@ -6261,7 +6571,7 @@ msgstr "Torre de Hanoi simplificada"
 msgid "Reproduce the given tower"
 msgstr "Reproduce la torre indicada"
 
-#: ../src/hanoi-activity/hanoi.c:348
+#: ../src/hanoi-activity/hanoi.c:349
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
@@ -6379,19 +6689,19 @@ msgstr ""
 
 # Supongo que medidor es una buena traducción para 'meter', ¿no?
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:170
+#: ../src/hydroelectric-activity/hydroelectric.py:171
 msgid "This is the meter for electricity produced by the turbine. "
 msgstr "Este es el medidor para la electricidad producida por una turbina. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:171
-#: ../src/hydroelectric-activity/hydroelectric.py:284
-#: ../src/hydroelectric-activity/hydroelectric.py:292
-#: ../src/hydroelectric-activity/hydroelectric.py:323
-#: ../src/hydroelectric-activity/hydroelectric.py:346
+#: ../src/hydroelectric-activity/hydroelectric.py:172
+#: ../src/hydroelectric-activity/hydroelectric.py:288
+#: ../src/hydroelectric-activity/hydroelectric.py:296
+#: ../src/hydroelectric-activity/hydroelectric.py:327
+#: ../src/hydroelectric-activity/hydroelectric.py:350
 msgid "The electricity power is measured in watts (W)."
 msgstr "La potencia eléctrica se mide en Vatios (W)."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:176
+#: ../src/hydroelectric-activity/hydroelectric.py:177
 msgid ""
 "Flowing water is directed on to the blades of a turbine runner, creating a "
 "force on the blades. In this way, energy is transferred from the water flow "
@@ -6401,12 +6711,12 @@ msgstr ""
 "fuerza en las aspas. De esta manera, la energía es transferida desde el agua "
 "hacia la turbina"
 
-#: ../src/hydroelectric-activity/hydroelectric.py:190
+#: ../src/hydroelectric-activity/hydroelectric.py:191
 msgid "This cloud simulates the wind, click on it to have wind."
 msgstr "Esta nube puede simular el viento, púlsala para generar viento."
 
 # ¿Qué es 'step down'?
-#: ../src/hydroelectric-activity/hydroelectric.py:228
+#: ../src/hydroelectric-activity/hydroelectric.py:229
 msgid ""
 "This is a step down transformer. Electricity is transformed in low voltage, "
 "ready to be used by the customers."
@@ -6415,23 +6725,23 @@ msgstr ""
 "voltaje, listo para que los consumidores lo usen."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:283
+#: ../src/hydroelectric-activity/hydroelectric.py:287
 msgid "This is the meter for all the electricity produced. "
 msgstr "Este es el medidor para toda la electricidad producida. "
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:291
+#: ../src/hydroelectric-activity/hydroelectric.py:295
 msgid "This is the meter for electricity consumed by the users. "
 msgstr "Este es el medidor para la electricidad consumida por los usuarios. "
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:322
+#: ../src/hydroelectric-activity/hydroelectric.py:326
 msgid "This is the meter for electricity produced by the solar panels. "
 msgstr ""
 "Este es el medidor para la electricidad producida por los paneles solares. "
 
 # ¿Efecto fotovoltaico? ¿No es un proceso?
-#: ../src/hydroelectric-activity/hydroelectric.py:328
+#: ../src/hydroelectric-activity/hydroelectric.py:332
 msgid ""
 "Solar panels use light energy (photons) from the sun to generate electricity "
 "through the photovoltaic effect."
@@ -6440,12 +6750,12 @@ msgstr ""
 "para generar electricidad a través de la energía fotovoltaica."
 
 #. Translator : "meter" here means a measuring device
-#: ../src/hydroelectric-activity/hydroelectric.py:345
+#: ../src/hydroelectric-activity/hydroelectric.py:349
 msgid "This is the meter for electricity produced by the wind turbines. "
 msgstr ""
 "Este es un medidor para la electricidad producida por los aerogeneradores. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:351
+#: ../src/hydroelectric-activity/hydroelectric.py:355
 msgid ""
 "A wind turbine is a device that converts wind motion energy into electricity "
 "generation. It is called a wind generator or wind charger. "
@@ -6454,7 +6764,7 @@ msgstr ""
 "viento en generación eléctrica. Se le llama generador de viento o molino de "
 "viento. "
 
-#: ../src/hydroelectric-activity/hydroelectric.py:737
+#: ../src/hydroelectric-activity/hydroelectric.py:741
 msgid ""
 "It is not possible to consume more electricity than what is produced. This "
 "is a key limitation in the distribution of electricity, with minor "
@@ -6474,7 +6784,7 @@ msgstr ""
 "su equipo de trasmisión, se puede apagar. En el peor de los casos, esto "
 "puede llevar a un apagón general en la región alimentada por esos equipos."
 
-#: ../src/hydroelectric-activity/hydroelectric.py:951
+#: ../src/hydroelectric-activity/hydroelectric.py:958
 msgid ""
 "This is a step up transformer. Electricity is transmitted at high voltages "
 "(110 kV or above) to reduce the energy lost in long distance transmission."
@@ -6536,7 +6846,7 @@ msgstr ""
 "proponen demasiadas opciones."
 
 #: ../src/imageid-activity/imageid.c:538
-#: ../src/missing_letter-activity/missingletter.c:608
+#: ../src/missing_letter-activity/missingletter.c:616
 msgid "Data file for this level is not properly formatted."
 msgstr "El archivo de datos para este nivel no está formateado correctamente."
 
@@ -6612,7 +6922,7 @@ msgstr "auto"
 
 #: ../src/imageid-activity/resources/imageid/board2.xml.in.h:6
 msgid "cake"
-msgstr "torta"
+msgstr "pastel"
 
 #: ../src/imageid-activity/resources/imageid/board2.xml.in.h:7
 msgid "camel"
@@ -6812,118 +7122,113 @@ msgstr "Aprende a reconocer instrumentos musicales."
 msgid "Click on the correct instrument."
 msgstr "Pulsa en el instrumento correcto."
 
-#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:1
+msgid "Find the clarinet"
+msgstr "Encuentra el clarinete"
+
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
-msgid "Find {text}"
-msgstr "Busca {text}"
+msgid "Find the transverse flute"
+msgstr "Encuentra la flauta travesera"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
-msgid "the clarinet"
-msgstr "el clarinete"
+msgid "Find the guitar"
+msgstr "Encuentra la guitarra"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-msgid "the transverse flute"
-msgstr "la flauta travesera"
+msgid "Find the harp"
+msgstr "Encuentra el arpa"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
-msgid "the guitar"
-msgstr "la guitarra"
+msgid "Find the piano"
+msgstr "Encuentra el piano"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
-msgid "the harp"
-msgstr "el arpa"
+msgid "Find the saxophone"
+msgstr "Encuentra el saxofón"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
-msgid "the piano"
-msgstr "el piano"
+msgid "Find the trombone"
+msgstr "Encuentra el trombón"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
-msgid "the saxophone"
-msgstr "el saxofón"
+msgid "Find the trumpet"
+msgstr "Encuentra la trompeta"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
-msgid "the trombone"
-msgstr "el trombón"
+msgid "Find the violin"
+msgstr "Encuentra el violín"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-msgid "the trumpet"
-msgstr "la trompeta"
+msgid "Find the flute traversiere"
+msgstr "Encuentra la flauta traversiere"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
-msgid "the violin"
-msgstr "el violín"
+msgid "Find the drum kit"
+msgstr "Encuentra la batería"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
-msgid "the flute traversiere"
-msgstr "la flauta travesera"
+msgid "Find the accordion"
+msgstr "Encuentra el acordeón"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
-msgid "the drum kit"
-msgstr "la batería"
+msgid "Find the banjo"
+msgstr "Encuentra el banjo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
-msgid "the accordion"
-msgstr "el acordeón"
+msgid "Find the bongo"
+msgstr "Encuentra el bongo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
-msgid "the banjo"
-msgstr "el banjo"
+msgid "Find the electric guitar"
+msgstr "Encuentra la guitarra eléctrica"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
-msgid "the bongo"
-msgstr "el bongo"
+msgid "Find the castanets"
+msgstr "Encuentra las castañuelas"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
-msgid "the electric guitar"
-msgstr "la guitarra eléctrica"
+msgid "Find the cymbal"
+msgstr "Encuentra el platillo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
-msgid "the castanets"
-msgstr "las castañuelas"
+msgid "Find the cello"
+msgstr "Encuentra el violonchelo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
-msgid "the cymbal"
-msgstr "el platillo"
+msgid "Find the harmonica"
+msgstr "Encuentra la armónica"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
-msgid "the cello"
-msgstr "el violonchelo"
+msgid "Find the horn"
+msgstr "Encuentra la trompa"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
-msgid "the harmonica"
-msgstr "la armónica"
+msgid "Find the maracas"
+msgstr "Encuentra las maracas"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
-msgid "the horn"
-msgstr "la trompa"
+msgid "Find the organ"
+msgstr "Encuentra el órgano"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
-msgid "the maracas"
-msgstr "las maracas"
+msgid "Find the snare drum"
+msgstr "Encuentra el tambor"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-msgid "the organ"
-msgstr "el órgano"
+msgid "Find the timpani"
+msgstr "Encuentra los timbales"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
-msgid "the snare drum"
-msgstr "el tambor"
+msgid "Find the triangle"
+msgstr "Encuentra el triángulo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
-msgid "the timpani"
-msgstr "los timbales"
+msgid "Find the tambourine"
+msgstr "Encuentra el tambor"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
-msgid "the triangle"
-msgstr "el triángulo"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
-msgid "the tambourine"
-msgstr "el tambor"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:29
-msgid "the tuba"
-msgstr "la tuba"
+msgid "Find the tuba"
+msgstr "Encuentra la tuba"
 
 #: ../src/intro_gravity-activity/intro_gravity.py:100
 msgid ""
@@ -6995,7 +7300,7 @@ msgstr "Sigue las instrucciones cuando ejecutas la actividad."
 msgid "Gravity: %s"
 msgstr "Gravedad: %s"
 
-#: ../src/land_safe-activity/land_safe.py:165
+#: ../src/land_safe-activity/land_safe.py:166
 msgid ""
 "Use the up and down keys to control the thrust\n"
 "Use the right and left keys to control direction.\n"
@@ -7008,23 +7313,23 @@ msgstr ""
 "La plataforma de aterrizaje se pondrá verde cuando la velocidad para "
 "aterrizar sea adecuada."
 
-#: ../src/land_safe-activity/land_safe.py:170
+#: ../src/land_safe-activity/land_safe.py:171
 msgid "Click on me or press the Return key when you are ready."
 msgstr "Púlsame o pulsa la tecla «Intro» cuando estés listo"
 
-#: ../src/land_safe-activity/land_safe.py:172
+#: ../src/land_safe-activity/land_safe.py:173
 msgid "I am ready!"
 msgstr "Estoy listo/a"
 
-#: ../src/land_safe-activity/land_safe.py:470
+#: ../src/land_safe-activity/land_safe.py:473
 msgid "Height: "
 msgstr "Altura: "
 
-#: ../src/land_safe-activity/land_safe.py:486
+#: ../src/land_safe-activity/land_safe.py:491
 msgid "Fuel"
 msgstr "Combustible"
 
-#: ../src/land_safe-activity/land_safe.py:519
+#: ../src/land_safe-activity/land_safe.py:525
 msgid "Velocity: "
 msgstr "Velocidad: "
 
@@ -7062,34 +7367,13 @@ msgstr ""
 "aceleración variará para cada planeta y, a medida que la nave se acerque a "
 "un planeta, aumentará la aceleración."
 
-#: ../src/lang-activity/lang.py:98
-msgid "ERROR, we found no words in this language."
-msgstr "ERROR, no encontramos palabras en este idioma."
-
-#: ../src/lang-activity/lang.py:99
-msgid "Please consider contributing a voice set."
-msgstr "Considere contribuyendo un conjunto de voces."
-
-#: ../src/lang-activity/lang.py:152
-#, python-format
-msgid ""
-"Configuration\n"
-" for profile <b>%s</b>"
-msgstr ""
-"Configuración\n"
-" para el perfil <b>%s</b>"
-
-#: ../src/lang-activity/lang.py:157
-msgid "Select locale"
-msgstr "Seleccionar idioma"
-
-#: ../src/lang-activity/langEnterText.py:136
+#: ../src/lang-activity/langEnterText.py:139
 msgid "Enter the text you hear:"
 msgstr "Escribe el texto que escuchas:"
 
 #: ../src/lang-activity/langLib.py:69
 msgid "Missing translation for '{word}'"
-msgstr "Traducciones faltantes para «{palabra}»"
+msgstr "Falta la traducción de «{word}»"
 
 #: ../src/lang-activity/lang-nature.xml.in.h:1
 #: ../src/lang-activity/lang-object.xml.in.h:1
@@ -7115,7 +7399,7 @@ msgstr "Enriquece tu vocabulario en un idioma materno o en uno extranjero."
 #: ../src/lang-activity/lang-people.xml.in.h:5
 msgid ""
 "Review a set of words. Each word is shown with a voice a text and an image. "
-"When done you are suggested an exercice in which, given the voice, you must "
+"When done you are suggested an exercise in which, given the voice, you must "
 "find the right word. In the configuration you can select the language you "
 "want to learn."
 msgstr ""
@@ -7129,13 +7413,13 @@ msgstr ""
 #: ../src/lang-activity/lang-other.xml.in.h:6
 #: ../src/lang-activity/lang-people.xml.in.h:6
 msgid ""
-"The images and voices comes from the Art4Apps project: http://www.art4apps."
-"org/. You can also access this activity online on http://laske.fr/"
-"abecedarium/."
+"The images and voices come from the Art4Apps project: http://www.art4apps."
+"org/. You can also access this activity online on http://gcompris.net/"
+"activity/lang."
 msgstr ""
-"Las imágenes y voces vienen del proyecto Art4App: http://www.art4apps.org/. "
-"También puedes acceder a esta actividad en línea en http://laske.fr/"
-"abecedarium/."
+"Las imágenes y voces vienen del proyecto Art4Apps: http://www.art4apps.org/. "
+"También puedes acceder a esta actividad en línea en http://gcompris.net/"
+"activity/lang."
 
 #: ../src/lang-activity/lang-object.xml.in.h:2
 msgid "List of words in the 'object' category."
@@ -7148,6 +7432,27 @@ msgstr "Lista de palabras en la categoría «otro»."
 #: ../src/lang-activity/lang-people.xml.in.h:2
 msgid "List of words in the 'people' category."
 msgstr "Lista de palabras en la categoría «personas»."
+
+#: ../src/lang-activity/lang.py:100
+msgid "ERROR, we found no words in this language."
+msgstr "ERROR, no encontramos palabras en este idioma."
+
+#: ../src/lang-activity/lang.py:101
+msgid "Please consider contributing a voice set."
+msgstr "Considere contribuyendo un conjunto de voces."
+
+#: ../src/lang-activity/lang.py:172
+#, python-format
+msgid ""
+"Configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"Configuración\n"
+" para el perfil <b>%s</b>"
+
+#: ../src/lang-activity/lang.py:177
+msgid "Select locale"
+msgstr "Seleccionar idioma"
 
 #: ../src/lang-activity/lang.xml.in.h:1
 msgid "Go to the language learning activities"
@@ -7238,24 +7543,12 @@ msgid "tool"
 msgstr "herramienta"
 
 #: ../src/leftright-activity/leftright.c:230
-#: ../src/searace-activity/searace.py:415
-#: ../src/searace-activity/searace.py:439
-#: ../src/searace-activity/searace.py:529
-#: ../src/searace-activity/searace.py:838
-#: ../src/searace-activity/searace.py:872
-#: ../src/searace-activity/searace.py:964
-msgid "left"
-msgstr "izquierda"
+msgid "Left hand"
+msgstr "Mano izquierda"
 
 #: ../src/leftright-activity/leftright.c:236
-#: ../src/searace-activity/searace.py:415
-#: ../src/searace-activity/searace.py:439
-#: ../src/searace-activity/searace.py:539
-#: ../src/searace-activity/searace.py:840
-#: ../src/searace-activity/searace.py:874
-#: ../src/searace-activity/searace.py:958
-msgid "right"
-msgstr "derecha"
+msgid "Right hand"
+msgstr "Mano derecha"
 
 #: ../src/leftright-activity/leftright.xml.in.h:1
 msgid "Find your left and right hands"
@@ -7274,18 +7567,12 @@ msgstr ""
 "derecha. Representación espacial"
 
 #: ../src/leftright-activity/leftright.xml.in.h:4
-#: ../src/note_names-activity/note_names.xml.in.h:3
-#: ../src/railroad-activity/railroad.xml.in.h:4
-msgid "None"
-msgstr "Ninguno"
-
-#: ../src/leftright-activity/leftright.xml.in.h:5
 msgid ""
-"You can see a hand: is it a left hand or a right hand? Click on the red "
-"button on the left, or the green button on the right."
+"You can see a hand: is it a left hand or a right hand? Click on the left "
+"button, or the right button depending on the displayed hand."
 msgstr ""
 "Puedes ver una mano: ¿es una mano izquierda o una mano derecha? Pulsa en el "
-"botón rojo a la izquierda, o el botón verde a la derecha."
+"botón izquierdo, o el botón derecho dependiendo de la mano mostrada."
 
 #: ../src/lightsoff-activity/lightsoff.py:442
 msgid ""
@@ -7323,33 +7610,15 @@ msgstr ""
 "El algoritmo resolutor descrito en en la Wikipedia. Para saber más acerca "
 "del juego Luces fuera: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 
-#: ../src/login-activity/login.py:102
-msgid "Profile: "
-msgstr "Perfil: "
-
-#: ../src/login-activity/login.py:235
+#: ../src/login-activity/login.py:233
 msgid "Login: "
 msgstr "Usuario: "
-
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/login-activity/login.py:480
-msgid ""
-"<b>{0}</b> configuration\n"
-" for profile <b>{1}</b>"
-msgstr ""
-"<b>{0}</b> configuración\n"
-" para el perfil <b>{1}</b>"
 
 #. toggle box
 #: ../src/login-activity/login.py:486
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:942
-#: ../src/wordsgame-activity/wordsgame.c:930
+#: ../src/wordsgame-activity/wordsgame.c:959
 msgid "Uppercase only text"
 msgstr "Texto sólo en mayúsculas"
 
@@ -7798,63 +8067,58 @@ msgstr ""
 "Escucha la secuencia de sonido reproducida, e intenta repetirla pulsando en "
 "los elementos. Puedes escucharlo de nuevo pulsando en el botón repetir."
 
-#: ../src/memory-activity/memory.c:280
+#: ../src/memory-activity/memory.c:272
 msgid "zero"
 msgstr "cero"
 
-#: ../src/memory-activity/memory.c:281
+#: ../src/memory-activity/memory.c:273
 msgid "one"
 msgstr "uno"
 
-#: ../src/memory-activity/memory.c:282
+#: ../src/memory-activity/memory.c:274
 msgid "two"
 msgstr "dos"
 
-#: ../src/memory-activity/memory.c:283
+#: ../src/memory-activity/memory.c:275
 msgid "three"
 msgstr "tres"
 
-#: ../src/memory-activity/memory.c:284
+#: ../src/memory-activity/memory.c:276
 msgid "four"
 msgstr "cuatro"
 
-#: ../src/memory-activity/memory.c:285
+#: ../src/memory-activity/memory.c:277
 msgid "five"
 msgstr "cinco"
 
-#: ../src/memory-activity/memory.c:286
+#: ../src/memory-activity/memory.c:278
 msgid "six"
 msgstr "seis"
 
-#: ../src/memory-activity/memory.c:287
+#: ../src/memory-activity/memory.c:279
 msgid "seven"
 msgstr "siete"
 
-#: ../src/memory-activity/memory.c:288
+#: ../src/memory-activity/memory.c:280
 msgid "eight"
 msgstr "ocho"
 
-#: ../src/memory-activity/memory.c:289
+#: ../src/memory-activity/memory.c:281
 msgid "nine"
 msgstr "nueve"
 
-#: ../src/memory-activity/memory.c:301
+#: ../src/memory-activity/memory.c:293
 msgid "Memory"
 msgstr "Memoria"
 
-#: ../src/memory-activity/memory.c:302
+#: ../src/memory-activity/memory.c:294
 msgid "Find the matching pair"
 msgstr "Encuentra el par que corresponde"
 
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/memory-activity/memory.c:931
+#: ../src/memory-activity/memory.c:949
 msgid "0123456789"
 msgstr "0123456789"
-
-#. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/memory-activity/memory.c:941
-msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-msgstr "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 
 #: ../src/memory-activity/memory.xml.in.h:1
 msgid "Memory Game with images"
@@ -8314,7 +8578,7 @@ msgid "Mining for gold"
 msgstr "Excavar para obtener oro"
 
 #: ../src/mining-activity/mining.xml.in.h:2
-msgid "Use the mousewheel to approach the rockwall an look for gold nuggets."
+msgid "Use the mousewheel to approach the rockwall and look for gold nuggets."
 msgstr ""
 "Usa la rueda del ratón para acercarte a la pared rocosa y buscar de pepitas "
 "de oro."
@@ -8578,7 +8842,7 @@ msgstr "botella/bo_ella/t/b/d/n/l/s"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:3
 msgid "cake/c_ke/a/o/e/i/u/y"
-msgstr "torta/to_ta/r/s/l/n/h/u"
+msgstr "pastel/pas_el/t/r/p/c/m/s"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:4
 msgid "ball/b_ll/a/u/o/e/i/y"
@@ -8720,6 +8984,7 @@ msgid "Practice money usage including cents"
 msgstr "Practica de uso del dinero, incluyendo céntimos"
 
 #: ../src/mosaic-activity/mosaic.py:186
+#: ../src/mosaic-activity/mosaic.xml.in.h:2
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Reconstruye el mismo mosaico en el área de la derecha"
 
@@ -8743,42 +9008,42 @@ msgstr ""
 "Do. Ten en cuenta que las posiciones de las notas son diferentes que las de "
 "la clave de Sol."
 
-#: ../src/note_names-activity/note_names.py:143
+#: ../src/note_names-activity/note_names.py:144
 msgid "Play Scale"
 msgstr "Reproducir escala"
 
-#: ../src/note_names-activity/note_names.py:150
+#: ../src/note_names-activity/note_names.py:151
 msgid "Play Treble Clef Game"
 msgstr "Jugar a la clave de Sol"
 
-#: ../src/note_names-activity/note_names.py:152
+#: ../src/note_names-activity/note_names.py:153
 msgid "Play Bass Clef Game"
 msgstr "Jugar a la clave de Fa"
 
-#: ../src/note_names-activity/note_names.py:183
+#: ../src/note_names-activity/note_names.py:184
 msgid "Click on the note name to match the pitch. Then click OK to check."
 msgstr ""
 "Pulsa sobre el nombre de la nota para que coincida con el tono. Luego pulsa "
 "Aceptar para comprobar."
 
-#: ../src/note_names-activity/note_names.py:185
+#: ../src/note_names-activity/note_names.py:186
 msgid "Now there are sharp notes. These pitches are raised a half step."
 msgstr "Ahora vienen las notas sostenidas. Los tonos se han subido 1/2 tono."
 
-#: ../src/note_names-activity/note_names.py:187
+#: ../src/note_names-activity/note_names.py:188
 msgid "Now there are flat notes. These pitches are lowered a half step."
 msgstr "Ahora vienen las notas sostenidas. Los tonos se han bajado 1/2 tono."
 
-#: ../src/note_names-activity/note_names.py:193
+#: ../src/note_names-activity/note_names.py:194
 msgid "Click the note to hear it played"
 msgstr "Pulsa en una nota para escucharla"
 
-#: ../src/note_names-activity/note_names.py:246
+#: ../src/note_names-activity/note_names.py:247
 msgid "Need a hint? Click here for color-coded note names."
 msgstr ""
 "¿Necesitas una pista? Pulsa aquí para ver los códigos de color de las notas."
 
-#: ../src/note_names-activity/note_names.py:249
+#: ../src/note_names-activity/note_names.py:250
 msgid "Ready for a challenge? Color all buttons black!"
 msgstr "¿Listo para el desafío? ¡Pinta todos los botones de negro!"
 
@@ -8793,6 +9058,11 @@ msgid ""
 msgstr ""
 "Aprende los nombres de las notas, en las claves de Sol y de Fa, con la ayuda "
 "de sonidos y colores"
+
+#: ../src/note_names-activity/note_names.xml.in.h:3
+#: ../src/railroad-activity/railroad.xml.in.h:4
+msgid "None"
+msgstr "Ninguno"
 
 #: ../src/note_names-activity/note_names.xml.in.h:4
 msgid ""
@@ -9109,7 +9379,7 @@ msgstr "La♭"
 msgid "Bb"
 msgstr "Si♭"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:290
+#: ../src/piano_composition-activity/gcomprismusic.py:291
 msgid "The staff is full. Please erase some notes"
 msgstr "El pentagrama está completo. Borra algunas notas"
 
@@ -9180,39 +9450,39 @@ msgstr "Reproducir composición"
 msgid "Erase and Change Clef"
 msgstr "Borrar y cambiar la clave"
 
-#: ../src/piano_composition-activity/piano_composition.py:222
+#: ../src/piano_composition-activity/piano_composition.py:223
 msgid "Change Note Type:"
 msgstr "Cambiar el tipo de nota:"
 
 # http://es.wikipedia.org/wiki/Corchea
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
-#: ../src/piano_composition-activity/piano_composition.py:243
+#: ../src/piano_composition-activity/piano_composition.py:244
 msgid "Eighth Note"
 msgstr "Octava nota"
 
 # http://es.wikipedia.org/wiki/Negra
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
-#: ../src/piano_composition-activity/piano_composition.py:266
+#: ../src/piano_composition-activity/piano_composition.py:267
 msgid "Quarter Note"
 msgstr "Negra"
 
 # http://es.wikipedia.org/wiki/Blanca_%28m%C3%BAsica%29
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
-#: ../src/piano_composition-activity/piano_composition.py:279
+#: ../src/piano_composition-activity/piano_composition.py:280
 msgid "Half Note"
 msgstr "Blanca"
 
 # http://es.wikipedia.org/wiki/Redonda_%28figura%29
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
-#: ../src/piano_composition-activity/piano_composition.py:292
+#: ../src/piano_composition-activity/piano_composition.py:293
 msgid "Whole Note"
 msgstr "Redonda"
 
-#: ../src/piano_composition-activity/piano_composition.py:324
+#: ../src/piano_composition-activity/piano_composition.py:325
 msgid "Load Music"
 msgstr "Cargar música"
 
-#: ../src/piano_composition-activity/piano_composition.py:329
+#: ../src/piano_composition-activity/piano_composition.py:330
 msgid "Change Accidental Style:"
 msgstr "Cambiar la tonalidad:"
 
@@ -9220,9 +9490,17 @@ msgstr "Cambiar la tonalidad:"
 msgid "Select A Melody to Load"
 msgstr "Seleccionar la melodía que cargar"
 
+#: ../src/piano_composition-activity/piano_composition.py:405
+msgid "Previous Page"
+msgstr "Página anterior"
+
+#: ../src/piano_composition-activity/piano_composition.py:415
+msgid "Next Page"
+msgstr "Siguiente página"
+
 #. FIXME Should remove the space in the data file instead
-#: ../src/piano_composition-activity/piano_composition.py:449
-#: ../src/piano_composition-activity/piano_composition.py:578
+#: ../src/piano_composition-activity/piano_composition.py:450
+#: ../src/piano_composition-activity/piano_composition.py:580
 msgid " "
 msgstr " "
 
@@ -9335,6 +9613,30 @@ msgstr ""
 "  F4: Sol# / La♭\n"
 "  F5: La# / Si♭\n"
 
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:34
+msgid ""
+"\n"
+"Thank you to Bruno Coudoin for his mentorship.\n"
+"Thank you to Olivier Samyn for his contribution to improving the note design "
+"and coloring.\n"
+"Thank you to Federico Mena who inspired me with his wonderful enthusiasm for "
+"my music projects at GUADEC.\n"
+"Thank you to all contributors of children's songs from around the world, "
+"especially the GNOME community. Learn more about these\n"
+"melodies and who contributed them here: https://live.gnome.org/"
+"GComprisMelodies\n"
+msgstr ""
+"\n"
+"Gracias a Bruno Coudoin por su tutoría.\n"
+"Gracias a Olivier Samyn por su contribución para mejorar el diseño de nota y "
+"colores.\n"
+"Gracias a Federico Mena quien me inspira con su maravilloso entusiasmo por "
+"mis proyectos de música en la GUADEC.\n"
+"Gracias a todos los colaboradores de canciones de niños por todo el mundo, "
+"especialmente la comunidad de GNOME. Aprenda más sobre estas\n"
+"melodias y quien contribuye con ellas aquí: https://live.gnome.org/"
+"GComprisMelodies\n"
+
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
 msgid "America: English Lullaby"
 msgstr "América: canción de cuna inglesa"
@@ -9391,23 +9693,27 @@ msgstr ""
 "Ahora pulsa sobre el satélite y arrastra una línea para establecer la "
 "velocidad del satélite"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:267
+#: ../src/place_your_satellite-activity/place_your_satellite.py:268
 msgid "Satellite goes too fast"
 msgstr "El satélite va muy rápido"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:269
+#: ../src/place_your_satellite-activity/place_your_satellite.py:270
 msgid "Satellite goes too slow"
 msgstr "El satélite va muy despacio"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:296
+#: ../src/place_your_satellite-activity/place_your_satellite.py:274
+msgid "Distance: {:.1f}"
+msgstr "Distancia: {:.1f}"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:297
 msgid "Satellite is crashing"
 msgstr "El satélite se estrella"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:330
+#: ../src/place_your_satellite-activity/place_your_satellite.py:331
 msgid "Satellite not in orbit"
 msgstr "El satélite no está en órbita"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:394
+#: ../src/place_your_satellite-activity/place_your_satellite.py:397
 msgid "Speed"
 msgstr "Velocidad"
 
@@ -9735,26 +10041,26 @@ msgid "This activity is not playable, just a test"
 msgstr "Esta actividad aún no se puede jugar, es tan sólo un test"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:454
+#: ../src/pythontest-activity/pythontest.py:456
 msgid "Disable line drawing in circle"
 msgstr "Desactivar dibujo de línea en círculo"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:463
+#: ../src/pythontest-activity/pythontest.py:465
 msgid "Color of the line"
 msgstr "Color de la línea"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:474
+#: ../src/pythontest-activity/pythontest.py:476
 msgid "Distance between circles"
 msgstr "Distancia entre círculos"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:485
+#: ../src/pythontest-activity/pythontest.py:487
 msgid "Use circles"
 msgstr "Usar círculos"
 
-#: ../src/pythontest-activity/pythontest.py:486
+#: ../src/pythontest-activity/pythontest.py:488
 msgid "Use rectangles"
 msgstr "Usar rectángulos"
 
@@ -9800,7 +10106,7 @@ msgstr ""
 "tu construcción pulsando en la mano que aparece abajo."
 
 #: ../src/readingh-activity/reading.c:240
-#: ../src/wordsgame-activity/wordsgame.c:222
+#: ../src/wordsgame-activity/wordsgame.c:227
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -9960,7 +10266,7 @@ msgstr ""
 "atrás. Cuando termines, pulsa sobre el botón Aceptar o la tecla Intro del "
 "teclado."
 
-#: ../src/scalesboard-activity/scale.c:1086
+#: ../src/scalesboard-activity/scale.c:1087
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Ten cuidado, puedes dejar caer pesos en ambos lados de la balanza."
 
@@ -10055,11 +10361,11 @@ msgid ""
 msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu bote."
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
-"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
-"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
-"un parámetro con la distancia. De forma predeterminada se usa un valor de "
-"1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
+"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
+"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
+"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
+"usa un valor de 1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -10075,6 +10381,15 @@ msgstr ""
 msgid "The race is already being run"
 msgstr "La carrera ya ha empezado"
 
+#: ../src/searace-activity/searace.py:415
+#: ../src/searace-activity/searace.py:439
+#: ../src/searace-activity/searace.py:539
+#: ../src/searace-activity/searace.py:840
+#: ../src/searace-activity/searace.py:874
+#: ../src/searace-activity/searace.py:958
+msgid "right"
+msgstr "derecha"
+
 #. Manage default cases (no params given)
 #. Final move, add an ofset because we loose space in abs()
 #: ../src/searace-activity/searace.py:415
@@ -10087,6 +10402,15 @@ msgstr "La carrera ya ha empezado"
 #: ../src/searace-activity/searace.py:970
 msgid "forward"
 msgstr "adelante"
+
+#: ../src/searace-activity/searace.py:415
+#: ../src/searace-activity/searace.py:439
+#: ../src/searace-activity/searace.py:529
+#: ../src/searace-activity/searace.py:838
+#: ../src/searace-activity/searace.py:872
+#: ../src/searace-activity/searace.py:964
+msgid "left"
+msgstr "izquierda"
 
 #: ../src/searace-activity/searace.py:509
 msgid "COMMANDS ARE"
@@ -10158,11 +10482,11 @@ msgstr ""
 "En el campo de texto, introduce una orden por línea para controlar tu "
 "bote. \n"
 "Las órdenes válidas se muestran entre las dos áreas de entrada. Las órdenes "
-"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al valor "
-"del ángulo también se le llama «parámetro» de la orden izquierda o derecha. "
-"De forma predeterminada, se usan 45 grados. La orden «hacia adelante» acepta "
-"un parámetro con la distancia. De forma predeterminada se usa un valor de "
-"1.\n"
+"«izquierda» y «derecha» deben llevar como sufijo el ángulo en grados. Al "
+"valor del ángulo también se le llama «parámetro» de la orden izquierda o "
+"derecha. De forma predeterminada, se usan 45 grados. La orden «hacia "
+"adelante» acepta un parámetro con la distancia. De forma predeterminada se "
+"usa un valor de 1.\n"
 "Por ejemplo:\n"
 "- izquierda 90 => Hacer un giro perpendicular a la izquierda\n"
 "- hacia delante 10 => Ir hacia delante 10 unidades (como se muestran en la "
@@ -10212,7 +10536,7 @@ msgid "Compressed air tank is used to flush water out of the ballasts."
 msgstr "El tanque de aire comprimido se usa para vaciar de agua los lastres."
 
 #: ../src/submarine-activity/submarine.c:524
-msgid "Open or close the the ballast tank."
+msgid "Open or close the ballast tank."
 msgstr "Abrir o cerrar el tanque de lastre."
 
 #: ../src/submarine-activity/submarine.c:525
@@ -10229,7 +10553,7 @@ msgid "Lower the water level to rise to the surface."
 msgstr "Bajar el nivel de agua para subir a la superficie."
 
 #: ../src/submarine-activity/submarine.c:561
-msgid "Open or close the the ballast flush."
+msgid "Open or close the ballast flush."
 msgstr "Abrir o cerrar el vaciado del lastre."
 
 #: ../src/submarine-activity/submarine.c:562
@@ -10281,8 +10605,8 @@ msgstr "Aprenda cómo funciona un submarino"
 #: ../src/submarine-activity/submarine.xml.in.h:5
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth. There is a close gate on the right. After "
-"the first level, your have to catch the jewel to open it. Pass through it to "
+"to navigate to the required depth. There is a closed gate on the right. After "
+"the first level, you have to catch the jewel to open it. Pass through it to "
 "reach the next level."
 msgstr ""
 "Pulsa en los diferentes elementos activos: motor, timones y tanques de aire "
@@ -10517,23 +10841,23 @@ msgstr ""
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Esperando a que finalice Tuxpaint"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:189
+#: ../src/tuxpaint-activity/tuxpaint.py:194
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Hereda la configuración de pantalla completa de GCompris"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:193
+#: ../src/tuxpaint-activity/tuxpaint.py:198
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Hereda la configuración de tamaño de GCompris (800x600, 640x480)"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:197
+#: ../src/tuxpaint-activity/tuxpaint.py:202
 msgid "Disable shape rotation"
 msgstr "Desactivar rotación de formas"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:201
+#: ../src/tuxpaint-activity/tuxpaint.py:206
 msgid "Show Uppercase text only"
 msgstr "Mostrar sólo el texto en Mayúsculas"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:205
+#: ../src/tuxpaint-activity/tuxpaint.py:210
 msgid "Disable stamps"
 msgstr "Desactivar sellos"
 
@@ -10568,7 +10892,7 @@ msgstr "Esto es una estación de bombeo de agua."
 msgid "This is a water cleanup station."
 msgstr "Esta es una estación de limpieza de agua."
 
-#: ../src/watercycle-activity/watercycle.py:263
+#: ../src/watercycle-activity/watercycle.py:268
 msgid ""
 "A water tower or elevated water tower is a large elevated water storage "
 "container constructed to hold a water supply at a height sufficient to "
@@ -10678,12 +11002,12 @@ msgstr ""
 "con múltiples opciones te permiten seleccionar desde un documento "
 "predefinido y un tema de colores."
 
-#: ../src/wordsgame-activity/wordsgame.c:115
+#: ../src/wordsgame-activity/wordsgame.c:120
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "Palabras que caen"
 
-#: ../src/wordsgame-activity/wordsgame.c:116
+#: ../src/wordsgame-activity/wordsgame.c:121
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
 msgid "Type the falling words before they reach the ground"
 msgstr "Teclea las palabras que caen antes de que lleguen al suelo"
@@ -10695,6 +11019,70 @@ msgstr "Entrenamiento con el teclado"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
+
+#~ msgid "abcdefghijklmnopqrstuvwxyz"
+#~ msgstr "abcdefghijklmnñopqrstuvwxyz"
+
+#~ msgid "Profile: "
+#~ msgstr "Perfil: "
+
+#~ msgid "Couldn't open skin dir: %s"
+#~ msgstr "No se pudo abrir la carpeta de apariencias: %s"
+
+#~ msgid "Skin : %s"
+#~ msgstr "Apariencia : %s"
+
+#~ msgid "SKINS NOT FOUND"
+#~ msgstr "APARIENCIAS NO ENCONTRADAS"
+
+#~ msgid "Georgia"
+#~ msgstr "Georgia"
+
+#~ msgid "Hawai"
+#~ msgstr "Hawái"
+
+#~ msgid "red"
+#~ msgstr "rojo"
+
+#~ msgid "green"
+#~ msgstr "verde"
+
+#~ msgid "blue"
+#~ msgstr "azul"
+
+#~ msgid "cyan"
+#~ msgstr "azul saturado"
+
+#~ msgid "yellow"
+#~ msgstr "amarillo"
+
+#~ msgid ""
+#~ "<b>{0}</b> configuration\n"
+#~ " for profile <b>{1}</b>"
+#~ msgstr ""
+#~ "<b>{0}</b> configuración\n"
+#~ " para el perfil <b>{1}</b>"
+
+#~ msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#~ msgstr "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+
+#~ msgid "black"
+#~ msgstr "negro"
+
+#~ msgid "white"
+#~ msgstr "blanco"
+
+#~ msgid "brown"
+#~ msgstr "marrón"
+
+#~ msgid "grey"
+#~ msgstr "gris"
+
+#~ msgid "orange"
+#~ msgstr "naranja"
+
+#~ msgid "Find {text}"
+#~ msgstr "Busca {text}"
 
 #~ msgid "aeiouy"
 #~ msgstr "aeiou"
@@ -10731,9 +11119,6 @@ msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
 
 #~ msgid " Italy"
 #~ msgstr " Italia"
-
-#~ msgid " Mexico"
-#~ msgstr " México"
 
 #~ msgid " Spain"
 #~ msgstr " España"
@@ -10774,6 +11159,3 @@ msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
 #~ msgstr ""
 #~ " La vaca hace \"muu muu\". Las vacas tienen una memoria de unos tres "
 #~ "años. Las vacas tienen muchos usos, incluyendo la leche y la carne."
-
-#~ msgid "sulphur"
-#~ msgstr "azufre"

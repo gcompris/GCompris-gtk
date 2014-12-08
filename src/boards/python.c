@@ -55,6 +55,11 @@ static void	 pythongc_board_config_stop (void);
 
 static gboolean  pythonboard_is_ready = FALSE;
 
+#ifdef WIN32
+static char *PATH_SEPARATOR = ";";
+#else
+static char *PATH_SEPARATOR = ":";
+#endif
 
 /* Description of this plugin */
 static BoardPlugin menu_bp =
@@ -123,6 +128,7 @@ static GList *config_boards= NULL;
  * Create the import string to be added to the python path
  * The plugin directory is passed in properties->package_python_plugin_dir
  * It accepts several directory separated by a ":" character
+ * or ";" on Windows
  */
 static gchar *get_pythonpath()
 {
@@ -130,7 +136,8 @@ static gchar *get_pythonpath()
   gchar *plugin_dir = NULL;
   GcomprisProperties *properties = gc_prop_get();
   /* Add the python plugins dir to the python's search path */
-  gchar **plugin_dirs = g_strsplit( properties->package_python_plugin_dir , ":", -1 );
+  gchar **plugin_dirs = g_strsplit( properties->package_python_plugin_dir,
+				    PATH_SEPARATOR, -1 );
   int i;
 
   for ( i = 0 ; i < g_strv_length( plugin_dirs ); i++ ) {

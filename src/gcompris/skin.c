@@ -1,6 +1,6 @@
 /* gcompris - skin.c
  *
- * Copyright (C) 2003, 2008 GCompris Development Team
+ * Copyright (C) 2003, 2008 GCompris Developpement Team
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -22,7 +22,11 @@
 #include <libxml/tree.h>
 #include <libxml/parser.h>
 
+// The font info from the skin.xml file
+GHashTable* gc_skin_xmlfonts   = NULL;
+// The face + font info ready to be used
 GHashTable* gc_skin_fonts   = NULL;
+
 GHashTable* gc_skin_colors  = NULL;
 GHashTable* gc_skin_numbers = NULL;
 
@@ -32,14 +36,9 @@ guint32 gc_skin_color_content;
 guint32 gc_skin_color_subtitle;
 guint32 gc_skin_color_shadow;
 
-gchar* gc_skin_font_fontface;
 gchar* gc_skin_font_title;
 gchar* gc_skin_font_subtitle;
 gchar* gc_skin_font_content;
-gchar* gc_skin_font_helptext;
-
-gchar* gc_skin_font_menu_title;
-gchar* gc_skin_font_menu_description;
 
 gchar* gc_skin_font_board_minuscule;
 gchar* gc_skin_font_board_tiny;
@@ -51,7 +50,6 @@ gchar* gc_skin_font_board_big_bold;
 gchar* gc_skin_font_board_fixed;
 gchar* gc_skin_font_board_title;
 gchar* gc_skin_font_board_title_bold;
-gchar* gc_skin_font_board_levelmenu;
 gchar* gc_skin_font_board_huge;
 gchar* gc_skin_font_board_huge_bold;
 
@@ -199,21 +197,12 @@ gc_skin_setup_vars(void)
   gc_skin_color_shadow =
     gc_skin_get_color_default("gcompris/shadow", COLOR_SHADOW);
 
-  gc_skin_font_fontface =
-    gc_skin_get_font_default("gcompris/fontface", FONT_FONTFACE);
   gc_skin_font_title =
     gc_skin_get_font_default("gcompris/title", FONT_TITLE);
   gc_skin_font_subtitle =
     gc_skin_get_font_default("gcompris/subtitle", FONT_SUBTITLE);
   gc_skin_font_content =
     gc_skin_get_font_default("gcompris/content", FONT_CONTENT);
-  gc_skin_font_helptext =
-    gc_skin_get_font_default("gcompris/helptext", FONT_HELPTEXT);
-
-  gc_skin_font_menu_title =
-    gc_skin_get_font_default("gcompris/menu/title", FONT_MENU_TITLE);
-  gc_skin_font_menu_description =
-    gc_skin_get_font_default("gcompris/menu/description", FONT_MENU_DESCRIPTION);
 
   gc_skin_font_board_minuscule =
     gc_skin_get_font_default("gcompris/board/minuscule", FONT_BOARD_MINUSCULE);
@@ -235,8 +224,6 @@ gc_skin_setup_vars(void)
     gc_skin_get_font_default("gcompris/board/title", FONT_BOARD_TITLE);
   gc_skin_font_board_title_bold =
     gc_skin_get_font_default("gcompris/board/title bold", FONT_BOARD_TITLE_BOLD);
-  gc_skin_font_board_levelmenu =
-    gc_skin_get_font_default("gcompris/board/levelmenu", FONT_BOARD_LEVELMENU);
   gc_skin_font_board_huge =
     gc_skin_get_font_default("gcompris/board/huge", FONT_BOARD_HUGE);
   gc_skin_font_board_huge_bold =
@@ -400,6 +387,16 @@ skin_xml_load (gchar* skin)
 	}
 	if(data!=NULL) g_free(data);
       }
+      else if(g_ascii_strcasecmp((gchar *)node->name, "font")==0){
+	key = (gchar *)xmlGetProp(node,  BAD_CAST "id");
+	data = (gchar *)xmlGetProp(node,  BAD_CAST "name");
+	if((key!=NULL)&&(data!=NULL)){
+	  g_hash_table_insert(gc_skin_xmlfonts, key, data);
+	} else {
+	  if(key!=NULL) g_free(key);
+	  if(data!=NULL) g_free(data);
+	}
+      }
       else if(g_ascii_strcasecmp((gchar *)node->name, "number")==0){
 	key = (gchar *)xmlGetProp(node, BAD_CAST "id");
 	data = (gchar *)xmlGetProp(node, BAD_CAST "value");
@@ -419,105 +416,6 @@ skin_xml_load (gchar* skin)
   return TRUE;
 }
 
-
-/*
- * Load fontset for the language
- * Parse a fonts.xml file located in the fontset directory
- * and load the fontset properties into memory
- * @return TRUE if load suceeded
- */
-static gboolean
-fontset_xml_load ()
-{
-  gchar* xmlfilename = NULL;
-  xmlDocPtr xmldoc;
-  xmlNodePtr fontNode;
-  xmlNodePtr node;
-  gchar* key;
-  gchar* data;
-
-  
-  /*
-   * TRANSLATORS: Enter the name of the fontset that will be used for your
-   * language here. Documentation: http://gcompris.net/wiki/Fontsets
-   */
-  gchar* fontset = _("sans");
-  if(strlen(fontset) > 0 )
-      xmlfilename = \
-        gc_file_find_absolute("boards/fontsets/%s/fonts.xml",
-                              fontset,
-                              NULL);
-  
-  /* if the file doesn't exist */
-  if(!xmlfilename)
-    {
-      g_warning("Couldn't find fontset file '%s' !", fontset);
-      fontset = "sans";
-      xmlfilename = \
-                gc_file_find_absolute("boards/fontsets/%s/fonts.xml",
-                                      fontset,
-                                      NULL);
-      if(!xmlfilename)
-      {
-            g_warning("Couldn't find default fontset file '%s' !", fontset);
-            return FALSE;
-      }
-    }
-
-  xmldoc = xmlParseFile(xmlfilename);
-  g_free(xmlfilename);
-
-  if(!xmldoc)
-    {
-      g_warning("Parsing of fontset file failed '%s' !", fontset);
-      return FALSE;
-    }
-
-  if(/* if there is no root element */
-     !xmldoc->children ||
-     /* if it doesn't have a name */
-     !xmldoc->children->name ||
-     /* if it isn't a GCompris node */
-     g_ascii_strcasecmp((gchar *)xmldoc->children->name, "GCompris")!=0) {
-    xmlFreeDoc(xmldoc);
-    g_warning("Fontset file is not properly formatted (no GCompris node) '%s' !",
-	      fontset);
-    return FALSE;
-  }
-
-  fontNode = xmldoc->children->children;
-  while((fontNode!=NULL)&&(fontNode->type!=XML_ELEMENT_NODE))
-    fontNode = fontNode->next;
-
-  if((fontNode==NULL)||
-     g_ascii_strcasecmp((gchar *)fontNode->name, "Fontset")!=0) {
-    g_warning("In fontset file '%s' there is no Fontset node %s", fontset,
-	      xmldoc->children->children->name);
-    xmlFreeDoc(xmldoc);
-    return FALSE;
-  }
-
-  node = fontNode->children;
-  while(node !=NULL)
-    {
-      if(g_ascii_strcasecmp((gchar *)node->name, "font")==0){
-	key = (gchar *)xmlGetProp(node,  BAD_CAST "id");
-	data = (gchar *)xmlGetProp(node,  BAD_CAST "name");
-	if((key!=NULL)&&(data!=NULL)){
-	  g_hash_table_insert(gc_skin_fonts, key, data);
-	} else {
-	  if(key!=NULL) g_free(key);
-	  if(data!=NULL) g_free(data);
-	}
-      }
-      node = node->next;
-    }
-
-  xmlFreeDoc(xmldoc);
-    
-  return TRUE;
-}
-
 /*
  * Parse the default skin.xml file and the one located in the skin
  * directory then load all skins properties into memory
@@ -532,6 +430,9 @@ gc_skin_load (gchar* skin)
 
   gc_skin_free();
 
+  gc_skin_xmlfonts = g_hash_table_new_full(g_str_hash, g_str_equal,
+					      gc_skin_free_string,
+					      gc_skin_free_string);
   gc_skin_fonts = g_hash_table_new_full(g_str_hash, g_str_equal,
 					      gc_skin_free_string,
 					      gc_skin_free_string);
@@ -546,10 +447,9 @@ gc_skin_load (gchar* skin)
   if(strcmp(skin,DEFAULT_SKIN)!=0)
     if (! skin_xml_load(skin) )
       return FALSE;
-  
-  fontset_xml_load ();
 
   gc_skin_setup_vars();
+  gc_skin_update_font();
   return TRUE;
 }
 
@@ -559,6 +459,9 @@ gc_skin_load (gchar* skin)
 void
 gc_skin_free (void)
 {
+  if(gc_skin_xmlfonts!=NULL)
+    g_hash_table_destroy(gc_skin_xmlfonts);
+
   if(gc_skin_fonts!=NULL)
     g_hash_table_destroy(gc_skin_fonts);
 
@@ -622,3 +525,37 @@ gc_skin_get_number_default(gchar* id, guint32 def)
     return GPOINTER_TO_UINT(result);
   return def;
 }
+
+/*
+ * Update gc_skin_fonts
+ * Must be called whenever the font face is changed
+ */
+void
+gc_skin_update_font()
+{
+  GcomprisProperties *properties = gc_prop_get();
+
+  if(gc_skin_fonts!=NULL)
+    g_hash_table_destroy(gc_skin_fonts);
+
+  gc_skin_fonts = g_hash_table_new_full(g_str_hash, g_str_equal,
+					gc_skin_free_string,
+					gc_skin_free_string);
+
+  GHashTableIter iter;
+  int size = g_hash_table_size(gc_skin_fonts);
+
+  gchar *val;
+  gchar *key;
+
+  g_hash_table_iter_init (&iter, gc_skin_xmlfonts);
+  while (g_hash_table_iter_next (&iter, (gpointer) &key, (gpointer) &val))
+    {
+      gchar *font = g_strdup_printf("%s %s", properties->fontface, val);
+      g_hash_table_insert(gc_skin_fonts, (gpointer)g_strdup(key), (gpointer)font);
+    }
+  g_hash_table_insert(gc_skin_fonts, g_strdup("gcompris/fontface"), g_strdup(properties->fontface));
+
+  gc_skin_setup_vars();
+}
+

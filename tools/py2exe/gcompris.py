@@ -24,6 +24,7 @@ import gobject
 import uuid
 import ConfigParser
 import gio
+import xml.dom.minidom
 from sqlite3 import dbapi2 as sqlite
 
 print "Hello gcompris world now"

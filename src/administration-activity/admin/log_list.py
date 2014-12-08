@@ -24,7 +24,6 @@ import gcompris.bonus
 import gtk
 import gtk.gdk
 import gobject
-import gettext
 from gcompris import gcompris_gettext as _
 
 import constants
@@ -105,7 +104,7 @@ class Log_list:
 
       for auser in user_list:
 
-        if(auser[0] == -1 or not auser[0]):
+        if(auser[0] == -1):
           # This is the name of the Default user profile
           self.combo_user.append_text(_("Default"))
           self.user_list.append(-1)

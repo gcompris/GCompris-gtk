@@ -27,8 +27,8 @@ import pango
 from random import randint
 import random
 
-import gettext
 from gcompris import gcompris_gettext as _
+
 from gcomprismusic import *
 
 

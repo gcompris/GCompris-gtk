@@ -25,7 +25,7 @@ import gcompris.bonus
 import gtk
 import gtk.gdk
 import random
-import gettext
+
 from gcompris import gcompris_gettext as _
 
 class Gcompris_melody:

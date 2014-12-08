@@ -5,6 +5,7 @@ img_DATA = \
 	cloud.svgz \
 	repeat.svg \
 	default-en.desktop \
+	default-fr.desktop \
 	default-gd.desktop
 
 

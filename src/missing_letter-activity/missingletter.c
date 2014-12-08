@@ -17,7 +17,6 @@
  */
 
 #include <string.h>
-#include <glib/gi18n.h>
 
 #include "gcompris/gcompris.h"
 
@@ -173,7 +172,7 @@ start_board (GcomprisBoard *agcomprisBoard)
 			"missing_letter/missingletter-bg.jpg");
        _init(agcomprisBoard);
       gc_bar_set(GC_BAR_CONFIG | GC_BAR_LEVEL);
-      gc_bar_location(10, -1, 0.9);
+      gc_bar_location(10, -1, 0.7);
 
       missing_letter_next_level();
 
@@ -245,7 +244,7 @@ missing_letter_next_level()
   gc_score_end();
   gc_score_start(SCORESTYLE_NOTE,
 		 BOARDWIDTH - 195,
-		 BOARDHEIGHT - 30,
+		 30,
 		 gcomprisBoard_missing->number_of_sublevel);
 
 
@@ -282,7 +281,7 @@ missing_letter_destroy_all_items()
 static void
 missing_letter_create_item(GooCanvasItem *parent)
 {
-  int xOffset, yOffset;
+  int xOffset, yOffset, yBase;
   GdkPixbuf *button_pixmap = NULL;
   GdkPixbuf *pixmap = NULL;
   Board *board;
@@ -316,7 +315,7 @@ missing_letter_create_item(GooCanvasItem *parent)
   pixmap = gc_pixmap_load(board->pixmapfile);
 
   text = goo_canvas_text_new (boardRootItem,
-			      _(board->question),
+			      board->question,
 			      (double) txt_area_x,
 			      (double) txt_area_y,
 			      -1,
@@ -339,13 +338,15 @@ missing_letter_create_item(GooCanvasItem *parent)
   /* Calc the number of proposals */
   i = 0;
   while(board->text[i++]);
+  i--;
 
-  vertical_separation = 10 + 20 / i;
+  vertical_separation = 10;
 
-  yOffset = ( BOARDHEIGHT
-	      - i * gdk_pixbuf_get_height(button_pixmap)
-	      - 2 * vertical_separation) / 2 - 20;
-  xOffset = (img_area_x - gdk_pixbuf_get_width(button_pixmap))/2;
+  yOffset = yBase = 20;
+  if (i < 7)
+    xOffset = (img_area_x - gdk_pixbuf_get_width(button_pixmap))/2;
+  else
+    xOffset = (img_area_x - gdk_pixbuf_get_width(button_pixmap))/3;
 
   i = 0;
   while(board->text[i])
@@ -354,6 +355,12 @@ missing_letter_create_item(GooCanvasItem *parent)
       GooCanvasItem *item;
       GooCanvasItem *group = goo_canvas_group_new (boardRootItem,
 						   NULL);
+
+      if (i == 6)
+	{
+	  xOffset += gdk_pixbuf_get_width(button_pixmap) + 10;
+	  yOffset = yBase;
+	}
 
       button = goo_canvas_image_new (group,
 				     button_pixmap,
@@ -704,7 +711,7 @@ destroy_board(Board * board)
   g_free(board->question);
   while(board->text[i])
     {
-      g_free(board->text[i++]);
+      g_free(board->text[i]);
       g_free(board->choices[i++]);
     }
 
@@ -798,13 +805,9 @@ config_start(GcomprisBoard *agcomprisBoard,
       _init(agcomprisBoard);
     }
 
-  /*
-   * TRANSLATORS: %1$s is the board name (missing_letter),
-   * 2$s is the name of the current user profile
-   */
-  gchar *label = g_strdup_printf(C_("missingletter_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
-				 _(agcomprisBoard->name),
-				 aProfile ? aProfile->name : "");
+  gchar *label = g_strdup_printf(_("<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
+				 agcomprisBoard->name,
+				 aProfile ? aProfile->name : _("Default"));
   GcomprisBoardConf *bconf;
   bconf = gc_board_config_window_display( label,
 				 conf_ok);

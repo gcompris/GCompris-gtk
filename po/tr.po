@@ -203,7 +203,7 @@ msgid ""
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
-"    Quit - Quit GCompris (ctrl-x)\n"
+"    Quit - Quit GCompris (ctrl-q)\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
 "    1, 2 or 3 complex stars - 7 years and up\n"
@@ -316,7 +316,7 @@ msgstr "2-10 yaş için eğitici oyunlar"
 #, fuzzy
 #| msgid "Educational suite gcompris"
 msgid "Educational suite GCompris"
-msgstr "Gcompris  eğitim bölümü"
+msgstr "GCompris  eğitim bölümü"
 
 #: ../gcompris.desktop.in.h:3
 msgid "Multi-activity educational game"
@@ -324,7 +324,7 @@ msgstr ""
 
 #: ../gcompris-edit.desktop.in.h:1
 msgid "Administration for gcompris"
-msgstr "Gcompris için yönetici"
+msgstr "GCompris için yönetici"
 
 #: ../gcompris-edit.desktop.in.h:2
 msgid "GCompris Administration"
@@ -596,7 +596,7 @@ msgstr ""
 "belirleyebilirsiniz.\n"
 "Her sınıf için kullanıcılar ekleyebilir, her sınıf için grup "
 "yaratabilirsiniz. Ayrıca virgül ile ayrılmış kütükten de kullanıcı "
-"eklenebilir.Profile bir veya daha çok grup atayın, bundan sonra Gcompris "
+"eklenebilir.Profile bir veya daha çok grup atayın, bundan sonra GCompris "
 "çalıştırıldığında yeni kullanıcılar aktif olur. Tekil çocuk belirlemek ayrı "
 "rapor alabilmeyi sağlar. Böylece çocuklar kendi kullanıcı isimleriyle giriş "
 "yapmayı öğrenirler."
@@ -612,7 +612,7 @@ msgid ""
 "reporting for parents and teacher who want to monitor the progress, "
 "strengths and needs of their children."
 msgstr ""
-"Eğer Gcompris programında ince ayar yapmak istiyorsan yönetim menüsünü "
+"Eğer GCompris programında ince ayar yapmak istiyorsan yönetim menüsünü "
 "kullanabilirsin. Asıl amaç çocuğa özel raporlama yaparak kişisel ilerleme, "
 "zayıflık ve ihtiyaçları izleyebilmektir."
 
@@ -824,296 +824,285 @@ msgstr "Doğru renklendirilmiş kutuya tıklayın."
 msgid "Learn to recognize unusual colors."
 msgstr "Farklı renkleri tanımayı öğrenin."
 
-#. Translator: Do not translate {text}.
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:1
+msgid "Find the coral butterfly"
+msgstr "mercan kelebeğini bul"
+
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
-msgid "Find the {text} butterfly"
-msgstr "{text} kelebeğini bul"
+msgid "Find the claret butterfly"
+msgstr "kırmızı şarap kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
-msgid "absinthe"
-msgstr "pelin"
+msgid "Find the navy butterfly"
+msgstr "deniz mavisi kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
-msgid "alabaster"
-msgstr "kaymak taşı"
+msgid "Find the corn butterfly"
+msgstr "mısır kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
-msgid "almond"
-msgstr "badem"
+msgid "Find the cobalt butterfly"
+msgstr "kobalt kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
-msgid "amber"
-msgstr "kehribar"
+msgid "Find the cyan butterfly"
+msgstr "siyanür kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
-msgid "amethyst"
-msgstr "mor yakut"
+msgid "Find the chestnut butterfly"
+msgstr "kestane kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
-msgid "anise"
-msgstr "anason"
+msgid "Find the almond butterfly"
+msgstr "badem kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
-msgid "aquamarine"
-msgstr "mavimsi yeşil"
+msgid "Find the sapphire butterfly"
+msgstr "safir kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
-msgid "aubergine"
-msgstr "patlıcan"
+msgid "Find the ruby butterfly"
+msgstr "yakut kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
-msgid "auburn"
-msgstr "koyu kestane"
+msgid "Find the sienna butterfly"
+msgstr "siena toprağı kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
-msgid "azure"
-msgstr "gök mavisi"
+msgid "Find the sage butterfly"
+msgstr "adaçayı kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
-msgid "bistre"
-msgstr "bistre"
+msgid "Find the salmon butterfly"
+msgstr "somon kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
-msgid "celadon"
-msgstr "grimsi yeşil"
+msgid "Find the sepia butterfly"
+msgstr "kahverengi tonu kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
-msgid "cerulean"
-msgstr "gök mavisi"
+msgid "Find the sulfur butterfly"
+msgstr "kükürt kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
-msgid "ceruse"
-msgstr "üstübeç"
+msgid "Find the tea butterfly"
+msgstr "çay kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
-msgid "chartreuse"
-msgstr "açık yeşil"
+msgid "Find the lime butterfly"
+msgstr "kireç kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
-msgid "chestnut"
-msgstr "kestane"
+msgid "Find the turquoise butterfly"
+msgstr "turkuaz kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
-msgid "claret"
-msgstr "kırmızı şarap"
+msgid "Find the absinthe butterfly"
+msgstr "pelin kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
-msgid "cobalt"
-msgstr "kobalt"
+msgid "Find the mahogany butterfly"
+msgstr "kızıl kahverengi kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
-msgid "coral"
-msgstr "mercan"
+msgid "Find the aquamarine butterfly"
+msgstr "mavimsi yeşil kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
-msgid "corn"
-msgstr "mısır"
+msgid "Find the alabaster butterfly"
+msgstr "kaymak taşı kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
-msgid "crimson"
-msgstr "koyu kırmızı"
+msgid "Find the amber butterfly"
+msgstr "kehribar kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
-msgid "cyan"
-msgstr "siyanür"
+msgid "Find the amethyst butterfly"
+msgstr "mor yakut kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
-#| msgid "dark_purple"
-msgid "dark purple"
-msgstr "koyu mor"
+msgid "Find the anise butterfly"
+msgstr "anason kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
-msgid "dove"
-msgstr "kumru"
+msgid "Find the vermilion butterfly"
+msgstr "parlak kırmızı kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
-msgid "emerald"
-msgstr "zümrüt"
+msgid "Find the ceruse butterfly"
+msgstr "üstübeç kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
-msgid "fawn"
-msgstr "açık kahverengi"
+msgid "Find the fawn butterfly"
+msgstr "açık kahverengi kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
-msgid "fuchsia"
-msgstr "füşya"
+msgid "Find the chartreuse butterfly"
+msgstr "açık yeşil kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
-msgid "garnet"
-msgstr "lal taşı"
+msgid "Find the emerald butterfly"
+msgstr "zümrüt kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
-msgid "glaucous"
-msgstr "yeşilimsi mavi"
+msgid "Find the aubergine butterfly"
+msgstr "patlıcan kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
-#| msgid "greyish_blue"
-msgid "greyish blue"
-msgstr "grimsi mavi"
+msgid "Find the fuchsia butterfly"
+msgstr "füşya kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
-#| msgid "greyish-brown"
-msgid "greyish brown"
-msgstr "grimsi kahverengi"
+msgid "Find the glaucous butterfly"
+msgstr "yeşilimsi mavi kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
-msgid "indigo"
-msgstr "çivit"
+msgid "Find the auburn butterfly"
+msgstr "koyu kestane kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
-msgid "ivory"
-msgstr "fildişi"
+msgid "Find the azure butterfly"
+msgstr "gök mavisi kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
-msgid "jade"
-msgstr "yeşim taşı"
+msgid "Find the grayish brown butterfly"
+msgstr "grimsi kahverengi kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
-msgid "larch"
-msgstr "karaçam"
+msgid "Find the bistre butterfly"
+msgstr "bistre kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
-msgid "lavender"
-msgstr "lavanta"
+msgid "Find the crimson butterfly"
+msgstr "koyu kırmızı kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
-msgid "lichen"
-msgstr "liken"
+msgid "Find the celadon butterfly"
+msgstr "grimsi yeşil kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
-msgid "lilac"
-msgstr "leylak"
+msgid "Find the cerulean butterfly"
+msgstr "gök mavisi kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
-msgid "lime"
-msgstr "kireç"
+msgid "Find the dove butterfly"
+msgstr "kumru kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
-msgid "magenta"
-msgstr "morumsu kırmızı"
+msgid "Find the garnet butterfly"
+msgstr "lal taşı kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
-msgid "mahogany"
-msgstr "kızıl kahverengi"
+msgid "Find the indigo butterfly"
+msgstr "çivit kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
-msgid "malachite"
-msgstr "bakır taşı"
+msgid "Find the ivory butterfly"
+msgstr "fildişi kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
-msgid "mauve"
-msgstr "açık mor"
+msgid "Find the jade butterfly"
+msgstr "yeşim taşı kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:46
-msgid "mimosa"
-msgstr "mimoza"
+msgid "Find the lavender butterfly"
+msgstr "lavanta kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
-msgid "navy"
-msgstr "deniz mavisi"
+msgid "Find the lichen butterfly"
+msgstr "liken kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
-msgid "ochre"
-msgstr "kırmızımsı sarı"
+msgid "Find the wine butterfly"
+msgstr "şarap kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
-msgid "olive"
-msgstr "zeytin yeşili"
+msgid "Find the lilac butterfly"
+msgstr "leylak kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
-msgid "opaline"
-msgstr "opal"
+msgid "Find the magenta butterfly"
+msgstr "morumsu kırmızı kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
-msgid "pistachio"
-msgstr "antep fıstığı"
+msgid "Find the malachite butterfly"
+msgstr "bakır taşı kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
-msgid "platinum"
-msgstr "platinyum"
+msgid "Find the larch butterfly"
+msgstr "karaçam kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
-msgid "plum"
-msgstr "erik"
+msgid "Find the mimosa butterfly"
+msgstr "mimoza kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
-#, fuzzy
-#| msgid "prussian_blue"
-msgid "prussian blue"
-msgstr "koyu_lacivert"
+msgid "Find the ochre butterfly"
+msgstr "kırmızımsı sarı kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
-msgid "purple"
-msgstr "mor"
+msgid "Find the olive butterfly"
+msgstr "zeytin yeşili kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:56
-msgid "ruby"
-msgstr "yakut"
+msgid "Find the opaline butterfly"
+msgstr "opal kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
-msgid "rust"
-msgstr "pas"
+msgid "Find the ultramarine butterfly"
+msgstr "lacivert kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
-msgid "saffron"
-msgstr "safran"
+msgid "Find the mauve butterfly"
+msgstr "açık mor kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:59
-msgid "sage"
-msgstr "adaçayı"
+msgid "Find the grayish blue butterfly"
+msgstr "grimsi mavi kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
-msgid "salmon"
-msgstr "somon"
+msgid "Find the pistachio butterfly"
+msgstr "antep fıstığı kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
-msgid "sapphire"
-msgstr "safir"
+msgid "Find the platinum butterfly"
+msgstr "platinyum kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
-msgid "sepia"
-msgstr "kahverengi tonu"
+msgid "Find the purple butterfly"
+msgstr "mor kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
-msgid "sienna"
-msgstr "siena toprağı"
+msgid "Find the plum butterfly"
+msgstr "erik kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
-msgid "sulphur"
-msgstr "kükürt"
+msgid "Find the prussian blue butterfly"
+msgstr "koyu_lacivert kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
-msgid "tea"
-msgstr "çay"
+msgid "Find the rust butterfly"
+msgstr "pas kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
-msgid "turquoise"
-msgstr "turkuaz"
+msgid "Find the saffron butterfly"
+msgstr "safran kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
-msgid "ultramarine"
-msgstr "lacivert"
+msgid "Find the vanilla butterfly"
+msgstr "vanilya kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
-msgid "vanilla"
-msgstr "vanilya"
+msgid "Find the veronese butterfly"
+msgstr "veronos kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
-msgid "verdigris"
-msgstr "bakır pası"
+msgid "Find the verdigris butterfly"
+msgstr "bakır pası kelebeğini bul"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
-msgid "vermilion"
-msgstr "parlak kırmızı"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:71
-msgid "veronese"
-msgstr "veronos"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:72
-msgid "wine"
-msgstr "şarap"
+msgid "Find the dark purple butterfly"
+msgstr "koyu mor kelebeğini bul"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid ""
@@ -1162,7 +1151,7 @@ msgstr "Hazırım"
 #, fuzzy
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
-"(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
+"(http://schmode.net/). Ralf has kindly permitted GCompris to include his "
 "pictures. Thanks a lot, Ralf."
 msgstr ""
 "Havyanların fotoğrafları, Ralf Schmode'un Hayvan Fotoğraflarından (http://"
@@ -1751,11 +1740,11 @@ msgstr "Python paneli"
 #, fuzzy
 #| msgid "Special board that embeds python into gcompris."
 msgid "Special board that embeds python into GCompris."
-msgstr "Gcompris'e python eklemek için özel panel."
+msgstr "GCompris'e python eklemek için özel panel."
 
 #: ../src/boards/python.c:89
 msgid "Special board that embeds python into gcompris."
-msgstr "Gcompris'e python eklemek için özel panel."
+msgstr "GCompris'e python eklemek için özel panel."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:165
 msgid "Braille : Unlocking the Code"
@@ -2046,7 +2035,7 @@ msgid ""
 "to play chess in gcompris.\n"
 "First install it, and check it is in "
 msgstr ""
-"Hata: Gcompris ile satranç. oynamak için harici gnuchess programının \n"
+"Hata: GCompris ile satranç. oynamak için harici gnuchess programının \n"
 "bulunması zorunludur\n"
 "Programa http://www.rpmfind.net adresinden veya linux dağıtımınızdan\n"
 "erişebilirsiniz. \n"
@@ -3114,7 +3103,7 @@ msgstr ""
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:56
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr ""
 "Arman Aksoy <armish@linux-sevenler.de>\n"
 "Meltem Turhan Yondem <mturhan@ceng.metu.edu.tr>\n"
@@ -3175,7 +3164,7 @@ msgstr "Hayır, devam etmek istiyorum"
 #, fuzzy
 #| msgid "Dynamic module loading is not supported. gcompris cannot load.\n"
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
-msgstr "Dinamik modül yükleme desteklenmiyor. Gcompris yüklenemez.\n"
+msgstr "Dinamik modül yükleme desteklenmiyor. GCompris yüklenemez.\n"
 
 #: ../src/gcompris/board_config_combo.c:182
 msgid ""
@@ -3551,10 +3540,10 @@ msgstr "Zamanı hızlandır"
 #: ../src/gcompris/config.c:137
 #, fuzzy
 #| msgid ""
-#| "<i>Use Gcompris administration module\n"
+#| "<i>Use GCompris administration module\n"
 #| "to filter boards</i>"
-msgid "Use Gcompris administration module to filter boards"
-msgstr "Oyunları düzenlemek için Gcompris yönetim yazılımını kullanın"
+msgid "Use GCompris administration module to filter boards"
+msgstr "Oyunları düzenlemek için GCompris yönetim yazılımını kullanın"
 
 #: ../src/gcompris/config.c:188
 msgid "GCompris Configuration"
@@ -3652,7 +3641,7 @@ msgid "display only activities with this difficulty level."
 msgstr "Sadece bu zorluktaki etkinlikleri görüntüle."
 
 #: ../src/gcompris/gcompris.c:176
-msgid "display debug informations on the console."
+msgid "display debug information on the console."
 msgstr "Düzeltme bilgilerini konsolda gösterin."
 
 #: ../src/gcompris/gcompris.c:179
@@ -3671,7 +3660,7 @@ msgid ""
 "activity). Use '-l list' to list all the availaible activities and their "
 "descriptions."
 msgstr ""
-"Gcompris'i lokal menü ile oynayın (örnek  -l /reading sadece reading dizini "
+"GCompris'i lokal menü ile oynayın (örnek  -l /reading sadece reading dizini "
 "altındaki etkinlikleri oynamanıza izin verecek, -l /boards/connect4  sadece "
 "connect4 oynamanıza izin verecektir)"
 
@@ -3701,7 +3690,7 @@ msgstr ""
 
 #: ../src/gcompris/gcompris.c:205
 msgid "Run GCompris in administration and user-management mode"
-msgstr "Gcompris'i yönetim ve kullanıcı-yönetimi modunda çalıştırın"
+msgstr "GCompris'i yönetim ve kullanıcı-yönetimi modunda çalıştırın"
 
 #: ../src/gcompris/gcompris.c:208
 #, fuzzy
@@ -3824,7 +3813,7 @@ msgid ""
 "Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 msgstr ""
-"Gcompris GPL lisansı altında geliştirilmiş özgür yazılımdır. Gelişimi "
+"GCompris GPL lisansı altında geliştirilmiş özgür yazılımdır. Gelişimi "
 "desteklemek için Windows versiyonunda sadece %d nin %d etkinlikleri "
 "bulunmaktadır. Tüm halini az bir ücretle \n"
 "<http://gcompris.net>\n"
@@ -5822,7 +5811,7 @@ msgstr "Giriş için kullanıcı adı girin"
 msgid ""
 "GCompris identifies each child, so we can provide child-specific reports."
 msgstr ""
-"Gcompris her çocuğu tanımlar, bu nedenle çocuğa özel rapor alabilirsiniz."
+"GCompris her çocuğu tanımlar, bu nedenle çocuğa özel rapor alabilirsiniz."
 
 #: ../src/login-activity/login.xml.in.h:2
 msgid "GCompris login screen"
@@ -5852,11 +5841,11 @@ msgid ""
 "is the name of a profile as you created it in Administration."
 msgstr ""
 "Giriş ekranını aktif hale getirmek için öncelikle \n"
-"Gcompris'in yönetim kısmına kullanıcıları ekleyin \n"
+"GCompris'in yönetim kısmına kullanıcıları ekleyin \n"
 "Yönetim kısmına 'gcompris -a' yazarak erişebilirsiniz. \n"
 "Yönetim kısmında farklı profiller yaratabilirsiniz. Herbir profilde, \n"
 "farklı kullanıcılar ve etkinlikler tanımlayabilirsiniz.\n"
-"Gcompris'i özel bir profil için çalıştırmak istediğinizde, 'gcompris -p "
+"GCompris'i özel bir profil için çalıştırmak istediğinizde, 'gcompris -p "
 "profile' yazın."
 
 #: ../src/login-activity/login.xml.in.h:10
@@ -7248,7 +7237,7 @@ msgstr "Bu, Python Programlama dilinde yazılan ilk GCompris eklentisidir."
 #, fuzzy
 #| msgid "Add a language-binding to gcompris."
 msgid "Add a language-binding to GCompris."
-msgstr "Gcompris'e yeni bir dil ekleyin."
+msgstr "GCompris'e yeni bir dil ekleyin."
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:2
 #: ../src/pythontest-activity/pythontest.xml.in.h:2
@@ -7281,7 +7270,7 @@ msgid ""
 "It is now possible to develop GCompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
 msgstr ""
-"Artık C veya Pyton dili ile Gcompris aktivitesi geliştirmek mümkündür. Bunun "
+"Artık C veya Pyton dili ile GCompris aktivitesi geliştirmek mümkündür. Bunun "
 "için Olivier Samys'e teşekkür ederiz."
 
 #: ../src/pythontest-activity/pythontest.py:202
@@ -7810,7 +7799,7 @@ msgstr "Zarlarla Numaralar"
 #| "order to navigate to the required depth."
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth. There is a close gate on the right. Catch "
+"to navigate to the required depth. There is a closed gate on the right. Catch "
 "the jewel to open it, then pass through it to reach the next level."
 msgstr ""
 "İstenilen derinliğe ulaşmak için, değişik aktif elemanların üzerine "
@@ -7851,7 +7840,7 @@ msgid ""
 msgstr ""
 "İlk seviyede soldaki sembolleri kaydırarak hedef yerlerine taşıyın. İleri "
 "seviyelerde boş karelere tıklayarak klavyeden olası harf veya sayıları "
-"girin. Gcompris yanlış veri girmenize izin vermeyecektir."
+"girin. GCompris yanlış veri girmenize izin vermeyecektir."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:3
 msgid "Sudoku, place unique symbols in a square."
@@ -7966,7 +7955,7 @@ msgid ""
 "GCompris by Yves Combe in 2005."
 msgstr ""
 "Orjinal yazılım Philippe Banwarth tarafından 1999 yılında yazılmıştır ve "
-"Yves Combetarafından 2005 yılında Gcompris'e aktarılmıştır."
+"Yves Combetarafından 2005 yılında GCompris'e aktarılmıştır."
 
 #: ../src/tangram-activity/tangram.xml.in.h:12
 msgid "The tangram puzzle game"
@@ -8059,11 +8048,11 @@ msgstr "TuxÇizimin bitirmesi bekleniyor"
 
 #: ../src/tuxpaint-activity/tuxpaint.py:189
 msgid "Inherit fullscreen setting from GCompris"
-msgstr "Gcompris'ten tamsayfa ayarını miras al"
+msgstr "GCompris'ten tamsayfa ayarını miras al"
 
 #: ../src/tuxpaint-activity/tuxpaint.py:193
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
-msgstr "Gcompristen boy ayarlarını alın (800x600, 640x480)"
+msgstr "GCompristen boy ayarlarını alın (800x600, 640x480)"
 
 #: ../src/tuxpaint-activity/tuxpaint.py:197
 msgid "Disable shape rotation"
@@ -8297,7 +8286,7 @@ msgstr "Düşen kelimelerin tamamını yere değmeden önce yazın"
 #~ "www.photolib.noaa.gov adresindeki Doğa Denizaltı Araştırma Programından "
 #~ "(NURP) alınmıştır. Tüm resim hakları OAR/Doğa Denizaltı Araştırma "
 #~ "Programına (NURP) aittir. Sadece başlangıçtaki resim Wilmington 'daki "
-#~ "Kuzey Karolina Üniversitesine aittir. Gcompris bölümlerindeki resimler "
+#~ "Kuzey Karolina Üniversitesine aittir. GCompris bölümlerindeki resimler "
 #~ "sırasıyla: Konum: Tropikal Atlantik Okyanusu, Florida Keys (resim "
 #~ "nur00523) Fotoğrafçı: D. Kesling Konum: Florida Keys (resim nur03006) "
 #~ "Konum: Bilinmiyor (resim nur03505) Konum Bilinmiyor (resim nur03010) "
@@ -8336,7 +8325,7 @@ msgstr "Düşen kelimelerin tamamını yere değmeden önce yazın"
 #~ msgstr "GCompris Animasyon"
 
 #~ msgid "gcompris drawing"
-#~ msgstr "Gcompris Çizim"
+#~ msgstr "GCompris Çizim"
 
 #~ msgid "svg drawing"
 #~ msgstr "svg çizim"
@@ -8417,7 +8406,7 @@ msgstr "Düşen kelimelerin tamamını yere değmeden önce yazın"
 #~ "GNU/Linux distribution\n"
 #~ "And check it is located here: "
 #~ msgstr ""
-#~ "Hata: Gcompris ile satran. oynamak için harici gnuchess programının \n"
+#~ "Hata: GCompris ile satran. oynamak için harici gnuchess programının \n"
 #~ "bulunması zorunludur\n"
 #~ "Programa http://www.rpmfind.net adresinden veya linux dağıtımınızdan\n"
 #~ "erişebilirsiniz. \n"

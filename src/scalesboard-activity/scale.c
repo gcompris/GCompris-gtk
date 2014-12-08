@@ -19,7 +19,6 @@
 #include "gcompris/gcompris.h"
 #include <string.h> // for strcmp
 #include <stdlib.h> // for abs
-#include <glib/gi18n.h>
 
 #define SOUNDLISTFILE PACKAGE
 
@@ -372,9 +371,9 @@ scale_anim_plate(void)
       GooCanvasItem *text_item;
 
       if(board_mode == MODE_WEIGHT) {
-	answer_label_string = "Enter the weight in g";
+	answer_label_string = _("Enter the weight of the object in gram");
       } else {
-	answer_label_string = "Enter the weight of the object";
+	answer_label_string = _("Enter the weight of the object");
       }
 
       text_item = \
@@ -660,9 +659,9 @@ scale_list_add_weight(GooCanvasItem *group,
   }
 
   if (show_weight < 1000) {
-    	weight_text = g_strdup_printf("%d%s", weight, show_weight ? "\ng" : "");
+    weight_text = g_strdup_printf("%d%s", weight, show_weight ? "\ng" : "");
   } else {
-    	weight_text = g_strdup_printf("%.1f\nkg", (double)weight / 1000);
+    weight_text = g_strdup_printf("%.1f\nkg", (double)weight / 1000);
   }
 
   pixmap = gc_pixmap_load("scale/masse.png");
@@ -1257,12 +1256,8 @@ config_start(GcomprisBoard *agcomprisBoard,
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  /*
-   * TRANSLATORS: %1$s is the board name (scale_config),
-   * 2$s is the name of the current user profile
-   */
-  gchar * label = g_strdup_printf(C_("scale_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
-				  _(agcomprisBoard->name),
+  gchar * label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
+				  agcomprisBoard->name,
 				  aProfile? aProfile->name : "");
 
   GcomprisBoardConf *bconf;

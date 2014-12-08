@@ -117,9 +117,9 @@ static gdouble get_ratio(GdkPixbuf *pixmap, gdouble size);
 #define D_INT_X 50
 #define D_INT_Y 5
 
-#define I_X 140
+#define I_X 120
 #define I_Y 390
-#define I_W 600
+#define I_W 650
 #define I_H 125
 
 #define ICON_SIZE 100
@@ -264,6 +264,25 @@ static void menu_start (GcomprisBoard *agcomprisBoard)
 	display_section(menu_position);
       else
 	display_welcome(menuitems);
+
+      {
+	if ( strcmp(gc_prop_get()->profile->name, GC_PROFILE_DEFAULT) != 0 )
+	  {
+	    gchar *text = g_strdup_printf(_("Profile: %s"),
+					  gc_prop_get()->profile->name);
+	    goo_canvas_text_new (boardRootItem,
+				 text,
+				 BOARDWIDTH - 10,
+				 BOARDHEIGHT - 30,
+				 -1,
+				 GTK_ANCHOR_EAST,
+				 "font", gc_skin_font_board_tiny,
+				 "fill-color-rgba", gc_skin_get_color("menu/text"),
+				 "alignment", PANGO_ALIGN_RIGHT,
+				 NULL);
+	    g_free(text);
+	  }
+      }
 
       {
 	gchar *text = g_strdup_printf(_("Number of activities: %d"),
@@ -716,7 +735,7 @@ create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
 			 y + 20,
 			 -1,
 			 GTK_ANCHOR_CENTER,
-			 "font", gc_skin_font_menu_title,
+			 "font", gc_skin_font_board_big,
 			 "fill-color-rgba", gc_skin_get_color("menu/text"),
 			 "alignment", PANGO_ALIGN_CENTER,
 			 NULL);
@@ -728,7 +747,7 @@ create_info_area(GooCanvasItem *parent, MenuItems *menuitems)
 			 y + 70,
 			 info_w - 10,
 			 GTK_ANCHOR_CENTER,
-			 "font", gc_skin_font_menu_description,
+			 "font", gc_skin_font_board_medium,
 			 "fill-color-rgba", gc_skin_get_color("menu/text"),
 			 "alignment", PANGO_ALIGN_CENTER,
 			 NULL);

@@ -22,8 +22,8 @@ import gcompris.utils
 import gcompris.skin
 import gtk
 import gtk.gdk
-import gettext
 from gcompris import gcompris_gettext as _
+
 import module
 import profile_list
 import profile_edit

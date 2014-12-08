@@ -650,9 +650,11 @@ static gboolean  to_computer(gpointer data)
     } else {
       /* computer hungry but human can't give it beans */
       /* Human player win by catching all the beans left. */
+      updateNbBeans (0);
+      updateCapturedBeans ();
       gamewon = TRUE;
-      sublevel_finished = TRUE;
-      gc_bonus_display(TRUE, GC_BONUS_FLOWER);
+      sublevel_finished = (staticAwale->CapturedBeans[HUMAN] >  24);
+      gc_bonus_display(sublevel_finished, GC_BONUS_FLOWER);
     }
   } else {
     /* computer can't play. Why? human is hungry and i cannot give it
@@ -660,7 +662,7 @@ static gboolean  to_computer(gpointer data)
     /* if human has 24 beans, it's draw (human win in gcompris) */
     /* if not, all staying are captured by computer and computer win */
     gamewon = TRUE;
-    sublevel_finished = (staticAwale->CapturedBeans[HUMAN] ==  24);
+    sublevel_finished = (staticAwale->CapturedBeans[HUMAN] > 24);
     gc_bonus_display(sublevel_finished, GC_BONUS_FLOWER);
   }
 

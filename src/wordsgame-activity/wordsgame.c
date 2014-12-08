@@ -17,7 +17,6 @@
  */
 
 #include <string.h>
-#include <glib/gi18n.h>
 
 #include "gcompris/gcompris.h"
 #include "gcompris/gameutil.h"
@@ -30,7 +29,7 @@ static GcomprisWordlist *gc_wordlist = NULL;
 #if GLIB_CHECK_VERSION(2, 31, 0)
 static GMutex items_lock; /* No init needed for static GMutexes */
 #else
-GStaticMutex items_lock = G_STATIC_MUTEX_INIT;
+static GStaticMutex items_lock = G_STATIC_MUTEX_INIT;
 #endif
 
 /*
@@ -504,7 +503,7 @@ static void wordsgame_next_level_unlocked()
 {
     gcomprisBoard->sublevel = 1;
     setSpeed(gcomprisBoard->level);
-    
+
     /* set sublevels */
     LevelWordlist *levellist = gc_wordlist_get_levelwordlist(gc_wordlist, gcomprisBoard->level);
     if (levellist->sublevels > 0)
@@ -813,7 +812,7 @@ static void player_win(LettersItem *item)
 
   if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel)
     {
-      
+
       /* Give feedback about completed level */
       //gc_sound_play_ogg ("sounds/bonus.wav", NULL);
       gc_bonus_display(TRUE, GC_BONUS_LION);
@@ -934,12 +933,8 @@ wordsgame_config_start(GcomprisBoard *agcomprisBoard,
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  /*
-   * TRANSLATORS: %1$s is the board name (wordsgame),
-   * 2$s is the name of the current user profile
-   */
-  gchar *label = g_strdup_printf(C_("wordsgame_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
-				 _(agcomprisBoard->name),
+  gchar *label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
+				 agcomprisBoard->name,
 				 aProfile? aProfile->name: "");
 
   conf = gc_board_config_window_display( label,

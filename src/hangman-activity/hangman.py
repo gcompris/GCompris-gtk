@@ -26,16 +26,14 @@ import gcompris.bonus
 import gcompris.score
 import goocanvas
 import pango
-import gettext
+
 from gcompris import gcompris_gettext as _
 
 fles = None
 
-def _gui(text):
-    gettext.dgettext(gcompris.GETTEXT_GUI,text)
-
 class Gcompris_hangman:
   """Empty gcompris python class"""
+
 
   def __init__(self, gcomprisBoard):
     # Save the gcomprisBoard, it defines everything we need
@@ -68,17 +66,18 @@ class Gcompris_hangman:
     # Separate with /. You can use digraphs, trigraphs etc. For example, both 's' and 'sch' could be in the list for German
     tempconsonants = unicode(_("b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"), encoding="utf8")
     self.consonants = tempconsonants.split("/")
-    
+
     # Keys to letters equivalence for the hangman activity. It has the
     # form of a space separated list like: "é=e/E è=e/E sch=S"
     # Letters on the left of the = can be multigraphs and represent the letters on the buttons.
     # Letters on the right are single letters pressed on the keyboard.
+
     # If you wish to allow different key presses for the same letter, separate the letters
-    # on the right with /
+    # on the right with the chararcter '/'. Keep the word NONE if not available in your language
     keyequivs = unicode(_("a=a"), encoding="utf8")
     if keyequivs == "a=a":
       keyequivs = None
-    
+
     # Create equivs list
     self.keyequivList = {}
     if keyequivs:
@@ -127,14 +126,14 @@ class Gcompris_hangman:
     # Get the name of the language for the current locale
     self.wordlist = None
     try:
-      self.language = _(gcompris.get_locale_name(gcompris.get_locale()) )
+      self.language = gcompris.gcompris_gettext( gcompris.get_locale_name(gcompris.get_locale()) )
       self.wordlist = gcompris.get_wordlist("hangman/default-$LOCALE.xml")
     except:
       pass
     # Fallback to wordsgame list
     if not self.wordlist:
         try:
-            self.language = _(gcompris.get_locale_name(gcompris.get_locale()) )
+            self.language = gcompris.gcompris_gettext( gcompris.get_locale_name(gcompris.get_locale()) )
             self.wordlist = gcompris.get_wordlist("wordsgame/default-$LOCALE.xml")
         except:
             pass
@@ -310,9 +309,9 @@ class Gcompris_hangman:
         i = i+1+graphlength
     # end parsing the word with multigraphs
 
-    # now construct and display the word for the game    
+    # now construct and display the word for the game
     x = (gcompris.BOARD_WIDTH - (len(parsedword) * w)) / 2
-  
+
     for i in range(0, len(parsedword)):
         # dynamic width of last multigraph in the word
         if(i>0):
@@ -320,7 +319,7 @@ class Gcompris_hangman:
                 xshift=(len(parsedword[i-1])-1)*0.75/len(parsedword[i-1]) #todo factor
         else:
             xshift=0
-    
+
         self.letters.append(Letter(self, x + (i+xshift)*w, 70,
                                  parsedword[i],
                                  self.get_equiv(parsedword[i])))
@@ -467,11 +466,12 @@ class Letter:
         self.letterItem.props.visibility = goocanvas.ITEM_VISIBLE
 
     def check(self, targetLetter):
-      if (self.letters.count(targetLetter) > 0):
-        self.rect.set_properties(fill_color_rgba = 0x66CC33AAL)
-        self.letterItem.props.visibility = goocanvas.ITEM_VISIBLE
-        self.found = True
-        return True
+      for letter in self.letters:
+        if (letter.count(targetLetter) > 0):
+          self.rect.set_properties(fill_color_rgba = 0x66CC33AAL)
+          self.letterItem.props.visibility = goocanvas.ITEM_VISIBLE
+          self.found = True
+          return True
 
       return False
 

@@ -1,13 +1,11 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(gcompris, 12.11, http://gcompris.net)
+AC_INIT(gcompris, 14.07, http://gcompris.net)
 
 AM_INIT_AUTOMAKE([tar-ustar no-dist-gzip dist-bzip2 -Wno-portability])
 
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
-
-AM_GNU_GETTEXT([external]) 
 
 if test -z "$enable_maintainer_mode"; then
   enable_maintainer_mode=yes
@@ -359,7 +357,7 @@ else
   AC_DEFINE_UNQUOTED(SYSTEM_CONFIG_DIR, "/etc", [System GCompris config directory])
 
   dnl Test for gnuchess
-  if test x$GNUCHESS = xno; then
+  if test x$GNUCHESS = x; then
     GNUCHESS="gcompris-gnuchess"
   fi
   AC_DEFINE_UNQUOTED(GNUCHESS, "$GNUCHESS", Defines where GNU Chess resides on the system)
@@ -517,14 +515,8 @@ dnl Autoconf output
 AC_OUTPUT([
 Makefile
 Makefile.mingw
-autopackage/Makefile
-autopackage/default.apspec
 boards/Makefile
 config.h.mingw
-docs/C/Makefile
-docs/Makefile
-docs/eu/Makefile
-docs/fr/Makefile
 gcompris-installer.nsi
 macosx/Info.plist
 macosx/InfoAdmin.plist
@@ -929,4 +921,3 @@ echo type sh configure --prefix=/usr
 echo
 echo type \'make\' to compile gcompris
 echo type \'make install\' to install it
-

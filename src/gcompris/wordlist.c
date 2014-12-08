@@ -324,7 +324,9 @@ gc_wordlist_free(GcomprisWordlist *wordlist)
   g_free (wordlist);
 }
 
-void gc_wordlist_set_wordlist(GcomprisWordlist *wordlist, guint level, gint speed, gint fallspeed, gint sublevels, const gchar*text)
+void gc_wordlist_set_wordlist(GcomprisWordlist *wordlist,
+							  guint level, gint speed, gint fallspeed, gint sublevels,
+							  const gchar*text)
 {
 	LevelWordlist *lw;
 	GSList *words=NULL;
@@ -360,9 +362,9 @@ void gc_wordlist_set_wordlist(GcomprisWordlist *wordlist, guint level, gint spee
 
 	level_words->words = words;
 	level_words->level = level;
-        level_words->speed = speed;
-        level_words->fallspeed = fallspeed;
-        level_words->sublevels = sublevels;
+	level_words->speed = speed;
+	level_words->fallspeed = fallspeed;
+	level_words->sublevels = sublevels;
 
 	wordlist->number_of_level++;
 	wordlist->levels_words = g_slist_append( wordlist->levels_words, level_words);

@@ -200,7 +200,7 @@ msgid ""
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
-"    Quit - Quit GCompris (ctrl-x)\n"
+"    Quit - Quit GCompris (ctrl-q)\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
 "    1, 2 or 3 complex stars - 7 years and up\n"
@@ -812,291 +812,285 @@ msgstr "ฝึกฝนการจดจำสีที่ไม่ธรรม
 msgid "Click on the correct colored box."
 msgstr "กดเลือกบนกล่องสีที่ถูกต้อง"
 
-#. Translator: Do not translate {text}.
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:1
+msgid "Find the coral butterfly"
+msgstr "หาผีเสื้อสีแดงปะการัง"
+
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
-msgid "Find the {text} butterfly"
-msgstr "หาผีเสื้อสี{text}"
+msgid "Find the claret butterfly"
+msgstr "หาผีเสื้อสีม่วงแดงไวน์แดง"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
-msgid "coral"
-msgstr "แดงปะการัง"
+msgid "Find the navy butterfly"
+msgstr "หาผีเสื้อสีกรมท่า"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
-msgid "claret"
-msgstr "ม่วงแดงไวน์แดง"
+msgid "Find the corn butterfly"
+msgstr "หาผีเสื้อสีเหลืองข้าวโพด"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
-msgid "sienna"
-msgstr "น้ำตาลดินเผา"
+msgid "Find the cobalt butterfly"
+msgstr "หาผีเสื้อสีฟ้าหม่นโคบอลต์"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
-msgid "corn"
-msgstr "เหลืองข้าวโพด"
+msgid "Find the cyan butterfly"
+msgstr "หาผีเสื้อสีฟ้าอมเขียว"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
-msgid "cobalt"
-msgstr "ฟ้าหม่นโคบอลต์"
+msgid "Find the chestnut butterfly"
+msgstr "หาผีเสื้อสีน้ำตาลเกาลัด"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
-msgid "cyan"
-msgstr "ฟ้าอมเขียว"
+msgid "Find the almond butterfly"
+msgstr "หาผีเสื้อสีเขียวอัลมอนด์"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
-msgid "chestnut"
-msgstr "น้ำตาลเกาลัด"
+msgid "Find the sapphire butterfly"
+msgstr "หาผีเสื้อสีฟ้าแซฟไฟร์"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
-msgid "almond"
-msgstr "เขียวอัลมอนด์"
+msgid "Find the ruby butterfly"
+msgstr "หาผีเสื้อสีแดงทับทิม"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
-msgid "ruby"
-msgstr "แดงทับทิม"
+msgid "Find the sienna butterfly"
+msgstr "หาผีเสื้อสีน้ำตาลดินเผา"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
-msgid "sapphire"
-msgstr "ฟ้าแซฟไฟร์"
+msgid "Find the sage butterfly"
+msgstr "หาผีเสื้อสีเขียวสะระแหน่"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
-msgid "sage"
-msgstr "เขียวสะระแหน่"
+msgid "Find the salmon butterfly"
+msgstr "หาผีเสื้อสีส้มแซลมอน"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
-msgid "salmon"
-msgstr "ส้มแซลมอน"
+msgid "Find the sepia butterfly"
+msgstr "หาผีเสื้อสีน้ำตาลซีเปีย"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
-msgid "sepia"
-msgstr "น้ำตาลซีเปีย"
+msgid "Find the sulfur butterfly"
+msgstr "หาผีเสื้อสีเหลืองกำมะถัน"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
-msgid "sulphur"
-msgstr "เหลืองกำมะถัน"
+msgid "Find the tea butterfly"
+msgstr "หาผีเสื้อสีส้มชานม"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
-msgid "tea"
-msgstr "ส้มชานม"
+msgid "Find the lime butterfly"
+msgstr "หาผีเสื้อสีเขียวมะนาว"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
-msgid "lime"
-msgstr "เขียวมะนาว"
+msgid "Find the turquoise butterfly"
+msgstr "หาผีเสื้อสีฟ้าอมเขียวเทอร์ควอยซ์"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
-msgid "turquoise"
-msgstr "ฟ้าอมเขียวเทอร์ควอยซ์"
+msgid "Find the absinthe butterfly"
+msgstr "หาผีเสื้อสีเขียวแอบซินท์"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
-msgid "absinthe"
-msgstr "เขียวแอบซินท์"
+msgid "Find the mahogany butterfly"
+msgstr "หาผีเสื้อสีน้ำตาลมะฮอกกานี"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
-msgid "mahogany"
-msgstr "น้ำตาลมะฮอกกานี"
+msgid "Find the aquamarine butterfly"
+msgstr "หาผีเสื้อสีฟ้าอมเขียวอะความารีน"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
-msgid "aquamarine"
-msgstr "ฟ้าอมเขียวอะความารีน"
+msgid "Find the alabaster butterfly"
+msgstr "หาผีเสื้อสีขาวอะลาบาสเตอร์"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
-msgid "alabaster"
-msgstr "ขาวอะลาบาสเตอร์"
+msgid "Find the amber butterfly"
+msgstr "หาผีเสื้อสีเหลืองอำพัน"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
-msgid "amber"
-msgstr "เหลืองอำพัน"
+msgid "Find the amethyst butterfly"
+msgstr "หาผีเสื้อสีม่วงแอเมทิสต์"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
-msgid "amethyst"
-msgstr "ม่วงแอเมทิสต์"
+msgid "Find the anise butterfly"
+msgstr "หาผีเสื้อสีเขียวแอนิส"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
-msgid "anise"
-msgstr "เขียวแอนิส"
+msgid "Find the vermilion butterfly"
+msgstr "หาผีเสื้อสีแดงชาด"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
-msgid "vermilion"
-msgstr "แดงชาด"
+msgid "Find the ceruse butterfly"
+msgstr "หาผีเสื้อสีขาวตะกั่วขาว"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
-msgid "ceruse"
-msgstr "ขาวตะกั่วขาว"
+msgid "Find the fawn butterfly"
+msgstr "หาผีเสื้อสีน้ำตาลขนลูกกวาง"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
-msgid "fawn"
-msgstr "น้ำตาลขนลูกกวาง"
+msgid "Find the chartreuse butterfly"
+msgstr "หาผีเสื้อสีเขียวโศก"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
-msgid "chartreuse"
-msgstr "เขียวโศก"
+msgid "Find the emerald butterfly"
+msgstr "หาผีเสื้อสีเขียวมรกต"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
-msgid "emerald"
-msgstr "เขียวมรกต"
+msgid "Find the aubergine butterfly"
+msgstr "หาผีเสื้อสีมะเขือม่วง"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
-msgid "aubergine"
-msgstr "มะเขือม่วง"
+msgid "Find the fuchsia butterfly"
+msgstr "หาผีเสื้อสีชมพูฟิวเชีย"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
-msgid "fuchsia"
-msgstr "ชมพูฟิวเชีย"
+msgid "Find the glaucous butterfly"
+msgstr "หาผีเสื้อสีเขียวอมเทา"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
-msgid "glaucous"
-msgstr "เขียวอมเทา"
+msgid "Find the auburn butterfly"
+msgstr "หาผีเสื้อสีน้ำตาลแดง"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
-msgid "auburn"
-msgstr "น้ำตาลแดง"
+msgid "Find the azure butterfly"
+msgstr "หาผีเสื้อสีท้องฟ้า"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
-msgid "azure"
-msgstr "ท้องฟ้า"
+msgid "Find the grayish brown butterfly"
+msgstr "หาผีเสื้อสีเทาน้ำตาล"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
-msgid "greyish brown"
-msgstr "เทาน้ำตาล"
+msgid "Find the bistre butterfly"
+msgstr "หาผีเสื้อสีน้ำตาลหมึกเขม่า"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
-msgid "bistre"
-msgstr "น้ำตาลหมึกเขม่า"
+msgid "Find the crimson butterfly"
+msgstr "หาผีเสื้อสีแดงเข้ม"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
-msgid "crimson"
-msgstr "แดงเข้ม"
+msgid "Find the celadon butterfly"
+msgstr "หาผีเสื้อสีเขียวสังคโลก"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
-msgid "celadon"
-msgstr "เขียวสังคโลก"
+msgid "Find the cerulean butterfly"
+msgstr "หาผีเสื้อสีฟ้าซีรูเลียน"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
-msgid "cerulean"
-msgstr "ฟ้าซีรูเลียน"
+msgid "Find the dove butterfly"
+msgstr "หาผีเสื้อสีน้ำตาลเทานกเขา"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
-msgid "dove"
-msgstr "น้ำตาลเทานกเขา"
+msgid "Find the garnet butterfly"
+msgstr "หาผีเสื้อสีแดงโกเมน"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
-msgid "garnet"
-msgstr "แดงโกเมน"
+msgid "Find the indigo butterfly"
+msgstr "หาผีเสื้อสีคราม"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
-msgid "indigo"
-msgstr "คราม"
+msgid "Find the ivory butterfly"
+msgstr "หาผีเสื้อสีงาช้าง"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
-msgid "ivory"
-msgstr "งาช้าง"
+msgid "Find the jade butterfly"
+msgstr "หาผีเสื้อสีเขียวหยก"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:46
-msgid "jade"
-msgstr "เขียวหยก"
+msgid "Find the lavender butterfly"
+msgstr "หาผีเสื้อสีม่วงลาเวนเดอร์"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
-msgid "lavender"
-msgstr "ม่วงลาเวนเดอร์"
+msgid "Find the lichen butterfly"
+msgstr "หาผีเสื้อสีเขียวไลเคน"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
-msgid "lichen"
-msgstr "เขียวไลเคน"
+msgid "Find the wine butterfly"
+msgstr "หาผีเสื้อสีไวน์แดง"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
-msgid "wine"
-msgstr "ไวน์แดง"
+msgid "Find the lilac butterfly"
+msgstr "หาผีเสื้อสีม่วงไลแล็ค"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
-msgid "lilac"
-msgstr "ม่วงไลแล็ค"
+msgid "Find the magenta butterfly"
+msgstr "หาผีเสื้อสีบานเย็น"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
-msgid "magenta"
-msgstr "บานเย็น"
+msgid "Find the malachite butterfly"
+msgstr "หาผีเสื้อสีเขียวแมลาไคต์"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
-msgid "malachite"
-msgstr "เขียวแมลาไคต์"
+msgid "Find the larch butterfly"
+msgstr "หาผีเสื้อสีเขียวสนลาร์ช"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
-msgid "navy"
-msgstr "กรมท่า"
+msgid "Find the mimosa butterfly"
+msgstr "หาผีเสื้อสีเหลืองมิโมซา"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
-msgid "larch"
-msgstr "เขียวสนลาร์ช"
+msgid "Find the ochre butterfly"
+msgstr "หาผีเสื้อสีเหลืองทอง"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
-msgid "mimosa"
-msgstr "เหลืองมิโมซา"
+msgid "Find the olive butterfly"
+msgstr "หาผีเสื้อสีเขียวมะกอก"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:56
-msgid "ochre"
-msgstr "เหลืองทอง"
+msgid "Find the opaline butterfly"
+msgstr "หาผีเสื้อสีโอปอลขาว"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
-msgid "olive"
-msgstr "เขียวมะกอก"
+msgid "Find the ultramarine butterfly"
+msgstr "หาผีเสื้อสีน้ำเงินเข้ม"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
-msgid "opaline"
-msgstr "โอปอลขาว"
+msgid "Find the mauve butterfly"
+msgstr "หาผีเสื้อสีสีม่วงซีด"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:59
-msgid "ultramarine"
-msgstr "น้ำเงินเข้ม"
+msgid "Find the grayish blue butterfly"
+msgstr "หาผีเสื้อสีน้ำเงินเขียวเข้ม"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
-msgid "mauve"
-msgstr "สีม่วงซีด"
+msgid "Find the pistachio butterfly"
+msgstr "หาผีเสื้อสีเขียวพิสตาชิโอ"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
-msgid "greyish blue"
-msgstr "น้ำเงินเขียวเข้ม"
+msgid "Find the platinum butterfly"
+msgstr "หาผีเสื้อสีเหลืองอ่อน"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
-msgid "pistachio"
-msgstr "เขียวพิสตาชิโอ"
+msgid "Find the purple butterfly"
+msgstr "หาผีเสื้อสีม่วง"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
-msgid "platinum"
-msgstr "เหลืองอ่อน"
+msgid "Find the plum butterfly"
+msgstr "หาผีเสื้อสีม่วงแดงลูกพลัม"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
-msgid "purple"
-msgstr "ม่วง"
+msgid "Find the prussian blue butterfly"
+msgstr "หาผีเสื้อสีน้ำเงินปรัสเซีย"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
-msgid "plum"
-msgstr "ม่วงแดงลูกพลัม"
+msgid "Find the rust butterfly"
+msgstr "หาผีเสื้อสีน้ำตาลสนิม"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
-msgid "prussian blue"
-msgstr "น้ำเงินปรัสเซีย"
+msgid "Find the saffron butterfly"
+msgstr "หาผีเสื้อสีกลัก"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
-msgid "rust"
-msgstr "น้ำตาลสนิม"
+msgid "Find the vanilla butterfly"
+msgstr "หาผีเสื้อสีวานิลลา"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
-msgid "saffron"
-msgstr "กลัก"
+msgid "Find the veronese butterfly"
+msgstr "หาผีเสื้อสีเขียวเวโรนีส"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
-msgid "vanilla"
-msgstr "วานิลลา"
+msgid "Find the verdigris butterfly"
+msgstr "หาผีเสื้อสีเขียวสนิมทองแดง"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
-msgid "veronese"
-msgstr "เขียวเวโรนีส"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:71
-msgid "verdigris"
-msgstr "เขียวสนิมทองแดง"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:72
-msgid "dark purple"
-msgstr "ม่วงเข้ม"
+msgid "Find the dark purple butterfly"
+msgstr "หาผีเสื้อสีม่วงเข้ม"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid "Practice the multiplication operation"
@@ -1171,11 +1165,11 @@ msgstr ""
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
-"(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
+"(http://schmode.net/). Ralf has kindly permitted GCompris to include his "
 "pictures. Thanks a lot, Ralf."
 msgstr ""
 "รูปสัตว์ต่างๆ ได้มาจากหน้า Animal Photography ของ Ralf Schomode (http://schmode."
-"net/)  ราฟ (Ralf) ได้กรุณาอนุญาตให้ Gcompris ใช้รูปเหล่านี้ได้ ขอขอบคุณ ราฟ เป็นอย่างสูงมา "
+"net/)  ราฟ (Ralf) ได้กรุณาอนุญาตให้ GCompris ใช้รูปเหล่านี้ได้ ขอขอบคุณ ราฟ เป็นอย่างสูงมา "
 "ณ ที่นี้"
 
 #: ../src/algebra_minus-activity/algebra_minus.xml.in.h:1
@@ -2949,7 +2943,7 @@ msgstr ""
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:57
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr ""
 "อวยชัย ไชยถา <ae.freeman@gmail.com>\n"
 "เทพพิทักษ์ การุญบุญญานันท์ <thep@linux.thai.net>\n"
@@ -3346,7 +3340,7 @@ msgid "Fast timer"
 msgstr "เวลาเร็ว"
 
 #: ../src/gcompris/config.c:138
-msgid "Use Gcompris administration module to filter boards"
+msgid "Use GCompris administration module to filter boards"
 msgstr "ใช้การจัดการระบบของ GCompris เพื่อคัดเลือกกิจกรรม"
 
 #: ../src/gcompris/config.c:192
@@ -3441,7 +3435,7 @@ msgid "display only activities with this difficulty level."
 msgstr "แสดงเฉพาะกิจกรรมที่ระดับของความยากนี้"
 
 #: ../src/gcompris/gcompris.c:177
-msgid "display debug informations on the console."
+msgid "display debug information on the console."
 msgstr "แสดงข้อมูลดีบั๊กที่คอนโซล"
 
 #: ../src/gcompris/gcompris.c:180
@@ -7440,7 +7434,7 @@ msgstr "เรียนรู้การทำงานของเรือด
 #: ../src/submarine-activity/submarine.xml.in.h:5
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth. There is a close gate on the right. Catch "
+"to navigate to the required depth. There is a closed gate on the right. Catch "
 "the jewel to open it, then pass through it to reach the next level."
 msgstr ""
 "คลิกที่ส่วนประกอบต่างๆ ที่ทำงานอยู่ : เครื่องยนต์, หางเสือ และถังอากาศ "

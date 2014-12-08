@@ -29,8 +29,9 @@ import goocanvas
 import pango
 import gcompris.sound
 import ConfigParser
-import gettext
+
 from gcompris import gcompris_gettext as _
+
 from gcomprismusic import *
 
 class Gcompris_piano_composition:
@@ -384,7 +385,7 @@ dialogue to\nenable the sound."), None)
          x=290,
          y=30,
          text= _('Select A Melody to Load'),
-         font = gcompris.skin.get_font("gcompris/fontface") + " bold 15000",
+         font = gcompris.skin.get_font("gcompris/fontface") + " bold 20",
          fill_color="black",
          use_markup=True,
          pointer_events="GOO_CANVAS_EVENTS_NONE"

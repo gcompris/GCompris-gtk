@@ -190,11 +190,11 @@ class Gcompris_braille_lotto:
         #Translators : Do not translate the token {number}
         clue_text = goocanvas.Text(
                     parent = self.root,
-                    text = _("I don't have this number\n\nPLAYER {number}").format(number = str(index + 1)),
+                    text = _("I don't have this number\nPLAYER {number}").format(number = str(index + 1)),
                     font = gcompris.skin.get_font("gcompris/board/small"),
                     x = 290 if index == 0 else 540,
                     y = 380,
-                    width = 130,
+                    width = 140,
                     anchor=gtk.ANCHOR_CENTER,
                     )
         self.text_array.append(clue_text)

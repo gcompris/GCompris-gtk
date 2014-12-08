@@ -2,25 +2,24 @@
 # Copyright (C) 2002-2007 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gcompris package.
 #
-# Damjan Kovač <damjan@o-bakovci.ms.edus.si>, 2003 - 2004.
+# Damjan Kovač <damjan@o-bakovci.ms.edus.si>, 2003-2004.
 # Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010.
-# Matej Urbančič <mateju@svn.gnome.org>, 2006 - 2013.
+# Matej Urbančič <mateju@svn.gnome.org>, 2006-2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-06-02 22:35+0000\n"
-"PO-Revision-Date: 2013-06-03 21:54+0100\n"
+"POT-Creation-Date: 2013-11-01 22:34+0000\n"
+"PO-Revision-Date: 2013-11-02 11:43+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 1.5.4\n"
 
@@ -178,7 +177,7 @@ msgstr "Matematični spomin"
 msgid "GCompris Main Menu"
 msgstr "Glavni meni GCompris"
 
-#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:887
+#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:906
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -209,7 +208,7 @@ msgid ""
 "    Question Mark - Help\n"
 "    Tool - The configuration menu\n"
 "    Tux Plane - About GCompris\n"
-"    Quit - Quit GCompris (ctrl-x)\n"
+"    Quit - Quit GCompris (ctrl-q)\n"
 "The stars show suitable age groups for each game:\n"
 "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
 "    1, 2 or 3 complex stars - 7 years and up\n"
@@ -432,7 +431,7 @@ msgstr ""
 " za profil <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:663
-#: ../src/pythontest-activity/pythontest.py:511
+#: ../src/pythontest-activity/pythontest.py:513
 #: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
 msgstr "Jezik zvočnih posnetkov"
@@ -543,7 +542,7 @@ msgstr "Skupina"
 
 #: ../src/administration-activity/admin/group_list.py:221
 #: ../src/administration-activity/admin/profile_group_list.py:160
-#: ../src/administration-activity/admin/profile_list.py:194
+#: ../src/administration-activity/admin/profile_list.py:195
 #: ../src/administration-activity/admin/profile_widget.py:200
 msgid "Description"
 msgstr "Opis"
@@ -623,46 +622,50 @@ msgstr "Izbor uporabnika:"
 msgid "All users"
 msgstr "Vsi uporabniki"
 
-#: ../src/administration-activity/admin/log_list.py:108
-#: ../src/administration-activity/admin/log_list.py:298
-#: ../src/administration-activity/admin/profile_list.py:117
-#: ../src/lang-activity/lang.py:153 ../src/login-activity/login.py:481
-#: ../src/missing_letter-activity/missingletter.c:802
+#. This is the name of the Default user profile
+#: ../src/administration-activity/admin/log_list.py:109
+#: ../src/administration-activity/admin/log_list.py:300
+#: ../src/administration-activity/admin/profile_list.py:118
+#: ../src/administration-activity/admin/wordlist.py:48
+#: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:483
+#: ../src/missing_letter-activity/missingletter.c:810
+#: ../src/pythontest-activity/pythontest.py:451
+#: ../src/tuxpaint-activity/tuxpaint.py:189
 msgid "Default"
 msgstr "Privzeto"
 
 #. Reset buttons
-#: ../src/administration-activity/admin/log_list.py:162
+#: ../src/administration-activity/admin/log_list.py:163
 msgid "Reset"
 msgstr "Ponastavi"
 
-#: ../src/administration-activity/admin/log_list.py:219
+#: ../src/administration-activity/admin/log_list.py:220
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/administration-activity/admin/log_list.py:229
+#: ../src/administration-activity/admin/log_list.py:230
 msgid "User"
 msgstr "Uporabnik"
 
-#: ../src/administration-activity/admin/log_list.py:239
+#: ../src/administration-activity/admin/log_list.py:240
 msgid "Board"
 msgstr "Dejavnost"
 
-#: ../src/administration-activity/admin/log_list.py:249
+#: ../src/administration-activity/admin/log_list.py:250
 #: ../src/click_on_letter-activity/click_on_letter.c:1248
 #: ../src/redraw-activity/redraw.py:339
 msgid "Level"
 msgstr "Raven"
 
-#: ../src/administration-activity/admin/log_list.py:259
+#: ../src/administration-activity/admin/log_list.py:260
 msgid "Sublevel"
 msgstr "Podrejena raven"
 
-#: ../src/administration-activity/admin/log_list.py:269
+#: ../src/administration-activity/admin/log_list.py:270
 msgid "Duration"
 msgstr "Trajanje"
 
-#: ../src/administration-activity/admin/log_list.py:279
+#: ../src/administration-activity/admin/log_list.py:280
 msgid "Status"
 msgstr "Stanje"
 
@@ -732,11 +735,11 @@ msgstr "Dodeli vsem skupinam, ki spadajo v ta profila"
 msgid "You need to provide at least a name for your profile"
 msgstr "Za profil je treba navesti vsaj ime"
 
-#: ../src/administration-activity/admin/profile_list.py:184
+#: ../src/administration-activity/admin/profile_list.py:185
 msgid "Profile"
 msgstr "Profil"
 
-#: ../src/administration-activity/admin/profile_list.py:311
+#: ../src/administration-activity/admin/profile_list.py:312
 msgid "[Default]"
 msgstr "[Privzeto]"
 
@@ -806,7 +809,16 @@ msgstr ""
 "Ena ali več prijav ni edinstvenih!\n"
 "Treba jih je spremeniti: %s!"
 
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
 #: ../src/administration-activity/admin/wordlist.py:45
+#: ../src/login-activity/login.py:480
+#: ../src/pythontest-activity/pythontest.py:448
+#: ../src/tuxpaint-activity/tuxpaint.py:186
 msgid ""
 "<b>{config}</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -834,294 +846,285 @@ msgstr "Dejavnost prepoznavanja nenavadnih barv."
 msgid "Click on the correct colored butterfly."
 msgstr "Klikni na pravilno obarvanega metulja."
 
-#. Translator: Do not translate {text}.
+#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:1
+msgid "Find the coral butterfly"
+msgstr "Najdi metulja koralne barve"
+
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:2
-msgid "Find the {text} butterfly"
-msgstr "Najdi metulja {text} barve."
+msgid "Find the claret butterfly"
+msgstr "Najdi metuljčka vinsko rdeče barve"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:3
-msgid "coral"
-msgstr "koralne"
+msgid "Find the navy butterfly"
+msgstr "Najdi metulja temno modre barve"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:4
-msgid "claret"
-msgstr "temno rdeče"
+msgid "Find the corn butterfly"
+msgstr "Najdi metulja koruzne barve"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:5
-msgid "sienna"
-msgstr "rjavo rdeče"
+msgid "Find the cobalt butterfly"
+msgstr "Najdi kobaltnega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:6
-msgid "corn"
-msgstr "koruzne"
+msgid "Find the cyan butterfly"
+msgstr "Najdi sinjega metulja"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:7
-msgid "cobalt"
-msgstr "kobaltne"
+msgid "Find the chestnut butterfly"
+msgstr "Najdi metulja kostanjeve barve"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:8
-#: ../src/color_mix-activity/color_mix.py:255
-msgid "cyan"
-msgstr "sinje"
+msgid "Find the almond butterfly"
+msgstr "Najdi mandljevega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:9
-msgid "chestnut"
-msgstr "kostanjeve"
+msgid "Find the sapphire butterfly"
+msgstr "Najdi safirskega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:10
-msgid "almond"
-msgstr "mandeljne"
+msgid "Find the ruby butterfly"
+msgstr "Najdi rubinastega metulja"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
-msgid "ruby"
-msgstr "rubinsko-rdeče"
+msgid "Find the sienna butterfly"
+msgstr "Najdi glineneno-rdeče-rjavega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
-msgid "sapphire"
-msgstr "safir-zelene"
+msgid "Find the sage butterfly"
+msgstr "Najdi žajbljevega metuljčka"
 
-# v bistvu je to tale barva - http://www.google.si/imgres?imgurl=http://www.ssmrocks.com/kimnovak/mt/pictures/archives/sage_flower_01.jpg&imgrefurl=http://www.ssmrocks.com/kimnovak/mt/pictures/archives/pages/001625.php&h=609&w=510&sz=75&tbnid=gDgikufRx0WDPM:&tbnh=245&tbnw=205&prev=/images%3Fq%3Dsage%2Bflower&hl=sl&usg=__LIOcOXfE6etaDkPKcAqG15xgt74=&ei=NhwCTP3JK4OCOIC1wNYE&sa=X&oi=image_result&resnum=1&ct=image&ved=0CBoQ9QEwAA
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:13
-msgid "sage"
-msgstr "sivo-zelene"
+msgid "Find the salmon butterfly"
+msgstr "Najdi lososovega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
-msgid "salmon"
-msgstr "lososove"
+msgid "Find the sepia butterfly"
+msgstr "Najdi sepia metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:15
-msgid "sepia"
-msgstr "rjavkasto-črne"
+msgid "Find the sulfur butterfly"
+msgstr "Najdi metulja žveplaste barve"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:16
-msgid "sulfur"
-msgstr "žveplene"
+msgid "Find the tea butterfly"
+msgstr "Najdi metulja čajne barve"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:17
-msgid "tea"
-msgstr "čajne"
+msgid "Find the lime butterfly"
+msgstr "Najdi limetinega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:18
-msgid "lime"
-msgstr "apnene"
+msgid "Find the turquoise butterfly"
+msgstr "Najdi turkiznega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
-msgid "turquoise"
-msgstr "turkizne"
+msgid "Find the absinthe butterfly"
+msgstr "Najdi metulja barve absinta"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
-msgid "absinthe"
-msgstr "pelinaste"
+msgid "Find the mahogany butterfly"
+msgstr "Najdi mahagonijevega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:21
-msgid "mahogany"
-msgstr "mahagonijeve"
+msgid "Find the aquamarine butterfly"
+msgstr "Najdi zelenkastomodrega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:22
-msgid "aquamarine"
-msgstr "morsko-modre"
+msgid "Find the alabaster butterfly"
+msgstr "Najdi alabastrskega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:23
-msgid "alabaster"
-msgstr "motno-steklene"
+msgid "Find the amber butterfly"
+msgstr "Najdi jantarnega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:24
-msgid "amber"
-msgstr "jantarne"
+msgid "Find the amethyst butterfly"
+msgstr "Najdi ametistnega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
-msgid "amethyst"
-msgstr "ametistne"
+msgid "Find the anise butterfly"
+msgstr "Najdi metuljčka barve janeža"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
-msgid "anise"
-msgstr "janeževe"
+msgid "Find the vermilion butterfly"
+msgstr "Najdi metuljčka živo rdeče barve"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:27
-msgid "vermilion"
-msgstr "škrlatno-rdeče"
+msgid "Find the ceruse butterfly"
+msgstr "Najdi zelenkasto keramičnega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:28
-msgid "ceruse"
-msgstr "temno-opečnate"
+msgid "Find the fawn butterfly"
+msgstr "Najdi metuljčka srnje rjave barve"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:29
-msgid "fawn"
-msgstr "lanene"
+msgid "Find the chartreuse butterfly"
+msgstr "Najdi rumeno zelenega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:30
-msgid "chartreuse"
-msgstr "zeliščno-zelene"
+msgid "Find the emerald butterfly"
+msgstr "Najdi smaragdnega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:31
-msgid "emerald"
-msgstr "smragdne"
+msgid "Find the aubergine butterfly"
+msgstr "Najdi metuljčka barve jajčevca"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:32
-msgid "aubergine"
-msgstr "jajčevo"
+msgid "Find the fuchsia butterfly"
+msgstr "Najdi metuljčka barve fuksije"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:33
-msgid "fuchsia"
-msgstr "vijolične"
+msgid "Find the glaucous butterfly"
+msgstr "Najdi sivkastega, modro zelenega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:34
-msgid "glaucous"
-msgstr "modrikasto-sive"
+msgid "Find the auburn butterfly"
+msgstr "Najdi rdečkastorjavega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:35
-msgid "auburn"
-msgstr "kostanjeve"
+msgid "Find the azure butterfly"
+msgstr "Najdi azurnega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:36
-msgid "azure"
-msgstr "azurne"
+msgid "Find the grayish brown butterfly"
+msgstr "Najdi sivkasto rjavega metulja"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:37
-msgid "grayish brown"
-msgstr "sivkasto-rjave"
+msgid "Find the bistre butterfly"
+msgstr "Najdi temno sivo rjavega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
-msgid "bistre"
-msgstr "sivkasto-črne"
+msgid "Find the crimson butterfly"
+msgstr "Najdi temno rdečega metulja"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:39
-msgid "crimson"
-msgstr "škrlatne"
+msgid "Find the celadon butterfly"
+msgstr "Najdi zeleno rjavo keramičnega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:40
-msgid "celadon"
-msgstr "svetlo zelene"
+msgid "Find the cerulean butterfly"
+msgstr "Najdi nebeško modrega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:41
-msgid "cerulean"
-msgstr "sinje modre"
+msgid "Find the dove butterfly"
+msgstr "Najdi metuljčka barve golobice"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:42
-msgid "dove"
-msgstr "sivo-bele"
+msgid "Find the garnet butterfly"
+msgstr "Najdi vinsko rdečega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
-msgid "garnet"
-msgstr "granatne"
+msgid "Find the indigo butterfly"
+msgstr "Najdi metulja indigo modre barve"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:44
-msgid "indigo"
-msgstr "vijolično modre"
+msgid "Find the ivory butterfly"
+msgstr "Najdi slonokoščenega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:45
-msgid "ivory"
-msgstr "slonokoščene"
+msgid "Find the jade butterfly"
+msgstr "Najdi žadasto zelenega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:46
-msgid "jade"
-msgstr "žadasto zelene"
+msgid "Find the lavender butterfly"
+msgstr "Najdi metulja barve sivke"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:47
-msgid "lavender"
-msgstr "svetlo vijoličaste"
+msgid "Find the lichen butterfly"
+msgstr "Najdi metuljčka barve lišaja"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
-msgid "lichen"
-msgstr "lišajske"
+msgid "Find the wine butterfly"
+msgstr "Najdi metulja vinske barve"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:49
-msgid "wine"
-msgstr "vinske"
+msgid "Find the lilac butterfly"
+msgstr "Najdi lila metulja"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:50
-msgid "lilac"
-msgstr "lila"
+msgid "Find the magenta butterfly"
+msgstr "Najdi metulja barve ciklame"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
-#: ../src/color_mix-activity/color_mix.py:256
-msgid "magenta"
-msgstr "škrlatne"
+msgid "Find the malachite butterfly"
+msgstr "Najdi malahitnega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
-msgid "malachite"
-msgstr "malahitne"
+msgid "Find the larch butterfly"
+msgstr "Najdi metulja macesnove barve"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
-msgid "navy"
-msgstr "mornarske"
+msgid "Find the mimosa butterfly"
+msgstr "Najdi mimozinega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:54
-msgid "larch"
-msgstr "macesenove"
+msgid "Find the ochre butterfly"
+msgstr "Najdi oker metulja"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:55
-msgid "mimosa"
-msgstr "mimozne"
+msgid "Find the olive butterfly"
+msgstr "Najdi olivnega metulja"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:56
-msgid "ochre"
-msgstr "okraste"
+msgid "Find the opaline butterfly"
+msgstr "Najdi opalnega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:57
-msgid "olive"
-msgstr "olivne"
+msgid "Find the ultramarine butterfly"
+msgstr "Najdi ultramarinskega metuljčka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:58
-msgid "opaline"
-msgstr "opalne"
+msgid "Find the mauve butterfly"
+msgstr "Najdi metulja bledo vijolične barve"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:59
-msgid "ultramarine"
-msgstr "ultramarinske"
+msgid "Find the grayish blue butterfly"
+msgstr "Najdi sivkasto modrega metulja"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
-msgid "mauve"
-msgstr "slezenaste"
+msgid "Find the pistachio butterfly"
+msgstr "Najdi metulja barve pistacije"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
-msgid "grayish blue"
-msgstr "sivkasto-modre"
+msgid "Find the platinum butterfly"
+msgstr "Najdi platinastega metulja"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
-msgid "pistachio"
-msgstr "pistacijsko-zelene"
+msgid "Find the purple butterfly"
+msgstr "Najdi škrlatnega metulja"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:63
-msgid "platinum"
-msgstr "platinaste"
+msgid "Find the plum butterfly"
+msgstr "Najdi metulja barve slive"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:12
-msgid "purple"
-msgstr "vijolične"
+msgid "Find the prussian blue butterfly"
+msgstr "Najdi metulja pruško modre barve"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:65
-msgid "plum"
-msgstr "slivne"
+msgid "Find the rust butterfly"
+msgstr "Najdi metulja barve rje"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:66
-msgid "prussian blue"
-msgstr "prusko modre"
+msgid "Find the saffron butterfly"
+msgstr "Najdi metulja barve žafrana"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:67
-msgid "rust"
-msgstr "rjaste"
+msgid "Find the vanilla butterfly"
+msgstr "Najdi metulja barve vanilije"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:68
-msgid "saffron"
-msgstr "žafranske"
+msgid "Find the veronese butterfly"
+msgstr "Najdi metulja veroneško zelene barve"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:69
-msgid "vanilla"
-msgstr "vanilaste"
+msgid "Find the verdigris butterfly"
+msgstr "Najdi metulja barve zelenega volka"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:70
-msgid "veronese"
-msgstr "veronske"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:71
-msgid "verdigris"
-msgstr "zeleno-volčje"
-
-#: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:72
-msgid "dark purple"
-msgstr "temo-vijolične"
+msgid "Find the dark purple butterfly"
+msgstr "Najdi temo škrlatnega metulja"
 
 #: ../src/algebra_by-activity/algebra_by.xml.in.h:1
 msgid "Practice the multiplication operation"
@@ -1153,13 +1156,15 @@ msgstr ""
 "tipko pa preveri, ali je odgovor pravilen. Če ni, poskusi še enkrat."
 
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
+#. require by all utf8-functions
+#. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:946
+#: ../src/memory-activity/memory.c:953
 msgid "+-×÷"
 msgstr "+-×÷"
 
 #: ../src/algebra_by-activity/algebra.c:411
-#: ../src/findit-activity/findit.py:228
+#: ../src/findit-activity/findit.py:228 ../src/lang-activity/lang.py:115
 #: ../src/play_piano-activity/play_piano.py:82
 #: ../src/play_rhythm-activity/play_rhythm.py:87
 #: ../src/readingh-activity/reading.c:643
@@ -1203,7 +1208,7 @@ msgstr ""
 #: ../src/erase_clic-activity/erase_clic.xml.in.h:6
 msgid ""
 "Animal pictures come from the Animal Photography Page of Ralf Schmode "
-"(http://schmode.net/). Ralf has kindly permitted Gcompris to include his "
+"(http://schmode.net/). Ralf has kindly permitted GCompris to include his "
 "pictures. Thanks a lot, Ralf."
 msgstr ""
 "Slike živali so vzete iz strani Ralfa Schmodeja - Fotografije živali (http://"
@@ -1542,9 +1547,9 @@ msgstr ""
 "ustrezen rdeč prostor na sredini. Če želiš ugotoviti kateri predmeti spadajo "
 "skupaj, moraš poiskati logično povezavo med njimi. "
 
-#: ../src/babymatch-activity/shapegame.c:2041
+#: ../src/babymatch-activity/shapegame.c:2042
 #: ../src/click_on_letter-activity/click_on_letter.c:1315
-#: ../src/missing_letter-activity/missingletter.c:800
+#: ../src/missing_letter-activity/missingletter.c:808
 #, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -1700,7 +1705,12 @@ msgstr "Druga različica glavnega menija"
 msgid "Select a Board"
 msgstr "Izberi tablo"
 
-#: ../src/boards/menu2.c:269
+#: ../src/boards/menu2.c:271
+#, c-format
+msgid "Profile: %s"
+msgstr "Profil: %s"
+
+#: ../src/boards/menu2.c:288
 #, c-format
 msgid "Number of activities: %d"
 msgstr "Število dejavnosti: %d"
@@ -1835,8 +1845,12 @@ msgid "Click me to get some hint"
 msgstr "Klikni za namig"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
-msgid "I don't have this number PLAYER {number}"
-msgstr "{number}. igralec nima tega števila."
+msgid ""
+"I don't have this number\n"
+"PLAYER {number}"
+msgstr ""
+"Nimam tega števila\n"
+"IGRALEC {number}"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:215
 msgid "Lotto Master"
@@ -1855,7 +1869,7 @@ msgstr "Hej, imaš ga. Je v tvojem {column} stolpcu"
 #: ../src/braille_lotto-activity/braille_lotto.py:298
 #: ../src/braille_lotto-activity/braille_lotto.py:321
 msgid "Oops, this number is not in your ticket!"
-msgstr "Opa, tega števila na tvoji kartici ni!"
+msgstr "Opa, tega števila ni na tvoji kartici!"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:335
 msgid "1st"
@@ -2316,10 +2330,7 @@ msgstr ""
 "Ribe so del programa Unix xfishtank. Zasluge zanje pripadajo Guillaume "
 "Rousse. "
 
-#. require by all utf8-functions
-#. TRANSLATORS: Put here the alphabet lowercase in your language
 #: ../src/click_on_letter-activity/click_on_letter.c:368
-#: ../src/memory-activity/memory.c:935
 msgid "abcdefghijklmnopqrstuvwxyz"
 msgstr "abcčdefghijklmnoprsštuvzž"
 
@@ -2332,7 +2343,7 @@ msgstr ""
 "govorjenja"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:384
-#: ../src/memory-activity/memory.c:906
+#: ../src/memory-activity/memory.c:922
 msgid ""
 "Error: this activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -2466,40 +2477,56 @@ msgstr ""
 "ali zmanjšanje števil."
 
 #: ../src/color_mix-activity/color_mix.py:72
-msgid "Match the color "
+msgid "Match the color"
 msgstr "Zadeni barvo"
 
 #: ../src/color_mix-activity/color_mix.py:251
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-msgid "red"
-msgstr "rdečo"
+msgid "Not enough red"
+msgstr "Premalo rdeče"
+
+#: ../src/color_mix-activity/color_mix.py:251
+msgid "Too much red"
+msgstr "Preveč rdeče"
 
 #: ../src/color_mix-activity/color_mix.py:252
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-msgid "green"
-msgstr "zeleno"
+msgid "Not enough green"
+msgstr "Premalo zelene"
+
+#: ../src/color_mix-activity/color_mix.py:252
+msgid "Too much green"
+msgstr "Preveč zelene"
 
 #: ../src/color_mix-activity/color_mix.py:253
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-msgid "blue"
-msgstr "modro"
+msgid "Not enough blue"
+msgstr "Premalo modre"
+
+#: ../src/color_mix-activity/color_mix.py:253
+msgid "Too much blue"
+msgstr "Preveč modre"
+
+#: ../src/color_mix-activity/color_mix.py:255
+msgid "Not enough cyan"
+msgstr "Premalo sinje modre"
+
+#: ../src/color_mix-activity/color_mix.py:255
+msgid "Too much cyan"
+msgstr "Preveč sinje modre"
+
+#: ../src/color_mix-activity/color_mix.py:256
+msgid "Not enough magenta"
+msgstr "Premalo ciklamne barve"
+
+#: ../src/color_mix-activity/color_mix.py:256
+msgid "Too much magenta"
+msgstr "Preveč ciklamne barve"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-msgid "yellow"
-msgstr "rumeno"
+msgid "Not enough yellow"
+msgstr "Premalo rumene"
 
-#: ../src/color_mix-activity/color_mix.py:336
-#: ../src/color_mix-activity/color_mix.py:341
-#: ../src/color_mix-activity/color_mix.py:346
-msgid "Too much {color}"
-msgstr "Preveč barve - {color}"
-
-#: ../src/color_mix-activity/color_mix.py:338
-#: ../src/color_mix-activity/color_mix.py:343
-#: ../src/color_mix-activity/color_mix.py:348
-msgid "Not enough {color}"
-msgstr "Premalo barve - {color}"
+#: ../src/color_mix-activity/color_mix.py:257
+msgid "Too much yellow"
+msgstr "Preveč rumene"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:1
 msgid "Mixing color of paint"
@@ -2607,30 +2634,45 @@ msgstr ""
 msgid "Listen to the color and click on the matching duck."
 msgstr "Poslušaj barve in klikni na pravo račko."
 
-#. Translator: Do not translate {text}.
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:1
+msgid "Find the yellow duck"
+msgstr "Nadji rumeno račko"
+
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
-msgid "Find the {text} duck"
-msgstr "Klikni na {text} račko."
+msgid "Find the black duck"
+msgstr "Nadji črno račko"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
+msgid "Find the green duck"
+msgstr "Nadji zeleno račko"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-msgid "black"
-msgstr "črno"
+msgid "Find the red duck"
+msgstr "Nadji rdečo račko"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
+msgid "Find the white duck"
+msgstr "Nadji belo račko"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
+msgid "Find the blue duck"
+msgstr "Nadji modro račko"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-msgid "white"
-msgstr "belo"
+msgid "Find the brown duck"
+msgstr "Nadji rjavo račko"
+
+#: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
+msgid "Find the grey duck"
+msgstr "Nadji sivo račko"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
-msgid "brown"
-msgstr "rjavo"
+msgid "Find the orange duck"
+msgstr "Nadji oranžno račko"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-msgid "grey"
-msgstr "sivo"
-
-#: ../src/colors-activity/resources/colors/activity.desktop.in.h:11
-msgid "orange"
-msgstr "oranžno"
+msgid "Find the purple duck"
+msgstr "Nadji škrlatno račko"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
 msgid "Connect 4 (2 Players)"
@@ -2875,9 +2917,9 @@ msgstr ""
 "tudi srednji gumb miške."
 
 #: ../src/drawnumber-activity/drawnumber.py:238
-#: ../src/explore-activity/explore.py:410 ../src/findit-activity/findit.py:336
+#: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:342
 #: ../src/louis_braille-activity/louis_braille.py:84
-#: ../src/piano_composition-activity/piano_composition.py:504
+#: ../src/piano_composition-activity/piano_composition.py:505
 msgid "Cannot find the file '{filename}'"
 msgstr "Datoteke '{filename}' ni mogoče najti"
 
@@ -3060,9 +3102,9 @@ msgstr "S klikom na miško počisti umazano polje in odkrij ozadje."
 msgid "Click the mouse on rectangles until all the blocks disappear."
 msgstr "Z miško klikni na vsak kvadratek, dokler zaslon ni čist."
 
-#: ../src/explore-activity/explore.py:85
+#: ../src/explore-activity/explore.py:85 ../src/lang-activity/lang.py:104
 #: ../src/note_names-activity/note_names.py:82
-#: ../src/piano_composition-activity/piano_composition.py:371
+#: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
 #: ../src/play_rhythm-activity/play_rhythm.py:83
 msgid ""
@@ -3085,9 +3127,9 @@ msgstr "Klikni za predvajanje zvoka"
 msgid "Back to Homepage"
 msgstr "Nazaj na domačo stran"
 
-#: ../src/explore-activity/explore.py:415 ../src/findit-activity/findit.py:341
+#: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:347
 #: ../src/louis_braille-activity/louis_braille.py:88
-#: ../src/piano_composition-activity/piano_composition.py:509
+#: ../src/piano_composition-activity/piano_composition.py:510
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3095,7 +3137,7 @@ msgstr ""
 "Razčlenjevanje niza podatkov '{filename}' je spodletelo z napako:\n"
 "{error}"
 
-#: ../src/explore-activity/explore.py:505
+#: ../src/explore-activity/explore.py:507
 msgid "Explore Status:"
 msgstr "Stanje spoznavanja:"
 
@@ -3543,7 +3585,7 @@ msgid "Where is music used to call people to prayer?"
 msgstr "Kje z glasbo kličejo ljudi k molitvi?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:52
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:53
 msgid "Japan"
 msgstr "Japonska"
 
@@ -3727,7 +3769,7 @@ msgstr ""
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/gcompris/about.c:57
-msgid "translator_credits"
+msgid "translator-credits"
 msgstr ""
 "Damjan Kovač\n"
 "Andrej Žnidaršič\n"
@@ -3752,25 +3794,25 @@ msgid ""
 "License"
 msgstr "Ta program je izdan s Splošnim javnim dovoljenjem GNU."
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:487
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:490
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
 msgstr "V redu"
 
-#: ../src/gcompris/bar.c:695
+#: ../src/gcompris/bar.c:701
 msgid "GCompris confirmation"
 msgstr "Potrditev GCompris"
 
-#: ../src/gcompris/bar.c:696
+#: ../src/gcompris/bar.c:702
 msgid "Are you sure you want to quit?"
 msgstr "Ali res želiš končati?"
 
-#: ../src/gcompris/bar.c:697
+#: ../src/gcompris/bar.c:703
 msgid "Yes, I am sure!"
 msgstr "Da, želim končati!"
 
-#: ../src/gcompris/bar.c:698
+#: ../src/gcompris/bar.c:704
 msgid "No, I want to keep going"
 msgstr "Ne, želim nadaljevati."
 
@@ -3876,300 +3918,308 @@ msgid "Chinese (Simplified)"
 msgstr "poenostavljen kitajski"
 
 #: ../src/gcompris/config.c:69
+msgid "Chinese (Hong Kong)"
+msgstr "kitajski (Hong Kong)"
+
+#: ../src/gcompris/config.c:70
 msgid "Chinese (Traditional)"
 msgstr "tradicionalen kitajski"
 
-#: ../src/gcompris/config.c:70
+#: ../src/gcompris/config.c:71
 msgid "Croatian"
 msgstr "hrvaški"
 
-#: ../src/gcompris/config.c:71
+#: ../src/gcompris/config.c:72
 #: ../src/geography-activity/resources/geography/board6_0.xml.in.h:7
 msgid "Czech Republic"
 msgstr "češki"
 
-#: ../src/gcompris/config.c:72
+#: ../src/gcompris/config.c:73
 msgid "Danish"
 msgstr "danski"
 
-#: ../src/gcompris/config.c:73
+#: ../src/gcompris/config.c:74
 msgid "Dutch"
 msgstr "nizozemski"
 
-#: ../src/gcompris/config.c:74
+#: ../src/gcompris/config.c:75
 msgid "Dzongkha"
 msgstr "džonkška"
 
-#: ../src/gcompris/config.c:75
+#: ../src/gcompris/config.c:76
 msgid "English (Canada)"
 msgstr "angleški (Kanada)"
 
-#: ../src/gcompris/config.c:76
+#: ../src/gcompris/config.c:77
 msgid "English (Great Britain)"
 msgstr "angleški (Velika Britanija)"
 
-#: ../src/gcompris/config.c:77
+#: ../src/gcompris/config.c:78
 msgid "English (United States)"
 msgstr "angleški (ZDA)"
 
-#: ../src/gcompris/config.c:78
+#: ../src/gcompris/config.c:79
 msgid "Finnish"
 msgstr "finski"
 
-#: ../src/gcompris/config.c:79
+#: ../src/gcompris/config.c:80
 msgid "French"
 msgstr "francoski"
 
-#: ../src/gcompris/config.c:80
+#: ../src/gcompris/config.c:81
+msgid "Galician"
+msgstr "galicijski"
+
+#: ../src/gcompris/config.c:82
 msgid "Georgian"
 msgstr "gruzijski"
 
-#: ../src/gcompris/config.c:81
+#: ../src/gcompris/config.c:83
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:10
 msgid "German"
 msgstr "nemški"
 
-#: ../src/gcompris/config.c:82
+#: ../src/gcompris/config.c:84
 msgid "Greek"
 msgstr "grški"
 
-#: ../src/gcompris/config.c:83
+#: ../src/gcompris/config.c:85 ../src/gcompris/config.c:114
 msgid "Scottish Gaelic"
 msgstr "škotski galski"
 
-#: ../src/gcompris/config.c:84
+#: ../src/gcompris/config.c:86
 msgid "Gujarati"
 msgstr "gudžaratski"
 
-#: ../src/gcompris/config.c:85
+#: ../src/gcompris/config.c:87
 msgid "Hebrew"
 msgstr "hebrejski"
 
-#: ../src/gcompris/config.c:86
+#: ../src/gcompris/config.c:88
 msgid "Hindi"
 msgstr "hindujski"
 
-#: ../src/gcompris/config.c:87
+#: ../src/gcompris/config.c:89
 msgid "Hungarian"
 msgstr "madžarski"
 
-#: ../src/gcompris/config.c:88
+#: ../src/gcompris/config.c:90
 msgid "Indonesian"
 msgstr "indonezijski"
 
-#: ../src/gcompris/config.c:89
+#: ../src/gcompris/config.c:91
 msgid "Irish (Gaelic)"
 msgstr "Irski (Galski)"
 
-#: ../src/gcompris/config.c:90
+#: ../src/gcompris/config.c:92
 msgid "Italian"
 msgstr "italijanski"
 
-#: ../src/gcompris/config.c:91
+#: ../src/gcompris/config.c:93
 msgid "Japanese"
 msgstr "japonski"
 
-#: ../src/gcompris/config.c:92
+#: ../src/gcompris/config.c:94
 msgid "Kinyarwanda"
 msgstr "kinjarvandlski"
 
-#: ../src/gcompris/config.c:93
+#: ../src/gcompris/config.c:95
 msgid "Korean"
 msgstr "korejski"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:96
 msgid "Latvian"
 msgstr "latvijski"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:97
 msgid "Lithuanian"
 msgstr "litvanski"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:98
 msgid "Macedonian"
 msgstr "makedonski"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:99
 msgid "Malay"
 msgstr "malajski"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:100
 msgid "Malayalam"
 msgstr "malajalščina"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:101
 msgid "Marathi"
 msgstr "maratski"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:102
 msgid "Montenegrin"
 msgstr "črnogorski"
 
-#: ../src/gcompris/config.c:101
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:37
+#: ../src/gcompris/config.c:103
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
 msgid "Nepal"
 msgstr "nepalski"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:104
 msgid "Norwegian Bokmal"
 msgstr "norveški"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:105
 msgid "Norwegian Nynorsk"
 msgstr "novonorveški"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:106
 msgid "Occitan (languedocien)"
 msgstr "okcitanski"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:107
 msgid "Persian"
 msgstr "perzijski"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:108
 msgid "Polish"
 msgstr "poljski"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:109
 msgid "Portuguese (Brazil)"
 msgstr "brazilsko portugalski"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:110
 msgid "Portuguese"
 msgstr "portugalski"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:111
 msgid "Punjabi"
 msgstr "pandžabski"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:112
 msgid "Romanian"
 msgstr "romunski"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:113
 msgid "Russian"
 msgstr "ruski"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:115
 msgid "Serbian (Latin)"
 msgstr "srbski (latinica)"
 
-#: ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:116
 msgid "Serbian"
 msgstr "srbski (cirilica)"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:117
 msgid "Slovak"
 msgstr "slovaški"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:118
 msgid "Slovenian"
 msgstr "slovenski"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:119
 msgid "Somali"
 msgstr "somalski"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:120
 msgid "Spanish"
 msgstr "španski"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:121
 msgid "Swedish"
 msgstr "švedski"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:122
 msgid "Tamil"
 msgstr "tamilski"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:123
 msgid "Thai"
 msgstr "tajski"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:124
 msgid "Turkish (Azerbaijan)"
 msgstr "azerbajdžanski"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:125
 msgid "Turkish"
 msgstr "turški"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:126
 msgid "Ukrainian"
 msgstr "ukrajinski"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:127
 msgid "Urdu"
 msgstr "urdujski"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:128
 msgid "Vietnamese"
 msgstr "vietnamski"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:129
 msgid "Walloon"
 msgstr "valonski"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:130
 msgid "Zulu"
 msgstr "zulujščina"
 
-#: ../src/gcompris/config.c:132
+#: ../src/gcompris/config.c:135
 msgid "Timer: No time limit"
 msgstr "Časomer: brez omejitev"
 
-#: ../src/gcompris/config.c:133
+#: ../src/gcompris/config.c:136
 msgid "Timer: Slow timer"
 msgstr "Časomer: počasi"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:137
 msgid "Timer: Normal timer"
 msgstr "Časomer: običajna hitrost"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:138
 msgid "Timer: Fast timer"
 msgstr "Časomer: hitro"
 
-#: ../src/gcompris/config.c:139
-msgid "Use Gcompris administration module to filter boards"
-msgstr "Za filtriranje dejavnosti uporabite skrbniški modul programa Gcompris."
+#: ../src/gcompris/config.c:142
+msgid "Use GCompris administration module to filter boards"
+msgstr "Za filtriranje dejavnosti uporabite skrbniški modul programa GCompris."
 
-#: ../src/gcompris/config.c:193
+#: ../src/gcompris/config.c:196
 msgid "GCompris Configuration"
 msgstr "GCompris nastavitve"
 
-#: ../src/gcompris/config.c:276
+#: ../src/gcompris/config.c:279
 msgid "Fullscreen"
 msgstr "Celozaslonski način"
 
-#: ../src/gcompris/config.c:301
+#: ../src/gcompris/config.c:304
 msgid "Remember level for default user"
 msgstr "Zapomni si raven privzetega uporabnika"
 
-#: ../src/gcompris/config.c:327
+#: ../src/gcompris/config.c:330
 msgid "Music"
 msgstr "Glasba"
 
-#: ../src/gcompris/config.c:352
+#: ../src/gcompris/config.c:355
 msgid "Effect"
 msgstr "Učinki"
 
-#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:379 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Približanje"
 
-#: ../src/gcompris/config.c:413
+#: ../src/gcompris/config.c:416
 #, c-format
 msgid "Couldn't open skin dir: %s"
 msgstr "Ni mogoče odpreti mape preoblek: %s"
 
-#: ../src/gcompris/config.c:444 ../src/gcompris/config.c:924
-#: ../src/gcompris/config.c:938
+#: ../src/gcompris/config.c:447 ../src/gcompris/config.c:927
+#: ../src/gcompris/config.c:941
 #, c-format
 msgid "Skin : %s"
 msgstr "Preobleka : %s"
 
-#: ../src/gcompris/config.c:446
+#: ../src/gcompris/config.c:449
 msgid "SKINS NOT FOUND"
 msgstr "PREOBLEKE NI MOGOČE NAJTI"
 
@@ -4215,7 +4265,7 @@ msgstr "Zagon GCompris z omogočenim zvokom."
 
 #: ../src/gcompris/gcompris.c:164
 msgid "run GCompris without sound."
-msgstr "Zagon Gcompris brez zvoka."
+msgstr "Zagon GCompris brez zvoka."
 
 #: ../src/gcompris/gcompris.c:167
 msgid "run GCompris with the default system cursor."
@@ -4369,14 +4419,14 @@ msgid "For test purpose, run in a loop all the activities"
 msgstr "Za preizkusne namene. Zažene vse dejavnosti v zanki"
 
 #: ../src/gcompris/gcompris.c:259
-msgid "display debug informations on the console."
+msgid "display debug information on the console."
 msgstr "Prikaži podrobnosti razhroščevanja na konzoli."
 
 #: ../src/gcompris/gcompris.c:262
 msgid "Print the version of "
 msgstr "Natisni različico "
 
-#: ../src/gcompris/gcompris.c:947
+#: ../src/gcompris/gcompris.c:942
 #, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
@@ -4397,18 +4447,18 @@ msgstr ""
 "FSF:\n"
 "<http://www.fsf.org/philosophy>"
 
-#: ../src/gcompris/gcompris.c:1240
+#: ../src/gcompris/gcompris.c:1236
 #, c-format
 msgid "Failed to load the skin '%s' (Check the file exists and is readable)"
 msgstr ""
 "Nalaganje preobleke '%s' je spodletelo (preverite, ali datoteka obstaja in "
 "je berljiva)"
 
-#: ../src/gcompris/gcompris.c:1256
+#: ../src/gcompris/gcompris.c:1252
 msgid "Retrieving remote data..."
 msgstr "Pridobivanje oddaljenih podatkov ..."
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1513
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4427,12 +4477,12 @@ msgstr[3] ""
 "Program GCompris se ne zažene, ker je datoteka zaklepa stara manj kot %d "
 "sekunde.\n"
 
-#: ../src/gcompris/gcompris.c:1521
+#: ../src/gcompris/gcompris.c:1517
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Datoteka ključa je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1642
+#: ../src/gcompris/gcompris.c:1638
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4440,33 +4490,33 @@ msgid ""
 "License: GPL\n"
 "More info at http://gcompris.net\n"
 msgstr ""
-"Gcompris\n"
+"GCompris\n"
 "Različica: %s\n"
 "Dovoljenje: GPL\n"
 "Več podrobnosti je mogoče najti na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1827
+#: ../src/gcompris/gcompris.c:1823
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Uporabi -l za neposreden dostop do dejavnosti.\n"
 
-#: ../src/gcompris/gcompris.c:1828
+#: ../src/gcompris/gcompris.c:1824
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostopnih dejavnosti je:\n"
 
-#: ../src/gcompris/gcompris.c:1859
+#: ../src/gcompris/gcompris.c:1855
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Število dejavnosti: %d\n"
 
-#: ../src/gcompris/gcompris.c:1895
+#: ../src/gcompris/gcompris.c:1891
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s obstaja toda ni berljiv ali zapisljiv"
 
-#: ../src/gcompris/gcompris.c:1990
+#: ../src/gcompris/gcompris.c:1986
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4475,7 +4525,7 @@ msgstr ""
 "NAPAKA: Profila '%s' ni mogoče najti. Z ukazom 'gcompris --profile-list' se "
 "izpiše seznam razpoložljivih profilov.\n"
 
-#: ../src/gcompris/gcompris.c:2004
+#: ../src/gcompris/gcompris.c:2000
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostopnih profilov je:\n"
@@ -4615,12 +4665,276 @@ msgstr ""
 "Dokumentacije GNU. Raven za Nemčijo je ustvaril Olaf Ronneberger in njegova "
 "otroka Lina in Julia Ronneberger."
 
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:1
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:1
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
+msgid "United States of America"
+msgstr "Združene države Amerike"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:2
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:2
+msgid "Connecticut"
+msgstr "Connecticut"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:3
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:3
+msgid "Rhode Island"
+msgstr "Rhode Island"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:4
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:4
+msgid "Massachusetts"
+msgstr "Massachusetts"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:5
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:5
+msgid "Wyoming"
+msgstr "Wyoming"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:6
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:6
+msgid "Utah"
+msgstr "Utah"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:7
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:7
+msgid "Nevada"
+msgstr "Nevada"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:8
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:8
+msgid "California"
+msgstr "Kalifornija"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:9
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
+msgid "Washington D.C."
+msgstr "Washington D.C."
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:10
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
+msgid "Maine"
+msgstr "Maine"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:11
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:11
+msgid "New Hampshire"
+msgstr "New Hampshire"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:12
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:12
+msgid "Vermont"
+msgstr "Vermont"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:13
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:13
+msgid "New York"
+msgstr "New York"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:14
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:14
+msgid "Pennsylvania"
+msgstr "Pensilvanija"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:15
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:15
+msgid "Delaware"
+msgstr "Delaware"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:16
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:16
+msgid "New Jersey"
+msgstr "New Jersey"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:17
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:17
+msgid "Maryland"
+msgstr "Maryland"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:18
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:18
+msgid "Alabama"
+msgstr "Alabama"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:19
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:19
+msgid "Florida"
+msgstr "Florida"
+
+#. Translators: Strip USA| and translate only Georgia
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:21
+msgid "USA|Georgia"
+msgstr "Georgia"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:22
+msgid "South Carolina"
+msgstr "Južna Karolina"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:23
+msgid "North Carolina"
+msgstr "Severna Karolina"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:24
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:24
+msgid "Virginia"
+msgstr "Virginia"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:25
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:25
+msgid "West Virginia"
+msgstr "Zahodna Virginia"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:26
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:26
+msgid "Ohio"
+msgstr "Ohio"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:27
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:27
+msgid "Michigan"
+msgstr "Michigan"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:28
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:28
+msgid "Wisconsin"
+msgstr "Wisconsin"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:29
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:29
+msgid "Illinois"
+msgstr "Illinois"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:30
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:30
+msgid "Indiana"
+msgstr "Indiana"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:31
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:31
+msgid "Kentucky"
+msgstr "Kentucky"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:32
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:32
+msgid "Tennessee"
+msgstr "Tennessee"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:33
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:33
+msgid "Mississippi"
+msgstr "Misisipi"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:34
+msgid "Louisiana"
+msgstr "Louisiana"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:35
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:35
+msgid "Arkansas"
+msgstr "Arkansas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:36
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:36
+msgid "Missouri"
+msgstr "Missouri"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:37
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:37
+msgid "Iowa"
+msgstr "Iowa"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:38
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:38
+msgid "Minnesota"
+msgstr "Minnesota"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:39
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:39
+msgid "Oklahoma"
+msgstr "Oklahoma"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:40
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:40
+msgid "Texas"
+msgstr "Teksas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:41
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:41
+#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
+msgid "Hawaii"
+msgstr "Havaji"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:42
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:42
+#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
+msgid "Alaska"
+msgstr "Aljaska"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:43
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:43
+msgid "Arizona"
+msgstr "Arizona"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:44
+msgid "New Mexico"
+msgstr "Nova Mehika"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:45
+msgid "Colorado"
+msgstr "Kolorado"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:46
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:46
+msgid "Kansas"
+msgstr "Kansas"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:47
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:47
+msgid "Nebraska"
+msgstr "Nebraska"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:48
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:48
+msgid "South Dakota"
+msgstr "Južna Dakota"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:49
+msgid "North Dakota"
+msgstr "Severna Dakota"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:50
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:50
+msgid "Montana"
+msgstr "Montana"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:51
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:51
+msgid "Idaho"
+msgstr "Idaho"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:52
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:52
+msgid "Oregon"
+msgstr "Oregon"
+
+#: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:53
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:53
+msgid "Washington"
+msgstr "Washington"
+
 #: ../src/geo_country-activity/resources/geo_country/board1_0.xml.in.h:1
 msgid "Regions of France"
 msgstr "Francoske regije"
 
 #: ../src/geo_country-activity/resources/geo_country/board12_0.xml.in.h:1
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:41
 msgid "India"
 msgstr "Indija"
 
@@ -4956,112 +5270,113 @@ msgstr "Sirija"
 msgid "Turkey"
 msgstr "Turčija"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:25
-msgid "Georgia"
+#. Translators: Strip Asia| and translate only Georgia
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
+msgid "Asia|Georgia"
 msgstr "Gruzija"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:27
 msgid "Azerbaijan"
 msgstr "Azerbajdžan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:27
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:28
 msgid "Iran"
 msgstr "Iran"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:28
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:29
 msgid "Turkmenistan"
 msgstr "Turkmenistan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:29
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:30
 msgid "Kyrgyzstan"
 msgstr "Kirgizistan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:30
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:31
 msgid "Tajikistan"
 msgstr "Tadžikistan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:32
 msgid "Afghanistan"
 msgstr "Afganistan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:33
 msgid "Malaysia"
 msgstr "Malezija"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:34
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:19
 msgid "Indonesia"
 msgstr "Indonezija"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:35
 msgid "Philippines"
 msgstr "Filipini"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:35
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:36
 msgid "Myanmar"
 msgstr "Mjanmar"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:36
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:37
 msgid "Pakistan"
 msgstr "Pakistan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:39
 msgid "Bhutan"
 msgstr "Butan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:39
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:40
 msgid "Bangladesh"
 msgstr "Bangladeš"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:41
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:42
 msgid "China"
 msgstr "Kitajska"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:42
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:43
 msgid "Sri Lanka"
 msgstr "Sri Lanka"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:43
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:44
 msgid "Thailand"
 msgstr "Tajska"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:44
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:45
 msgid "Laos"
 msgstr "Laos"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:45
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:46
 msgid "Cambodia"
 msgstr "Kambodža"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:46
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:47
 msgid "Vietnam"
 msgstr "Vietnam"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:47
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:48
 msgid "Taiwan"
 msgstr "Tajvan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:48
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:49
 msgid "Uzbekistan"
 msgstr "Uzbekistan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:49
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:50
 msgid "Kazakhstan"
 msgstr "Kazahstan"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:50
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:51
 msgid "South Korea"
 msgstr "Južna Koreja"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:51
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:52
 msgid "North Korea"
 msgstr "Severna Koreja"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:53
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:54
 msgid "Mongolia"
 msgstr "Mongolija"
 
-#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:54
+#: ../src/geography-activity/resources/geography/board10_0.xml.in.h:55
 #: ../src/geography-activity/resources/geography/board6_0.xml.in.h:16
 msgid "Russia"
 msgstr "Rusija"
@@ -5086,10 +5401,6 @@ msgstr "Evropa"
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:1
 msgid "Oceania"
 msgstr "Oceanija"
-
-#: ../src/geography-activity/resources/geography/board11_0.xml.in.h:2
-msgid "Hawaii"
-msgstr "Havaji"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:3
 msgid "United States Minor Outlying Islands"
@@ -5183,14 +5494,6 @@ msgstr "Grenlandija"
 #: ../src/geography-activity/resources/geography/board5_0.xml.in.h:8
 msgid "Iceland"
 msgstr "Islandija"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:6
-msgid "United States of America"
-msgstr "Združene države Amerike"
-
-#: ../src/geography-activity/resources/geography/board2_0.xml.in.h:7
-msgid "Alaska"
-msgstr "Aljaska"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
@@ -5502,7 +5805,7 @@ msgid "Central African Republic"
 msgstr "Srednjeafriška republika"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:7
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
 msgid "Chad"
 msgstr "Čad"
 
@@ -5600,7 +5903,7 @@ msgid "Rwanda"
 msgstr "Ruanda"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:27
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
 msgid "Senegal"
 msgstr "Senegalija"
 
@@ -5609,22 +5912,22 @@ msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:29
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:32
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
 msgid "Somalia"
 msgstr "Somalija"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:30
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:33
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
 msgid "Sudan"
 msgstr "Sudan"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:31
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:36
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
 msgid "Togo"
 msgstr "Togo"
 
 #: ../src/geography-activity/resources/geography/board7_0.xml.in.h:32
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:37
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
 msgid "Tunisia"
 msgstr "Tunizija"
 
@@ -5657,7 +5960,7 @@ msgid "Burundi"
 msgstr "Burundi"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:5
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:31
 msgid "Democratic Republic of Congo"
 msgstr "Demokratična republika Kongo"
 
@@ -5691,6 +5994,7 @@ msgid "Namibia"
 msgstr "Namibija"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:14
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:9
 msgid "Republic of Congo"
 msgstr "Republika Kongo"
 
@@ -5704,17 +6008,17 @@ msgid "Swaziland"
 msgstr "Svazi"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:18
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:34
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:35
 msgid "Tanzania"
 msgstr "Tanzanija"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:20
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:38
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
 msgid "Zambia"
 msgstr "Zambija"
 
 #: ../src/geography-activity/resources/geography/board8_0.xml.in.h:21
-#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:39
+#: ../src/geography-activity/resources/geography/board9_0.xml.in.h:40
 msgid "Zimbabwe"
 msgstr "Zimbabve"
 
@@ -5737,25 +6041,17 @@ msgstr ""
 "seznama črk za igranje te igre.\n"
 
 #. Should display the dialog box here
-#: ../src/gletters-activity/gletters.c:762
+#: ../src/gletters-activity/gletters.c:786
 msgid "ERROR: Unable to get letter from wordlist"
 msgstr "NAPAKA: črke s seznama besed ni mogoče pridobiti"
 
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/gletters-activity/gletters.c:1007
+#: ../src/gletters-activity/gletters.c:1032
 #: ../src/imageid-activity/imageid.c:716
-#: ../src/pythontest-activity/pythontest.py:448
 #: ../src/readingh-activity/reading.c:918
-#: ../src/scalesboard-activity/scale.c:1258
+#: ../src/scalesboard-activity/scale.c:1259
 #: ../src/smallnumbers-activity/smallnumbers.c:598
-#: ../src/tuxpaint-activity/tuxpaint.py:185
-#: ../src/wordsgame-activity/wordsgame.c:907
-#, c-format, python-format
+#: ../src/wordsgame-activity/wordsgame.c:936
+#, c-format
 msgid ""
 "<b>%s</b> configuration\n"
 " for profile <b>%s</b>"
@@ -5763,12 +6059,12 @@ msgstr ""
 "<b>%s</b> nastavitev\n"
 " za profil <b>%s</b>"
 
-#: ../src/gletters-activity/gletters.c:1036
+#: ../src/gletters-activity/gletters.c:1064
 #: ../src/smallnumbers-activity/smallnumbers.c:617
 msgid "Enable sounds"
 msgstr "Omogoči zvok"
 
-#: ../src/gletters-activity/gletters.c:1040
+#: ../src/gletters-activity/gletters.c:1068
 msgid ""
 "Show letters in UPPERCASE\n"
 "Type in lowercase or UPPERCASE as you wish"
@@ -6111,8 +6407,8 @@ msgstr "b/c/č/d/f/g/h/j/k/l/m/n/p/r/s/š/t/v/z/ž"
 #. Letters on the left of the = can be multigraphs and represent the letters on the buttons.
 #. Letters on the right are single letters pressed on the keyboard.
 #. If you wish to allow different key presses for the same letter, separate the letters
-#. on the right with /
-#: ../src/hangman-activity/hangman.py:76
+#. on the right with the chararcter '/'. Keep the word NONE if not available in your language
+#: ../src/hangman-activity/hangman.py:77
 msgid "a=a"
 msgstr "a=a"
 
@@ -6163,7 +6459,7 @@ msgstr "Poenostavljen Hanojski stolp"
 msgid "Reproduce the given tower"
 msgstr "Postavi enak stolp."
 
-#: ../src/hanoi-activity/hanoi.c:348
+#: ../src/hanoi-activity/hanoi.c:349
 msgid ""
 "Build the same tower in the empty area as the one you see on the right-hand "
 "side."
@@ -6430,7 +6726,7 @@ msgstr ""
 "preveč izbir."
 
 #: ../src/imageid-activity/imageid.c:538
-#: ../src/missing_letter-activity/missingletter.c:608
+#: ../src/missing_letter-activity/missingletter.c:616
 msgid "Data file for this level is not properly formatted."
 msgstr "Podatkovna datoteka za to raven ni pravilno oblikovana."
 
@@ -6707,118 +7003,113 @@ msgstr ""
 msgid "Click on the correct instrument."
 msgstr "Izberi ustrezen inštrument."
 
-#. Translator: Do not translate {text}.
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:1
+msgid "Find the clarinet"
+msgstr "Najdi klarinet"
+
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
-msgid "Find {text}"
-msgstr "Klikni glasbilo: {text}"
+msgid "Find the transverse flute"
+msgstr "Najdi prečno flavto"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
-msgid "the clarinet"
-msgstr "Klarinet"
+msgid "Find the guitar"
+msgstr "Najdi kitaro"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-msgid "the transverse flute"
-msgstr "prečna flavta"
+msgid "Find the harp"
+msgstr "Najdi harfo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
-msgid "the guitar"
-msgstr "Kitara"
+msgid "Find the piano"
+msgstr "Najdi piano"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
-msgid "the harp"
-msgstr "Harfa"
+msgid "Find the saxophone"
+msgstr "Najdi saksofon"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
-msgid "the piano"
-msgstr "Klavir"
+msgid "Find the trombone"
+msgstr "Najdi trombon"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
-msgid "the saxophone"
-msgstr "Saksofon"
+msgid "Find the trumpet"
+msgstr "Najdi trobento"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
-msgid "the trombone"
-msgstr "Pozavna"
+msgid "Find the violin"
+msgstr "Najdi violino"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-msgid "the trumpet"
-msgstr "Trobenta"
+msgid "Find the flute traversiere"
+msgstr "Najdi prečno flavto"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
-msgid "the violin"
-msgstr "Violina"
+msgid "Find the drum kit"
+msgstr "Najdi bobne"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
-msgid "the flute traversiere"
-msgstr "Prečna flavta"
+msgid "Find the accordion"
+msgstr "Najdi harmoniko"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
-msgid "the drum kit"
-msgstr "Tolkalska baterija"
+msgid "Find the banjo"
+msgstr "Najdi bendžo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
-msgid "the accordion"
-msgstr "Harmonika"
+msgid "Find the bongo"
+msgstr "Najdi bongo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
-msgid "the banjo"
-msgstr "Bendžo"
+msgid "Find the electric guitar"
+msgstr "Najdi električno kitaro"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
-msgid "the bongo"
-msgstr "Bobni bongo"
+msgid "Find the castanets"
+msgstr "Najdi kastanjete"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
-msgid "the electric guitar"
-msgstr "Električna kitara"
+msgid "Find the cymbal"
+msgstr "Najdi čimbale"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
-msgid "the castanets"
-msgstr "Kastanjete"
+msgid "Find the cello"
+msgstr "Najdi čelo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
-msgid "the cymbal"
-msgstr "Cimbale"
+msgid "Find the harmonica"
+msgstr "Najdi orglice"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
-msgid "the cello"
-msgstr "Čelo"
+msgid "Find the horn"
+msgstr "Najdi rog"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
-msgid "the harmonica"
-msgstr "Orglice"
+msgid "Find the maracas"
+msgstr "Najdi marake"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
-msgid "the horn"
-msgstr "Rog"
+msgid "Find the organ"
+msgstr "Najdi orgle"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
-msgid "the maracas"
-msgstr "Marake"
+msgid "Find the snare drum"
+msgstr "Najdi mali boben"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-msgid "the organ"
-msgstr "Orgle"
+msgid "Find the timpani"
+msgstr "Najdi pavke"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
-msgid "the snare drum"
-msgstr "mali boben"
+msgid "Find the triangle"
+msgstr "Najdi triangel"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
-msgid "the timpani"
-msgstr "Pavke"
+msgid "Find the tambourine"
+msgstr "Najdi tamburin"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
-msgid "the triangle"
-msgstr "Triangel"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:28
-msgid "the tambourine"
-msgstr "Tamburin"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:29
-msgid "the tuba"
-msgstr "Tuba"
+msgid "Find the tuba"
+msgstr "Najdi tubo"
 
 #: ../src/intro_gravity-activity/intro_gravity.py:100
 msgid ""
@@ -6887,7 +7178,7 @@ msgstr "Sledi navodilom med izvajanjem dejavnosti."
 msgid "Gravity: %s"
 msgstr "Težnost: %s"
 
-#: ../src/land_safe-activity/land_safe.py:165
+#: ../src/land_safe-activity/land_safe.py:166
 msgid ""
 "Use the up and down keys to control the thrust\n"
 "Use the right and left keys to control direction.\n"
@@ -6899,23 +7190,23 @@ msgstr ""
 "S Pingovo vesoljsko ladjo je treba pristati na pristajalni ploščadi.\n"
 "Ta se obarva zeleno, ko sta hitrost in smer varni za pristajanje."
 
-#: ../src/land_safe-activity/land_safe.py:170
+#: ../src/land_safe-activity/land_safe.py:171
 msgid "Click on me or press the Return key when you are ready."
 msgstr "Klikni ali pa pritisni vnosno tipko za nadaljevanje."
 
-#: ../src/land_safe-activity/land_safe.py:172
+#: ../src/land_safe-activity/land_safe.py:173
 msgid "I am ready!"
 msgstr "Sem na mestu!"
 
-#: ../src/land_safe-activity/land_safe.py:470
+#: ../src/land_safe-activity/land_safe.py:473
 msgid "Height: "
 msgstr "Višina: "
 
-#: ../src/land_safe-activity/land_safe.py:486
+#: ../src/land_safe-activity/land_safe.py:491
 msgid "Fuel"
 msgstr "Gorivo"
 
-#: ../src/land_safe-activity/land_safe.py:519
+#: ../src/land_safe-activity/land_safe.py:525
 msgid "Velocity: "
 msgstr "Hitrost: "
 
@@ -6959,28 +7250,7 @@ msgstr ""
 "pristajanje.\n"
 "        "
 
-#: ../src/lang-activity/lang.py:98
-msgid "ERROR, we found no words in this language."
-msgstr "NAPAKA, v tem jeziku ni mogoče najti besed."
-
-#: ../src/lang-activity/lang.py:99
-msgid "Please consider contributing a voice set."
-msgstr "Razmisli o tem, da bi prispeval glasovni nabor."
-
-#: ../src/lang-activity/lang.py:152
-#, python-format
-msgid ""
-"Configuration\n"
-" for profile <b>%s</b>"
-msgstr ""
-"Nastavitev\n"
-" za profil <b>%s</b>"
-
-#: ../src/lang-activity/lang.py:157
-msgid "Select locale"
-msgstr "Izbor jezikovnih nastavitev"
-
-#: ../src/lang-activity/langEnterText.py:136
+#: ../src/lang-activity/langEnterText.py:139
 msgid "Enter the text you hear:"
 msgstr "Vnesite besedilo, ki ga slišiš:"
 
@@ -7012,7 +7282,7 @@ msgstr "Obogati svoj besedni zaklad maternega ali tujega jezika."
 #: ../src/lang-activity/lang-people.xml.in.h:5
 msgid ""
 "Review a set of words. Each word is shown with a voice a text and an image. "
-"When done you are suggested an exercice in which, given the voice, you must "
+"When done you are suggested an exercise in which, given the voice, you must "
 "find the right word. In the configuration you can select the language you "
 "want to learn."
 msgstr ""
@@ -7026,12 +7296,13 @@ msgstr ""
 #: ../src/lang-activity/lang-other.xml.in.h:6
 #: ../src/lang-activity/lang-people.xml.in.h:6
 msgid ""
-"The images and voices comes from the Art4Apps project: http://www.art4apps."
-"org/. You can also access this activity online on http://laske.fr/"
-"abecedarium/."
+"The images and voices come from the Art4Apps project: http://www.art4apps."
+"org/. You can also access this activity online on http://gcompris.net/"
+"activity/lang."
 msgstr ""
-"Slike in glasovi so iz projekta Art4Apps: http://www.art4apps.org/. Ta "
-"dejavnost je na voljo tudi prek spleta na http://laske.fr/abecedarium/."
+"Slike in glasovi so povzeti iz projekta Art4Apps: http://www.art4apps.org/. "
+"Dejavnost je na dostopna tudi na spletnem naslovu http://gcompris.net/"
+"activity/lang."
 
 #: ../src/lang-activity/lang-object.xml.in.h:2
 msgid "List of words in the 'object' category."
@@ -7044,6 +7315,27 @@ msgstr "Seznam besed v kategoriji 'drugo'."
 #: ../src/lang-activity/lang-people.xml.in.h:2
 msgid "List of words in the 'people' category."
 msgstr "Seznam besed v kategoriji 'ljudje'."
+
+#: ../src/lang-activity/lang.py:98
+msgid "ERROR, we found no words in this language."
+msgstr "NAPAKA, v tem jeziku ni mogoče najti besed."
+
+#: ../src/lang-activity/lang.py:99
+msgid "Please consider contributing a voice set."
+msgstr "Razmisli o tem, da bi prispeval glasovni nabor."
+
+#: ../src/lang-activity/lang.py:172
+#, python-format
+msgid ""
+"Configuration\n"
+" for profile <b>%s</b>"
+msgstr ""
+"Nastavitev\n"
+" za profil <b>%s</b>"
+
+#: ../src/lang-activity/lang.py:177
+msgid "Select locale"
+msgstr "Izbor jezikovnih nastavitev"
 
 #: ../src/lang-activity/lang.xml.in.h:1
 msgid "Go to the language learning activities"
@@ -7225,30 +7517,16 @@ msgstr "Profil:"
 msgid "Login: "
 msgstr "Prijava:"
 
-#. Init configuration window:
-#. all the configuration functions will use it
-#. all the configuration functions returns values for their key in
-#. the dict passed to the apply_callback
-#. the returned value is the main GtkVBox of the window,
-#. we can add what you want in it.
-#: ../src/login-activity/login.py:480
-msgid ""
-"<b>{0}</b> configuration\n"
-" for profile <b>{1}</b>"
-msgstr ""
-"<b>{0}</b> nastavitev\n"
-" za profil <b>{1}</b>"
-
 #. toggle box
-#: ../src/login-activity/login.py:486
+#: ../src/login-activity/login.py:488
 #: ../src/missing_letter-activity/missingletter_config.c:492
 #: ../src/readingh-activity/reading.c:942
-#: ../src/wordsgame-activity/wordsgame.c:930
+#: ../src/wordsgame-activity/wordsgame.c:959
 msgid "Uppercase only text"
 msgstr "Le besedilo z velikimi črkami"
 
 #. toggle box
-#: ../src/login-activity/login.py:496
+#: ../src/login-activity/login.py:498
 msgid "Enter login to log in"
 msgstr "Vnesi geslo za prijavo"
 
@@ -7673,63 +7951,65 @@ msgstr ""
 "Poslušaj predvajano zaporedje zvokov in ga ponovi s klikanjem na predmete. "
 "Če želiš ponovno poslušati zvoke, pritisni gumb ponovi."
 
-#: ../src/memory-activity/memory.c:280
+#: ../src/memory-activity/memory.c:272
 msgid "zero"
 msgstr "nič"
 
-#: ../src/memory-activity/memory.c:281
+#: ../src/memory-activity/memory.c:273
 msgid "one"
 msgstr "ena"
 
-#: ../src/memory-activity/memory.c:282
+#: ../src/memory-activity/memory.c:274
 msgid "two"
 msgstr "dva"
 
-#: ../src/memory-activity/memory.c:283
+#: ../src/memory-activity/memory.c:275
 msgid "three"
 msgstr "tri"
 
-#: ../src/memory-activity/memory.c:284
+#: ../src/memory-activity/memory.c:276
 msgid "four"
 msgstr "štiri"
 
-#: ../src/memory-activity/memory.c:285
+#: ../src/memory-activity/memory.c:277
 msgid "five"
 msgstr "pet"
 
-#: ../src/memory-activity/memory.c:286
+#: ../src/memory-activity/memory.c:278
 msgid "six"
 msgstr "šest"
 
-#: ../src/memory-activity/memory.c:287
+#: ../src/memory-activity/memory.c:279
 msgid "seven"
 msgstr "sedem"
 
-#: ../src/memory-activity/memory.c:288
+#: ../src/memory-activity/memory.c:280
 msgid "eight"
 msgstr "osem"
 
-#: ../src/memory-activity/memory.c:289
+#: ../src/memory-activity/memory.c:281
 msgid "nine"
 msgstr "devet"
 
-#: ../src/memory-activity/memory.c:301
+#: ../src/memory-activity/memory.c:293
 msgid "Memory"
 msgstr "Spomin"
 
-#: ../src/memory-activity/memory.c:302
+#: ../src/memory-activity/memory.c:294
 msgid "Find the matching pair"
 msgstr "Iskanje ujemajočega se para"
 
+#. TRANSLATORS: Put here the alphabet in your language, letters separated by: /
+#. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
+#. * This is used in reading/click_on_letter and discovery/memory-group
+#: ../src/memory-activity/memory.c:734
+msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
+msgstr "a/b/c/č/d/e/f/g/h/i/j/k/l/m/n/o/p/r/s/š/t/u/v/z/ž"
+
 #. TRANSLATORS: Put here the numbers in your language
-#: ../src/memory-activity/memory.c:931
+#: ../src/memory-activity/memory.c:949
 msgid "0123456789"
 msgstr "0123456789"
-
-#. TRANSLATORS: Put here the alphabet uppercase in your language
-#: ../src/memory-activity/memory.c:941
-msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-msgstr "ABCČDEFGHIJKLMNOPRSŠTUVZŽ"
 
 #: ../src/memory-activity/memory.xml.in.h:1
 msgid "Memory Game with images"
@@ -8162,7 +8442,7 @@ msgid "Mining for gold"
 msgstr "Rudarjenje za zlatom"
 
 #: ../src/mining-activity/mining.xml.in.h:2
-msgid "Use the mousewheel to approach the rockwall an look for gold nuggets."
+msgid "Use the mousewheel to approach the rockwall and look for gold nuggets."
 msgstr "Z miškinim koleščkom se približaj skalni steni in išči zlate kepe."
 
 #: ../src/mining-activity/mining.xml.in.h:3
@@ -8556,6 +8836,7 @@ msgid "Practice money usage including cents"
 msgstr "Praktična uporaba denarja in drobiža"
 
 #: ../src/mosaic-activity/mosaic.py:186
+#: ../src/mosaic-activity/mosaic.xml.in.h:2
 msgid "Rebuild the same mosaic on the right area"
 msgstr "Sestavi enak mozaik na desnem delu"
 
@@ -8578,39 +8859,39 @@ msgstr ""
 "To je osem osnovnih not v basovskem ključu. Tudi te sestavljajo osnovno C-"
 "durovo lestvico. Mesta not so različna, kot pri violinskem ključu."
 
-#: ../src/note_names-activity/note_names.py:143
+#: ../src/note_names-activity/note_names.py:144
 msgid "Play Scale"
 msgstr "Zaigraj lestvico"
 
-#: ../src/note_names-activity/note_names.py:150
+#: ../src/note_names-activity/note_names.py:151
 msgid "Play Treble Clef Game"
 msgstr "Igraj igro Violinski ključ"
 
-#: ../src/note_names-activity/note_names.py:152
+#: ../src/note_names-activity/note_names.py:153
 msgid "Play Bass Clef Game"
 msgstr "Igraj igro Basovski ključ"
 
-#: ../src/note_names-activity/note_names.py:183
+#: ../src/note_names-activity/note_names.py:184
 msgid "Click on the note name to match the pitch. Then click OK to check."
 msgstr "KLikni na ime note za izbiro tona, nato klikni gumb OK za preizkus."
 
-#: ../src/note_names-activity/note_names.py:185
+#: ../src/note_names-activity/note_names.py:186
 msgid "Now there are sharp notes. These pitches are raised a half step."
 msgstr "Sedaj so narisane tudi zvišane note. Ti toni so zvišani za pol tona."
 
-#: ../src/note_names-activity/note_names.py:187
+#: ../src/note_names-activity/note_names.py:188
 msgid "Now there are flat notes. These pitches are lowered a half step."
 msgstr "Sedaj so narisane tudi znižane note. Ti toni so znižani za pol tona."
 
-#: ../src/note_names-activity/note_names.py:193
+#: ../src/note_names-activity/note_names.py:194
 msgid "Click the note to hear it played"
 msgstr "Klikni na noto, da slišiš ton, ki ga predstavlja"
 
-#: ../src/note_names-activity/note_names.py:246
+#: ../src/note_names-activity/note_names.py:247
 msgid "Need a hint? Click here for color-coded note names."
 msgstr "Ali potrebuješ namig? Klikni sem za prikaz obarvanih imen not."
 
-#: ../src/note_names-activity/note_names.py:249
+#: ../src/note_names-activity/note_names.py:250
 msgid "Ready for a challenge? Color all buttons black!"
 msgstr "Pripravljeni na izziv? Pobarvaj vse tipke črno!"
 
@@ -8931,7 +9212,7 @@ msgstr "as"
 msgid "Bb"
 msgstr "hes"
 
-#: ../src/piano_composition-activity/gcomprismusic.py:290
+#: ../src/piano_composition-activity/gcomprismusic.py:291
 msgid "The staff is full. Please erase some notes"
 msgstr "Notno črtovje je zapolnjeno. Izbrisati je treba nekaj not."
 
@@ -9001,35 +9282,35 @@ msgstr "Predvajaj skladbo"
 msgid "Erase and Change Clef"
 msgstr "Izbriši in spremeni ključ"
 
-#: ../src/piano_composition-activity/piano_composition.py:222
+#: ../src/piano_composition-activity/piano_composition.py:223
 msgid "Change Note Type:"
 msgstr "Spremeni vrsto note:"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
-#: ../src/piano_composition-activity/piano_composition.py:243
+#: ../src/piano_composition-activity/piano_composition.py:244
 msgid "Eighth Note"
 msgstr "Osminka"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Quarter_note
-#: ../src/piano_composition-activity/piano_composition.py:266
+#: ../src/piano_composition-activity/piano_composition.py:267
 msgid "Quarter Note"
 msgstr "Četrtinka"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Half_note
-#: ../src/piano_composition-activity/piano_composition.py:279
+#: ../src/piano_composition-activity/piano_composition.py:280
 msgid "Half Note"
 msgstr "Polovinka"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Whole_note
-#: ../src/piano_composition-activity/piano_composition.py:292
+#: ../src/piano_composition-activity/piano_composition.py:293
 msgid "Whole Note"
 msgstr "Celinka"
 
-#: ../src/piano_composition-activity/piano_composition.py:324
+#: ../src/piano_composition-activity/piano_composition.py:325
 msgid "Load Music"
 msgstr "Naloži glasbo"
 
-#: ../src/piano_composition-activity/piano_composition.py:329
+#: ../src/piano_composition-activity/piano_composition.py:330
 msgid "Change Accidental Style:"
 msgstr "Izbor naključnega sloga:"
 
@@ -9037,9 +9318,17 @@ msgstr "Izbor naključnega sloga:"
 msgid "Select A Melody to Load"
 msgstr "Izberite glasbeno datoteko za nalaganje"
 
+#: ../src/piano_composition-activity/piano_composition.py:405
+msgid "Previous Page"
+msgstr "Predhodna stran"
+
+#: ../src/piano_composition-activity/piano_composition.py:415
+msgid "Next Page"
+msgstr "Naslednja stran"
+
 #. FIXME Should remove the space in the data file instead
-#: ../src/piano_composition-activity/piano_composition.py:449
-#: ../src/piano_composition-activity/piano_composition.py:578
+#: ../src/piano_composition-activity/piano_composition.py:450
+#: ../src/piano_composition-activity/piano_composition.py:580
 msgid " "
 msgstr " "
 
@@ -9149,6 +9438,29 @@ msgstr ""
 "  F4: G# / Ab\n"
 "  F5: A# / Hb\n"
 
+#: ../src/piano_composition-activity/piano_composition.xml.in.h:34
+msgid ""
+"\n"
+"Thank you to Bruno Coudoin for his mentorship.\n"
+"Thank you to Olivier Samyn for his contribution to improving the note design "
+"and coloring.\n"
+"Thank you to Federico Mena who inspired me with his wonderful enthusiasm for "
+"my music projects at GUADEC.\n"
+"Thank you to all contributors of children's songs from around the world, "
+"especially the GNOME community. Learn more about these\n"
+"melodies and who contributed them here: https://live.gnome.org/"
+"GComprisMelodies\n"
+msgstr ""
+"\n"
+"Bruno Coudoin, zahvaljujemo se ti za mentorstvo.\n"
+"Hvala Olivierju Samynu za izboljšave pri obliki not in barv.\n"
+"Federicu Meni za navdušenje nad glasbenim projektom, predstavljenim na "
+"konferenci GUADEC.\n"
+"Hvala tudi vsem, ki so pripravili otroške skladbe, še posebej skupnosti "
+"GNOME. O teh skladbah\n"
+"je mogoče izvedeti več na spletnem naslovu: https://live.gnome.org/"
+"GComprisMelodies\n"
+
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:1
 msgid "America: English Lullaby"
 msgstr "Amerika, angleška uspavanka"
@@ -9203,23 +9515,27 @@ msgid ""
 "satellite"
 msgstr "Nato klikni satelit in povleci črto, ki določa hitrost satelita"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:267
+#: ../src/place_your_satellite-activity/place_your_satellite.py:268
 msgid "Satellite goes too fast"
 msgstr "Satelit se giblje prehitro"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:269
+#: ../src/place_your_satellite-activity/place_your_satellite.py:270
 msgid "Satellite goes too slow"
 msgstr "Satelit se giblje prepočasi"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:296
+#: ../src/place_your_satellite-activity/place_your_satellite.py:274
+msgid "Distance: {:.1f}"
+msgstr "Razdalja: {:.1f}"
+
+#: ../src/place_your_satellite-activity/place_your_satellite.py:297
 msgid "Satellite is crashing"
 msgstr "Satelit pada"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:330
+#: ../src/place_your_satellite-activity/place_your_satellite.py:331
 msgid "Satellite not in orbit"
 msgstr "Satelit ni v orbiti"
 
-#: ../src/place_your_satellite-activity/place_your_satellite.py:394
+#: ../src/place_your_satellite-activity/place_your_satellite.py:397
 msgid "Speed"
 msgstr "Hitrost"
 
@@ -9535,26 +9851,26 @@ msgid "This activity is not playable, just a test"
 msgstr "Te dejavnosti ni mogoče igrati, je samo preizkus"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:454
+#: ../src/pythontest-activity/pythontest.py:456
 msgid "Disable line drawing in circle"
 msgstr "Onemogoči risanje črt v krogu"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:463
+#: ../src/pythontest-activity/pythontest.py:465
 msgid "Color of the line"
 msgstr "Barva črte"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:474
+#: ../src/pythontest-activity/pythontest.py:476
 msgid "Distance between circles"
 msgstr "Razdalja med krogi"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:485
+#: ../src/pythontest-activity/pythontest.py:487
 msgid "Use circles"
 msgstr "Uporabi kroge"
 
-#: ../src/pythontest-activity/pythontest.py:486
+#: ../src/pythontest-activity/pythontest.py:488
 msgid "Use rectangles"
 msgstr "Uporabi pravokotnike"
 
@@ -9600,7 +9916,7 @@ msgstr ""
 "preveriš tako, da klikneš na roko spodaj."
 
 #: ../src/readingh-activity/reading.c:240
-#: ../src/wordsgame-activity/wordsgame.c:222
+#: ../src/wordsgame-activity/wordsgame.c:227
 msgid ""
 "Error: We can't find\n"
 "a list of words to play this game.\n"
@@ -9754,7 +10070,7 @@ msgstr ""
 "kocko, da izbereš pravo številko. Za štetje nazaj uporabi desnim gumbom "
 "miške. Ko končaš, pritisni gumb v redu ali vnosno tipko."
 
-#: ../src/scalesboard-activity/scale.c:1086
+#: ../src/scalesboard-activity/scale.c:1087
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Uteži je mogoče postaviti na obe strani tehtnice."
 
@@ -9999,7 +10315,7 @@ msgid "Compressed air tank is used to flush water out of the ballasts."
 msgstr "Zbiralnik stisnjenega zraka je namenjen izplakovanju vode iz balastov."
 
 #: ../src/submarine-activity/submarine.c:524
-msgid "Open or close the the ballast tank."
+msgid "Open or close the ballast tank."
 msgstr "Odprite ali zaprite balastni zbiralnik."
 
 #: ../src/submarine-activity/submarine.c:525
@@ -10016,7 +10332,7 @@ msgid "Lower the water level to rise to the surface."
 msgstr "Znižajte raven vode za dvig na vodno gladino."
 
 #: ../src/submarine-activity/submarine.c:561
-msgid "Open or close the the ballast flush."
+msgid "Open or close the ballast flush."
 msgstr "Odprite ali zaprite odplako balasta."
 
 #: ../src/submarine-activity/submarine.c:562
@@ -10069,8 +10385,8 @@ msgstr "Spoznavanje delovanja podmornice"
 #: ../src/submarine-activity/submarine.xml.in.h:5
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth. There is a close gate on the right. After "
-"the first level, your have to catch the jewel to open it. Pass through it to "
+"to navigate to the required depth. There is a closed gate on the right. After "
+"the first level, you have to catch the jewel to open it. Pass through it to "
 "reach the next level."
 msgstr ""
 "S klikanjem na različne strojne dele podmornice: motor, krmila in zračni "
@@ -10298,23 +10614,23 @@ msgstr ""
 msgid "Waiting for Tuxpaint to finish"
 msgstr "V čakanju na končanje programa Tuxpaint"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:189
+#: ../src/tuxpaint-activity/tuxpaint.py:194
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Prevzemi celozaslonsko nastavitev GCompris"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:193
+#: ../src/tuxpaint-activity/tuxpaint.py:198
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Prevzemi nastavitev velikosti GCompris (800x600, 640x480)"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:197
+#: ../src/tuxpaint-activity/tuxpaint.py:202
 msgid "Disable shape rotation"
 msgstr "Onemogoči vrtenje oblik"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:201
+#: ../src/tuxpaint-activity/tuxpaint.py:206
 msgid "Show Uppercase text only"
 msgstr "Pokaži le besedilo z velikimi črkami"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:205
+#: ../src/tuxpaint-activity/tuxpaint.py:210
 msgid "Disable stamps"
 msgstr "Onemogoči žige"
 
@@ -10456,12 +10772,12 @@ msgstr ""
 "Prvi štirje gumbi so namenjeni izbiri sloga vrstice na kateri je kazalka. Z "
 "izbirnima gumboma prilagodimo osnovno obliko dokumenta in barvno temo."
 
-#: ../src/wordsgame-activity/wordsgame.c:115
+#: ../src/wordsgame-activity/wordsgame.c:120
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:1
 msgid "Falling Words"
 msgstr "Padajoče besede"
 
-#: ../src/wordsgame-activity/wordsgame.c:116
+#: ../src/wordsgame-activity/wordsgame.c:121
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:2
 msgid "Type the falling words before they reach the ground"
 msgstr "Natipkaj padajoče besede preden dosežejo tla."
@@ -10473,3 +10789,6 @@ msgstr "Učenje tipkanja"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Natipkaj celo besedo, preden pade na tla"
+
+#~ msgid "Georgia"
+#~ msgstr "Gruzija"

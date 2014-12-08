@@ -25,8 +25,9 @@ import gcompris.bonus
 import gcompris.sound
 import goocanvas
 import pango
-import gettext
+
 from gcompris import gcompris_gettext as _
+
 import ConfigParser
 import random
 
@@ -240,23 +241,20 @@ class Gcompris_findit:
   def play_audio_question(self, question, object_):
     # Play the audio question if provided
     audio = question
-    try:
-      # The question audio can be formatted with {text} and if so this
-      # is replaced by the target text
-      audio = audio.format(text = object_.text)
-      # Strings can be disambiguated by prefixing <board_name>| in the desktop.in file
-      # look at the colors activity for an example.
-      audio = audio.replace(self.gcomprisBoard.name+'|','')
-    except:
-      pass
+    if audio:
+      try:
+        # The question audio can be formatted with {text} and if so this
+        # is replaced by the target text
+        audio = audio.format(text = object_.text)
+      except:
+        pass
+    else:
+      audio = object_.audio
 
     try:
       # The question audio can be formatted with {audio} and if so this
       # is replaced by the target text
       audio = audio.format(audio = object_.audio)
-      # Strings can be disambiguated by prefixing <board_name>| in the desktop.in file
-      # look at the colors activity for an example.
-      audio = audio.replace(self.gcomprisBoard.name+'|','')
     except:
       pass
 
@@ -282,25 +280,20 @@ class Gcompris_findit:
   def display_question(self, datasetlevel, object_target):
     # The question
     text = datasetlevel.question_text
-    try:
-      # The question can be formatted with {text} and if so this
-      # is replaced by the target name
-      # TRANSLATORS: If the string contains a |, only translate the string that follows
-      # For example, colors|blue = bleue
-      text = _(text.format(text = _(object_target.text)))
-      # Strings can be disambiguated by prefixing <board_name>| in the desktop.in file
-      # look at the colors activity for an example.
-      text = text.replace(self.gcomprisBoard.name+'|','')
-    except:
-      pass
+    if text:
+      try:
+        # The question can be formatted with {text} and if so this
+        # is replaced by the target name
+        text = _(text.format(text = _(object_target.text)))
+      except:
+        pass
+    else:
+      text = _(object_target.text)
 
     try:
       # The question can be formatted with {audio} and if so this
       # is replaced by the target name
       text = _(text.format(audio = _(object_target.audio)))
-      # Strings can be disambiguated by prefixing <board_name>| in the desktop.in file
-      # look at the colors activity for an example.
-      text = text.replace(self.gcomprisBoard.name+'|','')
     except:
       pass
 
@@ -448,13 +441,13 @@ class finditDataSetLevel:
             load_common_prop(dataset, section, "questionPosition", "").split(','))
 
     try:
-      self.question_text = _( load_common_prop(dataset, section, "questionText", "") )
+      self.question_text = _( load_common_prop(dataset, section, "questionText", None) )
     except:
       self.question_text = None
 
     #print "     finditDataSetLevel " + self.question_text
     try:
-      self.question_audio = load_common_prop(dataset, section, "questionAudio", "")
+      self.question_audio = load_common_prop(dataset, section, "questionAudio", None)
     except:
       self.question_audio = None
 

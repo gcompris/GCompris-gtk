@@ -23,8 +23,8 @@ import gcompris.skin
 import gtk
 import gtk.gdk
 import gobject
-import gettext
 from gcompris import gcompris_gettext as _
+
 import constants
 
 #import group_edit

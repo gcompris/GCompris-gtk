@@ -17,7 +17,6 @@
  */
 
 #include <string.h>
-#include <glib/gi18n.h>
 
 #include "gcompris/gcompris.h"
 
@@ -714,12 +713,8 @@ config_start(GcomprisBoard *agcomprisBoard,
   if (gcomprisBoard)
     pause_board(TRUE);
 
-  /*
-   * TRANSLATORS: %1$s is the board name (imageid),
-   * 2$s is the name of the current user profile
-   */
-  gchar *label = g_strdup_printf(C_("imageid_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
-				 _(agcomprisBoard->name),
+  gchar *label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
+				 agcomprisBoard->name,
 				 aProfile ? aProfile->name : "");
   GcomprisBoardConf *bconf;
   bconf = gc_board_config_window_display( label,

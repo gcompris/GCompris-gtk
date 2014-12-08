@@ -42,7 +42,7 @@ class TextEntry:
         parent = rootitem,
         x = x,
         y = y,
-        fill_color = "black",
+        fill_color = "white",
         font = gcompris.skin.get_font("gcompris/subtitle"),
         text = text,
         anchor = gtk.ANCHOR_CENTER,
@@ -104,6 +104,7 @@ class EnterText:
         if self.mode & EnterText.WITH_IMAGE:
           pixbuf = gcompris.utils.load_pixmap(gcompris.DATA_DIR + "/" +
                                               self.tripletToFind.image)
+
           goocanvas.Rect(
               parent = self.gameroot,
               x = gcompris.BOARD_WIDTH / 2 - pixbuf.get_width() / 2,
@@ -121,31 +122,27 @@ class EnterText:
                                   y = 60,
                                   )
 
-        self.errorCount = 0
-        if self.mode & EnterText.WITH_TEXT:
-          self.questionItem = goocanvas.Text(
-            parent = self.gameroot,
-            x = gcompris.BOARD_WIDTH / 2,
-            y = 40,
-            fill_color = "black",
-            font = gcompris.skin.get_font("gcompris/subtitle"),
-            anchor = gtk.ANCHOR_CENTER,
-            alignment = pango.ALIGN_CENTER,
-            width = 300
-            )
-          self.setQuestion()
-
         y = 380
-        goocanvas.Text(
+        backItem = goocanvas.Rect(
+          parent = self.gameroot,
+          fill_color_rgba = 0x999999BBL,
+          line_width = 0.0)
+
+        textItem = goocanvas.Text(
           parent = self.gameroot,
           x = gcompris.BOARD_WIDTH / 2,
           y = y,
-          fill_color = "black",
+          fill_color = "white",
           font = gcompris.skin.get_font("gcompris/subtitle"),
           anchor = gtk.ANCHOR_CENTER,
           alignment = pango.ALIGN_CENTER,
           text = _("Enter the text you hear:")
           )
+        bounds = textItem.get_bounds()
+        backItem.props.x = bounds.x1
+        backItem.props.y = bounds.y1
+        backItem.props.width = bounds.x2 - bounds.x1
+        backItem.props.height = bounds.y2 - bounds.y1
 
         extraCharAllowed = 5
         width = (len(self.tripletToFind.descriptionTranslated) + extraCharAllowed) * 20
@@ -155,8 +152,8 @@ class EnterText:
           y = y + 20,
           width = width,
           height = 40,
-          fill_color_rgba = 0xEEEEEECCL,
-          stroke_color_rgba = 0x111111CCL,
+          fill_color_rgba = 0x999999CCL,
+          stroke_color_rgba = 0x111111AAL,
           line_width = 2.0,
           radius_x = 5,
           radius_y = 10)
@@ -166,6 +163,32 @@ class EnterText:
                                    y + 40,
                                    u"",
                                    len( self.tripletToFind.descriptionTranslated) + extraCharAllowed)
+
+        self.errorCount = 0
+        if self.mode & EnterText.WITH_TEXT:
+          goocanvas.Rect(
+            parent = self.gameroot,
+            x = gcompris.BOARD_WIDTH / 2 - pixbuf.get_width() / 2,
+            y = 10,
+            width = pixbuf.get_width(),
+            height = 60,
+            fill_color_rgba = 0x999999BBL,
+            stroke_color_rgba = 0x11111111L,
+            line_width = 2.0,
+            radius_x = 3,
+            radius_y = 3)
+
+          self.questionItem = goocanvas.Text(
+            parent = self.gameroot,
+            x = gcompris.BOARD_WIDTH / 2,
+            y = 35,
+            fill_color = "white",
+            font = gcompris.skin.get_font("gcompris/subtitle"),
+            anchor = gtk.ANCHOR_CENTER,
+            alignment = pango.ALIGN_CENTER,
+            width = 300
+            )
+          self.setQuestion(self.tripletToFind.descriptionTranslated, self.textEntry.text)
 
         # The OK Button
         item = goocanvas.Svg(parent = self.gameroot,
@@ -185,21 +208,19 @@ class EnterText:
     # Set the question with dots like L...E
     # The number of dots depends on the errorCount
     # Return False if all spots are filled
-    def setQuestion(self):
+    def setQuestion(self, descriptionTranslated, textEntry):
 
-      text = self.tripletToFind.descriptionTranslated[0]
+      text = ''
+      clueGiven = False
 
-      for i in range(1, self.errorCount + 1):
-        try:
-          text = text + self.tripletToFind.descriptionTranslated[i]
-        except:
-          return False
-
-      remaining = len(self.tripletToFind.descriptionTranslated) - 2 - self.errorCount
-      if remaining >= 0:
-        text = \
-            text + '.' * remaining + \
-            self.tripletToFind.descriptionTranslated[-1]
+      for i in range(0, len(descriptionTranslated)):
+        if len(textEntry) > i and textEntry[i] == descriptionTranslated[i]:
+            text = text + descriptionTranslated[i]
+        elif not clueGiven:
+            text = text + descriptionTranslated[i]
+            clueGiven = True
+        else:
+            text = text + '.'
 
       self.questionItem.set_properties(text = text,)
       return True
@@ -213,7 +234,7 @@ class EnterText:
         self.start()
       else:
         self.errorCount += 1
-        if self.setQuestion():
+        if self.setQuestion(self.tripletToFind.descriptionTranslated, self.textEntry.text):
           if self.errorCount == 1:
             self.triplets.append(self.tripletToFind)
           self.repeat()

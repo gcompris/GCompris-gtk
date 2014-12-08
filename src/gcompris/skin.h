@@ -28,14 +28,9 @@ extern guint32 gc_skin_color_content;
 extern guint32 gc_skin_color_subtitle;
 extern guint32 gc_skin_color_shadow;
 
-extern gchar* gc_skin_font_fontface;
 extern gchar* gc_skin_font_title;
 extern gchar* gc_skin_font_subtitle;
 extern gchar* gc_skin_font_content;
-extern gchar* gc_skin_font_helptext;
-
-extern gchar* gc_skin_font_menu_title;
-extern gchar* gc_skin_font_menu_description;
 
 extern gchar* gc_skin_font_board_minuscule;
 extern gchar* gc_skin_font_board_tiny;
@@ -47,7 +42,6 @@ extern gchar* gc_skin_font_board_big_bold;
 extern gchar* gc_skin_font_board_fixed;
 extern gchar* gc_skin_font_board_title;
 extern gchar* gc_skin_font_board_title_bold;
-extern gchar* gc_skin_font_board_levelmenu;
 extern gchar* gc_skin_font_board_huge;
 extern gchar* gc_skin_font_board_huge_bold;
 
@@ -65,6 +59,7 @@ guint32         gc_skin_get_color_default(gchar* id, guint32 def);
 void		gc_skin_get_gdkcolor_default(gchar* id, guint32 def, GdkColor *gdkcolor);
 gchar*          gc_skin_get_font_default(gchar* id, gchar* def);
 guint32		gc_skin_get_number_default(gchar* id, guint32 def);
+void		gc_skin_update_font();
 
 #define gc_skin_get_gdkcolor(id, gdkcolor) gc_skin_get_gdkcolor_default(id, 0x0D0DFA00, gdkcolor)
 #define gc_skin_get_color(id)     gc_skin_get_color_default(id, 0x0D0DFA00)

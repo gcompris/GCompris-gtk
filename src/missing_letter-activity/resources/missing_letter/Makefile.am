@@ -21,8 +21,8 @@ $(xml_DATA): %.xml: %.xml.in
 
 imgdir = $(pkgdatadir)/@PACKAGE_DATA_DIR@/missing_letter
 img_DATA = \
-	avion.png \
-	ballon.png \
+	plane.png \
+	ball.png \
 	banana.png \
 	bed.png \
 	bottle.png \
@@ -30,12 +30,12 @@ img_DATA = \
 	button_selected.png \
 	cake.png \
 	car.png \
-	cartable.png \
-	chien.png \
+	school_bag.png \
+	dog.png \
 	fish.png \
-	maison.png \
+	house.png \
 	missingletter-bg.jpg \
-	pomme.png
+	apple.png
 
 EXTRA_DIST = $(img_DATA) ${xml_in_files}
 CLEANFILES = $(xml_DATA)

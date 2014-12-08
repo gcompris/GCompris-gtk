@@ -244,7 +244,7 @@ bar_start (GooCanvas *theCanvas)
 			 (bounds.y2 - bounds.y1) / 2 + 8,
 			 -1,
 			 GTK_ANCHOR_CENTER,
-			 "font", gc_skin_font_board_levelmenu,
+			 "font", gc_skin_font_board_title_bold,
 			 "fill-color-rgba", gc_skin_color_text_button,
 			 NULL);
   current_level = 1;
@@ -601,8 +601,9 @@ gc_bar_play_level_voice(int level)
       number_str = g_strdup_printf("%s.ogg", old_str);
       g_free(old_str);
     }
+
   gchar *audio_str = g_strdup_printf("voices/$LOCALE/alphabet/%s", number_str);
-  
+
   int policy = gc_sound_policy_get();
   gc_sound_policy_set(PLAY_AND_INTERRUPT);
   gc_sound_play_ogg("voices/$LOCALE/misc/level.ogg", audio_str, NULL);

@@ -12,7 +12,7 @@ img_DATA = \
 	delaware.png \
 	florida.png \
 	georgia.png \
-	hawai.png \
+	hawaii.png \
 	idaho.png \
 	illinois.png \
 	indiana.png \

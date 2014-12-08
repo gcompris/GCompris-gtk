@@ -256,7 +256,7 @@ static GOptionEntry options[] = {
    N_("For test purpose, run in a loop all the activities"), NULL},
 
   {"debug", 'D', 0, G_OPTION_ARG_NONE, &popt_debug,
-   N_("display debug informations on the console."), NULL},
+   N_("display debug information on the console."), NULL},
 
   {"version", 'v', 0, G_OPTION_ARG_NONE, &popt_version,
    N_("Print the version of " PACKAGE), NULL},
@@ -377,11 +377,6 @@ board_widget_key_press_callback (GtkWidget   *widget,
       if (gc_board_get_current()->previous_board != NULL)
 	gc_board_stop();
       return TRUE;
-    case GDK_F5:
-      g_message("Refreshing the canvas\n");
-      goo_canvas_update(GOO_CANVAS(canvas));
-      return TRUE;
-
     case GDK_KP_Multiply:
       break;
     case GDK_KP_0:
@@ -987,7 +982,7 @@ gint gc_activation_check(const char *code)
 
   // A special code to test the full version without
   // saving the activation
-  if (strncmp(code, "121212", 6) == 0)
+  if (strncmp(code, "THANKS", 6) == 0)
     {
       return 2;
     }
@@ -1067,6 +1062,7 @@ activation_done()
     }
 
   gc_board_play( get_board_to_start());
+  gtk_widget_grab_focus(GTK_WIDGET(canvas));
   goo_canvas_item_remove (activation_item);
 }
 #endif
@@ -1445,7 +1441,7 @@ gc_locale_set(const gchar *locale)
 
   /* This does update gettext translation uppon next gettext call */
   /* Call for localization startup */
-  bindtextdomain (GETTEXT_PACKAGE,properties->package_locale_dir);
+  bindtextdomain (GETTEXT_PACKAGE, properties->package_locale_dir);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
@@ -1616,8 +1612,8 @@ main (int argc, char *argv[])
   signal(SIGINT, gc_terminate);
 
   load_properties();
-  
-  bindtextdomain (GETTEXT_PACKAGE,properties->package_locale_dir);
+
+  bindtextdomain (GETTEXT_PACKAGE, properties->package_locale_dir);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
@@ -1631,8 +1627,7 @@ main (int argc, char *argv[])
   sugar_setup(&argc, &argv);
 
   /* Argument parsing */
-  context = g_option_context_new(" - An educational software for chilren 2 to 10");
-  g_option_context_set_translation_domain(context,GETTEXT_PACKAGE);
+  context = g_option_context_new(" - An educational software for children 2 to 10");
   g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
   g_option_context_add_group (context, gtk_get_option_group (TRUE));
   g_option_context_parse (context, &argc, &argv, &error);

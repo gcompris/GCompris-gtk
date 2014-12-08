@@ -17,7 +17,6 @@
  */
 
 #include <string.h>
-#include <glib/gi18n.h>
 
 #include "gcompris/gcompris.h"
 #include "gcompris/gameutil.h"
@@ -30,7 +29,7 @@ static GcomprisWordlist *gc_wordlist = NULL;
 #if GLIB_CHECK_VERSION(2, 31, 0)
 static GMutex items_lock; /* No init needed for static GMutexes */
 #else
-GStaticMutex items_lock = G_STATIC_MUTEX_INIT;
+static GStaticMutex items_lock = G_STATIC_MUTEX_INIT;
 #endif
 
 /*
@@ -79,21 +78,21 @@ static GcomprisBoard *gcomprisBoard = NULL;
  */
 
 #define FALL_RATE_BASE 40
-#define FALL_RATE_MULT 10
+#define FALL_RATE_MULT 80
 
 /* these constants control how often letters are dropped
  * the base rate is fixed
  * the increment governs increase per level
  */
 
-#define DROP_RATE_BASE 1000
-#define DROP_RATE_MULT 1000
+#define DROP_RATE_BASE 5000
+#define DROP_RATE_MULT 100
 
 static gint dummy_id = 0;
 static gint drop_items_id = 0;
 static gboolean uppercase_only;
 
-static gboolean with_sound = FALSE;
+static gboolean with_sound = TRUE;
 
 /* Hash table of all displayed letters, so each letter will be chosen at least once
  * before uplicate letters are used. */
@@ -123,8 +122,8 @@ static void		 player_win(LettersItem *item);
 static void		 player_lose(void);
 
 
-static  gint              fallSpeed = 0;
-static  gint               speed = 0;
+static  gint             fallSpeed = 0;
+static  gint             speed = 0;
 
 static GooCanvasItem *preedit_text = NULL;
 
@@ -234,20 +233,28 @@ static void start_board (GcomprisBoard *agcomprisBoard)
 
       GHashTable *config = gc_db_get_board_conf();
       gc_locale_set(g_hash_table_lookup( config, "locale"));
-      
+
       gchar *control_sound = g_hash_table_lookup( config, "with_sound");
 
-      if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
-        with_sound = TRUE;
-      else
-        with_sound = FALSE;
+      if (control_sound)
+        {
+          if (strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
+            with_sound = TRUE;
+          else
+            with_sound = FALSE;
+        }
+
+      if(with_sound)
+        {
+          gc_sound_bg_pause();
+        }
 
       gchar *up_init_str = g_hash_table_lookup( config, "uppercase_only");
       if (up_init_str && (strcmp(up_init_str, "True")==0))
 	uppercase_only = TRUE;
       else
 	uppercase_only = FALSE;
- 
+
       load_letters(uppercase_only);
       g_hash_table_destroy(config);
 
@@ -294,6 +301,7 @@ end_board ()
 	gc_wordlist_free(gc_wordlist);
 	gc_wordlist = NULL;
       }
+      gc_sound_bg_resume();
     }
 
   gc_locale_set( NULL );
@@ -310,7 +318,7 @@ set_level (guint level)
     }
 }
 
-/* 
+/*
  * For uppercase mode, both upper- or lowercase can be typed
  */
 static int is_letter_equal(gchar *letter1, gchar *letter2)
@@ -405,14 +413,14 @@ static gint key_press(guint keyval, gchar *commit_str, gchar *preedit_str)
 
     letter = g_new0(gchar,6);
     g_unichar_to_utf8 (unichar_letter, letter);
-    
+
     if(item_on_focus==NULL)
       {
 	for (i=0;i<items->len;i++)
 	  {
 	    item=g_ptr_array_index(items,i);
 	    g_assert (item!=NULL);
-                
+
             if (is_letter_equal(letter, item->letter))
 	      {
 		item_on_focus=item;
@@ -518,7 +526,7 @@ is_our_board (GcomprisBoard *gcomprisBoard)
 static void gletters_next_level_unlocked()
 {
   int l;
-  
+
   LevelWordlist *levellist = gc_wordlist_get_levelwordlist(gc_wordlist, gcomprisBoard->level);
   // get number of letters available
   l=g_slist_length(levellist->words);
@@ -556,7 +564,7 @@ static void gletters_next_level_unlocked()
 
   items=g_ptr_array_new();
   items2del=g_ptr_array_new();
-  
+
   /* Delete the letters_table */
   if(letters_table) {
     g_hash_table_destroy (letters_table);
@@ -571,7 +579,7 @@ static void gletters_next_level_unlocked()
 static void setSpeed(guint level)
 {
     LevelWordlist *levellist = gc_wordlist_get_levelwordlist(gc_wordlist, level);
-    speed = (levellist->speed >= 0) ? (gint) levellist->speed : ((gint) FALL_RATE_BASE)+(((gint) FALL_RATE_MULT)*level);
+    speed = (levellist->speed >= 0) ? (gint) levellist->speed : ((gint) FALL_RATE_BASE)+(((gint) FALL_RATE_MULT)/level);
     fallSpeed = (levellist->fallspeed >= 0) ? (gint) levellist->fallspeed : (gint) DROP_RATE_BASE+(DROP_RATE_MULT*level);
 }
 
@@ -716,7 +724,7 @@ static void gletters_destroy_all_items()
     g_ptr_array_free (items2del, TRUE);
     items2del=NULL;
   }
-  
+
   /* Delete the letters_table */
   if(letters_table) {
     g_hash_table_destroy (letters_table);
@@ -735,13 +743,13 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
   /* Keep track of letters already used */
   if (!letters_table)
   {
-      letters_table = g_hash_table_new(g_str_hash, g_str_equal);
+    letters_table = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
   }
-  
+
   guint i;
   if(word)
   {
-      /* Check if letter has already been used. Cap at 20 tries, because there 
+          /* Check if letter has already been used. Cap at 20 tries, because there
        * might not be enough letters for all the sublevels */
       for (i=0;i<20 && word && g_hash_table_lookup(letters_table,word)!=NULL;++i)
       {
@@ -749,10 +757,11 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
       }
 
       /* Add letter to hash table of all falling letters. */
-      g_hash_table_add (letters_table, g_strdup(word));
+      gchar *word2 = g_strdup(word);
+      g_hash_table_replace (letters_table, word2, word2);
       g_debug("Dropping %s\n",word);
-    
-    /* Play sound for the letter */  
+
+    /* Play sound for the letter */
     if (with_sound)
     {
       gchar *str2 = NULL;
@@ -765,18 +774,22 @@ static GooCanvasItem *gletters_create_item(GooCanvasItem *parent)
       g_free(letter_unichar_name);
       g_free(str2);
     }
+        else
+        {
+                gc_sound_play_ogg ("sounds/drip.wav", NULL);
+        }
   }
-  
+
   else
   {
     /* Should display the dialog box here */
       gc_dialog(_("ERROR: Unable to get letter from wordlist"),gletters_next_level);
       g_error("ERROR: Unable to get letter from wordlist");
     return NULL;
-  } 
+  }
   // create and init item
   item = g_new(LettersItem,1);
-  
+
   /* Now set and display the letter */
   if (uppercase_only)
     {
@@ -871,7 +884,6 @@ static void gletters_add_new_item()
  */
 static gint gletters_drop_items (gpointer data)
 {
-  gc_sound_play_ogg ("sounds/level.wav", NULL);
   gletters_add_new_item();
   g_source_remove(drop_items_id);
   drop_items_id = g_timeout_add (fallSpeed,(GSourceFunc) gletters_drop_items, NULL);
@@ -895,7 +907,7 @@ static void player_win(LettersItem *item)
 
   g_object_set (item->rootitem, "visibility", GOO_CANVAS_ITEM_INVISIBLE, NULL);
   g_timeout_add (500,(GSourceFunc) gletters_delete_items, NULL);
-  
+
 
   if(gcomprisBoard->sublevel > gcomprisBoard->number_of_sublevel)
     {
@@ -908,10 +920,9 @@ static void player_win(LettersItem *item)
       gcomprisBoard->sublevel = 1;
       if(gcomprisBoard->level>gcomprisBoard->maxlevel)
 	gcomprisBoard->level = gcomprisBoard->maxlevel;
-    
+
       setSpeed(gcomprisBoard->level);
       gletters_next_level_unlocked();
-      //gc_sound_play_ogg ("sounds/bonus.wav", NULL);
     }
   else
     {
@@ -991,7 +1002,7 @@ conf_ok(GHashTable *table)
 	else
 	  uppercase_only = FALSE;
       }
-    
+
     if (profile_conf)
       g_hash_table_destroy(config);
 
@@ -1013,16 +1024,13 @@ gletters_config_start(GcomprisBoard *agcomprisBoard,
   board_conf = agcomprisBoard;
   profile_conf = aProfile;
 
-  
+  gchar *label;
 
   if (gcomprisBoard)
     pause_board(TRUE);
-  /*
-   * TRANSLATORS: %1$s is the board name (gletters),
-   * 2$s is the name of the current user profile
-   */
-  gchar *label = g_strdup_printf(C_("gletters_config","<b>%1$s</b> configuration\n for profile <b>%2$s</b>"),
-			  _(agcomprisBoard->name), aProfile ? aProfile->name : "");
+
+  label = g_strdup_printf(_("<b>%s</b> configuration\n for profile <b>%s</b>"),
+			  agcomprisBoard->name, aProfile ? aProfile->name : "");
 
   GcomprisBoardConf *bconf = gc_board_config_window_display(label, (GcomprisConfCallback )conf_ok);
 
@@ -1045,10 +1053,13 @@ gletters_config_start(GcomprisBoard *agcomprisBoard,
   gc_board_conf_separator(bconf);
 
   gchar *control_sound = g_hash_table_lookup( config, "with_sound");
-  if (control_sound && strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
-    with_sound = TRUE;
-  else
-    with_sound = FALSE;
+  if (control_sound)
+    {
+      if (strcmp(g_hash_table_lookup( config, "with_sound"),"True")==0)
+        with_sound = TRUE;
+      else
+        with_sound = FALSE;
+    }
 
   gc_board_config_boolean_box(bconf, _("Enable sounds"), "with_sound", with_sound);
 

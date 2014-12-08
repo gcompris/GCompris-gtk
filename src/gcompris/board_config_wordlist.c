@@ -233,7 +233,7 @@ GtkWidget *gc_board_config_wordlist(GcomprisBoardConf *config, const gchar *file
 	/* Combo_box lang */
 	combo_lang = _create_lang_combo(files);
 	hbox = gtk_hbox_new(FALSE, 8);
-	label = gtk_label_new(_("Choose a language"));
+	label = gtk_label_new(_("Choice of the language"));
 	gtk_widget_show(label);
 	gtk_widget_show(hbox);
 	gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 8);

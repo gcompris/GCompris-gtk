@@ -504,9 +504,9 @@ static void draw_hat(GooCanvasItem *item,
   GdkPixbuf *image;
 
   if (type == STARS)
-    image = gc_pixmap_load("magic_hat/hat.png");
+    image = gc_pixmap_load("magic_hat/hat.svg");
   else
-    image = gc_pixmap_load("magic_hat/hat-point.png");
+    image = gc_pixmap_load("magic_hat/hat-point.svg");
 
   g_object_set(item,
 	       "pixbuf", image,

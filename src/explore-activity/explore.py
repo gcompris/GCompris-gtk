@@ -33,8 +33,8 @@ import pango
 import ConfigParser
 import gcompris.sound
 import gcompris.bonus
-import gettext
 from gcompris import gcompris_gettext as _
+
 from random import randint
 import random
 
@@ -434,13 +434,13 @@ dialogue to\nenable the sound."), None)
                 try: self.credits = self.data.get('common', 'credits')
                 except: self.credits = ''
                 try: self.background = self.data.get('common', 'background')
-                except: errors.append(_("Missing 'background' key"))
+                except: errors.append("Missing 'background' key")
                 try: self.backSvgId = self.data.get('common', 'backSvgId')
-                except: errors.append(_("Missing 'background' key"))
+                except: errors.append("Missing 'background' key")
                 try: self.author = self.data.get('common', 'author')
                 except: self.author = ''
                 try: self.generalText = _(self.data.get('common', '_GeneralText'))
-                except: errors.append(_("Missing '_GeneralText' key"))
+                except: errors.append("Missing '_GeneralText' key")
                 try: self.SoundMatchingGameText = _(self.data.get('common', '_SoundMatchingGameText'))
                 except:pass
                 try: self.TextMatchingGameText = _(self.data.get('common', '_TextMatchingGameText'))

@@ -20,8 +20,8 @@
 import gtk
 import gobject
 import gcompris
-import gettext
 from gcompris import gcompris_gettext as _
+
 import profile_group_list
 
 import constants
@@ -283,7 +283,7 @@ class ProfileWidget(gtk.HBox):
         if(self.new_profile):
             # Check the login do not exist already
             self.cur.execute('SELECT name FROM profiles WHERE name=?',
-                             (entry_profile,))
+                             (unicode(entry_profile),))
             if(self.cur.fetchone()):
                 dialog = gtk.MessageDialog(None,
                                            gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,

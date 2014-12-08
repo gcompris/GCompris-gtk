@@ -47,7 +47,7 @@ class SpotTarget:
                           height = self.height,
                           radius_x = 5,
                           radius_y = 5,
-                          stroke_color_rgba = 0x111111EEL,
+                          stroke_color_rgba = 0x333333FFL,
                           fill_color_rgba = fill_color_off,
                           line_width = 2.0 )
       itembg.connect("button_press_event", callback, triplet)
@@ -61,16 +61,37 @@ class SpotTarget:
       # The text description
       textx = 120
       if mode & Findit.WITH_TEXT:
-        item = goocanvas.Text(
+
+        item = goocanvas.Rect(
           parent = rootitem,
           x = x + textx,
+          y = y,
+          width = self.width - textx,
+          height = self.height,
+          fill_color_rgba = 0x22115566L,
+          stroke_color_rgba = 0x11111100L,
+          line_width = 2.0,
+          radius_x = 3,
+          radius_y = 3)
+
+        item.connect("button_press_event", callback, triplet)
+        item.connect("enter_notify_event",
+                     (lambda s,e,t,i: i.set_properties(fill_color_rgba = fill_color_on)),
+                     itembg )
+        item.connect("leave_notify_event",
+                     (lambda s,e,t,i: i.set_properties(fill_color_rgba = fill_color_off)),
+                     itembg )
+
+        item = goocanvas.Text(
+          parent = rootitem,
+          x = x + textx + 5,
           y = y + 10,
-          fill_color = "black",
+          fill_color = "white",
           font = gcompris.skin.get_font("gcompris/subtitle"),
           text = triplet.descriptionTranslated,
           anchor = gtk.ANCHOR_NW,
           alignment = pango.ALIGN_LEFT,
-          width = self.width - textx - 10
+          width = self.width - textx - 15
           )
         item.connect("button_press_event", callback, triplet)
         item.connect("enter_notify_event",
@@ -133,12 +154,25 @@ class Findit:
         self.currentIndex += 1
         # Display the triplet to find
         if self.mode & Findit.WITH_QUESTION:
+
+          goocanvas.Rect(
+            parent = self.gameroot,
+            x = gcompris.BOARD_WIDTH / 4,
+            y = 75,
+            width = gcompris.BOARD_WIDTH / 2,
+            height = 50,
+            fill_color_rgba = 0x999999BBL,
+            stroke_color_rgba = 0x111111AAL,
+            line_width = 2.0,
+            radius_x = 3,
+            radius_y = 3)
+
           goocanvas.Text(
             parent = self.gameroot,
             x = gcompris.BOARD_WIDTH / 2,
             y = 100,
-            fill_color = "black",
-            font = gcompris.skin.get_font("gcompris/subtitle"),
+            fill_color = "white",
+            font = gcompris.skin.get_font("gcompris/title"),
             text = self.tripletToFind.descriptionTranslated,
             anchor = gtk.ANCHOR_CENTER,
             alignment = pango.ALIGN_CENTER,

@@ -29,6 +29,7 @@ boards/puzzle.xml.in
 boards/reading.xml.in
 boards/sound_group.xml.in
 boards/strategy.xml.in
+gcompris.appdata.xml.in
 gcompris.desktop.in
 gcompris-edit.desktop.in
 nsis_translations.desktop.in
@@ -275,6 +276,8 @@ src/gcompris/sugar_srv.c
 src/gcompris/timer.c
 src/gcompris/wordlist.c
 src/geo_country-activity/geo_country.xml.in
+src/geo_country-activity/resources/geo_country/board10_0.xml.in
+src/geo_country-activity/resources/geo_country/board10_1.xml.in
 src/geo_country-activity/resources/geo_country/board1_0.xml.in
 src/geo_country-activity/resources/geo_country/board12_0.xml.in
 src/geo_country-activity/resources/geo_country/board13_0.xml.in
@@ -343,7 +346,6 @@ src/intro_gravity-activity/intro_gravity.py
 src/intro_gravity-activity/intro_gravity.xml.in
 src/land_safe-activity/land_safe.py
 src/land_safe-activity/land_safe.xml.in
-src/lang-activity/lang.py
 src/lang-activity/langEnterText.py
 src/lang-activity/langFindit.py
 src/lang-activity/langLib.py
@@ -351,6 +353,7 @@ src/lang-activity/lang-nature.xml.in
 src/lang-activity/lang-object.xml.in
 src/lang-activity/lang-other.xml.in
 src/lang-activity/lang-people.xml.in
+src/lang-activity/lang.py
 src/lang-activity/lang.xml.in
 src/lang-activity/resources/lang/words.xml.in
 src/leftright-activity/leftright.c

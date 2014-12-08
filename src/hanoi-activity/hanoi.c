@@ -247,6 +247,7 @@ static void hanoi_next_level()
     case 3:
       number_of_item_x = 5;
       number_of_item_y = 6;
+      break;
     case 4:
       number_of_item_x = 6;
       number_of_item_y = 7;
