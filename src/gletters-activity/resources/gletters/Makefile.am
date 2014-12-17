@@ -24,6 +24,8 @@ img_DATA = \
 	default-he.xml \
 	default-hu.xml \
 	default-ka.xml \
+	default-kn.xml \
+	upper-kn.xml \
 	default-lt.xml \
 	default-lv.xml \
 	default-nn.xml \

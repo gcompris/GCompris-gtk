@@ -18,6 +18,7 @@ img_DATA = \
 	default-hu.xml \
 	default-id.xml \
 	default-it.xml \
+	default-kn.xml \
 	default-lt.xml \
 	default-nb.xml \
 	default-nl.xml \
