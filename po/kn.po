@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2014-10-29 17:50+0000\n"
-"PO-Revision-Date: 2014-11-13 22:19+0630\n"
+"PO-Revision-Date: 2014-12-08 21:12+0630\n"
 "Last-Translator: kshambu <kshambu@gmail.com>\n"
 "Language-Team: Kannada <kde-i18n-doc@kde.org>\n"
 "Language: kn\n"
@@ -2591,7 +2591,7 @@ msgstr "ಪೂರ್ವನಿಯೋಜಿತಕ್ಕೆ ಹಿಂದಿರು�
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
 msgid "Click on a lowercase letter"
-msgstr "ಆಂಗ್ಲ ಚಿಕ್ಕ ಅಕ್ಷರಗಳ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿರಿ."
+msgstr "ಕನ್ನಡ ಅಕ್ಷರದ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿರಿ."
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
@@ -2615,12 +2615,11 @@ msgid ""
 "listen to the letter again, by clicking on the mouth icon in the bottom box."
 msgstr ""
 "ಹೇಳಿದ ಅಕ್ಷರವನ್ನು ಪತ್ತೆ ಮಾಡಿ. ನಂತರ ಅಕ್ಷರವನ್ನು ಮುಖ್ಯ ಭಾಗದಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿರಿ. "
-"ನಿಮಗೆ "
-"ಸಂದೇಹವಿದ್ದರ  'ಬಾಯಿ' ಯ ಚಿತ್ರದ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ ಮತ್ತೆ ಕೇಳಿರಿ."
+"ನಿಮಗೆ ಸಂದೇಹವಿದ್ದರ  'ಬಾಯಿ' ಯ ಚಿತ್ರದ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ ಮತ್ತೆ ಕೇಳಿರಿ."
 
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:1
 msgid "Click on an uppercase letter"
-msgstr "ಅಂಗ್ಲ ದೊಡ್ಡ ಅಕ್ಷರದ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿರಿ."
+msgstr "ಕನ್ನಡ ಅಕ್ಷರದ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿರಿ."
 
 #: ../src/clockgame-activity/clockgame.c:535
 msgid "Set the watch to:"
@@ -6825,13 +6824,13 @@ msgstr ""
 #: ../src/hangman-activity/hangman.py:62
 #| msgid "cake/c_ke/a/o/e/i/u/y"
 msgid "a/e/i/o/u/y"
-msgstr "a/e/i/o/u/y"
+msgstr "ಅ/ಆ/ಇ/ಈ/ಉ/ಊ/ಋ/ಎ/ಏ/ಐ/ಒ/ಓ/ಔ/ಅಂ/ಅಃ"
 
 #. All the consonants of your language (keep empty if non applicable)
 #. Separate with /. You can use digraphs, trigraphs etc. For example, both 's' and 'sch' could be in the list for German
 #: ../src/hangman-activity/hangman.py:67
 msgid "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
-msgstr "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x"
+msgstr "ಕ/ಖ/ಗ/ಘ/ಞ/ಚ/ಛ/ಜ/ಝ/ಙ/ಟ/ಠ/ಡ/ಢ/ಣ/ತ/ಥ/ದ/ಧ/ನ/ಪ/ಫ/ಬ/ಭ/ಮ/ಯ/ರ/ಲ/ವ/ಶ/ಷ/ಸ/ಹ/ಳ"
 
 #. Keys to letters equivalence for the hangman activity. It has the
 #. form of a space separated list like: "é=e/E è=e/E sch=S"
@@ -6841,7 +6840,10 @@ msgstr "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x"
 #. on the right with the chararcter '/'. Keep the word NONE if not available in your language
 #: ../src/hangman-activity/hangman.py:77
 msgid "a=a"
-msgstr "a=a"
+msgstr ""
+"ಅ=a ಆ=A/aa ಇ=i ಈ=I/ii ಉ=u ಊ=U/uu ಋ=R ಎ=e ಏ=E/ee ಔ=V/au ಅಂ=aM ಅಃ=aH ಕ=k ಖ=K ಂ=M"
+"ಗ=g ಘ=‌G ಞ=z ಚ=c ಛ=C ಜ=j ಝ=J ಙ=Z ಟ=q ಠ=Q ಡ=w ಢ=W ಣ=N ತ=t ಥ=T ದ=d ಧ=D ನ=n ಪ=p "
+"ಫ=P ಬ=b ಭ=B ಮ=m ಯ=y ರ=r ಲ=l ವ=v ಶ=S ಷ=x ಸ=s ಹ=h ಳ=L"
 
 #. Letters equivalence for the hangman activity. It has the
 #. form of a space separated list like: "e=éè a=àâ"
