@@ -6,22 +6,22 @@
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2004, 2005, 2006, 2008, 2009, 2010, 2011, 2012, 2013, 2014.
 # Miklos Merenyi <mermik at freemail dot hu>, 2008.
 # Somlai Istvan <somlai at bg-bp dot sulinet dot hu>, 2012.
-# Balázs Úr <urbalazs at gmail dot com>, 2013.
+# Balázs Úr <urbalazs at gmail dot com>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-12 17:43+0000\n"
-"PO-Revision-Date: 2014-02-28 04:42+0100\n"
-"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"POT-Creation-Date: 2014-11-09 17:30+0000\n"
+"PO-Revision-Date: 2014-12-24 10:38+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.2\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -299,6 +299,83 @@ msgstr "Stratégiai játékok"
 #: ../boards/strategy.xml.in.h:2
 msgid "Strategy games like chess, connect4, ..."
 msgstr "Stratégiai játékok, például sakk, …"
+
+#: ../gcompris.appdata.xml.in.h:1
+#| msgid ""
+#| "GCompris is a collection of educational games that provides different "
+#| "activities for children aged 2 and up."
+msgid ""
+"GCompris is an educational software suite comprising of numerous activities "
+"for children aged 2 to 10."
+msgstr ""
+"A GCompris különböző tevékenységeket kínáló oktatóprogramok gyűjteménye 2-10 "
+"éves gyerekek számára."
+
+#: ../gcompris.appdata.xml.in.h:2
+msgid ""
+"Some of the activities are game orientated, but nonetheless still "
+"educational."
+msgstr ""
+"A tevékenységek egy része játék orientált, de ennek ellenére is oktatási "
+"jellegű."
+
+#: ../gcompris.appdata.xml.in.h:3
+msgid ""
+"Below you can find a list of categories with some of the activities "
+"available in that category."
+msgstr ""
+"Lent található egy kategórialista az abban a kategóriában elérhető néhány "
+"tevékenységgel."
+
+#: ../gcompris.appdata.xml.in.h:4
+msgid "computer discovery: keyboard, mouse, different mouse gestures, ..."
+msgstr "számítógép felfedezése: billentyűzet, egér, különféle egérgesztusok, …"
+
+#: ../gcompris.appdata.xml.in.h:5
+msgid ""
+"arithmetic: table memory, enumeration, double entry table, mirror image, ..."
+msgstr "számtan: táblázat memória, felsorolás, kettős táblázat, tükörkép, …"
+
+#: ../gcompris.appdata.xml.in.h:6
+msgid ""
+"science: the canal lock, the water cycle, the submarine, electric "
+"simulation, ..."
+msgstr ""
+"tudomány: a zsilipkapu, a vízkörforgás, a tengeralattjáró, elektromos "
+"szimuláció, …"
+
+#: ../gcompris.appdata.xml.in.h:7
+msgid "geography: place the country on the map"
+msgstr "földrajz: az ország elhelyezése a térképen"
+
+#: ../gcompris.appdata.xml.in.h:8
+msgid "games: chess, memory, connect 4, oware, sudoku, ..."
+msgstr "játékok: sakk, memóriajáték, négyet egy sorba, oware, sudoku, …"
+
+#: ../gcompris.appdata.xml.in.h:9
+#| msgid "Horizontal reading practice"
+msgid "reading: reading practice"
+msgstr "olvasás: olvasási gyakorlat"
+
+#: ../gcompris.appdata.xml.in.h:10
+msgid ""
+"other: learn to tell time, puzzle of famous paintings, vector drawing, "
+"cartoon making, ..."
+msgstr ""
+"egyéb: az idő kimondásának megtanulása, híres festmények kirakója, "
+"vektorrajzolás, képregény készítés, …"
+
+#: ../gcompris.appdata.xml.in.h:11
+msgid ""
+"Currently GCompris offers in excess of 100 activities and more are being "
+"developed. GCompris is free software, that means that you can adapt it to "
+"your own needs, improve it and, most importantly, share it with children "
+"everywhere."
+msgstr ""
+"A GCompris jelenleg több mint 100 tevékenységet nyújt, és a többségük "
+"folyamatos fejlesztés alatt áll. A GCompris szabad szoftver, ami azt jelenti, "
+"hogy a saját ízlésének megfelelően átalakíthatja, fejlesztheti, és a "
+"legfontosabb, hogy bárhol megoszthatja a gyerekekkel."
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational suite GCompris"
@@ -1740,7 +1817,6 @@ msgstr "Válassz egy játékot"
 #. Display the profile name
 #: ../src/boards/menu2.c:271 ../src/login-activity/login.py:100
 #, c-format, python-format
-#| msgid "Profile: "
 msgid "Profile: %s"
 msgstr "Profil: %s"
 
@@ -1749,11 +1825,11 @@ msgstr "Profil: %s"
 msgid "Number of activities: %d"
 msgstr "Tevékenységek száma: %d"
 
-#: ../src/boards/python.c:64 ../src/boards/python.c:88
+#: ../src/boards/python.c:69 ../src/boards/python.c:93
 msgid "Python Board"
 msgstr "Python tábla"
 
-#: ../src/boards/python.c:65 ../src/boards/python.c:89
+#: ../src/boards/python.c:70 ../src/boards/python.c:94
 msgid "Special board that embeds Python into GCompris."
 msgstr "Különleges tábla ami beágyazza a GCompris-ba a Python-t."
 
@@ -2055,8 +2131,8 @@ msgstr ""
 msgid "Error: The external program gnuchess died unexpectedly"
 msgstr "Hiba: a külső „gnuchess” program váratlanul leállt"
 
-#: ../src/chess_computer-activity/chess.c:265
-#: ../src/chess_computer-activity/chess.c:311
+#: ../src/chess_computer-activity/chess.c:269
+#: ../src/chess_computer-activity/chess.c:315
 msgid ""
 "Error: The external program gnuchess is mandatory\n"
 "to play chess in gcompris.\n"
@@ -2066,36 +2142,36 @@ msgstr ""
 "belüli sakkozáshoz.\n"
 "Telepítés után ellenőrizze, hogy megtalálható-e itt:"
 
-#: ../src/chess_computer-activity/chess.c:656
+#: ../src/chess_computer-activity/chess.c:660
 msgid "White's Turn"
 msgstr "Fehér lép"
 
-#: ../src/chess_computer-activity/chess.c:656
+#: ../src/chess_computer-activity/chess.c:660
 msgid "Black's Turn"
 msgstr "Fekete lép"
 
-#: ../src/chess_computer-activity/chess.c:797
+#: ../src/chess_computer-activity/chess.c:801
 msgid "White checks"
 msgstr "Fehér sakk"
 
-#: ../src/chess_computer-activity/chess.c:799
+#: ../src/chess_computer-activity/chess.c:803
 msgid "Black checks"
 msgstr "Fekete sakk"
 
-#: ../src/chess_computer-activity/chess.c:1209
+#: ../src/chess_computer-activity/chess.c:1213
 msgid "Black mates"
 msgstr "Fekete matt"
 
-#: ../src/chess_computer-activity/chess.c:1216
+#: ../src/chess_computer-activity/chess.c:1220
 msgid "White mates"
 msgstr "Fehér matt"
 
-#: ../src/chess_computer-activity/chess.c:1223 ../src/gcompris/bonus.c:194
+#: ../src/chess_computer-activity/chess.c:1227 ../src/gcompris/bonus.c:194
 #: ../src/gcompris/bonus.c:203
 msgid "Drawn game"
 msgstr "Döntetlen"
 
-#: ../src/chess_computer-activity/chess.c:1251
+#: ../src/chess_computer-activity/chess.c:1255
 msgid "Error: The external program gnuchess died unexpectingly"
 msgstr "Hiba: a külső „gnuchess” program váratlanul leállt"
 
@@ -2463,9 +2539,6 @@ msgstr "Válasz"
 #.
 #: ../src/click_on_letter-activity/click_on_letter.c:1508
 #, c-format
-#| msgid ""
-#| "<b>%1$s</b> configuration\n"
-#| " for profile <b>%2$s</b>"
 msgctxt "click_on_letter_config"
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -2475,7 +2548,6 @@ msgstr ""
 "<b>%2$s</b> profilhoz"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:1521
-#| msgid "Choice of the language"
 msgid "Choose a language"
 msgstr "Válassz nyelvet"
 
@@ -3355,7 +3427,8 @@ msgid "The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
 msgstr "A disznó hangja: „ui-ui”. A disznók a 4. legintelligensebb állatok."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-msgid "This animal likes to lay in the mud."
+#| msgid "This animal likes to lay in the mud."
+msgid "This animal likes to lie in the mud."
 msgstr "Ez az állat szeret a sárban feküdni."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
@@ -3873,7 +3946,7 @@ msgid ""
 msgstr ""
 "Ez a program GNU szoftver és a GNU General Public License alatt van kiadva"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:468
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:491
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -4061,7 +4134,7 @@ msgstr "Német"
 msgid "Greek"
 msgstr "Görög"
 
-#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:114
 msgid "Scottish Gaelic"
 msgstr "Skót kelta"
 
@@ -4098,195 +4171,200 @@ msgid "Japanese"
 msgstr "Japán"
 
 #: ../src/gcompris/config.c:93
+#| msgid "Canada"
+msgid "Kannada"
+msgstr "Kannada"
+
+#: ../src/gcompris/config.c:94
 msgid "Kinyarwanda"
 msgstr "Kinyarvanda"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Korean"
 msgstr "Koreai"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Latvian"
 msgstr "Lett"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Lithuanian"
 msgstr "Litván"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Macedonian"
 msgstr "Macedón"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Malay"
 msgstr "Maláj"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Malayalam"
 msgstr "Malajálam"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Marathi"
 msgstr "Maráthi"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Montenegrin"
 msgstr "Montenegrói"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
 msgid "Nepal"
 msgstr "Nepáli"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Norwegian Bokmal"
 msgstr "Norvég Bokmal"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Norwegian Nynorsk"
 msgstr "Norvég Nynorsk"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Occitan (languedocien)"
 msgstr "Okcitán (lengadocián)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Persian"
 msgstr "Perzsa"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Polish"
 msgstr "Lengyel"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Portuguese (Brazil)"
 msgstr "Portugál (Brazil)"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Portuguese"
 msgstr "Portugál"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Punjabi"
 msgstr "Pandzsábi"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Romanian"
 msgstr "Román"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Russian"
 msgstr "Orosz"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Serbian (Latin)"
 msgstr "Szerb (latin)"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Serbian"
 msgstr "Szerb"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Slovak"
 msgstr "Szlovák"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Slovenian"
 msgstr "Szlovén"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Somali"
 msgstr "Szomáli"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Spanish"
 msgstr "Spanyol"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Swedish"
 msgstr "Svéd"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Tamil"
 msgstr "Tamil"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Thai"
 msgstr "Thai"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Turkish (Azerbaijan)"
 msgstr "Török (Azerbajdzsáni)"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Turkish"
 msgstr "Török"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Ukrainian"
 msgstr "Ukrán"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:128
 msgid "Vietnamese"
 msgstr "Vietnami"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "Walloon"
 msgstr "Vallon"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "Zulu"
 msgstr "Zulu"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:135
 msgid "Timer: No time limit"
 msgstr "Időzítő: Nincs időkorlátozás"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid "Timer: Slow timer"
 msgstr "Időzítő: Sok idő"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:137
 msgid "Timer: Normal timer"
 msgstr "Időzítő: Átlagos idő"
 
-#: ../src/gcompris/config.c:137
+#: ../src/gcompris/config.c:138
 msgid "Timer: Fast timer"
 msgstr "Időzítő: Kevés idő"
 
-#: ../src/gcompris/config.c:141
+#: ../src/gcompris/config.c:142
 msgid "Use GCompris administration module to filter boards"
 msgstr "Táblák szűréséhez használja a GCompris adminisztrációs modulját"
 
-#: ../src/gcompris/config.c:195
+#: ../src/gcompris/config.c:204
 msgid "GCompris Configuration"
 msgstr "A GCompris beállítása"
 
-#: ../src/gcompris/config.c:267
+#: ../src/gcompris/config.c:276
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
 
-#: ../src/gcompris/config.c:292
+#: ../src/gcompris/config.c:301
 msgid "Remember level for default user"
 msgstr "Emlékezzen az alapértelmezett felhasználó szintjére"
 
-#: ../src/gcompris/config.c:318
+#: ../src/gcompris/config.c:327
 msgid "Music"
 msgstr "Zene"
 
-#: ../src/gcompris/config.c:343
+#: ../src/gcompris/config.c:352
 msgid "Effect"
 msgstr "Effektusok"
 
-#: ../src/gcompris/config.c:367 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Nagyítás"
 
-#: ../src/gcompris/config.c:432 ../src/gcompris/config.c:742
+#: ../src/gcompris/config.c:455 ../src/gcompris/config.c:765
 #, c-format
 msgid "Font: %s"
 msgstr "Betű: %s"
@@ -4774,7 +4852,7 @@ msgid "California"
 msgstr "Kalifornia"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:9
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:9
 msgid "Washington D.C."
 msgstr "Washington D.C."
 
@@ -6257,7 +6335,7 @@ msgstr "Egyenlők ezzel: %d"
 msgid "Not equal to %d"
 msgstr "Nem egyenlők ezzel: %d"
 
-#: ../src/gnumch-equality-activity/gnumch.py:443
+#: ../src/gnumch-equality-activity/gnumch.py:445
 msgid ""
 "You were eaten by a Troggle.\n"
 "Press <Return> to continue."
@@ -6265,11 +6343,11 @@ msgstr ""
 "Megevett egy szörny!\n"
 "Nyomd meg az Entert a folytatáshoz."
 
-#: ../src/gnumch-equality-activity/gnumch.py:492
+#: ../src/gnumch-equality-activity/gnumch.py:494
 msgid "You ate a wrong number.\n"
 msgstr "Rossz számot ettél meg.\n"
 
-#: ../src/gnumch-equality-activity/gnumch.py:493
+#: ../src/gnumch-equality-activity/gnumch.py:495
 msgid ""
 "\n"
 "Press <Return> to continue."
@@ -6277,7 +6355,7 @@ msgstr ""
 "\n"
 "Nyomd meg az Entert a folytatáshoz."
 
-#: ../src/gnumch-equality-activity/gnumch.py:787
+#: ../src/gnumch-equality-activity/gnumch.py:789
 msgid ""
 "T\n"
 "R\n"
@@ -7121,74 +7199,70 @@ msgid "Find the violin"
 msgstr "Találd meg a hegedűt"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-msgid "Find the flute traversiere"
-msgstr "Találd meg a fuvolát"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
 msgid "Find the drum kit"
 msgstr "Találd meg a dobfelszerelést"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
 msgid "Find the accordion"
 msgstr "Találd meg a tangóharmonikát"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
 msgid "Find the banjo"
 msgstr "Találd meg a bendzsót"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
 msgid "Find the bongo"
 msgstr "Találd meg a bongót"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
 msgid "Find the electric guitar"
 msgstr "Találd meg az elektromos gitárt"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
 msgid "Find the castanets"
 msgstr "Találd meg a kasztanyettát"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
 msgid "Find the cymbal"
 msgstr "Találd meg a cintányért"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
 msgid "Find the cello"
 msgstr "Találd meg a csellót"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
 msgid "Find the harmonica"
 msgstr "Találd meg a szájharmonikát"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
 msgid "Find the horn"
 msgstr "Találd meg a kürtöt"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
 msgid "Find the maracas"
 msgstr "Találd meg a rumbatököt"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
 msgid "Find the organ"
 msgstr "Találd meg az orgonát"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
 msgid "Find the snare drum"
 msgstr "Találd meg a pergődobot"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
 msgid "Find the timpani"
 msgstr "Találd meg az üstdobot"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
 msgid "Find the triangle"
 msgstr "Találd meg a triangulumot"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
 msgid "Find the tambourine"
 msgstr "Találd meg a csörgődobot"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
 msgid "Find the tuba"
 msgstr "Találd meg a tubát"
 
@@ -7532,9 +7606,6 @@ msgstr ""
 "ábrázolás"
 
 #: ../src/leftright-activity/leftright.xml.in.h:4
-#| msgid ""
-#| "You can see a hand: is it a left hand or a right hand? Click on the red "
-#| "button on the left, or the green button on the right."
 msgid ""
 "You can see a hand: is it a left hand or a right hand? Click on the left "
 "button, or the right button depending on the displayed hand."
@@ -10191,6 +10262,15 @@ msgstr ""
 "között. A jobb egérgombbal kattintva a kockára visszafelé számolhatsz. Ha "
 "kész vagy, kattints az OK gombra, vagy nyomd meg az Entert."
 
+#: ../src/scalesboard-activity/scale.c:374
+msgid "Enter the weight of the object in gram"
+msgstr "Írd be az objektum súlyát grammban"
+
+#: ../src/scalesboard-activity/scale.c:376
+#| msgid "Enter the text you hear:"
+msgid "Enter the weight of the object"
+msgstr "Írd be az objektum súlyát"
+
 #: ../src/scalesboard-activity/scale.c:1087
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "A súlyokat a mérleg bármelyik oldalára teheted."
@@ -10472,7 +10552,8 @@ msgid "Lower the water level to rise to the surface."
 msgstr "Csökkentsd a vízszintet, hogy elérd a felszínt."
 
 #: ../src/submarine-activity/submarine.c:561
-msgid "Open or close the ballast flush."
+#| msgid "Open or close the ballast flush."
+msgid "Open or close the the ballast flush."
 msgstr "Nyisd ki vagy zárd be a ballaszt kifolyóját."
 
 #: ../src/submarine-activity/submarine.c:562
@@ -10524,9 +10605,9 @@ msgstr "Tanuld meg, hogyan működik egy tengeralattjáró"
 #: ../src/submarine-activity/submarine.xml.in.h:5
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth. There is a closed gate on the right. After "
-"the first level, you have to catch the jewel to open it. Pass through it to "
-"reach the next level."
+"to navigate to the required depth. There is a closed gate on the right. "
+"After the first level, you have to catch the jewel to open it. Pass through "
+"it to reach the next level."
 msgstr ""
 "Kattints a különböző aktív elemeken: a motoron, a kormánylapátokon és a "
 "levegőtartályokon, hogy a kívánt mélységbe vezesd a tengeralattjárót. Jobb "
@@ -10942,6 +11023,9 @@ msgstr "Billentyűzetkezelés gyakorlása"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Gépeld be a leeső teljes szót, mielőtt az leérne a földre"
+
+#~ msgid "Find the flute traversiere"
+#~ msgstr "Találd meg a fuvolát"
 
 #~ msgid "abcdefghijklmnopqrstuvwxyz"
 #~ msgstr "aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz"
