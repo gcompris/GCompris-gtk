@@ -558,7 +558,7 @@ static GooCanvasItem *submarine_create_item(GooCanvasItem *parent) {
 
   gchar *ballast_flush_str = \
     g_strconcat( "\n\n",
-		 _("Open or close the the ballast flush."), "\n",
+		 _("Open or close the ballast flush."), "\n",
 		 _("It flushes the water out of the tank."), "\n",
 		 _("Increase the water level to dive."), "\n",
 		 _("Lower the water level to surface."), NULL );
