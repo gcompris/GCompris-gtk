@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-11-09 17:30+0000\n"
-"PO-Revision-Date: 2014-11-25 07:29+0100\n"
+"POT-Creation-Date: 2014-12-25 01:10+0000\n"
+"PO-Revision-Date: 2014-12-27 06:57+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -708,7 +708,7 @@ msgstr "Všichni uživatelé"
 #: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:810
 #: ../src/pythontest-activity/pythontest.py:451
-#: ../src/tuxpaint-activity/tuxpaint.py:189
+#: ../src/tuxpaint-activity/tuxpaint.py:239
 msgid "Default"
 msgstr "Výchozí"
 
@@ -898,7 +898,7 @@ msgstr ""
 #: ../src/administration-activity/admin/wordlist.py:45
 #: ../src/login-activity/login.py:478
 #: ../src/pythontest-activity/pythontest.py:448
-#: ../src/tuxpaint-activity/tuxpaint.py:186
+#: ../src/tuxpaint-activity/tuxpaint.py:236
 #, python-brace-format
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -10482,7 +10482,7 @@ msgid "Lower the water level to rise to the surface."
 msgstr "Sniž množství vody, abys se vynořil na hladinu."
 
 #: ../src/submarine-activity/submarine.c:561
-msgid "Open or close the the ballast flush."
+msgid "Open or close the ballast flush."
 msgstr "Otevřít nebo zavřít vyprazdňovací ventil."
 
 #: ../src/submarine-activity/submarine.c:562
@@ -10752,7 +10752,8 @@ msgstr ""
 "Musíte červenému autu vytvořit místo tak, aby mohlo dojet k bráně na pravé "
 "straně."
 
-#: ../src/tuxpaint-activity/tuxpaint.py:123
+#: ../src/tuxpaint-activity/tuxpaint.py:113
+#: ../src/tuxpaint-activity/tuxpaint.py:173
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
@@ -10760,27 +10761,27 @@ msgstr ""
 "Nelze nalézt Tuxpaint.\n"
 "Pro použití této aktivity ho nejprve nainstaluj!"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:135
+#: ../src/tuxpaint-activity/tuxpaint.py:185
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Čekám na ukončení Tuxpaintu"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:194
+#: ../src/tuxpaint-activity/tuxpaint.py:244
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Dědit nastavení na celou obrazovku od GComprisu"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:198
+#: ../src/tuxpaint-activity/tuxpaint.py:248
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Dědit nastavení velikosti z aplikace GCompris (800×600, 640×480)"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:202
+#: ../src/tuxpaint-activity/tuxpaint.py:252
 msgid "Disable shape rotation"
 msgstr "Zrušit otočení útvaru"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:206
+#: ../src/tuxpaint-activity/tuxpaint.py:256
 msgid "Show Uppercase text only"
 msgstr "Zobrazit pouze text s velkými písmeny"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:210
+#: ../src/tuxpaint-activity/tuxpaint.py:260
 msgid "Disable stamps"
 msgstr "Zrušit značky"
 
