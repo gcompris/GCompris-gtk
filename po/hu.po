@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gcompris master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-11-09 17:30+0000\n"
-"PO-Revision-Date: 2014-12-24 10:38+0100\n"
+"POT-Creation-Date: 2014-12-25 01:10+0000\n"
+"PO-Revision-Date: 2014-12-29 20:39+0100\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
@@ -301,9 +301,6 @@ msgid "Strategy games like chess, connect4, ..."
 msgstr "Stratégiai játékok, például sakk, …"
 
 #: ../gcompris.appdata.xml.in.h:1
-#| msgid ""
-#| "GCompris is a collection of educational games that provides different "
-#| "activities for children aged 2 and up."
 msgid ""
 "GCompris is an educational software suite comprising of numerous activities "
 "for children aged 2 to 10."
@@ -353,7 +350,6 @@ msgid "games: chess, memory, connect 4, oware, sudoku, ..."
 msgstr "játékok: sakk, memóriajáték, négyet egy sorba, oware, sudoku, …"
 
 #: ../gcompris.appdata.xml.in.h:9
-#| msgid "Horizontal reading practice"
 msgid "reading: reading practice"
 msgstr "olvasás: olvasási gyakorlat"
 
@@ -373,9 +369,9 @@ msgid ""
 "everywhere."
 msgstr ""
 "A GCompris jelenleg több mint 100 tevékenységet nyújt, és a többségük "
-"folyamatos fejlesztés alatt áll. A GCompris szabad szoftver, ami azt jelenti, "
-"hogy a saját ízlésének megfelelően átalakíthatja, fejlesztheti, és a "
-"legfontosabb, hogy bárhol megoszthatja a gyerekekkel."
+"folyamatos fejlesztés alatt áll. A GCompris szabad szoftver, ami azt "
+"jelenti, hogy a saját ízlésének megfelelően átalakíthatja, fejlesztheti, és "
+"a legfontosabb, hogy bárhol megoszthatja a gyerekekkel."
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational suite GCompris"
@@ -717,7 +713,7 @@ msgstr "Mindenki"
 #: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:810
 #: ../src/pythontest-activity/pythontest.py:451
-#: ../src/tuxpaint-activity/tuxpaint.py:189
+#: ../src/tuxpaint-activity/tuxpaint.py:239
 msgid "Default"
 msgstr "Alapértelmezett"
 
@@ -908,7 +904,7 @@ msgstr ""
 #: ../src/administration-activity/admin/wordlist.py:45
 #: ../src/login-activity/login.py:478
 #: ../src/pythontest-activity/pythontest.py:448
-#: ../src/tuxpaint-activity/tuxpaint.py:186
+#: ../src/tuxpaint-activity/tuxpaint.py:236
 #, python-brace-format
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -3427,7 +3423,6 @@ msgid "The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
 msgstr "A disznó hangja: „ui-ui”. A disznók a 4. legintelligensebb állatok."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-#| msgid "This animal likes to lay in the mud."
 msgid "This animal likes to lie in the mud."
 msgstr "Ez az állat szeret a sárban feküdni."
 
@@ -4171,7 +4166,6 @@ msgid "Japanese"
 msgstr "Japán"
 
 #: ../src/gcompris/config.c:93
-#| msgid "Canada"
 msgid "Kannada"
 msgstr "Kannada"
 
@@ -10267,7 +10261,6 @@ msgid "Enter the weight of the object in gram"
 msgstr "Írd be az objektum súlyát grammban"
 
 #: ../src/scalesboard-activity/scale.c:376
-#| msgid "Enter the text you hear:"
 msgid "Enter the weight of the object"
 msgstr "Írd be az objektum súlyát"
 
@@ -10552,8 +10545,8 @@ msgid "Lower the water level to rise to the surface."
 msgstr "Csökkentsd a vízszintet, hogy elérd a felszínt."
 
 #: ../src/submarine-activity/submarine.c:561
-#| msgid "Open or close the ballast flush."
-msgid "Open or close the the ballast flush."
+#| msgid "Open or close the the ballast flush."
+msgid "Open or close the ballast flush."
 msgstr "Nyisd ki vagy zárd be a ballaszt kifolyóját."
 
 #: ../src/submarine-activity/submarine.c:562
@@ -10834,7 +10827,8 @@ msgstr ""
 "Minden autó csak vízszintesen vagy függőlegesen mozoghat. Úgy kell "
 "elrendezned őket, hogy a piros autó ki tudjon menni a jobb oldali kapun."
 
-#: ../src/tuxpaint-activity/tuxpaint.py:123
+#: ../src/tuxpaint-activity/tuxpaint.py:113
+#: ../src/tuxpaint-activity/tuxpaint.py:173
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
@@ -10842,27 +10836,27 @@ msgstr ""
 "A Tuxpaint nem található.\n"
 "Telepítse, ha használni szeretné!"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:135
+#: ../src/tuxpaint-activity/tuxpaint.py:185
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Várakozás a Tuxpaint-re"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:194
+#: ../src/tuxpaint-activity/tuxpaint.py:244
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "A GCompris teljes képernyős beállításának öröklése"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:198
+#: ../src/tuxpaint-activity/tuxpaint.py:248
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "A GCompris méretbeállításának öröklése (800x600, 640x480)"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:202
+#: ../src/tuxpaint-activity/tuxpaint.py:252
 msgid "Disable shape rotation"
 msgstr "Formák forgatásának kikapcsolása"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:206
+#: ../src/tuxpaint-activity/tuxpaint.py:256
 msgid "Show Uppercase text only"
 msgstr "Csak Nagybetűs szövegek mutatása"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:210
+#: ../src/tuxpaint-activity/tuxpaint.py:260
 msgid "Disable stamps"
 msgstr "Bélyegek kikapcsolása"
 
