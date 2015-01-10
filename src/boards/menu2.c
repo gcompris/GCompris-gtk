@@ -420,7 +420,9 @@ menu_end ()
   boardRootItem     = NULL;
   actualSectionItem = NULL;
 
-  g_list_free(panelBoards);
+  if(panelBoards)
+    g_list_free(panelBoards);
+  panelBoards = NULL;
 
 }
 
