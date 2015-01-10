@@ -119,9 +119,10 @@ class LessonCreator:
                     else:
                         self.lessons.append(lesson)
                         lesson = Lesson(lesson)
+                        lesson.triplets.append( triplet )
 
                         
-        if len(lesson.triplets) and len(lesson.triplets) < self.MAX_TRIPLETS:
+        if len(lesson.triplets) and len(lesson.triplets) <= self.MAX_TRIPLETS:
             # There is no enough triplet for this level, add the first
             # of the first lesson
             if len(self.lessons):
