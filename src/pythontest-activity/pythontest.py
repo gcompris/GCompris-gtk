@@ -444,6 +444,7 @@ class Gcompris_pythontest:
     # the returned value is the main GtkVBox of the window,
     #we can add what you want in it.
 
+    # Translators : Do not translate the token {profile}
     bconf = gcompris.configuration_window ( \
       _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format( \
                         config='Pythontest',

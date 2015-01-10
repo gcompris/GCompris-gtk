@@ -641,6 +641,7 @@ class Board_list:
 
   def locales(self, button):
     conf_locales = self.get_configured(self.active_profile, 'locale', 'NULL')
+    # Translators : Do not translate the token {profile}
     bconf = gcompris.configuration_window ( \
       _('<b>Locale</b> configuration\n for profile <b>{profile}</b>').\
         format(profile=self.active_profile.name),
@@ -653,6 +654,7 @@ class Board_list:
 
     conf_locales = self.get_configured(self.active_profile,
                                        'locale_sound', 'NULL')
+    # Translators : Do not translate the token {profile}
     bconf = gcompris.configuration_window ( \
       _('<b>Locale sound</b> configuration\n for profile <b>{profile}</b>').\
         format(profile=self.active_profile.name),

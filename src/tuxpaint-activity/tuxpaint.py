@@ -232,6 +232,7 @@ class Gcompris_tuxpaint:
     #set already configured values
     self.config_dict.update(gcompris.get_conf(profile, self.gcomprisBoard))
 
+    # Translators : Do not translate the token {profile}
     bconfig = gcompris.configuration_window( \
       _('<b>{config}</b> configuration\n for profile <b>{profile}</b>').format( \
                         config='Tuxpaint',

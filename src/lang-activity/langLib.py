@@ -65,6 +65,7 @@ class Triplet:
                 fileName = self.voice.rsplit("/", 1)[1]
                 self.descriptionTranslated = translations[fileName]
             except:
+                # Translators : Do not translate the token {word}
                 self.descriptionTranslated = \
                     _("Missing translation for '{word}'".format(word = self.description))
 
