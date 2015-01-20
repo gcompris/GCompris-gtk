@@ -10,23 +10,23 @@
 # Sylvia Sánchez <LailahFSF@gmail.com>, 2011.
 # Chris Leonard <cjlhomeaddress@gmail.com>, 2012.
 # Milagros Alessandra Infante Montero <maim92@gmail.com>, 2013.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013, 2014.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris.gcomprixogoo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-24 11:56+0100\n"
-"PO-Revision-Date: 2014-02-24 11:13+0100\n"
+"POT-Creation-Date: 2014-12-25 01:10+0000\n"
+"PO-Revision-Date: 2015-01-20 11:24+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español <gnome-es-list@gnome.org>\n"
+"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Gtranslator 2.91.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 2.91.6\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -305,6 +305,85 @@ msgstr "Juegos de estrategia"
 msgid "Strategy games like chess, connect4, ..."
 msgstr "Juegos de estrategia como ajedrez, conecta 4, ..."
 
+#: ../gcompris.appdata.xml.in.h:1
+#| msgid ""
+#| "GCompris is a collection of educational games that provides different "
+#| "activities for children aged 2 and up."
+msgid ""
+"GCompris is an educational software suite comprising of numerous activities "
+"for children aged 2 to 10."
+msgstr ""
+"GCompris es una colección de juegos educativos que proporciona diferentes "
+"actividades para niños de 2 a 10 años."
+
+#: ../gcompris.appdata.xml.in.h:2
+msgid ""
+"Some of the activities are game orientated, but nonetheless still "
+"educational."
+msgstr ""
+"Algunas de las actividades están orientadas a juegos, pero siguen siendo "
+"educativas."
+
+#: ../gcompris.appdata.xml.in.h:3
+msgid ""
+"Below you can find a list of categories with some of the activities "
+"available in that category."
+msgstr ""
+"A continuación puede encontrar una lista de categorías con algunas de las "
+"actividades disponibles en esa categoría."
+
+#: ../gcompris.appdata.xml.in.h:4
+msgid "computer discovery: keyboard, mouse, different mouse gestures, ..."
+msgstr "descubrir el equipo: teclado, ratón, diferentes gestos del ratón..."
+
+#: ../gcompris.appdata.xml.in.h:5
+msgid ""
+"arithmetic: table memory, enumeration, double entry table, mirror image, ..."
+msgstr ""
+"aritmética: tabla de memoria, enumeración, tabla de doble entrada, imagen en "
+"espejo..."
+
+#: ../gcompris.appdata.xml.in.h:6
+msgid ""
+"science: the canal lock, the water cycle, the submarine, electric "
+"simulation, ..."
+msgstr ""
+"ciencia: el bloqueo del canal, el ciclo del agua, el submarino, simulación "
+"eléctrica..."
+
+#: ../gcompris.appdata.xml.in.h:7
+msgid "geography: place the country on the map"
+msgstr "geografía: situar el país en el mapa"
+
+#: ../gcompris.appdata.xml.in.h:8
+msgid "games: chess, memory, connect 4, oware, sudoku, ..."
+msgstr "juegos: ajedrez, memoria, conecta 4, oware, sudoku..."
+
+#: ../gcompris.appdata.xml.in.h:9
+#| msgid "Horizontal reading practice"
+msgid "reading: reading practice"
+msgstr "lectura: práctica de lectura"
+
+#: ../gcompris.appdata.xml.in.h:10
+msgid ""
+"other: learn to tell time, puzzle of famous paintings, vector drawing, "
+"cartoon making, ..."
+msgstr ""
+"otros: aprender a decir la hora, puzle de pinturas famosas, dibujado "
+"vectorial, creación de dibujos animados..."
+
+#: ../gcompris.appdata.xml.in.h:11
+msgid ""
+"Currently GCompris offers in excess of 100 activities and more are being "
+"developed. GCompris is free software, that means that you can adapt it to "
+"your own needs, improve it and, most importantly, share it with children "
+"everywhere."
+msgstr ""
+"Actualmente, GCompris ofrece más de 100 actividades, y se están "
+"desarrollando más. GCOmpris es software libre, lo que significa que puede "
+"adaptarlo a sus necesidades, mejorarlo y, lo más importante, compartirlo con "
+"niños de cualquier parte."
+
 #: ../gcompris.desktop.in.h:1
 msgid "Educational suite GCompris"
 msgstr "Suite educativa GCompris"
@@ -425,6 +504,7 @@ msgstr ""
 "dificultad para cada perfil <b>%s</b></span>"
 
 #: ../src/administration-activity/admin/board_list.py:645
+#, python-brace-format
 msgid ""
 "<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -433,6 +513,7 @@ msgstr ""
 " para el perfil <b>{profile}</b>"
 
 #: ../src/administration-activity/admin/board_list.py:657
+#, python-brace-format
 msgid ""
 "<b>Locale sound</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -509,6 +590,7 @@ msgid "Editing a Group"
 msgstr "Editar un grupo"
 
 #: ../src/administration-activity/admin/group_edit.py:62
+#, python-brace-format
 msgid "Editing group '{group}' for class '{aclass}'"
 msgstr "Editar grupo «{group}» para la clase «{aclass}»"
 
@@ -645,7 +727,7 @@ msgstr "Todos los usuarios"
 #: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:810
 #: ../src/pythontest-activity/pythontest.py:451
-#: ../src/tuxpaint-activity/tuxpaint.py:189
+#: ../src/tuxpaint-activity/tuxpaint.py:239
 msgid "Default"
 msgstr "Predeterminado"
 
@@ -837,7 +919,8 @@ msgstr ""
 #: ../src/administration-activity/admin/wordlist.py:45
 #: ../src/login-activity/login.py:478
 #: ../src/pythontest-activity/pythontest.py:448
-#: ../src/tuxpaint-activity/tuxpaint.py:186
+#: ../src/tuxpaint-activity/tuxpaint.py:236
+#, python-brace-format
 msgid ""
 "<b>{config}</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -1761,11 +1844,11 @@ msgstr "Perfil: %s"
 msgid "Number of activities: %d"
 msgstr "Número de actividades: %d"
 
-#: ../src/boards/python.c:64 ../src/boards/python.c:88
+#: ../src/boards/python.c:69 ../src/boards/python.c:93
 msgid "Python Board"
 msgstr "Tablero de Python"
 
-#: ../src/boards/python.c:65 ../src/boards/python.c:89
+#: ../src/boards/python.c:70 ../src/boards/python.c:94
 msgid "Special board that embeds Python into GCompris."
 msgstr "Tablero especial que empotra Python dentro de GCompris."
 
@@ -1805,6 +1888,7 @@ msgstr ""
 
 #. Translators : Do not translate the token {letter}
 #: ../src/braille_alphabets-activity/braille_alphabets.py:299
+#, python-brace-format
 msgid "Click on the dots in braille cell area to produce the letter {letter}."
 msgstr ""
 "Pulsa con el ratón en los puntos del área de la celda de Braille para "
@@ -1899,6 +1983,7 @@ msgid "Click me to get some hint"
 msgstr "Pulsa con el botón del ratón sobre mí para obtener alguna pista"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:193
+#, python-brace-format
 msgid ""
 "I don't have this number\n"
 "PLAYER {number}"
@@ -1917,6 +2002,7 @@ msgstr "Genera un número"
 #. Translators : Do not translate the token {column}
 #: ../src/braille_lotto-activity/braille_lotto.py:296
 #: ../src/braille_lotto-activity/braille_lotto.py:319
+#, python-brace-format
 msgid "Hey, you have it. It is there in your {column} column"
 msgstr "Esto lo tienes. Está allí, en su columna {column}"
 
@@ -1946,6 +2032,7 @@ msgid "Game Over"
 msgstr "Juego terminado"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:465
+#, python-brace-format
 msgid "Congratulation player {player_id}, you won"
 msgstr "Felicidades jugador {player_id}, has ganado"
 
@@ -3006,6 +3093,7 @@ msgstr ""
 #: ../src/explore-activity/explore.py:412 ../src/findit-activity/findit.py:342
 #: ../src/louis_braille-activity/louis_braille.py:84
 #: ../src/piano_composition-activity/piano_composition.py:505
+#, python-brace-format
 msgid "Cannot find the file '{filename}'"
 msgstr "No se puede encontrar el archivo «{filename}»"
 
@@ -3225,6 +3313,7 @@ msgstr "Volver a la página inicial"
 #: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:347
 #: ../src/louis_braille-activity/louis_braille.py:88
 #: ../src/piano_composition-activity/piano_composition.py:510
+#, python-brace-format
 msgid ""
 "Failed to parse data set '{filename}' with error:\n"
 "{error}"
@@ -3370,7 +3459,8 @@ msgstr ""
 "inteligentes."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-msgid "This animal likes to lay in the mud."
+#| msgid "This animal likes to lay in the mud."
+msgid "This animal likes to lie in the mud."
 msgstr "A este animal le gusta echarse en el barro."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
@@ -3906,7 +3996,7 @@ msgstr ""
 "Este software es un paquete GNU y se distribuye bajo los términos de la "
 "Licencia Pública General de GNU"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:468
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:491
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -4094,7 +4184,7 @@ msgstr "Alemán"
 msgid "Greek"
 msgstr "Griego"
 
-#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:114
 msgid "Scottish Gaelic"
 msgstr "Gaélico escocés"
 
@@ -4131,195 +4221,200 @@ msgid "Japanese"
 msgstr "Japonés"
 
 #: ../src/gcompris/config.c:93
+#| msgid "Canada"
+msgid "Kannada"
+msgstr "Canarés"
+
+#: ../src/gcompris/config.c:94
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Korean"
 msgstr "Coreano"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Latvian"
 msgstr "Letón"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Lithuanian"
 msgstr "Lituano"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Macedonian"
 msgstr "Macedonio"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Malay"
 msgstr "Malayo"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Malayalam"
 msgstr "Malayo"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Marathi"
 msgstr "Marathi"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Montenegrin"
 msgstr "Montenegrin"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
 msgid "Nepal"
 msgstr "Nepal"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Norwegian Bokmal"
 msgstr "Noruego Bokmal"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Norwegian Nynorsk"
 msgstr "Noruego Nynorsk"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Occitan (languedocien)"
 msgstr "Occitano (languedoc)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Persian"
 msgstr "Persa"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Polish"
 msgstr "Polaco"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Portuguese (Brazil)"
 msgstr "Portugués (Brasil)"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Portuguese"
 msgstr "Portugués"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Punjabi"
 msgstr "Punjabi"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Romanian"
 msgstr "Rumano"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Russian"
 msgstr "Ruso"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Serbian (Latin)"
 msgstr "Servio (latino)"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Serbian"
 msgstr "Servio"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Slovak"
 msgstr "Eslovaco"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Slovenian"
 msgstr "Esloveno"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Somali"
 msgstr "Somalí"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Spanish"
 msgstr "Español"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Swedish"
 msgstr "Sueco"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Tamil"
 msgstr "Tamil"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Thai"
 msgstr "Tailandés"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Turkish (Azerbaijan)"
 msgstr "Turco (Azerbaiyaní)"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Turkish"
 msgstr "Turco"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Ukrainian"
 msgstr "Ucraniano"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Urdu"
 msgstr "Urdu"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:128
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "Walloon"
 msgstr "Valón"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "Zulu"
 msgstr "Zulú"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:135
 msgid "Timer: No time limit"
 msgstr "Temporizador: sin límite de tiempo"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid "Timer: Slow timer"
 msgstr "Temporizador: temporizador lento"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:137
 msgid "Timer: Normal timer"
 msgstr "Temporizador: temporizador normal"
 
-#: ../src/gcompris/config.c:137
+#: ../src/gcompris/config.c:138
 msgid "Timer: Fast timer"
 msgstr "Temporizador: temporizador rápido"
 
-#: ../src/gcompris/config.c:141
+#: ../src/gcompris/config.c:142
 msgid "Use GCompris administration module to filter boards"
 msgstr "Usa el módulo de administración de GCompris para filtrar tableros"
 
-#: ../src/gcompris/config.c:195
+#: ../src/gcompris/config.c:204
 msgid "GCompris Configuration"
 msgstr "Configuración de GCompris"
 
-#: ../src/gcompris/config.c:267
+#: ../src/gcompris/config.c:276
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: ../src/gcompris/config.c:292
+#: ../src/gcompris/config.c:301
 msgid "Remember level for default user"
 msgstr "Recordar el nivel para usuario predeterminado"
 
-#: ../src/gcompris/config.c:318
+#: ../src/gcompris/config.c:327
 msgid "Music"
 msgstr "Música"
 
-#: ../src/gcompris/config.c:343
+#: ../src/gcompris/config.c:352
 msgid "Effect"
 msgstr "Efecto"
 
-#: ../src/gcompris/config.c:367 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Ampliación"
 
-#: ../src/gcompris/config.c:432 ../src/gcompris/config.c:742
+#: ../src/gcompris/config.c:455 ../src/gcompris/config.c:765
 #, c-format
 msgid "Font: %s"
 msgstr "Tipografía: %s"
@@ -4806,7 +4901,7 @@ msgid "California"
 msgstr "California"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:9
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:9
 msgid "Washington D.C."
 msgstr "Washington D.C."
 
@@ -6216,6 +6311,7 @@ msgid " and %d"
 msgstr " y %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:116
+#, python-brace-format
 msgid "{0} is divisible by {1}."
 msgstr "{0} es divisible por {1}."
 
@@ -6244,6 +6340,7 @@ msgid "Factors of %d"
 msgstr "Factores de %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:196
+#, python-brace-format
 msgid "{0} are the factors of {1}."
 msgstr "{0} son los factores de {1}."
 
@@ -6253,22 +6350,27 @@ msgid "Multiples of %d"
 msgstr "Múltiplos de %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:242
+#, python-brace-format
 msgid "{0} = {1}"
 msgstr "{0} = {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:253
+#, python-brace-format
 msgid "{0} + {1}"
 msgstr "{0} + {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:258
+#, python-brace-format
 msgid "{0} − {1}"
 msgstr "{0} − {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:263
+#, python-brace-format
 msgid "{0} × {1}"
 msgstr "{0} × {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:267
+#, python-brace-format
 msgid "{0} ÷ {1}"
 msgstr "{0} ÷ {1}"
 
@@ -6453,10 +6555,12 @@ msgstr ""
 "Trogles. Pulsa la tecla de espacio para comer un número."
 
 #: ../src/guessnumber-activity/guessnumber.py:203
+#, python-brace-format
 msgid "Guess a number between {0} and {1}"
 msgstr "Adivina un número entre {0} y {1}"
 
 #: ../src/guessnumber-activity/guessnumber.py:307
+#, python-brace-format
 msgid "Please enter a number between {0} and {1}"
 msgstr "Introduce un número entre {0} y {1}"
 
@@ -7159,74 +7263,70 @@ msgid "Find the violin"
 msgstr "Encuentra el violín"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-msgid "Find the flute traversiere"
-msgstr "Encuentra la flauta traversiere"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
 msgid "Find the drum kit"
 msgstr "Encuentra la batería"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
 msgid "Find the accordion"
 msgstr "Encuentra el acordeón"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
 msgid "Find the banjo"
 msgstr "Encuentra el banjo"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
 msgid "Find the bongo"
 msgstr "Encuentra el bongo"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
 msgid "Find the electric guitar"
 msgstr "Encuentra la guitarra eléctrica"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
 msgid "Find the castanets"
 msgstr "Encuentra las castañuelas"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
 msgid "Find the cymbal"
 msgstr "Encuentra el platillo"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
 msgid "Find the cello"
 msgstr "Encuentra el violonchelo"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
 msgid "Find the harmonica"
 msgstr "Encuentra la armónica"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
 msgid "Find the horn"
 msgstr "Encuentra la trompa"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
 msgid "Find the maracas"
 msgstr "Encuentra las maracas"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
 msgid "Find the organ"
 msgstr "Encuentra el órgano"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
 msgid "Find the snare drum"
 msgstr "Encuentra el tambor"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
 msgid "Find the timpani"
 msgstr "Encuentra los timbales"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
 msgid "Find the triangle"
 msgstr "Encuentra el triángulo"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
 msgid "Find the tambourine"
 msgstr "Encuentra el tambor"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
 msgid "Find the tuba"
 msgstr "Encuentra la tuba"
 
@@ -7372,6 +7472,7 @@ msgid "Enter the text you hear:"
 msgstr "Escribe el texto que escuchas:"
 
 #: ../src/lang-activity/langLib.py:69
+#, python-brace-format
 msgid "Missing translation for '{word}'"
 msgstr "Falta la traducción de «{word}»"
 
@@ -10266,6 +10367,15 @@ msgstr ""
 "atrás. Cuando termines, pulsa sobre el botón Aceptar o la tecla Intro del "
 "teclado."
 
+#: ../src/scalesboard-activity/scale.c:374
+msgid "Enter the weight of the object in gram"
+msgstr "Introduce el peso el objeto el gramos"
+
+#: ../src/scalesboard-activity/scale.c:376
+#| msgid "Enter the text you hear:"
+msgid "Enter the weight of the object"
+msgstr "Introduce el peso del objeto"
+
 #: ../src/scalesboard-activity/scale.c:1087
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Ten cuidado, puedes dejar caer pesos en ambos lados de la balanza."
@@ -10605,9 +10715,9 @@ msgstr "Aprenda cómo funciona un submarino"
 #: ../src/submarine-activity/submarine.xml.in.h:5
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
-"to navigate to the required depth. There is a closed gate on the right. After "
-"the first level, you have to catch the jewel to open it. Pass through it to "
-"reach the next level."
+"to navigate to the required depth. There is a closed gate on the right. "
+"After the first level, you have to catch the jewel to open it. Pass through "
+"it to reach the next level."
 msgstr ""
 "Pulsa en los diferentes elementos activos: motor, timones y tanques de aire "
 "para navegar a la profundidad requerida. Hay una puerta a la derecha. "
@@ -10829,7 +10939,8 @@ msgstr ""
 "hacer espacio para que el coche rojo se pueda desplazar a través de la "
 "puerta de la derecha."
 
-#: ../src/tuxpaint-activity/tuxpaint.py:123
+#: ../src/tuxpaint-activity/tuxpaint.py:113
+#: ../src/tuxpaint-activity/tuxpaint.py:173
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
@@ -10837,27 +10948,27 @@ msgstr ""
 "No puedo encontrar Tuxpaint. \n"
 "¡Instálalo para usar esta actividad!"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:135
+#: ../src/tuxpaint-activity/tuxpaint.py:185
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Esperando a que finalice Tuxpaint"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:194
+#: ../src/tuxpaint-activity/tuxpaint.py:244
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Hereda la configuración de pantalla completa de GCompris"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:198
+#: ../src/tuxpaint-activity/tuxpaint.py:248
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Hereda la configuración de tamaño de GCompris (800x600, 640x480)"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:202
+#: ../src/tuxpaint-activity/tuxpaint.py:252
 msgid "Disable shape rotation"
 msgstr "Desactivar rotación de formas"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:206
+#: ../src/tuxpaint-activity/tuxpaint.py:256
 msgid "Show Uppercase text only"
 msgstr "Mostrar sólo el texto en Mayúsculas"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:210
+#: ../src/tuxpaint-activity/tuxpaint.py:260
 msgid "Disable stamps"
 msgstr "Desactivar sellos"
 
@@ -11019,6 +11130,9 @@ msgstr "Entrenamiento con el teclado"
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Teclea la palabra completa mientras cae, antes de que llegue al suelo"
+
+#~ msgid "Find the flute traversiere"
+#~ msgstr "Encuentra la flauta traversiere"
 
 #~ msgid "abcdefghijklmnopqrstuvwxyz"
 #~ msgstr "abcdefghijklmnñopqrstuvwxyz"
