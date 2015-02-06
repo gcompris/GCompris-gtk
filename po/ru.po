@@ -9,24 +9,25 @@
 # Yuri Myasoedov <omerta13@yandex.ru>, 2012.
 # Chris Leonard <cjlhomeaddress@gmail.com>, 2012.
 # Mayya Sharipova <mayya.sharipova@gmail.com>, 2013.
-# Stas Solovey <whats_up@tut.by>, 2013.
+# Andrey Cherepanov <cas@altlinux.org>, 2015.
+# Stas Solovey <whats_up@tut.by>, 2013, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-04 22:10+0000\n"
-"PO-Revision-Date: 2014-08-25 14:24+0300\n"
-"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
+"POT-Creation-Date: 2015-01-13 05:43+0000\n"
+"PO-Revision-Date: 2015-02-06 02:35+0300\n"
+"Last-Translator: Stas Solovey <whats_up@tut.by>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.5.4\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Generator: Gtranslator 2.91.6\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -181,7 +182,7 @@ msgstr "Математические игры на развитие памяти
 msgid "GCompris Main Menu"
 msgstr "Главное меню GCompris"
 
-#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:906
+#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:908
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -303,6 +304,79 @@ msgstr "Стратегические игры"
 msgid "Strategy games like chess, connect4, ..."
 msgstr "Шахматы, четыре в ряд и другие игры."
 
+#: ../gcompris.appdata.xml.in.h:1
+#| msgid ""
+#| "GCompris is a collection of educational games that provides different "
+#| "activities for children aged 2 and up."
+msgid ""
+"GCompris is an educational software suite comprising of numerous activities "
+"for children aged 2 to 10."
+msgstr ""
+"GCompris — учебное программное обеспечение, включающее в себя множество "
+"упражнений для детей от 2 до 10 лет."
+
+#: ../gcompris.appdata.xml.in.h:2
+msgid ""
+"Some of the activities are game orientated, but nonetheless still "
+"educational."
+msgstr ""
+"Некоторые из упражнений ориентированы на игру, но по-прежнему остаются "
+"образовательными."
+
+#: ../gcompris.appdata.xml.in.h:3
+msgid ""
+"Below you can find a list of categories with some of the activities "
+"available in that category."
+msgstr ""
+"Ниже находится список категорий с некоторыми упражнениями доступными в "
+"каждой из них."
+
+#: ../gcompris.appdata.xml.in.h:4
+msgid "computer discovery: keyboard, mouse, different mouse gestures, ..."
+msgstr ""
+
+#: ../gcompris.appdata.xml.in.h:5
+msgid ""
+"arithmetic: table memory, enumeration, double entry table, mirror image, ..."
+msgstr ""
+
+#: ../gcompris.appdata.xml.in.h:6
+msgid ""
+"science: the canal lock, the water cycle, the submarine, electric "
+"simulation, ..."
+msgstr ""
+
+#: ../gcompris.appdata.xml.in.h:7
+msgid "geography: place the country on the map"
+msgstr ""
+
+#: ../gcompris.appdata.xml.in.h:8
+msgid "games: chess, memory, connect 4, oware, sudoku, ..."
+msgstr ""
+
+#: ../gcompris.appdata.xml.in.h:9
+#| msgid "Horizontal reading practice"
+msgid "reading: reading practice"
+msgstr "чтение: практика чтения"
+
+#: ../gcompris.appdata.xml.in.h:10
+msgid ""
+"other: learn to tell time, puzzle of famous paintings, vector drawing, "
+"cartoon making, ..."
+msgstr ""
+
+#: ../gcompris.appdata.xml.in.h:11
+msgid ""
+"Currently GCompris offers in excess of 100 activities and more are being "
+"developed. GCompris is free software, that means that you can adapt it to "
+"your own needs, improve it and, most importantly, share it with children "
+"everywhere."
+msgstr ""
+"В настоящее время Gcompris предлагает свыше 100 упражнений и продолжает "
+"разрабатывать новые. GCompris является свободным программным обеспечением, "
+"что означает, что вы можете адаптировать его под свои нужды, улучшить его и, "
+"самое главное, поделиться им с детьми во всем мире."
+
 #: ../gcompris.desktop.in.h:1
 msgid "Educational suite GCompris"
 msgstr "Сборник обучающих игр GCompris"
@@ -422,7 +496,8 @@ msgstr ""
 "<span size='x-large'> Выберите уровень сложности \n"
 "для профиля <b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:645
+#. Translators : Do not translate the token {profile}
+#: ../src/administration-activity/admin/board_list.py:646
 #, python-brace-format
 msgid ""
 "<b>Locale</b> configuration\n"
@@ -431,7 +506,8 @@ msgstr ""
 "Настройка <b>локализации</b>\n"
 " для профиля <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:657
+#. Translators : Do not translate the token {profile}
+#: ../src/administration-activity/admin/board_list.py:659
 #, python-brace-format
 msgid ""
 "<b>Locale sound</b> configuration\n"
@@ -440,8 +516,8 @@ msgstr ""
 "Настройка <b>локализации звука</b>\n"
 " для профиля <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:663
-#: ../src/pythontest-activity/pythontest.py:513
+#: ../src/administration-activity/admin/board_list.py:665
+#: ../src/pythontest-activity/pythontest.py:514
 #: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
 msgstr "Выбор языка для звука"
@@ -473,14 +549,14 @@ msgid "Assign all the users belonging to this class"
 msgstr "Назначить всех пользователей в этот класс"
 
 #: ../src/administration-activity/admin/class_edit.py:246
-#: ../src/administration-activity/admin/group_edit.py:258
+#: ../src/administration-activity/admin/group_edit.py:259
 #: ../src/administration-activity/admin/group_user_list.py:150
 #: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Имя"
 
 #: ../src/administration-activity/admin/class_edit.py:257
-#: ../src/administration-activity/admin/group_edit.py:269
+#: ../src/administration-activity/admin/group_edit.py:270
 #: ../src/administration-activity/admin/group_user_list.py:160
 #: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
@@ -508,36 +584,37 @@ msgstr "Учитель"
 msgid "Editing a Group"
 msgstr "Редактирование группы"
 
-#: ../src/administration-activity/admin/group_edit.py:62
+#. Translators : Do not translate the token {group} and {aclass}
+#: ../src/administration-activity/admin/group_edit.py:63
 #, python-brace-format
 msgid "Editing group '{group}' for class '{aclass}'"
 msgstr "Изменение группы '{group}' для класса '{aclass}'"
 
-#: ../src/administration-activity/admin/group_edit.py:66
+#: ../src/administration-activity/admin/group_edit.py:67
 msgid "Editing a new group"
 msgstr "Создание новой группы"
 
-#: ../src/administration-activity/admin/group_edit.py:86
+#: ../src/administration-activity/admin/group_edit.py:87
 msgid "Group:"
 msgstr "Группа:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/group_edit.py:98
+#: ../src/administration-activity/admin/group_edit.py:99
 #: ../src/administration-activity/admin/profile_edit.py:76
 msgid "Description:"
 msgstr "Описание:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/group_edit.py:109
+#: ../src/administration-activity/admin/group_edit.py:110
 msgid "Assign all the users belonging to this group"
 msgstr "Назначить всех пользователей в эту группу"
 
-#: ../src/administration-activity/admin/group_edit.py:352
+#: ../src/administration-activity/admin/group_edit.py:353
 msgid "You need to provide at least a name for your group"
 msgstr "Вы должны указать название группы"
 
-#: ../src/administration-activity/admin/group_edit.py:366
+#: ../src/administration-activity/admin/group_edit.py:367
 msgid "There is already a group with this name"
 msgstr "Уже есть группа с таким названием"
 
@@ -640,8 +717,8 @@ msgstr "Все пользователи"
 #: ../src/administration-activity/admin/wordlist.py:48
 #: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:810
-#: ../src/pythontest-activity/pythontest.py:451
-#: ../src/tuxpaint-activity/tuxpaint.py:189
+#: ../src/pythontest-activity/pythontest.py:452
+#: ../src/tuxpaint-activity/tuxpaint.py:240
 msgid "Default"
 msgstr "По умолчанию"
 
@@ -827,10 +904,17 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#. Translators : Do not translate the token {profile}
 #: ../src/administration-activity/admin/wordlist.py:45
 #: ../src/login-activity/login.py:478
-#: ../src/pythontest-activity/pythontest.py:448
-#: ../src/tuxpaint-activity/tuxpaint.py:186
+#: ../src/pythontest-activity/pythontest.py:449
+#: ../src/tuxpaint-activity/tuxpaint.py:237
 #, python-brace-format
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -1735,11 +1819,11 @@ msgstr "Профиль: %s"
 msgid "Number of activities: %d"
 msgstr "Количество упражнений: %d"
 
-#: ../src/boards/python.c:64 ../src/boards/python.c:88
+#: ../src/boards/python.c:69 ../src/boards/python.c:93
 msgid "Python Board"
 msgstr "Компонент Python"
 
-#: ../src/boards/python.c:65 ../src/boards/python.c:89
+#: ../src/boards/python.c:70 ../src/boards/python.c:94
 msgid "Special board that embeds Python into GCompris."
 msgstr "Специальный компонент, который встраивает Python в GCompris."
 
@@ -2442,9 +2526,6 @@ msgstr "Ответ"
 #.
 #: ../src/click_on_letter-activity/click_on_letter.c:1508
 #, c-format
-#| msgid ""
-#| "<b>%1$s</b> configuration\n"
-#| " for profile <b>%2$s</b>"
 msgctxt "click_on_letter_config"
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -2454,7 +2535,6 @@ msgstr ""
 " для профиля <b>%2$s</b>"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:1521
-#| msgid "Choice of the language"
 msgid "Choose a language"
 msgstr "Выберите язык"
 
@@ -3335,7 +3415,8 @@ msgstr ""
 "среди животных. "
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-msgid "This animal likes to lay in the mud."
+#| msgid "This animal likes to lay in the mud."
+msgid "This animal likes to lie in the mud."
 msgstr "Это животное любит лежать в грязи."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
@@ -3860,7 +3941,7 @@ msgid ""
 "License"
 msgstr "Это программа является частью GNU и выпущена под лицензией GPL"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:468
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:491
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -4049,7 +4130,7 @@ msgstr "Немецкий"
 msgid "Greek"
 msgstr "Греческий"
 
-#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:114
 msgid "Scottish Gaelic"
 msgstr "Ирландский (галльский)"
 
@@ -4086,195 +4167,200 @@ msgid "Japanese"
 msgstr "Японский"
 
 #: ../src/gcompris/config.c:93
+#| msgid "Canada"
+msgid "Kannada"
+msgstr "Каннада"
+
+#: ../src/gcompris/config.c:94
 msgid "Kinyarwanda"
 msgstr "Киньяруанда"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Korean"
 msgstr "Корейский"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Latvian"
 msgstr "Латвийский"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Lithuanian"
 msgstr "Литовский"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Macedonian"
 msgstr "Македонский"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Malay"
 msgstr "Малайский"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Malayalam"
 msgstr "Малаялам"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Marathi"
 msgstr "Марати"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Montenegrin"
 msgstr "Черногорский"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
 msgid "Nepal"
 msgstr "Непальский"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Norwegian Bokmal"
 msgstr "Норвежский букмол"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Norwegian Nynorsk"
 msgstr "Новонорвежский (нюнорск)"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Occitan (languedocien)"
 msgstr "Французский (диалект Occitan)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Persian"
 msgstr "Персидский"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Polish"
 msgstr "Польский"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Portuguese (Brazil)"
 msgstr "Португальский (Бразилия)"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Portuguese"
 msgstr "Португальский"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Punjabi"
 msgstr "Индийский (Пенджаб)"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Romanian"
 msgstr "Румынский"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Russian"
 msgstr "Русский"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Serbian (Latin)"
 msgstr "Сербский (латиница)"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Serbian"
 msgstr "Сербский"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Slovak"
 msgstr "Словацкий"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Slovenian"
 msgstr "Словенский"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Somali"
 msgstr "Сомалийский"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Spanish"
 msgstr "Испанский"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Swedish"
 msgstr "Шведский"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Tamil"
 msgstr "Тамильский"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Thai"
 msgstr "Тайский"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Turkish (Azerbaijan)"
 msgstr "Турецкий (Азербайджан)"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Turkish"
 msgstr "Турецкий"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Ukrainian"
 msgstr "Украинский"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Urdu"
 msgstr "Урду"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:128
 msgid "Vietnamese"
 msgstr "Вьетнамский"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "Walloon"
 msgstr "Валлонский"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "Zulu"
 msgstr "Зулусский"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:135
 msgid "Timer: No time limit"
 msgstr "Таймер: без ограничения времени"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid "Timer: Slow timer"
 msgstr "Таймер: медленный таймер"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:137
 msgid "Timer: Normal timer"
 msgstr "Таймер: обычный таймер"
 
-#: ../src/gcompris/config.c:137
+#: ../src/gcompris/config.c:138
 msgid "Timer: Fast timer"
 msgstr "Таймер: быстрый таймер"
 
-#: ../src/gcompris/config.c:141
+#: ../src/gcompris/config.c:142
 msgid "Use GCompris administration module to filter boards"
 msgstr "Для фильтрации упражнений используйте административный модуль GCompris"
 
-#: ../src/gcompris/config.c:195
+#: ../src/gcompris/config.c:204
 msgid "GCompris Configuration"
 msgstr "Настройка GCompris"
 
-#: ../src/gcompris/config.c:267
+#: ../src/gcompris/config.c:276
 msgid "Fullscreen"
 msgstr "Во весь экран"
 
-#: ../src/gcompris/config.c:292
+#: ../src/gcompris/config.c:301
 msgid "Remember level for default user"
 msgstr "Запомнить уровень для пользователя по умолчанию"
 
-#: ../src/gcompris/config.c:318
+#: ../src/gcompris/config.c:327
 msgid "Music"
 msgstr "Музыка"
 
-#: ../src/gcompris/config.c:343
+#: ../src/gcompris/config.c:352
 msgid "Effect"
 msgstr "Эффекты"
 
-#: ../src/gcompris/config.c:367 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Масштаб"
 
-#: ../src/gcompris/config.c:432 ../src/gcompris/config.c:742
+#: ../src/gcompris/config.c:455 ../src/gcompris/config.c:765
 #, c-format
 msgid "Font: %s"
 msgstr "Шрифт: %s"
@@ -4758,7 +4844,7 @@ msgid "California"
 msgstr "Калифорния"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:9
-#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
+#: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:9
 msgid "Washington D.C."
 msgstr "Вашингтон (округ Колумбия)"
 
@@ -7089,74 +7175,70 @@ msgid "Find the violin"
 msgstr "Найдите скрипку"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-msgid "Find the flute traversiere"
-msgstr "Найдите поперечная флейта"
-
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
 msgid "Find the drum kit"
 msgstr "Найдите набор ударных инструментов"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
 msgid "Find the accordion"
 msgstr "Найдите аккордеон"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
 msgid "Find the banjo"
 msgstr "Найдите банджо"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
 msgid "Find the bongo"
 msgstr "Найдите бонго"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
 msgid "Find the electric guitar"
 msgstr "Найдите электрогитару"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
 msgid "Find the castanets"
 msgstr "Найдите кастаньеты"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
 msgid "Find the cymbal"
 msgstr "Найдите тарелки"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
 msgid "Find the cello"
 msgstr "Найдите виолончель"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
 msgid "Find the harmonica"
 msgstr "Найдите губную гармошку"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
 msgid "Find the horn"
 msgstr "Найдите валторну"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
 msgid "Find the maracas"
 msgstr "Найдите маракас"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
 msgid "Find the organ"
 msgstr "Найдите орган"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
 msgid "Find the snare drum"
 msgstr "Найдите малый барабан"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
 msgid "Find the timpani"
 msgstr "Найдите литавры"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
 msgid "Find the triangle"
 msgstr "Найдите треугольник"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
 msgid "Find the tambourine"
 msgstr "Найдите тамбурин"
 
-#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:27
+#: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
 msgid "Find the tuba"
 msgstr "Найдите тубу"
 
@@ -7304,7 +7386,8 @@ msgstr ""
 msgid "Enter the text you hear:"
 msgstr "Введите текст, который услышали:"
 
-#: ../src/lang-activity/langLib.py:69
+#. Translators : Do not translate the token {word}
+#: ../src/lang-activity/langLib.py:70
 #, python-brace-format
 msgid "Missing translation for '{word}'"
 msgstr "Перевод слова «{word}» отсутствует."
@@ -9802,7 +9885,7 @@ msgstr ""
 "- Delete: Удалить все заметки \n"
 "- Пробел : воспроизведение композиции \n"
 "- Цифровые клавиши : \n"
-"  - 1: да\n"
+"  - 1: до\n"
 "  - 2: ре\n"
 "  - 3: ми\n"
 "  - 4: фа\n"
@@ -9819,7 +9902,7 @@ msgstr ""
 
 #: ../src/play_rhythm-activity/play_rhythm.py:122
 msgid "Beat Count:"
-msgstr "Чтёт темпа:"
+msgstr "Счёт темпа:"
 
 #: ../src/play_rhythm-activity/play_rhythm.py:146
 msgid "Beat the rhythm on this drum."
@@ -9970,26 +10053,26 @@ msgid "This activity is not playable, just a test"
 msgstr "Данное упражнение не работает. Это просто проверка"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:456
+#: ../src/pythontest-activity/pythontest.py:457
 msgid "Disable line drawing in circle"
 msgstr "Запретить рисование линии в кругу"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:465
+#: ../src/pythontest-activity/pythontest.py:466
 msgid "Color of the line"
 msgstr "Цвет линии"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:476
+#: ../src/pythontest-activity/pythontest.py:477
 msgid "Distance between circles"
 msgstr "Расстояние между окружностями"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:487
+#: ../src/pythontest-activity/pythontest.py:488
 msgid "Use circles"
 msgstr "Использовать окружности"
 
-#: ../src/pythontest-activity/pythontest.py:488
+#: ../src/pythontest-activity/pythontest.py:489
 msgid "Use rectangles"
 msgstr "Использовать прямоугольники"
 
@@ -10190,6 +10273,15 @@ msgstr ""
 "Щёлкайте по кубику, чтобы показать, сколько ледышек между Туксом и рыбкой.\n"
 "Также можно пользоваться правой кнопкой для уменьшения чисел на кубике.\n"
 "Когда закончите, щёлкните по кнопке OK или нажмите клавишу Enter."
+
+#: ../src/scalesboard-activity/scale.c:374
+msgid "Enter the weight of the object in gram"
+msgstr "Введите вес объекта в граммах"
+
+#: ../src/scalesboard-activity/scale.c:376
+#| msgid "Enter the text you hear:"
+msgid "Enter the weight of the object"
+msgstr "Введите вес объекта"
 
 #: ../src/scalesboard-activity/scale.c:1087
 msgid "Take care, you can drop weights on both sides of the scale."
@@ -10748,7 +10840,8 @@ msgstr ""
 "Каждый автомобиль может двигаться только горизонтально или вертикально. Вы "
 "должны освободить достаточно места, чтобы красный автомобиль уехал направо."
 
-#: ../src/tuxpaint-activity/tuxpaint.py:123
+#: ../src/tuxpaint-activity/tuxpaint.py:113
+#: ../src/tuxpaint-activity/tuxpaint.py:173
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
@@ -10756,27 +10849,27 @@ msgstr ""
 "Невозможно найти Tuxpaint.\n"
 "Установите пакет tuxpaint."
 
-#: ../src/tuxpaint-activity/tuxpaint.py:135
+#: ../src/tuxpaint-activity/tuxpaint.py:185
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Ожидание завершения работы Tuxpaint"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:194
+#: ../src/tuxpaint-activity/tuxpaint.py:245
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Использовать полноэкранный режим GCompris"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:198
+#: ../src/tuxpaint-activity/tuxpaint.py:249
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Использовать полноэкранный режим GCompris (800x600, 640x480)"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:202
+#: ../src/tuxpaint-activity/tuxpaint.py:253
 msgid "Disable shape rotation"
 msgstr "Отключить поворот фигур"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:206
+#: ../src/tuxpaint-activity/tuxpaint.py:257
 msgid "Show Uppercase text only"
 msgstr "Показывать текст только заглавными буквами"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:210
+#: ../src/tuxpaint-activity/tuxpaint.py:261
 msgid "Disable stamps"
 msgstr "Отключить штампы"
 
@@ -10871,7 +10964,7 @@ msgstr "Заголовок 1"
 
 #: ../src/wordprocessor-activity/wordprocessor.c:480
 msgid "Heading 2"
-msgstr "Заголовок 1"
+msgstr "Заголовок 2"
 
 #: ../src/wordprocessor-activity/wordprocessor.c:482
 msgid "Hyperlink"
@@ -10934,88 +11027,3 @@ msgstr "Тренировка навыков работы с клавиатуро
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Наберите слово полностью пока оно падает и не достигло земли"
-
-#~ msgid "abcdefghijklmnopqrstuvwxyz"
-#~ msgstr "абвгдеёжзийклмнопрстуфхцчшщэюя"
-
-#~ msgid "Profile: "
-#~ msgstr "Профиль: "
-
-#~ msgid "Couldn't open skin dir: %s"
-#~ msgstr "Невозможно открыть папку с темами: %s"
-
-#~ msgid "Skin : %s"
-#~ msgstr "Тема: %s"
-
-#~ msgid "SKINS NOT FOUND"
-#~ msgstr "ТЕМЫ НЕ НАЙДЕНЫ"
-
-#~ msgid "Editing group: "
-#~ msgstr "Редактирование группы: "
-
-#~ msgid " for class: "
-#~ msgstr " для класса: "
-
-#~ msgid "yellow"
-#~ msgstr "жёлтый"
-
-#~ msgid "black"
-#~ msgstr "чёрный"
-
-#~ msgid "green"
-#~ msgstr "зелёный"
-
-#~ msgid "red"
-#~ msgstr "красный"
-
-#~ msgid "white"
-#~ msgstr "белый"
-
-#~ msgid "blue"
-#~ msgstr "синий"
-
-#~ msgid "brown"
-#~ msgstr "коричневый"
-
-#~ msgid "grey"
-#~ msgstr "серый"
-
-#~ msgid "orange"
-#~ msgstr "оранжевый"
-
-#~ msgid ""
-#~ " The cow goes \"moo. moo.\" Cows have a memory of about three years. Cows "
-#~ "have many uses, including for milk and meat."
-#~ msgstr ""
-#~ "Корова мычит \"му-у-у\". У коров память на около 3 года. Коровы очень "
-#~ "полезны людям в том числе для молоко и мяса."
-
-#~ msgid " Australia"
-#~ msgstr " Австралия"
-
-#~ msgid " Africa"
-#~ msgstr " Африка"
-
-#~ msgid " Japan"
-#~ msgstr " Япония"
-
-#~ msgid " Italy"
-#~ msgstr " Италия"
-
-#~ msgid "Chypre"
-#~ msgstr "Chypre"
-
-#~ msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-#~ msgstr "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЭЮЯ"
-
-#~ msgid "aeiouy"
-#~ msgstr "аеёиоуыэюя"
-
-#~ msgid "bcdfghjklmnpqrstvwxz"
-#~ msgstr "бвгджзйклмнпрстфхцчшщ"
-
-#~ msgid "Find {text}"
-#~ msgstr "Найдите {text}"
-
-#~ msgid "Missing Image"
-#~ msgstr "Пропущенное изображение"
