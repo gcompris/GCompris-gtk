@@ -1371,13 +1371,18 @@ const gchar *gc_locale_get()
   if(gc_locale != NULL)
     return(gc_locale);
 
+  /* Env variable precedences.
+   * LC_ALL Takes precedence over LC_MESSAGES and LANG
+   * LC_MESSAGES Takes precedence over LANG.
+   * LANG
+   */
   locale = g_getenv("LC_ALL");
-  if(locale == NULL)
-    locale = g_getenv("LC_CTYPE");
-  if(locale == NULL)
+  if(locale == NULL  || locale[0] == 0 )
+    locale = g_getenv("LC_MESSAGES");
+  if(locale == NULL || locale[0] == 0 )
     locale = g_getenv("LANG");
 
-  if(locale!=NULL)
+  if(locale!=NULL && strncmp(locale, "C", 2))
     return(locale);
 
   return("en_US.UTF-8");
@@ -1695,7 +1700,7 @@ main (int argc, char *argv[])
     gc_locale_set(properties->locale);
   }
 #else
-  gc_user_default_locale = g_strdup(setlocale(LC_CTYPE, NULL));
+  gc_user_default_locale = g_strdup(gc_locale_get());
   // Set the user's choice locale
   gc_locale_set(properties->locale);
 #endif
