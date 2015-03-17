@@ -2,16 +2,16 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Translators:
-# GunChleoc <fios@foramnagaidhlig.net>, 2013, 2014.
-# GunChleoc <fios@foramnagaidhlig.net>, 2013, 2014.
+# GunChleoc <fios@foramnagaidhlig.net>, 2013, 2014, 2015.
+# GunChleoc <fios@foramnagaidhlig.net>, 2013, 2014, 2015.
 # Michael Bauer <fios@akerbeltz.org>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris-Unofficial\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
 "is&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-14 21:30+0000\n"
-"PO-Revision-Date: 2014-09-17 13:49+0100\n"
+"POT-Creation-Date: 2015-02-18 23:19+0000\n"
+"PO-Revision-Date: 2015-03-17 11:31+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig\n"
 "Language: gd\n"
@@ -175,7 +175,7 @@ msgstr "Cleasan cuimhne matamataig"
 msgid "GCompris Main Menu"
 msgstr "Prìomh chlàr-taice GCompris"
 
-#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:906
+#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:908
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -189,7 +189,7 @@ msgid ""
 "edutainment software"
 msgstr ""
 "Isan t-amas aig GCompris gleus foghlaim saor a thoirt seachad seach bathar-"
-"bog ionnsachaidh coimeirsealta"
+"bog ionnsachaidh fo sheilbh"
 
 #: ../boards/menu.xml.in.h:5
 msgid ""
@@ -323,7 +323,6 @@ msgstr ""
 "cleasan a tha ri làmh san roinn-seòrsa ud."
 
 #: ../gcompris.appdata.xml.in.h:4
-#| msgid "computer discovery: keyboard, mouse, different mouse gesture, ..."
 msgid "computer discovery: keyboard, mouse, different mouse gestures, ..."
 msgstr ""
 "faigh a-mach mun choimpiutair: meur-chlàr, luchag, gluasadan luchaige, ..."
@@ -494,7 +493,8 @@ msgstr ""
 "<span size='x-large'> Tagh rainse an duilgheadais \n"
 "airson na pròifil <b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:645
+#. Translators : Do not translate the token {profile}
+#: ../src/administration-activity/admin/board_list.py:646
 #, python-brace-format
 msgid ""
 "<b>Locale</b> configuration\n"
@@ -503,7 +503,8 @@ msgstr ""
 "A’ rèiteachadh <b>an sgeama ionadail</b>\n"
 " airson na pròifil <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:657
+#. Translators : Do not translate the token {profile}
+#: ../src/administration-activity/admin/board_list.py:659
 #, python-brace-format
 msgid ""
 "<b>Locale sound</b> configuration\n"
@@ -512,8 +513,8 @@ msgstr ""
 "A’ rèiteachadh <b>fuaim an sgeama ionadail</b>\n"
 " airson na pròifil <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:663
-#: ../src/pythontest-activity/pythontest.py:513
+#: ../src/administration-activity/admin/board_list.py:665
+#: ../src/pythontest-activity/pythontest.py:514
 #: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
 msgstr "Tagh sgeama ionadail nam fuaimean"
@@ -545,14 +546,14 @@ msgid "Assign all the users belonging to this class"
 msgstr "Sònraich na h-uile cleachdaiche a bhuineas dhan chlas seo"
 
 #: ../src/administration-activity/admin/class_edit.py:246
-#: ../src/administration-activity/admin/group_edit.py:258
+#: ../src/administration-activity/admin/group_edit.py:259
 #: ../src/administration-activity/admin/group_user_list.py:150
 #: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Ainm"
 
 #: ../src/administration-activity/admin/class_edit.py:257
-#: ../src/administration-activity/admin/group_edit.py:269
+#: ../src/administration-activity/admin/group_edit.py:270
 #: ../src/administration-activity/admin/group_user_list.py:160
 #: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
@@ -580,36 +581,37 @@ msgstr "Tìdsear"
 msgid "Editing a Group"
 msgstr "A’ deasachadh buidheann"
 
-#: ../src/administration-activity/admin/group_edit.py:62
+#. Translators : Do not translate the token {group} and {aclass}
+#: ../src/administration-activity/admin/group_edit.py:63
 #, python-brace-format
 msgid "Editing group '{group}' for class '{aclass}'"
 msgstr "A’ deasachadh a’ bhuidhinn “{group}” airson a’ chlas “{aclass}”"
 
-#: ../src/administration-activity/admin/group_edit.py:66
+#: ../src/administration-activity/admin/group_edit.py:67
 msgid "Editing a new group"
 msgstr "A’ deasachadh buidhinn ùir"
 
-#: ../src/administration-activity/admin/group_edit.py:86
+#: ../src/administration-activity/admin/group_edit.py:87
 msgid "Group:"
 msgstr "Buidheann:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/group_edit.py:98
+#: ../src/administration-activity/admin/group_edit.py:99
 #: ../src/administration-activity/admin/profile_edit.py:76
 msgid "Description:"
 msgstr "Tuairisgeul:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/group_edit.py:109
+#: ../src/administration-activity/admin/group_edit.py:110
 msgid "Assign all the users belonging to this group"
 msgstr "Iomruin na h-uile cleachdaiche a bhuineas dhan bhuidheann seo"
 
-#: ../src/administration-activity/admin/group_edit.py:352
+#: ../src/administration-activity/admin/group_edit.py:353
 msgid "You need to provide at least a name for your group"
 msgstr "Feumaidh tu ainm a shònrachadh airson a’ bhuidhinn agad"
 
-#: ../src/administration-activity/admin/group_edit.py:366
+#: ../src/administration-activity/admin/group_edit.py:367
 msgid "There is already a group with this name"
 msgstr "Tha buidheann air a bheil an t-ainm seo ann mu thràth"
 
@@ -720,8 +722,8 @@ msgstr "Na h-uile cleachdaiche"
 #: ../src/administration-activity/admin/wordlist.py:48
 #: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:810
-#: ../src/pythontest-activity/pythontest.py:451
-#: ../src/tuxpaint-activity/tuxpaint.py:189
+#: ../src/pythontest-activity/pythontest.py:452
+#: ../src/tuxpaint-activity/tuxpaint.py:240
 msgid "Default"
 msgstr "Bunaiteach"
 
@@ -910,10 +912,17 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#. Translators : Do not translate the token {profile}
 #: ../src/administration-activity/admin/wordlist.py:45
 #: ../src/login-activity/login.py:478
-#: ../src/pythontest-activity/pythontest.py:448
-#: ../src/tuxpaint-activity/tuxpaint.py:186
+#: ../src/pythontest-activity/pythontest.py:449
+#: ../src/tuxpaint-activity/tuxpaint.py:237
 #, python-brace-format
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -3511,7 +3520,6 @@ msgstr ""
 "mhuc."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-#| msgid "This animal likes to lay in the mud."
 msgid "This animal likes to lie in the mud."
 msgstr "’S toil leis a’ bheathach seo a bhith na laighe sa pholl."
 
@@ -4050,7 +4058,7 @@ msgstr ""
 "’S e pacaid GNU a th’ anns a’ bhathar-bhog seo is chaidh fhoillseachadh fo "
 "GNU General Public License"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:490
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:491
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -4239,7 +4247,7 @@ msgstr "Gearmailtis"
 msgid "Greek"
 msgstr "Greugais"
 
-#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:114
 msgid "Scottish Gaelic"
 msgstr "Gàidhlig"
 
@@ -4276,195 +4284,201 @@ msgid "Japanese"
 msgstr "Seapanais"
 
 #: ../src/gcompris/config.c:93
+#, fuzzy
+#| msgid "Canada"
+msgid "Kannada"
+msgstr "Kannada"
+
+#: ../src/gcompris/config.c:94
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Korean"
 msgstr "Coirèanais"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Latvian"
 msgstr "Laitbheis"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Lithuanian"
 msgstr "Liotuainis"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Macedonian"
 msgstr "Masadonais"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Malay"
 msgstr "Malaidhis"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Marathi"
 msgstr "Marathi"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Montenegrin"
 msgstr "Monadh Neagrach"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
 msgid "Nepal"
 msgstr "Neapàl"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Norwegian Bokmal"
 msgstr "Bokmål na Nirribhidh"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Norwegian Nynorsk"
 msgstr "Nynorsk na Nirribhidh"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Occitan (languedocien)"
 msgstr "Ogsatanais (Languedocien)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Persian"
 msgstr "Pearsis"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Polish"
 msgstr "Pòlainnis"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Portuguese (Brazil)"
 msgstr "Portagailis (Braisil)"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Portuguese"
 msgstr "Portagailis"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Punjabi"
 msgstr "Panjabi"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Romanian"
 msgstr "Romàinis"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Russian"
 msgstr "Ruisis"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Serbian (Latin)"
 msgstr "Sèirbis (Laidinneach)"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Serbian"
 msgstr "Sèirbis"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Slovak"
 msgstr "Slòbhacais"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Slovenian"
 msgstr "Slòbhainis"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Somali"
 msgstr "Somàilis"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Spanish"
 msgstr "Spàinntis"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Swedish"
 msgstr "Suainis"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Tamil"
 msgstr "Taimilis"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Thai"
 msgstr "Cànan nan Tàidh"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Turkish (Azerbaijan)"
 msgstr "Turcais (Asarbaideàn)"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Turkish"
 msgstr "Turcais"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Ukrainian"
 msgstr "Ucràinis"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Urdu"
 msgstr "Ùrdu"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:128
 msgid "Vietnamese"
 msgstr "Bhiet-Nàmais"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "Walloon"
 msgstr "Walloon"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "Zulu"
 msgstr "Zulu"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:135
 msgid "Timer: No time limit"
 msgstr "Tìmear: Gun chrìoch ùine"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid "Timer: Slow timer"
 msgstr "Tìmear: Tìmear slaodach"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:137
 msgid "Timer: Normal timer"
 msgstr "Tìmear: Tìmear àbhaisteach"
 
-#: ../src/gcompris/config.c:137
+#: ../src/gcompris/config.c:138
 msgid "Timer: Fast timer"
 msgstr "Tìmear: Tìmear luath"
 
-#: ../src/gcompris/config.c:141
+#: ../src/gcompris/config.c:142
 msgid "Use GCompris administration module to filter boards"
 msgstr "Cleachd mòideal rianachd GCompris gus bùird a chriathradh"
 
-#: ../src/gcompris/config.c:203
+#: ../src/gcompris/config.c:204
 msgid "GCompris Configuration"
 msgstr "Rèiteachadh GCompris"
 
-#: ../src/gcompris/config.c:275
+#: ../src/gcompris/config.c:276
 msgid "Fullscreen"
 msgstr "Làn-sgrìn"
 
-#: ../src/gcompris/config.c:300
+#: ../src/gcompris/config.c:301
 msgid "Remember level for default user"
 msgstr "Cuimhnich leibheil a’ chleachdaiche tùsail"
 
-#: ../src/gcompris/config.c:326
+#: ../src/gcompris/config.c:327
 msgid "Music"
 msgstr "Ceòl"
 
-#: ../src/gcompris/config.c:351
+#: ../src/gcompris/config.c:352
 msgid "Effect"
 msgstr "Èifeachd"
 
-#: ../src/gcompris/config.c:375 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Sùm"
 
-#: ../src/gcompris/config.c:454 ../src/gcompris/config.c:764
+#: ../src/gcompris/config.c:455 ../src/gcompris/config.c:765
 #, c-format
 msgid "Font: %s"
 msgstr "Cruth-clò: %s"
@@ -7547,7 +7561,8 @@ msgstr ""
 msgid "Enter the text you hear:"
 msgstr "Cuir a-steach an teacsa a chluinneas tu:"
 
-#: ../src/lang-activity/langLib.py:69
+#. Translators : Do not translate the token {word}
+#: ../src/lang-activity/langLib.py:70
 #, python-brace-format
 msgid "Missing translation for '{word}'"
 msgstr "Tha an t-eadar-theangachadh airson “{word}” a dhìth"
@@ -10264,26 +10279,26 @@ msgid "This activity is not playable, just a test"
 msgstr "Na cluich seo, chan e ach deuchainn a th’ ann"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:456
+#: ../src/pythontest-activity/pythontest.py:457
 msgid "Disable line drawing in circle"
 msgstr "Cuir tarraing loidhne ann an cearcall à comas"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:465
+#: ../src/pythontest-activity/pythontest.py:466
 msgid "Color of the line"
 msgstr "Dath na loidhne"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:476
+#: ../src/pythontest-activity/pythontest.py:477
 msgid "Distance between circles"
 msgstr "Astar eadar cearcaill"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:487
+#: ../src/pythontest-activity/pythontest.py:488
 msgid "Use circles"
 msgstr "Cleachd cearcaill"
 
-#: ../src/pythontest-activity/pythontest.py:488
+#: ../src/pythontest-activity/pythontest.py:489
 msgid "Use rectangles"
 msgstr "Cleachd ceart-cheàrnaich"
 
@@ -10499,7 +10514,6 @@ msgid "Enter the weight of the object in gram"
 msgstr "Cuir a-steach cuideam an rud ann an gramaichean"
 
 #: ../src/scalesboard-activity/scale.c:376
-#| msgid "Enter the text you hear:"
 msgid "Enter the weight of the object"
 msgstr "Cuir a-steach cuideam an rud"
 
@@ -10803,7 +10817,6 @@ msgid "Lower the water level to rise to the surface."
 msgstr "Lùghdaich ìre an uisge gus dìreadh dhan uachdar."
 
 #: ../src/submarine-activity/submarine.c:561
-#| msgid "Open or close the ballast flush."
 msgid "Open or close the ballast flush."
 msgstr "Fosgail no dùin an tanca-balaiste."
 
@@ -11087,7 +11100,8 @@ msgstr ""
 "Feumaidh tu rum a chruthachadh ach an urrainn dhan chàr dhearg a ghluasad "
 "tron gheata taobh deas."
 
-#: ../src/tuxpaint-activity/tuxpaint.py:123
+#: ../src/tuxpaint-activity/tuxpaint.py:113
+#: ../src/tuxpaint-activity/tuxpaint.py:173
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
@@ -11095,27 +11109,27 @@ msgstr ""
 "Cha deach Tux Paint a lorg.\n"
 "Stàlaich e gus an cleas seo a chluich !"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:135
+#: ../src/tuxpaint-activity/tuxpaint.py:185
 msgid "Waiting for Tuxpaint to finish"
 msgstr "A’ feitheamh air Tux Paint"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:194
+#: ../src/tuxpaint-activity/tuxpaint.py:245
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Faigh roghainn làn-sgrìn mar dhìleab o GCompris"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:198
+#: ../src/tuxpaint-activity/tuxpaint.py:249
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Faigh roghainn meud mar dhìleab o GCompris (800x600, 640x480)"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:202
+#: ../src/tuxpaint-activity/tuxpaint.py:253
 msgid "Disable shape rotation"
 msgstr "Cuir cuairteachadh chruthan à comas"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:206
+#: ../src/tuxpaint-activity/tuxpaint.py:257
 msgid "Show Uppercase text only"
 msgstr "Teacsa ann an litrichean mòra a-mhàin"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:210
+#: ../src/tuxpaint-activity/tuxpaint.py:261
 msgid "Disable stamps"
 msgstr "Cuir na stampaichean à comas"
 
