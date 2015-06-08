@@ -121,7 +121,7 @@ dialogue to\nenable the sound."), None)
 
         if level not in [6, 12]:
             colorCodeNotesButton = TextButton(100, 215, _("Color code notes?"),
-                                                   self.rootitem, 0x990011FFL)
+                                              self.rootitem, 0x990011FFL, 180)
 
             colorCodeNotesButton.getBackground().connect("button_press_event",
                                                         self.color_code_notes)

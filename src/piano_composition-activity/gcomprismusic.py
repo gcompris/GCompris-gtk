@@ -1349,7 +1349,8 @@ def pianokeyBindings(keyval, keyboard_click):
 # ---------------------------------------------------------------------------
 class TextButton:
 
-    def __init__(self, x, y, text, rootitem, color_rgba=0x666666AAL):
+    def __init__(self, x, y, text, rootitem, color_rgba=0x666666AAL,
+                 width=-1):
         '''
         Add a text button to the screen with the following parameters:
         1. x: the x position of the button
@@ -1360,7 +1361,6 @@ class TextButton:
 
         TextButton(200, 300, 'Hello World!', self, color_rgba=0x6600FFFFL)
         '''
-        width = -1
         self.rootitem = goocanvas.Group(parent=rootitem, x=0, y=0)
         textbox = goocanvas.Text(
             parent = self.rootitem,
