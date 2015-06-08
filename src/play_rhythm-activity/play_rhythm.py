@@ -362,7 +362,7 @@ dialogue to\nenable the sound."), None)
             self.text.remove()
             self.rect.remove()
         self.text, self.rect = \
-            textBox(text, 400, 400, self.rootitem, width=400,
+            textBox(text, 400, 400, self.rootitem, width=420,
                     fill_color_rgba = 0x666666AAL)
 
     def convert(self, visible):
