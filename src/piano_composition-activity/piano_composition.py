@@ -235,7 +235,7 @@ class Gcompris_piano_composition:
 
             goocanvas.Image(
                 parent=self.eighthNoteSelectedButton,
-                pixbuf=gcompris.utils.load_pixmap('piano_composition/quarterNote.png'),
+                pixbuf=gcompris.utils.load_pixmap('piano_composition/eighthNote.png'),
                 x=x,
                 y=y,
                 height=45,
