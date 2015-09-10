@@ -5,16 +5,16 @@
 # Duarte Loreto <happyguy_pt@hotmail.com>, 2009.
 # António Lima <amrlima@gmail.com>, 2009.
 # IFILP-TEC <tec.ifilp.org/info?gcompris>, 2009.
-# Pedro Albuquerque <palbuquerque73@gmail.com>, 2015., 2015.
+# Pedro Albuquerque <palbuquerque73@gmail.com>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-12-25 01:10+0000\n"
-"PO-Revision-Date: 2015-09-09 10:10+0100\n"
-"Last-Translator: Pedro Albuquerque <palbuquerque73o@gmail.com>\n"
+"POT-Creation-Date: 2015-09-09 09:12+0000\n"
+"PO-Revision-Date: 2015-09-10 07:19+0100\n"
+"Last-Translator: Pedro Albuquerque <palbuquerque73@gmail.com>\n"
 "Language-Team: Português <palbuquerque73@gmail.com>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,6 @@ msgstr "Realiza várias atividades de cálculo."
 
 #: ../boards/braille.xml.in.h:1
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:1
-#| msgid "Discover the Computer"
 msgid "Discover the Braille system"
 msgstr "À descoberta do sistema Braille"
 
@@ -158,7 +157,7 @@ msgstr "Atividades de memória"
 
 #: ../boards/memory_group.xml.in.h:2
 msgid "Various memory activities (images, letters, sounds)."
-msgstr "Realiza diversas atividades de memória (imagens, letras, sons)"
+msgstr "Realiza diversas atividades de memória (imagens, letras, sons)"
 
 #: ../boards/memory_op_group_tux.xml.in.h:1
 msgid "Go to mathematics memory activities against Tux"
@@ -177,7 +176,7 @@ msgstr "Atividades de memória matemática"
 msgid "GCompris Main Menu"
 msgstr "Menu principal do GCompris"
 
-#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:906
+#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:908
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -194,24 +193,6 @@ msgstr ""
 "\"livre\") aos populares programas lúdico-educativos de licença privada."
 
 #: ../boards/menu.xml.in.h:5
-#| msgid ""
-#| "A simple click on an icon brings you to an activity or a menu of "
-#| "activities.\n"
-#| "At the bottom of the screen is the GCompris control bar.\n"
-#| "The following icons are displayed from right to left.\n"
-#| "(note that each icon is displayed only if available in the current "
-#| "activity)\n"
-#| "    Home - Exit an activity, go back to menu\n"
-#| "    Thumb - OK. Confirm your answer\n"
-#| "    Dice - Display the current level. Click to select another level\n"
-#| "    Lips - Repeat the question\n"
-#| "    Question Mark - Help\n"
-#| "    Tool - The configuration menu\n"
-#| "    Tux Plane - About GCompris\n"
-#| "    Night - Quit GCompris\n"
-#| "The stars show suitable age groups for each game:\n"
-#| "    1, 2 or 3 simple stars  - from 2 to 6 years old\n"
-#| "    1, 2 or 3 complex stars - 7 years and up"
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -265,7 +246,6 @@ msgid "Time, Geography, ..."
 msgstr "Tempo, geografia,..."
 
 #: ../boards/money_group.xml.in.h:1
-#| msgid "Go to Memory activities"
 msgid "Go to money activities"
 msgstr "Atividades de dinheiro"
 
@@ -318,9 +298,6 @@ msgid "Strategy games like chess, connect4, ..."
 msgstr "Várias atividades como Xadrez, Quatro em linha,..."
 
 #: ../gcompris.appdata.xml.in.h:1
-#| msgid ""
-#| "GCompris is a collection of educational games that provides different "
-#| "activities for children aged 2 and up."
 msgid ""
 "GCompris is an educational software suite comprising of numerous activities "
 "for children aged 2 to 10."
@@ -371,7 +348,6 @@ msgid "games: chess, memory, connect 4, oware, sudoku, ..."
 msgstr "jogos: xadrez, memória, quatro em linha, sudoku,..."
 
 #: ../gcompris.appdata.xml.in.h:9
-#| msgid "Horizontal reading practice"
 msgid "reading: reading practice"
 msgstr "leitura: prática de leitura"
 
@@ -412,6 +388,11 @@ msgid "GCompris Administration"
 msgstr "Administração do GCompris"
 
 #: ../gcompris-edit.desktop.in.h:2
+#| msgid "Administration for gcompris"
+msgid "Administration interface for educational game"
+msgstr "Ambiente de administração para jogos educacionais"
+
+#: ../gcompris-edit.desktop.in.h:3
 msgid "Administration for gcompris"
 msgstr "Administração do GCompris"
 
@@ -515,11 +496,9 @@ msgstr ""
 "<span size=\"x-large\"> Selecione os níveis de dificuldade\n"
 "para o perfil %s</span>"
 
-#: ../src/administration-activity/admin/board_list.py:645
+#. Translators : Do not translate the token {profile}
+#: ../src/administration-activity/admin/board_list.py:646
 #, python-brace-format
-#| msgid ""
-#| "<b>{config}</b> configuration\n"
-#| " for profile <b>{profile}</b>"
 msgid ""
 "<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -527,11 +506,9 @@ msgstr ""
 "Configuração de <b>idioma</b>\n"
 " para o perfil <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:657
+#. Translators : Do not translate the token {profile}
+#: ../src/administration-activity/admin/board_list.py:659
 #, python-brace-format
-#| msgid ""
-#| "<b>{config}</b> configuration\n"
-#| " for profile <b>{profile}</b>"
 msgid ""
 "<b>Locale sound</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -539,8 +516,8 @@ msgstr ""
 "Configuração de <b>som do idioma</b>\n"
 " para o perfil <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:663
-#: ../src/pythontest-activity/pythontest.py:513
+#: ../src/administration-activity/admin/board_list.py:665
+#: ../src/pythontest-activity/pythontest.py:514
 #: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
 msgstr "Selecione o som do idioma"
@@ -572,14 +549,14 @@ msgid "Assign all the users belonging to this class"
 msgstr "Atribuir todos os utilizadores que pertencem a esta turma"
 
 #: ../src/administration-activity/admin/class_edit.py:246
-#: ../src/administration-activity/admin/group_edit.py:258
+#: ../src/administration-activity/admin/group_edit.py:259
 #: ../src/administration-activity/admin/group_user_list.py:150
 #: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Nome"
 
 #: ../src/administration-activity/admin/class_edit.py:257
-#: ../src/administration-activity/admin/group_edit.py:269
+#: ../src/administration-activity/admin/group_edit.py:270
 #: ../src/administration-activity/admin/group_user_list.py:160
 #: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
@@ -607,36 +584,37 @@ msgstr "Professor"
 msgid "Editing a Group"
 msgstr "Editar um grupo"
 
-#: ../src/administration-activity/admin/group_edit.py:62
+#. Translators : Do not translate the token {group} and {aclass}
+#: ../src/administration-activity/admin/group_edit.py:63
 #, python-brace-format
 msgid "Editing group '{group}' for class '{aclass}'"
 msgstr "A editar grupo \"{group}\" da classe \"{aclass}\""
 
-#: ../src/administration-activity/admin/group_edit.py:66
+#: ../src/administration-activity/admin/group_edit.py:67
 msgid "Editing a new group"
 msgstr "Editar um novo grupo"
 
-#: ../src/administration-activity/admin/group_edit.py:86
+#: ../src/administration-activity/admin/group_edit.py:87
 msgid "Group:"
 msgstr "Grupo:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/group_edit.py:98
+#: ../src/administration-activity/admin/group_edit.py:99
 #: ../src/administration-activity/admin/profile_edit.py:76
 msgid "Description:"
 msgstr "Descrição:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/group_edit.py:109
+#: ../src/administration-activity/admin/group_edit.py:110
 msgid "Assign all the users belonging to this group"
 msgstr "Atribuir todos os utilizadores que pertencem a este grupo"
 
-#: ../src/administration-activity/admin/group_edit.py:352
+#: ../src/administration-activity/admin/group_edit.py:353
 msgid "You need to provide at least a name for your group"
 msgstr "Indique pelo menos um nome para o grupo."
 
-#: ../src/administration-activity/admin/group_edit.py:366
+#: ../src/administration-activity/admin/group_edit.py:367
 msgid "There is already a group with this name"
 msgstr "Já existe um grupo com o nome que indicou"
 
@@ -742,8 +720,8 @@ msgstr "Todos os utilizadores"
 #: ../src/administration-activity/admin/wordlist.py:48
 #: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:810
-#: ../src/pythontest-activity/pythontest.py:451
-#: ../src/tuxpaint-activity/tuxpaint.py:239
+#: ../src/pythontest-activity/pythontest.py:452
+#: ../src/tuxpaint-activity/tuxpaint.py:240
 msgid "Default"
 msgstr "Predefinição"
 
@@ -784,7 +762,6 @@ msgstr "Estado"
 
 #: ../src/administration-activity/admin/module_activities.py:50
 #: ../src/administration-activity/admin/module_activities.py:78
-#| msgid "Active"
 msgid "Activities"
 msgstr "Atividades"
 
@@ -800,7 +777,6 @@ msgstr "Grupos"
 
 #: ../src/administration-activity/admin/module_logins.py:48
 #: ../src/administration-activity/admin/module_logins.py:69
-#| msgid "Login"
 msgid "Logins"
 msgstr "Sessões"
 
@@ -933,10 +909,17 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#. Translators : Do not translate the token {profile}
 #: ../src/administration-activity/admin/wordlist.py:45
 #: ../src/login-activity/login.py:478
-#: ../src/pythontest-activity/pythontest.py:448
-#: ../src/tuxpaint-activity/tuxpaint.py:236
+#: ../src/pythontest-activity/pythontest.py:449
+#: ../src/tuxpaint-activity/tuxpaint.py:237
 #, python-brace-format
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -962,7 +945,6 @@ msgid "Learn to recognize unusual colors."
 msgstr "Aprender a reconhecer cores pouco comuns."
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:5
-#| msgid "Click on the correct colored box."
 msgid "Click on the correct colored butterfly."
 msgstr "Clica na borboleta com a cor correta."
 
@@ -1007,12 +989,10 @@ msgid "Find the ruby butterfly"
 msgstr "Encontra a borboleta rubi"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
-#| msgid "Fill in the missing letter"
 msgid "Find the sienna butterfly"
 msgstr "Encontra a borboleta siena"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
-#| msgid "Fill in the missing letter"
 msgid "Find the sage butterfly"
 msgstr "Encontra a borboleta de folhas secas"
 
@@ -1021,7 +1001,6 @@ msgid "Find the salmon butterfly"
 msgstr "Encontra a borboleta salmão"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
-#| msgid "Fill in the missing letter"
 msgid "Find the sepia butterfly"
 msgstr "Encontra a borboleta sépia"
 
@@ -1042,12 +1021,10 @@ msgid "Find the turquoise butterfly"
 msgstr "Encontra a borboleta turquesa"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
-#| msgid "Fill in the missing letter"
 msgid "Find the absinthe butterfly"
 msgstr "Encontra a borboleta absinto"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
-#| msgid "Find the matching pair"
 msgid "Find the mahogany butterfly"
 msgstr "Encontra a borboleta mogno"
 
@@ -1068,12 +1045,10 @@ msgid "Find the amethyst butterfly"
 msgstr "Encontra a borboleta ametista"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
-#| msgid "Fill in the missing letter"
 msgid "Find the anise butterfly"
 msgstr "Encontra a borboleta anis"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
-#| msgid "Fill in the missing letter"
 msgid "Find the vermilion butterfly"
 msgstr "Encontra a borboleta vermelhão"
 
@@ -1122,7 +1097,6 @@ msgid "Find the bistre butterfly"
 msgstr "Encontra a borboleta castanho escura"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
-#| msgid "Fill in the missing letter"
 msgid "Find the crimson butterfly"
 msgstr "Encontra a borboleta carmesim"
 
@@ -1143,7 +1117,6 @@ msgid "Find the garnet butterfly"
 msgstr "Encontra a borboleta vermelho escura"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
-#| msgid "Fill in the missing letter"
 msgid "Find the indigo butterfly"
 msgstr "Encontra a borboleta azul escura"
 
@@ -1164,7 +1137,6 @@ msgid "Find the lichen butterfly"
 msgstr "Encontra a borboleta líquen"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
-#| msgid "Fill in the missing letter"
 msgid "Find the wine butterfly"
 msgstr "Encontra a borboleta vinho"
 
@@ -1177,17 +1149,14 @@ msgid "Find the magenta butterfly"
 msgstr "Encontra a borboleta magenta"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
-#| msgid "Find the matching pair"
 msgid "Find the malachite butterfly"
 msgstr "Encontra a borboleta malaquita"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
-#| msgid "Find the matching pair"
 msgid "Find the larch butterfly"
 msgstr "Encontra a borboleta lariço"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
-#| msgid "Fill in the missing letter"
 msgid "Find the mimosa butterfly"
 msgstr "Encontra a borboleta mimosa"
 
@@ -1216,17 +1185,14 @@ msgid "Find the grayish blue butterfly"
 msgstr "Encontra a borboleta azul acinzentado"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
-#| msgid "Find the matching pair"
 msgid "Find the pistachio butterfly"
 msgstr "Encontra a borboleta pistácio"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
-#| msgid "Find the matching pair"
 msgid "Find the platinum butterfly"
 msgstr "Encontra a borboleta platina"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
-#| msgid "Click on the purple duck"
 msgid "Find the purple butterfly"
 msgstr "Encontra a borboleta púrpura"
 
@@ -1235,7 +1201,6 @@ msgid "Find the plum butterfly"
 msgstr "Encontra a borboleta ameixa"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
-#| msgid "Fill in the missing letter"
 msgid "Find the prussian blue butterfly"
 msgstr "Encontra a borboleta azul prussiano"
 
@@ -1600,15 +1565,6 @@ msgid "Play the Oware strategy game against Tux"
 msgstr "Joga Ouri contra o Tux."
 
 #: ../src/awele-activity/awele.xml.in.h:3
-#| msgid ""
-#| "The object of the game is to capture more seeds than one's opponent. "
-#| "Since the game has only 48 seeds, capturing 25 is sufficient to "
-#| "accomplish this. Since there are an even number of seeds, it is possible "
-#| "for the game to end in a draw, where each player has captured 24. The "
-#| "game is over when one player has captured 25 or more stones, or both "
-#| "players have taken 24 stones each (draw). If both players agree that the "
-#| "game has been reduced to an endless cycle, each player captures the "
-#| "stones on their side of the board."
 msgid ""
 "The object of the game is to capture more seeds than one's opponent. Since "
 "the game has only 48 seeds, capturing 25 is sufficient to accomplish this. "
@@ -1880,9 +1836,6 @@ msgid "Mouse-manipulation"
 msgstr "Ser capaz de utilizar o rato — movê-lo e clicar nos seus botões."
 
 #: ../src/billard-activity/billard.xml.in.h:4
-#| msgid ""
-#| "Point the mouse and click on the ball, to set the speed and direction of "
-#| "the ball. The closer you click to the centre, the slower the ball moves."
 msgid ""
 "Point the mouse and click on the ball, to set the speed and direction of the "
 "ball. The closer you click to the center, the slower the ball moves."
@@ -1915,13 +1868,11 @@ msgstr "Escolhe uma Atividade."
 #. Display the profile name
 #: ../src/boards/menu2.c:271 ../src/login-activity/login.py:100
 #, c-format, python-format
-#| msgid "Profile: "
 msgid "Profile: %s"
 msgstr "Perfil: %s"
 
 #: ../src/boards/menu2.c:288
 #, c-format
-#| msgid "Number of activities: %d\n"
 msgid "Number of activities: %d"
 msgstr "Número de atividades: %d"
 
@@ -1930,7 +1881,6 @@ msgid "Python Board"
 msgstr "Atividade Python"
 
 #: ../src/boards/python.c:70 ../src/boards/python.c:94
-#| msgid "Special board that embeds python into GCompris."
 msgid "Special board that embeds Python into GCompris."
 msgstr "Atividade especial que embebe Python no GCompris."
 
@@ -2021,17 +1971,14 @@ msgstr ""
 "Cada nível ensina um conjunto de 10 letras."
 
 #: ../src/braille_alphabets-activity/BrailleMap.py:96
-#| msgid "Go to Maze activities"
 msgid "Back to the activity"
 msgstr "De volta à atividade"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:1
-#| msgid "Brain"
 msgid "Braille Fun"
 msgstr "Divertimento Braille"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:2
-#| msgid "Fill in the missing letter"
 msgid "Braille the falling letters"
 msgstr "Braille as letras em queda"
 
@@ -2056,7 +2003,6 @@ msgid "PLAYER 2"
 msgstr "JOGADOR 2"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:151
-#| msgid "Number"
 msgid "Check Number"
 msgstr "Verifica o número"
 
@@ -2079,7 +2025,6 @@ msgid "Lotto Master"
 msgstr "Mestre de Loto"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:239
-#| msgid "Guess a number"
 msgid "Generate a number"
 msgstr "Gerar um número"
 
@@ -2104,7 +2049,6 @@ msgid "2nd"
 msgstr "2º"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:341
-#| msgid "red"
 msgid "3rd"
 msgstr "3º"
 
@@ -2194,7 +2138,6 @@ msgstr ""
 
 #: ../src/chat-activity/chat.py:244
 #: ../src/lang-activity/resources/lang/words.xml.in.h:4
-#| msgid "Colors"
 msgid "color"
 msgstr "Descobre as Cores"
 
@@ -2218,7 +2161,6 @@ msgstr ""
 "Os teus amigos devem escolher o mesmo canal para poderem comunicar contigo."
 
 #: ../src/chat-activity/chat.xml.in.h:1
-#| msgid "Chat with your friends"
 msgid "Chat and draw with your friends"
 msgstr "Conversa com os teus amigos"
 
@@ -2496,7 +2438,7 @@ msgid ""
 "speed record of 444km/h"
 msgstr ""
 "1934 – Recorde de velocidade de\n"
-"Hélène Boucher (444 km/h)"
+"Hélène Boucher (444 km/h)"
 
 #: ../src/chronos-activity/resources/chronos/board4_2.xml.in.h:1
 msgid "The car"
@@ -2527,7 +2469,6 @@ msgid "1923 Lancia Lambda"
 msgstr "1923 – Lancia Lambda"
 
 #: ../src/chronos-activity/resources/chronos/board4_3.xml.in.h:4
-#| msgid "1955 Citroën ds 19"
 msgid "1955 Citroën DS 19"
 msgstr "1955 – Citroën DS 19"
 
@@ -2566,7 +2507,6 @@ msgstr ""
 "Desenvolver a coordenação motora: mover o rato e clicar nos seus botões."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:5
-#| msgid "Use the left mouse button to click on the moving fish."
 msgid ""
 "Use the left mouse button to click on the moving fish. A level 5 and after, "
 "a double click is mandatory."
@@ -2608,9 +2548,6 @@ msgstr ""
 
 #: ../src/click_on_letter-activity/click_on_letter.c:412
 #, c-format
-#| msgid ""
-#| "Error: this activity requires that you first install\n"
-#| "the packages with GCompris voices for the locale '%s' or '%s'"
 msgid ""
 "Error: this activity requires that you first install\n"
 "the packages with GCompris voices for the %s locale."
@@ -2674,9 +2611,6 @@ msgstr "Resposta"
 #.
 #: ../src/click_on_letter-activity/click_on_letter.c:1508
 #, c-format
-#| msgid ""
-#| "<b>%1$s</b> configuration\n"
-#| " for profile <b>%2$s</b>"
 msgctxt "click_on_letter_config"
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -2686,7 +2620,6 @@ msgstr ""
 " para o perfil <b>%2$s</b>"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:1521
-#| msgid "Choice of the language"
 msgid "Choose a language"
 msgstr "Seleção do idioma"
 
@@ -2696,7 +2629,6 @@ msgid "Back to default"
 msgstr "Repor predefinições"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
-#| msgid "Click on a letter"
 msgid "Click on a lowercase letter"
 msgstr "Clica numa letra minúscula"
 
@@ -2729,7 +2661,6 @@ msgstr ""
 "novamente uma letra ser proferida, clica no botão \"boca\"."
 
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:1
-#| msgid "Click on a letter"
 msgid "Click on an uppercase letter"
 msgstr "Clica numa letra maiúscula"
 
@@ -2769,7 +2700,6 @@ msgstr ""
 "Clica e arrasta nas diferentes setas para fazer subir ou descer os números."
 
 #: ../src/color_mix-activity/color_mix.py:72
-#| msgid "Advanced colors"
 msgid "Match the color"
 msgstr "Combinar cores"
 
@@ -2810,7 +2740,6 @@ msgid "Not enough magenta"
 msgstr "Sem magenta suficiente"
 
 #: ../src/color_mix-activity/color_mix.py:256
-#| msgid "magenta"
 msgid "Too much magenta"
 msgstr "Magenta a mais"
 
@@ -2819,7 +2748,6 @@ msgid "Not enough yellow"
 msgstr "Sem amarelo suficiente"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#| msgid "Too low"
 msgid "Too much yellow"
 msgstr "Amarelo a mais"
 
@@ -2929,52 +2857,42 @@ msgid "Listen to the color and click on the matching duck."
 msgstr "Ouve o nome da cor e clica no pato correspondente."
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:1
-#| msgid "Click on the yellow duck"
 msgid "Find the yellow duck"
 msgstr "Clica no pato amarelo."
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
-#| msgid "Click on the black duck"
 msgid "Find the black duck"
 msgstr "Clica no pato preto."
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-#| msgid "Click on the green duck"
 msgid "Find the green duck"
 msgstr "Clica no pato verde."
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-#| msgid "Click on the red duck"
 msgid "Find the red duck"
 msgstr "Clica no pato vermelho."
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-#| msgid "Click on the white duck"
 msgid "Find the white duck"
 msgstr "Clica no pato branco."
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-#| msgid "Click on the blue duck"
 msgid "Find the blue duck"
 msgstr "Clica no pato azul."
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-#| msgid "Click on the brown duck"
 msgid "Find the brown duck"
 msgstr "Clica no pato castanho."
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-#| msgid "Click on the grey duck"
 msgid "Find the grey duck"
 msgstr "Clica no pato cinzento."
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
-#| msgid "Click on the orange duck"
 msgid "Find the orange duck"
 msgstr "Clica no pato laranja."
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-#| msgid "Click on the purple duck"
 msgid "Find the purple duck"
 msgstr "Clica no pato roxo."
 
@@ -3075,7 +2993,6 @@ msgstr ""
 "tecla tab para controlar a grua."
 
 #: ../src/details-activity/details.xml.in.h:1
-#| msgid "Find the matching pair"
 msgid "Find the details"
 msgstr "Encontra os pares correspondentes."
 
@@ -3084,7 +3001,6 @@ msgid "The images are from Wikimedia Commons."
 msgstr "As imagens são da Wikimedia Commons."
 
 #: ../src/details-activity/resources/details/board1_0.xml.in.h:1
-#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
 msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
 msgstr "Vincent van Gogh – \"Quarto em Arles\" (1888)"
 
@@ -3097,32 +3013,26 @@ msgstr ""
 "chuva - 1888"
 
 #: ../src/details-activity/resources/details/board1_2.xml.in.h:1
-#| msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
 msgstr "Vincent van Gogh – \"Rua de Auvers\" (1890)"
 
 #: ../src/details-activity/resources/details/board1_3.xml.in.h:1
-#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
 msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
 msgstr "Vincent van Gogh – \"Quarto em Arles\" (1888)"
 
 #: ../src/details-activity/resources/details/board1_4.xml.in.h:1
-#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
 msgid "Vincent van Gogh, The Harvest - 1888"
 msgstr "Vincent van Gogh – \"Quarto em Arles\" (1888)"
 
 #: ../src/details-activity/resources/details/board1_5.xml.in.h:1
-#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
 msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
 msgstr "Vincent van Gogh – \"Quarto em Arles\" (1888)"
 
 #: ../src/details-activity/resources/details/board1_6.xml.in.h:1
-#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
 msgid "Vincent van Gogh, The Night Café - 1888"
 msgstr "Vincent van Gogh – \"Quarto em Arles\" (1888)"
 
 #: ../src/details-activity/resources/details/board1_7.xml.in.h:1
-#| msgid "Vincent van Gogh, Bedroom in Arles - 1888"
 msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
 msgstr "Vincent van Gogh – \"Quarto em Arles\" (1888)"
 
@@ -3268,14 +3178,6 @@ msgstr ""
 "Clica em cada número por ordem crescente."
 
 #: ../src/electric-activity/electric.py:99
-#| msgid ""
-#| "Cannot find the 'gnucap' electric simulator.\n"
-#| "You can download and install it from:\n"
-#| "<http://geda.seul.org/tools/gnucap/>\n"
-#| "To be detected, it must be installed in\n"
-#| "/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
-#| "You can still use this activity to draw schematics without computer "
-#| "simulation."
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -3312,9 +3214,6 @@ msgstr ""
 "funcionamento."
 
 #: ../src/electric-activity/electric.xml.in.h:5
-#| msgid ""
-#| "GCompris uses the Gnucap electric simulator as a backend. You can get "
-#| "more information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
 msgid ""
 "GCompris uses the Gnucap electric simulator as a backend. You can get more "
 "information on gnucap at &lt;http://www.gnu.org/software/gnucap/&gt;."
@@ -3462,11 +3361,6 @@ msgstr ""
 #: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
 #: ../src/play_rhythm-activity/play_rhythm.py:83
-#| msgid ""
-#| "Error: this activity cannot be played with the\n"
-#| "sound effects disabled.\n"
-#| "Go to the configuration dialogue to\n"
-#| "enable the sound"
 msgid ""
 "Error: This activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3484,7 +3378,6 @@ msgstr "Clica para ouvir o som"
 
 #. draw back button
 #: ../src/explore-activity/explore.py:276
-#| msgid "Back to default"
 msgid "Back to Homepage"
 msgstr "Voltar à página inicial"
 
@@ -3552,7 +3445,6 @@ msgstr ""
 "correspondente. Ganhas quando identificares todos os textos corretamente!\n"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
-#| msgid "Click on the balloon to place it again."
 msgid "Click on the questions to explore each farm animal."
 msgstr "Clica nas perguntas para explorares cada animal da quinta."
 
@@ -3610,7 +3502,6 @@ msgid "You can drink the milk this animal produces."
 msgstr "Podes beber o leite que este animal produz."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:13
-#| msgid "cat"
 msgid "Cat"
 msgstr "Gato"
 
@@ -3640,7 +3531,6 @@ msgid "This animal likes to lie in the mud."
 msgstr "Este animal gosta de se deitar na lama."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
-#| msgid "White checks"
 msgid "White Duck"
 msgstr "Pato branco"
 
@@ -3745,7 +3635,6 @@ msgid "Click on location where the given animal lives."
 msgstr "Clica na localização onde o animal vive."
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
-#| msgid "South America"
 msgid "Jaguars in South America"
 msgstr "Jaguares na América do Sul"
 
@@ -3763,7 +3652,6 @@ msgid "Jaguar"
 msgstr "Jaguar"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
-#| msgid "Western Europe"
 msgid "Hedgehogs in Europe"
 msgstr "Ouriços na Europa"
 
@@ -3782,7 +3670,6 @@ msgid "Hedgehog"
 msgstr "Ouriço"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:9
-#| msgid "Northern Africa"
 msgid "Giraffes in Africa"
 msgstr "Girafas em África"
 
@@ -3799,7 +3686,6 @@ msgid "Giraffe"
 msgstr "Girafa"
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:12
-#| msgid "North America"
 msgid "Bison in America"
 msgstr "Bisonte na América"
 
@@ -3836,7 +3722,6 @@ msgid "Explore World Music"
 msgstr "Explorar o mundo da música"
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:2
-#| msgid "Learn about the water cycle"
 msgid "Learn about the music of the world."
 msgstr "Aprende acerca da música do mundo."
 
@@ -3887,19 +3772,16 @@ msgid "Explore world music! Click on the suitcases."
 msgstr "Explora a música do mundo! Clica nas malas."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:2
-#| msgid "Click on the balloon to place it again."
 msgid "Click on the location that matches the music you hear."
 msgstr "Clica na localização que corresponde à música que ouvires."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:3
-#| msgid "Click on the balloon to place it again."
 msgid "Click on the location that matches the text."
 msgstr "Clica na localização que corresponde ao texto."
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
 #: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:4
-#| msgid "Austria"
 msgid "Australia"
 msgstr "Austrália"
 
@@ -3957,7 +3839,6 @@ msgstr "Onde é que a música é usada para chamar pessoas à oração?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:53
-#| msgid "Japanese"
 msgid "Japan"
 msgstr "Japão"
 
@@ -4060,7 +3941,6 @@ msgid "Where is Mariachi music from?"
 msgstr "De onde é a música mariachi?"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-#| msgid "United States of America"
 msgid "United State of America"
 msgstr "Estados Unidos da América"
 
@@ -4256,7 +4136,6 @@ msgid "Choice of the level"
 msgstr "Seleção do nível"
 
 #: ../src/gcompris/config.c:57
-#| msgid "Your system default"
 msgid "Language: your system default"
 msgstr "Idioma: predefinição do sistema"
 
@@ -4301,7 +4180,6 @@ msgid "Chinese (Simplified)"
 msgstr "Chinês (simplificado)"
 
 #: ../src/gcompris/config.c:68
-#| msgid "Chinese (Traditional)"
 msgid "Chinese (Hong Kong)"
 msgstr "Chinês (Honk Kong)"
 
@@ -4368,7 +4246,6 @@ msgid "Greek"
 msgstr "Grego"
 
 #: ../src/gcompris/config.c:84 ../src/gcompris/config.c:114
-#| msgid "Irish (Gaelic)"
 msgid "Scottish Gaelic"
 msgstr "Escocês Gaélico"
 
@@ -4405,7 +4282,6 @@ msgid "Japanese"
 msgstr "Japonês"
 
 #: ../src/gcompris/config.c:93
-#| msgid "Canada"
 msgid "Kannada"
 msgstr "Kannada"
 
@@ -4418,7 +4294,6 @@ msgid "Korean"
 msgstr "Coreano"
 
 #: ../src/gcompris/config.c:96
-#| msgid "Latvia"
 msgid "Latvian"
 msgstr "Letão"
 
@@ -4443,7 +4318,6 @@ msgid "Marathi"
 msgstr "Marathi"
 
 #: ../src/gcompris/config.c:102
-#| msgid "Serbia Montenegro"
 msgid "Montenegrin"
 msgstr "Montenegrino"
 
@@ -4557,29 +4431,22 @@ msgid "Zulu"
 msgstr "Zulu"
 
 #: ../src/gcompris/config.c:135
-#| msgid "No time limit"
 msgid "Timer: No time limit"
 msgstr "Temporizador: sem tempo limite"
 
 #: ../src/gcompris/config.c:136
-#| msgid "Slow timer"
 msgid "Timer: Slow timer"
 msgstr "Temporizador: lento"
 
 #: ../src/gcompris/config.c:137
-#| msgid "Normal timer"
 msgid "Timer: Normal timer"
 msgstr "Temporizador: normal"
 
 #: ../src/gcompris/config.c:138
-#| msgid "Fast timer"
 msgid "Timer: Fast timer"
 msgstr "Temporizador: rápido"
 
 #: ../src/gcompris/config.c:142
-#| msgid ""
-#| "<i>Use GCompris administration module\n"
-#| "to filter boards</i>"
 msgid "Use GCompris administration module to filter boards"
 msgstr "Utilize o módulo de administração do GCompris para filtrar atividades"
 
@@ -4657,12 +4524,10 @@ msgid "run GCompris without sound."
 msgstr "Executar o GCompris com o som desativado."
 
 #: ../src/gcompris/gcompris.c:167
-#| msgid "run GCompris with the default gnome cursor."
 msgid "run GCompris with the default system cursor."
 msgstr "Executar o GCompris com o cursor predefinido do sistema."
 
 #: ../src/gcompris/gcompris.c:170
-#| msgid "run GCompris without sound."
 msgid "run GCompris without cursor (touch screen mode)."
 msgstr "Executar o GCompris sem cursor (modo Ecrã de toque)."
 
@@ -4676,11 +4541,6 @@ msgstr ""
 "Voltar ao último nível passado mesmo quando não haja utilizador selecionado"
 
 #: ../src/gcompris/gcompris.c:179
-#| msgid ""
-#| "Run GCompris with local menu (e.g -l /reading will let you play only "
-#| "activities in the reading directory, -l /strategy/connect4 only the "
-#| "connect4 activity). Use '-l list' to list all the availaible activities "
-#| "and their descriptions."
 msgid ""
 "Run GCompris with local menu (e.g -l /reading will let you play only "
 "activities in the reading directory, -l /strategy/connect4 only the connect4 "
@@ -4706,7 +4566,6 @@ msgid "GCompris will find the activity plugins in this directory"
 msgstr "O GCompris procurará as extensões de atividades nesta pasta"
 
 #: ../src/gcompris/gcompris.c:193
-#| msgid "GCompris will find the python activity in this directory"
 msgid "GCompris will find the Python activity in this directory"
 msgstr "O GCompris procurará a atividade python nesta pasta"
 
@@ -4775,7 +4634,6 @@ msgid "Disable the config button"
 msgstr "Desativar o botão \"Configurar\""
 
 #: ../src/gcompris/gcompris.c:235
-#| msgid "Disable the quit button"
 msgid "Disable the level button"
 msgstr "Desativar o botão \"Nível\"."
 
@@ -4829,15 +4687,6 @@ msgstr "Imprimir a versão de "
 
 #: ../src/gcompris/gcompris.c:942
 #, c-format
-#| msgid ""
-#| "GCompris is free software released under the GPL License. In order to "
-#| "support its development, the Windows version provides only %d of the %d "
-#| "activities. You can get the full version for a small fee at\n"
-#| "<http://gcompris.net>\n"
-#| "The GNU/Linux version does not have this restriction. If you also believe "
-#| "that we should teach freedom to children, please consider using GNU/"
-#| "Linux. Get more information at FSF:\n"
-#| "<http://www.fsf.org/philosophy>"
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support its development, this version provides only %d of the %d activities. "
@@ -4869,10 +4718,8 @@ msgstr ""
 msgid "Retrieving remote data..."
 msgstr "A obter dados remotos..."
 
-#: ../src/gcompris/gcompris.c:1513
+#: ../src/gcompris/gcompris.c:1518
 #, c-format
-#| msgid ""
-#| "GCompris won't start because the lock file is less than %d seconds old.\n"
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
 msgid_plural ""
@@ -4884,18 +4731,13 @@ msgstr[1] ""
 "O GCompris não vai iniciar porque o ficheiro de fecho tem menos de %d "
 "segundos.\n"
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1522
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "O ficheiro de fecho é: %s\n"
 
-#: ../src/gcompris/gcompris.c:1638
+#: ../src/gcompris/gcompris.c:1643
 #, c-format
-#| msgid ""
-#| "GCompris\n"
-#| "Version: %s\n"
-#| "Licence: GPL\n"
-#| "More info at http://gcompris.net\n"
 msgid ""
 "GCompris\n"
 "Version: %s\n"
@@ -4908,27 +4750,27 @@ msgstr ""
 "Mais informações em \"http://gcompris.net\".\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1823
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Execute \"-l\" para aceder a uma atividade diretamente.\n"
 
-#: ../src/gcompris/gcompris.c:1824
+#: ../src/gcompris/gcompris.c:1829
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "A lista das atividades disponíveis é:\n"
 
-#: ../src/gcompris/gcompris.c:1855
+#: ../src/gcompris/gcompris.c:1860
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Número de atividades: %d\n"
 
-#: ../src/gcompris/gcompris.c:1891
+#: ../src/gcompris/gcompris.c:1896
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existe mas não pode ser lido nem escrito."
 
-#: ../src/gcompris/gcompris.c:1986
+#: ../src/gcompris/gcompris.c:1991
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4937,7 +4779,7 @@ msgstr ""
 "Erro: o perfil \"%s\" não foi encontrado. Execute \"gcompris --profile-list"
 "\" para listar os perfis disponíveis.\n"
 
-#: ../src/gcompris/gcompris.c:2000
+#: ../src/gcompris/gcompris.c:2005
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "A lista de perfis disponíveis é:\n"
@@ -4977,7 +4819,6 @@ msgstr "Créditos"
 
 #: ../src/gcompris/menu.c:614
 #, c-format
-#| msgid "Reading activities."
 msgid ""
 "Loading activity from file:\n"
 "%s"
@@ -5020,7 +4861,6 @@ msgid "Cannot retrieve remote data"
 msgstr "Impossível obter dados remotos"
 
 #: ../src/gcompris/sugar_gc.c:82
-#| msgid "Djibouti"
 msgid "About"
 msgstr "Sobre"
 
@@ -5037,7 +4877,6 @@ msgid "Previous level"
 msgstr "Nível anterior"
 
 #: ../src/gcompris/sugar_gc.c:88
-#| msgid "%d (New level)"
 msgid "Next level"
 msgstr "Nível seguinte"
 
@@ -5090,7 +4929,6 @@ msgstr "Estados Unidos da América"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:2
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:2
-#| msgid "Connect 4"
 msgid "Connecticut"
 msgstr "Connecticut"
 
@@ -5131,7 +4969,6 @@ msgstr "Washington D.C."
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:10
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
-#| msgid "Main menu"
 msgid "Maine"
 msgstr "Maine"
 
@@ -5157,7 +4994,6 @@ msgstr "Pennsylvania"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:15
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:15
-#| msgid "Oware"
 msgid "Delaware"
 msgstr "Delaware"
 
@@ -5168,7 +5004,6 @@ msgstr "New Jersey"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:17
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:17
-#| msgid "Ireland"
 msgid "Maryland"
 msgstr "Maryland"
 
@@ -5185,19 +5020,16 @@ msgstr "Florida"
 #. Translators: Strip USA| and translate only Georgia
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:21
-#| msgid "Georgian"
 msgid "USA|Georgia"
 msgstr "EUA|Georgia"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:22
-#| msgid "South Africa"
 msgid "South Carolina"
 msgstr "Carolina do Sul"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:23
-#| msgid "North America"
 msgid "North Carolina"
 msgstr "Carolina do Norte"
 
@@ -5253,7 +5085,6 @@ msgstr "Mississippi"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:34
-#| msgid "Russian"
 msgid "Louisiana"
 msgstr "Louisiana"
 
@@ -5306,13 +5137,11 @@ msgstr "Arizona"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:44
-#| msgid "Mexico"
 msgid "New Mexico"
 msgstr "Novo México"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:45
-#| msgid "Colors"
 msgid "Colorado"
 msgstr "Colorado"
 
@@ -5333,7 +5162,6 @@ msgstr "South Dakota"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:49
-#| msgid "Birth Date"
 msgid "North Dakota"
 msgstr "North Dakota"
 
@@ -5368,7 +5196,6 @@ msgstr "Índia"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:1
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:1
-#| msgid "Northern Africa"
 msgid "Northern Scotland"
 msgstr "Escócia Norte"
 
@@ -5399,7 +5226,6 @@ msgstr "Ross"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:7
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:7
-#| msgid "Switzerland"
 msgid "Sutherland"
 msgstr "Sutherland"
 
@@ -5410,7 +5236,6 @@ msgstr "Caithness"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:9
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:9
-#| msgid "Iceland"
 msgid "Shetland"
 msgstr "Shetland"
 
@@ -5441,7 +5266,6 @@ msgstr "Aberdeenshire"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:1
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:1
-#| msgid "Southern Africa"
 msgid "Southern Scotland"
 msgstr "Escócia Sul"
 
@@ -5482,7 +5306,6 @@ msgstr "Clackmannanshire"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:9
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:9
-#| msgid "North America"
 msgid "North Ayrshire"
 msgstr "Ayrshire Norte"
 
@@ -5523,7 +5346,6 @@ msgstr "Ayrshire Este"
 
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:17
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:17
-#| msgid "South Africa"
 msgid "South Ayrshire"
 msgstr "Ayrshire Sul"
 
@@ -5619,7 +5441,6 @@ msgid "Caspian Sea"
 msgstr "Mar Cáspio"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:3
-#| msgid "Black mates"
 msgid "Black Sea"
 msgstr "Mar Negro"
 
@@ -5628,7 +5449,6 @@ msgid "Mediterranean Sea"
 msgstr "Mar Mediterrâneo"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:5
-#| msgid "Persian"
 msgid "Persian Gulf"
 msgstr "Golfo Pérsico"
 
@@ -5653,7 +5473,6 @@ msgid "Qatar"
 msgstr "Qatar"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:12
-#| msgid "Brain"
 msgid "Bahrain"
 msgstr "Bahrain"
 
@@ -5709,12 +5528,10 @@ msgstr "Turquia"
 
 #. Translators: Strip Asia| and translate only Georgia
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
-#| msgid "Georgian"
 msgid "Asia|Georgia"
 msgstr "Geórgia"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:27
-#| msgid "Turkish (Azerbaijan)"
 msgid "Azerbaijan"
 msgstr "Azerbaijão"
 
@@ -5723,7 +5540,6 @@ msgid "Iran"
 msgstr "Irão"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:29
-#| msgid "Turkish"
 msgid "Turkmenistan"
 msgstr "Turquemenistão"
 
@@ -5740,13 +5556,11 @@ msgid "Afghanistan"
 msgstr "Afeganistão"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:33
-#| msgid "Malay"
 msgid "Malaysia"
 msgstr "Malásia"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:34
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:19
-#| msgid "Indonesian"
 msgid "Indonesia"
 msgstr "Indonésia"
 
@@ -5779,7 +5593,6 @@ msgid "Sri Lanka"
 msgstr "Sri Lanka"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:44
-#| msgid "Swaziland"
 msgid "Thailand"
 msgstr "Tailândia"
 
@@ -5792,7 +5605,6 @@ msgid "Cambodia"
 msgstr "Cambodja"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:47
-#| msgid "Vietnamese"
 msgid "Vietnam"
 msgstr "Vietname"
 
@@ -5809,17 +5621,14 @@ msgid "Kazakhstan"
 msgstr "Kazaquistão"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:51
-#| msgid "South Africa"
 msgid "South Korea"
 msgstr "Coreia do Sul"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:52
-#| msgid "North America"
 msgid "North Korea"
 msgstr "Coreia do Norte"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:54
-#| msgid "Angola"
 msgid "Mongolia"
 msgstr "Mongólia"
 
@@ -5837,7 +5646,6 @@ msgid "America"
 msgstr "América"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:4
-#| msgid "Antartica"
 msgid "Antarctica"
 msgstr "Antárctida"
 
@@ -5851,12 +5659,10 @@ msgid "Oceania"
 msgstr "Oceania"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:3
-#| msgid "United States of America"
 msgid "United States Minor Outlying Islands"
 msgstr "Ilhas menores dos Estados Unidos"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:5
-#| msgid "America"
 msgid "American Samoa"
 msgstr "Samoa americana"
 
@@ -5865,7 +5671,6 @@ msgid "Cook Islands"
 msgstr "Ilhas Cook"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:7
-#| msgid "Greenland"
 msgid "New Zealand"
 msgstr "Nova Zelândia"
 
@@ -5886,7 +5691,6 @@ msgid "Marshall Islands"
 msgstr "Ilhas Marshall"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:12
-#| msgid "Macedonia"
 msgid "New Caledonia"
 msgstr "Nova Caledónia"
 
@@ -5899,17 +5703,14 @@ msgid "Tuvalu"
 msgstr "Tuvalu"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:15
-#| msgid "Manual"
 msgid "Vanuatu"
 msgstr "Vanuatu"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:16
-#| msgid "Indonesian"
 msgid "Micronesia"
 msgstr "Micronésia"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:17
-#| msgid "Northern Africa"
 msgid "Northern Mariana Islands"
 msgstr "Ilhas Marianas do Norte"
 
@@ -5918,7 +5719,6 @@ msgid "Palau"
 msgstr "Palau"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:20
-#| msgid "Fast timer"
 msgid "East Timor"
 msgstr "Timor Leste"
 
@@ -5927,7 +5727,6 @@ msgid "Papua New Guinea"
 msgstr "Papua Nova Guiné"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:22
-#| msgid "French Guiana"
 msgid "French Polynesia"
 msgstr "Polinésia Francesa"
 
@@ -5954,7 +5753,6 @@ msgstr "Islândia"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
-#| msgid "Central African Republic"
 msgid "Central America"
 msgstr "América Central"
 
@@ -6010,7 +5808,6 @@ msgstr "Jamaica"
 
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:13
-#| msgid "Paraguay"
 msgid "Nicaragua"
 msgstr "Nicarágua"
 
@@ -6209,12 +6006,10 @@ msgstr "Roménia"
 
 #: ../src/geography-activity/resources/geography/board6_0.xml.in.h:17
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
-#| msgid "Serbian"
 msgid "Serbia"
 msgstr "Sérvia"
 
 #: ../src/geography-activity/resources/geography/board6_0.xml.in.h:18
-#| msgid "Serbia Montenegro"
 msgid "Montenegro"
 msgstr "Montenegro"
 
@@ -6495,9 +6290,6 @@ msgstr ""
 "Digita no teclado as letras que vão caindo, antes que estas cheguem ao chão."
 
 #: ../src/gletters-activity/gletters.c:215
-#| msgid ""
-#| "Error: We can't find\n"
-#| "a list of words to play this game.\n"
 msgid ""
 "Error: We can't find\n"
 "a list of letters to play this game.\n"
@@ -6583,7 +6375,6 @@ msgstr " e %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:116
 #, python-brace-format
-#| msgid "%d is divisible by %s."
 msgid "{0} is divisible by {1}."
 msgstr "{0} é divisível por {1}."
 
@@ -6613,7 +6404,6 @@ msgstr "Fatores de %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:196
 #, python-brace-format
-#| msgid "%s are the factors of %d."
 msgid "{0} are the factors of {1}."
 msgstr "{0} são os fatores de {1}."
 
@@ -6823,13 +6613,11 @@ msgstr ""
 
 #: ../src/guessnumber-activity/guessnumber.py:203
 #, python-brace-format
-#| msgid "Guess a number between %d and %d"
 msgid "Guess a number between {0} and {1}"
 msgstr "Adivinha um número entre {0} e {1}"
 
 #: ../src/guessnumber-activity/guessnumber.py:307
 #, python-brace-format
-#| msgid "Please enter a number between %d and %d"
 msgid "Please enter a number between {0} and {1}"
 msgstr "Por favor, insere um número entre {0} e {1}."
 
@@ -6880,7 +6668,6 @@ msgstr ""
 #. All the vowel of your language (keep empty if non applicable)
 #. Separate with /. You can use digraphs, trigraphs etc.
 #: ../src/hangman-activity/hangman.py:62
-#| msgid "cake/c_ke/a/o/e/i/u/y"
 msgid "a/e/i/o/u/y"
 msgstr "a/e/i/o/u/ó/ò/õ/é/è/á/à/ã/í/ú"
 
@@ -6909,12 +6696,10 @@ msgstr "NENHUM"
 
 #: ../src/hangman-activity/hangman.py:144
 #: ../src/hangman-activity/hangman.py:150
-#| msgid "Polish"
 msgid "English"
 msgstr "Inglês"
 
 #: ../src/hangman-activity/hangman.py:153
-#| msgid "Configure the list of words"
 msgid "Could not find the list of words."
 msgstr "Impossível encontrar a lista de palavras."
 
@@ -6927,7 +6712,6 @@ msgid "A word is hidden, you must discover it letter by letter"
 msgstr "Está uma palavra escondida, tens de descobri-la letra a letra"
 
 #: ../src/hangman-activity/hangman.xml.in.h:3
-#| msgid "Reading"
 msgid "Reading skill"
 msgstr "Saber ler."
 
@@ -7171,9 +6955,6 @@ msgid "Learn about an electrical system based on renewable energy"
 msgstr "Aprende acerca de um sistema elétrico baseado em energias renováveis"
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
-#| msgid ""
-#| "Tux has come back from a long fishing party on his boat. Bring the water "
-#| "system back up so he can take a shower."
 msgid ""
 "Tux has come back from a long fishing party on his boat. Bring the "
 "electrical system back up so he can have light in his home."
@@ -7182,11 +6963,6 @@ msgstr ""
 "possa ter luz em casa."
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
-#| msgid ""
-#| "Click on different active elements : sun, cloud, water pump station, and "
-#| "water cleanup station, in order to reactivate the entire water system. "
-#| "When the system is back up and Tux is in the shower, push the shower "
-#| "button for him."
 msgid ""
 "Click on different active elements : sun, cloud, dam, solar array, wind farm "
 "and transformers, in order to reactivate the entire electrical system. When "
@@ -7495,22 +7271,18 @@ msgid "Music instruments"
 msgstr "Instrumentos musicais"
 
 #: ../src/instruments-activity/instruments.xml.in.h:2
-#| msgid "Click on the correct color"
 msgid "Click on the correct musical instruments"
 msgstr "Escolhe os instrumentos musicais corretos"
 
 #: ../src/instruments-activity/instruments.xml.in.h:3
-#| msgid "Learn to recognize unusual colors."
 msgid "Learn to recognize musical instruments."
 msgstr "Aprender a reconhecer instrumentos musicais."
 
 #: ../src/instruments-activity/instruments.xml.in.h:4
-#| msgid "Click on the correct color"
 msgid "Click on the correct instrument."
 msgstr "Clica no instrumento correto."
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:1
-#| msgid "Find the matching pair"
 msgid "Find the clarinet"
 msgstr "Clica no clarinete"
 
@@ -7519,22 +7291,18 @@ msgid "Find the transverse flute"
 msgstr "Clica na flauta transversal"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
-#| msgid "Find the matching pair"
 msgid "Find the guitar"
 msgstr "Clica na guitarra"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-#| msgid "Find the matching pair"
 msgid "Find the harp"
 msgstr "Clica na harpa"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
-#| msgid "Find the matching pair"
 msgid "Find the piano"
 msgstr "Clica no piano"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
-#| msgid "Find the matching pair"
 msgid "Find the saxophone"
 msgstr "Clica no saxofone"
 
@@ -7547,42 +7315,34 @@ msgid "Find the trumpet"
 msgstr "Clica no trompete"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
-#| msgid "Print the version of "
 msgid "Find the violin"
 msgstr "Clica no violino"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-#| msgid "Find the matching pair"
 msgid "Find the drum kit"
 msgstr "Clica na bateria"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
-#| msgid "Find the matching pair"
 msgid "Find the accordion"
 msgstr "Clica no acordeão"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
-#| msgid "Find the matching pair"
 msgid "Find the banjo"
 msgstr "Clica no banjo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
-#| msgid "Find the matching pair"
 msgid "Find the bongo"
 msgstr "Clica no bongo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
-#| msgid "Find the matching pair"
 msgid "Find the electric guitar"
 msgstr "Clica na guitarra elétrica"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
-#| msgid "Find the matching pair"
 msgid "Find the castanets"
 msgstr "Clica nas castanholas"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
-#| msgid "Find the next symbol in a list."
 msgid "Find the cymbal"
 msgstr "Clica no címbalo"
 
@@ -7591,47 +7351,38 @@ msgid "Find the cello"
 msgstr "Clica no violoncelo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
-#| msgid "Rebuild the mosaic"
 msgid "Find the harmonica"
 msgstr "Clica na harmónica"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
-#| msgid "Find the matching pair"
 msgid "Find the horn"
 msgstr "Clica na buzina"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
-#| msgid "Find the matching pair"
 msgid "Find the maracas"
 msgstr "Clica nas maracas"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
-#| msgid "Find the matching pair"
 msgid "Find the organ"
 msgstr "Clica no orgão"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
-#| msgid "Build the same model"
 msgid "Find the snare drum"
 msgstr "Clica no tambor"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
-#| msgid "Find the matching pair"
 msgid "Find the timpani"
 msgstr "Clica no tímpano"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-#| msgid "Find the matching pair"
 msgid "Find the triangle"
 msgstr "Clica no triângulo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
-#| msgid "Find the next symbol in a list."
 msgid "Find the tambourine"
 msgstr "Clica no tamborete"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
-#| msgid "Find the matching pair"
 msgid "Find the tuba"
 msgstr "Clica na tuba"
 
@@ -7719,12 +7470,10 @@ msgid "Click on me or press the Return key when you are ready."
 msgstr "Clica-me ou prime a tecla Enter quando estiveres pronto."
 
 #: ../src/land_safe-activity/land_safe.py:173
-#| msgid "I am Ready"
 msgid "I am ready!"
 msgstr "Estou pronto!"
 
 #: ../src/land_safe-activity/land_safe.py:473
-#| msgid "eight"
 msgid "Height: "
 msgstr "Altura: "
 
@@ -7781,7 +7530,8 @@ msgstr ""
 msgid "Enter the text you hear:"
 msgstr "Insere o texto que ouves:"
 
-#: ../src/lang-activity/langLib.py:69
+#. Translators : Do not translate the token {word}
+#: ../src/lang-activity/langLib.py:70
 #, python-brace-format
 msgid "Missing translation for '{word}'"
 msgstr "Tradução em falta para \"{word}\""
@@ -7854,9 +7604,6 @@ msgstr "Por favor pensa em ajudar com um conjunto de vozes."
 
 #: ../src/lang-activity/lang.py:172
 #, python-format
-#| msgid ""
-#| "<b>%s</b> configuration\n"
-#| " for profile <b>%s</b>"
 msgid ""
 "Configuration\n"
 " for profile <b>%s</b>"
@@ -7865,12 +7612,10 @@ msgstr ""
 "para o perfil <b>%s</b>."
 
 #: ../src/lang-activity/lang.py:177
-#| msgid "Select sound locale"
 msgid "Select locale"
 msgstr "Idioma do som:"
 
 #: ../src/lang-activity/lang.xml.in.h:1
-#| msgid "Go to the Reading activities"
 msgid "Go to the language learning activities"
 msgstr "Ir para as atividades de leitura"
 
@@ -7879,17 +7624,14 @@ msgid "other"
 msgstr "outro"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:2
-#| msgid "Duration"
 msgid "action"
 msgstr "ação"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:3
-#| msgid "Active"
 msgid "adjective"
 msgstr "adjetivo"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:5
-#| msgid "Number"
 msgid "number"
 msgstr "número"
 
@@ -7902,7 +7644,6 @@ msgid "clothes"
 msgstr "roupas"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:8
-#| msgid "Question"
 msgid "emotion"
 msgstr "emoção"
 
@@ -7915,7 +7656,6 @@ msgid "people"
 msgstr "pessoas"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:11
-#| msgid "Reports"
 msgid "sport"
 msgstr "desporto"
 
@@ -7932,12 +7672,10 @@ msgid "fruit"
 msgstr "fruta"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:15
-#| msgid "Picture"
 msgid "nature"
 msgstr "natureza"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:16
-#| msgid "plane"
 msgid "plant"
 msgstr "planta"
 
@@ -7946,17 +7684,14 @@ msgid "vegetables"
 msgstr "vegetais"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:18
-#| msgid "Learn subtraction"
 msgid "construction"
 msgstr "construção"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:19
-#| msgid "Picture"
 msgid "furniture"
 msgstr "mobília"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:20
-#| msgid "house"
 msgid "houseware"
 msgstr "casa"
 
@@ -7993,9 +7728,6 @@ msgstr ""
 "Desenvolver a capacidade de representação espacial."
 
 #: ../src/leftright-activity/leftright.xml.in.h:4
-#| msgid ""
-#| "You can see a hand: is it a left hand or a right hand? Click on the red "
-#| "button on the left, or the green button on the right."
 msgid ""
 "You can see a hand: is it a left hand or a right hand? Click on the left "
 "button, or the right button depending on the displayed hand."
@@ -8075,16 +7807,6 @@ msgstr ""
 "personalizados acerca das suas atividades."
 
 #: ../src/login-activity/login.xml.in.h:4
-#| msgid ""
-#| "In order to activate the login screen, you must \n"
-#| "first add users in the administration part of GCompris. \n"
-#| "You access Administration by running 'gcompris -a'.\n"
-#| "In Administration, you can create different profiles. In each profile,\n"
-#| "you can have a different set of users and select which activities are "
-#| "available to them.\n"
-#| "To run GCompris for a specific profile, you use 'gcompris -p profile' "
-#| "where 'profile'\n"
-#| "is the name of a profile as you created it in Administration."
 msgid ""
 "In order to activate the login screen, you must\n"
 "first add users in the administration part of GCompris.\n"
@@ -8668,7 +8390,6 @@ msgstr ""
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:3
 #: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:3
-#| msgid "Addition and subtraction memory game"
 msgid "Addition and subtraction"
 msgstr "Jogo de memória com a adição e a subtração"
 
@@ -8818,29 +8539,6 @@ msgstr "Praticar a subtração, associando cartas."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:5
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:5
-#| msgid ""
-#| "You can see some cards, but you can't see what's on the other side of "
-#| "them. Each card is hiding a subtraction, or the answer to it.\n"
-#| "A subtraction looks like this: 3 - 1 = 2\n"
-#| "The numbers on one side of the equals sign (=) have to be the same as the "
-#| "number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
-#| "when you work this out, and count on your fingers, because the more ways "
-#| "you do something, the better you remember it. You can also use blocks, or "
-#| "buttons, or anything you can count. If you have lots of brothers and "
-#| "sisters, you can count them! Or the kids in your class at school. Sing "
-#| "counting songs. Count lots of things, for practice, and you'll be very "
-#| "good at adding-up!\n"
-#| "\n"
-#| "In this game, these cards are hiding the two parts of a subtraction. You "
-#| "need to find the two parts of the subraction, and bring them together "
-#| "again. Click on a card to see what number it's hiding, then try to find "
-#| "the other card that goes with it, to make a whole sum. You can only turn "
-#| "over two cards in one go, so you need to remember where the numbers are "
-#| "hiding, then you can match them when you find their other half. You're "
-#| "doing the job of the equals sign, and the numbers need you to put them "
-#| "together and make a proper sum. When you do that, both those cards "
-#| "disappear! When you've made them all disappear, found all the subtracts, "
-#| "you've won the game! :)"
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a subtraction, or the answer to it.\n"
@@ -8948,7 +8646,6 @@ msgstr "Utilização do rato. Cérebro."
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:4
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:4
-#| msgid "Train your audio memory and remove all the violonists Tux."
 msgid "Train your audio memory and remove all the violinists Tux."
 msgstr "Treinar a memória auditiva, associando os pares de Tuxes violinistas."
 
@@ -9222,7 +8919,6 @@ msgid "car/c_r/a/k/o"
 msgstr "carro/c_rro/a/e/i"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:1
-#| msgid "banana/b_nana/a/o/i"
 msgid "bag/b_g/a/o/i"
 msgstr "banana/ba_ana/n/c/l"
 
@@ -9416,16 +9112,11 @@ msgstr "Dá o troco ao Tux"
 
 #: ../src/money_back-activity/money_back.xml.in.h:2
 #: ../src/money_back_cents-activity/money_back_cents.xml.in.h:2
-#| msgid "Practice money usage including cents"
 msgid "Practice money usage by giving Tux his change"
 msgstr "Aprende a utilizar dinheiro, incluindo cêntimos, dando o troco ao Tux"
 
 #: ../src/money_back-activity/money_back.xml.in.h:4
 #: ../src/money_back_cents-activity/money_back_cents.xml.in.h:4
-#| msgid ""
-#| "You must buy the different items and give the exact price. At higher "
-#| "levels, several items are displayed, and you must first calculate the "
-#| "total price."
 msgid ""
 "Tux bought you different items and shows you his money. You must give him "
 "back his change. At higher levels, several items are displayed, and you must "
@@ -9436,7 +9127,6 @@ msgstr ""
 "preço total primeiro."
 
 #: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
-#| msgid "Practice money usage including cents"
 msgid "Give tux his change, including cents"
 msgstr "Dá o troco ao Tux, incluindo cêntimos."
 
@@ -9599,7 +9289,6 @@ msgid "Giuseppe Arcimboldo, Spring - 1573"
 msgstr "Giuseppe Arcimboldo, Primavera - 1573"
 
 #: ../src/paintings-activity/resources/paintings/board1_3.xml.in.h:1
-#| msgid "Giuseppe Arcimboldo, The Librarian - 1566)"
 msgid "Giuseppe Arcimboldo, The Librarian - 1566"
 msgstr "Giuseppe Arcimboldo, O Bibliotecário - 1566)"
 
@@ -9608,7 +9297,6 @@ msgid "Katsushika Hokusai, Oiran and Kamuro"
 msgstr "Katsushika Hokusai, Oiran e Kamuro"
 
 #: ../src/paintings-activity/resources/paintings/board1_5.xml.in.h:1
-#| msgid "Woman holding a fan"
 msgid "Katsushika Hokusai, Woman holding a fan"
 msgstr "Katsushika Hokusai, Mulher a segurar um leque"
 
@@ -9649,7 +9337,6 @@ msgid "Albrecht Dürer, Lion - 1494"
 msgstr "Albrecht Dürer, Lion - 1494"
 
 #: ../src/paintings-activity/resources/paintings/board2_4.xml.in.h:1
-#| msgid "Pieter Bruegel the Elder, The peasants wedding - 1568"
 msgid "Pieter Brugel, The Harvesters - 1565"
 msgstr "Pieter Brueghel, “O Velho” – \"Casamento de Camponeses\" (1568)"
 
@@ -9658,21 +9345,19 @@ msgid "Pierre-Auguste Renoir, Girls At The Piano - 1892"
 msgstr "Pierre-Auguste Renoir – \"Meninas Ao Piano\" (1892)"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:1
-#| msgid "Kandinsky, Wassily, Composition VIII - 1923"
 msgid "Wassily Kandinsky, Composition VIII - 1923"
 msgstr "Wassily Kandinsky – \"Composição VIII\" (1923)"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:2
 msgid "Oil on canvas, 140 x 201 cm; Solomon R. Guggenheim Museum, New York"
 msgstr ""
-"Óleo sobre tela, 140 cm × 201 cm; Solomon R. Guggenheim Museum, Nova Iorque."
+"Óleo sobre tela, 140 cm × 201 cm; Solomon R. Guggenheim Museum, Nova Iorque."
 
 #: ../src/paintings-activity/resources/paintings/board4_0.xml.in.h:1
 msgid "Bazille, The Ramparts at Aigues-Mortes - 1867"
 msgstr "Bazille – \"As Muralhas de Aigues-Mortes\" (1867)"
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
-#| msgid "Cassatt, Mary - Summertime - 1894"
 msgid "Mary Cassatt, Summertime - 1894"
 msgstr "Mary Cassat – \"Verão\" (1894)"
 
@@ -9714,12 +9399,10 @@ msgstr ""
 "outra tecla ou clica no Tux para este abrir o pára-quedas."
 
 #: ../src/penalty-activity/penalty.py:292
-#| msgid "Click on the balloon to place it again."
 msgid "Click on the ball to place it again."
 msgstr "Clica na bola para a recolocares na marca de grande penalidade."
 
 #: ../src/penalty-activity/penalty.py:294
-#| msgid "Click twice on the balloon to shoot it."
 msgid "Click twice on the ball to shoot it."
 msgstr "Faz duplo clique na bola para a chutares."
 
@@ -9923,7 +9606,6 @@ msgstr "Alterar o tipo de nota:"
 
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
 #: ../src/piano_composition-activity/piano_composition.py:244
-#| msgid "light house"
 msgid "Eighth Note"
 msgstr "Colcheia"
 
@@ -9943,7 +9625,6 @@ msgid "Whole Note"
 msgstr "Semibreve"
 
 #: ../src/piano_composition-activity/piano_composition.py:325
-#| msgid "Music"
 msgid "Load Music"
 msgstr "Carregar música"
 
@@ -10123,7 +9804,6 @@ msgid "German Kid's Song"
 msgstr "Canção de crianças alemã"
 
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:9
-#| msgid "Counties of Brazil"
 msgid "Children's Song from Brazil"
 msgstr "Canção de crianças brasileira"
 
@@ -10166,7 +9846,6 @@ msgid "Satellite goes too slow"
 msgstr "O satélite vai devagar demais"
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:274
-#| msgid "Distance:"
 msgid "Distance: {:.1f}"
 msgstr "Distância: {:.1f}"
 
@@ -10254,7 +9933,6 @@ msgstr ""
 "<Seta esquerda> e <Seta direita>."
 
 #: ../src/play_piano-activity/play_piano.py:123
-#| msgid "Color of the line"
 msgid "Color code notes?"
 msgstr "Notas com código de cores?"
 
@@ -10357,7 +10035,6 @@ msgstr ""
 "  F5: Lá sustenido / Si bemol\n"
 
 #: ../src/play_rhythm-activity/play_rhythm.py:122
-#| msgid "Can count"
 msgid "Beat Count:"
 msgstr "Número de batidas:"
 
@@ -10370,7 +10047,6 @@ msgid "For a little help, click the metronome to hear the tempo."
 msgstr "Clica no metrónomo para ouvires o tempo."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:350
-#| msgid "Listen to the color and click on the matching duck."
 msgid "Listen to the rhythm and follow the moving line."
 msgstr "Ouve o ritmo e segue a linha em movimento."
 
@@ -10390,7 +10066,6 @@ msgstr ""
 "Agora, lê o ritmo. Não será tocado para ti. Depois, bate o ritmo no tambor."
 
 #: ../src/play_rhythm-activity/play_rhythm.py:359
-#| msgid "Click on the balloon to place it again."
 msgid "Click erase to try again."
 msgstr "Clica na vassoura para tentar novamente."
 
@@ -10473,7 +10148,6 @@ msgid "Python Template"
 msgstr "Modelo Python"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:2
-#| msgid "An empty python activity to use as a starting point"
 msgid "An empty Python activity to use as a starting point"
 msgstr "Atividade vazia, em Python, para utilizar como ponto de partida."
 
@@ -10489,8 +10163,6 @@ msgstr "Adicionar uma associação de linguagem ao GCompris."
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:5
 #: ../src/pythontest-activity/pythontest.xml.in.h:5
-#| msgid ""
-#| "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgid ""
 "Thanks to Guido van Rossum and the Python team for this powerful language!"
 msgstr ""
@@ -10509,26 +10181,26 @@ msgid "This activity is not playable, just a test"
 msgstr "Esta atividade não pode ser jogada, é apenas um teste."
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:456
+#: ../src/pythontest-activity/pythontest.py:457
 msgid "Disable line drawing in circle"
 msgstr "Desativar o desenho de linhas nos círculos."
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:465
+#: ../src/pythontest-activity/pythontest.py:466
 msgid "Color of the line"
 msgstr "Cor da linha"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:476
+#: ../src/pythontest-activity/pythontest.py:477
 msgid "Distance between circles"
 msgstr "Distância entre círculos"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:487
+#: ../src/pythontest-activity/pythontest.py:488
 msgid "Use circles"
 msgstr "Utilizar círculos"
 
-#: ../src/pythontest-activity/pythontest.py:488
+#: ../src/pythontest-activity/pythontest.py:489
 msgid "Use rectangles"
 msgstr "Utilizar retângulos"
 
@@ -10537,7 +10209,6 @@ msgid "Python Test"
 msgstr "Teste Python"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:2
-#| msgid "Test board for the python plugin"
 msgid "Test board for the Python plugin"
 msgstr "Atividade de teste para a extensão de Python"
 
@@ -10746,7 +10417,6 @@ msgid "Enter the weight of the object"
 msgstr "Insere o peso do objeto"
 
 #: ../src/scalesboard-activity/scale.c:1087
-#| msgid "Take care, you can drop masses on both sides of the scale."
 msgid "Take care, you can drop weights on both sides of the scale."
 msgstr "Atenção: podes colocar pesos nos dois pratos da balança."
 
@@ -10756,7 +10426,6 @@ msgid "Balance the scales properly"
 msgstr "Equilibra as balanças"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:2
-#| msgid "Drag and Drop masses to balance the scales"
 msgid "Drag and Drop weights to balance the scales"
 msgstr "Coloca pesos nos pratos da balança para os equilibrares."
 
@@ -10767,9 +10436,6 @@ msgstr ""
 "igualdade aritmética."
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:4
-#| msgid ""
-#| "To balance the scales, move the masses on the left or the right side. The "
-#| "masses can be arranged in any order."
 msgid ""
 "To balance the scales, move the weights on the left or the right side. The "
 "weights can be arranged in any order."
@@ -10780,10 +10446,6 @@ msgstr ""
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
-#| msgid ""
-#| "The painting is an original painting created by Virginie MOREAU (virginie."
-#| "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
-#| "released under the GPL licence."
 msgid ""
 "The painting is an original painting created by Virginie MOREAU (virginie."
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
@@ -11107,11 +10769,6 @@ msgid "Learn how a submarine works"
 msgstr "Aprende o funcionamento de um submarino."
 
 #: ../src/submarine-activity/submarine.xml.in.h:5
-#| msgid ""
-#| "Click on different active elements : engine, rudders and air tanks, in "
-#| "order to navigate to the required depth. There is a closed gate on the "
-#| "right. Catch the jewel to open it, then pass through it to reach the next "
-#| "level."
 msgid ""
 "Click on different active elements : engine, rudders and air tanks, in order "
 "to navigate to the required depth. There is a closed gate on the right. "
@@ -11154,11 +10811,6 @@ msgstr ""
 "símbolo ou número (fonte: https://pt.wikipedia.org/wiki/Sudoku&gt;)."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:5
-#| msgid ""
-#| "For the first level with colored symbols, drag symbols on the left to "
-#| "their target position. For the higher levels, click on an empty square to "
-#| "give it the keyboard focus. Then enter a possible letter or number. "
-#| "GCompris will not let you enter invalid data."
 msgid ""
 "For the first level with colored symbols, select a symbol on the left and "
 "click on its target position. For the higher levels, click on an empty "
@@ -11188,7 +10840,6 @@ msgstr "Este item está bem colocado"
 
 #: ../src/superbrain-activity/superbrain.c:416
 #: ../src/superbrain-activity/superbrain.c:569
-#| msgid "is being displayed"
 msgid "This item is misplaced"
 msgstr "Este item está mal colocado"
 
@@ -11197,7 +10848,6 @@ msgid "One item is well placed"
 msgstr "Um item está bem colocado"
 
 #: ../src/superbrain-activity/superbrain.c:601
-#| msgid "And it was displayed"
 msgid "One item is misplaced"
 msgstr "Um item está mal colocado"
 
@@ -11297,7 +10947,6 @@ msgstr ""
 
 #: ../src/target-activity/target.c:484
 #, c-format
-#| msgid "Distance to target = %d meters"
 msgid "Distance to target = %d meter"
 msgid_plural "Distance to target = %d meters"
 msgstr[0] "Distância do alvo = %d metro"
@@ -11370,23 +11019,23 @@ msgstr ""
 msgid "Waiting for Tuxpaint to finish"
 msgstr "À espera que o Tuxpaint encerre"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:244
+#: ../src/tuxpaint-activity/tuxpaint.py:245
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Adoptar a definição de ecrã completo do GCompris"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:248
+#: ../src/tuxpaint-activity/tuxpaint.py:249
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Adoptar as dimensões de ecrã do GCompris (800×600, 640×480)."
 
-#: ../src/tuxpaint-activity/tuxpaint.py:252
+#: ../src/tuxpaint-activity/tuxpaint.py:253
 msgid "Disable shape rotation"
 msgstr "Desativar a rotação de formas."
 
-#: ../src/tuxpaint-activity/tuxpaint.py:256
+#: ../src/tuxpaint-activity/tuxpaint.py:257
 msgid "Show Uppercase text only"
 msgstr "Mostrar só texto em maiúsculas."
 
-#: ../src/tuxpaint-activity/tuxpaint.py:260
+#: ../src/tuxpaint-activity/tuxpaint.py:261
 msgid "Disable stamps"
 msgstr "Desativar carimbos"
 
@@ -11506,11 +11155,6 @@ msgstr ""
 "fornecido pelo professor."
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:4
-#| msgid ""
-#| "Learn how to enter text in a wordprocessor. This wordprocessor is special "
-#| "in that it enforces the use of styles. This way, the children will "
-#| "understand their benefit when moving to more feature full wordprocessor "
-#| "like OpenOffice.org."
 msgid ""
 "Learn how to enter text in a wordprocessor. This wordprocessor is special in "
 "that it enforces the use of styles. This way, the children will understand "
@@ -11554,7 +11198,6 @@ msgid "Keyboard training"
 msgstr "Treinar a utilização do teclado"
 
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
-#| msgid "Type the complete word as it falls, before it reachs the ground"
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr ""
 "Digita no teclado as palavras que vão caindo, antes que estas cheguem ao "
