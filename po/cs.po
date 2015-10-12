@@ -8,15 +8,15 @@
 # Kamil Páral <ripper42@gmail.com>, 2008.
 # Petr Kovar <pknbe@volny.cz>, 2008.
 # Vladimír Burian <vladimir.burian@email.cz>, 2010.
-# Marek Černocký <marek@manet.cz>, 2009, 2010, 2011, 2012, 2013, 2014.
+# Marek Černocký <marek@manet.cz>, 2009, 2010, 2011, 2012, 2013, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-12-25 01:10+0000\n"
-"PO-Revision-Date: 2014-12-27 06:57+0100\n"
+"POT-Creation-Date: 2015-08-27 21:13+0000\n"
+"PO-Revision-Date: 2015-10-12 16:16+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -178,7 +178,7 @@ msgstr "Jít na matematické paměťové aktivity"
 msgid "GCompris Main Menu"
 msgstr "Hlavní nabídka GCompris"
 
-#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:906
+#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:908
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -385,6 +385,10 @@ msgid "GCompris Administration"
 msgstr "Správa GCompris"
 
 #: ../gcompris-edit.desktop.in.h:2
+msgid "Administration interface for educational game"
+msgstr "Správcovské rozhraní pro výukovou hru"
+
+#: ../gcompris-edit.desktop.in.h:3
 msgid "Administration for gcompris"
 msgstr "Správa aplikace gcompris"
 
@@ -488,7 +492,8 @@ msgstr ""
 "<span size='x-large'> Vyberte obtížnost \n"
 "pro profil <b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:645
+#. Translators : Do not translate the token {profile}
+#: ../src/administration-activity/admin/board_list.py:646
 #, python-brace-format
 msgid ""
 "<b>Locale</b> configuration\n"
@@ -497,7 +502,8 @@ msgstr ""
 "Nastavení <b>národního prostředí</b>\n"
 " pro profil <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:657
+#. Translators : Do not translate the token {profile}
+#: ../src/administration-activity/admin/board_list.py:659
 #, python-brace-format
 msgid ""
 "<b>Locale sound</b> configuration\n"
@@ -506,8 +512,8 @@ msgstr ""
 "Nastavení <b>národního ozvučení</b>\n"
 " pro profil <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:663
-#: ../src/pythontest-activity/pythontest.py:513
+#: ../src/administration-activity/admin/board_list.py:665
+#: ../src/pythontest-activity/pythontest.py:514
 #: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
 msgstr "Vyber si nastavení zvuků"
@@ -539,14 +545,14 @@ msgid "Assign all the users belonging to this class"
 msgstr "Přiřaď všechny uživatele příslušející této třídě"
 
 #: ../src/administration-activity/admin/class_edit.py:246
-#: ../src/administration-activity/admin/group_edit.py:258
+#: ../src/administration-activity/admin/group_edit.py:259
 #: ../src/administration-activity/admin/group_user_list.py:150
 #: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Jméno"
 
 #: ../src/administration-activity/admin/class_edit.py:257
-#: ../src/administration-activity/admin/group_edit.py:269
+#: ../src/administration-activity/admin/group_edit.py:270
 #: ../src/administration-activity/admin/group_user_list.py:160
 #: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
@@ -574,36 +580,37 @@ msgstr "Učitel"
 msgid "Editing a Group"
 msgstr "Úprava skupiny"
 
-#: ../src/administration-activity/admin/group_edit.py:62
+#. Translators : Do not translate the token {group} and {aclass}
+#: ../src/administration-activity/admin/group_edit.py:63
 #, python-brace-format
 msgid "Editing group '{group}' for class '{aclass}'"
 msgstr "Úprava skupiny „{group}“ pro třídu „{aclass}“"
 
-#: ../src/administration-activity/admin/group_edit.py:66
+#: ../src/administration-activity/admin/group_edit.py:67
 msgid "Editing a new group"
 msgstr "Úprava nové skupiny"
 
-#: ../src/administration-activity/admin/group_edit.py:86
+#: ../src/administration-activity/admin/group_edit.py:87
 msgid "Group:"
 msgstr "Skupina:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/group_edit.py:98
+#: ../src/administration-activity/admin/group_edit.py:99
 #: ../src/administration-activity/admin/profile_edit.py:76
 msgid "Description:"
 msgstr "Popis:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/group_edit.py:109
+#: ../src/administration-activity/admin/group_edit.py:110
 msgid "Assign all the users belonging to this group"
 msgstr "Přiřaď všechny uživatele příslušející k této skupině"
 
-#: ../src/administration-activity/admin/group_edit.py:352
+#: ../src/administration-activity/admin/group_edit.py:353
 msgid "You need to provide at least a name for your group"
 msgstr "Je nutné zadat alespoň jméno vaší skupiny"
 
-#: ../src/administration-activity/admin/group_edit.py:366
+#: ../src/administration-activity/admin/group_edit.py:367
 msgid "There is already a group with this name"
 msgstr "Skupina s tímto jménem již existuje"
 
@@ -707,8 +714,8 @@ msgstr "Všichni uživatelé"
 #: ../src/administration-activity/admin/wordlist.py:48
 #: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:810
-#: ../src/pythontest-activity/pythontest.py:451
-#: ../src/tuxpaint-activity/tuxpaint.py:239
+#: ../src/pythontest-activity/pythontest.py:452
+#: ../src/tuxpaint-activity/tuxpaint.py:240
 msgid "Default"
 msgstr "Výchozí"
 
@@ -895,10 +902,17 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#. Translators : Do not translate the token {profile}
 #: ../src/administration-activity/admin/wordlist.py:45
 #: ../src/login-activity/login.py:478
-#: ../src/pythontest-activity/pythontest.py:448
-#: ../src/tuxpaint-activity/tuxpaint.py:236
+#: ../src/pythontest-activity/pythontest.py:449
+#: ../src/tuxpaint-activity/tuxpaint.py:237
 #, python-brace-format
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -4574,7 +4588,7 @@ msgstr ""
 msgid "Retrieving remote data..."
 msgstr "Získávají se vzdálená data…"
 
-#: ../src/gcompris/gcompris.c:1513
+#: ../src/gcompris/gcompris.c:1518
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4590,12 +4604,12 @@ msgstr[2] ""
 "GCompris se nemůže spustit, protože soubor zámku je méně než %d sekund "
 "starý.\n"
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1522
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Soubor zámku je: %s\n"
 
-#: ../src/gcompris/gcompris.c:1638
+#: ../src/gcompris/gcompris.c:1643
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4609,27 +4623,27 @@ msgstr ""
 "Více informací na http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1823
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Pro přímý přístup k aktivitě použijte -l.\n"
 
-#: ../src/gcompris/gcompris.c:1824
+#: ../src/gcompris/gcompris.c:1829
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seznam dostupných aktivit:\n"
 
-#: ../src/gcompris/gcompris.c:1855
+#: ../src/gcompris/gcompris.c:1860
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Počet aktivit: %d\n"
 
-#: ../src/gcompris/gcompris.c:1891
+#: ../src/gcompris/gcompris.c:1896
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s existuje, ale nelze jej číst nebo do něj zapisovat"
 
-#: ../src/gcompris/gcompris.c:1986
+#: ../src/gcompris/gcompris.c:1991
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4638,7 +4652,7 @@ msgstr ""
 "CHYBA: Profil „%s“ nebyl nalezen. Dostupné profily si vypíšete spuštěním "
 "„gcompris --profile-list“\n"
 
-#: ../src/gcompris/gcompris.c:2000
+#: ../src/gcompris/gcompris.c:2005
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seznam dostupných profilů:\n"
@@ -7369,7 +7383,8 @@ msgstr ""
 msgid "Enter the text you hear:"
 msgstr "Napišt text, který slyšíš:"
 
-#: ../src/lang-activity/langLib.py:69
+#. Translators : Do not translate the token {word}
+#: ../src/lang-activity/langLib.py:70
 #, python-brace-format
 msgid "Missing translation for '{word}'"
 msgstr "Schází překlad pro „{word}“"
@@ -9985,26 +10000,26 @@ msgid "This activity is not playable, just a test"
 msgstr "Tato aktivita se ještě nedá hrát, je to pouze test"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:456
+#: ../src/pythontest-activity/pythontest.py:457
 msgid "Disable line drawing in circle"
 msgstr "Zrušit vykreslení čáry v kruhu"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:465
+#: ../src/pythontest-activity/pythontest.py:466
 msgid "Color of the line"
 msgstr "Barva čáry"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:476
+#: ../src/pythontest-activity/pythontest.py:477
 msgid "Distance between circles"
 msgstr "Vzdálenost mezi kruhy"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:487
+#: ../src/pythontest-activity/pythontest.py:488
 msgid "Use circles"
 msgstr "Použít kruhy"
 
-#: ../src/pythontest-activity/pythontest.py:488
+#: ../src/pythontest-activity/pythontest.py:489
 msgid "Use rectangles"
 msgstr "Použít obdélníky"
 
@@ -10765,23 +10780,23 @@ msgstr ""
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Čekám na ukončení Tuxpaintu"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:244
+#: ../src/tuxpaint-activity/tuxpaint.py:245
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Dědit nastavení na celou obrazovku od GComprisu"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:248
+#: ../src/tuxpaint-activity/tuxpaint.py:249
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Dědit nastavení velikosti z aplikace GCompris (800×600, 640×480)"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:252
+#: ../src/tuxpaint-activity/tuxpaint.py:253
 msgid "Disable shape rotation"
 msgstr "Zrušit otočení útvaru"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:256
+#: ../src/tuxpaint-activity/tuxpaint.py:257
 msgid "Show Uppercase text only"
 msgstr "Zobrazit pouze text s velkými písmeny"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:260
+#: ../src/tuxpaint-activity/tuxpaint.py:261
 msgid "Disable stamps"
 msgstr "Zrušit značky"
 
