@@ -59,7 +59,7 @@ SetDateSave on
   !define MUI_ABORTWARNING
 
   ;Finish Page config
-  !define MUI_FINISHPAGE_RUN			"$INSTDIR\gcompris.exe"
+  !define MUI_FINISHPAGE_RUN			"$INSTDIR\gcompris.bat"
   !define MUI_FINISHPAGE_RUN_NOTCHECKED
   !define MUI_FINISHPAGE_LINK			$(GcomprisFinishVisitWebSite)
   !define MUI_FINISHPAGE_LINK_LOCATION          "http://gcompris.net/"
@@ -240,10 +240,10 @@ Section "GCompris" SecGcompris
     nt4_done:
 
     CreateDirectory "$SMPROGRAMS\GCompris"
-    CreateShortCut "$SMPROGRAMS\GCompris\GCompris.lnk" "$INSTDIR\gcompris.exe"
-    CreateShortCut "$DESKTOP\GCompris.lnk" "$INSTDIR\gcompris.exe"
-    CreateShortCut "$SMPROGRAMS\GCompris\GCompris Admin.lnk" "$INSTDIR\gcompris.exe" `-a` "$INSTDIR\gcompris.exe" 1
-    CreateShortCut "$DESKTOP\GCompris Admin.lnk" "$INSTDIR\gcompris.exe" `-a` "$INSTDIR\gcompris.exe" 1
+    CreateShortCut "$SMPROGRAMS\GCompris\GCompris.lnk" "$INSTDIR\gcompris.bat" "" "$INSTDIR\gcompris.ico" "" SW_SHOWMINIMIZED
+    CreateShortCut "$DESKTOP\GCompris.lnk" "$INSTDIR\gcompris.bat" "" "$INSTDIR\gcompris.ico" "" SW_SHOWMINIMIZED
+    CreateShortCut "$SMPROGRAMS\GCompris\GCompris Admin.lnk" "$INSTDIR\gcompris.bat" `-a` "$INSTDIR\gc_admin.ico" "" SW_SHOWMINIMIZED
+    CreateShortCut "$DESKTOP\GCompris Admin.lnk" "$INSTDIR\gcompris.bat" `-a` "$INSTDIR\gc_admin.ico" "" SW_SHOWMINIMIZED
     SetOutPath "$INSTDIR"
 
     ; If we don't have install rights.. we're done
@@ -261,9 +261,9 @@ Section "GCompris" SecGcompris
 
     ; If we previously had gcompris setup to run on startup, make it do so again
     StrCmp $STARTUP_RUN_KEY "HKCU" +1 +2
-    WriteRegStr HKCU "${GCOMPRIS_STARTUP_RUN_KEY}" "Gcompris" "$INSTDIR\gcompris.exe"
+    WriteRegStr HKCU "${GCOMPRIS_STARTUP_RUN_KEY}" "Gcompris" "$INSTDIR\gcompris.bat"
     StrCmp $STARTUP_RUN_KEY "HKLM" +1 +2
-    WriteRegStr HKLM "${GCOMPRIS_STARTUP_RUN_KEY}" "Gcompris" "$INSTDIR\gcompris.exe"
+    WriteRegStr HKLM "${GCOMPRIS_STARTUP_RUN_KEY}" "Gcompris" "$INSTDIR\gcompris.bat"
 
   done:
 SectionEnd ; end of default GCompris section
@@ -308,6 +308,9 @@ Section Uninstall
     RMDir /r "$INSTDIR\lib"
     RMDir /r "$INSTDIR\share"
     Delete "$INSTDIR\gcompris.exe"
+    Delete "$INSTDIR\gcompris.bat"
+    Delete "$INSTDIR\gcompris.ico"
+    Delete "$INSTDIR\gc_admin.ico"
     Delete "$INSTDIR\${GCOMPRIS_UNINST_EXE}"
     Delete "$INSTDIR\COPYING"
     Delete "$INSTDIR\README"
@@ -316,6 +319,7 @@ Section Uninstall
     Delete "$INSTDIR\cairo._cairo.pyd"
     Delete "$INSTDIR\gtk._gtk.pyd"
     Delete "$INSTDIR\_hashlib.pyd"
+    Delete "$INSTDIR\pyexpat.pyd"
     Delete "$INSTDIR\_socket.pyd"
     Delete "$INSTDIR\_ssl.pyd"
     Delete "$INSTDIR\_tkinter.pyd"
@@ -862,4 +866,3 @@ Function GetWindowsVersion
   Pop $R1
   Exch $R0
 FunctionEnd
-
