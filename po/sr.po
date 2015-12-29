@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gcompris\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompri"
 "s&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-12-25 01:10+0000\n"
-"PO-Revision-Date: 2015-01-07 20:18+0200\n"
+"POT-Creation-Date: 2015-08-27 21:13+0000\n"
+"PO-Revision-Date: 2015-12-29 10:23+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -175,7 +175,7 @@ msgid "GCompris Main Menu"
 msgstr "Главни изборник Гкомприса"
 
 # bug: "is an educational games" -> "is an educational game"/"is a set of educational games"
-#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:906
+#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:908
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -298,9 +298,6 @@ msgstr "Стратегијске игре попут шаха, повежи4, ..
 
 # bug: "is an educational games" -> "is an educational game"/"is a set of educational games"
 #: ../gcompris.appdata.xml.in.h:1
-#| msgid ""
-#| "GCompris is a collection of educational games that provides different "
-#| "activities for children aged 2 and up."
 msgid ""
 "GCompris is an educational software suite comprising of numerous activities "
 "for children aged 2 to 10."
@@ -349,7 +346,6 @@ msgid "games: chess, memory, connect 4, oware, sudoku, ..."
 msgstr "игре: шах, памћење, повежи 4, овар, судоку, ..."
 
 #: ../gcompris.appdata.xml.in.h:9
-#| msgid "Horizontal reading practice"
 msgid "reading: reading practice"
 msgstr "читање: вежбе читања"
 
@@ -389,6 +385,11 @@ msgid "GCompris Administration"
 msgstr "Администрација Гкомприса"
 
 #: ../gcompris-edit.desktop.in.h:2
+#| msgid "Administration for gcompris"
+msgid "Administration interface for educational game"
+msgstr "Администрацијско сучеље образовне игре"
+
+#: ../gcompris-edit.desktop.in.h:3
 msgid "Administration for gcompris"
 msgstr "Администрација за гкомприс"
 
@@ -414,8 +415,8 @@ msgid ""
 "continue?$\\r$\\rNote: Any non-standard plugins that you may have installed "
 "will be deleted.$\\rGCompris user settings will not be affected."
 msgstr ""
-"Стари директоријум Гкомприса ће сада бити обрисан. Да ли желиш да наставиш?\\"
-"r$\\rБелешка: Било који нестандардни додатак који си инсталирао биће "
+"Стари директоријум Гкомприса ће сада бити обрисан. Да ли желиш да наставиш?"
+"\\r$\\rБелешка: Било који нестандардни додатак који си инсталирао биће "
 "обрисан.$\\rКорисничка подешавања Гкомприса биће остављена."
 
 #: ../nsis_translations.desktop.in.h:5
@@ -423,8 +424,8 @@ msgid ""
 "the uninstaller could not find registry entries for GCompris.$\\rIt is "
 "likely that another user installed this application."
 msgstr ""
-"програм за уклањање не може да пронађе ставке регистра за Гкомприс.$\\"
-"rНајвероватније да је други корисник инсталирао овај програм."
+"програм за уклањање не може да пронађе ставке регистра за Гкомприс.$"
+"\\rНајвероватније да је други корисник инсталирао овај програм."
 
 #: ../nsis_translations.desktop.in.h:6
 msgid "You do not have permission to uninstall this application."
@@ -491,7 +492,8 @@ msgstr ""
 "<span size='x-large'> Изаберите распон тежине \n"
 "за профил <b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:645
+#. Translators : Do not translate the token {profile}
+#: ../src/administration-activity/admin/board_list.py:646
 #, python-brace-format
 msgid ""
 "<b>Locale</b> configuration\n"
@@ -500,7 +502,8 @@ msgstr ""
 "Подешавања <b>језика</b>\n"
 " за профил „<b>{profile}</b>“"
 
-#: ../src/administration-activity/admin/board_list.py:657
+#. Translators : Do not translate the token {profile}
+#: ../src/administration-activity/admin/board_list.py:659
 #, python-brace-format
 msgid ""
 "<b>Locale sound</b> configuration\n"
@@ -509,8 +512,8 @@ msgstr ""
 "Подешавања <b>звука језика</b>\n"
 " за профил „<b>{profile}</b>“"
 
-#: ../src/administration-activity/admin/board_list.py:663
-#: ../src/pythontest-activity/pythontest.py:513
+#: ../src/administration-activity/admin/board_list.py:665
+#: ../src/pythontest-activity/pythontest.py:514
 #: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
 msgstr "Изабери језик звука"
@@ -543,14 +546,14 @@ msgid "Assign all the users belonging to this class"
 msgstr "Доделите све кориснике који припадају овом разреду"
 
 #: ../src/administration-activity/admin/class_edit.py:246
-#: ../src/administration-activity/admin/group_edit.py:258
+#: ../src/administration-activity/admin/group_edit.py:259
 #: ../src/administration-activity/admin/group_user_list.py:150
 #: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Име"
 
 #: ../src/administration-activity/admin/class_edit.py:257
-#: ../src/administration-activity/admin/group_edit.py:269
+#: ../src/administration-activity/admin/group_edit.py:270
 #: ../src/administration-activity/admin/group_user_list.py:160
 #: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
@@ -579,36 +582,37 @@ msgstr "Учитељ"
 msgid "Editing a Group"
 msgstr "Уређивање групе"
 
-#: ../src/administration-activity/admin/group_edit.py:62
+#. Translators : Do not translate the token {group} and {aclass}
+#: ../src/administration-activity/admin/group_edit.py:63
 #, python-brace-format
 msgid "Editing group '{group}' for class '{aclass}'"
 msgstr "Уређивање групе „{group}“ за разред „{aclass}“"
 
-#: ../src/administration-activity/admin/group_edit.py:66
+#: ../src/administration-activity/admin/group_edit.py:67
 msgid "Editing a new group"
 msgstr "Уређивање нове групе"
 
-#: ../src/administration-activity/admin/group_edit.py:86
+#: ../src/administration-activity/admin/group_edit.py:87
 msgid "Group:"
 msgstr "Група:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/group_edit.py:98
+#: ../src/administration-activity/admin/group_edit.py:99
 #: ../src/administration-activity/admin/profile_edit.py:76
 msgid "Description:"
 msgstr "Опис:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/group_edit.py:109
+#: ../src/administration-activity/admin/group_edit.py:110
 msgid "Assign all the users belonging to this group"
 msgstr "Доделите све кориснике који припадају овој групи"
 
-#: ../src/administration-activity/admin/group_edit.py:352
+#: ../src/administration-activity/admin/group_edit.py:353
 msgid "You need to provide at least a name for your group"
 msgstr "Треба да наведете барем назив за вашу групу"
 
-#: ../src/administration-activity/admin/group_edit.py:366
+#: ../src/administration-activity/admin/group_edit.py:367
 msgid "There is already a group with this name"
 msgstr "Група са тим називом већ постоји"
 
@@ -712,8 +716,8 @@ msgstr "Сви корисници"
 #: ../src/administration-activity/admin/wordlist.py:48
 #: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:810
-#: ../src/pythontest-activity/pythontest.py:451
-#: ../src/tuxpaint-activity/tuxpaint.py:239
+#: ../src/pythontest-activity/pythontest.py:452
+#: ../src/tuxpaint-activity/tuxpaint.py:240
 msgid "Default"
 msgstr "Основно"
 
@@ -899,10 +903,17 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#. Translators : Do not translate the token {profile}
 #: ../src/administration-activity/admin/wordlist.py:45
 #: ../src/login-activity/login.py:478
-#: ../src/pythontest-activity/pythontest.py:448
-#: ../src/tuxpaint-activity/tuxpaint.py:236
+#: ../src/pythontest-activity/pythontest.py:449
+#: ../src/tuxpaint-activity/tuxpaint.py:237
 #, python-brace-format
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -1300,8 +1311,8 @@ msgid ""
 "(http://schmode.net/). Ralf has kindly permitted GCompris to include his "
 "pictures. Thanks a lot, Ralf."
 msgstr ""
-"Слике животиња су преузете са странице фотографија животиња Ралфа Шмодеа ("
-"Ralf Schmode — http://schmode.net/). Ралф је одобрио укључивање његових "
+"Слике животиња су преузете са странице фотографија животиња Ралфа Шмодеа "
+"(Ralf Schmode — http://schmode.net/). Ралф је одобрио укључивање његових "
 "слика у Гкомприс. Срдачно се захваљујемо Ралфу."
 
 #: ../src/algebra_minus-activity/algebra_minus.xml.in.h:1
@@ -1492,8 +1503,8 @@ msgstr ""
 "од малих правоуганика при дну. Сваки кадар садржи исти садржај као и његов "
 "претходни. Можеш да их мењаш тако што ћеш мало померати предмете, или их "
 "додавати и брисати. Када тако направиш неколико кадрова и када кликнеш на "
-"дугме „Филм“, видећеш све твоје слике у непрекидном покретном приказу ("
-"бескрајни образац понављања). Можеш да измениш последњу слику у твом филму "
+"дугме „Филм“, видећеш све твоје слике у непрекидном покретном приказу "
+"(бескрајни образац понављања). Можеш да измениш последњу слику у твом филму "
 "тако што ћеш кликнуту десним тастером миша на временски кадар. У овом режиму "
 "такође можеш мењати брзину приказивања,. У режиму приказа, кликни на дугме "
 "„Цртање“ да се вратиш на цртање. Такође, можеш да сачуваш и да поново учиташ "
@@ -1604,8 +1615,8 @@ msgstr ""
 "неко може да направи потез који дозвољава противнику да настави игру. Ако су "
 "све противникове куће празне, тренутни играч мора да направи потез који ће "
 "противнику дати зрна. Ако такав потез није могућ, тренутни играч узима сва "
-"његова зрна, и тиме завршава игру. (Извор Википедија: "
-"&lt;http://en.wikipedia.org/wiki/Oware&gt;)"
+"његова зрна, и тиме завршава игру. (Извор Википедија: &lt;http://en."
+"wikipedia.org/wiki/Oware&gt;)"
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:1
 msgid "Matching Items"
@@ -1628,7 +1639,8 @@ msgstr "Координација моторике. Знање упаривања
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:4
 msgid "Mouse manipulation: movement, drag and drop. Cultural references."
-msgstr "Управљање мишем: кретање, превлачење и пуштање. Културолошке референце."
+msgstr ""
+"Управљање мишем: кретање, превлачење и пуштање. Културолошке референце."
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:5
 msgid ""
@@ -2071,7 +2083,8 @@ msgstr "боја"
 #: ../src/chat-activity/chat.py:323
 msgid ""
 "ERROR: Failed to initialize the network interface. You cannot communicate."
-msgstr "ГРЕШКА: Нисам успео да покренем мрежно сучеље. Не можеш да комуницираш."
+msgstr ""
+"ГРЕШКА: Нисам успео да покренем мрежно сучеље. Не можеш да комуницираш."
 
 #: ../src/chat-activity/chat.py:433
 msgid "Has left the chat."
@@ -2518,9 +2531,6 @@ msgstr "Одговор"
 #.
 #: ../src/click_on_letter-activity/click_on_letter.c:1508
 #, c-format
-#| msgid ""
-#| "<b>%1$s</b> configuration\n"
-#| " for profile <b>%2$s</b>"
 msgctxt "click_on_letter_config"
 msgid ""
 "<b>%1$s</b> configuration\n"
@@ -2530,7 +2540,6 @@ msgstr ""
 " за профил <b>%2$s</b>"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:1521
-#| msgid "Choice of the language"
 msgid "Choose a language"
 msgstr "Изабери језик"
 
@@ -2860,8 +2869,8 @@ msgid ""
 "http://forcedattack.sourceforge.net&gt;"
 msgstr ""
 "Лорен Лашени. Слике и вештачка интелигенција су преузети из пројекта Жерона "
-"Влутуиса „4stattack“. Оригиналан пројекат можеш наћи на "
-"&lt;http://forcedattack.sourceforge.net&gt;"
+"Влутуиса „4stattack“. Оригиналан пројекат можеш наћи на &lt;http://"
+"forcedattack.sourceforge.net&gt;"
 
 #: ../src/crane-activity/crane.xml.in.h:1
 msgid "Build the same model"
@@ -3111,8 +3120,8 @@ msgid ""
 "information on gnucap at &lt;http://www.gnu.org/software/gnucap/&gt;."
 msgstr ""
 "Гкомприс користи ГнуКеп електрични симулатор као извршни програм. Више "
-"информација о ГнуКепу можеш наћи на "
-"&lt;http://www.gnu.org/software/gnucap/&gt;."
+"информација о ГнуКепу можеш наћи на &lt;http://www.gnu.org/software/gnucap/"
+"&gt;."
 
 #: ../src/electric-activity/electric.xml.in.h:6
 msgid ""
@@ -3315,8 +3324,8 @@ msgstr ""
 "\n"
 "На првом нивоу, уживај истражујући сваку животињу на екрану. Кликни на знак "
 "питања, и сазнај понешто о животињи, како се зове, како се оглашава, и како "
-"изгледа. Научи добро ове чињенице, зато што ћеш бити пропитан на нивоу 2 и 3!"
-"\n"
+"изгледа. Научи добро ове чињенице, зато што ћеш бити пропитан на нивоу 2 и "
+"3!\n"
 "\n"
 "На другом нивоу, насумично ће бити пуштен звук неке животиње а ти ћеш морати "
 "да изабереш која од животиња се тако оглашава. Кликни на знак питања који "
@@ -3410,7 +3419,6 @@ msgstr ""
 "животињама."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
-#| msgid "This animal likes to lay in the mud."
 msgid "This animal likes to lie in the mud."
 msgstr "Обожавају да се ваљају по каљугама."
 
@@ -3424,8 +3432,8 @@ msgid ""
 "and produce an oil to make their feathers \"waterproof\"."
 msgstr ""
 "Пловка кваче „ква, ква, ква“. Патке имају посебне одлике као што је кожица "
-"за пливање између прстију на ногама и лучење уља које њихова перја чини „"
-"отпорним на воду“."
+"за пливање између прстију на ногама и лучење уља које њихова перја чини "
+"„отпорним на воду“."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
 msgid "This animal has webbed feet so it can swim in the water."
@@ -3650,8 +3658,8 @@ msgstr ""
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:12
 msgid "Images from http://commons.wikimedia.org/wiki, http://archive.org"
 msgstr ""
-"Слике су са веб странице „http://commons.wikimedia.org/wiki, "
-"http://archive.org“"
+"Слике су са веб странице „http://commons.wikimedia.org/wiki, http://archive."
+"org“"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:1
 msgid "Explore world music! Click on the suitcases."
@@ -4157,7 +4165,6 @@ msgid "Japanese"
 msgstr "Јапански"
 
 #: ../src/gcompris/config.c:93
-#| msgid "Canada"
 msgid "Kannada"
 msgstr "Канада"
 
@@ -4444,7 +4451,8 @@ msgstr "Гкомприс ће пронаћи вежбе Питона у овом
 
 #: ../src/gcompris/gcompris.c:196
 msgid "GCompris will find the locale file (.mo translation) in this directory"
-msgstr "Гкомприс ће пронаћи датотеку језика („.mo“ превод) у овом директоријуму"
+msgstr ""
+"Гкомприс ће пронаћи датотеку језика („.mo“ превод) у овом директоријуму"
 
 #: ../src/gcompris/gcompris.c:199
 msgid "GCompris will find the activities menu in this directory"
@@ -4587,7 +4595,7 @@ msgid "Retrieving remote data..."
 msgstr "Преузимам удаљене податке..."
 
 # bug: plural-forms
-#: ../src/gcompris/gcompris.c:1513
+#: ../src/gcompris/gcompris.c:1518
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4606,12 +4614,12 @@ msgstr[3] ""
 "Гкомприс се неће покренути зато што је датотека закључавања млађа од %d "
 "секунде.\n"
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1522
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Датотека закључавања: %s\n"
 
-#: ../src/gcompris/gcompris.c:1638
+#: ../src/gcompris/gcompris.c:1643
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4625,27 +4633,27 @@ msgstr ""
 "Више на „http://gcompris.net“\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1823
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Користи параметар „-l“ да директно приступиш вежби.\n"
 
-#: ../src/gcompris/gcompris.c:1824
+#: ../src/gcompris/gcompris.c:1829
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Списак доступних вежби је :\n"
 
-#: ../src/gcompris/gcompris.c:1855
+#: ../src/gcompris/gcompris.c:1860
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Број вежби: %d\n"
 
-#: ../src/gcompris/gcompris.c:1891
+#: ../src/gcompris/gcompris.c:1896
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s постоји али се не може читати нити преписивати"
 
-#: ../src/gcompris/gcompris.c:1986
+#: ../src/gcompris/gcompris.c:1991
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4654,7 +4662,7 @@ msgstr ""
 "ГРЕШКА: Профил „%s“ није пронађен. Покрени „gcompris --profile-list“ да "
 "прикажеш доступне\n"
 
-#: ../src/gcompris/gcompris.c:2000
+#: ../src/gcompris/gcompris.c:2005
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Списак доступних профила је:\n"
@@ -6677,8 +6685,8 @@ msgstr ""
 "групу од 64 диска у складу са правилима мозгалице Ханојске куле. Према "
 "легенди, крај света ће доћи када монаси заврше свој посао. Мозгалица је "
 "такође позната и као Брамина кула. Није најјасније да ли је Лукас измислио "
-"ту легенду или је био надахнут њоме. (извор Википедија "
-"&lt;http://en.wikipedia.org/wiki/Tower_of_hanoi&gt;)"
+"ту легенду или је био надахнут њоме. (извор Википедија &lt;http://en."
+"wikipedia.org/wiki/Tower_of_hanoi&gt;)"
 
 #: ../src/hexagon-activity/hexagon.xml.in.h:1
 msgid "hexagon"
@@ -6809,8 +6817,8 @@ msgid ""
 "This is a step up transformer. Electricity is transmitted at high voltages "
 "(110 kV or above) to reduce the energy lost in long distance transmission."
 msgstr ""
-"Ово је трансформатор вишег нивоа. Ел. енергија се пребацује на високи напон ("
-"110 kV или више) да би се избегло губљење енергије приликом преноса на "
+"Ово је трансформатор вишег нивоа. Ел. енергија се пребацује на високи напон "
+"(110 kV или више) да би се избегло губљење енергије приликом преноса на "
 "велике даљине."
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:1
@@ -7280,9 +7288,9 @@ msgid ""
 "surrounding planets. Don't get too close to the planets or you will crash on "
 "them. The arrow indicates the direction of the force on your ship."
 msgstr ""
-"Имаш задатак да омогућиш кретање Пингослављевог свемирског брода тако што ћеш "
-"мењати масе околних планета. Немој се превише приближити планетама или ћеш "
-"се срушити на њих. Стрелица показује смер силе на твом броду."
+"Имаш задатак да омогућиш кретање Пингослављевог свемирског брода тако што "
+"ћеш мењати масе околних планета. Немој се превише приближити планетама или "
+"ћеш се срушити на њих. Стрелица показује смер силе на твом броду."
 
 #: ../src/intro_gravity-activity/intro_gravity.py:130
 msgid "Avoid the asteroid and join the space shuttle to win."
@@ -7388,7 +7396,8 @@ msgstr ""
 msgid "Enter the text you hear:"
 msgstr "Унеси текст који чујеш:"
 
-#: ../src/lang-activity/langLib.py:69
+#. Translators : Do not translate the token {word}
+#: ../src/lang-activity/langLib.py:70
 #, python-brace-format
 msgid "Missing translation for '{word}'"
 msgstr "Недостаје превод за „{word}“"
@@ -7625,8 +7634,8 @@ msgid ""
 "Lights Off game: &lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
 msgstr ""
 "Алгоритам решавача описан на „haar.clara.co.uk“ је меродавно извориште ако "
-"желиш да сазнаш више о игри „Погаси светла“: "
-"&lt;http://en.wikipedia.org/wiki/Lights_Out_(game)&gt;"
+"желиш да сазнаш више о игри „Погаси светла“: &lt;http://en.wikipedia.org/"
+"wiki/Lights_Out_(game)&gt;"
 
 #: ../src/login-activity/login.py:233
 msgid "Login: "
@@ -7901,19 +7910,19 @@ msgstr ""
 "На првим нивоима, Пингослав се креће удобно, један корак на сваки притисак "
 "тастера, кроз лавиринт.\n"
 "\n"
-"За веће лавиринте, постоји посебан режим хода, под називом „режим брзог хода“"
-". Ако је овај режим брзог хода укључен, Пингослав ће сам ходати целим путем "
-"све док не стигне до раскршћа а ти ћеш морати да одлучиш којим путем да "
-"настави.\n"
+"За веће лавиринте, постоји посебан режим хода, под називом „режим брзог "
+"хода“. Ако је овај режим брзог хода укључен, Пингослав ће сам ходати целим "
+"путем све док не стигне до раскршћа а ти ћеш морати да одлучиш којим путем "
+"да настави.\n"
 "\n"
 "Можеш да видиш да ли је тај режим укључен или не, тако што ћеш погледати у "
 "ногу Пингослава: Ако је Пингослав босоног, „режим брзог хода“ је искључен. А "
 "ако носи црвене патике, „режим брзог хода“ је укључен.\n"
 "\n"
 "Од нивоа 14, режим брзог хода ће самостално бити укључен. Ако желиш да "
-"користиш ову функцију на ранијим нивоима или желиш да је искључиш на напредним "
-"нивоима, кликни на Пингослава или на иконицу „босе ноге / спортске патике“ у "
-"горњем левом углу екрана да пребациш режим брзог хода.\n"
+"користиш ову функцију на ранијим нивоима или желиш да је искључиш на "
+"напредним нивоима, кликни на Пингослава или на иконицу „босе ноге / спортске "
+"патике“ у горњем левом углу екрана да пребациш режим брзог хода.\n"
 
 #: ../src/maze3D-activity/maze3D.xml.in.h:1
 msgid "3D Maze"
@@ -7976,19 +7985,19 @@ msgstr ""
 "На првим нивоима, Пингослав се креће удобно, један корак на сваки притисак "
 "тастера, кроз лавиринт.\n"
 "\n"
-"За веће лавиринте, постоји посебан режим хода, под називом „режим брзог хода“"
-". Ако је овај режим брзог хода укључен, Пингослав ће сам ходати целим путем "
-"све док не стигне до раскршћа а ти ћеш морати да одлучиш којим путем да "
-"настави.\n"
+"За веће лавиринте, постоји посебан режим хода, под називом „режим брзог "
+"хода“. Ако је овај режим брзог хода укључен, Пингослав ће сам ходати целим "
+"путем све док не стигне до раскршћа а ти ћеш морати да одлучиш којим путем "
+"да настави.\n"
 "\n"
 "Можеш да видиш да ли је тај режим укључен или не, тако што ћеш погледати у "
 "ногу Пингослава: Ако је Пингослав босоног, „режим брзог хода“ је искључен. А "
 "ако носи црвене патике, „режим брзог хода“ је укључен.\n"
 "\n"
 "Од нивоа 14, режим брзог хода ће самостално бити укључен. Ако желиш да "
-"користиш ову функцију на ранијим нивоима или желиш да је искључиш на напредним "
-"нивоима, кликни на Пингослава или на иконицу „босе ноге / спортске патике“ у "
-"горњем левом углу екрана да пребациш режим брзог хода.\n"
+"користиш ову функцију на ранијим нивоима или желиш да је искључиш на "
+"напредним нивоима, кликни на Пингослава или на иконицу „босе ноге / спортске "
+"патике“ у горњем левом углу екрана да пребациш режим брзог хода.\n"
 "\t"
 
 #: ../src/mazeInvisible-activity/mazeInvisible.xml.in.h:2
@@ -8027,10 +8036,10 @@ msgstr ""
 "На првим нивоима, Пингослав се креће удобно, један корак на сваки притисак "
 "тастера, кроз лавиринт.\n"
 "\n"
-"За веће лавиринте, постоји посебан режим хода, под називом „режим брзог хода“"
-". Ако је овај режим брзог хода укључен, Пингослав ће сам ходати целим путем "
-"све док не стигне до раскршћа а ти ћеш морати да одлучиш којим путем да "
-"настави.\n"
+"За веће лавиринте, постоји посебан режим хода, под називом „режим брзог "
+"хода“. Ако је овај режим брзог хода укључен, Пингослав ће сам ходати целим "
+"путем све док не стигне до раскршћа а ти ћеш морати да одлучиш којим путем "
+"да настави.\n"
 "\n"
 "Можеш да видиш да ли је тај режим укључен или не, тако што ћеш погледати у "
 "ногу Пингослава: Ако је Пингослав босоног, „режим брзог хода“ је искључен. А "
@@ -8930,8 +8939,8 @@ msgid ""
 "Click on the coins or paper money at the bottom of the screen to pay. If you "
 "want to remove a coin or note, click on it on the upper screen area."
 msgstr ""
-"Кликни на новчиће или папирни новац при дну екрана да платиш. Уколико желиш да "
-"уклониш новчић или новчаницу, кликни на горњи део екрана."
+"Кликни на новчиће или папирни новац при дну екрана да платиш. Уколико желиш "
+"да уклониш новчић или новчаницу, кликни на горњи део екрана."
 
 #: ../src/money_back-activity/money_back.xml.in.h:1
 msgid "Give tux his change"
@@ -8950,8 +8959,8 @@ msgid ""
 "first calculate the total price."
 msgstr ""
 "Пингослав је од тебе купио неке ситнице и показао ти новац. Сада ти њему "
-"треба да вратиш остатак. На вишим нивоима, приказано је неколико ставки, а ти "
-"мораш прво да израчунаш укупан износ."
+"треба да вратиш остатак. На вишим нивоима, приказано је неколико ставки, а "
+"ти мораш прво да израчунаш укупан износ."
 
 #: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
 msgid "Give tux his change, including cents"
@@ -8998,7 +9007,8 @@ msgstr "Пусти игру бас кључа"
 
 #: ../src/note_names-activity/note_names.py:184
 msgid "Click on the note name to match the pitch. Then click OK to check."
-msgstr "Кликни на назив ноте да поредиш тон. Затим кликни „У реду“ да провериш."
+msgstr ""
+"Кликни на назив ноте да поредиш тон. Затим кликни „У реду“ да провериш."
 
 #: ../src/note_names-activity/note_names.py:186
 msgid "Now there are sharp notes. These pitches are raised a half step."
@@ -9473,8 +9483,9 @@ msgid ""
 "a musical staff and explore music composition by loading and saving your "
 "work."
 msgstr ""
-"У овој вежби можеш да научиш како ради тастатура клавира, како се записују ноте у музичком "
-"нотном систему и да истражиш стварање музике учитавајући и чувајући твој рад."
+"У овој вежби можеш да научиш како ради тастатура клавира, како се записују "
+"ноте у музичком нотном систему и да истражиш стварање музике учитавајући и "
+"чувајући твој рад."
 
 #: ../src/piano_composition-activity/piano_composition.xml.in.h:3
 msgid ""
@@ -9543,8 +9554,8 @@ msgstr ""
 "2. ниво: музички нотни систем се пребацује на бас кључ, тако да су тонови "
 "нижи него на претходном нивоу\n"
 "3. ниво: могућност бирања између виолинског и бас кључа, додатна функција "
-"укључује могућност за бирање трајања ноте (четвртина, половина, и цела нота)"
-"\n"
+"укључује могућност за бирање трајања ноте (четвртина, половина, и цела "
+"нота)\n"
 "4. ниво: додавање црних дирки (више дирке)\n"
 "5. ниво: ниже бележење коришћено за црне дирке\n"
 "6. ниво: учитава дечије песме из целог света\n"
@@ -9771,8 +9782,8 @@ msgid ""
 "Knowledge of musical notation and musical staff. Play the activity named "
 "'Piano Composition' first."
 msgstr ""
-"Познавање музичког обележавања и музичког нотног система. Прво играј вежбу „"
-"Композиције за клавир“."
+"Познавање музичког обележавања и музичког нотног система. Прво играј вежбу "
+"„Композиције за клавир“."
 
 #: ../src/play_piano-activity/play_piano.xml.in.h:4
 msgid ""
@@ -9986,26 +9997,26 @@ msgid "This activity is not playable, just a test"
 msgstr "Ова вежба није за игру, већ је само проба"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:456
+#: ../src/pythontest-activity/pythontest.py:457
 msgid "Disable line drawing in circle"
 msgstr "Искључи кружно исцртавање линије"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:465
+#: ../src/pythontest-activity/pythontest.py:466
 msgid "Color of the line"
 msgstr "Боја линије"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:476
+#: ../src/pythontest-activity/pythontest.py:477
 msgid "Distance between circles"
 msgstr "Размак између кругова"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:487
+#: ../src/pythontest-activity/pythontest.py:488
 msgid "Use circles"
 msgstr "Користи кругове"
 
-#: ../src/pythontest-activity/pythontest.py:488
+#: ../src/pythontest-activity/pythontest.py:489
 msgid "Use rectangles"
 msgstr "Користи правоугаонике"
 
@@ -10197,15 +10208,14 @@ msgid ""
 "done, click on the OK button or hit the Enter key."
 msgstr ""
 "Кликни на коцкицу да покажеш колико има ледених места између Пингослава и "
-"рибе. Кликни десним дугметом миша на коцкицу за бројање уназад. Када завршиш, "
-"кликни на дугме „У реду“ или на тастатури притисни „Унеси“."
+"рибе. Кликни десним дугметом миша на коцкицу за бројање уназад. Када "
+"завршиш, кликни на дугме „У реду“ или на тастатури притисни „Унеси“."
 
 #: ../src/scalesboard-activity/scale.c:374
 msgid "Enter the weight of the object in gram"
 msgstr "Упиши тежину предмета у грамима"
 
 #: ../src/scalesboard-activity/scale.c:376
-#| msgid "Enter the text you hear:"
 msgid "Enter the weight of the object"
 msgstr "Упиши тежину предмета"
 
@@ -10279,8 +10289,9 @@ msgid ""
 "concept to children."
 msgstr ""
 "У овој вежби, научићеш како се уносе наредбе у рачунар. Иако је језик крајње "
-"једноставан, овде ћеш научити како да размишљаш унапред и да направиш програм. "
-"Ова вежба се може користити за упознавање деце са концептом програмирања."
+"једноставан, овде ћеш научити како да размишљаш унапред и да направиш "
+"програм. Ова вежба се може користити за упознавање деце са концептом "
+"програмирања."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:4
 msgid ""
@@ -10545,8 +10556,8 @@ msgid ""
 msgstr ""
 "Кликни на разне активне делове: мотор, кормило или ваздушне резервоаре да "
 "достигнеш тражену дубину. На десној страни је затворена капија. Након првог "
-"нивоа, мораш да ухватиш драгуљ да је отвориш. Затим прођи кроз њу да пређеш на "
-"следећи ниво."
+"нивоа, мораш да ухватиш драгуљ да је отвориш. Затим прођи кроз њу да пређеш "
+"на следећи ниво."
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:1
 msgid "Sudoku, place unique symbols in a square."
@@ -10738,8 +10749,8 @@ msgid ""
 "or the OK button."
 msgstr ""
 "Провери снагу ветра и правац, а затим кликни на мету да испалиш стрелу. Када "
-"испалиш све стреле, појављује се прозор где треба да пребројиш поене. "
-"Унеси резултат тастатуром и притисни „Унеси“ или дугме „У реду“."
+"испалиш све стреле, појављује се прозор где треба да пребројиш поене. Унеси "
+"резултат тастатуром и притисни „Унеси“ или дугме „У реду“."
 
 #: ../src/traffic-activity/traffic.xml.in.h:1
 msgid "A sliding-block puzzle game"
@@ -10771,23 +10782,23 @@ msgstr ""
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Чекам да Тукс цртач заврши"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:244
+#: ../src/tuxpaint-activity/tuxpaint.py:245
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Преузмироун екран од Гкомприса"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:248
+#: ../src/tuxpaint-activity/tuxpaint.py:249
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Преузми подешавања величине од Гкомприса (800x600, 640x480)"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:252
+#: ../src/tuxpaint-activity/tuxpaint.py:253
 msgid "Disable shape rotation"
 msgstr "Искључи ротацију облика"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:256
+#: ../src/tuxpaint-activity/tuxpaint.py:257
 msgid "Show Uppercase text only"
 msgstr "Прикажи текст само великим словима"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:260
+#: ../src/tuxpaint-activity/tuxpaint.py:261
 msgid "Disable stamps"
 msgstr "Искључи печате"
 
@@ -10854,8 +10865,8 @@ msgid ""
 "him."
 msgstr ""
 "Кликни на разне активне елементе: сунце, облак, пумпу за воду, станицу за "
-"пречишћавање воде да би покренуо/ла читав систем за воду. Када завршиш и када "
-"се Пингослав тушира, притисни дугме за туш уместо њега."
+"пречишћавање воде да би покренуо/ла читав систем за воду. Када завршиш и "
+"када се Пингослав тушира, притисни дугме за туш уместо њега."
 
 #: ../src/wordprocessor-activity/wordprocessor.c:57
 msgid "Research"
@@ -10899,7 +10910,8 @@ msgstr "Једноставан обрађивач текста за унос и 
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:3
 msgid "The children can type their own text or copy one given by the teacher."
-msgstr "Деца могу да унесу сопствени текст или препишу онај који им зада учитељ."
+msgstr ""
+"Деца могу да унесу сопствени текст или препишу онај који им зада учитељ."
 
 #: ../src/wordprocessor-activity/wordprocessor.xml.in.h:4
 msgid ""
