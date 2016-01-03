@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: gcompris.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-14 21:30+0000\n"
-"PO-Revision-Date: 2014-09-25 16:59+0200\n"
+"POT-Creation-Date: 2015-08-27 21:13+0000\n"
+"PO-Revision-Date: 2016-01-03 15:35+0200\n"
 "Last-Translator: Yannis Kaskamanidis <kiolalis@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
@@ -32,7 +32,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Project-Style: gnome\n"
 
 #: ../boards/algebra_group.xml.in.h:1
@@ -191,7 +191,7 @@ msgstr "Δραστηριότητες μαθηματικών"
 msgid "GCompris Main Menu"
 msgstr "Κύριο μενού του GCompris"
 
-#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:906
+#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:908
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -406,8 +406,12 @@ msgid "GCompris Administration"
 msgstr "Μενού Διαχείρισης του GCompris"
 
 #: ../gcompris-edit.desktop.in.h:2
+msgid "Administration interface for educational game"
+msgstr "Διεπαφή διαχείρισης για εκπαιδευτικό παιχνίδι"
+
+#: ../gcompris-edit.desktop.in.h:3
 msgid "Administration for gcompris"
-msgstr "Επεξεργαστής gcompris"
+msgstr "Διαχείριση του gcompris"
 
 #: ../nsis_translations.desktop.in.h:1
 msgid "The installer is already running."
@@ -508,7 +512,8 @@ msgstr ""
 "<span size='x-large'> Επέλεξε το βαθμό δυσκολίας \n"
 "για το προφίλ <b>%s</b></span>"
 
-#: ../src/administration-activity/admin/board_list.py:645
+#. Translators : Do not translate the token {profile}
+#: ../src/administration-activity/admin/board_list.py:646
 #, python-brace-format
 msgid ""
 "<b>Locale</b> configuration\n"
@@ -517,7 +522,8 @@ msgstr ""
 "<b>Τοπικές</b> ρυθμίσεις\n"
 " για το προφίλ <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:657
+#. Translators : Do not translate the token {profile}
+#: ../src/administration-activity/admin/board_list.py:659
 #, python-brace-format
 msgid ""
 "<b>Locale sound</b> configuration\n"
@@ -526,8 +532,8 @@ msgstr ""
 "<b>Τοπικές</b> ρυθμίσεις ήχου\n"
 " για το προφίλ <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:663
-#: ../src/pythontest-activity/pythontest.py:513
+#: ../src/administration-activity/admin/board_list.py:665
+#: ../src/pythontest-activity/pythontest.py:514
 #: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
 msgstr "Διάλεξε τοπικοποιημένο σύνολο ήχων"
@@ -559,14 +565,14 @@ msgid "Assign all the users belonging to this class"
 msgstr "Ορίστε τους χρήστες που ανήκουν σε αυτή την τάξη"
 
 #: ../src/administration-activity/admin/class_edit.py:246
-#: ../src/administration-activity/admin/group_edit.py:258
+#: ../src/administration-activity/admin/group_edit.py:259
 #: ../src/administration-activity/admin/group_user_list.py:150
 #: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Όνομα"
 
 #: ../src/administration-activity/admin/class_edit.py:257
-#: ../src/administration-activity/admin/group_edit.py:269
+#: ../src/administration-activity/admin/group_edit.py:270
 #: ../src/administration-activity/admin/group_user_list.py:160
 #: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
@@ -594,36 +600,37 @@ msgstr "Δάσκαλος"
 msgid "Editing a Group"
 msgstr "Επεξεργασία μιας ομάδας"
 
-#: ../src/administration-activity/admin/group_edit.py:62
+#. Translators : Do not translate the token {group} and {aclass}
+#: ../src/administration-activity/admin/group_edit.py:63
 #, python-brace-format
 msgid "Editing group '{group}' for class '{aclass}'"
 msgstr "Επεξεργασία ομα΄δας '{group}' για την τάξη '{aclass}'"
 
-#: ../src/administration-activity/admin/group_edit.py:66
+#: ../src/administration-activity/admin/group_edit.py:67
 msgid "Editing a new group"
 msgstr "Επεξεργασία μιας νέας ομάδας:"
 
-#: ../src/administration-activity/admin/group_edit.py:86
+#: ../src/administration-activity/admin/group_edit.py:87
 msgid "Group:"
 msgstr "Ομάδα:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/group_edit.py:98
+#: ../src/administration-activity/admin/group_edit.py:99
 #: ../src/administration-activity/admin/profile_edit.py:76
 msgid "Description:"
 msgstr "Περιγραφή:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/group_edit.py:109
+#: ../src/administration-activity/admin/group_edit.py:110
 msgid "Assign all the users belonging to this group"
 msgstr "Ορίστε όλους τους χρήστες που ανήκουν σε αυτή την ομάδα"
 
-#: ../src/administration-activity/admin/group_edit.py:352
+#: ../src/administration-activity/admin/group_edit.py:353
 msgid "You need to provide at least a name for your group"
 msgstr "Πρέπει να βάλεις ένα όνομα για την ομάδα σου"
 
-#: ../src/administration-activity/admin/group_edit.py:366
+#: ../src/administration-activity/admin/group_edit.py:367
 msgid "There is already a group with this name"
 msgstr "Υπάρχει ήδη μια ομάδα με αυτό το όνομα"
 
@@ -733,8 +740,8 @@ msgstr "Όλοι οι χρήστες"
 #: ../src/administration-activity/admin/wordlist.py:48
 #: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:810
-#: ../src/pythontest-activity/pythontest.py:451
-#: ../src/tuxpaint-activity/tuxpaint.py:189
+#: ../src/pythontest-activity/pythontest.py:452
+#: ../src/tuxpaint-activity/tuxpaint.py:240
 msgid "Default"
 msgstr "Προεπιλεγμένο"
 
@@ -921,10 +928,17 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#. Translators : Do not translate the token {profile}
 #: ../src/administration-activity/admin/wordlist.py:45
 #: ../src/login-activity/login.py:478
-#: ../src/pythontest-activity/pythontest.py:448
-#: ../src/tuxpaint-activity/tuxpaint.py:186
+#: ../src/pythontest-activity/pythontest.py:449
+#: ../src/tuxpaint-activity/tuxpaint.py:237
 #, python-brace-format
 msgid ""
 "<b>{config}</b> configuration\n"
@@ -1266,8 +1280,7 @@ msgstr ""
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
 #. require by all utf8-functions
 #. TRANSLATORS: Put here the mathematical operators '+-x/' for  your language.
-#: ../src/algebra_by-activity/algebra.c:186
-#: ../src/memory-activity/memory.c:953
+#: ../src/algebra_by-activity/algebra.c:186 ../src/memory-activity/memory.c:953
 msgid "+-×÷"
 msgstr "+-*/"
 
@@ -4077,7 +4090,7 @@ msgid ""
 msgstr ""
 "Το GCompris είναι ένα πακέτο GNU και διέπεται από τους όρους της GNU/GPL"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:490
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:491
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -4266,7 +4279,7 @@ msgstr "Γερμανικά"
 msgid "Greek"
 msgstr "Ελληνικά"
 
-#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:114
 msgid "Scottish Gaelic"
 msgstr "Ιρλανδική (Γαελική)"
 
@@ -4303,196 +4316,200 @@ msgid "Japanese"
 msgstr "Ιαπωνικά"
 
 #: ../src/gcompris/config.c:93
+msgid "Kannada"
+msgstr "Καναδάς"
+
+#: ../src/gcompris/config.c:94
 msgid "Kinyarwanda"
 msgstr "Kinyarwanda"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Korean"
 msgstr "Κορεάτικα"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 msgid "Latvian"
 msgstr "Λετονία"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Lithuanian"
 msgstr "Λιθουανική"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Macedonian"
 msgstr "ΠΓΔΜ"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Malay"
 msgstr "Μαλαισιακή"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Malayalam"
 msgstr "Μαλαγιάλαμ"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Marathi"
 msgstr "Μαράθι"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 msgid "Montenegrin"
 msgstr "Μαυροβούνιο"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
 msgid "Nepal"
 msgstr "Νεπάλ"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Norwegian Bokmal"
 msgstr "Norwegian Bokmal"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Norwegian Nynorsk"
 msgstr "Norwegian Nynorsk"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Occitan (languedocien)"
 msgstr "Οξιτανικά (Νότια Γαλλία)"
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Persian"
 msgstr "Περσικά"
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Polish"
 msgstr "Polish"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Portuguese (Brazil)"
 msgstr "Πορτογαλικά (Βραζιλίας)"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Portuguese"
 msgstr "Πορτογαλικό"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Punjabi"
 msgstr "Πουντζάμπι"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Romanian"
 msgstr "Ρουμάνικα"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Russian"
 msgstr "Ρωσικά"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Serbian (Latin)"
 msgstr "Σερβικά/Λατινικά"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Serbian"
 msgstr "Σερβική"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Slovak"
 msgstr "Σλοβακική"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Slovenian"
 msgstr "Σλοβενικό"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Somali"
 msgstr "Σομαλικά"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Spanish"
 msgstr "Ισπανικά"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Swedish"
 msgstr "Σουηδικά"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Tamil"
 msgstr "Ταμίλ"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Thai"
 msgstr "Τάι"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Turkish (Azerbaijan)"
 msgstr "Τουρκικά (Αζερμπαϊτζάν)"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Turkish"
 msgstr "Τουρκικά"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 msgid "Ukrainian"
 msgstr "Ουκρανικά"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Urdu"
 msgstr "Ούρντου"
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:128
 msgid "Vietnamese"
 msgstr "Βιετναμέζικα"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "Walloon"
 msgstr "Walloon"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "Zulu"
 msgstr "Ζουλού"
 
-#: ../src/gcompris/config.c:134
+#: ../src/gcompris/config.c:135
 msgid "Timer: No time limit"
 msgstr "Χρονόμετρο: Χωρίς όριο χρόνου"
 
-#: ../src/gcompris/config.c:135
+#: ../src/gcompris/config.c:136
 msgid "Timer: Slow timer"
 msgstr "Χρονόμετρο: Αργό χρονόμετρο"
 
-#: ../src/gcompris/config.c:136
+#: ../src/gcompris/config.c:137
 msgid "Timer: Normal timer"
 msgstr "Χρονόμετρο: Κανονικό χρονόμετρο"
 
-#: ../src/gcompris/config.c:137
+#: ../src/gcompris/config.c:138
 msgid "Timer: Fast timer"
 msgstr "Χρονόμετρο: Γρήγορο χρονόμετρο"
 
-#: ../src/gcompris/config.c:141
+#: ../src/gcompris/config.c:142
 msgid "Use GCompris administration module to filter boards"
 msgstr ""
 "Χρησιμοποιήστε τη διαχείριση του GCompris για να φιλτράρετε τους πίνακες."
 
-#: ../src/gcompris/config.c:203
+#: ../src/gcompris/config.c:204
 msgid "GCompris Configuration"
 msgstr "Ρύθμιση GCompris"
 
-#: ../src/gcompris/config.c:275
+#: ../src/gcompris/config.c:276
 msgid "Fullscreen"
 msgstr "Πλήρης οθόνη"
 
-#: ../src/gcompris/config.c:300
+#: ../src/gcompris/config.c:301
 msgid "Remember level for default user"
 msgstr "Απομνημόνευση επιπέδου για τον προκαθορισμένο χρήστη"
 
-#: ../src/gcompris/config.c:326
+#: ../src/gcompris/config.c:327
 msgid "Music"
 msgstr "Μουσική"
 
-#: ../src/gcompris/config.c:351
+#: ../src/gcompris/config.c:352
 msgid "Effect"
 msgstr "Εφέ"
 
-#: ../src/gcompris/config.c:375 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
 msgstr "Εστίαση"
 
-#: ../src/gcompris/config.c:454 ../src/gcompris/config.c:764
+#: ../src/gcompris/config.c:455 ../src/gcompris/config.c:765
 #, c-format
 msgid "Font: %s"
 msgstr "Γραμματοσειρά: %s"
@@ -4743,7 +4760,7 @@ msgstr ""
 msgid "Retrieving remote data..."
 msgstr "Ανάκτηση απομακρυσμένων δεδομένων..."
 
-#: ../src/gcompris/gcompris.c:1513
+#: ../src/gcompris/gcompris.c:1518
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4756,12 +4773,12 @@ msgstr[1] ""
 "Δεν είναι δυνατή η εκκίνηση του gcompris επειδή το αρχείο κλειδώματος είναι "
 "ενεργό για λιγότερο από %d δευτερόλεπτα.\n"
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1522
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Το αρχείο κλειδώματος είναι: %s\n"
 
-#: ../src/gcompris/gcompris.c:1638
+#: ../src/gcompris/gcompris.c:1643
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4775,28 +4792,28 @@ msgstr ""
 "Πληροφορίες στο http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1823
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr ""
 "Χρησιμοποίησε το -l για να αποκτήσεις άμεση πρόσβαση σε μια δραστηριότητα.\n"
 
-#: ../src/gcompris/gcompris.c:1824
+#: ../src/gcompris/gcompris.c:1829
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Ο κατάλογος των διαθέσιμων δραστηριοτήτων είναι:\n"
 
-#: ../src/gcompris/gcompris.c:1855
+#: ../src/gcompris/gcompris.c:1860
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Αριθμός δραστηριοτήτων: %d\n"
 
-#: ../src/gcompris/gcompris.c:1891
+#: ../src/gcompris/gcompris.c:1896
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "%s υπάρχει αλλά δεν είναι αναγνώσιμο ή εγγράψιμο"
 
-#: ../src/gcompris/gcompris.c:1986
+#: ../src/gcompris/gcompris.c:1991
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4805,7 +4822,7 @@ msgstr ""
 "ΣΦΑΛΜΑ: Το προφίλ '%s' δεν βρέθηκε. Εκτελέστε την εντολή  'gcompris --"
 "profile-list' για να δείτε τα διαθέσιμα προφίλ\n"
 
-#: ../src/gcompris/gcompris.c:2000
+#: ../src/gcompris/gcompris.c:2005
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Ο κατάλογος των διαθέσιμων προφίλ είναι:\n"
@@ -6333,8 +6350,7 @@ msgid "ERROR: Unable to get letter from wordlist"
 msgstr "ΣΦΑΛΜΑ: Αδυναμία λήψης γράμματος από τη λίστα"
 
 #: ../src/gletters-activity/gletters.c:1032
-#: ../src/imageid-activity/imageid.c:716
-#: ../src/readingh-activity/reading.c:918
+#: ../src/imageid-activity/imageid.c:716 ../src/readingh-activity/reading.c:918
 #: ../src/scalesboard-activity/scale.c:1259
 #: ../src/smallnumbers-activity/smallnumbers.c:598
 #: ../src/wordsgame-activity/wordsgame.c:936
@@ -7594,7 +7610,8 @@ msgstr ""
 msgid "Enter the text you hear:"
 msgstr "Εισάγετε το κείμενο που ακούτε:"
 
-#: ../src/lang-activity/langLib.py:69
+#. Translators : Do not translate the token {word}
+#: ../src/lang-activity/langLib.py:70
 #, python-brace-format
 msgid "Missing translation for '{word}'"
 msgstr "Λείπει η μετάφραση της λέξης '{word}'"
@@ -10319,26 +10336,26 @@ msgstr ""
 "Δεν μπορείς να παίξεις σε αυτή την δραστηριότητα, είναι απλά μια δοκιμή"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:456
+#: ../src/pythontest-activity/pythontest.py:457
 msgid "Disable line drawing in circle"
 msgstr "Απενεργοποίησε τη σχεδίαση γραμμής στον κύκλο"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:465
+#: ../src/pythontest-activity/pythontest.py:466
 msgid "Color of the line"
 msgstr "Χρώμα γραμμής"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:476
+#: ../src/pythontest-activity/pythontest.py:477
 msgid "Distance between circles"
 msgstr "Απόσταση μεταξύ κύκλων"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:487
+#: ../src/pythontest-activity/pythontest.py:488
 msgid "Use circles"
 msgstr "Χρησιμοποίησε κύκλους"
 
-#: ../src/pythontest-activity/pythontest.py:488
+#: ../src/pythontest-activity/pythontest.py:489
 msgid "Use rectangles"
 msgstr "Χρησιμοποίησε ορθογώνια παραλληλόγραμμα"
 
@@ -11143,7 +11160,8 @@ msgstr ""
 "μετακινήσεις τα αυτοκίνητα, έτσι ώστε να επιτρέψεις στο κόκκινο αυτοκίνητο "
 "να βγει από την έξοδο στα δεξιά."
 
-#: ../src/tuxpaint-activity/tuxpaint.py:123
+#: ../src/tuxpaint-activity/tuxpaint.py:113
+#: ../src/tuxpaint-activity/tuxpaint.py:173
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
@@ -11151,27 +11169,27 @@ msgstr ""
 "Δεν βρέθηκε η εφαρμογή Tuxpaint.\n"
 "Εγκατέστησε την εφαρμογή για να χρησιμοποιήσεις αυτή τη δραστηριότητα!"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:135
+#: ../src/tuxpaint-activity/tuxpaint.py:185
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Περίμενε να τελειώσει το Tuxpaint"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:194
+#: ../src/tuxpaint-activity/tuxpaint.py:245
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Ρύθμιση πλήρους οθόνης παρμένη από το GCompris"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:198
+#: ../src/tuxpaint-activity/tuxpaint.py:249
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Ρυθμίσεις ανάλυσης οθόνης παρμένες από το GCompris (800x600, 640x480)"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:202
+#: ../src/tuxpaint-activity/tuxpaint.py:253
 msgid "Disable shape rotation"
 msgstr "Απενεργοποίησε την περιστροφή του σχήματος"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:206
+#: ../src/tuxpaint-activity/tuxpaint.py:257
 msgid "Show Uppercase text only"
 msgstr "Δείξε μόνο το κείμενο με τα κεφαλαία γράμματα"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:210
+#: ../src/tuxpaint-activity/tuxpaint.py:261
 msgid "Disable stamps"
 msgstr "Απενεργοποιημένες σφραγίδες"
 
