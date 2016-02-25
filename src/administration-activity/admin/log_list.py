@@ -114,9 +114,12 @@ class Log_list:
                          (auser[0],) )
         oneuser = self.cur.fetchall()
 
-        self.combo_user.append_text( (oneuser[0][0] + ' ' +
-                                      oneuser[0][1] + ' ' +
-                                      oneuser[0][2]))
+        try:
+          self.combo_user.append_text( (oneuser[0][0] + ' ' +
+                                        oneuser[0][1] + ' ' +
+                                        oneuser[0][2]))
+        except:
+          continue
         # Save in a list the combo index => the user_id
         self.user_list.append(auser[0])
 

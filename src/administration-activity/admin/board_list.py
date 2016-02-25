@@ -364,8 +364,10 @@ class Board_list:
       dict[profile.profile_id] = []
 
     for l in list:
-      dict[l[1]].append(l[0])
-
+      try:
+        dict[l[1]].append(l[0])
+      except:
+        continue
     return dict
 
   def changed_cb(self, combobox):
