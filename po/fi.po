@@ -7,11 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: fi\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gcompris&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-14 21:30+0000\n"
-"PO-Revision-Date: 2006-10-31 07:02+0300\n"
-"Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-01 17:40+0200\n"
+"PO-Revision-Date: 2016-03-01 17:40+0200\n"
+"Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -38,16 +37,16 @@ msgstr "Erilaisia laskutehtäviä."
 
 #: ../boards/braille.xml.in.h:1
 #: ../src/braille_alphabets-activity/braille_alphabets.xml.in.h:1
-#, fuzzy
-#| msgid "Discover the Computer"
 msgid "Discover the Braille system"
-msgstr "Tietokoneen ymmärtäminen"
+msgstr "Tutustu sokeainkirjoitukseen"
 
 #: ../boards/braille.xml.in.h:2
 msgid ""
 "The Braille system is a method that is widely used by blind people to read "
 "and write, and was the first digital form of writing."
 msgstr ""
+"Sokeainkirjoitusjärjestelmää käyttävät sokeat ihmiset lukemiseen ja "
+"kirjoittamiseen, ja se oli ensimmäinen kirjoittamisen digitaalinen muoto."
 
 #: ../boards/chess.xml.in.h:1
 msgid "Practice chess"
@@ -171,7 +170,7 @@ msgstr "Siirry matemaattisiin muistitehtäviin"
 msgid "GCompris Main Menu"
 msgstr "GCompris päävalikko"
 
-#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:906
+#: ../boards/menu.xml.in.h:3 ../src/boards/menu2.c:908
 msgid ""
 "GCompris is a collection of educational games that provides different "
 "activities for children aged 2 and up."
@@ -180,16 +179,14 @@ msgstr ""
 "alkaen."
 
 #: ../boards/menu.xml.in.h:4
-#, fuzzy
 msgid ""
 "The goal of GCompris is to provide a free alternative to popular proprietary "
 "edutainment software"
 msgstr ""
-"GCompris'n tarkoitus on olla vapaa vaihtoehto suosituille kaupallisille "
+"GCompris'n tarkoitus on olla vapaa vaihtoehto suosituille suljetuille "
 "oppimispeleille"
 
 #: ../boards/menu.xml.in.h:5
-#, fuzzy
 msgid ""
 "A simple click on an icon brings you to an activity or a menu of "
 "activities.\n"
@@ -220,14 +217,19 @@ msgstr ""
 "valitun tehtävän kohdalla.\n"
 "  Koti - Takaisin edelliseen valikkoon, tai sulje ohjelma jos päätasolla\n"
 "  Peukalo - OK, eli varmista vastauksesi\n"
-"  Noppa - Näytä tämänhetkinen tehtävän taso, vaihda tasoa napsauttamalla\n"
-"  Nuotti - Toista kysymys\n"
+"  Nuolet - Näytä tämänhetkinen tehtävän taso, vaihda tasoa napsauttamalla\n"
+"  Huulet - Toista kysymys\n"
 "  Kysymysmerkki - Ohje\n"
 "  Työkalu - Asetusvalikko\n"
 "  Lentokone - Tietoja pelistä\n"
+"  Poistu - Poistu GComprisista (ctrl-q)\n"
 "Tähdet tehtävän vieressä kuvaavat tehtävän vaikeusastetta:\n"
 "  1-3 yksinkertaista tähteä - 2-6 vuotiaille\n"
-"  1-3 monimutkaista  tähteä - 7-vuotiaille ja vanhemmille"
+"  1-3 monimutkaista  tähteä - 7-vuotiaille ja vanhemmille\n"
+"Pikanäppäimet:\n"
+"    ctrl-b Näytä tai piilota hallintapalkki\n"
+"    ctrl-f Kokoruututila\n"
+"    ctrl-m Taustamusiikki"
 
 #: ../boards/miscelaneous.xml.in.h:1
 msgid "Miscellaneous activities"
@@ -238,10 +240,8 @@ msgid "Time, Geography, ..."
 msgstr "Aika, maantieto jne."
 
 #: ../boards/money_group.xml.in.h:1
-#, fuzzy
-#| msgid "Go to Memory activities"
 msgid "Go to money activities"
-msgstr "Siirry muistitehtäviin"
+msgstr "Siirry rahatehtäviin"
 
 #: ../boards/mouse.xml.in.h:1
 msgid "Mouse-manipulation activities."
@@ -292,32 +292,28 @@ msgid "Strategy games like chess, connect4, ..."
 msgstr "Strategiapelejä, kuten shakki, connect4 jne."
 
 #: ../gcompris.appdata.xml.in.h:1
-#, fuzzy
-#| msgid ""
-#| "GCompris is a collection of educational games that provides different "
-#| "activities for children aged 2 and up."
 msgid ""
 "GCompris is an educational software suite comprising of numerous activities "
 "for children aged 2 to 10."
 msgstr ""
 "GCompris on kokoelma erilaisia opetuspelejä lapsille kahden vuoden iästä "
-"alkaen."
+"alkaen aina kymmeneen ikävuoteen."
 
 #: ../gcompris.appdata.xml.in.h:2
 msgid ""
 "Some of the activities are game orientated, but nonetheless still "
 "educational."
-msgstr ""
+msgstr "Jotkin tehtävistä ovat pelillisiä, mutta kuitenkin opettavaisia."
 
 #: ../gcompris.appdata.xml.in.h:3
 msgid ""
 "Below you can find a list of categories with some of the activities "
 "available in that category."
-msgstr ""
+msgstr "Alla luettelo tehtäväluokista ja niiden sisältämistä tehtävistä."
 
 #: ../gcompris.appdata.xml.in.h:4
 msgid "computer discovery: keyboard, mouse, different mouse gestures, ..."
-msgstr ""
+msgstr "tietokoneen ymmärtäminen: näppäimistö, hiiri, hiirieleet, ..."
 
 #: ../gcompris.appdata.xml.in.h:5
 msgid ""
@@ -329,20 +325,19 @@ msgid ""
 "science: the canal lock, the water cycle, the submarine, electric "
 "simulation, ..."
 msgstr ""
+"tiede: kanavan sulut, veden kiertokulku, sukellusvene, sähkösimulointi, ..."
 
 #: ../gcompris.appdata.xml.in.h:7
 msgid "geography: place the country on the map"
-msgstr ""
+msgstr "maantiede: sijoita maat kartalle"
 
 #: ../gcompris.appdata.xml.in.h:8
 msgid "games: chess, memory, connect 4, oware, sudoku, ..."
-msgstr ""
+msgstr "pelit: shakki, muistipelit, yhdistä 4, sudoku, ..."
 
 #: ../gcompris.appdata.xml.in.h:9
-#, fuzzy
-#| msgid "Horizontal reading practice"
 msgid "reading: reading practice"
-msgstr "Vaakasuuntaisen tekstin lukuharjoittelu"
+msgstr "lukeminen: lukuharjoittelu"
 
 #: ../gcompris.appdata.xml.in.h:10
 msgid ""
@@ -357,6 +352,9 @@ msgid ""
 "your own needs, improve it and, most importantly, share it with children "
 "everywhere."
 msgstr ""
+"GCompris tarjoaa tällä hetkellä yli 100 tehtävää ja lisää on kehitteillä. "
+"GCompris on vapaaa ohjelmisto, joten voit mukauttaa sitä omiin tarpeisiisi, "
+"parantaa sitä ja ennen kaikkea jakaa sen kaikille lapsille."
 
 #: ../gcompris.desktop.in.h:1
 msgid "Educational suite GCompris"
@@ -371,30 +369,30 @@ msgid "Educational game for ages 2 to 10"
 msgstr "Opettavaisia pelejä kahdesta kymmenen vuotiaille"
 
 #: ../gcompris-edit.desktop.in.h:1
-#, fuzzy
-#| msgid "GCompris Administration Menu"
 msgid "GCompris Administration"
-msgstr "GComprisin hallintavalikko"
+msgstr "GComprisin hallintaosa"
 
 #: ../gcompris-edit.desktop.in.h:2
+msgid "Administration interface for educational game"
+msgstr "GComprisin hallintakäyttöliittymä"
+
+#: ../gcompris-edit.desktop.in.h:3
 msgid "Administration for gcompris"
 msgstr "GComprisin hallinta"
 
 #: ../nsis_translations.desktop.in.h:1
-#, fuzzy
-#| msgid "The race is already being run"
 msgid "The installer is already running."
-msgstr "Kilpailu on jo käynnissä"
+msgstr "Asennusohjelma on jo käynnissä"
 
 #: ../nsis_translations.desktop.in.h:2
 msgid ""
 "An instance of GCompris is currently running. Exit GCompris and then try "
 "again."
-msgstr ""
+msgstr "GCompris on jo käynnissä. Poistu GComprisista ja yritä uudelleen."
 
 #: ../nsis_translations.desktop.in.h:3
 msgid "Visit the GCompris Web Site"
-msgstr ""
+msgstr "Käy GComprisin www-sivustolla"
 
 #: ../nsis_translations.desktop.in.h:4
 msgid ""
@@ -474,35 +472,31 @@ msgstr ""
 "<span size='x-large'> Valitse vaikeustasojen alue\n"
 "profiilille <b>%s</b> </span>"
 
-#: ../src/administration-activity/admin/board_list.py:645
-#, fuzzy, python-brace-format
-#| msgid ""
-#| "<b>%s</b> configuration\n"
-#| " for profile <b>%s</b>"
+#. Translators : Do not translate the token {profile}
+#: ../src/administration-activity/admin/board_list.py:646
+#, python-brace-format
 msgid ""
 "<b>Locale</b> configuration\n"
 " for profile <b>{profile}</b>"
 msgstr ""
-"<b>%s</b> asetukset\n"
-" profiilille <b>%s</b>"
+"<b>Maa-asetuston</b> asetukset\n"
+" profiilille <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:657
-#, fuzzy, python-brace-format
-#| msgid ""
-#| "<b>%s</b> configuration\n"
-#| " for profile <b>%s</b>"
+#. Translators : Do not translate the token {profile}
+#: ../src/administration-activity/admin/board_list.py:659
+#, python-brace-format
 msgid ""
 "<b>Locale sound</b> configuration\n"
 " for profile <b>{profile}</b>"
 msgstr ""
-"<b>%s</b> asetukset\n"
-" profiilille <b>%s</b>"
+"<b>Äänien kielen</b> asetukset\n"
+" profiilille <b>{profile}</b>"
 
-#: ../src/administration-activity/admin/board_list.py:663
-#: ../src/pythontest-activity/pythontest.py:513
+#: ../src/administration-activity/admin/board_list.py:665
+#: ../src/pythontest-activity/pythontest.py:514
 #: ../src/smallnumbers-activity/smallnumbers.c:619
 msgid "Select sound locale"
-msgstr "Valitse äänen maa-asetusto"
+msgstr "Valitse äänten kieli"
 
 #: ../src/administration-activity/admin/class_edit.py:56
 msgid "Editing a Class"
@@ -531,14 +525,14 @@ msgid "Assign all the users belonging to this class"
 msgstr "Anna tehtäväksi kaikille tämän luokan käyttäjille"
 
 #: ../src/administration-activity/admin/class_edit.py:246
-#: ../src/administration-activity/admin/group_edit.py:258
+#: ../src/administration-activity/admin/group_edit.py:259
 #: ../src/administration-activity/admin/group_user_list.py:150
 #: ../src/administration-activity/admin/user_list.py:191
 msgid "First Name"
 msgstr "Etunimi"
 
 #: ../src/administration-activity/admin/class_edit.py:257
-#: ../src/administration-activity/admin/group_edit.py:269
+#: ../src/administration-activity/admin/group_edit.py:270
 #: ../src/administration-activity/admin/group_user_list.py:160
 #: ../src/administration-activity/admin/user_list.py:201
 msgid "Last Name"
@@ -566,36 +560,37 @@ msgstr "Opettaja"
 msgid "Editing a Group"
 msgstr "Ryhmän muokkaus"
 
-#: ../src/administration-activity/admin/group_edit.py:62
+#. Translators : Do not translate the token {group} and {aclass}
+#: ../src/administration-activity/admin/group_edit.py:63
 #, python-brace-format
 msgid "Editing group '{group}' for class '{aclass}'"
 msgstr ""
 
-#: ../src/administration-activity/admin/group_edit.py:66
+#: ../src/administration-activity/admin/group_edit.py:67
 msgid "Editing a new group"
 msgstr "Muokataan uutta ryhmää"
 
-#: ../src/administration-activity/admin/group_edit.py:86
+#: ../src/administration-activity/admin/group_edit.py:87
 msgid "Group:"
 msgstr "Ryhmä:"
 
 #. FIXME: How to remove the selection
 #. Label and Entry for the first name
-#: ../src/administration-activity/admin/group_edit.py:98
+#: ../src/administration-activity/admin/group_edit.py:99
 #: ../src/administration-activity/admin/profile_edit.py:76
 msgid "Description:"
 msgstr "Kuvaus:"
 
 #. Top message gives instructions
-#: ../src/administration-activity/admin/group_edit.py:109
+#: ../src/administration-activity/admin/group_edit.py:110
 msgid "Assign all the users belonging to this group"
 msgstr "Anna tehtäväksi kaikille tämän ryhmän käyttäjille"
 
-#: ../src/administration-activity/admin/group_edit.py:352
+#: ../src/administration-activity/admin/group_edit.py:353
 msgid "You need to provide at least a name for your group"
 msgstr "Vähintään ryhmän nimi täytyy antaa"
 
-#: ../src/administration-activity/admin/group_edit.py:366
+#: ../src/administration-activity/admin/group_edit.py:367
 msgid "There is already a group with this name"
 msgstr "Tämän niminen ryhmä on jo olemassa"
 
@@ -683,14 +678,13 @@ msgstr ""
 "kirjoittamaan ja tunnistamaan käyttäjätunnuksensa."
 
 #: ../src/administration-activity/admin/log_list.py:91
-#, fuzzy
 msgid "Select a user:"
-msgstr "Valitse luokka:"
+msgstr "Valitse käyttäjä:"
 
 #. Insert the ALL option (HACK, use the user_id -2 to indicate ALL)
 #: ../src/administration-activity/admin/log_list.py:102
 msgid "All users"
-msgstr ""
+msgstr "Kaikki käyttäjät"
 
 #. This is the name of the Default user profile
 #: ../src/administration-activity/admin/log_list.py:109
@@ -699,30 +693,27 @@ msgstr ""
 #: ../src/administration-activity/admin/wordlist.py:48
 #: ../src/lang-activity/lang.py:173 ../src/login-activity/login.py:481
 #: ../src/missing_letter-activity/missingletter.c:810
-#: ../src/pythontest-activity/pythontest.py:451
-#: ../src/tuxpaint-activity/tuxpaint.py:189
+#: ../src/pythontest-activity/pythontest.py:452
+#: ../src/tuxpaint-activity/tuxpaint.py:240
 msgid "Default"
 msgstr "Oletus"
 
 #. Reset buttons
 #: ../src/administration-activity/admin/log_list.py:163
 msgid "Reset"
-msgstr ""
+msgstr "Palauta oletukset"
 
 #: ../src/administration-activity/admin/log_list.py:220
-#, fuzzy
 msgid "Date"
-msgstr "raastin"
+msgstr "Päivä"
 
 #: ../src/administration-activity/admin/log_list.py:230
-#, fuzzy
 msgid "User"
-msgstr "Käyttäjät"
+msgstr "Käyttäjä"
 
 #: ../src/administration-activity/admin/log_list.py:240
-#, fuzzy
 msgid "Board"
-msgstr "Laudat"
+msgstr "Lauta"
 
 #: ../src/administration-activity/admin/log_list.py:250
 #: ../src/click_on_letter-activity/click_on_letter.c:1435
@@ -731,25 +722,21 @@ msgid "Level"
 msgstr "Taso"
 
 #: ../src/administration-activity/admin/log_list.py:260
-#, fuzzy
 msgid "Sublevel"
-msgstr "Taso"
+msgstr "Alataso"
 
 #: ../src/administration-activity/admin/log_list.py:270
-#, fuzzy
 msgid "Duration"
-msgstr "Järjestäminen"
+msgstr "Kesto"
 
 #: ../src/administration-activity/admin/log_list.py:280
 msgid "Status"
-msgstr ""
+msgstr "Tila"
 
 #: ../src/administration-activity/admin/module_activities.py:50
 #: ../src/administration-activity/admin/module_activities.py:78
-#, fuzzy
-#| msgid "Active"
 msgid "Activities"
-msgstr "Käytössä"
+msgstr "Tehtävät"
 
 #: ../src/administration-activity/admin/module_boards.py:49
 #: ../src/administration-activity/admin/module_boards.py:77
@@ -763,10 +750,8 @@ msgstr "Ryhmät"
 
 #: ../src/administration-activity/admin/module_logins.py:48
 #: ../src/administration-activity/admin/module_logins.py:69
-#, fuzzy
-#| msgid "Login"
 msgid "Logins"
-msgstr "Kirjautuminen"
+msgstr "Kirjautumiset"
 
 #: ../src/administration-activity/admin/module_profiles.py:47
 #: ../src/administration-activity/admin/module_profiles.py:68
@@ -776,7 +761,7 @@ msgstr "Profiilit"
 #: ../src/administration-activity/admin/module_reports.py:48
 #: ../src/administration-activity/admin/module_reports.py:77
 msgid "Reports"
-msgstr ""
+msgstr "Raportit"
 
 #: ../src/administration-activity/admin/module_reports.py:77
 #: ../src/administration-activity/admin/module_users.py:47
@@ -897,14 +882,18 @@ msgstr ""
 #. the dict passed to the apply_callback
 #. the returned value is the main GtkVBox of the window,
 #. we can add what you want in it.
+#. Init configuration window:
+#. all the configuration functions will use it
+#. all the configuration functions returns values for their key in
+#. the dict passed to the apply_callback
+#. the returned value is the main GtkVBox of the window,
+#. we can add what you want in it.
+#. Translators : Do not translate the token {profile}
 #: ../src/administration-activity/admin/wordlist.py:45
 #: ../src/login-activity/login.py:478
-#: ../src/pythontest-activity/pythontest.py:448
-#: ../src/tuxpaint-activity/tuxpaint.py:186
+#: ../src/pythontest-activity/pythontest.py:449
+#: ../src/tuxpaint-activity/tuxpaint.py:237
 #, fuzzy, python-brace-format
-#| msgid ""
-#| "<b>%s</b> configuration\n"
-#| " for profile <b>%s</b>"
 msgid ""
 "<b>{config}</b> configuration\n"
 " for profile <b>{profile}</b>"
@@ -930,7 +919,6 @@ msgstr "Opettele tuntemaan epätavalliset värit."
 
 #: ../src/advanced_colors-activity/advanced_colors.xml.in.h:5
 #, fuzzy
-#| msgid "Click on the correct colored box."
 msgid "Click on the correct colored butterfly."
 msgstr "Napsauta oikean väristä ruutua"
 
@@ -976,13 +964,11 @@ msgstr ""
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:11
 #, fuzzy
-#| msgid "Fill in the missing letter"
 msgid "Find the sienna butterfly"
 msgstr "Lisää puuttuva kirjain"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:12
 #, fuzzy
-#| msgid "Fill in the missing letter"
 msgid "Find the sage butterfly"
 msgstr "Lisää puuttuva kirjain"
 
@@ -992,7 +978,6 @@ msgstr ""
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:14
 #, fuzzy
-#| msgid "Fill in the missing letter"
 msgid "Find the sepia butterfly"
 msgstr "Lisää puuttuva kirjain"
 
@@ -1014,13 +999,11 @@ msgstr ""
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:19
 #, fuzzy
-#| msgid "Fill in the missing letter"
 msgid "Find the absinthe butterfly"
 msgstr "Lisää puuttuva kirjain"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:20
 #, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the mahogany butterfly"
 msgstr "Löydä täsmäävä pari"
 
@@ -1042,13 +1025,11 @@ msgstr ""
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:25
 #, fuzzy
-#| msgid "Fill in the missing letter"
 msgid "Find the anise butterfly"
 msgstr "Lisää puuttuva kirjain"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:26
 #, fuzzy
-#| msgid "Fill in the missing letter"
 msgid "Find the vermilion butterfly"
 msgstr "Lisää puuttuva kirjain"
 
@@ -1098,7 +1079,6 @@ msgstr ""
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:38
 #, fuzzy
-#| msgid "Fill in the missing letter"
 msgid "Find the crimson butterfly"
 msgstr "Lisää puuttuva kirjain"
 
@@ -1120,7 +1100,6 @@ msgstr ""
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:43
 #, fuzzy
-#| msgid "Fill in the missing letter"
 msgid "Find the indigo butterfly"
 msgstr "Lisää puuttuva kirjain"
 
@@ -1142,7 +1121,6 @@ msgstr ""
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:48
 #, fuzzy
-#| msgid "Fill in the missing letter"
 msgid "Find the wine butterfly"
 msgstr "Lisää puuttuva kirjain"
 
@@ -1156,19 +1134,16 @@ msgstr ""
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:51
 #, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the malachite butterfly"
 msgstr "Löydä täsmäävä pari"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:52
 #, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the larch butterfly"
 msgstr "Löydä täsmäävä pari"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:53
 #, fuzzy
-#| msgid "Fill in the missing letter"
 msgid "Find the mimosa butterfly"
 msgstr "Lisää puuttuva kirjain"
 
@@ -1198,19 +1173,16 @@ msgstr ""
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:60
 #, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the pistachio butterfly"
 msgstr "Löydä täsmäävä pari"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:61
 #, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the platinum butterfly"
 msgstr "Löydä täsmäävä pari"
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:62
 #, fuzzy
-#| msgid "Click on the purple duck"
 msgid "Find the purple butterfly"
 msgstr "Napsauta purppuranväristä ankkaa"
 
@@ -1220,7 +1192,6 @@ msgstr ""
 
 #: ../src/advanced_colors-activity/resources/advanced_colors/activity.desktop.in.h:64
 #, fuzzy
-#| msgid "Fill in the missing letter"
 msgid "Find the prussian blue butterfly"
 msgstr "Lisää puuttuva kirjain"
 
@@ -1412,85 +1383,73 @@ msgstr "Löydä seuraava kuvio listasta merkkejä."
 
 #: ../src/anim-activity/anim.py:103
 msgid "Save..."
-msgstr ""
+msgstr "Tallenna..."
 
 #: ../src/anim-activity/anim.py:109
 msgid "Load..."
-msgstr ""
+msgstr "Lataa..."
 
 #: ../src/anim-activity/anim.py:115
-#, fuzzy
-#| msgid "Mouse manipulation"
 msgid "Run the animation"
-msgstr "Hiiren käyttö"
+msgstr "Aja animaatio"
 
 #: ../src/anim-activity/anim.py:121
-#, fuzzy
-#| msgid "Select all"
 msgid "Select"
-msgstr "Valitse kaikki"
+msgstr "Valitse"
 
 #: ../src/anim-activity/anim.py:127
-#, fuzzy
-#| msgid "Use rectangles"
 msgid "Rectangle"
-msgstr "Käytä suorakaiteita"
+msgstr "Suorakulmio"
 
 #: ../src/anim-activity/anim.py:133
-#, fuzzy
-#| msgid "Use rectangles"
 msgid "Filled rectangle"
-msgstr "Käytä suorakaiteita"
+msgstr "Täytetty suorakulmio"
 
 #: ../src/anim-activity/anim.py:139
 msgid "Circle"
-msgstr ""
+msgstr "Ympyrä"
 
 #: ../src/anim-activity/anim.py:145
-#, fuzzy
-#| msgid "Use circles"
 msgid "Filled circle"
-msgstr "Käytä ympyröitä"
+msgstr "Täytetty ympyrä"
 
 #: ../src/anim-activity/anim.py:151
 msgid "Line"
-msgstr ""
+msgstr "Viiva"
 
 #: ../src/anim-activity/anim.py:157
 #: ../src/wordprocessor-activity/wordprocessor.c:93
 #: ../src/wordprocessor-activity/wordprocessor.c:481
 msgid "Text"
-msgstr ""
+msgstr "Teksti"
 
 #: ../src/anim-activity/anim.py:163
 msgid "Image..."
-msgstr ""
+msgstr "Kuva..."
 
 #: ../src/anim-activity/anim.py:169
 msgid "Fill"
-msgstr ""
+msgstr "Täytä"
 
 #: ../src/anim-activity/anim.py:175
 msgid "Delete"
-msgstr ""
+msgstr "Poista"
 
 #: ../src/anim-activity/anim.py:181
 msgid "Flip"
-msgstr ""
+msgstr "Käännä"
 
 #: ../src/anim-activity/anim.py:187
 msgid "Raise"
-msgstr ""
+msgstr "Nosta"
 
 #: ../src/anim-activity/anim.py:193
-#, fuzzy
-#| msgid "flower"
 msgid "Lower"
-msgstr "kukka"
+msgstr "Laske"
 
 #: ../src/anim-activity/anim.py:769
 msgid "Current frame"
-msgstr ""
+msgstr "Nykyinen kehys"
 
 #: ../src/anim-activity/anim.xml.in.h:1
 msgid "Create a drawing or an animation"
@@ -1517,20 +1476,6 @@ msgstr ""
 "hauskempaa, voidaan käyttää myös joukkoa valmiita kuvia."
 
 #: ../src/anim-activity/anim.xml.in.h:5
-#, fuzzy
-#| msgid ""
-#| "Select a drawing tool on the left, and a color down the bottom. Then "
-#| "click and drag in the white area to create a new shape. Once you've "
-#| "completed a drawing, you can take a snapshot of it with the 'camera' "
-#| "button. This creates a new image with the same content, a copy of your "
-#| "image. You can then edit it by moving objects a little bit or adding/"
-#| "deleting objects. When you create several drawings and then click on the "
-#| "'film' button, you will see all your images in a continuous slide-show "
-#| "(an infinite loop pattern). You can also change the viewing speed in this "
-#| "mode. In viewing mode, click on the 'drawing' button to return to drawing "
-#| "mode. You can then edit each image in your animation, by using the image "
-#| "selector in the bottom-left corner of the screen. You can also save and "
-#| "reload your animations with the 'floppy disk' and 'folder' buttons."
 msgid ""
 "Select a drawing tool on the left, and a color down the bottom. Then click "
 "and drag in the white area to create a new shape. Once you've completed a "
@@ -1558,11 +1503,11 @@ msgstr ""
 
 #: ../src/anim-activity/Color.py:86
 msgid "Fill color..."
-msgstr ""
+msgstr "Täytön väri..."
 
 #: ../src/anim-activity/Color.py:98
 msgid "Stroke color..."
-msgstr ""
+msgstr "Piirron väri..."
 
 #: ../src/awele-activity/awele.c:159
 #, c-format
@@ -1600,16 +1545,6 @@ msgid "Play the Oware strategy game against Tux"
 msgstr "Pelaa Oware-strategiapeliä Tuxia vastaan"
 
 #: ../src/awele-activity/awele.xml.in.h:3
-#, fuzzy
-#| msgid ""
-#| "The object of the game is to capture more seeds than one's opponent. "
-#| "Since the game has only 48 seeds, capturing 25 is sufficient to "
-#| "accomplish this. Since there are an even number of seeds, it is possible "
-#| "for the game to end in a draw, where each player has captured 24. The "
-#| "game is over when one player has captured 25 or more stones, or both "
-#| "players have taken 24 stones each (draw). If both players agree that the "
-#| "game has been reduced to an endless cycle, each player captures the "
-#| "stones on their side of the board."
 msgid ""
 "The object of the game is to capture more seeds than one's opponent. Since "
 "the game has only 48 seeds, capturing 25 is sufficient to accomplish this. "
@@ -1715,16 +1650,13 @@ msgstr ""
 
 #: ../src/babymatch-activity/shapegame.c:2042
 #: ../src/missing_letter-activity/missingletter.c:808
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>%s</b> configuration\n"
-#| " for profile <b>%s</b>"
+#, c-format
 msgid ""
 "<b>%1$s</b> configuration\n"
 " for profile <b>%2$s</b>"
 msgstr ""
-"<b>%s</b> asetukset\n"
-" profiilille <b>%s</b>"
+"<b>%1$s</b> asetukset\n"
+" profiilille <b>%2$s</b>"
 
 #: ../src/babyshapes-activity/babyshapes.xml.in.h:1
 msgid "Complete the puzzle"
@@ -1767,25 +1699,23 @@ msgstr "Lock värillisten muotojen ympäröimänä. "
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_0.xml.in.h:1
 msgid "Paul Gauguin, Arearea - 1892"
-msgstr ""
+msgstr "Paul Gauguin, Arearea - 1892"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_1.xml.in.h:1
 msgid "Pieter Bruegel the Elder, The peasants wedding - 1568"
-msgstr ""
+msgstr "Pieter Bruegel vanhempi, Talonpoikien häät - 1568"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_2.xml.in.h:1
 msgid "The Lady and the Unicorn - XVe century"
-msgstr ""
+msgstr "Nainen ja yksisarvinen - 1400-luku"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_3.xml.in.h:1
-#, fuzzy
-#| msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgid "Vincent van Gogh, Bedroom in Arles - 1888"
-msgstr "Vincent Van Gogh, Kylätie Auversissa - 1890"
+msgstr "Vincent Van Gogh, Makuuhuone Arlesissa - 1888"
 
 #: ../src/babyshapes-activity/resources/babyshapes/board8_4.xml.in.h:1
 msgid "Ambrosius Bosschaert the Elder, Flower Still Life - 1614"
-msgstr ""
+msgstr "Ambrosius Bosschaert vanhempi, Kukka-asetelma - 1614"
 
 #: ../src/ballcatch-activity/ballcatch.py:75
 #: ../src/ballcatch-activity/ballcatch.xml.in.h:2
@@ -1857,10 +1787,6 @@ msgid "Mouse-manipulation"
 msgstr "Hiiren käyttö"
 
 #: ../src/billard-activity/billard.xml.in.h:4
-#, fuzzy
-#| msgid ""
-#| "Point the mouse and click on the ball, to set the speed and direction of "
-#| "the ball. The closer you click to the centre, the slower the ball moves."
 msgid ""
 "Point the mouse and click on the ball, to set the speed and direction of the "
 "ball. The closer you click to the center, the slower the ball moves."
@@ -1882,29 +1808,26 @@ msgstr "Valitse tehtävä"
 
 #. Display the profile name
 #: ../src/boards/menu2.c:271 ../src/login-activity/login.py:100
-#, fuzzy, c-format, python-format
-#| msgid "Profile: "
+#, c-format, python-format
 msgid "Profile: %s"
-msgstr "Profiili:"
+msgstr "Profiili: %s"
 
 #: ../src/boards/menu2.c:288
-#, fuzzy, c-format
-#| msgid "Numeration activities."
+#, c-format
 msgid "Number of activities: %d"
-msgstr "Järjestämistehtäviä."
+msgstr "Tehtäviä yhteensä: %d"
 
 #: ../src/boards/python.c:69 ../src/boards/python.c:93
 msgid "Python Board"
 msgstr "Python-osa"
 
 #: ../src/boards/python.c:70 ../src/boards/python.c:94
-#, fuzzy
 msgid "Special board that embeds Python into GCompris."
 msgstr "Erikoisosa, joka liittää Pythonin gcomprisiin."
 
 #: ../src/braille_alphabets-activity/braille_alphabets.py:176
 msgid "Braille : Unlocking the Code"
-msgstr ""
+msgstr "Sokeainkirjoitus : koodin purku"
 
 #. Braille Intro
 #: ../src/braille_alphabets-activity/braille_alphabets.py:178
@@ -1975,20 +1898,16 @@ msgid ""
 msgstr ""
 
 #: ../src/braille_alphabets-activity/BrailleMap.py:96
-#, fuzzy
-#| msgid "Go to Maze activities"
 msgid "Back to the activity"
-msgstr "Siirry sokkelotehtäviin"
+msgstr "Takaisin tehtävään"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:1
 #, fuzzy
-#| msgid "Brain"
 msgid "Braille Fun"
 msgstr "Aivo"
 
 #: ../src/braille_fun-activity/braille_fun.xml.in.h:2
 #, fuzzy
-#| msgid "Fill in the missing letter"
 msgid "Braille the falling letters"
 msgstr "Lisää puuttuva kirjain"
 
@@ -2011,10 +1930,8 @@ msgid "PLAYER 2"
 msgstr ""
 
 #: ../src/braille_lotto-activity/braille_lotto.py:151
-#, fuzzy
-#| msgid "Number"
 msgid "Check Number"
-msgstr "Numerot"
+msgstr "Tarkista luku"
 
 #: ../src/braille_lotto-activity/braille_lotto.py:168
 #: ../src/braille_lotto-activity/braille_lotto.py:180
@@ -2034,7 +1951,6 @@ msgstr ""
 
 #: ../src/braille_lotto-activity/braille_lotto.py:239
 #, fuzzy
-#| msgid "Guess a number"
 msgid "Generate a number"
 msgstr "Arvaa numero"
 
@@ -2060,7 +1976,6 @@ msgstr ""
 
 #: ../src/braille_lotto-activity/braille_lotto.py:341
 #, fuzzy
-#| msgid "red"
 msgid "3rd"
 msgstr "punainen"
 
@@ -2139,10 +2054,8 @@ msgstr ""
 
 #: ../src/chat-activity/chat.py:244
 #: ../src/lang-activity/resources/lang/words.xml.in.h:4
-#, fuzzy
-#| msgid "Colors"
 msgid "color"
-msgstr "Värit"
+msgstr "väri"
 
 #: ../src/chat-activity/chat.py:323
 msgid ""
@@ -2323,7 +2236,6 @@ msgid "Transportation"
 msgstr "Kulkuvälineet"
 
 #: ../src/chronos-activity/resources/chronos/board3_0.xml.in.h:2
-#, fuzzy
 msgid ""
 "Place each image in the order and\n"
 "on the date it was invented.\n"
@@ -2333,7 +2245,7 @@ msgstr ""
 "Järjestä kaikki kuvat sen mukaan, milloin\n"
 "ne on kehitetty.\n"
 "Jos et ole varma, tarkista wikipediasta osoitteessa\n"
-"&lt;http://www.wikipedia.org/&gt;"
+"http://www.wikipedia.org"
 
 #: ../src/chronos-activity/resources/chronos/board3_0.xml.in.h:6
 #: ../src/chronos-activity/resources/chronos/board3_2.xml.in.h:4
@@ -2453,25 +2365,20 @@ msgid "1923 Lancia Lambda"
 msgstr "1923 Lancia Lambda"
 
 #: ../src/chronos-activity/resources/chronos/board4_3.xml.in.h:4
-#, fuzzy
-#| msgid "1955 Citroën ds 19"
 msgid "1955 Citroën DS 19"
-msgstr "1955 Citroën ds 19"
+msgstr "1955 Citroën DS 19"
 
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:1
-#, fuzzy
 msgid "Click and draw"
-msgstr "Napsauta minua"
+msgstr "Napsauta ja piirrä"
 
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:2
-#, fuzzy
 msgid "Draw the picture by clicking on the blue points."
-msgstr "Löydä vadelma napsauttamalla sinisiä kenttiä"
+msgstr "Piirrä kuva napsauttamalla sinisiä pisteitä."
 
 #: ../src/clickanddraw-activity/clickanddraw.xml.in.h:3
-#, fuzzy
 msgid "Draw the picture by clicking on each blue point in sequence."
-msgstr "Löydä vadelma napsauttamalla sinisiä kenttiä"
+msgstr "Piirrä kuva napsauttamalla sinisiä pisteitä järjestyksessä."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:1
 msgid "Click On Me"
@@ -2489,12 +2396,12 @@ msgid "Motor coordination: moving and clicking the mouse."
 msgstr "Motorinen koordinaatio: hiiren liike ja napsautus."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:5
-#, fuzzy
-#| msgid "Use the left mouse button to click on the moving fish."
 msgid ""
 "Use the left mouse button to click on the moving fish. A level 5 and after, "
 "a double click is mandatory."
-msgstr "Napsauta liikkuvia kaloja hiiren vasemmalla näppäimellä"
+msgstr ""
+"Napsauta liikkuvia kaloja hiiren vasemmalla näppäimellä. Tasolla 5 ja "
+"myöhemmin tarvitaan kaksoisnapsautusta."
 
 #: ../src/clickgame-activity/clickgame.xml.in.h:6
 msgid ""
@@ -2506,7 +2413,7 @@ msgstr ""
 msgid ""
 "This activity will be played with questions displayed as text instead of "
 "being spoken"
-msgstr ""
+msgstr "Tässä tehtävässä kysymykset esitetään tekstinä puheen sijaan"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:393
 #: ../src/memory-activity/memory.c:922
@@ -2520,13 +2427,13 @@ msgstr ""
 "Siirry asetuksiin ja ota äänet käyttöön."
 
 #: ../src/click_on_letter-activity/click_on_letter.c:412
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Error: this activity requires that you first install\n"
 "the packages with GCompris voices for the %s locale."
 msgstr ""
 "Virhe: tämä osan käyttö vaatii että asennat ensin\n"
-"paketit, joissa on gcomprisin äänet kielelle \"%s\" tai \"%s\""
+"paketit, joissa on gcomprisin äänet kielelle %s."
 
 #. TRANSLATORS: Put here the alphabet in your language, letters separated by: /
 #. * Supports multigraphs, e.g. /sh/ or /sch/ gets treated as one letter
@@ -2534,24 +2441,24 @@ msgstr ""
 #: ../src/click_on_letter-activity/click_on_letter.c:833
 #: ../src/memory-activity/memory.c:734
 msgid "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z"
-msgstr ""
+msgstr "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z/å/ä/ö"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:1057
 msgid "Questions cannot be empty."
-msgstr ""
+msgstr "Kysymykset eivät voi olla tyhjiä."
 
 #: ../src/click_on_letter-activity/click_on_letter.c:1066
 msgid "Answers cannot be empty."
-msgstr ""
+msgstr "Vastaukset eivät voi olla tyhjiä."
 
 #: ../src/click_on_letter-activity/click_on_letter.c:1072
 #, c-format
 msgid "Too many characters in the Answer (maximum is %d)."
-msgstr ""
+msgstr "Liian monta kirjainta vastauksessa (maksimi on %d)."
 
 #: ../src/click_on_letter-activity/click_on_letter.c:1090
 msgid "All the characters in Questions must also be in the Answers."
-msgstr ""
+msgstr "Kaikki kysymysten kirjaimet tulee olla myös vastauksissa."
 
 #: ../src/click_on_letter-activity/click_on_letter.c:1115
 #, c-format
@@ -2560,56 +2467,50 @@ msgid ""
 "At level %d, Questions '%s' / Answers '%s'\n"
 "%s"
 msgstr ""
+"Virheellinsn syöte:\n"
+"Tasolla %d, kysymyksiä '%s' / vastauksia '%s'\n"
+"%s"
 
 #. question
 #: ../src/click_on_letter-activity/click_on_letter.c:1447
 #: ../src/missing_letter-activity/missingletter_config.c:426
 #: ../src/missing_letter-activity/missingletter_config.c:571
-#, fuzzy
-#| msgid "Numeration"
 msgid "Question"
-msgstr "Järjestäminen"
+msgstr "Kysymys"
 
 #. answer
 #: ../src/click_on_letter-activity/click_on_letter.c:1459
 #: ../src/missing_letter-activity/missingletter_config.c:420
 #: ../src/missing_letter-activity/missingletter_config.c:548
 msgid "Answer"
-msgstr ""
+msgstr "Vastaus"
 
 #.
 #. * TRANSLATORS: %1$s is the board name (click_on_letter),
 #. * 2$s is the name of the current user profile
 #.
 #: ../src/click_on_letter-activity/click_on_letter.c:1508
-#, fuzzy, c-format
-#| msgid ""
-#| "<b>%s</b> configuration\n"
-#| " for profile <b>%s</b>"
+#, c-format
 msgctxt "click_on_letter_config"
 msgid ""
 "<b>%1$s</b> configuration\n"
 " for profile <b>%2$s</b>"
 msgstr ""
-"<b>%s</b> asetukset\n"
-" profiilille <b>%s</b>"
+"<b>%1$s</b> asetukset\n"
+" profiilille <b>%2$s</b>"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:1521
-#, fuzzy
-#| msgid "Choose a house"
 msgid "Choose a language"
-msgstr "Valitse talo"
+msgstr "Valitse kieli"
 
 #: ../src/click_on_letter-activity/click_on_letter.c:1597
 #: ../src/gcompris/board_config_wordlist.c:273
 msgid "Back to default"
-msgstr ""
+msgstr "Palauta oletus"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:1
-#, fuzzy
-#| msgid "Click on a letter"
 msgid "Click on a lowercase letter"
-msgstr "Napsauta kirjainta"
+msgstr "Napsauta pientä kirjainta"
 
 #: ../src/click_on_letter-activity/click_on_letter.xml.in.h:2
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:2
@@ -2636,10 +2537,8 @@ msgstr ""
 "kuulla saman kirjaimen uudestaan napsauttamalla suun kuvaa alareunassa."
 
 #: ../src/click_on_letter_up-activity/click_on_letter_up.xml.in.h:1
-#, fuzzy
-#| msgid "Click on a letter"
 msgid "Click on an uppercase letter"
-msgstr "Napsauta kirjainta"
+msgstr "Napsauta isoa kirjainta"
 
 #: ../src/clockgame-activity/clockgame.c:535
 msgid "Set the watch to:"
@@ -2675,74 +2574,68 @@ msgstr ""
 "suuntaa muutetaan napsauttamalla ja raahaamalla niitä hiirellä."
 
 #: ../src/color_mix-activity/color_mix.py:72
-#, fuzzy
-#| msgid "Advanced colors"
 msgid "Match the color"
-msgstr "Harvinaisemmat värit"
+msgstr "Täsmää värit"
 
 #: ../src/color_mix-activity/color_mix.py:251
 msgid "Not enough red"
-msgstr ""
+msgstr "Liian vähän punaista"
 
 #: ../src/color_mix-activity/color_mix.py:251
 msgid "Too much red"
-msgstr ""
+msgstr "Liikaa punaista"
 
 #: ../src/color_mix-activity/color_mix.py:252
 msgid "Not enough green"
-msgstr ""
+msgstr "Liian vähän vihreää"
 
 #: ../src/color_mix-activity/color_mix.py:252
 msgid "Too much green"
-msgstr ""
+msgstr "Liikaa vihreää"
 
 #: ../src/color_mix-activity/color_mix.py:253
 msgid "Not enough blue"
-msgstr ""
+msgstr "Liian vähän sinistä"
 
 #: ../src/color_mix-activity/color_mix.py:253
 msgid "Too much blue"
-msgstr ""
+msgstr "Liikaa sinistä"
 
 #: ../src/color_mix-activity/color_mix.py:255
 msgid "Not enough cyan"
-msgstr ""
+msgstr "Liian vähän turkoosia"
 
 #: ../src/color_mix-activity/color_mix.py:255
 msgid "Too much cyan"
-msgstr ""
+msgstr "Liikaa turkoosia"
 
 #: ../src/color_mix-activity/color_mix.py:256
 msgid "Not enough magenta"
-msgstr ""
+msgstr "Liian vähän purppuraa"
 
 #: ../src/color_mix-activity/color_mix.py:256
-#, fuzzy
-#| msgid "magenta"
 msgid "Too much magenta"
-msgstr "voimakas pinkki"
+msgstr "Liikaa purppuraa"
 
 #: ../src/color_mix-activity/color_mix.py:257
 msgid "Not enough yellow"
-msgstr ""
+msgstr "Liian vähän keltaista"
 
 #: ../src/color_mix-activity/color_mix.py:257
-#, fuzzy
-#| msgid "Too low"
 msgid "Too much yellow"
-msgstr "Liian pieni"
+msgstr "Liikaa keltaista"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:1
 msgid "Mixing color of paint"
-msgstr ""
+msgstr "Maalin värien sekoittaminen"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:2
 msgid "To understand color mixing."
-msgstr ""
+msgstr "Värien sekoittamisen ymmärtäminen."
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:3
 msgid "Mix the primary colors to match to the given color"
-msgstr ""
+msgstr "Sekoita päävärejä saavuttaaksesi annetun värin"
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:4
 msgid ""
@@ -2758,29 +2651,41 @@ msgid ""
 "Yellow.\n"
 "        "
 msgstr ""
+"\n"
+"Tässä tehtävässä sekoitetaan maalaamisen päävärejä (vähentävä "
+"sekoittaminen).\n"
+"Maalien tapauksessa värit imevät tiettyjä valon värejä jotka maaliin osuvat, "
+"poistaen värin näkemästäsi. Mitä enemmän maalia lisätään, sitä enemmän valoa "
+"imeytyy, ja sitä tummemmaksi yhdistetty väri muuttuu. On mahdollista "
+"sekoittaa vain kolme pääväriä monen uuden värin luomiseksi. Päävärit "
+"maalille/musteelle ovat turkoosi (sinisen sävy), purppura (vaaleanpunaisen "
+"sävy) ja keltainen.\n"
+"        "
 
 #: ../src/color_mix-activity/color_mix.xml.in.h:9
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:9
 msgid "Openclipart.org"
-msgstr ""
+msgstr "Openclipart.org"
 
 #: ../src/color_mix_light-activity/color_mix_light.py:72
 msgid ""
 "Match the \n"
 " color "
 msgstr ""
+"Täsmää \n"
+" väri "
 
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:1
 msgid "Mixing colors of light"
-msgstr ""
+msgstr "Valon värien sekoittaminen"
 
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:2
 msgid "Understanding mixing of colors of light."
-msgstr ""
+msgstr "Valon värien sekoittamisen ymmärtäminen."
 
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:3
 msgid "Mix the primary colors to match to the given color."
-msgstr ""
+msgstr "Sekoita päävärejä saavuttaaksesi annetun värin."
 
 #: ../src/color_mix_light-activity/color_mix_light.xml.in.h:4
 msgid ""
@@ -2792,6 +2697,13 @@ msgid ""
 "of light are red, green and blue.\n"
 "        "
 msgstr ""
+"\n"
+"Tässä tehtävässä sekoitetaan valon päävärejä (lisäävä sekoittaminen).\n"
+"\n"
+"Valon värien sekoittaminen tapahtuu päinvastoin kuin maaleilla! Mitä enemmän "
+"valoa lisätään, sitä vaaleammaksi lopputuloksen väri tulee. Valon päävärit "
+"ovat punainen, keltainen ja sininen.\n"
+"        "
 
 #: ../src/colors-activity/colors.xml.in.h:1
 msgid "Colors"
@@ -2818,69 +2730,48 @@ msgid "Listen to the color and click on the matching duck."
 msgstr "Kuuntele värin nimi ja napsauta vastaavan väristä ankkaa."
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:1
-#, fuzzy
-#| msgid "Click on the yellow duck"
 msgid "Find the yellow duck"
-msgstr "Napsauta keltaista ankkaa"
+msgstr "Etsi keltainen ankka"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:2
-#, fuzzy
-#| msgid "Click on the black duck"
 msgid "Find the black duck"
-msgstr "Napsauta mustaa ankkaa"
+msgstr "Etsi mustaa ankka"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:3
-#, fuzzy
-#| msgid "Click on the green duck"
 msgid "Find the green duck"
-msgstr "Napsauta vihreâä ankkaa"
+msgstr "Etsi vihreâä ankka"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:4
-#, fuzzy
-#| msgid "Click on the red duck"
 msgid "Find the red duck"
-msgstr "Napsauta punaista ankkaa"
+msgstr "Etsi punainen ankka"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:5
-#, fuzzy
-#| msgid "Click on the white duck"
 msgid "Find the white duck"
-msgstr "Napsauta valkoista ankkaa"
+msgstr "Etsi valkoinen ankka"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:6
-#, fuzzy
-#| msgid "Click on the blue duck"
 msgid "Find the blue duck"
-msgstr "Napsauta sinistâ ankkaa"
+msgstr "Etsi sininen ankka"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:7
-#, fuzzy
-#| msgid "Click on the brown duck"
 msgid "Find the brown duck"
-msgstr "Napsauta ruskeaa ankkaa"
+msgstr "Etsi ruskea ankka"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:8
-#, fuzzy
-#| msgid "Click on the grey duck"
 msgid "Find the grey duck"
-msgstr "Napsauta harmaata ankkaa"
+msgstr "Etsi harmaa ankka"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:9
-#, fuzzy
-#| msgid "Click on the orange duck"
 msgid "Find the orange duck"
-msgstr "Napsauta oranssia ankkaa"
+msgstr "Etsi oranssi ankka"
 
 #: ../src/colors-activity/resources/colors/activity.desktop.in.h:10
-#, fuzzy
-#| msgid "Click on the purple duck"
 msgid "Find the purple duck"
-msgstr "Napsauta purppuranväristä ankkaa"
+msgstr "Etsi purppura ankka"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:1
-#, fuzzy
 msgid "Connect 4 (2 Players)"
-msgstr "Purjehduskilpailu (kaksi pelaajaa)"
+msgstr "Yhdistä 4 (kaksi pelaajaa)"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:2
 #: ../src/connect4-activity/connect4.xml.in.h:2
@@ -2888,11 +2779,12 @@ msgid "Arrange four coins in a row"
 msgstr "Järjestä neljä kolikkoa riviin"
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:4
-#, fuzzy
 msgid ""
 "Create a line of 4 pieces either horizontally (lying down) or vertically "
 "(standing up) or diagonally."
-msgstr "Luo neljän kappaleen pituinen viiva joko pysty- tai vaakasuoraan"
+msgstr ""
+"Luo neljän kappaleen pituinen viiva joko pysty- tai vaakasuoraan tai "
+"viistosti."
 
 #: ../src/connect4-2players-activity/connect4-2players.xml.in.h:5
 #: ../src/connect4-activity/connect4.xml.in.h:5
@@ -2957,11 +2849,6 @@ msgid "Motor-coordination"
 msgstr "Motoorinen koordinaatio"
 
 #: ../src/crane-activity/crane.xml.in.h:5
-#, fuzzy
-#| msgid ""
-#| "Move the items in the bottom left frame to copy their position in the top "
-#| "right model. Below the crane itself, you will find four arrows that let "
-#| "you move items. To select the item to move, just click on it."
 msgid ""
 "Move the items in the bottom left frame to copy their position in the top "
 "right model. Below the crane itself, you will find four arrows that let you "
@@ -2974,107 +2861,101 @@ msgstr ""
 "napsauttamalla sitä."
 
 #: ../src/details-activity/details.xml.in.h:1
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the details"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä yksityiskohdat"
 
 #: ../src/details-activity/details.xml.in.h:4
 msgid "The images are from Wikimedia Commons."
-msgstr ""
+msgstr "Kuvat ovat Wikimedia Commonsista"
 
 #: ../src/details-activity/resources/details/board1_0.xml.in.h:1
 msgid "Vincent van Gogh, Entrance Hall of Saint-Paul Hospital - 1889"
-msgstr ""
+msgstr "Vincent van Gogh, Saint-Paulin sairaalan eteishalli - 1889"
 
 #: ../src/details-activity/resources/details/board1_1.xml.in.h:1
 msgid ""
 "Vincent van Gogh, The Bridge of Langlois at Arles with a lady with umbrella "
 "- 1888"
 msgstr ""
+"Vincent van Gogh, Langloisin silta Arlesissa sekä nainen ja sateenvarjo - "
+"1888"
 
 #: ../src/details-activity/resources/details/board1_2.xml.in.h:1
-#, fuzzy
-#| msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgid "Vincent van Gogh, The Church at Auvers-sur-Oise - 1890"
-msgstr "Vincent Van Gogh, Kylätie Auversissa - 1890"
+msgstr "Vincent Van Gogh, Kirkko Auversissa - 1890"
 
 #: ../src/details-activity/resources/details/board1_3.xml.in.h:1
 msgid "Vincent van Gogh, Painter on His Way to Work - 1888"
-msgstr ""
+msgstr "Vincent van Gogh, maalari matkalla töihin - 1888"
 
 #: ../src/details-activity/resources/details/board1_4.xml.in.h:1
-#, fuzzy
-#| msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgid "Vincent van Gogh, The Harvest - 1888"
-msgstr "Vincent Van Gogh, Kylätie Auversissa - 1890"
+msgstr "Vincent Van Gogh, Sadonkorjuu - 1888"
 
 #: ../src/details-activity/resources/details/board1_5.xml.in.h:1
-#, fuzzy
-#| msgid "Vincent Van Gogh, Village Street in Auvers - 1890"
 msgid "Vincent van Gogh, Cafe Terrace at Night - 1888"
-msgstr "Vincent Van Gogh, Kylätie Auversissa - 1890"
+msgstr "Vincent Van Gogh, kahvilan terassi yöllä - 1888"
 
 #: ../src/details-activity/resources/details/board1_6.xml.in.h:1
 msgid "Vincent van Gogh, The Night Café - 1888"
-msgstr ""
+msgstr "Vincent van Gogh, Yökahvila - 1888"
 
 #: ../src/details-activity/resources/details/board1_7.xml.in.h:1
 msgid "Vincent van Gogh, Portrait of Pere Tanguy 1887-8"
-msgstr ""
+msgstr "Vincent van Gogh, muotokuva Pere Tanguy 1887-8"
 
 #: ../src/details-activity/resources/details/board2_0.xml.in.h:1
 msgid "Eilean Donan castle"
-msgstr ""
+msgstr "Eilean Donan linna"
 
 #: ../src/details-activity/resources/details/board2_10.xml.in.h:1
 msgid "Gizah Pyramids, Egypt"
-msgstr ""
+msgstr "Gizan pyramidit, Egypti"
 
 #: ../src/details-activity/resources/details/board2_11.xml.in.h:1
 msgid "Sydney Opera House, Australia"
-msgstr ""
+msgstr "Sydneyn oopperatalo, Australia"
 
 #: ../src/details-activity/resources/details/board2_12.xml.in.h:1
 msgid "Tower Bridge in London"
-msgstr ""
+msgstr "Lontoon Tower Bridge -silta"
 
 #: ../src/details-activity/resources/details/board2_1.xml.in.h:1
 msgid "Eiffel Tower, seen from the champ de Mars, Paris, France"
-msgstr ""
+msgstr "Eiffelin torni, nähtynä champ de Marsin suunnalta, Pariisi, Ranska"
 
 #: ../src/details-activity/resources/details/board2_2.xml.in.h:1
 msgid "Courtyard of the Museum of Louvre, and its pyramid"
-msgstr ""
+msgstr "Louvren pihan sisäpiha ja sen pyramidi"
 
 #: ../src/details-activity/resources/details/board2_3.xml.in.h:1
 msgid "Panorama of Château de Chenonceau, Indre-et-Loire, France."
-msgstr ""
+msgstr "Panoraama Chenonceaun linnasta, Indre-et-Loire, Ranska."
 
 #: ../src/details-activity/resources/details/board2_4.xml.in.h:1
 msgid ""
 "Notre Dame de Paris cathedral on the Île de la Cité island in Paris, France."
-msgstr ""
+msgstr "Notre Damen katedraali Île de la Cité -saarella, Pariisi, Ranska."
 
 #: ../src/details-activity/resources/details/board2_5.xml.in.h:1
 msgid "Nagoya Castle, Aichi Prefecture, Japan."
-msgstr ""
+msgstr "Nagoyan linna, Aichin prefektuuri, Japani."
 
 #: ../src/details-activity/resources/details/board2_6.xml.in.h:1
 msgid "Taj Mahal, Agra, India"
-msgstr ""
+msgstr "Taj Mahal, Agra, Intia"
 
 #: ../src/details-activity/resources/details/board2_7.xml.in.h:1
 msgid "Castle Neuschwanstein at Schwangau, Bavaria, Germany"
-msgstr ""
+msgstr "Neuschwansteinin linna, Schwangau, Baijeri, Saksa"
 
 #: ../src/details-activity/resources/details/board2_8.xml.in.h:1
 msgid "Egeskov Castle, Denmark"
-msgstr ""
+msgstr "Egeskovin linna, Tanska"
 
 #: ../src/details-activity/resources/details/board2_9.xml.in.h:1
 msgid "Windmill in Sønderho, Fanø, Denmark"
-msgstr ""
+msgstr "Tuulimylly, Sønderho, Fanø, Denmark"
 
 #: ../src/doubleentry-activity/doubleentry.xml.in.h:1
 msgid "Double-entry table"
@@ -3139,32 +3020,22 @@ msgid "Cannot find the file '{filename}'"
 msgstr ""
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:1
-#, fuzzy
 msgid "Draw Number"
-msgstr "Numerot"
+msgstr "Piirrä luku"
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:2
 msgid "Draw the picture by following numbers"
-msgstr ""
+msgstr "Piirrä kuva seuraavalla numeroita"
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:3
 msgid "Can count from 1 to 50."
-msgstr ""
+msgstr "Osaan laskea yhdestä viiteenkymmeneen"
 
 #: ../src/drawnumber-activity/drawnumber.xml.in.h:4
 msgid "Draw the picture by clicking on each numbers in the right order."
-msgstr ""
+msgstr "Piirrä kuva napsauttamalla jokaista lukua oikeassa järjestyksessä."
 
 #: ../src/electric-activity/electric.py:99
-#, fuzzy
-#| msgid ""
-#| "Cannot find the 'gnucap' electric simulator.\n"
-#| "You can download and install it from:\n"
-#| "<http://geda.seul.org/tools/gnucap/>\n"
-#| "To be detected, it must be installed in\n"
-#| "/usr/bin/gnucap or /usr/local/bin/gnucap.\n"
-#| "You can still use this activity to draw schematics without computer "
-#| "simulation."
 msgid ""
 "Cannot find the 'gnucap' electric simulator.\n"
 "You can download and install it from:\n"
@@ -3178,7 +3049,7 @@ msgstr ""
 "Voit hakea ja asentaa sen osoitteesta\n"
 "<http://geda.seul.org/tools/gnucap/>\n"
 "Jotta ohjelma voidaan havaita, täytyy se olla asennettu\n"
-"nimellä usr/bin/gnucap tai /usr/local/bin/gnucap.\n"
+"nimellä /usr/bin/gnucap tai /usr/local/bin/gnucap.\n"
 "Voit käyttää tätä tehtävää sähkökaavioiden piirtoon ilman elektroniikan "
 "simulointia."
 
@@ -3199,10 +3070,6 @@ msgid "Freely create an electric schema with a real time simulation of it."
 msgstr "Luo vapaasti sähkökaavio, joka simuloidaan reaaliajassa."
 
 #: ../src/electric-activity/electric.xml.in.h:5
-#, fuzzy
-#| msgid ""
-#| "GCompris uses the Gnucap electric simulator as a backend. You can get "
-#| "more information on gnucap at &lt;http://geda.seul.org/tools/gnucap/&gt;."
 msgid ""
 "GCompris uses the Gnucap electric simulator as a backend. You can get more "
 "information on gnucap at &lt;http://www.gnu.org/software/gnucap/&gt;."
@@ -3264,22 +3131,17 @@ msgstr ""
 "napsauta \"OK\"-painiketta tai paina \"Enter\"-näppäintä."
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:1
-#, fuzzy
-#| msgid "Move and click the mouse"
 msgid "Double click the mouse"
-msgstr "Siirrä hiirtä ja napsauttele sen nappeja"
+msgstr "Kaksoisnapsauta hiirellä"
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:2
-#, fuzzy
-#| msgid "Click the mouse to erase the area and discover the background"
 msgid "Double click the mouse to erase the area and discover the background"
-msgstr "Pyyhi alue napsauttamalla hiirtä ja paljasta taustakuva"
+msgstr "Pyyhi alue kaksoisnapsauttamalla hiirtä ja paljasta taustakuva"
 
 #: ../src/erase_2clic-activity/erase_2clic.xml.in.h:5
-#, fuzzy
-#| msgid "Click the mouse on rectangles until all the blocks disappear."
 msgid "Double click the mouse on rectangles until all the blocks disappear."
-msgstr "Napsuta suorakaiteita hiirellä, kunnes paloja ei ole enää jäljellä."
+msgstr ""
+"Kaksousnapsauta suorakaiteita hiirellä, kunnes paloja ei ole enää jäljellä."
 
 #: ../src/erase-activity/erase.c:86 ../src/erase-activity/erase.xml.in.h:2
 msgid "Move the mouse to erase the area and discover the background"
@@ -3287,7 +3149,7 @@ msgstr "Pyyhi aluetta liikuttamalla hiirtä ja näe piilotettu taustakuva"
 
 #: ../src/erase-activity/erase.c:180
 msgid "Error: No images found\n"
-msgstr ""
+msgstr "Virhe: Kuvia ei löydy\n"
 
 #: ../src/erase-activity/erase.c:582 ../src/gcompris/properties.c:511
 #: ../src/gcompris/properties.c:518
@@ -3337,12 +3199,6 @@ msgstr "Napsuta suorakaiteita hiirellä, kunnes paloja ei ole enää jäljellä.
 #: ../src/piano_composition-activity/piano_composition.py:372
 #: ../src/play_piano-activity/play_piano.py:78
 #: ../src/play_rhythm-activity/play_rhythm.py:83
-#, fuzzy
-#| msgid ""
-#| "Error: this activity cannot be played with the\n"
-#| "sound effects disabled.\n"
-#| "Go to the configuration dialogue to\n"
-#| "enable the sound"
 msgid ""
 "Error: This activity cannot be played with the\n"
 "sound effects disabled.\n"
@@ -3355,12 +3211,12 @@ msgstr ""
 
 #: ../src/explore-activity/explore.py:152
 msgid "Click to play sound"
-msgstr ""
+msgstr "Napsauta soittaaksesi äänen"
 
 #. draw back button
 #: ../src/explore-activity/explore.py:276
 msgid "Back to Homepage"
-msgstr ""
+msgstr "Takaisin kotisivulle"
 
 #: ../src/explore-activity/explore.py:417 ../src/findit-activity/findit.py:347
 #: ../src/louis_braille-activity/louis_braille.py:88
@@ -3373,15 +3229,17 @@ msgstr ""
 
 #: ../src/explore-activity/explore.py:507
 msgid "Explore Status:"
-msgstr ""
+msgstr "Oppimisten tila:"
 
 #: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:1
 msgid "Explore Farm Animals"
-msgstr ""
+msgstr "Opi maatilan eläimistä"
 
 #: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:2
 msgid "Learn about farm animals, what sounds they make, and interesting facts."
 msgstr ""
+"Opi maatilan eläimistä mielenkiintoisia tietoja ja millaisia ääniä ne "
+"päästävät."
 
 #: ../src/explore_farm_animals-activity/explore_farm_animals.xml.in.h:3
 msgid ""
@@ -3410,144 +3268,151 @@ msgstr ""
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:1
 msgid "Click on the questions to explore each farm animal."
-msgstr ""
+msgstr "Napsauta kysymyksiä oppiaksesi jokaisesta maatilan eläimestä."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:2
 msgid "Click on the farm animal that makes the sound you hear."
-msgstr ""
+msgstr "Napsauta maatilan eläintä joka ääntelee kuulemallasi tavalla."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:3
 msgid "Click the animal that matches the description."
-msgstr ""
+msgstr "Napsauta eläintä joka sopii kuvaukseen-"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:4
 msgid "Horse"
-msgstr ""
+msgstr "Hevonen"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:5
 msgid "The horse goes \"neigh! neigh!\". Horses usually sleep standing up."
-msgstr ""
+msgstr "Hevonen sanoo ”ihahaa”. Hevoset nukkuvat yleensä seisoen."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:6
 msgid "You can ride on the back of this animal!"
-msgstr ""
+msgstr "Tällä eläimellä voi ratsastaa!"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:7
 msgid "Chickens"
-msgstr ""
+msgstr "Kanoja"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:8
 msgid ""
 "The chicken goes \"cluck, cackle, cluck\". Chickens have over 200 different "
 "noises they can use to communicate."
-msgstr ""
+msgstr "Kana sanoo ”kot kot kot”. Kanat viestivät yli 200 erilaisella äänellä."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:9
 msgid "This animal lays eggs."
-msgstr ""
+msgstr "Tämä eläin munii."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:10
 msgid "Cows"
-msgstr ""
+msgstr "Lehmät"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:11
 msgid ""
 "The cow goes \"moo. moo.\". Cows are herbivorous mammals. They graze all day "
 "in the meadow."
 msgstr ""
+"Lehmä sanoo ”muu muu”. Lehmät ovat kasvinsyöjiä. Ne laiduntavat niityllä "
+"koko päivän."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:12
 msgid "You can drink the milk this animal produces."
-msgstr ""
+msgstr "Voit juoda tämän eläimen tuottamaa maitoa."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:13
-#, fuzzy
-#| msgid "cat"
 msgid "Cat"
-msgstr "kissa"
+msgstr "Kissa"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:14
 msgid ""
 "The cat goes \"meow, meow\". Cats usually hate water because their fur "
 "doesn't stay warm when it is wet."
 msgstr ""
+"Kissa sanoo ”miu mau”. Kissat vihaavat yleensä vettä koska heidän turkkinsa "
+"ei pysyä lämpimänä jos se on märkä."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:15
 msgid "This pet likes chasing mice."
-msgstr ""
+msgstr "Tämä kotieläin tykkää hiirien jahtaamisesta."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:16
 msgid "Pigs"
-msgstr ""
+msgstr "Siat"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:17
 msgid "The pig goes \"oink, oink\". Pigs are the 4th most intelligent animal."
 msgstr ""
+"Sika sanoo ”nöf nöf”. Siat ovat kaikista eläimistä neljänneksi älykkäimpiä."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:18
 msgid "This animal likes to lie in the mud."
-msgstr ""
+msgstr "Tämä eläin pitää mudassa makaamisesta."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:19
-#, fuzzy
-#| msgid "White checks"
 msgid "White Duck"
-msgstr "Valkoinen shakkaa"
+msgstr "Valkoinen ankka"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:20
 msgid ""
 "The duck goes \"quack, quack\". Ducks have special features like webbed feet "
 "and produce an oil to make their feathers \"waterproof\"."
 msgstr ""
+"Ankka sanoo ”kvaak kvaak”. Ankoilla on erityisominaisuuksia kuten "
+"räpyläjälat ja kyky tuottaa öljyä höyhenten tekemiseksi ”vesitiiviiksi”."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:21
 msgid "This animal has webbed feet so it can swim in the water."
-msgstr ""
+msgstr "Tällä eläimellä on räpyläjalat jotta se voi uida vedessä."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:22
 msgid "Owl"
-msgstr ""
+msgstr "Pöllö"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:23
 msgid ""
 "The owl goes \"hoo. hoo.\" The owl has excellent vision and hearing at night."
-msgstr ""
+msgstr "Pöllö sanoo ”huhuu”. Pöllö näkee ja kuulee erittäin hyvin yöaikaan."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:24
 msgid "This animal likes to come out at night."
-msgstr ""
+msgstr "Tämä eläin tulee esiin öisin."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:25
 msgid "Dogs"
-msgstr ""
+msgstr "Koirat"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:26
 msgid ""
 "The dog goes \"bark! bark!\". Dogs are great human companions and usually "
 "enjoy love and attention."
 msgstr ""
+"Koira sanoo ”vuh vuh”. Koirat ovat hyviä kumppaneita ihmisille ja yleensä "
+"nauttivat rakkaudesta ja huomiosta."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:27
 msgid "This animal's ancestors were wolves."
-msgstr ""
+msgstr "Tämän eläimen esi-isät olivat susia."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:28
 msgid "Rooster"
-msgstr ""
+msgstr "Kukko"
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:29
 msgid ""
 "The rooster goes \"coc-a-doodle-doo!\". Roosters have been on farms for "
 "about 5,000 years. Every morning it wakes the farm up with its noises."
 msgstr ""
+"Kukko sanoo ”kukkokiekuu!”. Kukkoja on ollut maatiloilla jo noin 5 000 "
+"vuotta. Joka aamu se herättää äänillään maatilan."
 
 #: ../src/explore_farm_animals-activity/resources/explore_farm_animals/content.desktop.in.h:30
 msgid "This animal wakes the farm up in the morning."
-msgstr ""
+msgstr "Tämä eläin herättää maatilan väen aamuisin."
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:1
 msgid "Explore World Animals"
-msgstr ""
+msgstr "Tutustu maailman eläimiin"
 
 #: ../src/explore_world_animals-activity/explore_world_animals.xml.in.h:2
 msgid ""
@@ -3578,7 +3443,6 @@ msgstr ""
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:3
 #, fuzzy
-#| msgid "South America"
 msgid "Jaguars in South America"
 msgstr "Etelä-Amerikka"
 
@@ -3594,7 +3458,6 @@ msgstr ""
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:6
 #, fuzzy
-#| msgid "Western Europe"
 msgid "Hedgehogs in Europe"
 msgstr "Länsi-Eurooppa"
 
@@ -3611,7 +3474,6 @@ msgstr ""
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:9
 #, fuzzy
-#| msgid "Northern Africa"
 msgid "Giraffes in Africa"
 msgstr "Pohjois-Afrikka"
 
@@ -3627,7 +3489,6 @@ msgstr ""
 
 #: ../src/explore_world_animals-activity/resources/explore_world_animals/content.desktop.in.h:12
 #, fuzzy
-#| msgid "North America"
 msgid "Bison in America"
 msgstr "Pohjois-Amerikka"
 
@@ -3661,7 +3522,6 @@ msgstr ""
 
 #: ../src/explore_world_music-activity/explore_world_music.xml.in.h:2
 #, fuzzy
-#| msgid "Learn about the water cycle"
 msgid "Learn about the music of the world."
 msgstr "Opettele veden kiertokulkua"
 
@@ -3708,10 +3568,8 @@ msgstr ""
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:4
 #: ../src/geo_country-activity/resources/geo_country/board13_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:4
-#, fuzzy
-#| msgid "Austria"
 msgid "Australia"
-msgstr "Itävalta"
+msgstr "Australia"
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:5
 msgid ""
@@ -3758,8 +3616,6 @@ msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:13
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:53
-#, fuzzy
-#| msgid "Japanese"
 msgid "Japan"
 msgstr "Japani"
 
@@ -3845,8 +3701,6 @@ msgid "Where is Mariachi music from?"
 msgstr ""
 
 #: ../src/explore_world_music-activity/resources/explore_world_music/content.desktop.in.h:29
-#, fuzzy
-#| msgid "United States of America"
 msgid "United State of America"
 msgstr "Yhdysvallat"
 
@@ -3911,7 +3765,6 @@ msgstr ""
 "siirtyy takaisinpäin."
 
 #: ../src/gcompris/about.c:49
-#, fuzzy
 msgid ""
 "Author: Bruno Coudoin\n"
 "Contribution: Pascal Georges, Jose Jorge, Yves Combe\n"
@@ -3919,8 +3772,8 @@ msgid ""
 "Intro Music: Djilali Sebihi\n"
 "Background Music: Rico Da Halvarez\n"
 msgstr ""
-"Kirjoittanut: Bruno Coudoin\n"
-"Avustanut: Pascal Georges, Jose Jorge\n"
+"Tekijä: Bruno Coudoin\n"
+"Avustanut: Pascal Georges, Jose Jorge, Yves Combe\n"
 "Grafiikka: Renaud Blanchard, Franck Doucet\n"
 "Alkumusiikki: Djilaly Sebihi\n"
 "Taustamusiikki: Rico Da Halvarez\n"
@@ -3932,6 +3785,7 @@ msgstr ""
 "Rami Aubourg-Kaires, Merja Kaires, Satu Ellermaa, 2003-2004\n"
 "http://www.kaires.org\n"
 "\n"
+"Timo Jyrinki, 2016\n"
 "Ilkka Tuohela, 2005\n"
 "Jyrki Kuoppala, 2001\n"
 "https://l10n.gnome.org/teams/fi/"
@@ -3941,14 +3795,8 @@ msgid "About GCompris"
 msgstr "Tietoja GComprisista"
 
 #: ../src/gcompris/about.c:96
-#, fuzzy
-#| msgid ""
-#| "GCompris Home Page\n"
-#| "http://gcompris.net"
 msgid "GCompris Home Page: http://gcompris.net"
-msgstr ""
-"GCompris Kotisivut\n"
-"http://gcompris.net/"
+msgstr "GComprisin kotisivut: http://gcompris.net"
 
 #: ../src/gcompris/about.c:107
 msgid "Translators:"
@@ -3962,7 +3810,7 @@ msgstr ""
 "Tämä ohjelma on GNU-ohjelma ja on julkaistu GNU General Public Licensen "
 "mukaisesti"
 
-#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:490
+#: ../src/gcompris/about.c:221 ../src/gcompris/config.c:491
 #: ../src/gcompris/dialog.c:99 ../src/gcompris/help.c:358
 #: ../src/gcompris/images_selector.c:313
 msgid "OK"
@@ -3985,9 +3833,8 @@ msgid "No, I want to keep going"
 msgstr "Ei, haluan jatkaa pelaamista."
 
 #: ../src/gcompris/board.c:149
-#, fuzzy
 msgid "Dynamic module loading is not supported. GCompris cannot load.\n"
-msgstr "Dynaaminen moduulin lataus ei toiminut. GCompris ei voi startata.\n"
+msgstr "Dynaaminen moduulin lataus ei toiminut. GCompris ei voi käynnistyä.\n"
 
 #: ../src/gcompris/board_config_combo.c:182
 msgid ""
@@ -4000,59 +3847,50 @@ msgid "Global GCompris mode"
 msgstr ""
 
 #: ../src/gcompris/board_config_combo.c:253
-#, fuzzy
 msgid "Normal"
-msgstr "korallinpunainen"
+msgstr "Tavallinen"
 
 #: ../src/gcompris/board_config_combo.c:254
 msgid "2 clicks"
-msgstr ""
+msgstr "Kaksi napsautusta"
 
 #: ../src/gcompris/board_config_combo.c:255
 msgid "both modes"
-msgstr ""
+msgstr "molemmat tilat"
 
 #: ../src/gcompris/board_config_combo.c:283
-#, fuzzy
 msgid ""
 "Select the drag and drop mode\n"
 " to use in the board"
-msgstr "Valitse kentässä käytettävä kieli."
+msgstr ""
+"Valitse kentässä raahaamisen ja \n"
+"pudottamisen tila"
 
 #. add a new level
 #: ../src/gcompris/board_config_wordlist.c:123
 #, c-format
 msgid "%d (New level)"
-msgstr ""
+msgstr "%d (uusi taso)"
 
 #. frame
 #: ../src/gcompris/board_config_wordlist.c:225
-#, fuzzy
-#| msgid "Complete a list of symbols"
 msgid "Configure the list of words"
-msgstr "Täydennä merkkien lista"
+msgstr "Täydennä sanaluetteloita"
 
 #: ../src/gcompris/board_config_wordlist.c:236
-#, fuzzy
-#| msgid "Choice of pattern"
 msgid "Choice of the language"
-msgstr "Valittu kuvio"
+msgstr "Valittu kieli"
 
 #: ../src/gcompris/board_config_wordlist.c:248
-#, fuzzy
-#| msgid "Choice of pattern"
 msgid "Choice of the level"
-msgstr "Valittu kuvio"
+msgstr "Valittu taso"
 
 #: ../src/gcompris/config.c:57
-#, fuzzy
-#| msgid "Your system default"
 msgid "Language: your system default"
-msgstr "Järjestelmän oletusasetus"
+msgstr "Kieli: järjestelmän oletusasetus"
 
 #: ../src/gcompris/config.c:58
 #, fuzzy
-#| msgid "Africa"
 msgid "Afrikaans"
 msgstr "Afrikka"
 
@@ -4094,7 +3932,6 @@ msgstr "Kiina (yksinkertaistettu)"
 
 #: ../src/gcompris/config.c:68
 #, fuzzy
-#| msgid "Chinese (Traditional)"
 msgid "Chinese (Hong Kong)"
 msgstr "Kiina (perinteinen)"
 
@@ -4160,9 +3997,8 @@ msgstr "Saksa"
 msgid "Greek"
 msgstr "Kreikka"
 
-#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:113
+#: ../src/gcompris/config.c:84 ../src/gcompris/config.c:114
 #, fuzzy
-#| msgid "Irish (Gaelic)"
 msgid "Scottish Gaelic"
 msgstr "Iiri (Gaeli)"
 
@@ -4199,218 +4035,206 @@ msgid "Japanese"
 msgstr "Japani"
 
 #: ../src/gcompris/config.c:93
+#, fuzzy
+msgid "Kannada"
+msgstr "Kanada"
+
+#: ../src/gcompris/config.c:94
 msgid "Kinyarwanda"
 msgstr "Kinyawanda"
 
-#: ../src/gcompris/config.c:94
+#: ../src/gcompris/config.c:95
 msgid "Korean"
 msgstr "Korea"
 
-#: ../src/gcompris/config.c:95
+#: ../src/gcompris/config.c:96
 #, fuzzy
-#| msgid "Latvia"
 msgid "Latvian"
 msgstr "Latvia"
 
-#: ../src/gcompris/config.c:96
+#: ../src/gcompris/config.c:97
 msgid "Lithuanian"
 msgstr "Liettua"
 
-#: ../src/gcompris/config.c:97
+#: ../src/gcompris/config.c:98
 msgid "Macedonian"
 msgstr "Makedonia"
 
-#: ../src/gcompris/config.c:98
+#: ../src/gcompris/config.c:99
 msgid "Malay"
 msgstr "Malaiji"
 
-#: ../src/gcompris/config.c:99
+#: ../src/gcompris/config.c:100
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: ../src/gcompris/config.c:100
+#: ../src/gcompris/config.c:101
 msgid "Marathi"
 msgstr "Marathi"
 
-#: ../src/gcompris/config.c:101
+#: ../src/gcompris/config.c:102
 #, fuzzy
-#| msgid "Serbia Montenegro"
 msgid "Montenegrin"
 msgstr "Serbia ja Montenegro"
 
-#: ../src/gcompris/config.c:102
+#: ../src/gcompris/config.c:103
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:38
 msgid "Nepal"
 msgstr "Nepali"
 
-#: ../src/gcompris/config.c:103
+#: ../src/gcompris/config.c:104
 msgid "Norwegian Bokmal"
 msgstr "Norja (Bokmal)"
 
-#: ../src/gcompris/config.c:104
+#: ../src/gcompris/config.c:105
 msgid "Norwegian Nynorsk"
 msgstr "Norja (Nynorsk)"
 
-#: ../src/gcompris/config.c:105
+#: ../src/gcompris/config.c:106
 msgid "Occitan (languedocien)"
 msgstr ""
 
-#: ../src/gcompris/config.c:106
+#: ../src/gcompris/config.c:107
 msgid "Persian"
 msgstr ""
 
-#: ../src/gcompris/config.c:107
+#: ../src/gcompris/config.c:108
 msgid "Polish"
 msgstr "Puola"
 
-#: ../src/gcompris/config.c:108
+#: ../src/gcompris/config.c:109
 msgid "Portuguese (Brazil)"
 msgstr "Portugali (Brasilia)"
 
-#: ../src/gcompris/config.c:109
+#: ../src/gcompris/config.c:110
 msgid "Portuguese"
 msgstr "Portugali"
 
-#: ../src/gcompris/config.c:110
+#: ../src/gcompris/config.c:111
 msgid "Punjabi"
 msgstr "Punjabi"
 
-#: ../src/gcompris/config.c:111
+#: ../src/gcompris/config.c:112
 msgid "Romanian"
 msgstr "Romania"
 
-#: ../src/gcompris/config.c:112
+#: ../src/gcompris/config.c:113
 msgid "Russian"
 msgstr "Venäjä"
 
-#: ../src/gcompris/config.c:114
+#: ../src/gcompris/config.c:115
 msgid "Serbian (Latin)"
 msgstr "Serbia (latinalaiset aakkoset)"
 
-#: ../src/gcompris/config.c:115
+#: ../src/gcompris/config.c:116
 msgid "Serbian"
 msgstr "Serbi"
 
-#: ../src/gcompris/config.c:116
+#: ../src/gcompris/config.c:117
 msgid "Slovak"
 msgstr "Slovakia"
 
-#: ../src/gcompris/config.c:117
+#: ../src/gcompris/config.c:118
 msgid "Slovenian"
 msgstr "Slovenia"
 
-#: ../src/gcompris/config.c:118
+#: ../src/gcompris/config.c:119
 msgid "Somali"
 msgstr "Somali"
 
-#: ../src/gcompris/config.c:119
+#: ../src/gcompris/config.c:120
 msgid "Spanish"
 msgstr "Espanja"
 
-#: ../src/gcompris/config.c:120
+#: ../src/gcompris/config.c:121
 msgid "Swedish"
 msgstr "Ruotsi"
 
-#: ../src/gcompris/config.c:121
+#: ../src/gcompris/config.c:122
 msgid "Tamil"
 msgstr "Tamil"
 
-#: ../src/gcompris/config.c:122
+#: ../src/gcompris/config.c:123
 msgid "Thai"
 msgstr "Thai"
 
-#: ../src/gcompris/config.c:123
+#: ../src/gcompris/config.c:124
 msgid "Turkish (Azerbaijan)"
 msgstr "Turkki (Azerbajzan)"
 
-#: ../src/gcompris/config.c:124
+#: ../src/gcompris/config.c:125
 msgid "Turkish"
 msgstr "Turkki"
 
-#: ../src/gcompris/config.c:125
+#: ../src/gcompris/config.c:126
 #, fuzzy
-#| msgid "Ukraine"
 msgid "Ukrainian"
 msgstr "Ukraina"
 
-#: ../src/gcompris/config.c:126
+#: ../src/gcompris/config.c:127
 msgid "Urdu"
 msgstr ""
 
-#: ../src/gcompris/config.c:127
+#: ../src/gcompris/config.c:128
 msgid "Vietnamese"
 msgstr "Vietnam"
 
-#: ../src/gcompris/config.c:128
+#: ../src/gcompris/config.c:129
 msgid "Walloon"
 msgstr "Belgian hollanti"
 
-#: ../src/gcompris/config.c:129
+#: ../src/gcompris/config.c:130
 msgid "Zulu"
 msgstr ""
 
-#: ../src/gcompris/config.c:134
-#, fuzzy
-#| msgid "No time limit"
-msgid "Timer: No time limit"
-msgstr "Ei aikarajaa"
-
 #: ../src/gcompris/config.c:135
-#, fuzzy
-#| msgid "Slow timer"
-msgid "Timer: Slow timer"
-msgstr "Hidas kello"
+msgid "Timer: No time limit"
+msgstr "Ajastin: Ei aikarajaa"
 
 #: ../src/gcompris/config.c:136
-#, fuzzy
-#| msgid "Normal timer"
-msgid "Timer: Normal timer"
-msgstr "Normaali kello"
+msgid "Timer: Slow timer"
+msgstr "Ajastin: Hidas kello"
 
 #: ../src/gcompris/config.c:137
-#, fuzzy
-#| msgid "Fast timer"
+msgid "Timer: Normal timer"
+msgstr "Ajastin: Normaali kello"
+
+#: ../src/gcompris/config.c:138
 msgid "Timer: Fast timer"
-msgstr "Nopea kello"
+msgstr "Ajastin: Nopea kello"
 
-#: ../src/gcompris/config.c:141
-#, fuzzy
-#| msgid ""
-#| "<i>Use GCompris administration module\n"
-#| "to filter boards</i>"
+#: ../src/gcompris/config.c:142
 msgid "Use GCompris administration module to filter boards"
-msgstr ""
-"<i>Käytä GComprisin hallintaosaa\n"
-"tehtävien rajaamiseen</i>"
+msgstr "Käytä GComprisin hallintaosaa tehtävien rajaamiseen"
 
-#: ../src/gcompris/config.c:203
+#: ../src/gcompris/config.c:204
 msgid "GCompris Configuration"
 msgstr "GComprisin asetukset"
 
-#: ../src/gcompris/config.c:275
+#: ../src/gcompris/config.c:276
 msgid "Fullscreen"
 msgstr "Kokoruututila"
 
-#: ../src/gcompris/config.c:300
+#: ../src/gcompris/config.c:301
 msgid "Remember level for default user"
-msgstr ""
+msgstr "Muista oletuskäyttäjän taso"
 
-#: ../src/gcompris/config.c:326
+#: ../src/gcompris/config.c:327
 msgid "Music"
 msgstr "Musiikki"
 
-#: ../src/gcompris/config.c:351
+#: ../src/gcompris/config.c:352
 msgid "Effect"
 msgstr "Tehosteet"
 
-#: ../src/gcompris/config.c:375 ../src/gcompris/sugar_gc.c:93
+#: ../src/gcompris/config.c:376 ../src/gcompris/sugar_gc.c:93
 msgid "Zoom"
-msgstr ""
+msgstr "Suurenna"
 
-#: ../src/gcompris/config.c:454 ../src/gcompris/config.c:764
+#: ../src/gcompris/config.c:455 ../src/gcompris/config.c:765
 #, c-format
 msgid "Font: %s"
-msgstr ""
+msgstr "Fontti: %s"
 
 #: ../src/gcompris/file_selector.c:251
 msgid "CANCEL"
@@ -4457,15 +4281,12 @@ msgid "run GCompris without sound."
 msgstr "suorita ilman ääntä."
 
 #: ../src/gcompris/gcompris.c:167
-#, fuzzy
 msgid "run GCompris with the default system cursor."
-msgstr "Suorita Gnomen käyttämällä kursorilla."
+msgstr "suorita järjestelmän käyttämällä kursorilla."
 
 #: ../src/gcompris/gcompris.c:170
-#, fuzzy
-#| msgid "run GCompris without sound."
 msgid "run GCompris without cursor (touch screen mode)."
-msgstr "suorita ilman ääntä."
+msgstr "suorita ilman kursoria (kosketusnäyttötila)."
 
 #: ../src/gcompris/gcompris.c:173
 msgid "display only activities with this difficulty level."
@@ -4500,7 +4321,6 @@ msgstr ""
 
 #: ../src/gcompris/gcompris.c:193
 #, fuzzy
-#| msgid "Run GCompris with local activity directory added to menu"
 msgid "GCompris will find the Python activity in this directory"
 msgstr "Suorita gcompris näyttäen vain halutun valikon"
 
@@ -4565,7 +4385,6 @@ msgstr "Poista asetusnappi käytöstä"
 
 #: ../src/gcompris/gcompris.c:235
 #, fuzzy
-#| msgid "Disable the quit button"
 msgid "Disable the level button"
 msgstr "Poista sulkemisnappi käytöstä"
 
@@ -4611,7 +4430,7 @@ msgid "Print the version of "
 msgstr "Tulosta versio "
 
 #: ../src/gcompris/gcompris.c:942
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "GCompris is free software released under the GPL License. In order to "
 "support its development, this version provides only %d of the %d activities. "
@@ -4622,16 +4441,14 @@ msgid ""
 "Get more information at FSF:\n"
 "<http://www.fsf.org/philosophy>"
 msgstr ""
-"GCompris on Linux-järjetelmällä ohjelmoitua vapaata ohjelmistoa.\n"
-"Maksuttomassa Windows-versiossa on ainoastaan %d tehtävää noin %d "
-"tehtävästä.\n"
-"Voitte ostaa täyden Windows-version täältâ: http://gcompris.net.\n"
-"Linux-versio on täysin ilmainen kokonaisuudessaan.\n"
-"Huomaa, että GComprisia kehitetään vapauttamaan koulut monopolistisista "
-"ohjelmien valmistajista. Jos ajattelette että vapauden opettaminen lapsille "
-"on tärkeää, voitte miettiä mahdollisuutta käyttää esim. GNU/Linuxia.\n"
-"Lisää tietoja aiheesta FSF:n sivuilta:\n"
-"http://www.fsf.org/philosophy"
+"GCompris on vapaa ohjelmisto, joka on julkaistu GPL-lisenssillä. Tukeaksesi "
+"sen kehitystä, tämä versio tarjoaa vain %d kaikkian %d tehtävästä. Voit "
+"ostaa pienellä summalla täyden version osoitteessa\n"
+"<http://gcompris.net>\n"
+"GNU/Linux-versiolla ei ole tätä rajoitusta. Jos ajattelette että vapauksien "
+"opettaminen lapsille on tärkeää, voitte miettiä mahdollisuutta käyttää esi. "
+"GNU/Linuxia.Lisää tietoja aiheesta FSF:n sivuilta:\n"
+"<http://www.fsf.org/philosophy>"
 
 #: ../src/gcompris/gcompris.c:1236
 #, c-format
@@ -4640,9 +4457,9 @@ msgstr ""
 
 #: ../src/gcompris/gcompris.c:1252
 msgid "Retrieving remote data..."
-msgstr ""
+msgstr "Haetaan etätietoja..."
 
-#: ../src/gcompris/gcompris.c:1513
+#: ../src/gcompris/gcompris.c:1518
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4651,18 +4468,13 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1522
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr ""
 
-#: ../src/gcompris/gcompris.c:1638
-#, fuzzy, c-format
-#| msgid ""
-#| "GCompris\n"
-#| "Version: %s\n"
-#| "Licence: GPL\n"
-#| "More info at http://gcompris.net\n"
+#: ../src/gcompris/gcompris.c:1643
+#, c-format
 msgid ""
 "GCompris\n"
 "Version: %s\n"
@@ -4675,35 +4487,34 @@ msgstr ""
 "Lisää tietoja täältä: http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1823
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Käytä valitsinta -l saadaksesi tietyn tehtävän suoraan.\n"
 
-#: ../src/gcompris/gcompris.c:1824
+#: ../src/gcompris/gcompris.c:1829
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Lista mahdollisista tehtävistä:\n"
 
-#: ../src/gcompris/gcompris.c:1855
-#, fuzzy, c-format
-#| msgid "Numeration activities."
+#: ../src/gcompris/gcompris.c:1860
+#, c-format
 msgid "Number of activities: %d\n"
-msgstr "Järjestämistehtäviä."
+msgstr "Tehtäviä yhteensä: %d\n"
 
-#: ../src/gcompris/gcompris.c:1891
+#: ../src/gcompris/gcompris.c:1896
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr ""
 
-#: ../src/gcompris/gcompris.c:1986
+#: ../src/gcompris/gcompris.c:1991
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
 "available ones\n"
 msgstr ""
 
-#: ../src/gcompris/gcompris.c:2000
+#: ../src/gcompris/gcompris.c:2005
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Lista mahdollisista profiileista:\n"
@@ -4740,12 +4551,13 @@ msgid "Credit"
 msgstr "Kiitokset"
 
 #: ../src/gcompris/menu.c:614
-#, fuzzy, c-format
-#| msgid "Reading activities."
+#, c-format
 msgid ""
 "Loading activity from file:\n"
 "%s"
-msgstr "Lukutehtävät."
+msgstr ""
+"Ladataan tehtäviä tiedostosta:\n"
+"%s"
 
 #: ../src/gcompris/menu.c:673
 msgid ""
@@ -4775,31 +4587,29 @@ msgid "Cannot retrieve remote data"
 msgstr ""
 
 #: ../src/gcompris/sugar_gc.c:82
-#, fuzzy
-#| msgid "Djibouti"
 msgid "About"
-msgstr "Djibouti"
+msgstr "Tietoja"
 
 #: ../src/gcompris/sugar_gc.c:83
 msgid "Refresh"
-msgstr ""
+msgstr "Päivitä"
 
 #: ../src/gcompris/sugar_gc.c:84
 msgid "Settings"
-msgstr ""
+msgstr "Asetukset"
 
 #: ../src/gcompris/sugar_gc.c:85
 msgid "Previous level"
-msgstr ""
+msgstr "Edellinen taso"
 
 #: ../src/gcompris/sugar_gc.c:88
 msgid "Next level"
-msgstr ""
+msgstr "Seuraava taso"
 
 #. TRANSLATORS: Back as in previous
 #: ../src/gcompris/sugar_gc.c:97
 msgid "Back"
-msgstr ""
+msgstr "Takaisin"
 
 #: ../src/gcompris/sugar_srv.c:157
 msgid "Cannot initiate sharing session"
@@ -4815,14 +4625,12 @@ msgid "Remaining Time = %d"
 msgstr "Aikaa jäljellä = %d"
 
 #: ../src/geo_country-activity/geo_country.xml.in.h:1
-#, fuzzy
 msgid "Locate the region"
-msgstr "Löydä maiden sijainnit"
+msgstr "Paikanna alue"
 
 #: ../src/geo_country-activity/geo_country.xml.in.h:2
-#, fuzzy
 msgid "Drag and Drop the regions to redraw the whole country"
-msgstr "Raahaa paloja, jotta saat piirrettyä koko kartan"
+msgstr "Raahaa alueita, jotta saat piirrettyä koko kartan"
 
 #: ../src/geo_country-activity/geo_country.xml.in.h:3
 #: ../src/geography-activity/geography.xml.in.h:3
@@ -4848,7 +4656,6 @@ msgstr "Yhdysvallat"
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:2
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:2
 #, fuzzy
-#| msgid "Connect 4"
 msgid "Connecticut"
 msgstr "Yhdistä neljä"
 
@@ -4890,7 +4697,6 @@ msgstr ""
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:10
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:10
 #, fuzzy
-#| msgid "Main menu"
 msgid "Maine"
 msgstr "Päävalikko"
 
@@ -4917,7 +4723,6 @@ msgstr ""
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:15
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:15
 #, fuzzy
-#| msgid "Oware"
 msgid "Delaware"
 msgstr "Oware"
 
@@ -4929,7 +4734,6 @@ msgstr ""
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:17
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:17
 #, fuzzy
-#| msgid "Ireland"
 msgid "Maryland"
 msgstr "Irlanti"
 
@@ -4947,21 +4751,18 @@ msgstr ""
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:21
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:21
 #, fuzzy
-#| msgid "Georgian"
 msgid "USA|Georgia"
 msgstr "Georgia"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:22
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:22
 #, fuzzy
-#| msgid "South Africa"
 msgid "South Carolina"
 msgstr "Etelä-Afrikka"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:23
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:23
 #, fuzzy
-#| msgid "North America"
 msgid "North Carolina"
 msgstr "Pohjois-Amerikka"
 
@@ -5018,7 +4819,6 @@ msgstr ""
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:34
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:34
 #, fuzzy
-#| msgid "Tunisia"
 msgid "Louisiana"
 msgstr "Tunisia"
 
@@ -5072,14 +4872,12 @@ msgstr ""
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:44
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:44
 #, fuzzy
-#| msgid "Mexico"
 msgid "New Mexico"
 msgstr "Meksiko"
 
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:45
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:45
 #, fuzzy
-#| msgid "Colors"
 msgid "Colorado"
 msgstr "Värit"
 
@@ -5101,7 +4899,6 @@ msgstr ""
 #: ../src/geo_country-activity/resources/geo_country/board10_0.xml.in.h:49
 #: ../src/geo_country-activity/resources/geo_country/board10_1.xml.in.h:49
 #, fuzzy
-#| msgid "Birth Date"
 msgid "North Dakota"
 msgstr "Syntymäpäivä"
 
@@ -5137,7 +4934,6 @@ msgstr ""
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:1
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:1
 #, fuzzy
-#| msgid "Northern Africa"
 msgid "Northern Scotland"
 msgstr "Pohjois-Afrikka"
 
@@ -5169,7 +4965,6 @@ msgstr ""
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:7
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:7
 #, fuzzy
-#| msgid "Switzerland"
 msgid "Sutherland"
 msgstr "Sveitsi"
 
@@ -5181,7 +4976,6 @@ msgstr ""
 #: ../src/geo_country-activity/resources/geo_country/board15_0.xml.in.h:9
 #: ../src/geo_country-activity/resources/geo_country/board15_2.xml.in.h:9
 #, fuzzy
-#| msgid "Iceland"
 msgid "Shetland"
 msgstr "Islanti"
 
@@ -5213,7 +5007,6 @@ msgstr ""
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:1
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:1
 #, fuzzy
-#| msgid "Southern Africa"
 msgid "Southern Scotland"
 msgstr "Etelä-Afrikka"
 
@@ -5255,7 +5048,6 @@ msgstr ""
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:9
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:9
 #, fuzzy
-#| msgid "North America"
 msgid "North Ayrshire"
 msgstr "Pohjois-Amerikka"
 
@@ -5297,7 +5089,6 @@ msgstr ""
 #: ../src/geo_country-activity/resources/geo_country/board15_1.xml.in.h:17
 #: ../src/geo_country-activity/resources/geo_country/board15_3.xml.in.h:17
 #, fuzzy
-#| msgid "South Africa"
 msgid "South Ayrshire"
 msgstr "Etelä-Afrikka"
 
@@ -5395,7 +5186,6 @@ msgstr ""
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:3
 #, fuzzy
-#| msgid "Black mates"
 msgid "Black Sea"
 msgstr "Musta matittaa"
 
@@ -5429,7 +5219,6 @@ msgstr ""
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:12
 #, fuzzy
-#| msgid "Brain"
 msgid "Bahrain"
 msgstr "Aivo"
 
@@ -5486,13 +5275,11 @@ msgstr "Turkki"
 #. Translators: Strip Asia| and translate only Georgia
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:26
 #, fuzzy
-#| msgid "Georgian"
 msgid "Asia|Georgia"
 msgstr "Georgia"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:27
 #, fuzzy
-#| msgid "Turkish (Azerbaijan)"
 msgid "Azerbaijan"
 msgstr "Turkki (Azerbajzan)"
 
@@ -5502,7 +5289,6 @@ msgstr ""
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:29
 #, fuzzy
-#| msgid "Turkish"
 msgid "Turkmenistan"
 msgstr "Turkki"
 
@@ -5520,14 +5306,12 @@ msgstr ""
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:33
 #, fuzzy
-#| msgid "Malay"
 msgid "Malaysia"
 msgstr "Malaiji"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:34
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:19
 #, fuzzy
-#| msgid "Indonesian"
 msgid "Indonesia"
 msgstr "Indonesia"
 
@@ -5561,7 +5345,6 @@ msgstr ""
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:44
 #, fuzzy
-#| msgid "Swaziland"
 msgid "Thailand"
 msgstr "Swazimaa"
 
@@ -5575,7 +5358,6 @@ msgstr ""
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:47
 #, fuzzy
-#| msgid "Vietnamese"
 msgid "Vietnam"
 msgstr "Vietnam"
 
@@ -5592,22 +5374,16 @@ msgid "Kazakhstan"
 msgstr ""
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:51
-#, fuzzy
-#| msgid "South Africa"
 msgid "South Korea"
-msgstr "Etelä-Afrikka"
+msgstr "Etelä-Korea"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:52
-#, fuzzy
-#| msgid "North America"
 msgid "North Korea"
-msgstr "Pohjois-Amerikka"
+msgstr "Pohjois-Korea"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:54
-#, fuzzy
-#| msgid "Angola"
 msgid "Mongolia"
-msgstr "Angola"
+msgstr "Mongolia"
 
 #: ../src/geography-activity/resources/geography/board10_0.xml.in.h:55
 #: ../src/geography-activity/resources/geography/board6_0.xml.in.h:16
@@ -5623,8 +5399,6 @@ msgid "America"
 msgstr "Amerikka"
 
 #: ../src/geography-activity/resources/geography/board1_0.xml.in.h:4
-#, fuzzy
-#| msgid "Antartica"
 msgid "Antarctica"
 msgstr "Etelämanner"
 
@@ -5639,13 +5413,11 @@ msgstr "Australia"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:3
 #, fuzzy
-#| msgid "United States of America"
 msgid "United States Minor Outlying Islands"
 msgstr "Yhdysvallat"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:5
 #, fuzzy
-#| msgid "America"
 msgid "American Samoa"
 msgstr "Amerikka"
 
@@ -5655,7 +5427,6 @@ msgstr ""
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:7
 #, fuzzy
-#| msgid "Greenland"
 msgid "New Zealand"
 msgstr "Grönlanti"
 
@@ -5677,7 +5448,6 @@ msgstr ""
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:12
 #, fuzzy
-#| msgid "Macedonia"
 msgid "New Caledonia"
 msgstr "Makedonia"
 
@@ -5691,19 +5461,16 @@ msgstr ""
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:15
 #, fuzzy
-#| msgid "Manual"
 msgid "Vanuatu"
 msgstr "Ohje"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:16
 #, fuzzy
-#| msgid "Indonesian"
 msgid "Micronesia"
 msgstr "Indonesia"
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:17
 #, fuzzy
-#| msgid "Northern Africa"
 msgid "Northern Mariana Islands"
 msgstr "Pohjois-Afrikka"
 
@@ -5713,7 +5480,6 @@ msgstr ""
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:20
 #, fuzzy
-#| msgid "Fast timer"
 msgid "East Timor"
 msgstr "Nopea kello"
 
@@ -5723,7 +5489,6 @@ msgstr ""
 
 #: ../src/geography-activity/resources/geography/board11_0.xml.in.h:22
 #, fuzzy
-#| msgid "French Guiana"
 msgid "French Polynesia"
 msgstr "Ranskan Guayana"
 
@@ -5751,7 +5516,6 @@ msgstr "Islanti"
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:1
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:1
 #, fuzzy
-#| msgid "Central African Republic"
 msgid "Central America"
 msgstr "Keski-Afrikan tasavalta"
 
@@ -5808,7 +5572,6 @@ msgstr "Jamaika"
 #: ../src/geography-activity/resources/geography/board3_0.xml.in.h:13
 #: ../src/geography-activity/resources/geography/board3_1.xml.in.h:13
 #, fuzzy
-#| msgid "Paraguay"
 msgid "Nicaragua"
 msgstr "Paraguay"
 
@@ -6008,13 +5771,11 @@ msgstr "Romania"
 #: ../src/geography-activity/resources/geography/board6_0.xml.in.h:17
 #: ../src/piano_composition-activity/resources/piano_composition/melodies.desktop.in.h:16
 #, fuzzy
-#| msgid "Serbian"
 msgid "Serbia"
 msgstr "Serbi"
 
 #: ../src/geography-activity/resources/geography/board6_0.xml.in.h:18
 #, fuzzy
-#| msgid "Serbia Montenegro"
 msgid "Montenegro"
 msgstr "Serbia ja Montenegro"
 
@@ -6294,15 +6055,11 @@ msgid "Type the falling letters before they reach the ground"
 msgstr "Syötä putoavat kirjaimet näppäimistöltä ennen kuin ne osuvat maahan"
 
 #: ../src/gletters-activity/gletters.c:215
-#, fuzzy
-#| msgid ""
-#| "Error: We can't find\n"
-#| "a list of words to play this game.\n"
 msgid ""
 "Error: We can't find\n"
 "a list of letters to play this game.\n"
 msgstr ""
-"Virhe: listaa sanoista\n"
+"Virhe: listaa kirjaimista\n"
 "tämän pelin pelaamiseksi ei löydy.\n"
 
 #. Should display the dialog box here
@@ -6326,15 +6083,16 @@ msgstr ""
 
 #: ../src/gletters-activity/gletters.c:1064
 #: ../src/smallnumbers-activity/smallnumbers.c:617
-#, fuzzy
 msgid "Enable sounds"
-msgstr "Äänen maa-asetustot"
+msgstr "Äänet käyttöön"
 
 #: ../src/gletters-activity/gletters.c:1068
 msgid ""
 "Show letters in UPPERCASE\n"
 "Type in lowercase or UPPERCASE as you wish"
 msgstr ""
+"Näytä kirjaimet ISOILLA KIRJAIMILLA\n"
+"Kirjoita pienillä tai ISOILLA kirjaimilla kuten haluat"
 
 #: ../src/gletters-activity/gletters.xml.in.h:3
 msgid "Letter association between the screen and the keyboard"
@@ -6381,10 +6139,9 @@ msgid " and %d"
 msgstr " ja %d"
 
 #: ../src/gnumch-equality-activity/gnumch.py:116
-#, fuzzy, python-brace-format
-#| msgid "%d is divisible by %s."
+#, python-brace-format
 msgid "{0} is divisible by {1}."
-msgstr "%d on jaettavissa %s:lla"
+msgstr "{0} on jaettavissa {1}:lla"
 
 #: ../src/gnumch-equality-activity/gnumch.py:120
 msgid "1 is not a prime number."
@@ -6397,13 +6154,13 @@ msgstr "%d pienemmät alkuluvut"
 
 #. Translators: You can swap %(x)y elements in the string.
 #: ../src/gnumch-equality-activity/gnumch.py:152
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Multiples of %(d1)d include %(s)s,\n"
 "but %(d2)d is not a multiple of %(d3)d."
 msgstr ""
-"%d kertoimet sisältää %s,\n"
-"mutta %d ei ole %d kerroin."
+"%(d1)d kertomat sisältää %(s)s,\n"
+"mutta %(d2)d ei ole %(d3)d kertoma."
 
 #: ../src/gnumch-equality-activity/gnumch.py:163
 #, python-format
@@ -6411,10 +6168,9 @@ msgid "Factors of %d"
 msgstr "%d tekijät"
 
 #: ../src/gnumch-equality-activity/gnumch.py:196
-#, fuzzy, python-brace-format
-#| msgid "%s are the factors of %d."
+#, python-brace-format
 msgid "{0} are the factors of {1}."
-msgstr "%s ovat %d tekijät."
+msgstr "{0} ovat {1} tekijät."
 
 #: ../src/gnumch-equality-activity/gnumch.py:208
 #, python-format
@@ -6424,27 +6180,27 @@ msgstr "%d kertoimet"
 #: ../src/gnumch-equality-activity/gnumch.py:242
 #, python-brace-format
 msgid "{0} = {1}"
-msgstr ""
+msgstr "{0} = {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:253
 #, python-brace-format
 msgid "{0} + {1}"
-msgstr ""
+msgstr "{0} + {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:258
 #, python-brace-format
 msgid "{0} − {1}"
-msgstr ""
+msgstr "{0} − {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:263
 #, python-brace-format
 msgid "{0} × {1}"
-msgstr ""
+msgstr "{0} × {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:267
 #, python-brace-format
 msgid "{0} ÷ {1}"
-msgstr ""
+msgstr "{0} ÷ {1}"
 
 #: ../src/gnumch-equality-activity/gnumch.py:275
 #, python-format
@@ -6611,16 +6367,14 @@ msgstr ""
 "Trogglesin. Voit syödä luvun painamalla välilyöntiä sen kohdalla."
 
 #: ../src/guessnumber-activity/guessnumber.py:203
-#, fuzzy, python-brace-format
-#| msgid "Guess a number between %d and %d"
+#, python-brace-format
 msgid "Guess a number between {0} and {1}"
-msgstr "Arvaa numero väliltä %d ja %d"
+msgstr "Arvaa numero väliltä {0} ja {1}"
 
 #: ../src/guessnumber-activity/guessnumber.py:307
-#, fuzzy, python-brace-format
-#| msgid "Please enter a number between %d and %d"
+#, python-brace-format
 msgid "Please enter a number between {0} and {1}"
-msgstr "Syötä numero väliltä %d ja %d"
+msgstr "Syötä numero väliltä {0} ja {1}"
 
 #: ../src/guessnumber-activity/guessnumber.py:312
 msgid "Out of range"
@@ -6668,13 +6422,13 @@ msgstr ""
 #. Separate with /. You can use digraphs, trigraphs etc.
 #: ../src/hangman-activity/hangman.py:62
 msgid "a/e/i/o/u/y"
-msgstr ""
+msgstr "a/e/i/o/u/y/ä/ö"
 
 #. All the consonants of your language (keep empty if non applicable)
 #. Separate with /. You can use digraphs, trigraphs etc. For example, both 's' and 'sch' could be in the list for German
 #: ../src/hangman-activity/hangman.py:67
 msgid "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
-msgstr ""
+msgstr "b/c/d/f/g/h/j/k/l/m/n/p/q/r/s/t/v/w/x/z"
 
 #. Keys to letters equivalence for the hangman activity. It has the
 #. form of a space separated list like: "é=e/E è=e/E sch=S"
@@ -6695,10 +6449,8 @@ msgstr ""
 
 #: ../src/hangman-activity/hangman.py:144
 #: ../src/hangman-activity/hangman.py:150
-#, fuzzy
-#| msgid "Polish"
 msgid "English"
-msgstr "Puola"
+msgstr "englanti"
 
 #: ../src/hangman-activity/hangman.py:153
 msgid "Could not find the list of words."
@@ -6706,15 +6458,13 @@ msgstr ""
 
 #: ../src/hangman-activity/hangman.xml.in.h:1
 msgid "The classic hangman game"
-msgstr ""
+msgstr "Klassinen hirsipuupeli"
 
 #: ../src/hangman-activity/hangman.xml.in.h:2
 msgid "A word is hidden, you must discover it letter by letter"
 msgstr ""
 
 #: ../src/hangman-activity/hangman.xml.in.h:3
-#, fuzzy
-#| msgid "Reading"
 msgid "Reading skill"
 msgstr "Lukutaito"
 
@@ -6928,10 +6678,6 @@ msgid "Learn about an electrical system based on renewable energy"
 msgstr ""
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:2
-#, fuzzy
-#| msgid ""
-#| "Tux has come back from a long fishing party on his boat. Bring the water "
-#| "system back up so he can take a shower."
 msgid ""
 "Tux has come back from a long fishing party on his boat. Bring the "
 "electrical system back up so he can have light in his home."
@@ -6940,20 +6686,14 @@ msgstr ""
 "vesijärjestelmä, jotta Tux pääsee suihkuun."
 
 #: ../src/hydroelectric-activity/hydroelectric.xml.in.h:3
-#, fuzzy
-#| msgid ""
-#| "Click on different active elements : sun, cloud, water pump station, and "
-#| "water cleanup station, in order to reactivate the entire water system. "
-#| "When the system is back up and Tux is in the shower, push the shower "
-#| "button for him."
 msgid ""
 "Click on different active elements : sun, cloud, dam, solar array, wind farm "
 "and transformers, in order to reactivate the entire electrical system. When "
 "the system is back up and Tux is in his home, push the light button for him. "
 "To win you must switch on all the consumers while all the producers are up."
 msgstr ""
-"Napsauta eri elementtejä oikeassa järjestyksessä: aurinkoa, pilviä, "
-"pumppauslaitosta ja vedenpuhdistuslaitosta. Tällä tavoin aktivoit koko "
+"Napsauta eri elementtejä oikeassa järjestyksessä: aurinkoa, pilviä, patoa, "
+"aurinkopaneeleita, tuulivoimaloita ja muuntajia. Tällä tavoin aktivoit koko "
 "vedenjakelusysteemin. Kun olet valmis ja Tux on suihkussa, paina suihkun "
 "painiketta hänen puolestansa."
 
@@ -7099,8 +6839,6 @@ msgid "plane"
 msgstr "lentokone"
 
 #: ../src/imagename-activity/imagename.xml.in.h:1
-#, fuzzy
-#| msgid "Drag and Drop each item onto its name"
 msgid "Drag and Drop each item above its name"
 msgstr "Raahaa esineet vastaavan sanan päälle"
 
@@ -7246,173 +6984,123 @@ msgstr "maila"
 
 #: ../src/instruments-activity/instruments.xml.in.h:1
 msgid "Music instruments"
-msgstr ""
+msgstr "Musiikki-instrumentit"
 
 #: ../src/instruments-activity/instruments.xml.in.h:2
-#, fuzzy
-#| msgid "Click on the correct color"
 msgid "Click on the correct musical instruments"
-msgstr "Napsauta oikeaa väriä"
+msgstr "Napsauta oikeaa musiikki-instrumenttia"
 
 #: ../src/instruments-activity/instruments.xml.in.h:3
-#, fuzzy
-#| msgid "Learn to recognize unusual colors."
 msgid "Learn to recognize musical instruments."
-msgstr "Opettele tuntemaan epätavalliset värit."
+msgstr "Opettele tuntemaan musiikki-instrumentit."
 
 #: ../src/instruments-activity/instruments.xml.in.h:4
-#, fuzzy
-#| msgid "Click on the correct color"
 msgid "Click on the correct instrument."
-msgstr "Napsauta oikeaa väriä"
+msgstr "Napsauta oikeaa instrumenttia."
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:1
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the clarinet"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä klarinetti"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:2
 msgid "Find the transverse flute"
-msgstr ""
+msgstr "Löydä poikkihuilu"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:3
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the guitar"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä kitara"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:4
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the harp"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä harppu"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:5
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the piano"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä piano"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:6
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the saxophone"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä saksofoni"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:7
 msgid "Find the trombone"
-msgstr ""
+msgstr "Löydä pasuuna"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:8
 msgid "Find the trumpet"
-msgstr ""
+msgstr "Löydä trumpetti"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:9
-#, fuzzy
-#| msgid "Print the version of "
 msgid "Find the violin"
-msgstr "Tulosta versio "
+msgstr "Löydä viulu"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:10
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the drum kit"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä rummut"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:11
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the accordion"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä harmonikka"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:12
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the banjo"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä banjo"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:13
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the bongo"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä bongo-rummut"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:14
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the electric guitar"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä sähkökitara"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:15
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the castanets"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä kastanjetit"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:16
-#, fuzzy
-#| msgid "Find the next symbol in a list."
 msgid "Find the cymbal"
-msgstr "Löydä seuraava kuvio listasta merkkejä."
+msgstr "Löydä lautaset"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:17
 msgid "Find the cello"
-msgstr ""
+msgstr "Löydä sello"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:18
-#, fuzzy
-#| msgid "Rebuild the mosaic"
 msgid "Find the harmonica"
-msgstr "Rakenna mosaiikki uudestaan"
+msgstr "Löydä huuliharppu"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:19
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the horn"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä torvi"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:20
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the maracas"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä marakassit"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:21
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the organ"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä urut"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:22
-#, fuzzy
-#| msgid "Build the same model"
 msgid "Find the snare drum"
-msgstr "Rakenna sama malli"
+msgstr "Löydä virveli"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:23
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the timpani"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä patarummut"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:24
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the triangle"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä triangeli"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:25
-#, fuzzy
-#| msgid "Find the next symbol in a list."
 msgid "Find the tambourine"
-msgstr "Löydä seuraava kuvio listasta merkkejä."
+msgstr "Löydä tamburiini"
 
 #: ../src/instruments-activity/resources/instruments/activity.desktop.in.h:26
-#, fuzzy
-#| msgid "Find the matching pair"
 msgid "Find the tuba"
-msgstr "Löydä täsmäävä pari"
+msgstr "Löydä tuuba"
 
 #: ../src/intro_gravity-activity/intro_gravity.py:100
 msgid ""
@@ -7480,27 +7168,24 @@ msgid "Click on me or press the Return key when you are ready."
 msgstr ""
 
 #: ../src/land_safe-activity/land_safe.py:173
-#, fuzzy
-#| msgid "I am Ready"
 msgid "I am ready!"
-msgstr "Olen valmis."
+msgstr "Olen valmis!"
 
 #: ../src/land_safe-activity/land_safe.py:473
-#, fuzzy
 msgid "Height: "
-msgstr "Pisteet = %s"
+msgstr "Korkeus: "
 
 #: ../src/land_safe-activity/land_safe.py:491
 msgid "Fuel"
-msgstr ""
+msgstr "Polttoaine"
 
 #: ../src/land_safe-activity/land_safe.py:525
 msgid "Velocity: "
-msgstr ""
+msgstr "Nopeus: "
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:1
 msgid "Land Safe"
-msgstr ""
+msgstr "Laskeudu turvallisesti"
 
 #: ../src/land_safe-activity/land_safe.xml.in.h:2
 msgid "Understanding acceleration due to gravity."
@@ -7530,7 +7215,8 @@ msgstr ""
 msgid "Enter the text you hear:"
 msgstr ""
 
-#: ../src/lang-activity/langLib.py:69
+#. Translators : Do not translate the token {word}
+#: ../src/lang-activity/langLib.py:70
 #, python-brace-format
 msgid "Missing translation for '{word}'"
 msgstr ""
@@ -7595,132 +7281,113 @@ msgid "Please consider contributing a voice set."
 msgstr ""
 
 #: ../src/lang-activity/lang.py:172
-#, fuzzy, python-format
-#| msgid ""
-#| "<b>%s</b> configuration\n"
-#| " for profile <b>%s</b>"
+#, python-format
 msgid ""
 "Configuration\n"
 " for profile <b>%s</b>"
 msgstr ""
-"<b>%s</b> asetukset\n"
+"Asetukset\n"
 " profiilille <b>%s</b>"
 
 #: ../src/lang-activity/lang.py:177
-#, fuzzy
-#| msgid "Select sound locale"
 msgid "Select locale"
-msgstr "Valitse äänen maa-asetusto"
+msgstr "Valitse maa-asetusto"
 
 #: ../src/lang-activity/lang.xml.in.h:1
-#, fuzzy
-#| msgid "Go to the Reading activities"
 msgid "Go to the language learning activities"
-msgstr "Siirry lukutehtäviin"
+msgstr "Siirry kieltenopiskelutehtäviin"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:1
 msgid "other"
-msgstr ""
+msgstr "muut"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:2
-#, fuzzy
-#| msgid "Aviation"
 msgid "action"
-msgstr "Ilmailu"
+msgstr "toiminta"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:3
-#, fuzzy
-#| msgid "Active"
 msgid "adjective"
-msgstr "Käytössä"
+msgstr "adjektiivi"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:5
-#, fuzzy
-#| msgid "Number"
 msgid "number"
-msgstr "Numerot"
+msgstr "numerot"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:6
 msgid "bodyparts"
-msgstr ""
+msgstr "kehon osat"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:7
 msgid "clothes"
-msgstr ""
+msgstr "vaatteet"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:8
 msgid "emotion"
-msgstr ""
+msgstr "tunteet"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:9
 msgid "job"
-msgstr ""
+msgstr "työ"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:10
 msgid "people"
-msgstr ""
+msgstr "ihmiset"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:11
 msgid "sport"
-msgstr ""
+msgstr "urheilu"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:12
 msgid "food"
-msgstr ""
+msgstr "ruoka"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:13
 msgid "animal"
-msgstr ""
+msgstr "eläimet"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:14
 msgid "fruit"
-msgstr ""
+msgstr "hedelmät"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:15
 msgid "nature"
-msgstr ""
+msgstr "luonto"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:16
-#, fuzzy
-#| msgid "plane"
 msgid "plant"
-msgstr "lentokone"
+msgstr "kasvit"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:17
 msgid "vegetables"
-msgstr ""
+msgstr "vihannekset"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:18
-#, fuzzy
-#| msgid "Learn subtraction"
 msgid "construction"
-msgstr "Opi vähennyslaskua"
+msgstr "rakentaminen"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:19
 msgid "furniture"
-msgstr ""
+msgstr "huonekalut"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:20
-#, fuzzy
-#| msgid "house"
 msgid "houseware"
-msgstr "talo"
+msgstr "kodintavarat"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:21
 msgid "object"
-msgstr ""
+msgstr "esineet"
 
 #: ../src/lang-activity/resources/lang/words.xml.in.h:22
 msgid "tool"
-msgstr ""
+msgstr "työkalut"
 
 #: ../src/leftright-activity/leftright.c:230
 msgid "Left hand"
-msgstr ""
+msgstr "Vasen käsi"
 
 #: ../src/leftright-activity/leftright.c:236
 msgid "Right hand"
-msgstr ""
+msgstr "Oikea käsi"
 
 #: ../src/leftright-activity/leftright.xml.in.h:1
 msgid "Find your left and right hands"
@@ -7738,16 +7405,12 @@ msgstr ""
 "Erota oikean ja vasemman puoleiset kädet eri näkosuunnista. Tilan ymmärrys"
 
 #: ../src/leftright-activity/leftright.xml.in.h:4
-#, fuzzy
-#| msgid ""
-#| "You can see a hand: is it a left hand or a right hand? Click on the red "
-#| "button on the left, or the green button on the right."
 msgid ""
 "You can see a hand: is it a left hand or a right hand? Click on the left "
 "button, or the right button depending on the displayed hand."
 msgstr ""
-"Näet käden kuvan. Napsauta vasemmalla olevaa punaista nappulaa jos se on "
-"vasen käsi. Napsauta oikeanpuoleista vihreää nappulaa jos se on oikea käsi."
+"Näet käden kuvan. Napsauta vasenta tai oikeaa nappulaa riippuen näytetystä "
+"kädestä."
 
 #: ../src/lightsoff-activity/lightsoff.py:442
 msgid ""
@@ -7809,17 +7472,6 @@ msgstr ""
 "GCompris tunnistaa jokaisen lapsen, jolloin saadan lapsikohtaisia raportteja."
 
 #: ../src/login-activity/login.xml.in.h:4
-#, fuzzy
-#| msgid ""
-#| "In order to activate the login screen, you must \n"
-#| "first add users in the administration part of GCompris. \n"
-#| "You access Administration by running 'gcompris -a'.\n"
-#| "In Administration, you can create different profiles. In each profile,\n"
-#| "you can have a different set of users and select which activities are "
-#| "available to them.\n"
-#| "To run GCompris for a specific profile, you use 'gcompris -p profile' "
-#| "where 'profile'\n"
-#| "is the name of a profile as you created it in Administration."
 msgid ""
 "In order to activate the login screen, you must\n"
 "first add users in the administration part of GCompris.\n"
@@ -7847,7 +7499,6 @@ msgstr ""
 
 #: ../src/louis_braille-activity/louis_braille.xml.in.h:1
 #, fuzzy
-#| msgid "The story of Oscar and friend"
 msgid "The History of Louis Braille"
 msgstr "Tarina Oskarista ja ystävästä"
 
@@ -8155,51 +7806,47 @@ msgstr ""
 
 #: ../src/memory-activity/memory.c:272
 msgid "zero"
-msgstr ""
+msgstr "nolla"
 
 #: ../src/memory-activity/memory.c:273
-#, fuzzy
-#| msgid "None"
 msgid "one"
-msgstr "Ei mitään"
+msgstr "yksi"
 
 #: ../src/memory-activity/memory.c:274
 msgid "two"
-msgstr ""
+msgstr "kaksi"
 
 #: ../src/memory-activity/memory.c:275
 msgid "three"
-msgstr ""
+msgstr "kolme"
 
 #: ../src/memory-activity/memory.c:276
 msgid "four"
-msgstr ""
+msgstr "neljä"
 
 #: ../src/memory-activity/memory.c:277
 msgid "five"
-msgstr ""
+msgstr "viisi"
 
 #: ../src/memory-activity/memory.c:278
 msgid "six"
-msgstr ""
+msgstr "kuusi"
 
 #: ../src/memory-activity/memory.c:279
 msgid "seven"
-msgstr ""
+msgstr "seitsemän"
 
 #: ../src/memory-activity/memory.c:280
-#, fuzzy
-#| msgid "right"
 msgid "eight"
-msgstr "oikea"
+msgstr "kahdeksan"
 
 #: ../src/memory-activity/memory.c:281
 msgid "nine"
-msgstr ""
+msgstr "yhdeksän"
 
 #: ../src/memory-activity/memory.c:293
 msgid "Memory"
-msgstr "Memory"
+msgstr "Muisti"
 
 #: ../src/memory-activity/memory.c:294
 msgid "Find the matching pair"
@@ -8316,10 +7963,8 @@ msgstr ""
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:3
 #: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:3
-#, fuzzy
-#| msgid "Addition and subtraction memory game"
 msgid "Addition and subtraction"
-msgstr "Muistipeli yhteen- ja vähennyslaskuun"
+msgstr "Yhteen- ja vähennyslasku"
 
 #: ../src/memory_add_minus-activity/memory_add_minus.xml.in.h:4
 #: ../src/memory_add_minus_tux-activity/memory_add_minus_tux.xml.in.h:4
@@ -8433,15 +8078,11 @@ msgstr "Muistipeli vähennyslaskulla Tuxia vastaan"
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:1
 #, fuzzy
-#| msgid "Subtraction memory game"
 msgid "Enumeration memory game"
 msgstr "Muistipeli vähennyslaskulla"
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:2
 #, fuzzy
-#| msgid ""
-#| "Turn the cards over to find two numbers which add up the same, until all "
-#| "the cards are gone."
 msgid "Turn the cards over to match the number with the drawn picture."
 msgstr ""
 "Käännä kortteja ja etsi kaksi numeroa, jotka ynnätään samaan lukuun, kunnes "
@@ -8449,7 +8090,6 @@ msgstr ""
 
 #: ../src/memory_enumerate-activity/memory_enumerate.xml.in.h:4
 #, fuzzy
-#| msgid "Numeration training"
 msgid "Numeration training, memory."
 msgstr "Järjestyksen harjoittelu"
 
@@ -8479,30 +8119,6 @@ msgstr "Harjoittele vähennyslaskua kunnes kortit on käytetty."
 
 #: ../src/memory_minus-activity/memory_minus.xml.in.h:5
 #: ../src/memory_minus_tux-activity/memory_minus_tux.xml.in.h:5
-#, fuzzy
-#| msgid ""
-#| "You can see some cards, but you can't see what's on the other side of "
-#| "them. Each card is hiding a subtraction, or the answer to it.\n"
-#| "A subtraction looks like this: 3 - 1 = 2\n"
-#| "The numbers on one side of the equals sign (=) have to be the same as the "
-#| "number on the other side. So 3 (1, 2, 3) less 1 (1) makes 2. Count aloud "
-#| "when you work this out, and count on your fingers, because the more ways "
-#| "you do something, the better you remember it. You can also use blocks, or "
-#| "buttons, or anything you can count. If you have lots of brothers and "
-#| "sisters, you can count them! Or the kids in your class at school. Sing "
-#| "counting songs. Count lots of things, for practice, and you'll be very "
-#| "good at adding-up!\n"
-#| "\n"
-#| "In this game, these cards are hiding the two parts of a subtraction. You "
-#| "need to find the two parts of the subraction, and bring them together "
-#| "again. Click on a card to see what number it's hiding, then try to find "
-#| "the other card that goes with it, to make a whole sum. You can only turn "
-#| "over two cards in one go, so you need to remember where the numbers are "
-#| "hiding, then you can match them when you find their other half. You're "
-#| "doing the job of the equals sign, and the numbers need you to put them "
-#| "together and make a proper sum. When you do that, both those cards "
-#| "disappear! When you've made them all disappear, found all the subtracts, "
-#| "you've won the game! :)"
 msgid ""
 "You can see some cards, but you can't see what's on the other side of them. "
 "Each card is hiding a subtraction, or the answer to it.\n"
@@ -8613,8 +8229,6 @@ msgstr "Hiiren käyttö, aivot."
 
 #: ../src/memory_sound-activity/memory_sound.xml.in.h:4
 #: ../src/memory_sound_tux-activity/memory_sound_tux.xml.in.h:4
-#, fuzzy
-#| msgid "Train your audio memory and remove all the violonists Tux."
 msgid "Train your audio memory and remove all the violinists Tux."
 msgstr "Harjoita äänimuistiasi ja poista kaikki Tux-viulistit."
 
@@ -8668,15 +8282,11 @@ msgstr ""
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:1
 #, fuzzy
-#| msgid "Addition memory game"
 msgid "Wordnumber memory game"
 msgstr "Muistipeli yhteenlaskuun"
 
 #: ../src/memory_wordnumber-activity/memory_wordnumber.xml.in.h:2
 #, fuzzy
-#| msgid ""
-#| "Turn the cards over to find two numbers which add up the same, until all "
-#| "the cards are gone."
 msgid "Turn the cards over to match the number with the word matching it."
 msgstr ""
 "Käännä kortteja ja etsi kaksi numeroa, jotka ynnätään samaan lukuun, kunnes "
@@ -8791,22 +8401,17 @@ msgstr ""
 
 #. combo level
 #: ../src/missing_letter-activity/missingletter_config.c:470
-#, fuzzy
-#| msgid "Level"
 msgid "Level:"
-msgstr "Taso"
+msgstr "Taso:"
 
 #: ../src/missing_letter-activity/missingletter_config.c:478
-#, fuzzy, c-format
-#| msgid "Level"
+#, c-format
 msgid "Level %d"
-msgstr "Taso"
+msgstr "Taso %d"
 
 #: ../src/missing_letter-activity/missingletter_config.c:561
-#, fuzzy
-#| msgid "First name:"
 msgid "Filename:"
-msgstr "Etunimi:"
+msgstr "Tiedostonimi:"
 
 #: ../src/missing_letter-activity/missingletter_config.c:579
 msgid "Replace the letter to guess by the character '_'."
@@ -8860,7 +8465,6 @@ msgstr "auto/_uto/a/t/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board2.xml.in.h:1
 #, fuzzy
-#| msgid "banana/b_nana/a/o/i"
 msgid "bag/b_g/a/o/i"
 msgstr "banaani/b_naani/a/o/i"
 
@@ -8878,169 +8482,141 @@ msgstr "omena/omen_/a/i/o"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:1
 #, fuzzy
-#| msgid "bed/_ed/b/l/f"
 msgid "bed/_ed/b/l/f/t"
 msgstr "sänky/_änky/s/z/t"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:2
 #, fuzzy
-#| msgid "bottle/_ottle/b/t/p"
 msgid "bottle/_ottle/b/t/p/l"
 msgstr "pullo/_ullo/p/b/t"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:3
 #, fuzzy
-#| msgid "cake/_ake/c/p/d"
 msgid "cake/_ake/c/p/d/k"
 msgstr "kakku/_akku/k/p/d"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board3.xml.in.h:4
 #, fuzzy
-#| msgid "ball/_all/b/p/d"
 msgid "ball/_all/b/p/d/m"
 msgstr "pallo/_allo/p/b/d"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:1
 #, fuzzy
-#| msgid "plane/p_ane/l/j/i"
 msgid "plane/p_ane/l/j/i/t"
 msgstr "lentokone/len_okone/t/k/r"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:2
 #, fuzzy
-#| msgid "dog/d_g/o/g/a"
 msgid "dog/d_g/o/g/a/u"
 msgstr "koira/k_ira/o/u/a"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:3
 #, fuzzy
-#| msgid "fish/_ish/f/h/l"
 msgid "fish/_ish/f/h/l/j"
 msgstr "kala/_ala/k/g/b"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:4
 #, fuzzy
-#| msgid "car/_ar/c/k/b"
 msgid "car/_ar/c/k/b/u"
 msgstr "auto/au_o/t/g/s"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:5
 #, fuzzy
-#| msgid "satchel/_atchel/s/c/l"
 msgid "satchel/_atchel/s/c/l/z"
 msgstr "reppu/_eppu/r/p/h"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:6
 #, fuzzy
-#| msgid "banana/_anana/b/p/d"
 msgid "banana/_anana/b/p/d/m"
 msgstr "banaani/_anaani/b/p/d"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:7
 #, fuzzy
-#| msgid "house/h_use/o/f/u"
 msgid "house/h_use/o/f/u/i"
 msgstr "talo/t_lo/a/i/u"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board4.xml.in.h:8
 #, fuzzy
-#| msgid "apple/appl_/e/h/a"
 msgid "apple/appl_/e/h/a/i/o/u"
 msgstr "omena/om_na/e/h/a"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:1
 #, fuzzy
-#| msgid "bed/b_d/e/a/i"
 msgid "bed/b_d/e/a/i/o/u/s"
 msgstr "sänky/s_nky/ä/a/ö"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:2
 #, fuzzy
-#| msgid "bottle/b_ttle/o/u/d"
 msgid "bottle/b_ttle/o/u/d/a/t/i"
 msgstr "pullo/pull_/o/u/d"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:3
 #, fuzzy
-#| msgid "cake/c_ke/a/o/e"
 msgid "cake/c_ke/a/o/e/i/u/y"
 msgstr "kakku/k_kku/a/o/e"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:4
 #, fuzzy
-#| msgid "ball/b_ll/a/u/o"
 msgid "ball/b_ll/a/u/o/e/i/y"
 msgstr "pallo/p_llo/a/u/o"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:5
 #, fuzzy
-#| msgid "plane/pl_ne/a/o/s"
 msgid "plane/pl_ne/a/o/s/e/i/u/y"
 msgstr "lentokone/lent_kone/o/ä/i"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:6
 #, fuzzy
-#| msgid "dog/do_/g/p/q"
 msgid "dog/do_/g/p/q/q/k"
 msgstr "koira/koi_a/r/s/l"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:7
 #, fuzzy
-#| msgid "fish/fis_/h/o/i"
 msgid "fish/fis_/h/o/i/y/z"
 msgstr "kala/ka_a/l/r/g"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:8
 #, fuzzy
-#| msgid "car/ca_/r/w/k"
 msgid "car/ca_/r/w/k/c/a"
 msgstr "auto/aut_/o/u/a"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:9
 #, fuzzy
-#| msgid "satchel/sa_chel/t/p/c"
 msgid "satchel/sa_chel/t/p/c/z/s/l"
 msgstr "reppu/rep_u/p/b/g"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:10
 #, fuzzy
-#| msgid "banana/ba_ana/n/m/b"
 msgid "banana/ba_ana/n/m/b/z/q"
 msgstr "banaani/ba_aani/n/m/b"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:11
 #, fuzzy
-#| msgid "house/_ouse/h/e/j"
 msgid "house/_ouse/h/e/j/z/p/s"
 msgstr "talo/_alo/t/p/h"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:12
 #, fuzzy
-#| msgid "apple/app_e/l/h/n"
 msgid "apple/app_e/l/h/n/i/t"
 msgstr "omena/ome_a/n/h/l"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:13
 #, fuzzy
-#| msgid "bed/be_/d/p/b"
 msgid "bed/be_/d/p/b/c/v/n"
 msgstr "sänky/sän_y/k/g/t"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:14
 #, fuzzy
-#| msgid "bottle/bott_e/l/y/r"
 msgid "bottle/bott_e/l/y/r/s/g"
 msgstr "pullo/pul_o/l/y/r"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:15
 #, fuzzy
-#| msgid "cake/ca_e/k/q/c"
 msgid "cake/ca_e/k/q/c/r/z"
 msgstr "kakku/kak_u/k/q/c"
 
 #: ../src/missing_letter-activity/resources/missing_letter/board5.xml.in.h:16
 #, fuzzy
-#| msgid "ball/bal_/l/h/s"
 msgid "ball/bal_/l/h/s/z/t"
 msgstr "pallo/pal_o/l/h/s"
 
@@ -9108,17 +8684,12 @@ msgstr ""
 #: ../src/money_back-activity/money_back.xml.in.h:2
 #: ../src/money_back_cents-activity/money_back_cents.xml.in.h:2
 #, fuzzy
-#| msgid "Practice money usage including cents"
 msgid "Practice money usage by giving Tux his change"
 msgstr "Opettele käyttämään euroja sekä senttejä"
 
 #: ../src/money_back-activity/money_back.xml.in.h:4
 #: ../src/money_back_cents-activity/money_back_cents.xml.in.h:4
 #, fuzzy
-#| msgid ""
-#| "You must buy the different items and give the exact price. At higher "
-#| "levels, several items are displayed, and you must first calculate the "
-#| "total price."
 msgid ""
 "Tux bought you different items and shows you his money. You must give him "
 "back his change. At higher levels, several items are displayed, and you must "
@@ -9130,7 +8701,6 @@ msgstr ""
 
 #: ../src/money_back_cents-activity/money_back_cents.xml.in.h:1
 #, fuzzy
-#| msgid "Practice money usage including cents"
 msgid "Give tux his change, including cents"
 msgstr "Opettele käyttämään euroja sekä senttejä"
 
@@ -9330,7 +8900,6 @@ msgstr "Pierre-Auguste Renoir, Tytöt pianon ääressä - 1892"
 
 #: ../src/paintings-activity/resources/paintings/board3_1.xml.in.h:1
 #, fuzzy
-#| msgid "Kandinsky, Wassily, Composition VIII - 1923"
 msgid "Wassily Kandinsky, Composition VIII - 1923"
 msgstr "Wassily Kandinsky, Composition VIII - 1923"
 
@@ -9344,7 +8913,6 @@ msgstr "Bazille, Aigues-Mortesin muurit - 1876"
 
 #: ../src/paintings-activity/resources/paintings/board5_0.xml.in.h:1
 #, fuzzy
-#| msgid "Cassatt, Mary - Summertime - 1894"
 msgid "Mary Cassatt, Summertime - 1894"
 msgstr "Mary Cassat, Kesä - 1894"
 
@@ -9387,7 +8955,6 @@ msgstr ""
 
 #: ../src/penalty-activity/penalty.py:292
 #, fuzzy
-#| msgid "Kick the ball into the goal"
 msgid "Click on the ball to place it again."
 msgstr "Potkaise pallo maaliin"
 
@@ -9401,7 +8968,6 @@ msgstr ""
 
 #: ../src/penalty-activity/penalty.xml.in.h:2
 #, fuzzy
-#| msgid "Left-click the mouse on an activity to select it."
 msgid "Double click the mouse on the ball to score a goal."
 msgstr "Valitse tehtävä napsauttamalla vasenta hiiren nappia."
 
@@ -9418,7 +8984,6 @@ msgstr ""
 
 #: ../src/photohunter-activity/photohunter.c:580
 #, fuzzy
-#| msgid "In a limited time, find the difference between two numbers"
 msgid "Click on the differences between the two images."
 msgstr "Anna vähennyslaskun tulos rajoitetussa ajassa"
 
@@ -9428,7 +8993,6 @@ msgstr ""
 
 #: ../src/photohunter-activity/photohunter.xml.in.h:2
 #, fuzzy
-#| msgid "In a limited time, find the difference between two numbers"
 msgid "Find the differences between two pictures"
 msgstr "Anna vähennyslaskun tulos rajoitetussa ajassa"
 
@@ -9592,7 +9156,6 @@ msgstr ""
 #. TRANSLATORS: http://en.wikipedia.org/wiki/Eighth_note
 #: ../src/piano_composition-activity/piano_composition.py:244
 #, fuzzy
-#| msgid "light house"
 msgid "Eighth Note"
 msgstr "majakka"
 
@@ -9613,7 +9176,6 @@ msgstr ""
 
 #: ../src/piano_composition-activity/piano_composition.py:325
 #, fuzzy
-#| msgid "Music"
 msgid "Load Music"
 msgstr "Musiikki"
 
@@ -9779,7 +9341,6 @@ msgstr ""
 
 #: ../src/place_your_satellite-activity/place_your_satellite.py:274
 #, fuzzy
-#| msgid "Distance:"
 msgid "Distance: {:.1f}"
 msgstr "Etäisyys:"
 
@@ -9852,7 +9413,6 @@ msgstr ""
 
 #: ../src/play_piano-activity/play_piano.py:123
 #, fuzzy
-#| msgid "Color of the line"
 msgid "Color code notes?"
 msgstr "Viivan väri"
 
@@ -9924,7 +9484,6 @@ msgstr ""
 
 #: ../src/play_rhythm-activity/play_rhythm.py:122
 #, fuzzy
-#| msgid "Can count"
 msgid "Beat Count:"
 msgstr "Osaa laskea"
 
@@ -9938,7 +9497,6 @@ msgstr ""
 
 #: ../src/play_rhythm-activity/play_rhythm.py:350
 #, fuzzy
-#| msgid "Listen to the color and click on the matching duck."
 msgid "Listen to the rhythm and follow the moving line."
 msgstr "Kuuntele värin nimi ja napsauta vastaavan väristä ankkaa."
 
@@ -10005,17 +9563,15 @@ msgstr ""
 
 #: ../src/pythontemplate-activity/pythontemplate.py:69
 #: ../src/pythontest-activity/pythontest.py:182
-#, fuzzy
 msgid ""
 "This is the first plugin in GCompris coded in the Python\n"
 "Programming language."
 msgstr ""
-"Tämä on ensimmäinen GComprisin liitännäinen, joka on kirjoitettu pythonilla."
+"Tämä on ensimmäinen GComprisin liitännäinen, joka on kirjoitettu Pythonilla."
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:1
-#, fuzzy
 msgid "Python Template"
-msgstr "Python testi"
+msgstr "Python-malline"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:2
 msgid "An empty Python activity to use as a starting point"
@@ -10028,27 +9584,22 @@ msgstr "Edistynyt Python ohjelmoija :)"
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:4
 #: ../src/pythontest-activity/pythontest.xml.in.h:4
-#, fuzzy
 msgid "Add a language-binding to GCompris."
-msgstr "Lisää uusi kielisidos gcomprisiin."
+msgstr "Lisää uusi kielisidos GComprisiin."
 
 #: ../src/pythontemplate-activity/pythontemplate.xml.in.h:5
 #: ../src/pythontest-activity/pythontest.xml.in.h:5
-#, fuzzy
-#| msgid ""
-#| "Thanks to Guido van Rossum and the python team for this powerful language!"
 msgid ""
 "Thanks to Guido van Rossum and the Python team for this powerful language!"
 msgstr ""
 "Kiitos Guido Van Rossumille ja Python-tiimille tästä tehokkaasta kielestä!"
 
 #: ../src/pythontest-activity/pythontest.py:192
-#, fuzzy
 msgid ""
 "It is now possible to develop GCompris activities in C or in Python.\n"
 "Thanks to Olivier Samys who makes this possible."
 msgstr ""
-"Nyt on mahdollista luoda gcomprisin osia sekä C:llä että pythonilla.\n"
+"Nyt on mahdollista luoda GComprisin osia sekä C:llä että pythonilla.\n"
 "Kiitos tästä Olivier Samynille."
 
 #: ../src/pythontest-activity/pythontest.py:202
@@ -10056,26 +9607,26 @@ msgid "This activity is not playable, just a test"
 msgstr "Tämä tehtävä ei ole vieläl pelattavissa, se on pelkkä testi"
 
 #. toggle box
-#: ../src/pythontest-activity/pythontest.py:456
+#: ../src/pythontest-activity/pythontest.py:457
 msgid "Disable line drawing in circle"
 msgstr "Älä käytä viivanpiirtoa ympyrässä"
 
 #. combo box
-#: ../src/pythontest-activity/pythontest.py:465
+#: ../src/pythontest-activity/pythontest.py:466
 msgid "Color of the line"
 msgstr "Viivan väri"
 
 #. spin button for int
-#: ../src/pythontest-activity/pythontest.py:476
+#: ../src/pythontest-activity/pythontest.py:477
 msgid "Distance between circles"
 msgstr "Ympyröiden välinen etäisyys"
 
 #. radio buttons for circle or rectangle
-#: ../src/pythontest-activity/pythontest.py:487
+#: ../src/pythontest-activity/pythontest.py:488
 msgid "Use circles"
 msgstr "Käytä ympyröitä"
 
-#: ../src/pythontest-activity/pythontest.py:488
+#: ../src/pythontest-activity/pythontest.py:489
 msgid "Use rectangles"
 msgstr "Käytä suorakaiteita"
 
@@ -10085,7 +9636,6 @@ msgstr "Python testi"
 
 #: ../src/pythontest-activity/pythontest.xml.in.h:2
 #, fuzzy
-#| msgid "Test board for the python plugin"
 msgid "Test board for the Python plugin"
 msgstr "Testaa Python-liitännäistä"
 
@@ -10295,8 +9845,6 @@ msgid "Balance the scales properly"
 msgstr "Tasapainota vaa'at oikein"
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:2
-#, fuzzy
-#| msgid "Drag and Drop masses to balance the scales"
 msgid "Drag and Drop weights to balance the scales"
 msgstr "Siirrä painoja tasapainottaaksesi vaa'an"
 
@@ -10315,11 +9863,6 @@ msgstr ""
 
 #: ../src/scalesboard-activity/scalesboard.xml.in.h:5
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:5
-#, fuzzy
-#| msgid ""
-#| "The painting is an original painting created by Virginie MOREAU (virginie."
-#| "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
-#| "released under the GPL licence."
 msgid ""
 "The painting is an original painting created by Virginie MOREAU (virginie."
 "moreau@free.fr) in 2001. Its name is 'Spices Seller in Egypt'. It is "
@@ -10330,14 +9873,11 @@ msgstr ""
 "lisenssillä."
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:2
-#, fuzzy
-#| msgid "Drag and Drop masses to balance the scales"
 msgid "Drag and Drop masses to balance the scales and calculate the weight"
-msgstr "Siirrä painoja tasapainottaaksesi vaa'an"
+msgstr "Siirrä painoja tasapainottaaksesi vaa'an ja laskeaksesi painon"
 
 #: ../src/scalesboard_weight-activity/scalesboard_weight.xml.in.h:3
 #, fuzzy
-#| msgid "Mental calculation, arithmetic equality"
 msgid "Mental calculation, arithmetic equality, unit conversion"
 msgstr "Päässälaskua, yhtälö"
 
@@ -10372,7 +9912,6 @@ msgstr ""
 "Tämän tehtävän avulla voidaan esitellä ohjelmoinnin ajatuksia lapsille."
 
 #: ../src/searace1player-activity/searace1player.xml.in.h:4
-#, fuzzy
 msgid ""
 "In the text entry, enter one command per line, to control your boat. "
 "Commands supported are displayed between the two entry areas. The 'left' and "
@@ -10394,14 +9933,17 @@ msgstr ""
 "'oikea' tulee antaa komennon jälkeen kulma asteina. Kulman arvoa kutsutaan "
 "myös 'vasen'- tai 'oikea'-komennon parametriksi. Oletuksena käytetään arvoa "
 "45 astetta. Komento 'eteenpäin' hyväksyy parametrinaan etäisyyden, "
-"oletuksena käytetään arvoa 1. Esimerkkejä: vasen 90 => käänny vasemmalle 90 "
-"astetta, eteenpäin 10 => siirry eteenpäin 10 yksikköä (yksiköt näet "
-"mittanauhasta). Tarkoitus on päästä näytön oikeassa osassa olevalle "
-"punaiselle viivalle. Kun olet päässyt perille, voit yrittää parantaa "
-"tulostasi käynnistämällä ohjelma samoilla sääasetuksilla käyttämällä 'Uusi "
-"yritys'-painiketta. Voit napsauttaa ja raahata hiirtä mihin tahansa "
-"kartalla, jolloin näet etäisyyden ja kulman pisteiden välillä. Seuraavalle "
-"tasolle siirtyminen antaa vaikeammat sääolot."
+"oletuksena käytetään arvoa 1.\n"
+"Esimerkkejä:\n"
+"- vasen 90 => käänny vasemmalle 90 astetta\n"
+"- eteenpäin 10 => siirry eteenpäin 10 yksikköä (yksiköt näet "
+"mittanauhasta).\n"
+"Tarkoitus on päästä näytön oikeassa osassa olevalle punaiselle viivalle. Kun "
+"olet päässyt perille, voit yrittää parantaa tulostasi käynnistämällä ohjelma "
+"samoilla sääasetuksilla käyttämällä 'Uusi yritys'-painiketta. Voit "
+"napsauttaa ja raahata hiirtä mihin tahansa kartalla, jolloin näet etäisyyden "
+"ja kulman pisteiden välillä. Seuraavalle tasolle siirtyminen antaa "
+"vaikeammat sääolot."
 
 #: ../src/searace-activity/searace.py:174
 msgid "The race is already being run"
@@ -10489,7 +10031,6 @@ msgid "Direct your boat accurately to win the race."
 msgstr "Ohjaa venettä tarkasti ja voita kilpailu."
 
 #: ../src/searace-activity/searace.xml.in.h:4
-#, fuzzy
 msgid ""
 "In the text entry, enter one command per line, to control your boat.\n"
 "Commands supported are displayed between the two entry areas. The 'left' and "
@@ -10511,14 +10052,17 @@ msgstr ""
 "'oikea' tulee antaa komennon jälkeen kulma asteina. Kulman arvoa kutsutaan "
 "myös 'vasen'- tai 'oikea'-komennon parametriksi. Oletuksena käytetään arvoa "
 "45 astetta. Komento 'eteenpäin' hyväksyy parametrinaan etäisyyden, "
-"oletuksena käytetään arvoa 1. Esimerkkejä: vasen 90 => käänny vasemmalle 90 "
-"astetta, eteenpäin 10 => siirry eteenpäin 10 yksikköä (yksiköt näet "
-"mittanauhasta). Tarkoitus on päästä näytön oikeassa osassa olevalle "
-"punaiselle viivalle. Kun olet päässyt perille, voit yrittää parantaa "
-"tulostasi käynnistämällä ohjelma samoilla sääasetuksilla käyttämällä 'Uusi "
-"yritys'-painiketta. Voit napsauttaa ja raahata hiirtä mihin tahansa "
-"kartalla, jolloin näet etäisyyden ja kulman pisteiden välillä. Seuraavalle "
-"tasolle siirtyminen antaa vaikeammat sääolot."
+"oletuksena käytetään arvoa 1.\n"
+"Esimerkkejä:\n"
+"- vasen 90 => käänny kohtisuorasti vasemmalle\n"
+"- eteenpäin 10 => siirry eteenpäin 10 yksikköä (yksiköt näet "
+"mittanauhasta).\n"
+"Tarkoitus on päästä näytön oikeassa osassa olevalle punaiselle viivalle. Kun "
+"olet päässyt perille, voit yrittää parantaa tulostasi käynnistämällä ohjelma "
+"samoilla sääasetuksilla käyttämällä 'Uusi yritys'-painiketta. Voit "
+"napsauttaa ja raahata hiirtä mihin tahansa kartalla, jolloin näet etäisyyden "
+"ja kulman pisteiden välillä. Seuraavalle tasolle siirtyminen antaa "
+"vaikeammat sääolot."
 
 #: ../src/smallnumbers2-activity/smallnumbers2.xml.in.h:1
 msgid "Numbers with pairs of dice"
@@ -10668,12 +10212,6 @@ msgstr ""
 "wikipedia.org/wiki/Sudoku&gt;"
 
 #: ../src/sudoku-activity/sudoku.xml.in.h:5
-#, fuzzy
-#| msgid ""
-#| "For the first level with colored symbols, drag symbols on the left to "
-#| "their target position. For the higher levels, click on an empty square to "
-#| "give it the keyboard focus. Then enter a possible letter or number. "
-#| "GCompris will not let you enter invalid data."
 msgid ""
 "For the first level with colored symbols, select a symbol on the left and "
 "click on its target position. For the higher levels, click on an empty "
@@ -10703,7 +10241,6 @@ msgstr ""
 #: ../src/superbrain-activity/superbrain.c:416
 #: ../src/superbrain-activity/superbrain.c:569
 #, fuzzy
-#| msgid "is being displayed"
 msgid "This item is misplaced"
 msgstr "näkyvissä"
 
@@ -10713,7 +10250,6 @@ msgstr ""
 
 #: ../src/superbrain-activity/superbrain.c:601
 #, fuzzy
-#| msgid "And it was displayed"
 msgid "One item is misplaced"
 msgstr "Oli näkyvissä"
 
@@ -10803,12 +10339,11 @@ msgstr ""
 "kilometriä tunnissa"
 
 #: ../src/target-activity/target.c:484
-#, fuzzy, c-format
-#| msgid "Distance to target = %d meters"
+#, c-format
 msgid "Distance to target = %d meter"
 msgid_plural "Distance to target = %d meters"
-msgstr[0] "%d metriä maaliin."
-msgstr[1] "%d metriä maaliin."
+msgstr[0] "%d metri kohteeseen."
+msgstr[1] "%d metriä kohteeseen."
 
 #: ../src/target-activity/target.xml.in.h:1
 msgid "Practice addition with a target game"
@@ -10857,7 +10392,8 @@ msgstr ""
 "Kukin auto voi liikkua joko pysty- tai vaakasuuntaan. Sinun täytyy tehdä "
 "tilaa siten, että saat siirrettyä punaisen auton oikealla olevasta portista."
 
-#: ../src/tuxpaint-activity/tuxpaint.py:123
+#: ../src/tuxpaint-activity/tuxpaint.py:113
+#: ../src/tuxpaint-activity/tuxpaint.py:173
 msgid ""
 "Cannot find Tuxpaint.\n"
 "Install it to use this activity !"
@@ -10865,27 +10401,27 @@ msgstr ""
 "Tuxpaintia ei löydy.\n"
 "Asenna se, jos haluat käyttää tätä tehtävää!"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:135
+#: ../src/tuxpaint-activity/tuxpaint.py:185
 msgid "Waiting for Tuxpaint to finish"
 msgstr "Odotetaan tuxpaintin sulkeutumista"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:194
+#: ../src/tuxpaint-activity/tuxpaint.py:245
 msgid "Inherit fullscreen setting from GCompris"
 msgstr "Hae kokoruudun asetukset GComprisilta"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:198
+#: ../src/tuxpaint-activity/tuxpaint.py:249
 msgid "Inherit size setting from GCompris (800x600, 640x480)"
 msgstr "Hae koon asetukset GComprisilta (800x600, 640x480)"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:202
+#: ../src/tuxpaint-activity/tuxpaint.py:253
 msgid "Disable shape rotation"
 msgstr "Älä pyöritä kappaleita"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:206
+#: ../src/tuxpaint-activity/tuxpaint.py:257
 msgid "Show Uppercase text only"
 msgstr "Näytä vain isoja kirjaimia"
 
-#: ../src/tuxpaint-activity/tuxpaint.py:210
+#: ../src/tuxpaint-activity/tuxpaint.py:261
 msgid "Disable stamps"
 msgstr "Älä käytä leimoja"
 
@@ -11035,7 +10571,6 @@ msgstr "Kirjoitusharjoitus"
 
 #: ../src/wordsgame-activity/wordsgame.xml.in.h:5
 #, fuzzy
-#| msgid "Type the complete word as it falls, before it reachs the ground"
 msgid "Type the complete word as it falls, before it reaches the ground"
 msgstr "Kirjoita koko putoava sana ennen kuin se osuu maahan"
 
