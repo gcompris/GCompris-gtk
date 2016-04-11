@@ -323,19 +323,22 @@ set_level (guint level)
  */
 static int is_letter_equal(gchar *letter1, gchar *letter2)
 {
-    int success=FALSE;
+    int success;
+
     if (uppercase_only)
     {
-        gchar *old = letter1;
-        letter1 = g_utf8_strup(old, -1);
-        g_free(old);
-        success = strcmp(letter2,g_utf8_strdown(letter1,-1))==0;
-        success = success || strcmp(letter2,g_utf8_strup(letter1,-1))==0;
+        letter1 = g_utf8_strup(letter1, -1);
+        letter2 = g_utf8_strup(letter2, -1);
     }
-    else
+
+    success = strcmp(letter2,letter1)==0;
+
+    if (uppercase_only)
     {
-        success = strcmp(letter2,letter1)==0;
+        g_free(letter1);
+        g_free(letter2);
     }
+
     return success;
 }
 
