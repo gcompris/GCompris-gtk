@@ -2,16 +2,16 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Translators:
-# GunChleoc <fios@foramnagaidhlig.net>, 2013, 2014, 2015.
-# GunChleoc <fios@foramnagaidhlig.net>, 2013, 2014, 2015.
+# GunChleoc <fios@foramnagaidhlig.net>, 2013, 2014, 2015, 2016.
+# GunChleoc <fios@foramnagaidhlig.net>, 2013, 2014, 2015, 2016.
 # Michael Bauer <fios@akerbeltz.org>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: GCompris-Unofficial\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gcompr"
 "is&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-18 23:19+0000\n"
-"PO-Revision-Date: 2015-03-17 11:31+0100\n"
+"POT-Creation-Date: 2015-08-27 21:13+0000\n"
+"PO-Revision-Date: 2016-06-11 07:56+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig\n"
 "Language: gd\n"
@@ -390,6 +390,11 @@ msgid "GCompris Administration"
 msgstr "Rianachd GCompris"
 
 #: ../gcompris-edit.desktop.in.h:2
+#| msgid "Administration for gcompris"
+msgid "Administration interface for educational game"
+msgstr "Rianachd airson geama foghlaim"
+
+#: ../gcompris-edit.desktop.in.h:3
 msgid "Administration for gcompris"
 msgstr "Rianachd airson GCompris"
 
@@ -1632,12 +1637,12 @@ msgstr ""
 "mar sin air adhart. Co-dhiù, nan robh gluasad a’ togail na h-uile sìol aig "
 "an duine eile, cha tèid sìol sam bith a ghlacadh is mairidh na h-uile sìol "
 "air a’ bhòrd ach an urrainn dhan duine eile leantainn air a’ cluiche. Tha an "
-"riaghailt seo ann a dh’aona ghnothach ach an urrainn dhan gheama a leantainn "
-"air adhart is bheir e ort gluasad eile a dhèanamh. Ma tha a h-uile taigh aig "
-"an duine eile falamh, feumaidh an cluicheadair gluasad a dhèanamh a bheir "
-"sìl dha. Mur eil a leithid gluasaid ann, glacaidh an cluicheadair gach sìol "
-"san roinn aige fhèin agus seo crìoch a’ gheama.  (Tùs: an Uicipeid &lt;"
-"http://gd.wikipedia.org/wiki/Oware&gt;)"
+"riaghailt seo ann a dh’aona ghnothach ach an urrainn dhan gheama a "
+"leantainn air adhart is bheir e ort gluasad eile a dhèanamh. Ma tha a h-uile "
+"taigh aig an duine eile falamh, feumaidh an cluicheadair gluasad a dhèanamh "
+"a bheir sìl dha. Mur eil a leithid gluasaid ann, glacaidh an cluicheadair "
+"gach sìol san roinn aige fhèin agus seo crìoch a’ gheama.  (Tùs: an Uicipeid "
+"&lt;http://gd.wikipedia.org/wiki/Oware&gt;)"
 
 #: ../src/babymatch-activity/babymatch.xml.in.h:1
 msgid "Matching Items"
@@ -4284,7 +4289,6 @@ msgid "Japanese"
 msgstr "Seapanais"
 
 #: ../src/gcompris/config.c:93
-#, fuzzy
 #| msgid "Canada"
 msgid "Kannada"
 msgstr "Kannada"
@@ -4727,7 +4731,7 @@ msgstr ""
 msgid "Retrieving remote data..."
 msgstr "A’ faighinn dàta cèin ..."
 
-#: ../src/gcompris/gcompris.c:1513
+#: ../src/gcompris/gcompris.c:1518
 #, c-format
 msgid ""
 "GCompris won't start because the lock file is less than %d second old.\n"
@@ -4742,12 +4746,12 @@ msgstr[2] ""
 msgstr[3] ""
 "Cha tòisich GCompris oir tha am faidhle glasaidh nas òige na %d diog.\n"
 
-#: ../src/gcompris/gcompris.c:1517
+#: ../src/gcompris/gcompris.c:1522
 #, c-format
 msgid "The lock file is: %s\n"
 msgstr "Is %s am faidhle glasaidh\n"
 
-#: ../src/gcompris/gcompris.c:1638
+#: ../src/gcompris/gcompris.c:1643
 #, c-format
 msgid ""
 "GCompris\n"
@@ -4761,27 +4765,27 @@ msgstr ""
 "Barrachd fiosrachaidh air http://gcompris.net\n"
 
 #. check the list of possible values for -l, then exit
-#: ../src/gcompris/gcompris.c:1823
+#: ../src/gcompris/gcompris.c:1828
 #, c-format
 msgid "Use -l to access an activity directly.\n"
 msgstr "Cleachd -l airson cleas inntrigeadh sa bhad.\n"
 
-#: ../src/gcompris/gcompris.c:1824
+#: ../src/gcompris/gcompris.c:1829
 #, c-format
 msgid "The list of available activities is :\n"
 msgstr "Seo na cleasan a tha ri làimh :\n"
 
-#: ../src/gcompris/gcompris.c:1855
+#: ../src/gcompris/gcompris.c:1860
 #, c-format
 msgid "Number of activities: %d\n"
 msgstr "Àireamh de chleasan: %d\n"
 
-#: ../src/gcompris/gcompris.c:1891
+#: ../src/gcompris/gcompris.c:1896
 #, c-format
 msgid "%s exists but is not readable or writable"
 msgstr "Tha %s ann ach cha ghabh leughadh no sgrìobhadh ann"
 
-#: ../src/gcompris/gcompris.c:1986
+#: ../src/gcompris/gcompris.c:1991
 #, c-format
 msgid ""
 "ERROR: Profile '%s' is not found. Run 'gcompris --profile-list' to list "
@@ -4790,7 +4794,7 @@ msgstr ""
 "MEARACHD: Cha deach a’ phròifil “%s” a lorg. Ruith “gcompris --profile-list” "
 "gus liosta dhe na pròifilean a tha ri làimh a shealltainn\n"
 
-#: ../src/gcompris/gcompris.c:2000
+#: ../src/gcompris/gcompris.c:2005
 #, c-format
 msgid "The list of available profiles is:\n"
 msgstr "Seo na pròifilean a tha ri làimh:\n"
@@ -8086,8 +8090,8 @@ msgid ""
 msgstr ""
 "Cleachd na saighdean air a’ mheur-chlàr gus Tux a ghluasad dhan doras. Sa "
 "chuartan seo, tha an gluasad dàimheach (chiad pearsa). Cleachd an t-saighead "
-"suas gus gluasad air adhart. Leigidh na saighdean eile leat Tux a thionndadh "
-"gu comhair eile.\n"
+"suas gus gluasad air adhart. Leigidh na saighdean eile leat Tux a "
+"thionndadh gu comhair eile.\n"
 "\n"
 "Air na ciad leibheilean, coisichidh Tux gu socair tron chuartan is nì e ceum "
 "le gach brùthadh iuchrach.\n"
@@ -8102,7 +8106,7 @@ msgstr ""
 "Ma tha brògan spòrs dearga air, tha am “modh-ruith-gu-luath” an comas.\n"
 "\n"
 "O leibheil 14 a-mach, bidh am modh-ruith-gu-luath an comas gu fèin-"
-"obrachail. Ma tha thu airson an fheart seo a chleachdadh air na leibheilean "
+"obrachail. Ma tha thu airson a’ ghleusa seo a chleachdadh air na leibheilean "
 "nas ìsle no ma tha thu airson a chur dheth air na leibheilean nas àirde, "
 "briog air Tux no air an ìomhaigheag “casruisgte / brògan spòrs” san oisean "
 "clì air barr na sgrìn gus am modh-ruith-gu-luath a thoglachadh.\n"
@@ -8182,7 +8186,7 @@ msgstr ""
 "Ma tha brògan spòrs dearga air, tha am “modh-ruith-gu-luath” an comas.\n"
 "\n"
 "O leibheil 14 a-mach, bidh am modh-ruith-gu-luath an comas gu fèin-"
-"obrachail. Ma tha thu airson an fheart seo a chleachdadh air na leibheilean "
+"obrachail. Ma tha thu airson a’ ghleusa seo a chleachdadh air na leibheilean "
 "nas ìsle no ma tha thu airson a chur dheth air na leibheilean nas àirde, "
 "briog air Tux no air an ìomhaigheag “casruisgte / brògan spòrs” san oisean "
 "clì air barr na sgrìn gus am modh-ruith-gu-luath a thoglachadh.\n"
@@ -8234,7 +8238,7 @@ msgstr ""
 "Ma tha brògan spòrs dearga air, tha am “modh-ruith-gu-luath” an comas.\n"
 "\n"
 "O leibheil 14 a-mach, bidh am modh-ruith-gu-luath an comas gu fèin-"
-"obrachail. Ma tha thu airson an fheart seo a chleachdadh air na leibheilean "
+"obrachail. Ma tha thu airson a’ ghleusa seo a chleachdadh air na leibheilean "
 "nas ìsle no ma tha thu airson a chur dheth air na leibheilean nas àirde, "
 "briog air Tux no air an ìomhaigheag “casruisgte / brògan spòrs” san oisean "
 "clì air barr na sgrìn gus am modh-ruith-gu-luath a thoglachadh.\n"
@@ -9816,7 +9820,7 @@ msgstr ""
 "Leibheil 5: tha comharrachadh maol ga chleachdadh leis na h-iuchraichean "
 "dubha\n"
 "Leibheil 6: luchdaich fuinn cloinne o fheadh an t-saoghail\n"
-"Leibheil 7: tha gach feart ri làimh a-nis is faodaidh tu an obair agad a "
+"Leibheil 7: tha gach gleus ri làimh a-nis is faodaidh tu an obair agad a "
 "shàbhaladh is a luchdadh\n"
 "\n"
 "Seo nasgadh iuchraichean a’ mheur-chlàir leis a’ chleas seo:\n"
