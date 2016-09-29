@@ -512,7 +512,7 @@ AC_SUBST(CFLAGS)
 AC_SUBST(LIBS)
 
 dnl Autoconf output
-AC_OUTPUT([
+AC_OUTPUT([ 
 Makefile
 Makefile.mingw
 boards/Makefile
@@ -809,6 +809,7 @@ src/mosaic-activity/Makefile
 src/mosaic-activity/resources/Makefile
 src/mosaic-activity/resources/mosaic/Makefile
 src/note_names-activity/Makefile
+src/note_names_2-activity/Makefile
 src/paintings-activity/Makefile
 src/paintings-activity/resources/Makefile
 src/paintings-activity/resources/paintings/Makefile

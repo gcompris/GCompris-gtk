@@ -3,8 +3,7 @@
 install-activity:
 	for i in $(SUBDIRS); do $(MAKE) -C $$i $@ || break 0; done
 
-SUBDIRS = \
-	administration-activity \
+SUBDIRS = administration-activity \
 	advanced_colors-activity \
 	algebra_by-activity \
 	algebra_guesscount-activity \
@@ -114,6 +113,7 @@ SUBDIRS = \
 	money_cents-activity \
 	mosaic-activity \
 	note_names-activity \
+        note_names_2-activity \
 	paintings-activity \
 	paratrooper-activity \
 	penalty-activity \
