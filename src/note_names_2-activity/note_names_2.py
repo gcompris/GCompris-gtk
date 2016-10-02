@@ -110,6 +110,9 @@ dialogue to\nenable the sound."), None)
         textBox(instructionText, 650, 180, self.rootitem, 200,
                 fill_color_rgba = 0x00AA33AAL)
 
+        self.remainBox, rect = textBox(_("Remaining: ")+str(self.nbRemaining), 650, 80, self.rootitem, 200,
+                fill_color_rgba = 0x00AAFFAAL)
+
         textBox(_("Click the note to hear it played"),
                 160, 340, self.rootitem, 200,
                 fill_color_rgba = 0xCC0033AAL)
@@ -118,6 +121,10 @@ dialogue to\nenable the sound."), None)
     def prepareGame(self):
         self.staff.eraseAllNotes()
         self.drawRandomNote(self.staff.staffName)
+        self.remainBox.remove()
+        self.remainBox, rect = textBox(_("Remaining: ")+str(self.nbRemaining), 650, 80, self.rootitem, 200,
+                fill_color_rgba = 0x00AAFF00L)
+
 
     def updateGameLevel(self, levelNum):
         '''
@@ -147,7 +154,7 @@ dialogue to\nenable the sound."), None)
         self.staff.colorCodeNotes = False
 
         lr=((levelNum+1)/2-1)%9+1
-        self.nbCorrect = 0
+        self.nbRemaining = 6
 
         if levelNum<=18:
             if lr == 1:
@@ -332,9 +339,10 @@ dialogue to\nenable the sound."), None)
         g = self.selectedNoteObject.get_data('numID')
         c = self.currentNote.numID
 
+        # if correct note
         if (g-1)%7 == (c-1)%7:
-            self.nbCorrect += 1
-            if self.nbCorrect>6:
+            self.nbRemaining -= 1
+            if self.nbRemaining<=0:
                 self.afterBonus = lambda: self.set_level(self.gcomprisBoard.level + 1)
                 gcompris.bonus.display(gcompris.bonus.WIN, gcompris.bonus.NOTE)
             else:
