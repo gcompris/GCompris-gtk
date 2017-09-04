@@ -177,7 +177,7 @@ dnl GCompris needs to know which locale are supported
 AC_SUBST(ALL_LINGUAS)
 AC_DEFINE_UNQUOTED(ALL_LINGUAS, "${ALL_LINGUAS}", [Supported languages])
 
-BUILD_DATE=`date +%y%m`
+BUILD_DATE=`date -r ChangeLog +%y%m`
 AC_DEFINE_UNQUOTED(BUILD_DATE,"$BUILD_DATE", [Date at which GCompris has been built])
 AC_SUBST(BUILD_DATE)
 
